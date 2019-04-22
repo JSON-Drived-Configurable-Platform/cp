@@ -18,35 +18,236 @@
             return {
                 model: {
                     name: 'wangbing',
-                    'name-forbidden': 'wangbing'
+                    'name-forbidden': 'wangbing',
+                    'name-textarea': '',
+                    singleSelect: '',
+                    multiSelect: '',
+                    singleSelectRemote: '',
+                    checkbox: [],
+                    radio: '',
+                    date: '',
+                    daterange: '',
+                    datetime: '',
+                    datetimerange: ''
                 },
                 options: {
                     labelWidth: 100
                 },
                 fields: [
                     {
+                        key: '1000',
                         type: 'Input',
-                        label: '用户名',
+                        label: '输入框',
                         model: 'name',
                         placeholder: '请输入用户名'
                     },
                     {
-                        type: 'Input',
-                        label: '用户名',
-                        model: 'name',
-                        placeholder: '请输入用户名',
-                        options: [
-
-                        ]
-                    },
-                    {
+                        key: '10001',
                         type: 'Input',
                         label: '用户名-禁用',
                         model: 'name-forbidden',
                         readonly: true,
                         disabled: true,
                         placeholder: '请输入用户名'
-                    }
+                    },
+                    {
+                        key: '10002',
+                        type: 'Input',
+                        subType: 'textarea',
+                        label: '输入框',
+                        model: 'name-textarea',
+                        placeholder: '请输入用户名'
+                    },
+                    // {
+                    //     key: '10002',
+                    //     type: 'InputNumber',
+                    //     label: '数字多行输入框',
+                    //     model: 'age',
+                    //     placeholder: '',
+                    // },
+                    {
+                        key: '1002',
+                        type: 'Select',
+                        label: '单选下拉',
+                        model: 'singleSelect',
+                        options: [
+                            {
+                                label: '选项一',
+                                value: '1'
+                            },
+                            {
+                                label: '选项二',
+                                value: '2'
+                            }
+                        ]
+                    },
+                    {
+                        key: '10021',
+                        type: 'Select',
+                        label: '多选下拉',
+                        multiple: true,
+                        model: 'multiSelect',
+                        options: [
+                            {
+                                label: '选项一',
+                                value: '1'
+                            },
+                            {
+                                label: '选项二',
+                                value: '2'
+                            }
+                        ]
+                    },
+                    {
+                        key: '10023',
+                        type: 'Select',
+                        label: '单选下拉支持搜索',
+                        api: 'http://www.baidu.com',
+                        model: 'singleSelectRemote'
+                    },
+                    // {
+                    //     key: '10023',
+                    //     type: 'Select',
+                    //     label: '多选下拉支持搜索',
+                    //     multiple: true,
+                    //     api: '',
+                    //     model: 'multiSelectRemote',
+                    //     options: [
+                    //         {
+                    //             label: '选项一',
+                    //             value: '1'
+                    //         },
+                    //         {
+                    //             label: '选项二',
+                    //             value: '2'
+                    //         }
+                    //     ]
+                    // },
+                    {
+                        key: '1003',
+                        type: 'Radio',
+                        label: '单选',
+                        model: 'radio',
+                        options: [
+                            {
+                                label: '选项一',
+                                value: '1'
+                            },
+                            {
+                                label: '选项二',
+                                value: '2'
+                            }
+                        ]
+                    },
+                    {
+                        key: '1004',
+                        type: 'Checkbox',
+                        label: '多选',
+                        model: 'checkbox',
+                        options: [
+                            {
+                                label: '选项一',
+                                value: '1'
+                            },
+                            {
+                                label: '选项二',
+                                value: '2'
+                            },
+                            {
+                                label: '选项三',
+                                value: '3'
+                            },
+                            {
+                                label: '选项四',
+                                value: '4'
+                            }
+                        ]
+                    },
+                    // {
+                    //     key: '1005',
+                    //     type: 'Cascader',
+                    //     label: '级联',
+                    //     model: 'Cascader',
+                    //     options: [{
+                    //         value: 'beijing',
+                    //         label: '北京',
+                    //         children: [
+                    //             {
+                    //                 value: 'gugong',
+                    //                 label: '故宫'
+                    //             },
+                    //             {
+                    //                 value: 'tiantan',
+                    //                 label: '天坛'
+                    //             },
+                    //             {
+                    //                 value: 'wangfujing',
+                    //                 label: '王府井'
+                    //             }
+                    //         ]
+                    //     }, {
+                    //         value: 'jiangsu',
+                    //         label: '江苏',
+                    //         children: [
+                    //             {
+                    //                 value: 'nanjing',
+                    //                 label: '南京',
+                    //                 children: [
+                    //                     {
+                    //                         value: 'fuzimiao',
+                    //                         label: '夫子庙',
+                    //                     }
+                    //                 ]
+                    //             },
+                    //             {
+                    //                 value: 'suzhou',
+                    //                 label: '苏州',
+                    //                 children: [
+                    //                     {
+                    //                         value: 'zhuozhengyuan',
+                    //                         label: '拙政园',
+                    //                     },
+                    //                     {
+                    //                         value: 'shizilin',
+                    //                         label: '狮子林',
+                    //                     }
+                    //                 ]
+                    //             }
+                    //         ],
+                    //     }]
+                    // },
+                    {
+                        key: '10006',
+                        type: 'DatePicker',
+                        subType: 'date',
+                        label: '日期选择',
+                        model: 'date',
+                        placeholder: '',
+                    },
+                    {
+                        key: '10006',
+                        type: 'DatePicker',
+                        subType: 'daterange',
+                        label: '日期区间选择',
+                        model: 'daterange',
+                        placeholder: '',
+                    },
+                    {
+                        key: '10006',
+                        type: 'DatePicker',
+                        subType: 'datetime',
+                        label: '日期时间选择',
+                        model: 'datetime',
+                        placeholder: '',
+                    },
+                    {
+                        key: '10006',
+                        type: 'DatePicker',
+                        subType: 'datetimerange',
+                        label: '日期时间区间选择',
+                        model: 'datetimerange',
+                        placeholder: '',
+                    },
                 ]
             }
         },

@@ -1,7 +1,7 @@
 <template>
     <Input
         :value="model"
-        type="text"
+        :type="field.subType"
         :size="field.size || 'default'"
         :placeholder="field.placeholder"
         :clearable="field.clearable"
@@ -36,7 +36,7 @@ export default {
     },
     methods: {
         handleChange(e) {
-            this.onChange(this.field.model, e, this.field);
+            this.onChange(this.field.model, e.target.value, e, this.field);
         }
     }
 }
