@@ -50,8 +50,9 @@
             },
             handleFieldChange: {
                 default() {
-                    return (e) => {
-                        console.log(e);
+                    return (model, value, event, field) => {
+                        console.log(model, value, event, field);
+                        this.formModel[model] = value;
                     }
                 }
             }
@@ -61,8 +62,10 @@
                 formModel: this.model
             };
         },
-        created() {
-            console.log(this.model);
+        methods: {
+            getFormModel() {
+                return this.formModel;
+            }
         }
     }
 </script>

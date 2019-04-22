@@ -1,6 +1,6 @@
 <template>
     <component
-        :is="'field' + field.type"
+        :is=getFieldCom(field.type)
         :field="field"
         :model="model"
         :onChange="onFieldChange"
@@ -9,7 +9,6 @@
 <script>
     import {Form, FormItem, Input} from 'iview';
     import fieldComponents from "./utils/fieldsLoader.js";
-    console.log(fieldComponents);
     export default {
         name: 'FormGenerator',
         components: {
@@ -34,6 +33,11 @@
         },
         data () {
             return {}
+        },
+        methods: {
+            getFieldCom(comType = '') {
+                return `field${comType}`;
+            }
         }
     }
 </script>
