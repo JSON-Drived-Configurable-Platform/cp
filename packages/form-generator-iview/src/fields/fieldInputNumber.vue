@@ -1,29 +1,28 @@
 <template>
-    <Input
+    <InputNumber
         :value="model"
         :type="field.subType"
+        :step="field.step"
+        :precision="field.precision"
         :size="field.size || 'default'"
+        :max="field.max"
+        :min="field.min"
         :placeholder="field.placeholder"
         :clearable="field.clearable"
         :disabled="field.disabled"
         :readonly="field.readonly"
-        :icon="field.icon"
-        :prefix="field.prefix"
-        :suffix="field.suffix"
-        :autofocus="field.autofocus"
         @on-change="handleChange"
     />
 </template>
 <script>
-import {Input} from 'iview';
+import {InputNumber} from 'iview';
 export default {
     components: {
-        Input
+        InputNumber
     },
     props: {
         model: {
-            type: [String],
-            required: true
+            type: [Number, null, String]
         },
         field: {
             type: Object,
@@ -35,8 +34,11 @@ export default {
         }
     },
     methods: {
-        handleChange(e) {
-            this.onChange(this.field.model, e.target.value, e, this.field);
+        handleChange(value) {
+            if (value === null) {
+                value = 0;
+            }
+            this.onChange(this.field.model, value, null, this.field);
         }
     }
 }

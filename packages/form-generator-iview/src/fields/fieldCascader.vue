@@ -1,26 +1,25 @@
 <template>
-    <CheckboxGroup
+    <Cascader
         :value="model"
+        :data="field.options"
+        :disabled="field.disabled"
+        :clearable="field.clearable"
+        :placeholder="field.placeholder"
+        :change-on-select="true"
+        :filterable="true"
         @on-change="handleChange"
     >
-        <Checkbox
-            v-for="item in field.options"
-            :label="item.value"
-            :disabled="item.disabled"
-            :key="item.value"
-        >{{item.label}}</Checkbox>
-    </CheckboxGroup>
+    </Cascader>
 </template>
 <script>
-import {CheckboxGroup, Checkbox} from 'iview';
+import {Cascader} from 'iview';
 export default {
     components: {
-        CheckboxGroup,
-        Checkbox
+        Cascader
     },
     props: {
         model: {
-            type: Array,
+            type: [Object, Array, String, Boolean],
             required: true
         },
         field: {

@@ -1,15 +1,18 @@
 <template>
     <div class="container">
         <FormGenerator
+            ref="FormGenerator"
             :fields="fields"
             :model="model"
             :options="options"
         />
+        <Button @click="submit">提交</Button>
     </div>
 </template>
 
 <script>
     import FormGenerator from '../src/index';
+    import {Button} from 'iview';
     export default {
         components: {
             FormGenerator
@@ -19,19 +22,21 @@
                 model: {
                     name: 'wangbing',
                     'name-forbidden': 'wangbing',
-                    'name-textarea': '',
-                    singleSelect: '',
-                    multiSelect: '',
+                    'name-textarea': '啊啊啊啊啊',
+                    singleSelect: '1',
+                    multiSelect: ['1', '2'],
                     singleSelectRemote: '',
-                    checkbox: [],
-                    radio: '',
-                    date: '',
-                    daterange: '',
-                    datetime: '',
-                    datetimerange: ''
+                    checkbox: ['1', '2'],
+                    radio: '1',
+                    date: '2016-01-01',
+                    daterange: ['2016-01-01', '2016-02-15'],
+                    datetime: '2019-04-22 00:00:00',
+                    datetimerange: ['2019-04-22 00:00:00', '2019-05-30 00:00:00'],
+                    cascader: ['jiangsu', 'suzhou', 'shizilin'],
+                    inputNumber: 7
                 },
                 options: {
-                    labelWidth: 100
+                    labelWidth: 140
                 },
                 fields: [
                     {
@@ -39,7 +44,8 @@
                         type: 'Input',
                         label: '输入框',
                         model: 'name',
-                        placeholder: '请输入用户名'
+                        placeholder: '请输入用户名',
+                        required: true
                     },
                     {
                         key: '10001',
@@ -56,20 +62,23 @@
                         subType: 'textarea',
                         label: '输入框',
                         model: 'name-textarea',
-                        placeholder: '请输入用户名'
+                        placeholder: '请输入用户名',
+                        required: true
                     },
-                    // {
-                    //     key: '10002',
-                    //     type: 'InputNumber',
-                    //     label: '数字多行输入框',
-                    //     model: 'age',
-                    //     placeholder: '',
-                    // },
+                    {
+                        key: '100021',
+                        type: 'InputNumber',
+                        label: '数字多行输入框',
+                        model: 'inputNumber',
+                        placeholder: '',
+                        required: true
+                    },
                     {
                         key: '1002',
                         type: 'Select',
                         label: '单选下拉',
                         model: 'singleSelect',
+                        required: true,
                         options: [
                             {
                                 label: '选项一',
@@ -96,7 +105,8 @@
                                 label: '选项二',
                                 value: '2'
                             }
-                        ]
+                        ],
+                        required: true,
                     },
                     {
                         key: '10023',
@@ -137,7 +147,8 @@
                                 label: '选项二',
                                 value: '2'
                             }
-                        ]
+                        ],
+                        required: true,
                     },
                     {
                         key: '1004',
@@ -161,61 +172,63 @@
                                 label: '选项四',
                                 value: '4'
                             }
-                        ]
+                        ],
+                        required: true,
                     },
-                    // {
-                    //     key: '1005',
-                    //     type: 'Cascader',
-                    //     label: '级联',
-                    //     model: 'Cascader',
-                    //     options: [{
-                    //         value: 'beijing',
-                    //         label: '北京',
-                    //         children: [
-                    //             {
-                    //                 value: 'gugong',
-                    //                 label: '故宫'
-                    //             },
-                    //             {
-                    //                 value: 'tiantan',
-                    //                 label: '天坛'
-                    //             },
-                    //             {
-                    //                 value: 'wangfujing',
-                    //                 label: '王府井'
-                    //             }
-                    //         ]
-                    //     }, {
-                    //         value: 'jiangsu',
-                    //         label: '江苏',
-                    //         children: [
-                    //             {
-                    //                 value: 'nanjing',
-                    //                 label: '南京',
-                    //                 children: [
-                    //                     {
-                    //                         value: 'fuzimiao',
-                    //                         label: '夫子庙',
-                    //                     }
-                    //                 ]
-                    //             },
-                    //             {
-                    //                 value: 'suzhou',
-                    //                 label: '苏州',
-                    //                 children: [
-                    //                     {
-                    //                         value: 'zhuozhengyuan',
-                    //                         label: '拙政园',
-                    //                     },
-                    //                     {
-                    //                         value: 'shizilin',
-                    //                         label: '狮子林',
-                    //                     }
-                    //                 ]
-                    //             }
-                    //         ],
-                    //     }]
-                    // },
+                    {
+                        key: '1005',
+                        type: 'Cascader',
+                        label: '级联',
+                        model: 'cascader',
+                        required: true,
+                        options: [{
+                            value: 'beijing',
+                            label: '北京',
+                            children: [
+                                {
+                                    value: 'gugong',
+                                    label: '故宫'
+                                },
+                                {
+                                    value: 'tiantan',
+                                    label: '天坛'
+                                },
+                                {
+                                    value: 'wangfujing',
+                                    label: '王府井'
+                                }
+                            ]
+                        }, {
+                            value: 'jiangsu',
+                            label: '江苏',
+                            children: [
+                                {
+                                    value: 'nanjing',
+                                    label: '南京',
+                                    children: [
+                                        {
+                                            value: 'fuzimiao',
+                                            label: '夫子庙',
+                                        }
+                                    ]
+                                },
+                                {
+                                    value: 'suzhou',
+                                    label: '苏州',
+                                    children: [
+                                        {
+                                            value: 'zhuozhengyuan',
+                                            label: '拙政园',
+                                        },
+                                        {
+                                            value: 'shizilin',
+                                            label: '狮子林',
+                                        }
+                                    ]
+                                }
+                            ],
+                        }]
+                    },
                     {
                         key: '10006',
                         type: 'DatePicker',
@@ -223,30 +236,34 @@
                         label: '日期选择',
                         model: 'date',
                         placeholder: '',
+                        required: true,
                     },
                     {
-                        key: '10006',
+                        key: '100061',
                         type: 'DatePicker',
                         subType: 'daterange',
                         label: '日期区间选择',
                         model: 'daterange',
                         placeholder: '',
+                        required: true,
                     },
                     {
-                        key: '10006',
+                        key: '100062',
                         type: 'DatePicker',
                         subType: 'datetime',
                         label: '日期时间选择',
                         model: 'datetime',
                         placeholder: '',
+                        required: true,
                     },
                     {
-                        key: '10006',
+                        key: '100063',
                         type: 'DatePicker',
                         subType: 'datetimerange',
                         label: '日期时间区间选择',
                         model: 'datetimerange',
                         placeholder: '',
+                        required: true,
                     },
                 ]
             }
@@ -258,7 +275,10 @@
 
         },
         methods: {
-
+            submit() {
+                this.$refs.FormGenerator
+                    .submit();
+            }
         }
     }
 </script>
