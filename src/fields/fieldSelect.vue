@@ -30,7 +30,7 @@ export default {
     },
     props: {
         model: {
-            type: [Object, Array, String, Boolean],
+            type: [String, Number, Array],
             required: true
         },
         field: {
@@ -56,7 +56,6 @@ export default {
                 return;
             }
             this.loading = true;
-            console.log(field.type, field);
         },
         handleChange(value) {
             this.onChange(this.field.model, value, null, this.field);

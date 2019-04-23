@@ -7,16 +7,15 @@
     ></component>
 </template>
 <script>
-    import {Form, FormItem, Input} from 'iview';
     import fieldComponents from "./utils/fieldsLoader.js";
     export default {
-        name: 'FormGenerator',
+        name: 'ControlGenerator',
         components: {
             ...fieldComponents
         },
         props: {
             model: {
-                type: [Object, Array, String, Boolean],
+                type: [Object, Array, String, Boolean, Number, null],
                 required: true
             },
             field: {

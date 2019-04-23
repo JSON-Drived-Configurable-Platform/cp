@@ -22,7 +22,7 @@ export default {
     },
     props: {
         model: {
-            type: [Object, Array, String, Boolean],
+            type: [String],
             required: true
         },
         field: {

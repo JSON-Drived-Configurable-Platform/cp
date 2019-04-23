@@ -5,11 +5,10 @@
     >
         <Checkbox
             v-for="item in field.options"
-            :label="item.label"
-            :value="item.value"
+            :label="item.value"
             :disabled="item.disabled"
             :key="item.value"
-        ></Checkbox>
+        >{{item.label}}</Checkbox>
     </CheckboxGroup>
 </template>
 <script>
@@ -21,7 +20,7 @@ export default {
     },
     props: {
         model: {
-            type: [Object, Array, String, Boolean],
+            type: Array,
             required: true
         },
         field: {
@@ -47,7 +46,6 @@ export default {
                 return;
             }
             this.loading = true;
-            console.log(field.type, field);
         },
         handleChange(value) {
             this.onChange(this.field.model, value, null, this.field);
