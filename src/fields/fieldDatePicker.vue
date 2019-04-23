@@ -1,12 +1,12 @@
 <template>
     <DatePicker
-        :type="field.subType"
+        :type="subType"
         :placeholder="field.placeholder"
         :value="model"
         :disabled="field.disabled"
         :options=options
         :editable="true"
-        separator="-"
+        :style="style"
         @on-change="handleChange"
     >
     </DatePicker>
@@ -20,7 +20,7 @@ export default {
     },
     props: {
         model: {
-            type: [Object, Array, String, Boolean],
+            type: [Array, String],
             required: true
         },
         field: {
@@ -38,6 +38,20 @@ export default {
         },
         filterable() {
             return !!this.field.api || this.field.filterable
+        },
+        subType() {
+            return this.field.subType || 'date'
+        },
+        style() {
+            const subTypeToStyleWidth = {
+                date: '110',
+                daterange: '180',
+                datetime: '160',
+                datetimerange: '280'
+            };
+            return {
+                width: subTypeToStyleWidth[this.subType] + 'px'
+            };
         }
     },
     methods: {
@@ -46,7 +60,6 @@ export default {
                 return;
             }
             this.loading = true;
-            console.log(field.type, field);
         },
         handleChange(value) {
             this.onChange(this.field.model, value, null, this.field);

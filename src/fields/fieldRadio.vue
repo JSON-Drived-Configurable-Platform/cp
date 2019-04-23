@@ -5,10 +5,10 @@
     >
         <Radio
             v-for="item in field.options"
-            :label="item.label"
+            :label="item.value"
             :disabled="item.disabled"
             :key="item.value"
-        ></Radio>
+        >{{item.label}}</Radio>
     </RadioGroup>
 </template>
 <script>
@@ -20,7 +20,7 @@ export default {
     },
     props: {
         model: {
-            type: [Object, Array, String, Boolean],
+            type: [String, Number],
             required: true
         },
         field: {
@@ -46,7 +46,6 @@ export default {
                 return;
             }
             this.loading = true;
-            console.log(field.type, field);
         },
         handleChange(value) {
             this.onChange(this.field.model, value, null, this.field);
