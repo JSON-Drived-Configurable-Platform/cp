@@ -1,4 +1,4 @@
- module.exports = function (api) {
+module.exports = function (api) {
     // errors will throw without using cache Api
     api.cache(true);
     const presets = [
@@ -8,7 +8,7 @@
                 modules: false,
                 loose: true,
                 useBuiltIns: 'usage',
-                "corejs": 2,
+                'corejs': 2,
                 targets: {
                     browsers: [
                         'Chrome >= 60',

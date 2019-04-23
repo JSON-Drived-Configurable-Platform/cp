@@ -1,15 +1,17 @@
 <template>
-    <CheckboxGroup
-        :value="model"
-        @on-change="handleChange"
+  <CheckboxGroup
+    :value="model"
+    @on-change="handleChange"
+  >
+    <Checkbox
+      v-for="item in field.options"
+      :key="item.value"
+      :label="item.value"
+      :disabled="item.disabled"
     >
-        <Checkbox
-            v-for="item in field.options"
-            :label="item.value"
-            :disabled="item.disabled"
-            :key="item.value"
-        >{{item.label}}</Checkbox>
-    </CheckboxGroup>
+      {{ item.label }}
+    </Checkbox>
+  </CheckboxGroup>
 </template>
 <script>
 import {CheckboxGroup, Checkbox} from 'iview';
@@ -32,16 +34,22 @@ export default {
             required: true
         }
     },
+    data() {
+        return {
+            loading: false
+        };
+    },
     computed: {
         remote() {
-            return !!this.field.api
+            return !!this.field.api;
         },
         filterable() {
-            return !!this.field.api || this.field.filterable
+            return !!this.field.api || this.field.filterable;
         }
     },
     methods: {
-        remoteMethod(field) {
+        remoteMethod() {
+            // TODO
             if (!this.field.api) {
                 return;
             }
@@ -50,11 +58,6 @@ export default {
         handleChange(value) {
             this.onChange(this.field.model, value, null, this.field);
         }
-    },
-    data() {
-        return {
-            loading: false
-        };
     }
-}
+};
 </script>
