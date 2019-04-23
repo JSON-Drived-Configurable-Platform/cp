@@ -1,5 +1,5 @@
 <template>
-  <Cascader
+    <Cascader
     :value="model"
     :data="field.options"
     :disabled="field.disabled"
@@ -8,7 +8,7 @@
     :change-on-select="true"
     :filterable="true"
     @on-change="handleChange"
-  />
+    />
 </template>
 <script>
 import {Cascader} from 'iview';

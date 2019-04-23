@@ -1,18 +1,18 @@
 <template>
-  <Input
-    :value="model"
-    :type="field.subType"
-    :size="field.size || 'default'"
-    :placeholder="field.placeholder"
-    :clearable="field.clearable"
-    :disabled="field.disabled"
-    :readonly="field.readonly"
-    :icon="field.icon"
-    :prefix="field.prefix"
-    :suffix="field.suffix"
-    :autofocus="field.autofocus"
-    @on-change="handleChange"
-  />
+    <Input
+        :value="model"
+        :type="field.subType"
+        :size="field.size || 'default'"
+        :placeholder="field.placeholder"
+        :clearable="field.clearable"
+        :disabled="field.disabled"
+        :readonly="field.readonly"
+        :icon="field.icon"
+        :prefix="field.prefix"
+        :suffix="field.suffix"
+        :autofocus="field.autofocus"
+        @on-change="handleChange"
+    />
 </template>
 <script>
 import {Input} from 'iview';

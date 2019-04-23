@@ -1,17 +1,17 @@
 <template>
-  <RadioGroup
-    :value="model"
-    @on-change="handleChange"
-  >
-    <Radio
-      v-for="item in field.options"
-      :key="item.value"
-      :label="item.value"
-      :disabled="item.disabled"
+    <RadioGroup
+        :value="model"
+        @on-change="handleChange"
     >
-      {{ item.label }}
-    </Radio>
-  </RadioGroup>
+        <Radio
+            v-for="item in field.options"
+            :key="item.value"
+            :label="item.value"
+            :disabled="item.disabled"
+        >
+            {{ item.label }}
+        </Radio>
+    </RadioGroup>
 </template>
 <script>
 import {RadioGroup, Radio} from 'iview';

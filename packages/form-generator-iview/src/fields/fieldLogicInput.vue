@@ -1,92 +1,92 @@
 <template>
-  <div
-    :style="{
-      display: 'flex',
-      alignItems: 'start',
-      justifyContent: 'flex-start',
-      flexDirection: 'row',
-    }"
-  >
-    <Select
-      :value="model.logic"
-      :multiple="field.multiple"
-      :disabled="field.disabled"
-      :clearable="field.clearable"
-      :filterable="field.filterable"
-      :size="field.size"
-      :placeholder="field.placeholder"
-      :remote="remote"
-      :remote-method="remoteMethod(field)"
-      :style="{width: '100px', marginRight: '20px'}"
-      @on-change="handleLogicChange"
-    >
-      <Option
-        v-for="item in enables"
-        :key="item.value"
-        :value="item.value"
-        :disabled="item.disabled"
-      >
-        {{ item.label }}
-      </Option>
-    </Select>
-    <Input
-      v-if="['single', 'multiple'].includes(valueType)"
-      :style="{width: '200px'}"
-      :value="model.value"
-      :type="valueType === 'single' ? 'text' : 'textarea'"
-      :size="field.size || 'default'"
-      :placeholder="field.placeholder"
-      :clearable="field.clearable"
-      :disabled="field.disabled"
-      :readonly="field.readonly"
-      :icon="field.icon"
-      :prefix="field.prefix"
-      :suffix="field.suffix"
-      :autofocus="field.autofocus"
-      @on-change="handleLogicValueChange"
-    />
     <div
-      v-if="valueType === 'double'"
-      :style="{
-        display: 'flex',
-        alignItems: 'start',
-        justifyContent: 'flex-start',
-        flexDirection: 'row',
-      }"
+        :style="{
+            display: 'flex',
+            alignItems: 'start',
+            justifyContent: 'flex-start',
+            flexDirection: 'row',
+        }"
     >
-      <Input
-        :value="start"
-        type="text"
-        :size="field.size || 'default'"
-        :placeholder="field.placeholder"
-        :clearable="field.clearable"
-        :disabled="field.disabled"
-        :readonly="field.readonly"
-        :icon="field.icon"
-        :prefix="field.prefix"
-        :suffix="field.suffix"
-        :autofocus="field.autofocus"
-        :style="{width: '100px'}"
-        @on-change="handleStartChange"
-      />
-      <span :style="{width: '20px',textAlign: 'center'}">~</span>
-      <Input
-        :value="end"
-        type="text"
-        :size="field.size || 'default'"
-        :placeholder="field.placeholder"
-        :clearable="field.clearable"
-        :disabled="field.disabled"
-        :readonly="field.readonly"
-        :icon="field.icon"
-        :prefix="field.prefix"
-        :suffix="field.suffix"
-        :autofocus="field.autofocus"
-        :style="{width: '100px'}"
-        @on-change="handleEndChange"
-      />
+        <Select
+            :value="model.logic"
+            :multiple="field.multiple"
+            :disabled="field.disabled"
+            :clearable="field.clearable"
+            :filterable="field.filterable"
+            :size="field.size"
+            :placeholder="field.placeholder"
+            :remote="remote"
+            :remote-method="remoteMethod(field)"
+            :style="{width: '100px', marginRight: '20px'}"
+            @on-change="handleLogicChange"
+        >
+            <Option
+                v-for="item in enables"
+                :key="item.value"
+                :value="item.value"
+                :disabled="item.disabled"
+            >
+                {{ item.label }}
+            </Option>
+        </Select>
+        <Input
+            v-if="['single', 'multiple'].includes(valueType)"
+            :style="{width: '200px'}"
+            :value="model.value"
+            :type="valueType === 'single' ? 'text' : 'textarea'"
+            :size="field.size || 'default'"
+            :placeholder="field.placeholder"
+            :clearable="field.clearable"
+            :disabled="field.disabled"
+            :readonly="field.readonly"
+            :icon="field.icon"
+            :prefix="field.prefix"
+            :suffix="field.suffix"
+            :autofocus="field.autofocus"
+            @on-change="handleLogicValueChange"
+        />
+        <div
+            v-if="valueType === 'double'"
+            :style="{
+                display: 'flex',
+                alignItems: 'start',
+                justifyContent: 'flex-start',
+                flexDirection: 'row',
+            }"
+        >
+            <Input
+                :value="start"
+                type="text"
+                :size="field.size || 'default'"
+                :placeholder="field.placeholder"
+                :clearable="field.clearable"
+                :disabled="field.disabled"
+                :readonly="field.readonly"
+                :icon="field.icon"
+                :prefix="field.prefix"
+                :suffix="field.suffix"
+                :autofocus="field.autofocus"
+                :style="{width: '100px'}"
+                @on-change="handleStartChange"
+            />
+            <span :style="{width: '20px',textAlign: 'center'}">~</span>
+            <Input
+                :value="end"
+                type="text"
+                :size="field.size || 'default'"
+                :placeholder="field.placeholder"
+                :clearable="field.clearable"
+                :disabled="field.disabled"
+                :readonly="field.readonly"
+                :icon="field.icon"
+                :prefix="field.prefix"
+                :suffix="field.suffix"
+                :autofocus="field.autofocus"
+                :style="{width: '100px'}"
+                @on-change="handleEndChange"
+            />
+        </div>
     </div>
-  </div>
 </template>
 <script>
 import {Select, Option} from 'iview';
