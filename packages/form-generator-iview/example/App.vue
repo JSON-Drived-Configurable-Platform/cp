@@ -33,7 +33,15 @@
                     datetime: '2019-04-22 00:00:00',
                     datetimerange: ['2019-04-22 00:00:00', '2019-05-30 00:00:00'],
                     cascader: ['jiangsu', 'suzhou', 'shizilin'],
-                    inputNumber: 7
+                    inputNumber: 7,
+                    logicInput: {
+                        logic: '=',
+                        value: ''
+                    },
+                    logicSelect: {
+                        logic: '=',
+                        value: ''
+                    }
                 },
                 options: {
                     labelWidth: 140
@@ -265,6 +273,48 @@
                         placeholder: '',
                         required: true,
                     },
+                    {
+                        key: '10007',
+                        type: 'LogicInput',
+                        label: '逻辑输入',
+                        model: 'logicInput',
+                        required: true,
+                        enables: ['=', '>', '>=', '<', '<=', 'betweenIn', 'betweenWith', '!=', 'multiple']
+                    },
+                    {
+                        key: '10008',
+                        type: 'LogicSelect',
+                        label: '逻辑输入',
+                        model: 'logicSelect',
+                        required: true,
+                        enables: ['=', '>', '>=', '<', '<=', 'betweenIn', 'betweenWith', '!=', 'multiple'],
+                        options: [
+                            {
+                                label: '选项一',
+                                value: '1'
+                            },
+                            {
+                                label: '选项二',
+                                value: '2'
+                            },
+                            {
+                                label: '选项三',
+                                value: '3'
+                            },
+                            {
+                                label: '选项四',
+                                value: '4'
+                            }
+                        ]
+                    },
+                    // {
+                    //     key: '10007',
+                    //     type: 'LogicTimePicker',
+                    //     label: '逻辑时间选择',
+                    //     model: 'logic',
+                    //     required: true,
+                    //     enables: ['=', '>', '>=', '<', '<=', 'between', '!=', 'multiple']
+                    // },
                 ]
             }
         },
