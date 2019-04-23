@@ -1,43 +1,43 @@
 <template>
-  <div
-    :style="{
-      display: 'flex',
-      alignItems: 'start',
-      justifyContent: 'flex-start',
-      flexDirection: 'row',
-    }"
-  >
-    <Input
-      :value="model"
-      :type="field.subType"
-      :size="field.size || 'default'"
-      :placeholder="field.placeholder"
-      :clearable="field.clearable"
-      :disabled="field.disabled"
-      :readonly="field.readonly"
-      :icon="field.icon"
-      :prefix="field.prefix"
-      :suffix="field.suffix"
-      :autofocus="field.autofocus"
-      :style="{width: '100px', marginRight: '20px'}"
-      @on-change="handleStartChange"
-    />
-    <Input
-      :value="model"
-      :type="field.subType"
-      :size="field.size || 'default'"
-      :placeholder="field.placeholder"
-      :clearable="field.clearable"
-      :disabled="field.disabled"
-      :readonly="field.readonly"
-      :icon="field.icon"
-      :prefix="field.prefix"
-      :suffix="field.suffix"
-      :autofocus="field.autofocus"
-      :style="{width: '100px'}"
-      @on-change="handleEndChange"
-    />
-  </div>
+    <div
+        :style="{
+            display: 'flex',
+            alignItems: 'start',
+            justifyContent: 'flex-start',
+            flexDirection: 'row',
+        }"
+    >
+        <Input
+            :value="model"
+            :type="field.subType"
+            :size="field.size || 'default'"
+            :placeholder="field.placeholder"
+            :clearable="field.clearable"
+            :disabled="field.disabled"
+            :readonly="field.readonly"
+            :icon="field.icon"
+            :prefix="field.prefix"
+            :suffix="field.suffix"
+            :autofocus="field.autofocus"
+            :style="{width: '100px', marginRight: '20px'}"
+            @on-change="handleStartChange"
+        />
+        <Input
+            :value="model"
+            :type="field.subType"
+            :size="field.size || 'default'"
+            :placeholder="field.placeholder"
+            :clearable="field.clearable"
+            :disabled="field.disabled"
+            :readonly="field.readonly"
+            :icon="field.icon"
+            :prefix="field.prefix"
+            :suffix="field.suffix"
+            :autofocus="field.autofocus"
+            :style="{width: '100px'}"
+            @on-change="handleEndChange"
+        />
+    </div>
 </template>
 <script>
 import {Input} from 'iview';

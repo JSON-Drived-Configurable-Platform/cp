@@ -1,17 +1,17 @@
 <template>
-  <CheckboxGroup
-    :value="model"
-    @on-change="handleChange"
-  >
-    <Checkbox
-      v-for="item in field.options"
-      :key="item.value"
-      :label="item.value"
-      :disabled="item.disabled"
+    <CheckboxGroup
+        :value="model"
+        @on-change="handleChange"
     >
-      {{ item.label }}
-    </Checkbox>
-  </CheckboxGroup>
+        <Checkbox
+            v-for="item in field.options"
+            :key="item.value"
+            :label="item.value"
+            :disabled="item.disabled"
+        >
+            {{ item.label }}
+        </Checkbox>
+    </CheckboxGroup>
 </template>
 <script>
 import {CheckboxGroup, Checkbox} from 'iview';

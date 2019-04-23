@@ -1,26 +1,26 @@
 <template>
-  <Select
-    :value="model"
-    :multiple="field.multiple"
-    :disabled="field.disabled"
-    :clearable="field.clearable"
-    :filterable="field.filterable"
-    :size="field.size"
-    :placeholder="field.placeholder"
-    :remote="remote"
-    :remote-method="remoteMethod(field)"
-    :loading="loading"
-    @on-change="handleChange"
-  >
-    <Option
-      v-for="item in field.options"
-      :key="item.value"
-      :value="item.value"
-      :disabled="item.disabled"
+    <Select
+        :value="model"
+        :multiple="field.multiple"
+        :disabled="field.disabled"
+        :clearable="field.clearable"
+        :filterable="field.filterable"
+        :size="field.size"
+        :placeholder="field.placeholder"
+        :remote="remote"
+        :remote-method="remoteMethod(field)"
+        :loading="loading"
+        @on-change="handleChange"
     >
-      {{ item.label }}
-    </Option>
-  </Select>
+        <Option
+            v-for="item in field.options"
+            :key="item.value"
+            :value="item.value"
+            :disabled="item.disabled"
+        >
+            {{ item.label }}
+        </Option>
+    </Select>
 </template>
 <script>
 import {Select, Option} from 'iview';

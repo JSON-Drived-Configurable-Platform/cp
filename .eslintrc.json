@@ -19,6 +19,7 @@
         "quotes": ["error", "single"],
         "semi": ["error", "always"],
         "vue/jsx-uses-vars": 2,
-        "no-console": ["error"]
+        "no-console": ["error"],
+        "vue/html-indent": ["error", 4]
     }
 }

@@ -1,14 +1,14 @@
 <template>
-  <DatePicker
-    :type="subType"
-    :placeholder="field.placeholder"
-    :value="model"
-    :disabled="field.disabled"
-    :options="options"
-    :editable="true"
-    :style="style"
-    @on-change="handleChange"
-  />
+    <DatePicker
+        :type="subType"
+        :placeholder="field.placeholder"
+        :value="model"
+        :disabled="field.disabled"
+        :options="options"
+        :editable="true"
+        :style="style"
+        @on-change="handleChange"
+    />
 </template>
 <script>
 import {DatePicker} from 'iview';

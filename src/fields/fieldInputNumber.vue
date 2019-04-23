@@ -1,18 +1,18 @@
 <template>
-  <InputNumber
-    :value="model"
-    :type="field.subType"
-    :step="field.step"
-    :precision="field.precision"
-    :size="field.size || 'default'"
-    :max="field.max"
-    :min="field.min"
-    :placeholder="field.placeholder"
-    :clearable="field.clearable"
-    :disabled="field.disabled"
-    :readonly="field.readonly"
-    @on-change="handleChange"
-  />
+    <InputNumber
+        :value="model"
+        :type="field.subType"
+        :step="field.step"
+        :precision="field.precision"
+        :size="field.size || 'default'"
+        :max="field.max"
+        :min="field.min"
+        :placeholder="field.placeholder"
+        :clearable="field.clearable"
+        :disabled="field.disabled"
+        :readonly="field.readonly"
+        @on-change="handleChange"
+    />
 </template>
 <script>
 import {InputNumber} from 'iview';
