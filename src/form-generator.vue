@@ -9,6 +9,7 @@
             :key="field.model"
             :label="field.label"
             :prop="field.model"
+            :required="field.required"
             :rules="getRules(field)"
         >
             <ControlGenerator
@@ -87,6 +88,20 @@
                             trigger: 'change'
                         });
                     }
+                    if (type === 'logicinput') {
+                        rules.push({
+                            validator(rule, value, callback) {
+                                let errors = [];
+                                if (value.logic && value.value) {
+                                    callback();
+                                }
+                                else {
+                                    callback(new Error(field.label + '不可为空'));
+                                }
+                            },
+                            trigger: 'change'
+                        });
+                    }
                     rules.push({
                         required: true,
                         type: this.getValidType(field),
@@ -130,6 +145,9 @@
                 }
                 if (type === 'cascader') {
                     return 'array';
+                }
+                if (['logicinput', 'logicselect'].includes(type)) {
+                    return 'object';
                 }
             },
             getFormModel() {
