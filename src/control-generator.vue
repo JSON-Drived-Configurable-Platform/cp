@@ -1,42 +1,42 @@
 <template>
-    <component
-        :is=getFieldCom(field.type)
-        :field="field"
-        :model="model"
-        :onChange="onFieldChange"
-    ></component>
+  <component
+    :is="getFieldCom(field.type)"
+    :field="field"
+    :model="model"
+    :on-change="onFieldChange"
+  />
 </template>
 <script>
-    import fieldComponents from "./utils/fieldsLoader.js";
-    export default {
-        name: 'ControlGenerator',
-        components: {
-            ...fieldComponents
+import fieldComponents from './utils/fieldsLoader.js';
+export default {
+    name: 'ControlGenerator',
+    components: {
+        ...fieldComponents
+    },
+    props: {
+        model: {
+            type: [Object, Array, String, Boolean, Number, null],
+            required: true
         },
-        props: {
-            model: {
-                type: [Object, Array, String, Boolean, Number, null],
-                required: true
-            },
-            field: {
-                type: Object,
-                required: true,
-                default() {
-                    return [];
-                }
-            },
-            onFieldChange: {
-                type: Function,
-                required: true
+        field: {
+            type: Object,
+            required: true,
+            default() {
+                return [];
             }
         },
-        data () {
-            return {}
-        },
-        methods: {
-            getFieldCom(comType = '') {
-                return `field${comType}`;
-            }
+        onFieldChange: {
+            type: Function,
+            required: true
+        }
+    },
+    data () {
+        return {};
+    },
+    methods: {
+        getFieldCom(comType = '') {
+            return `field${comType}`;
         }
     }
+};
 </script>

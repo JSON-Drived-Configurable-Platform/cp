@@ -1,15 +1,17 @@
 <template>
-    <RadioGroup
-        :value="model"
-        @on-change="handleChange"
+  <RadioGroup
+    :value="model"
+    @on-change="handleChange"
+  >
+    <Radio
+      v-for="item in field.options"
+      :key="item.value"
+      :label="item.value"
+      :disabled="item.disabled"
     >
-        <Radio
-            v-for="item in field.options"
-            :label="item.value"
-            :disabled="item.disabled"
-            :key="item.value"
-        >{{item.label}}</Radio>
-    </RadioGroup>
+      {{ item.label }}
+    </Radio>
+  </RadioGroup>
 </template>
 <script>
 import {RadioGroup, Radio} from 'iview';
@@ -32,16 +34,22 @@ export default {
             required: true
         }
     },
+    data() {
+        return {
+            loading: false
+        };
+    },
     computed: {
         remote() {
-            return !!this.field.api
+            return !!this.field.api;
         },
         filterable() {
-            return !!this.field.api || this.field.filterable
+            return !!this.field.api || this.field.filterable;
         }
     },
     methods: {
-        remoteMethod(field) {
+        remoteMethod() {
+            // TODO
             if (!this.field.api) {
                 return;
             }
@@ -50,11 +58,6 @@ export default {
         handleChange(value) {
             this.onChange(this.field.model, value, null, this.field);
         }
-    },
-    data() {
-        return {
-            loading: false
-        };
     }
-}
+};
 </script>
