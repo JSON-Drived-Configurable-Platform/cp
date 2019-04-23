@@ -1,13 +1,13 @@
 <template>
     <Cascader
-    :value="model"
-    :data="field.options"
-    :disabled="field.disabled"
-    :clearable="field.clearable"
-    :placeholder="field.placeholder"
-    :change-on-select="true"
-    :filterable="true"
-    @on-change="handleChange"
+        :value="model"
+        :data="field.options"
+        :disabled="field.disabled"
+        :clearable="field.clearable"
+        :placeholder="field.placeholder"
+        :change-on-select="true"
+        :filterable="true"
+        @on-change="handleChange"
     />
 </template>
 <script>
