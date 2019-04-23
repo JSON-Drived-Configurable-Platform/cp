@@ -1,109 +1,116 @@
 <template>
-    <div :style="{
-            display: 'flex',
-            alignItems: 'start',
-            justifyContent: 'flex-start',
-            flexDirection: 'row',
-        }">
-        <Select
-            :value="model.logic"
-            :multiple="field.multiple"
-            :disabled="field.disabled"
-            :clearable="field.clearable"
-            :filterable="field.filterable"
-            :size="field.size"
-            :placeholder="field.placeholder"
-            :remote="remote"
-            :remote-method="remoteMethod(field)"
-            :style="{width: '100px', marginRight: '20px'}"
-            @on-change="handleLogicChange"
+  <div
+    :style="{
+      display: 'flex',
+      alignItems: 'start',
+      justifyContent: 'flex-start',
+      flexDirection: 'row',
+    }"
+  >
+    <Select
+      :value="model.logic"
+      :multiple="field.multiple"
+      :disabled="field.disabled"
+      :clearable="field.clearable"
+      :filterable="field.filterable"
+      :size="field.size"
+      :placeholder="field.placeholder"
+      :remote="remote"
+      :remote-method="remoteMethod(field)"
+      :style="{width: '100px', marginRight: '20px'}"
+      @on-change="handleLogicChange"
+    >
+      <Option
+        v-for="item in enables"
+        :key="item.value"
+        :value="item.value"
+        :disabled="item.disabled"
+      >
+        {{ item.label }}
+      </Option>
+    </Select>
+    <Select
+      v-if="['single', 'multiple'].includes(valueType)"
+      :value="model.logic"
+      :multiple="valueType === 'multiple'"
+      :disabled="field.disabled"
+      :clearable="field.clearable"
+      :filterable="field.filterable"
+      :size="field.size"
+      :placeholder="field.placeholder"
+      :remote="remote"
+      :remote-method="remoteMethod(field)"
+      :style="{width: '100px', marginRight: '20px'}"
+      @on-change="handleLogicValueChange"
+    >
+      <Option
+        v-for="item in field.options"
+        :key="item.value"
+        :value="item.value"
+        :disabled="item.disabled"
+      >
+        {{ item.label }}
+      </Option>
+    </Select>
+    <div
+      v-if="valueType === 'double'"
+      :style="{
+        display: 'flex',
+        alignItems: 'start',
+        justifyContent: 'flex-start',
+        flexDirection: 'row',
+      }"
+    >
+      <Select
+        :value="model.logic"
+        :multiple="field.multiple"
+        :disabled="field.disabled"
+        :clearable="field.clearable"
+        :filterable="field.filterable"
+        :size="field.size"
+        :placeholder="field.placeholder"
+        :remote="remote"
+        :remote-method="remoteMethod(field)"
+        :style="{width: '100px', marginRight: '20px'}"
+        @on-change="handleStartChange"
+      >
+        <Option
+          v-for="item in field.options"
+          :key="item.value"
+          :value="item.value"
+          :disabled="item.disabled"
         >
-            <Option
-                v-for="item in enables"
-                :value="item.value"
-                :key="item.value"
-                :disabled="item.disabled"
-            >{{ item.label }}
-            </Option>
-        </Select>
-        <Select
-            v-if="['single', 'multiple'].includes(valueType)"
-            :value="model.logic"
-            :multiple="valueType === 'multiple'"
-            :disabled="field.disabled"
-            :clearable="field.clearable"
-            :filterable="field.filterable"
-            :size="field.size"
-            :placeholder="field.placeholder"
-            :remote="remote"
-            :remote-method="remoteMethod(field)"
-            :style="{width: '100px', marginRight: '20px'}"
-            @on-change="handleLogicValueChange"
+          {{ item.label }}
+        </Option>
+      </Select>
+      <span :style="{width: '20px',textAlign: 'center'}">~</span>
+      <Select
+        :value="model.logic"
+        :multiple="field.multiple"
+        :disabled="field.disabled"
+        :clearable="field.clearable"
+        :filterable="field.filterable"
+        :size="field.size"
+        :placeholder="field.placeholder"
+        :remote="remote"
+        :remote-method="remoteMethod(field)"
+        :style="{width: '100px', marginRight: '20px'}"
+        @on-change="handleEndChange"
+      >
+        <Option
+          v-for="item in field.options"
+          :key="item.value"
+          :value="item.value"
+          :disabled="item.disabled"
         >
-            <Option
-                v-for="item in field.options"
-                :value="item.value"
-                :key="item.value"
-                :disabled="item.disabled"
-            >{{ item.label }}
-            </Option>
-        </Select>
-        <div
-            v-if="valueType === 'double'"
-            :style="{
-                display: 'flex',
-                alignItems: 'start',
-                justifyContent: 'flex-start',
-                flexDirection: 'row',
-            }">
-            <Select
-                :value="model.logic"
-                :multiple="field.multiple"
-                :disabled="field.disabled"
-                :clearable="field.clearable"
-                :filterable="field.filterable"
-                :size="field.size"
-                :placeholder="field.placeholder"
-                :remote="remote"
-                :remote-method="remoteMethod(field)"
-                :style="{width: '100px', marginRight: '20px'}"
-                @on-change="handleStartChange"
-            >
-                <Option
-                    v-for="item in field.options"
-                    :value="item.value"
-                    :key="item.value"
-                    :disabled="item.disabled"
-                >{{ item.label }}
-                </Option>
-            </Select>
-            <span :style="{width: '20px',textAlign: 'center'}">~</span>
-            <Select
-                :value="model.logic"
-                :multiple="field.multiple"
-                :disabled="field.disabled"
-                :clearable="field.clearable"
-                :filterable="field.filterable"
-                :size="field.size"
-                :placeholder="field.placeholder"
-                :remote="remote"
-                :remote-method="remoteMethod(field)"
-                :style="{width: '100px', marginRight: '20px'}"
-                @on-change="handleEndChange"
-            >
-                <Option
-                    v-for="item in field.options"
-                    :value="item.value"
-                    :key="item.value"
-                    :disabled="item.disabled"
-                >{{ item.label }}
-                </Option>
-            </Select>
-        </div>
+          {{ item.label }}
+        </Option>
+      </Select>
     </div>
+  </div>
 </template>
 <script>
-import {Select, Option, Input} from 'iview';
+import {Select, Option} from 'iview';
 import {logicInputMap} from '../utils/const';
 export default {
     components: {
@@ -124,12 +131,19 @@ export default {
             required: true
         }
     },
+    data() {
+        return {
+            start: '',
+            end: '',
+            value: this.model || {logic: '=', value: ''}
+        };
+    },
     computed: {
         remote() {
-            return !!this.field.api
+            return !!this.field.api;
         },
         filterable() {
-            return !!this.field.api || this.field.filterable
+            return !!this.field.api || this.field.filterable;
         },
         enables() {
             const enables = this.field.enables || [];
@@ -145,7 +159,8 @@ export default {
         }
     },
     methods: {
-        remoteMethod(field) {
+        remoteMethod() {
+            // TODO
             if (!this.field.api) {
                 return;
             }
@@ -179,13 +194,6 @@ export default {
             this.value.value = this.start + ' - ' + this.end;
             this.onChange(this.field.model, this.value, null, this.field);
         }
-    },
-    data() {
-        return {
-            start: '',
-            end: '',
-            value: this.model || {logic: '=', value: ''}
-        };
     }
-}
+};
 </script>

@@ -1,15 +1,14 @@
 <template>
-    <Cascader
-        :value="model"
-        :data="field.options"
-        :disabled="field.disabled"
-        :clearable="field.clearable"
-        :placeholder="field.placeholder"
-        :change-on-select="true"
-        :filterable="true"
-        @on-change="handleChange"
-    >
-    </Cascader>
+  <Cascader
+    :value="model"
+    :data="field.options"
+    :disabled="field.disabled"
+    :clearable="field.clearable"
+    :placeholder="field.placeholder"
+    :change-on-select="true"
+    :filterable="true"
+    @on-change="handleChange"
+  />
 </template>
 <script>
 import {Cascader} from 'iview';
@@ -31,16 +30,22 @@ export default {
             required: true
         }
     },
+    data() {
+        return {
+            loading: false
+        };
+    },
     computed: {
         remote() {
-            return !!this.field.api
+            return !!this.field.api;
         },
         filterable() {
-            return !!this.field.api || this.field.filterable
+            return !!this.field.api || this.field.filterable;
         }
     },
     methods: {
-        remoteMethod(field) {
+        remoteMethod() {
+            // TODO
             if (!this.field.api) {
                 return;
             }
@@ -49,11 +54,6 @@ export default {
         handleChange(value) {
             this.onChange(this.field.model, value, null, this.field);
         }
-    },
-    data() {
-        return {
-            loading: false
-        };
     }
-}
+};
 </script>

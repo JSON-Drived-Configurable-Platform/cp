@@ -1,22 +1,20 @@
 <template>
-    <DatePicker
-        :type="subType"
-        :placeholder="field.placeholder"
-        :value="model"
-        :disabled="field.disabled"
-        :options=options
-        :editable="true"
-        :style="style"
-        @on-change="handleChange"
-    >
-    </DatePicker>
+  <DatePicker
+    :type="subType"
+    :placeholder="field.placeholder"
+    :value="model"
+    :disabled="field.disabled"
+    :options="options"
+    :editable="true"
+    :style="style"
+    @on-change="handleChange"
+  />
 </template>
 <script>
-import {Select, Option} from 'iview';
+import {DatePicker} from 'iview';
 export default {
     components: {
-        Select,
-        Option
+        DatePicker
     },
     props: {
         model: {
@@ -32,15 +30,61 @@ export default {
             required: true
         }
     },
+    data() {
+        return {
+            options: {
+                disabledDate() {
+
+                },
+                shortcuts: [
+                    {
+                        text: '最近一周',
+                        onClick() {
+                            // TODO
+                            // console.log('最近一周');
+                        }
+                    },
+                    {
+                        text: '最近一月',
+                        onClick() {
+                            // TODO
+                            // console.log('最近一月');
+                        }
+                    },
+                    {
+                        text: '最近三月',
+                        onClick() {
+                            // TODO
+                            // console.log('最近三月');
+                        }
+                    },
+                    {
+                        text: '最近半年',
+                        onClick() {
+                            // TODO
+                            // console.log('最近半年');
+                        }
+                    },
+                    {
+                        text: '最近一年',
+                        onClick() {
+                            // TODO
+                            // console.log('最近一年');
+                        }
+                    }
+                ]
+            }
+        };
+    },
     computed: {
         remote() {
-            return !!this.field.api
+            return !!this.field.api;
         },
         filterable() {
-            return !!this.field.api || this.field.filterable
+            return !!this.field.api || this.field.filterable;
         },
         subType() {
-            return this.field.subType || 'date'
+            return this.field.subType || 'date';
         },
         style() {
             const subTypeToStyleWidth = {
@@ -55,7 +99,8 @@ export default {
         }
     },
     methods: {
-        remoteMethod(field) {
+        remoteMethod() {
+            // TODO
             if (!this.field.api) {
                 return;
             }
@@ -64,47 +109,6 @@ export default {
         handleChange(value) {
             this.onChange(this.field.model, value, null, this.field);
         }
-    },
-    data() {
-        return {
-            options: {
-                disabledDate() {
-
-                },
-                shortcuts: [
-                    {
-                        text: '最近一周',
-                        onClick() {
-                            console.log('最近一周');
-                        }
-                    },
-                    {
-                        text: '最近一月',
-                        onClick() {
-                            console.log('最近一月');
-                        }
-                    },
-                    {
-                        text: '最近三月',
-                        onClick() {
-                            console.log('最近三月');
-                        }
-                    },
-                    {
-                        text: '最近半年',
-                        onClick() {
-                            console.log('最近半年');
-                        }
-                    },
-                    {
-                        text: '最近一年',
-                        onClick() {
-                            console.log('最近一年');
-                        }
-                    }
-                ]
-            }
-        };
     }
-}
+};
 </script>
