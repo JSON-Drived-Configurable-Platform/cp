@@ -1,6 +1,3 @@
-/**
- * Created by aresn on 16/6/20.
- */
 import Vue from 'vue';
 import iView from 'iview';
 import 'iview/dist/styles/iview.css';
