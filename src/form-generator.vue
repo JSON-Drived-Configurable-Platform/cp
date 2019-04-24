@@ -1,24 +1,24 @@
 <template>
-  <Form
-    ref="form"
-    :model="formModel"
-    :label-width="options.labelWidth"
-  >
-    <FormItem
-      v-for="field in fields"
-      :key="field.model"
-      :label="field.label"
-      :prop="field.model"
-      :required="field.required"
-      :rules="getRules(field)"
+    <Form
+        ref="form"
+        :model="formModel"
+        :label-width="options.labelWidth"
     >
-      <ControlGenerator
-        :field="field"
-        :model="formModel[field.model]"
-        :on-field-change="handleFieldChange"
-      />
-    </FormItem>
-  </Form>
+        <FormItem
+            v-for="field in fields"
+            :key="field.model"
+            :label="field.label"
+            :prop="field.model"
+            :required="field.required"
+            :rules="getRules(field)"
+        >
+            <ControlGenerator
+                :field="field"
+                :model="formModel[field.model]"
+                :on-field-change="handleFieldChange"
+            />
+        </FormItem>
+    </Form>
 </template>
 <script>
 import {Form, FormItem} from 'iview';
