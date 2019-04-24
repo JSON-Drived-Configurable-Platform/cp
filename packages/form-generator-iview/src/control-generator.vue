@@ -1,10 +1,10 @@
 <template>
-  <component
-    :is="getFieldCom(field.type)"
-    :field="field"
-    :model="model"
-    :on-change="onFieldChange"
-  />
+    <component
+        :is="getFieldCom(field.type)"
+        :field="field"
+        :model="model"
+        :on-change="onFieldChange"
+    />
 </template>
 <script>
 import fieldComponents from './utils/fieldsLoader.js';

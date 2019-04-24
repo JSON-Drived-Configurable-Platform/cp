@@ -1,42 +1,42 @@
 export const logicInputMap = {
     '=': {
         label: '等于',
-        valueType: 'single'
+        valueType: 'single',
     },
     '>': {
         label: '大于',
-        valueType: 'single'
+        valueType: 'single',
     },
     '>=': {
         label: '大于等于',
-        valueType: 'single'
+        valueType: 'single',
     },
     '<': {
         label: '小于',
-        valueType: 'single'
+        valueType: 'single',
     },
     '<=': {
         label: '小于等于',
-        valueType: 'single'
+        valueType: 'single',
     },
     'betweenIn': {
         label: '开区间(不包含)',
-        valueType: 'double'
+        valueType: 'double',
     },
     'betweenWith': {
         label: '闭区间(包含)',
-        valueType: 'double'
+        valueType: 'double',
     },
     '!=': {
         label: '不等于',
-        valueType: 'single'
+        valueType: 'single',
     },
     'multiple': {
         label: '等于多个',
-        valueType: 'multiple'
+        valueType: 'multiple',
     },
     'multipleNot': {
         label: '等于多个',
-        valueType: 'multiple'
-    }
+        valueType: 'multiple',
+    },
 };
