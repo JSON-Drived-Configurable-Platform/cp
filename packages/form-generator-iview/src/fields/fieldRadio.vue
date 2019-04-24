@@ -23,10 +23,6 @@ export default {
         field: {
             type: Object,
             required: true
-        },
-        onChange: {
-            type: Function,
-            required: true
         }
     },
     data() {
@@ -51,7 +47,7 @@ export default {
             this.loading = true;
         },
         handleChange(value) {
-            this.onChange(this.field.model, value, null, this.field);
+            this.$emit('on-change', this.field.model, value, null, this.field);
         }
     }
 };

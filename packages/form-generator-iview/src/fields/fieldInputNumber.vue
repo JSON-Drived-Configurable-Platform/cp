@@ -24,10 +24,6 @@ export default {
         field: {
             type: Object,
             required: true
-        },
-        onChange: {
-            type: Function,
-            required: true
         }
     },
     methods: {
@@ -35,7 +31,7 @@ export default {
             if (value === null) {
                 value = 0;
             }
-            this.onChange(this.field.model, value, null, this.field);
+            this.$emit('on-change', this.field.model, value, null, this.field);
         }
     }
 };
