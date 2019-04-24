@@ -63,7 +63,7 @@ export default {
     methods: {
         handleFieldChange(model, value){
             this.formModel[model] = value;
-            // this.$refs.form.validateField(model);
+            this.$refs.form.validateField(model);
         },
         getRules(field) {
             const type = field.type.toLowerCase();

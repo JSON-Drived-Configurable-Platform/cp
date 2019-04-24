@@ -5,11 +5,14 @@
                 span="8"
                 :style="{padding: '30px'}"
             >
+                <h3 :style="{textAlign: 'center'}">
+                    配置项
+                </h3>
                 <Form
                     :model="form"
                     :label-width="80"
                 >
-                    <FormItem label="Input">
+                    <FormItem>
                         <Input
                             :value="form.config"
                             type="textarea"
@@ -25,6 +28,9 @@
                 span="6"
                 :style="{padding: '30px'}"
             >
+                <h3 :style="{textAlign: 'center'}">
+                    值
+                </h3>
                 <Input
                     :value="JSON.stringify(model, null, 8)"
                     type="textarea"
@@ -36,6 +42,9 @@
             </iCol>
             <iCol span="10">
                 <div class="container">
+                    <h3 :style="{textAlign: 'center'}">
+                        表单
+                    </h3>
                     <FormGenerator
                         ref="FormGenerator"
                         :fields="fields"
@@ -95,7 +104,8 @@ export default {
         submit() {
             this.$refs.FormGenerator
                 .submit().then(data => {
-                    this.model = JSON.parse(JSON.stringify(data));
+                    // eslint-disable-next-line no-console
+                    console.log('submit', data);
                 });
         }
     }
