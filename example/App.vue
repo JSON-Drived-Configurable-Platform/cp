@@ -13,11 +13,7 @@
 </template>
 
 <script>
-import FormGenerator from '../src/index';
 export default {
-    components: {
-        FormGenerator
-    },
     data() {
         return {
             model: {

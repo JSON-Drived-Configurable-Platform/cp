@@ -11,11 +11,7 @@
     />
 </template>
 <script>
-import {Cascader} from 'iview';
 export default {
-    components: {
-        Cascader
-    },
     props: {
         model: {
             type: [Object, Array, String, Boolean],

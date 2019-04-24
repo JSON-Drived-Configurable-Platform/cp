@@ -21,13 +21,10 @@
     </Form>
 </template>
 <script>
-import {Form, FormItem} from 'iview';
 import ControlGenerator from './control-generator';
 export default {
     name: 'FormGenerator',
     components: {
-        Form,
-        FormItem,
         ControlGenerator
     },
     props: {

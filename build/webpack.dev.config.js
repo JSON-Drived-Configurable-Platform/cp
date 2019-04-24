@@ -1,5 +1,5 @@
 /**
- * 本地预览
+ * 本地开发及预览
  */
 
 const path = require('path');
@@ -10,16 +10,27 @@ const webpackBaseConfig = require('./webpack.base.config.js');
 
 
 module.exports = merge(webpackBaseConfig, {
+    mode: 'development',
+    devServer: {
+        compress: true,
+        port: 9000,
+        host: '0.0.0.0',
+        historyApiFallback: true,
+        hot: true,
+        inline: true,
+        open: true,
+        writeToDisk: true
+    },
     devtool: 'eval-source-map',
 
     // 入口
     entry: {
-        main: './example/main',
+        main: path.resolve(__dirname, '../example/main'),
         vendors: ['vue', 'iview']
     },
     // 输出
     output: {
-        path: path.join(__dirname, '../example/dist'),
+        path: path.resolve(__dirname, '../example/dist'),
         publicPath: '',
         filename: '[name].js',
         chunkFilename: '[name].chunk.js'
@@ -27,8 +38,8 @@ module.exports = merge(webpackBaseConfig, {
     plugins: [
         new HtmlWebpackPlugin({
             inject: true,
-            filename: path.join(__dirname, '../example/dist/index.html'),
-            template: path.join(__dirname, '../example/index.html')
+            filename: path.resolve(__dirname, '../example/dist/index.html'),
+            template: path.resolve(__dirname, '../example/index.html')
         })
     ]
 });

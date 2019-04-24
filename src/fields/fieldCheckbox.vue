@@ -14,12 +14,7 @@
     </CheckboxGroup>
 </template>
 <script>
-import {CheckboxGroup, Checkbox} from 'iview';
 export default {
-    components: {
-        CheckboxGroup,
-        Checkbox
-    },
     props: {
         model: {
             type: Array,

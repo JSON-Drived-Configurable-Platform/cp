@@ -15,11 +15,7 @@
     />
 </template>
 <script>
-import {InputNumber} from 'iview';
 export default {
-    components: {
-        InputNumber
-    },
     props: {
         model: {
             type: [Number, null, String],
