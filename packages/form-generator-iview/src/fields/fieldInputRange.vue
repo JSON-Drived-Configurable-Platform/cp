@@ -40,11 +40,7 @@
     </div>
 </template>
 <script>
-import {Input} from 'iview';
 export default {
-    components: {
-        Input
-    },
     props: {
         model: {
             type: [String],

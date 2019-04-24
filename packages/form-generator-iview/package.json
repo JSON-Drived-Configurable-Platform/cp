@@ -14,7 +14,7 @@
         "form-generator",
         "form-generator-iview"
     ],
-    "main": "dist/form-generator-iview.js",
+    "main": "src/index.js",
     "typings": "types/index.d.ts",
     "files": [
         "dist",
@@ -22,7 +22,10 @@
         "types"
     ],
     "scripts": {
-        "dev": "webpack-dev-server --content-base test/ --open --inline --hot --compress --history-api-fallback --port 8081 --config build/webpack.dev.config.js",
+        "dev": "webpack-dev-server --color --progress --config build/webpack.dev.config.js",
+        "build-dev": "webpack --color --progress --config build/webpack.dist.dev.config.js",
+        "build-prod": "webpack --color --progress --config build/webpack.dist.prod.config.js",
+        "build": "npm run build-dev && npm run build-prod",
         "lint": "eslint --fix --ext .js,.vue src"
     },
     "repository": {

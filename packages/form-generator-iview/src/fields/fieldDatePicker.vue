@@ -11,11 +11,7 @@
     />
 </template>
 <script>
-import {DatePicker} from 'iview';
 export default {
-    components: {
-        DatePicker
-    },
     props: {
         model: {
             type: [Array, String],

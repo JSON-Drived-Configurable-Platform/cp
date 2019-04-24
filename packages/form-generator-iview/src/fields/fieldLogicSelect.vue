@@ -110,13 +110,8 @@
     </div>
 </template>
 <script>
-import {Select, Option} from 'iview';
 import {logicInputMap} from '../utils/const';
 export default {
-    components: {
-        Select,
-        Option
-    },
     props: {
         model: {
             type: Object,

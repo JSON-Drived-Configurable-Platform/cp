@@ -14,12 +14,7 @@
     </RadioGroup>
 </template>
 <script>
-import {RadioGroup, Radio} from 'iview';
 export default {
-    components: {
-        RadioGroup,
-        Radio
-    },
     props: {
         model: {
             type: [String, Number],
