@@ -24,15 +24,11 @@ export default {
         field: {
             type: Object,
             required: true
-        },
-        onChange: {
-            type: Function,
-            required: true
         }
     },
     methods: {
         handleChange(e) {
-            this.onChange(this.field.model, e.target.value, e, this.field);
+            this.$emit('on-change', this.field.model, e.target.value, e, this.field);
         }
     }
 };

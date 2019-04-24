@@ -31,7 +31,7 @@
         </Select>
         <Select
             v-if="['single', 'multiple'].includes(valueType)"
-            :value="model.logic"
+            :value="model.value"
             :multiple="valueType === 'multiple'"
             :disabled="field.disabled"
             :clearable="field.clearable"
@@ -62,7 +62,7 @@
             }"
         >
             <Select
-                :value="model.logic"
+                :value="model.value"
                 :multiple="field.multiple"
                 :disabled="field.disabled"
                 :clearable="field.clearable"
@@ -85,7 +85,7 @@
             </Select>
             <span :style="{width: '20px',textAlign: 'center'}">~</span>
             <Select
-                :value="model.logic"
+                :value="model.value"
                 :multiple="field.multiple"
                 :disabled="field.disabled"
                 :clearable="field.clearable"
@@ -119,10 +119,6 @@ export default {
         },
         field: {
             type: Object,
-            required: true
-        },
-        onChange: {
-            type: Function,
             required: true
         }
     },
@@ -175,7 +171,7 @@ export default {
             this.handleChange();
         },
         handleChange() {
-            this.onChange(this.field.model, this.value, null, this.field);
+            this.$emit('on-change', this.field.model, this.value, null, this.field);
         },
         handleStartChange(value) {
             this.start = value;
@@ -187,7 +183,7 @@ export default {
         },
         handleDoubleTextChange() {
             this.value.value = this.start + ' - ' + this.end;
-            this.onChange(this.field.model, this.value, null, this.field);
+            this.$emit('on-change', this.field.model, this.value, null, this.field);
         }
     }
 };

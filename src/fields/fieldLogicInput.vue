@@ -99,10 +99,6 @@ export default {
         field: {
             type: Object,
             required: true
-        },
-        onChange: {
-            type: Function,
-            required: true
         }
     },
     data() {
@@ -154,7 +150,7 @@ export default {
             this.handleChange();
         },
         handleChange() {
-            this.onChange(this.field.model, this.value, null, this.field);
+            this.$emit('on-change', this.field.model, this.value, null, this.field);
         },
         handleStartChange(e) {
             this.start = e.target.value;
@@ -166,7 +162,7 @@ export default {
         },
         handleDoubleTextChange() {
             this.value.value = this.start + ' - ' + this.end;
-            this.onChange(this.field.model, this.value, null, this.field);
+            this.$emit('on-change', this.field.model, this.value, null, this.field);
         }
     }
 };

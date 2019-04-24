@@ -15,7 +15,7 @@
             <ControlGenerator
                 :field="field"
                 :model="formModel[field.model]"
-                :on-field-change="handleFieldChange"
+                @on-field-change="handleFieldChange"
             />
         </FormItem>
     </Form>
@@ -48,23 +48,23 @@ export default {
             default() {
                 return {};
             }
-        },
-        handleFieldChange: {
-            type: Function,
-            default() {
-                return (model, value) => {
-                    this.formModel[model] = value;
-                    this.$refs.form.validateField(model);
-                };
-            }
         }
     },
     data () {
         return {
-            formModel: this.model
+            formModel: this.model || {}
         };
     },
+    created() {
+        this.$watch('model', model => {
+            this.formModel = model;
+        });
+    },
     methods: {
+        handleFieldChange(model, value){
+            this.formModel[model] = value;
+            // this.$refs.form.validateField(model);
+        },
         getRules(field) {
             const type = field.type.toLowerCase();
             const subType = field.subType;
@@ -148,10 +148,15 @@ export default {
             return this.formModel;
         },
         submit() {
-            this.$refs.form.validate((valid) => {
-                if (valid) {
-                    // do something
-                }
+            return new Promise((resolve, reject) => {
+                this.$refs.form.validate().then(valid => {
+                    if (valid) {
+                        resolve(this.formModel);
+                    }
+                    else {
+                        reject();
+                    }
+                });
             });
         }
     }

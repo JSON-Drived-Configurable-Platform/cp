@@ -3,7 +3,7 @@
         :is="getFieldCom(field.type)"
         :field="field"
         :model="model"
-        :on-change="onFieldChange"
+        @on-change="onFieldChange"
     />
 </template>
 <script>
@@ -24,16 +24,12 @@ export default {
             default() {
                 return [];
             }
-        },
-        onFieldChange: {
-            type: Function,
-            required: true
         }
     },
-    data () {
-        return {};
-    },
     methods: {
+        onFieldChange(model, value) {
+            this.$emit('on-field-change', model, value);
+        },
         getFieldCom(comType = '') {
             return `field${comType}`;
         }
