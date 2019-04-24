@@ -62,7 +62,7 @@
             }"
         >
             <Select
-                :value="model.value"
+                :value="start"
                 :multiple="field.multiple"
                 :disabled="field.disabled"
                 :clearable="field.clearable"
@@ -85,7 +85,7 @@
             </Select>
             <span :style="{width: '20px',textAlign: 'center'}">~</span>
             <Select
-                :value="model.value"
+                :value="end"
                 :multiple="field.multiple"
                 :disabled="field.disabled"
                 :clearable="field.clearable"
@@ -174,6 +174,7 @@ export default {
             this.$emit('on-change', this.field.model, this.value, null, this.field);
         },
         handleStartChange(value) {
+            debugger;
             this.start = value;
             this.handleDoubleTextChange();
         },
