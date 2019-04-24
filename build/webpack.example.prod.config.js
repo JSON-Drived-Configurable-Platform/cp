@@ -7,20 +7,11 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge');
 const webpackBaseConfig = require('./webpack.base.config.js');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 
 module.exports = merge(webpackBaseConfig, {
-    mode: 'development',
-    devServer: {
-        compress: true,
-        port: 9000,
-        host: '0.0.0.0',
-        historyApiFallback: true,
-        hot: true,
-        inline: true,
-        open: true,
-        writeToDisk: true
-    },
+    mode: 'production',
     devtool: 'eval-source-map',
 
     // 入口
@@ -40,6 +31,7 @@ module.exports = merge(webpackBaseConfig, {
             inject: true,
             filename: path.resolve(__dirname, '../example/dist/index.html'),
             template: path.resolve(__dirname, '../example/index.html')
-        })
+        }),
+        new CleanWebpackPlugin()
     ]
 });

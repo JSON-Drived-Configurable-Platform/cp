@@ -22,11 +22,13 @@
         "types"
     ],
     "scripts": {
-        "dev": "webpack-dev-server --color --progress --config build/webpack.dev.config.js",
+        "dev": "webpack-dev-server --color --progress --config build/webpack.example.dev.config.js",
+        "build-example": "webpack --color --progress --config build/webpack.example.prod.config.js",
         "build-dev": "webpack --color --progress --config build/webpack.dist.dev.config.js",
         "build-prod": "webpack --color --progress --config build/webpack.dist.prod.config.js",
         "build": "npm run build-dev && npm run build-prod",
-        "lint": "eslint --fix --ext .js,.vue src"
+        "lint": "eslint --fix --ext .js,.vue src",
+        "deploy": "fis3 release --root=./example/dist/ --file=./deploy-baidu/config.js"
     },
     "repository": {
         "type": "git",
@@ -50,6 +52,7 @@
         "@babel/preset-env": "^7.4.3",
         "babel-eslint": "^10.0.1",
         "babel-loader": "^8.0.5",
+        "clean-webpack-plugin": "^2.0.1",
         "css-loader": "^2.1.1",
         "eslint": "^5.16.0",
         "eslint-plugin-vue": "^5.2.2",
