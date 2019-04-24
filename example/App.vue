@@ -8,10 +8,7 @@
                 <h3 :style="{textAlign: 'center'}">
                     配置项
                 </h3>
-                <Form
-                    :model="form"
-                    :label-width="80"
-                >
+                <Form :model="form">
                     <FormItem>
                         <Input
                             :value="form.config"
