@@ -295,8 +295,23 @@ export const model = {
     }
 };
 
+export const options = {
+    labelWidth: 100,
+    inline: true,
+    labelPosition: 'left',
+    itemWidth: '300',
+    title: '测试表单',
+    tip: {
+        title: '规则',
+        content: '规则内容',
+    }
+};
 
-export const config = fields.map(item => {
-    item.defaultValue = model[item.model];
-    return item;
-});
+
+export const config = {
+    fields: fields.map(item => {
+        item.defaultValue = model[item.model];
+        return item;
+    }),
+    options
+};

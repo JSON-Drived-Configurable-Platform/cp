@@ -1,25 +1,52 @@
 <template>
-    <Form
-        ref="form"
-        :model="formModel"
-        :label-width="options.labelWidth"
-        :inline="options.inline"
-    >
-        <FormItem
-            v-for="field in fields"
-            :key="field.model"
-            :label="field.label"
-            :prop="field.model"
-            :required="field.required"
-            :rules="getRules(field)"
+    <div>
+        <h3
+            :style="{height: '30px',fontSize: '18px', fontWeight: 700}"
         >
-            <ControlGenerator
-                :field="field"
-                :model="formModel[field.model]"
-                @on-field-change="handleFieldChange"
-            />
-        </FormItem>
-    </Form>
+            {{ options.title }}
+
+
+            <Poptip
+                v-if="tip.title"
+                :style="{float: 'right', marginRight: '30px'}"
+                :title="tip.title"
+                :content="tip.content"
+                placement="left-start"
+            >
+                <Icon
+                    type="md-help-circle"
+                />
+            </Poptip>
+        </h3>
+        <Divider
+            v-if="options.title || tip.title"
+            dashed
+            size="small"
+        />
+        <Form
+            ref="form"
+            :model="formModel"
+            :label-width="options.labelWidth"
+            :inline="options.inline"
+            :label-position="options.labelPosition"
+        >
+            <FormItem
+                v-for="field in fields"
+                :key="field.model"
+                :label="field.label"
+                :prop="field.model"
+                :required="field.required"
+                :rules="getRules(field)"
+                :style="itemStyle"
+            >
+                <ControlGenerator
+                    :field="field"
+                    :model="formModel[field.model]"
+                    @on-field-change="handleFieldChange"
+                />
+            </FormItem>
+        </Form>
+    </div>
 </template>
 <script>
 import ControlGenerator from './control-generator';
@@ -56,6 +83,22 @@ export default {
             formModel: this.model || {}
         };
     },
+
+    computed: {
+        itemStyle() {
+            return {
+                width: this.options.itemWidth + 'px',
+                marginRight: '30px'
+            };
+        },
+        tip() {
+            return {
+                title: this.options.tip && this.options.tip.title,
+                content: this.options.tip && this.options.tip.content,
+            };
+        }
+    },
+
     created() {
         this.$watch('model', model => {
             this.formModel = model;
