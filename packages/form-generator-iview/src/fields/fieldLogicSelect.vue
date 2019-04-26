@@ -174,7 +174,6 @@ export default {
             this.$emit('on-change', this.field.model, this.value, null, this.field);
         },
         handleStartChange(value) {
-            debugger;
             this.start = value;
             this.handleDoubleTextChange();
         },
