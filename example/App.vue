@@ -2,10 +2,10 @@
     <div>
         <Row class="container">
             <iCol
-                span="8"
-                :style="{padding: '30px'}"
+                span="6"
+                :style="{padding: '10px'}"
             >
-                <h3 :style="{textAlign: 'center'}">
+                <h3 :style="{textAlign: 'center', margin: '30px'}">
                     配置项
                 </h3>
                 <Form :model="form">
@@ -22,10 +22,10 @@
                 </Form>
             </iCol>
             <iCol
-                span="6"
-                :style="{padding: '30px'}"
+                span="5"
+                :style="{padding: '10px'}"
             >
-                <h3 :style="{textAlign: 'center'}">
+                <h3 :style="{textAlign: 'center', margin: '30px'}">
                     值
                 </h3>
                 <Input
@@ -37,9 +37,9 @@
                     disabled
                 />
             </iCol>
-            <iCol span="10">
+            <iCol span="13">
                 <div class="container">
-                    <h3 :style="{textAlign: 'center'}">
+                    <h3 :style="{textAlign: 'center', margin: '30px'}">
                         表单
                     </h3>
                     <FormGenerator
@@ -59,7 +59,7 @@
 
 <script>
 import {Col} from 'iview';
-import {config, model, fields} from './config';
+import {config, model, fields, options} from './config';
 export default {
     components: {
         iCol: Col
@@ -71,9 +71,7 @@ export default {
             },
             model,
             fields,
-            options: {
-                labelWidth: 140
-            },
+            options,
         };
     },
     mounted: function() {
@@ -92,11 +90,12 @@ export default {
             }
 
             let model = {};
-            config.forEach(item => {
+            config.fields.forEach(item => {
                 model[item.model] = item.defaultValue;
             });
             this.model = model;
-            this.fields = config;
+            this.fields = config.fields;
+            this.options = config.options;
         },
         submit() {
             this.$refs.FormGenerator
@@ -110,6 +109,6 @@ export default {
 </script>
 <style lang="less" scoped>
     .container {
-        padding: 30px
+        padding: 10px
     }
 </style>
