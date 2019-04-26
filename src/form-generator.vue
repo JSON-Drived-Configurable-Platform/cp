@@ -3,6 +3,7 @@
         ref="form"
         :model="formModel"
         :label-width="options.labelWidth"
+        :inline="options.inline"
     >
         <FormItem
             v-for="field in fields"
