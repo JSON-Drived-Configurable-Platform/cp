@@ -47,7 +47,9 @@
                 :key="item.value"
                 :value="item.value"
                 :disabled="item.disabled"
-            >{{ item.label }}</Option>
+            >
+                {{ item.label }}
+            </Option>
         </Select>
         <div
             v-if="valueType === 'double'"
@@ -76,7 +78,9 @@
                     :key="item.value"
                     :value="item.value"
                     :disabled="item.disabled"
-                >{{ item.label }}</Option>
+                >
+                    {{ item.label }}
+                </Option>
             </Select>
             <span :style="{width: '20px',textAlign: 'center'}">~</span>
             <Select
@@ -97,7 +101,9 @@
                     :key="item.value"
                     :value="item.value"
                     :disabled="item.disabled"
-                >{{ item.label }}</Option>
+                >
+                    {{ item.label }}
+                </Option>
             </Select>
         </div>
     </div>

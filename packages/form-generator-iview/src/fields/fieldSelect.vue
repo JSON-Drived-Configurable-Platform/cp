@@ -17,7 +17,9 @@
             :key="item.value"
             :value="item.value"
             :disabled="item.disabled"
-        >{{ item.label }}</Option>
+        >
+            {{ item.label }}
+        </Option>
     </Select>
 </template>
 <script>
