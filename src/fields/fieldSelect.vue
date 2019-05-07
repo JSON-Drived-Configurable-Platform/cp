@@ -4,25 +4,24 @@
         :multiple="field.multiple"
         :disabled="field.disabled"
         :clearable="field.clearable"
-        :filterable="field.filterable"
+        :filterable="filterable"
         :size="field.size"
         :placeholder="field.placeholder"
         :remote="remote"
-        :remote-method="remoteMethod(field)"
+        :remote-method="remoteMethod"
         :loading="loading"
         @on-change="handleChange"
     >
         <Option
-            v-for="item in field.options"
+            v-for="item in computedOptions"
             :key="item.value"
             :value="item.value"
             :disabled="item.disabled"
-        >
-            {{ item.label }}
-        </Option>
+        >{{ item.label }}</Option>
     </Select>
 </template>
 <script>
+import axios from '../utils/http';
 export default {
     props: {
         model: {
@@ -36,7 +35,8 @@ export default {
     },
     data() {
         return {
-            loading: false
+            loading: false,
+            options: []
         };
     },
     computed: {
@@ -45,18 +45,37 @@ export default {
         },
         filterable() {
             return !!this.field.api || this.field.filterable;
+        },
+        computedOptions() {
+            return this.field.api ? this.options : this.field.options;
+        }
+    },
+    created() {
+        if (this.field.api) {
+            this.getRemoteOptions();
         }
     },
     methods: {
+        handleChange(value) {
+            this.$emit('on-change', this.field.model, value, null, this.field);
+        },
         remoteMethod() {
-            // TODO
             if (!this.field.api) {
                 return;
             }
-            this.loading = true;
+            this.getRemoteOptions();
         },
-        handleChange(value) {
-            this.$emit('on-change', this.field.model, value, null, this.field);
+        getRemoteOptions() {
+            this.loading = true;
+            axios.request({
+                url: this.field.api,
+                method: 'get'
+            }).then(({status, data}) => {
+                if (+status === 0) {
+                    this.options = data;
+                    this.loading = false;
+                }
+            });
         }
     }
 };
