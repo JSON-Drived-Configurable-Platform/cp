@@ -1,11 +1,9 @@
 <template>
-    <div>
+    <div class="form-generator">
         <h3
             :style="{height: '30px',fontSize: '18px', fontWeight: 700}"
         >
             {{ options.title }}
-
-
             <Poptip
                 v-if="tip.title"
                 :style="{float: 'right', marginRight: '30px'}"
@@ -13,9 +11,7 @@
                 :content="tip.content"
                 placement="left-start"
             >
-                <Icon
-                    type="md-help-circle"
-                />
+                <Icon type="md-help-circle" />
             </Poptip>
         </h3>
         <Divider
@@ -31,7 +27,7 @@
             :label-position="options.labelPosition"
         >
             <FormItem
-                v-for="field in fields"
+                v-for="field in computedFields.defaultShowFields"
                 :key="field.model"
                 :label="field.label"
                 :prop="field.model"
@@ -46,6 +42,28 @@
                     @on-field-change="handleFieldChange"
                 />
             </FormItem>
+            <Divider
+                dashed
+                size="small"
+            />
+            <div>
+                <FormItem
+                    v-for="field in computedFields.defaultHideFields"
+                    :key="field.model"
+                    :label="field.label"
+                    :prop="field.model"
+                    :required="field.required"
+                    :rules="getRules(field)"
+                    :style="itemStyle"
+                >
+                    <ControlGenerator
+                        :field="field"
+                        :model="formModel[field.model]"
+                        :form-model="formModel"
+                        @on-field-change="handleFieldChange"
+                    />
+                </FormItem>
+            </div>
         </Form>
     </div>
 </template>
@@ -96,6 +114,23 @@ export default {
             return {
                 title: this.options.tip && this.options.tip.title,
                 content: this.options.tip && this.options.tip.content,
+            };
+        },
+        computedFields() {
+            let fields = this.fields || [];
+            let defaultShowFields = [];
+            let defaultHideFields = [];
+            fields.forEach(field => {
+                if (field.defaultShow) {
+                    defaultShowFields.push(field);
+                }
+                else {
+                    defaultHideFields.push(field);
+                }
+            });
+            return {
+                defaultShowFields,
+                defaultHideFields
             };
         }
     },
@@ -207,3 +242,11 @@ export default {
     }
 };
 </script>
+<style lang="less">
+.form-generator {
+    .ivu-divider {
+        margin: 10px auto
+    }
+}
+
+</style>
