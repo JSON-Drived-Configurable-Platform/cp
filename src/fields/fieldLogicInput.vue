@@ -16,7 +16,6 @@
             :size="field.size"
             :placeholder="field.placeholder"
             :remote="remote"
-            :remote-method="remoteMethod(field)"
             :style="{width: '100px', marginRight: '20px'}"
             @on-change="handleLogicChange"
         >
