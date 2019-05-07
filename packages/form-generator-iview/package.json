@@ -91,6 +91,7 @@
         "Android >= 6"
     ],
     "dependencies": {
+        "axios": "^0.18.0",
         "core-js": "2"
     },
     "pre-commit": [

@@ -12,11 +12,10 @@
             :multiple="field.multiple"
             :disabled="field.disabled"
             :clearable="field.clearable"
-            :filterable="field.filterable"
             :size="field.size"
             :placeholder="field.placeholder"
             :remote="remote"
-            :remote-method="remoteMethod(field)"
+            :remote-method="remoteMethod"
             :style="{width: '100px', marginRight: '20px'}"
             @on-change="handleLogicChange"
         >
@@ -35,22 +34,20 @@
             :multiple="valueType === 'multiple'"
             :disabled="field.disabled"
             :clearable="field.clearable"
-            :filterable="field.filterable"
+            :filterable="filterable"
             :size="field.size"
             :placeholder="field.placeholder"
             :remote="remote"
-            :remote-method="remoteMethod(field)"
+            :remote-method="remoteMethod"
             :style="{width: '100px', marginRight: '20px'}"
             @on-change="handleLogicValueChange"
         >
             <Option
-                v-for="item in field.options"
+                v-for="item in computedOptions"
                 :key="item.value"
                 :value="item.value"
                 :disabled="item.disabled"
-            >
-                {{ item.label }}
-            </Option>
+            >{{ item.label }}</Option>
         </Select>
         <div
             v-if="valueType === 'double'"
@@ -66,22 +63,20 @@
                 :multiple="field.multiple"
                 :disabled="field.disabled"
                 :clearable="field.clearable"
-                :filterable="field.filterable"
+                :filterable="filterable"
                 :size="field.size"
                 :placeholder="field.placeholder"
                 :remote="remote"
-                :remote-method="remoteMethod(field)"
-                :style="{width: '100px', marginRight: '20px'}"
+                :remote-method="remoteMethod"
+                :style="{width: '100px'}"
                 @on-change="handleStartChange"
             >
                 <Option
-                    v-for="item in field.options"
+                    v-for="item in computedOptions"
                     :key="item.value"
                     :value="item.value"
                     :disabled="item.disabled"
-                >
-                    {{ item.label }}
-                </Option>
+                >{{ item.label }}</Option>
             </Select>
             <span :style="{width: '20px',textAlign: 'center'}">~</span>
             <Select
@@ -89,28 +84,27 @@
                 :multiple="field.multiple"
                 :disabled="field.disabled"
                 :clearable="field.clearable"
-                :filterable="field.filterable"
+                :filterable="filterable"
                 :size="field.size"
                 :placeholder="field.placeholder"
                 :remote="remote"
-                :remote-method="remoteMethod(field)"
-                :style="{width: '100px', marginRight: '20px'}"
+                :remote-method="remoteMethod"
+                :style="{width: '100px'}"
                 @on-change="handleEndChange"
             >
                 <Option
-                    v-for="item in field.options"
+                    v-for="item in computedOptions"
                     :key="item.value"
                     :value="item.value"
                     :disabled="item.disabled"
-                >
-                    {{ item.label }}
-                </Option>
+                >{{ item.label }}</Option>
             </Select>
         </div>
     </div>
 </template>
 <script>
 import {logicInputMap} from '../utils/const';
+import axios from '../utils/http';
 export default {
     props: {
         model: {
@@ -126,7 +120,8 @@ export default {
         return {
             start: '',
             end: '',
-            value: this.model || {logic: '=', value: ''}
+            value: this.model || {logic: '=', value: ''},
+            options: []
         };
     },
     computed: {
@@ -146,16 +141,36 @@ export default {
             });
         },
         valueType() {
-            return logicInputMap[this.value.logic].valueType || 'input';
+            let logic = this.value.logic || '=';
+            return logicInputMap[logic].valueType || 'input';
+        },
+        computedOptions() {
+            return this.field.api ? this.options : this.field.options;
+        }
+    },
+    created() {
+        if (this.field.api) {
+            this.getRemoteOptions();
         }
     },
     methods: {
         remoteMethod() {
-            // TODO
             if (!this.field.api) {
                 return;
             }
+            this.getRemoteOptions();
+        },
+        getRemoteOptions() {
             this.loading = true;
+            axios.request({
+                url: this.field.api,
+                method: 'get'
+            }).then(({status, data}) => {
+                if (+status === 0) {
+                    this.options = data;
+                    this.loading = false;
+                }
+            });
         },
         handleLogicValueChange(value) {
             this.value.value = value;

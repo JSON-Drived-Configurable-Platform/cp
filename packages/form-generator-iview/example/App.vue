@@ -2,7 +2,7 @@
     <div>
         <Row class="container">
             <iCol
-                span="6"
+                span="5"
                 :style="{padding: '10px'}"
             >
                 <h3 :style="{textAlign: 'center', margin: '30px'}">
@@ -22,7 +22,7 @@
                 </Form>
             </iCol>
             <iCol
-                span="5"
+                span="4"
                 :style="{padding: '10px'}"
             >
                 <h3 :style="{textAlign: 'center', margin: '30px'}">
@@ -37,7 +37,7 @@
                     disabled
                 />
             </iCol>
-            <iCol span="13">
+            <iCol span="15">
                 <div class="container">
                     <h3 :style="{textAlign: 'center', margin: '30px'}">
                         表单

@@ -19,8 +19,24 @@ module.exports = merge(webpackBaseConfig, {
         historyApiFallback: true,
         hot: true,
         inline: true,
-        open: true
+        open: true,
+        before: function(app) {
+            let data = [];
+            for (let i = 0; i <= 100; i++) {
+                data.push({
+                    label: `选项${i}`,
+                    value: i + ''
+                });
+            }
+            app.get('/selectApi', function(req, res) {
+                res.json({
+                    status: 0,
+                    data
+                });
+            });
+        },
     },
+
     devtool: 'eval-source-map',
 
     // 入口

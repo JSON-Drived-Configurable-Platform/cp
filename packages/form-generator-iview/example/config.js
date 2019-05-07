@@ -51,6 +51,14 @@ export const fields = [
         ]
     },
     {
+        key: '100211',
+        type: 'Select',
+        label: '单选下拉可搜索',
+        model: 'singleSelectApi',
+        required: true,
+        api: '/selectApi'
+    },
+    {
         key: '10021',
         type: 'Select',
         label: '多选下拉',
@@ -71,9 +79,10 @@ export const fields = [
     {
         key: '10023',
         type: 'Select',
-        label: '单选下拉支持搜索',
-        api: 'http://www.baidu.com',
-        model: 'singleSelectRemote'
+        multiple: true,
+        label: '多选下拉支持搜索',
+        api: '/selectApi',
+        model: 'multiSelectApi'
     },
     // {
     //     key: '10023',
@@ -138,7 +147,7 @@ export const fields = [
     {
         key: '1005',
         type: 'Cascader',
-        label: '级联',
+        label: '省/城市/景点',
         model: 'cascader',
         required: true,
         options: [{
@@ -182,7 +191,17 @@ export const fields = [
                         },
                         {
                             value: 'shizilin',
-                            label: '狮子林',
+                            label: '狮子林狮子林狮子林狮子林狮子林狮子林',
+                            children: [
+                                {
+                                    value: '1',
+                                    label: '选项一',
+                                },
+                                {
+                                    value: '2',
+                                    label: '选项2选项2选项2选项2选项2选项2选项2选项2',
+                                }
+                            ]
                         }
                     ]
                 }
@@ -259,6 +278,15 @@ export const fields = [
             }
         ]
     },
+    {
+        key: '100081',
+        type: 'LogicSelect',
+        label: '逻辑选择',
+        model: 'logicSelectApi',
+        required: true,
+        enables: ['=', '>', '>=', '<', '<=', 'betweenIn', 'betweenWith', '!=', 'multiple'],
+        api: '/selectApi'
+    },
     // {
     //     key: '10007',
     //     type: 'LogicTimePicker',
@@ -275,8 +303,9 @@ export const model = {
     'name-forbidden': 'wangbing',
     'name-textarea': '啊啊啊啊啊',
     singleSelect: '1',
+    singleSelectApi: '',
     multiSelect: ['1', '2'],
-    singleSelectRemote: '',
+    multiSelectApi: [],
     checkbox: ['1', '2'],
     radio: '1',
     date: '2016-01-01',
@@ -292,14 +321,15 @@ export const model = {
     logicSelect: {
         logic: '=',
         value: '1'
-    }
+    },
+    logicSelectApi: {}
 };
 
 export const options = {
     labelWidth: 100,
     inline: true,
     labelPosition: 'left',
-    itemWidth: '300',
+    itemWidth: '400',
     title: '测试表单',
     tip: {
         title: '规则',
