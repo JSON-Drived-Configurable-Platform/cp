@@ -56,7 +56,8 @@ export const fields = [
         label: '单选下拉可搜索',
         model: 'singleSelectApi',
         required: true,
-        api: '/selectApi'
+        api: '/selectApi',
+        apiParams: ['radio']
     },
     {
         key: '10021',
@@ -82,6 +83,7 @@ export const fields = [
         multiple: true,
         label: '多选下拉支持搜索',
         api: '/selectApi',
+        apiParams: ['radio'],
         model: 'multiSelectApi'
     },
     // {
@@ -285,7 +287,8 @@ export const fields = [
         model: 'logicSelectApi',
         required: true,
         enables: ['=', '>', '>=', '<', '<=', 'betweenIn', 'betweenWith', '!=', 'multiple'],
-        api: '/selectApi'
+        api: '/selectApi',
+        apiParams: ['radio']
     },
     // {
     //     key: '10007',

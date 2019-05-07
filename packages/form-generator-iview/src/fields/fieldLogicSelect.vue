@@ -47,9 +47,7 @@
                 :key="item.value"
                 :value="item.value"
                 :disabled="item.disabled"
-            >
-                {{ item.label }}
-            </Option>
+            >{{ item.label }}</Option>
         </Select>
         <div
             v-if="valueType === 'double'"
@@ -78,9 +76,7 @@
                     :key="item.value"
                     :value="item.value"
                     :disabled="item.disabled"
-                >
-                    {{ item.label }}
-                </Option>
+                >{{ item.label }}</Option>
             </Select>
             <span :style="{width: '20px',textAlign: 'center'}">~</span>
             <Select
@@ -101,9 +97,7 @@
                     :key="item.value"
                     :value="item.value"
                     :disabled="item.disabled"
-                >
-                    {{ item.label }}
-                </Option>
+                >{{ item.label }}</Option>
             </Select>
         </div>
     </div>
@@ -113,6 +107,13 @@ import {logicInputMap} from '../utils/const';
 import axios from '../utils/http';
 export default {
     props: {
+        formModel: {
+            type: Object,
+            required: true,
+            default() {
+                return {};
+            }
+        },
         model: {
             type: Object,
             required: true
@@ -168,9 +169,16 @@ export default {
         },
         getRemoteOptions() {
             this.loading = true;
+            let formModel = this.formModel;
+            let apiParams = this.field.apiParams || [];
+            let params = {};
+            apiParams.forEach(param => {
+                params[param] = formModel[param];
+            });
             axios.request({
                 url: this.field.api,
-                method: 'get'
+                method: 'get',
+                params
             }).then(({status, data}) => {
                 if (+status === 0) {
                     this.options = data;

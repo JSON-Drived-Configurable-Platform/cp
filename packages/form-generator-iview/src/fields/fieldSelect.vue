@@ -17,15 +17,20 @@
             :key="item.value"
             :value="item.value"
             :disabled="item.disabled"
-        >
-            {{ item.label }}
-        </Option>
+        >{{ item.label }}</Option>
     </Select>
 </template>
 <script>
 import axios from '../utils/http';
 export default {
     props: {
+        formModel: {
+            type: Object,
+            required: true,
+            default() {
+                return {};
+            }
+        },
         model: {
             type: [String, Number, Array],
             required: true
@@ -69,9 +74,16 @@ export default {
         },
         getRemoteOptions() {
             this.loading = true;
+            let formModel = this.formModel;
+            let apiParams = this.field.apiParams || [];
+            let params = {};
+            apiParams.forEach(param => {
+                params[param] = formModel[param];
+            });
             axios.request({
                 url: this.field.api,
-                method: 'get'
+                method: 'get',
+                params
             }).then(({status, data}) => {
                 if (+status === 0) {
                     this.options = data;

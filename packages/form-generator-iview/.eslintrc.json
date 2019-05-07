@@ -20,6 +20,7 @@
         "semi": ["error", "always"],
         "vue/jsx-uses-vars": 2,
         "no-console": ["error"],
-        "vue/html-indent": ["error", 4]
+        "vue/html-indent": ["error", 4],
+        "vue/multiline-html-element-content-newline": "disabled"
     }
 }
