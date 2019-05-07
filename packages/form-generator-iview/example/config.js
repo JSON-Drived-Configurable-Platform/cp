@@ -5,7 +5,8 @@ export const fields = [
         label: '输入框',
         model: 'name',
         placeholder: '请输入用户名',
-        required: true
+        required: true,
+        defaultShow: true
     },
     {
         key: '10001',
@@ -14,7 +15,8 @@ export const fields = [
         model: 'name-forbidden',
         readonly: true,
         disabled: true,
-        placeholder: '请输入用户名'
+        placeholder: '请输入用户名',
+        defaultShow: true
     },
     {
         key: '10002',
@@ -23,7 +25,8 @@ export const fields = [
         label: '输入框',
         model: 'name-textarea',
         placeholder: '请输入用户名',
-        required: true
+        required: true,
+        defaultShow: true
     },
     {
         key: '100021',
@@ -31,7 +34,8 @@ export const fields = [
         label: '数字多行输入框',
         model: 'inputNumber',
         placeholder: '',
-        required: true
+        required: true,
+        defaultShow: true
     },
     {
         key: '1002',
@@ -48,7 +52,8 @@ export const fields = [
                 label: '选项二',
                 value: '2'
             }
-        ]
+        ],
+        defaultShow: false
     },
     {
         key: '100211',
@@ -57,7 +62,8 @@ export const fields = [
         model: 'singleSelectApi',
         required: true,
         api: '/selectApi',
-        apiParams: ['radio']
+        apiParams: ['radio'],
+        defaultShow: false
     },
     {
         key: '10021',
@@ -76,6 +82,7 @@ export const fields = [
             }
         ],
         required: true,
+        defaultShow: false
     },
     {
         key: '10023',
@@ -84,7 +91,8 @@ export const fields = [
         label: '多选下拉支持搜索',
         api: '/selectApi',
         apiParams: ['radio'],
-        model: 'multiSelectApi'
+        model: 'multiSelectApi',
+        defaultShow: false
     },
     // {
     //     key: '10023',
@@ -120,6 +128,7 @@ export const fields = [
             }
         ],
         required: true,
+        defaultShow: false
     },
     {
         key: '1004',
@@ -145,6 +154,7 @@ export const fields = [
             }
         ],
         required: true,
+        defaultShow: false
     },
     {
         key: '1005',
@@ -208,7 +218,8 @@ export const fields = [
                     ]
                 }
             ],
-        }]
+        }],
+        defaultShow: false
     },
     {
         key: '10006',
@@ -218,6 +229,7 @@ export const fields = [
         model: 'date',
         placeholder: '',
         required: true,
+        defaultShow: false
     },
     {
         key: '100061',
@@ -227,6 +239,7 @@ export const fields = [
         model: 'daterange',
         placeholder: '',
         required: true,
+        defaultShow: false
     },
     {
         key: '100062',
@@ -236,6 +249,7 @@ export const fields = [
         model: 'datetime',
         placeholder: '',
         required: true,
+        defaultShow: false
     },
     {
         key: '100063',
@@ -245,6 +259,7 @@ export const fields = [
         model: 'datetimerange',
         placeholder: '',
         required: true,
+        defaultShow: false
     },
     {
         key: '10007',
@@ -252,7 +267,8 @@ export const fields = [
         label: '逻辑输入',
         model: 'logicInput',
         required: true,
-        enables: ['=', '>', '>=', '<', '<=', 'betweenIn', 'betweenWith', '!=', 'multiple']
+        enables: ['=', '>', '>=', '<', '<=', 'betweenIn', 'betweenWith', '!=', 'multiple'],
+        defaultShow: false
     },
     {
         key: '10008',
@@ -278,7 +294,8 @@ export const fields = [
                 label: '选项四',
                 value: '4'
             }
-        ]
+        ],
+        defaultShow: false
     },
     {
         key: '100081',
@@ -288,7 +305,8 @@ export const fields = [
         required: true,
         enables: ['=', '>', '>=', '<', '<=', 'betweenIn', 'betweenWith', '!=', 'multiple'],
         api: '/selectApi',
-        apiParams: ['radio']
+        apiParams: ['radio'],
+        defaultShow: false
     },
     // {
     //     key: '10007',
