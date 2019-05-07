@@ -3,6 +3,7 @@
         :is="getFieldCom(field.type)"
         :field="field"
         :model="model"
+        :form-model="formModel"
         @on-change="onFieldChange"
     />
 </template>
@@ -14,6 +15,13 @@ export default {
         ...fieldComponents
     },
     props: {
+        formModel: {
+            type: Object,
+            required: true,
+            default() {
+                return {};
+            }
+        },
         model: {
             type: [Object, Array, String, Boolean, Number, null],
             required: true

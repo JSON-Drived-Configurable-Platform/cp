@@ -42,6 +42,7 @@
                 <ControlGenerator
                     :field="field"
                     :model="formModel[field.model]"
+                    :form-model="formModel"
                     @on-field-change="handleFieldChange"
                 />
             </FormItem>
