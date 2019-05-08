@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import iView from 'iview';
-import FormGeneratorIView from '../src/index';
 import 'iview/dist/styles/iview.css';
+import FormGeneratorIView from '../src/index';
+import '../src/style/index.less';
 import App from './app.vue';
 
 Vue.use(iView);

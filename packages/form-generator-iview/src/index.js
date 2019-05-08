@@ -1,4 +1,4 @@
-import FormGenerator from './form-generator';
+import FormGenerator from './formGenerator';
 
 const install = function(Vue) {
     if (install.installed) return;

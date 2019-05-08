@@ -1,6 +1,7 @@
 <template>
     <component
         :is="getFieldCom(field.type)"
+        :class="classes"
         :field="field"
         :model="model"
         :form-model="formModel"
@@ -9,6 +10,7 @@
 </template>
 <script>
 import fieldComponents from './utils/fieldsLoader.js';
+import {classPrifix} from './utils/const';
 export default {
     name: 'ControlGenerator',
     components: {
@@ -33,6 +35,11 @@ export default {
                 return [];
             }
         }
+    },
+    computed: {
+        classes() {
+            return `${classPrifix}-${this.field.type.toLowerCase()}`;
+        },
     },
     methods: {
         onFieldChange(model, value) {

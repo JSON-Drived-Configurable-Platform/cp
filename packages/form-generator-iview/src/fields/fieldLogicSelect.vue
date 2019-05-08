@@ -1,12 +1,5 @@
 <template>
-    <div
-        :style="{
-            display: 'flex',
-            alignItems: 'start',
-            justifyContent: 'flex-start',
-            flexDirection: 'row',
-        }"
-    >
+    <div :class="classes">
         <Select
             :value="model.logic"
             :multiple="field.multiple"
@@ -16,7 +9,7 @@
             :placeholder="field.placeholder"
             :remote="remote"
             :remote-method="remoteMethod"
-            :style="{width: '100px', marginRight: '20px'}"
+            :class="logicSelectClassess"
             @on-change="handleLogicChange"
         >
             <Option
@@ -39,7 +32,7 @@
             :placeholder="field.placeholder"
             :remote="remote"
             :remote-method="remoteMethod"
-            :style="{width: '100px', marginRight: '20px'}"
+            :class="singleSelectClassess"
             @on-change="handleLogicValueChange"
         >
             <Option
@@ -51,12 +44,7 @@
         </Select>
         <div
             v-if="valueType === 'double'"
-            :style="{
-                display: 'flex',
-                alignItems: 'start',
-                justifyContent: 'flex-start',
-                flexDirection: 'row',
-            }"
+            :class="doubleSelectBoxClassess"
         >
             <Select
                 :value="start"
@@ -68,7 +56,7 @@
                 :placeholder="field.placeholder"
                 :remote="remote"
                 :remote-method="remoteMethod"
-                :style="{width: '100px'}"
+                :class="singleSelectClassess"
                 @on-change="handleStartChange"
             >
                 <Option
@@ -89,7 +77,7 @@
                 :placeholder="field.placeholder"
                 :remote="remote"
                 :remote-method="remoteMethod"
-                :style="{width: '100px'}"
+                :class="singleSelectClassess"
                 @on-change="handleEndChange"
             >
                 <Option
@@ -104,6 +92,7 @@
 </template>
 <script>
 import {logicInputMap} from '../utils/const';
+import {classPrifix} from '../utils/const';
 import axios from '../utils/http';
 export default {
     props: {
@@ -132,6 +121,18 @@ export default {
         };
     },
     computed: {
+        classes() {
+            return `${classPrifix}-${this.field.type.toLowerCase()}`;
+        },
+        logicSelectClassess() {
+            return `${this.classes}-logic`;
+        },
+        singleSelectClassess() {
+            return `${this.classes}-single-select`;
+        },
+        doubleSelectBoxClassess() {
+            return `${this.classes}-double-select-box`;
+        },
         remote() {
             return !!this.field.api;
         },

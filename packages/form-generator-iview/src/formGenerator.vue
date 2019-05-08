@@ -1,12 +1,10 @@
 <template>
-    <div class="form-generator">
-        <h3
-            :style="{height: '30px',fontSize: '18px', fontWeight: 700}"
-        >
+    <div :class="classes">
+        <h3 :class="headerClasses">
             {{ options.title }}
             <Poptip
                 v-if="tip.title"
-                :style="{float: 'right', marginRight: '30px'}"
+                :class="tipsClasses"
                 :title="tip.title"
                 :content="tip.content"
                 placement="left-start"
@@ -26,27 +24,59 @@
             :inline="options.inline"
             :label-position="options.labelPosition"
         >
-            <FormItem
-                v-for="field in computedFields.defaultShowFields"
-                :key="field.model"
-                :label="field.label"
-                :prop="field.model"
-                :required="field.required"
-                :rules="getRules(field)"
-                :style="itemStyle"
-            >
-                <ControlGenerator
-                    :field="field"
-                    :model="formModel[field.model]"
-                    :form-model="formModel"
-                    @on-field-change="handleFieldChange"
-                />
-            </FormItem>
-            <Divider
-                dashed
-                size="small"
-            />
-            <div>
+            <div :class="defaultItemsBoxClassess">
+                <FormItem
+                    v-for="field in computedFields.defaultShowFields"
+                    :key="field.model"
+                    :label="field.label"
+                    :prop="field.model"
+                    :required="field.required"
+                    :rules="getRules(field)"
+                    :style="itemStyle"
+                >
+                    <ControlGenerator
+                        :field="field"
+                        :model="formModel[field.model]"
+                        :form-model="formModel"
+                        @on-field-change="handleFieldChange"
+                    />
+                </FormItem>
+            </div>
+            <Row>
+                <iCol span="10">
+                    <Divider
+                        dashed
+                        size="small"
+                    />
+                </iCol>
+                <iCol
+                    span="4"
+                    :class="extraBtnBoxClasses"
+                >
+                    <Button
+                        type="primary"
+                        size="small"
+                        @click="handleExtraBtnClick"
+                    >
+                        更多
+                        <Icon
+                            v-if="!isShowExtra"
+                            type="ios-arrow-forward"
+                        />
+                        <Icon
+                            v-if="isShowExtra"
+                            type="ios-arrow-down"
+                        />
+                    </Button>
+                </iCol>
+                <iCol span="10">
+                    <Divider
+                        dashed
+                        size="small"
+                    />
+                </iCol>
+            </Row>
+            <div :class="extraItemsBoxClassess">
                 <FormItem
                     v-for="field in computedFields.defaultHideFields"
                     :key="field.model"
@@ -68,11 +98,14 @@
     </div>
 </template>
 <script>
-import ControlGenerator from './control-generator';
+import {Col} from 'iview';
+import ControlGenerator from './controlGenerator';
+import {classPrifix} from './utils/const';
 export default {
     name: 'FormGenerator',
     components: {
-        ControlGenerator
+        ControlGenerator,
+        iCol: Col
     },
     props: {
         fields: {
@@ -99,14 +132,39 @@ export default {
     },
     data () {
         return {
-            formModel: this.model || {}
+            formModel: this.model || {},
+            isShowExtra: false
         };
     },
 
     computed: {
+        classes() {
+            return classPrifix;
+        },
+        headerClasses() {
+            return `${classPrifix}-header`;
+        },
+        tipsClasses() {
+            return `${classPrifix}-tip`;
+        },
+        extraBtnBoxClasses() {
+            return `${classPrifix}-extra-btn-box`;
+        },
+        defaultItemsBoxClassess() {
+            return `${classPrifix}-default-items-box`;
+        },
+        extraItemsBoxClassess() {
+            return [
+                `${classPrifix}-extra-items-box`,
+                {
+                    [`${classPrifix}-hide`]: !this.isShowExtra
+                }
+            ];
+        },
         itemStyle() {
             return {
-                width: this.options.itemWidth + 'px',
+                minWidth: this.options.itemWidth + 'px',
+                maxWidth: '100%',
                 marginRight: '30px'
             };
         },
@@ -238,6 +296,9 @@ export default {
                     }
                 });
             });
+        },
+        handleExtraBtnClick() {
+            this.isShowExtra = !this.isShowExtra;
         }
     }
 };

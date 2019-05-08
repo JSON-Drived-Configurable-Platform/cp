@@ -1,3 +1,5 @@
+export const classPrifix = 'fg-ivu';
+
 export const logicInputMap = {
     '=': {
         label: '等于',
