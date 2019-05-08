@@ -1,12 +1,5 @@
 <template>
-    <div
-        :style="{
-            display: 'flex',
-            alignItems: 'start',
-            justifyContent: 'flex-start',
-            flexDirection: 'row',
-        }"
-    >
+    <div :class="classes">
         <Select
             :value="model.logic"
             :multiple="field.multiple"
@@ -16,7 +9,7 @@
             :size="field.size"
             :placeholder="field.placeholder"
             :remote="remote"
-            :style="{width: '100px', marginRight: '20px'}"
+            :class="logicSelectClassess"
             @on-change="handleLogicChange"
         >
             <Option
@@ -30,7 +23,7 @@
         </Select>
         <Input
             v-if="['single', 'multiple'].includes(valueType)"
-            :style="{width: '200px'}"
+            :class="singleInputClassess"
             :value="model.value"
             :type="valueType === 'single' ? 'text' : 'textarea'"
             :size="field.size || 'default'"
@@ -46,12 +39,7 @@
         />
         <div
             v-if="valueType === 'double'"
-            :style="{
-                display: 'flex',
-                alignItems: 'start',
-                justifyContent: 'flex-start',
-                flexDirection: 'row',
-            }"
+            :class="doubleInputBoxClassess"
         >
             <Input
                 :value="start"
@@ -65,7 +53,7 @@
                 :prefix="field.prefix"
                 :suffix="field.suffix"
                 :autofocus="field.autofocus"
-                :style="{width: '100px'}"
+                :class="singleInputClassess"
                 @on-change="handleStartChange"
             />
             <span :style="{width: '20px',textAlign: 'center'}">~</span>
@@ -81,7 +69,7 @@
                 :prefix="field.prefix"
                 :suffix="field.suffix"
                 :autofocus="field.autofocus"
-                :style="{width: '100px'}"
+                :class="singleInputClassess"
                 @on-change="handleEndChange"
             />
         </div>
@@ -89,8 +77,16 @@
 </template>
 <script>
 import {logicInputMap} from '../utils/const';
+import {classPrifix} from '../utils/const';
 export default {
     props: {
+        formModel: {
+            type: Object,
+            required: true,
+            default() {
+                return {};
+            }
+        },
         model: {
             type: Object,
             required: true
@@ -108,6 +104,18 @@ export default {
         };
     },
     computed: {
+        classes() {
+            return `${classPrifix}-${this.field.type.toLowerCase()}`;
+        },
+        logicSelectClassess() {
+            return `${this.classes}-logic`;
+        },
+        singleInputClassess() {
+            return `${this.classes}-single-input`;
+        },
+        doubleInputBoxClassess() {
+            return `${this.classes}-double-input-box`;
+        },
         remote() {
             return !!this.field.api;
         },
