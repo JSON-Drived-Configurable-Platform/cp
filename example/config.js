@@ -298,6 +298,7 @@ export const fields = [
         defaultShow: false
     },
     {
+
         key: '100081',
         type: 'LogicSelect',
         label: '逻辑选择',
