@@ -42,7 +42,7 @@
                     />
                 </FormItem>
             </div>
-            <Row>
+            <Row v-if="computedFields.defaultHideFields.length > 0">
                 <iCol span="10">
                     <Divider
                         dashed
