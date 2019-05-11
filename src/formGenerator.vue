@@ -22,11 +22,11 @@
             :model="formModel"
             :label-width="options.labelWidth"
             :inline="options.inline"
-            :label-position="options.labelPosition"
+            label-position="left"
         >
             <div :class="defaultItemsBoxClassess">
                 <FormItem
-                    v-for="field in computedFields.defaultShowFields"
+                    v-for="field in displayFields"
                     :key="field.model"
                     :label="field.label"
                     :prop="field.model"
@@ -42,7 +42,7 @@
                     />
                 </FormItem>
             </div>
-            <Row v-if="computedFields.defaultHideFields.length > 0">
+            <Row :class="moreDividerClasses">
                 <iCol span="10">
                     <Divider
                         dashed
@@ -53,21 +53,9 @@
                     span="4"
                     :class="extraBtnBoxClasses"
                 >
-                    <Button
-                        type="primary"
-                        size="small"
-                        @click="handleExtraBtnClick"
-                    >
-                        更多
-                        <Icon
-                            v-if="!isShowExtra"
-                            type="ios-arrow-forward"
-                        />
-                        <Icon
-                            v-if="isShowExtra"
-                            type="ios-arrow-down"
-                        />
-                    </Button>
+                    <Icon type="ios-arrow-back" />
+                    更多选项
+                    <Icon type="ios-arrow-forward" />
                 </iCol>
                 <iCol span="10">
                     <Divider
@@ -76,36 +64,34 @@
                     />
                 </iCol>
             </Row>
-            <div :class="extraItemsBoxClassess">
-                <FormItem
-                    v-for="field in computedFields.defaultHideFields"
-                    :key="field.model"
-                    :label="field.label"
-                    :prop="field.model"
-                    :required="field.required"
-                    :rules="getRules(field)"
-                    :style="itemStyle"
+            <div
+                v-if="computedFields.defaultHideFields.length > 0"
+                :class="extraSelectBoxClasses"
+            >
+                <Select
+                    v-model="selectedDefaultHideFields"
+                    size="small"
+                    placeholder="请选择更多条件"
+                    multiple
+                    filterable
                 >
-                    <ControlGenerator
-                        :field="field"
-                        :model="formModel[field.model]"
-                        :form-model="formModel"
-                        @on-field-change="handleFieldChange"
-                    />
-                </FormItem>
+                    <Option
+                        v-for="item in computedFields.defaultHideFields"
+                        :key="item.model"
+                        :value="item.model"
+                    >{{ item.label }}</Option>
+                </Select>
             </div>
         </Form>
     </div>
 </template>
 <script>
-import {Col} from 'iview';
 import ControlGenerator from './controlGenerator';
 import {classPrifix} from './utils/const';
 export default {
     name: 'FormGenerator',
     components: {
-        ControlGenerator,
-        iCol: Col
+        ControlGenerator
     },
     props: {
         fields: {
@@ -133,7 +119,8 @@ export default {
     data () {
         return {
             formModel: this.model || {},
-            isShowExtra: false
+            isShowExtra: false,
+            selectedDefaultHideFields: []
         };
     },
 
@@ -147,19 +134,23 @@ export default {
         tipsClasses() {
             return `${classPrifix}-tip`;
         },
-        extraBtnBoxClasses() {
-            return `${classPrifix}-extra-btn-box`;
-        },
         defaultItemsBoxClassess() {
             return `${classPrifix}-default-items-box`;
         },
+        moreDividerClasses() {
+            return `${classPrifix}-more-divider-box`;
+        },
         extraItemsBoxClassess() {
-            return [
-                `${classPrifix}-extra-items-box`,
-                {
-                    [`${classPrifix}-hide`]: !this.isShowExtra
-                }
-            ];
+            return `${classPrifix}-extra-items-box`;
+        },
+        extraBtnBoxClasses() {
+            return `${classPrifix}-extra-btn-box`;
+        },
+        labelLeftClasses() {
+            return `${classPrifix}-extra-left`;
+        },
+        extraSelectBoxClasses() {
+            return `${classPrifix}-extra-select-box`;
         },
         itemStyle() {
             return {
@@ -179,7 +170,7 @@ export default {
             let defaultShowFields = [];
             let defaultHideFields = [];
             fields.forEach(field => {
-                if (field.defaultShow) {
+                if (!field.defaultHide) {
                     defaultShowFields.push(field);
                 }
                 else {
@@ -190,6 +181,14 @@ export default {
                 defaultShowFields,
                 defaultHideFields
             };
+        },
+        displayFields() {
+            return [
+                ...this.computedFields.defaultShowFields,
+                ...this.computedFields.defaultHideFields.filter(
+                    item => this.selectedDefaultHideFields.includes(item.model)
+                )
+            ];
         }
     },
 
