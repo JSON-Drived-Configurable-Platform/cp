@@ -42,32 +42,33 @@
                     />
                 </FormItem>
             </div>
-            <Row :class="moreDividerClasses">
-                <iCol span="10">
-                    <Divider
-                        dashed
-                        size="small"
-                    />
-                </iCol>
-                <iCol
-                    span="4"
-                    :class="extraBtnBoxClasses"
-                >
-                    <Icon type="ios-arrow-back" />
-                    更多选项
-                    <Icon type="ios-arrow-forward" />
-                </iCol>
-                <iCol span="10">
-                    <Divider
-                        dashed
-                        size="small"
-                    />
-                </iCol>
-            </Row>
+
             <div
                 v-if="computedFields.defaultHideFields.length > 0"
                 :class="extraSelectBoxClasses"
             >
+                <Row :class="moreDividerClasses">
+                    <iCol span="10">
+                        <Divider
+                            dashed
+                            size="small"
+                        />
+                    </iCol>
+                    <iCol
+                        span="4"
+                        :class="extraBtnBoxClasses"
+                    >
+                        <Icon type="ios-arrow-back" />
+                        更多选项
+                        <Icon type="ios-arrow-forward" />
+                    </iCol>
+                    <iCol span="10">
+                        <Divider
+                            dashed
+                            size="small"
+                        />
+                    </iCol>
+                </Row>
                 <Select
                     v-model="selectedDefaultHideFields"
                     size="small"
