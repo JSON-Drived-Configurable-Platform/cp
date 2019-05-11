@@ -6,7 +6,7 @@ export const fields = [
         model: 'name',
         placeholder: '请输入用户名',
         required: true,
-        defaultShow: true
+        defaultHide: false
     },
     {
         key: '10001',
@@ -16,7 +16,7 @@ export const fields = [
         readonly: true,
         disabled: true,
         placeholder: '请输入用户名',
-        defaultShow: true
+        defaultHide: false
     },
     {
         key: '10002',
@@ -26,7 +26,7 @@ export const fields = [
         model: 'name-textarea',
         placeholder: '请输入用户名',
         required: true,
-        defaultShow: true
+        defaultHide: false
     },
     {
         key: '100021',
@@ -35,7 +35,7 @@ export const fields = [
         model: 'inputNumber',
         placeholder: '',
         required: true,
-        defaultShow: true
+        defaultHide: false
     },
     {
         key: '1002',
@@ -53,7 +53,7 @@ export const fields = [
                 value: '2'
             }
         ],
-        defaultShow: false
+        defaultHide: true
     },
     {
         key: '100211',
@@ -63,7 +63,7 @@ export const fields = [
         required: true,
         api: '/selectApi',
         apiParams: ['radio'],
-        defaultShow: false
+        defaultHide: true
     },
     {
         key: '10021',
@@ -82,7 +82,7 @@ export const fields = [
             }
         ],
         required: true,
-        defaultShow: false
+        defaultHide: true
     },
     {
         key: '10023',
@@ -92,7 +92,7 @@ export const fields = [
         api: '/selectApi',
         apiParams: ['radio'],
         model: 'multiSelectApi',
-        defaultShow: false
+        defaultHide: true
     },
     // {
     //     key: '10023',
@@ -128,7 +128,7 @@ export const fields = [
             }
         ],
         required: true,
-        defaultShow: false
+        defaultHide: true
     },
     {
         key: '1004',
@@ -154,7 +154,7 @@ export const fields = [
             }
         ],
         required: true,
-        defaultShow: false
+        defaultHide: true
     },
     {
         key: '1005',
@@ -219,7 +219,7 @@ export const fields = [
                 }
             ],
         }],
-        defaultShow: false
+        defaultHide: true
     },
     {
         key: '10006',
@@ -229,7 +229,7 @@ export const fields = [
         model: 'date',
         placeholder: '',
         required: true,
-        defaultShow: false
+        defaultHide: true
     },
     {
         key: '100061',
@@ -239,7 +239,7 @@ export const fields = [
         model: 'daterange',
         placeholder: '',
         required: true,
-        defaultShow: false
+        defaultHide: true
     },
     {
         key: '100062',
@@ -249,7 +249,7 @@ export const fields = [
         model: 'datetime',
         placeholder: '',
         required: true,
-        defaultShow: false
+        defaultHide: true
     },
     {
         key: '100063',
@@ -259,7 +259,7 @@ export const fields = [
         model: 'datetimerange',
         placeholder: '',
         required: true,
-        defaultShow: false
+        defaultHide: true
     },
     {
         key: '10007',
@@ -268,7 +268,7 @@ export const fields = [
         model: 'logicInput',
         required: true,
         enables: ['=', '>', '>=', '<', '<=', 'betweenIn', 'betweenWith', '!=', 'multiple'],
-        defaultShow: false
+        defaultHide: true
     },
     {
         key: '10008',
@@ -295,7 +295,7 @@ export const fields = [
                 value: '4'
             }
         ],
-        defaultShow: false
+        defaultHide: true
     },
     {
 
@@ -307,7 +307,7 @@ export const fields = [
         enables: ['=', '>', '>=', '<', '<=', 'betweenIn', 'betweenWith', '!=', 'multiple'],
         api: '/selectApi',
         apiParams: ['radio'],
-        defaultShow: false
+        defaultHide: true
     },
     // {
     //     key: '10007',
@@ -350,8 +350,7 @@ export const model = {
 export const options = {
     labelWidth: 100,
     inline: true,
-    labelPosition: 'left',
-    itemWidth: '400',
+    itemWidth: '360',
     title: '测试表单',
     tip: {
         title: '规则',

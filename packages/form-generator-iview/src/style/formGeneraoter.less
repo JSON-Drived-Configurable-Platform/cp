@@ -24,9 +24,32 @@
     line-height: 30px;
 }
 
+.@{css-prefix}-more-divider-box {
+    width: 96%;
+    margin: 0 auto;
+}
+
 .@{css-prefix}-extra-btn-box {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 4px;
+    line-height: 40px;
+    color: #2d8cf0;
+
+    &::after{
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+.@{css-prefix}-extra-left {
+    float: left;
+    height: 24px;
+    line-height: 24px;
+}
+
+.@{css-prefix}-extra-select-box {
+    margin: 0 auto;
+    width: 96%;
 }

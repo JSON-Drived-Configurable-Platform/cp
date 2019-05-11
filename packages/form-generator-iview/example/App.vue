@@ -48,7 +48,10 @@
                         :model="model"
                         :options="options"
                     />
-                    <Button @click="submit">
+                    <Button
+                        :style="{marginTop: '20px'}"
+                        @click="submit"
+                    >
                         提交
                     </Button>
                 </div>
