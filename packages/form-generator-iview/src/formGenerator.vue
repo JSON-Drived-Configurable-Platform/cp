@@ -49,6 +49,7 @@
             >
                 <Button
                     type="info"
+                    size="small"
                     @click="handleExtraBtnClick"
                 >更多
                     <Icon
