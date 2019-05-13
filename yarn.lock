@@ -5524,6 +5524,11 @@ v-click-outside-x@^3.5.6:
   version "3.7.1"
   resolved "http://registry.npm.taobao.org/v-click-outside-x/download/v-click-outside-x-3.7.1.tgz#aa03eaa0e41e44cb5207dcf86c2d9f0dd64084c1"
 
+v-click-outside@^2.1.3:
+  version "2.1.3"
+  resolved "https://registry.npm.taobao.org/v-click-outside/download/v-click-outside-2.1.3.tgz#b7297abe833a439dc0895e6418a494381e64b5e7"
+  integrity sha1-tyl6voM6Q53AiV5kGKSUOB5ktec=
+
 v8-compile-cache@^2.0.2:
   version "2.0.2"
   resolved "http://registry.npm.taobao.org/v8-compile-cache/download/v8-compile-cache-2.0.2.tgz#a428b28bb26790734c4fc8bc9fa106fccebf6a6c"

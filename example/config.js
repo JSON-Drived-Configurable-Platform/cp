@@ -350,8 +350,9 @@ export const model = {
 export const options = {
     labelWidth: 100,
     inline: true,
-    itemWidth: '360',
+    itemWidth: '320',
     title: '测试表单',
+    // extraType: 'bottom',
     tip: {
         title: '规则',
         content: '规则内容',

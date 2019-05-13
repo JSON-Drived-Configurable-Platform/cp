@@ -44,7 +44,44 @@
             </div>
 
             <div
-                v-if="computedFields.defaultHideFields.length > 0"
+                v-if="extraType === 'right' && computedFields.defaultHideFields.length > 0"
+                :class="extraSelectBoxRightClasses"
+            >
+                <Button
+                    type="info"
+                    @click="handleExtraBtnClick"
+                >更多
+                    <Icon
+                        v-if="isShowExtra"
+                        type="ios-arrow-down"
+                    />
+                    <Icon
+                        v-if="!isShowExtra"
+                        type="ios-arrow-forward"
+                    />
+                </Button>
+                <div
+                    v-if="isShowExtra"
+                    v-click-outside="handleExtraSelectRightContentClickOutside"
+                    :class="extraSelectRightContentClasses"
+                >
+                    <CheckboxGroup
+                        v-model="selectedDefaultHideFields"
+                        size="small"
+                        placeholder="请选择更多条件"
+                        multiple
+                        filterable
+                    >
+                        <Checkbox
+                            v-for="item in computedFields.defaultHideFields"
+                            :key="item.model"
+                            :label="item.model"
+                        >{{ item.label }}</Checkbox>
+                    </CheckboxGroup>
+                </div>
+            </div>
+            <div
+                v-if="extraType === 'bottom' && computedFields.defaultHideFields.length > 0"
                 :class="extraSelectBoxClasses"
             >
                 <Row :class="moreDividerClasses">
@@ -89,10 +126,14 @@
 <script>
 import ControlGenerator from './controlGenerator';
 import {classPrifix} from './utils/const';
+import vClickOutside from 'v-click-outside';
 export default {
     name: 'FormGenerator',
     components: {
         ControlGenerator
+    },
+    directives: {
+        clickOutside: vClickOutside.directive
     },
     props: {
         fields: {
@@ -144,8 +185,14 @@ export default {
         extraItemsBoxClassess() {
             return `${classPrifix}-extra-items-box`;
         },
+        extraSelectBoxRightClasses() {
+            return `${classPrifix}-extra-box-right`;
+        },
+        extraSelectRightContentClasses() {
+            return `${classPrifix}-extra-right-content`;
+        },
         extraBtnBoxClasses() {
-            return `${classPrifix}-extra-btn-box`;
+            return `${classPrifix}-extra-box`;
         },
         labelLeftClasses() {
             return `${classPrifix}-extra-left`;
@@ -165,6 +212,9 @@ export default {
                 title: this.options.tip && this.options.tip.title,
                 content: this.options.tip && this.options.tip.content,
             };
+        },
+        extraType() {
+            return this.options.extraType || 'right';
         },
         computedFields() {
             let fields = this.fields || [];
@@ -298,6 +348,9 @@ export default {
             });
         },
         handleExtraBtnClick() {
+            this.isShowExtra = !this.isShowExtra;
+        },
+        handleExtraSelectRightContentClickOutside() {
             this.isShowExtra = !this.isShowExtra;
         }
     }
