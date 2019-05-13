@@ -2,6 +2,9 @@
     .ivu-divider-horizontal {
         margin: 20px 0;
     }
+    .ivu-form {
+        position: relative;
+    }
 }
 
 .@{css-prefix}-hide {
@@ -24,7 +27,40 @@
     line-height: 30px;
 }
 
-.@{css-prefix}-extra-btn-box {
+.@{css-prefix}-default-items-box {
+    width: 90%;
+    display: inline-block;
+}
+
+.@{css-prefix}-extra-box-right {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    width: 9%;
+    display: inline-block;
+    text-align: right;
+}
+
+.@{css-prefix}-extra-right-content {
+    z-index: 100;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    padding: 10px;
+    width: auto;
+    height: auto;
+    border: solid 1px #e4e4e4;
+    border-radius: 10px;
+    background-color: #fff;
+    display: inline-block;
+    .ivu-checkbox-group-item {
+        width: 140px;
+        text-align: left;
+    }
+}
+
+
+.@{css-prefix}-extra-box {
     display: flex;
     align-items: center;
     justify-content: center;
