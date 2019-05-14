@@ -161,11 +161,6 @@ export default {
             return this.options.length > 0 ? this.options : this.field.options;
         }
     },
-    created() {
-        if (this.field.api) {
-            this.getRemoteOptions();
-        }
-    },
     methods: {
         handleLogicValueChange(value) {
             this.value.value = value;
