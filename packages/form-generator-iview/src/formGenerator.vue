@@ -243,11 +243,13 @@ export default {
             ];
         }
     },
-
-    created() {
-        this.$watch('model', model => {
-            this.formModel = model;
-        });
+    watch: {
+        model: {
+            handler: function (val) {
+                this.formModel = val;
+            },
+            deep: true
+        }
     },
     methods: {
         handleFieldChange(model, value){
