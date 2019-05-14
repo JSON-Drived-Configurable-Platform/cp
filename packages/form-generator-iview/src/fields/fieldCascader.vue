@@ -1,18 +1,26 @@
 <template>
     <Cascader
         :value="model"
-        :data="field.options"
+        :data="computedOptions"
         :disabled="field.disabled"
         :clearable="field.clearable"
         :placeholder="field.placeholder"
-        :change-on-select="true"
         :filterable="true"
         @on-change="handleChange"
     />
 </template>
 <script>
+import getOptions from '../mixins/getOptions';
 export default {
+    mixins: [getOptions],
     props: {
+        formModel: {
+            type: Object,
+            required: true,
+            default() {
+                return {};
+            }
+        },
         model: {
             type: [Object, Array, String, Boolean],
             required: true
@@ -20,11 +28,16 @@ export default {
         field: {
             type: Object,
             required: true
+        },
+        apiBase: {
+            type: String,
+            default: ''
         }
     },
     data() {
         return {
-            loading: false
+            loading: false,
+            options: []
         };
     },
     computed: {
@@ -33,16 +46,13 @@ export default {
         },
         filterable() {
             return !!this.field.api || this.field.filterable;
+        },
+        computedOptions() {
+            return this.options || this.field.options;
         }
     },
+
     methods: {
-        remoteMethod() {
-            // TODO
-            if (!this.field.api) {
-                return;
-            }
-            this.loading = true;
-        },
         handleChange(value) {
             this.$emit('on-change', this.field.model, value, null, this.field);
         }

@@ -222,6 +222,16 @@ export const fields = [
         defaultHide: true
     },
     {
+        key: '1005',
+        type: 'Cascader',
+        label: '省/城市/景点-api',
+        model: 'cascaderApi',
+        required: true,
+        api: '/cascaderApi',
+        apiParams: ['radio'],
+        defaultHide: true
+    },
+    {
         key: '10006',
         type: 'DatePicker',
         subType: 'date',
@@ -308,7 +318,7 @@ export const fields = [
         api: '/selectApi',
         apiParams: ['radio'],
         defaultHide: true
-    },
+    }
     // {
     //     key: '10007',
     //     type: 'LogicTimePicker',
@@ -335,6 +345,7 @@ export const model = {
     datetime: '2019-04-22 00:00:00',
     datetimerange: ['2019-04-22 00:00:00', '2019-05-30 00:00:00'],
     cascader: ['jiangsu', 'suzhou', 'shizilin'],
+    cascaderApi: ['jiangsu', 'suzhou', 'shizilin'],
     inputNumber: 7,
     logicInput: {
         logic: '=',
@@ -356,7 +367,8 @@ export const options = {
     tip: {
         title: '规则',
         content: '规则内容',
-    }
+    },
+    apiBase: ''
 };
 
 

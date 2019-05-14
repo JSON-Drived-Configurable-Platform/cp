@@ -93,8 +93,9 @@
 <script>
 import {logicInputMap} from '../utils/const';
 import {classPrifix} from '../utils/const';
-import axios from '../utils/http';
+import getOptions from '../mixins/getOptions';
 export default {
+    mixins: [getOptions],
     props: {
         formModel: {
             type: Object,
@@ -110,6 +111,10 @@ export default {
         field: {
             type: Object,
             required: true
+        },
+        apiBase: {
+            type: String,
+            default: ''
         }
     },
     data() {
@@ -162,31 +167,6 @@ export default {
         }
     },
     methods: {
-        remoteMethod() {
-            if (!this.field.api) {
-                return;
-            }
-            this.getRemoteOptions();
-        },
-        getRemoteOptions() {
-            this.loading = true;
-            let formModel = this.formModel;
-            let apiParams = this.field.apiParams || [];
-            let params = {};
-            apiParams.forEach(param => {
-                params[param] = formModel[param];
-            });
-            axios.request({
-                url: this.field.api,
-                method: 'get',
-                params
-            }).then(({status, data}) => {
-                if (+status === 0) {
-                    this.options = data;
-                    this.loading = false;
-                }
-            });
-        },
         handleLogicValueChange(value) {
             this.value.value = value;
             this.handleChange();

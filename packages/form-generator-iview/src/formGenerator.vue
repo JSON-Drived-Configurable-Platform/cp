@@ -38,7 +38,9 @@
                         :field="field"
                         :model="formModel[field.model]"
                         :form-model="formModel"
+                        :api-base="apiBase"
                         @on-field-change="handleFieldChange"
+                        @on-submit="handleSubmit"
                     />
                 </FormItem>
             </div>
@@ -214,6 +216,9 @@ export default {
                 content: this.options.tip && this.options.tip.content,
             };
         },
+        apiBase() {
+            return this.options.apiBase || '';
+        },
         extraType() {
             return this.options.extraType || 'right';
         },
@@ -337,6 +342,9 @@ export default {
         },
         getFormModel() {
             return this.formModel;
+        },
+        handleSubmit() {
+            this.$emit('on-submit');
         },
         submit() {
             return new Promise((resolve, reject) => {

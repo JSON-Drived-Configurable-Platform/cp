@@ -47,6 +47,7 @@
                         :fields="fields"
                         :model="model"
                         :options="options"
+                        @on-submit="handleSubmit"
                     />
                     <Button
                         :style="{marginTop: '20px'}"
@@ -106,6 +107,9 @@ export default {
                     // eslint-disable-next-line no-console
                     console.log('submit', data);
                 });
+        },
+        handleSubmit() {
+            this.submit();
         }
     }
 };
