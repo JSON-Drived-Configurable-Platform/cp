@@ -48,7 +48,7 @@ export default {
             return !!this.field.api || this.field.filterable;
         },
         computedOptions() {
-            return this.options || this.field.options;
+            return this.options.length > 0 ? this.options : this.field.options;
         }
     },
 
