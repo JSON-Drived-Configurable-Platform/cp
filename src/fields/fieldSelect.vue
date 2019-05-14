@@ -21,8 +21,9 @@
     </Select>
 </template>
 <script>
-import axios from '../utils/http';
+import getOptions from '../mixins/getOptions';
 export default {
+    mixins: [getOptions],
     props: {
         formModel: {
             type: Object,
@@ -38,6 +39,10 @@ export default {
         field: {
             type: Object,
             required: true
+        },
+        apiBase: {
+            type: String,
+            default: ''
         }
     },
     data() {
@@ -57,11 +62,6 @@ export default {
             return this.field.api ? this.options : this.field.options;
         }
     },
-    created() {
-        if (this.field.api) {
-            this.getRemoteOptions();
-        }
-    },
     methods: {
         handleChange(value) {
             this.$emit('on-change', this.field.model, value, null, this.field);
@@ -71,25 +71,6 @@ export default {
                 return;
             }
             this.getRemoteOptions();
-        },
-        getRemoteOptions() {
-            this.loading = true;
-            let formModel = this.formModel;
-            let apiParams = this.field.apiParams || [];
-            let params = {};
-            apiParams.forEach(param => {
-                params[param] = formModel[param];
-            });
-            axios.request({
-                url: this.field.api,
-                method: 'get',
-                params
-            }).then(({status, data}) => {
-                if (+status === 0) {
-                    this.options = data;
-                    this.loading = false;
-                }
-            });
         }
     }
 };

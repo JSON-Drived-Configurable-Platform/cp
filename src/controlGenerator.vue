@@ -5,7 +5,9 @@
         :field="field"
         :model="model"
         :form-model="formModel"
+        :api-base="apiBase"
         @on-change="onFieldChange"
+        @submit="handleSubmit"
     />
 </template>
 <script>
@@ -25,7 +27,7 @@ export default {
             }
         },
         model: {
-            type: [Object, Array, String, Boolean, Number, null],
+            type: [Object, Array, String, Boolean, Number, null, undefined],
             required: true
         },
         field: {
@@ -34,6 +36,10 @@ export default {
             default() {
                 return [];
             }
+        },
+        apiBase: {
+            type: String,
+            default: ''
         }
     },
     computed: {
@@ -47,6 +53,9 @@ export default {
         },
         getFieldCom(comType = '') {
             return `field${comType}`;
+        },
+        handleSubmit() {
+            this.$emit('on-submit');
         }
     }
 };
