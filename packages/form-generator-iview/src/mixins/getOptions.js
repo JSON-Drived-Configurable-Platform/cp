@@ -26,8 +26,8 @@ export default {
                 url: apiBase + this.field.api,
                 method: 'get',
                 params
-            }).then(({status, data}) => {
-                if (+status === 0) {
+            }).then(({errno, status, data}) => {
+                if (+status === 0 || +status === 200 || +errno === 0) {
                     this.options = data;
                     this.loading = false;
                 }
