@@ -158,7 +158,7 @@ export default {
             return logicInputMap[logic].valueType || 'input';
         },
         computedOptions() {
-            return this.field.api ? this.options : this.field.options;
+            return this.options.length > 0 ? this.options : this.field.options;
         }
     },
     created() {
