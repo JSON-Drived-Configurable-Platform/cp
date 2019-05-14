@@ -229,7 +229,26 @@ export const fields = [
         required: true,
         api: '/cascaderApi',
         apiParams: ['radio'],
-        defaultHide: true
+        defaultHide: true,
+        options: [{
+            value: 'beijing',
+            label: '北京',
+            children: [
+                {
+                    value: 'gugong',
+                    label: '故宫'
+                },
+                {
+                    value: 'tiantan',
+                    label: '天坛'
+                },
+                {
+                    value: 'wangfujing',
+                    label: '王府井'
+                }
+            ]
+        }],
+
     },
     {
         key: '10006',
