@@ -35,6 +35,7 @@
                     :prop="field.model"
                     :required="field.required"
                     :rules="getRules(field)"
+                    :class="itemClasses"
                     :style="itemStyle"
                 >
                     <ControlGenerator
@@ -211,11 +212,12 @@ export default {
         extraSelectBoxClasses() {
             return `${classPrifix}-extra-select-box`;
         },
+        itemClasses() {
+            return `${classPrifix}-form-item`;
+        },
         itemStyle() {
             return {
-                minWidth: this.options.itemWidth + 'px',
-                maxWidth: '100%',
-                marginRight: '30px'
+                minWidth: this.options.itemWidth + 'px'
             };
         },
         tip() {
