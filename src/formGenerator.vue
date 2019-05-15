@@ -183,7 +183,12 @@ export default {
             return `${classPrifix}-tip`;
         },
         defaultItemsBoxClassess() {
-            return `${classPrifix}-default-items-box`;
+            return [
+                `${classPrifix}-default-items-box`,
+                {
+                    [`${classPrifix}-default-items-box-no-right`]: this.computedFields.defaultHideFields.length === 0,
+                }
+            ];
         },
         moreDividerClasses() {
             return `${classPrifix}-more-divider-box`;
