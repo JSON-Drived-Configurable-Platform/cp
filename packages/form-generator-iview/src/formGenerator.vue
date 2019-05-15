@@ -1,6 +1,9 @@
 <template>
     <div :class="classes">
-        <h3 :class="headerClasses">
+        <h3
+            v-if="options.title || tip.title"
+            :class="headerClasses"
+        >
             {{ options.title }}
             <Poptip
                 v-if="tip.title"
