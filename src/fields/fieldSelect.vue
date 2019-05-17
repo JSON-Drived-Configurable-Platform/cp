@@ -1,37 +1,52 @@
 <template>
-    <Select
-        :value="model"
-        :multiple="field.multiple"
-        :disabled="field.disabled"
-        :clearable="field.clearable"
-        :filterable="filterable"
-        :size="field.size"
-        :placeholder="field.placeholder"
-        :remote="remote"
-        :remote-method="remoteMethod"
-        :loading="loading"
-        @on-change="handleChange"
-    >
-        <Option
-            v-for="item in computedOptions"
-            :key="item.value"
-            :value="item.value"
-            :disabled="item.disabled"
-        >{{ item.label }}</Option>
-    </Select>
+    <div>
+        <Select
+            v-if="remote"
+            :value="model"
+            :multiple="field.multiple || false"
+            :disabled="field.disabled || false"
+            :clearable="field.clearable || false"
+            :size="field.size || 'default'"
+            :placeholder="field.placeholder"
+            :remote="remote"
+            :filterable="filterable || false"
+            :loading="loading"
+            :remote-method="remoteMethod"
+            @on-change="handleChange"
+        >
+            <Option
+                v-for="item in computedOptions"
+                :key="item.value"
+                :value="item.value"
+                :disabled="item.disabled"
+            >{{ item.label }}</Option>
+        </Select>
+        <Select
+            v-else
+            :value="model"
+            :multiple="field.multiple || false"
+            :disabled="field.disabled || false"
+            :clearable="field.clearable || false"
+            :size="field.size || 'default'"
+            :placeholder="field.placeholder"
+            :filterable="filterable || false"
+            :loading="loading"
+            @on-change="handleChange"
+        >
+            <Option
+                v-for="item in computedOptions"
+                :key="item.value"
+                :value="item.value"
+                :disabled="item.disabled"
+            >{{ item.label }}</Option>
+        </Select>
+    </div>
 </template>
 <script>
 import getOptions from '../mixins/getOptions';
 export default {
     mixins: [getOptions],
     props: {
-        formModel: {
-            type: Object,
-            required: true,
-            default() {
-                return {};
-            }
-        },
         model: {
             type: [String, Number, Array],
             required: true

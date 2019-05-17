@@ -35,7 +35,7 @@ export const fields = [
         model: 'inputNumber',
         placeholder: '',
         required: true,
-        defaultHide: false
+        defaultHide: true
     },
     {
         key: '1002',
@@ -203,7 +203,7 @@ export const fields = [
                         },
                         {
                             value: 'shizilin',
-                            label: '狮子林狮子林狮子林狮子林狮子林狮子林',
+                            label: '狮子林',
                             children: [
                                 {
                                     value: '1',
@@ -211,7 +211,7 @@ export const fields = [
                                 },
                                 {
                                     value: '2',
-                                    label: '选项2选项2选项2选项2选项2选项2选项2选项2',
+                                    label: '选项2',
                                 }
                             ]
                         }
@@ -330,7 +330,7 @@ export const fields = [
 
         key: '100081',
         type: 'LogicSelect',
-        label: '逻辑选择',
+        label: '逻辑选择Api',
         model: 'logicSelectApi',
         required: true,
         enables: ['=', '>', '>=', '<', '<=', 'betweenIn', 'betweenWith', '!=', 'multiple'],
@@ -346,33 +346,36 @@ export const model = {
     'name-forbidden': 'wangbing',
     'name-textarea': '啊啊啊啊啊',
     singleSelect: '1',
-    singleSelectApi: '',
+    singleSelectApi: '1',
     multiSelect: ['1', '2'],
-    multiSelectApi: [],
+    multiSelectApi: ['1', '2'],
     checkbox: ['1', '2'],
     radio: '1',
     date: '2016-01-01',
     daterange: ['2016-01-01', '2016-02-15'],
     datetime: '2019-04-22 00:00:00',
     datetimerange: ['2019-04-22 00:00:00', '2019-05-30 00:00:00'],
-    cascader: ['jiangsu', 'suzhou', 'shizilin'],
-    cascaderApi: ['jiangsu', 'suzhou', 'shizilin'],
+    cascader: ['jiangsu', 'suzhou', 'shizilin', '1'],
+    cascaderApi: ['jiangsu', 'suzhou', 'shizilin', '2'],
     inputNumber: 7,
     logicInput: {
-        logic: '=',
-        value: '100'
+        logic: 'betweenIn',
+        value: ['1', '2']
     },
     logicSelect: {
-        logic: '=',
-        value: '1'
+        logic: 'betweenIn',
+        value: ['1', '2']
     },
-    logicSelectApi: {}
+    logicSelectApi: {
+        logic: 'betweenIn',
+        value: ['1', '2']
+    }
 };
 
 export const options = {
     labelWidth: 100,
     inline: true,
-    itemWidth: '320',
+    itemWidth: '1000',
     title: '测试表单',
     // extraType: 'bottom',
     tip: {

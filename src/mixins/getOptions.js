@@ -1,5 +1,14 @@
 import axios from '../utils/http';
 export default {
+    props: {
+        formModel: {
+            type: Object,
+            required: true,
+            default() {
+                return {};
+            }
+        },
+    },
     computed: {
         params() {
             let formModel = this.formModel;

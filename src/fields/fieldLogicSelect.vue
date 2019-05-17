@@ -1,14 +1,11 @@
 <template>
     <div :class="classes">
         <Select
-            :value="model.logic"
-            :multiple="field.multiple"
+            :value="value.logic"
             :disabled="field.disabled"
             :clearable="field.clearable"
             :size="field.size"
-            :placeholder="field.placeholder"
-            :remote="remote"
-            :remote-method="remoteMethod"
+            placeholder="请选择逻辑类型"
             :class="logicSelectClassess"
             @on-change="handleLogicChange"
         >
@@ -22,8 +19,8 @@
             </Option>
         </Select>
         <Select
-            v-if="['single', 'multiple'].includes(valueType)"
-            :value="model.value"
+            v-if="['single', 'multiple'].includes(valueType) && remote"
+            :value="value.value"
             :multiple="valueType === 'multiple'"
             :disabled="field.disabled"
             :clearable="field.clearable"
@@ -42,13 +39,32 @@
                 :disabled="item.disabled"
             >{{ item.label }}</Option>
         </Select>
+        <Select
+            v-if="['single', 'multiple'].includes(valueType) && !remote"
+            :value="value.value"
+            :multiple="valueType === 'multiple'"
+            :disabled="field.disabled"
+            :clearable="field.clearable"
+            :filterable="filterable"
+            :size="field.size"
+            :placeholder="field.placeholder"
+            :class="singleSelectClassess"
+            @on-change="handleLogicValueChange"
+        >
+            <Option
+                v-for="item in computedOptions"
+                :key="item.value"
+                :value="item.value"
+                :disabled="item.disabled"
+            >{{ item.label }}</Option>
+        </Select>
         <div
             v-if="valueType === 'double'"
             :class="doubleSelectBoxClassess"
         >
             <Select
+                v-if="remote"
                 :value="start"
-                :multiple="field.multiple"
                 :disabled="field.disabled"
                 :clearable="field.clearable"
                 :filterable="filterable"
@@ -66,10 +82,28 @@
                     :disabled="item.disabled"
                 >{{ item.label }}</Option>
             </Select>
+            <Select
+                v-else
+                :value="start"
+                :disabled="field.disabled"
+                :clearable="field.clearable"
+                :filterable="filterable"
+                :size="field.size"
+                :placeholder="field.placeholder"
+                :class="singleSelectClassess"
+                @on-change="handleStartChange"
+            >
+                <Option
+                    v-for="item in computedOptions"
+                    :key="item.value"
+                    :value="item.value"
+                    :disabled="item.disabled"
+                >{{ item.label }}</Option>
+            </Select>
             <span :style="{width: '20px',textAlign: 'center'}">~</span>
             <Select
+                v-if="remote"
                 :value="end"
-                :multiple="field.multiple"
                 :disabled="field.disabled"
                 :clearable="field.clearable"
                 :filterable="filterable"
@@ -77,6 +111,24 @@
                 :placeholder="field.placeholder"
                 :remote="remote"
                 :remote-method="remoteMethod"
+                :class="singleSelectClassess"
+                @on-change="handleEndChange"
+            >
+                <Option
+                    v-for="item in computedOptions"
+                    :key="item.value"
+                    :value="item.value"
+                    :disabled="item.disabled"
+                >{{ item.label }}</Option>
+            </Select>
+            <Select
+                v-else
+                :value="end"
+                :disabled="field.disabled"
+                :clearable="field.clearable"
+                :filterable="filterable"
+                :size="field.size"
+                :placeholder="field.placeholder"
                 :class="singleSelectClassess"
                 @on-change="handleEndChange"
             >
@@ -97,13 +149,6 @@ import getOptions from '../mixins/getOptions';
 export default {
     mixins: [getOptions],
     props: {
-        formModel: {
-            type: Object,
-            required: true,
-            default() {
-                return {};
-            }
-        },
         model: {
             type: Object,
             required: true
@@ -126,6 +171,9 @@ export default {
         };
     },
     computed: {
+        logic() {
+            return this.value.logic;
+        },
         classes() {
             return `${classPrifix}-${this.field.type.toLowerCase()}`;
         },
@@ -154,11 +202,27 @@ export default {
             });
         },
         valueType() {
-            let logic = this.value.logic || '=';
-            return logicInputMap[logic].valueType || 'input';
+            let logic = this.value.logic || '';
+            return logicInputMap[logic].valueType;
         },
         computedOptions() {
             return this.options.length > 0 ? this.options : this.field.options;
+        }
+    },
+    watch: {
+        value: {
+            handler({value}) {
+                if (Array.isArray(value)) {
+                    this.start = value[0];
+                    this.end = value[1];
+                }
+                else {
+                    this.start = '',
+                    this.end = '';
+                }
+            },
+            deep: true,
+            immediate: true
         }
     },
     methods: {
@@ -193,7 +257,7 @@ export default {
             this.handleDoubleTextChange();
         },
         handleDoubleTextChange() {
-            this.value.value = this.start + ' - ' + this.end;
+            this.value.value = [this.start, this.end];
             this.$emit('on-change', this.field.model, this.value, null, this.field);
         }
     }

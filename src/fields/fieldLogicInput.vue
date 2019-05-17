@@ -1,14 +1,13 @@
 <template>
     <div :class="classes">
         <Select
-            :value="model.logic"
+            :value="value.logic"
             :multiple="field.multiple"
             :disabled="field.disabled"
             :clearable="field.clearable"
             :filterable="field.filterable"
             :size="field.size"
             :placeholder="field.placeholder"
-            :remote="remote"
             :class="logicSelectClassess"
             @on-change="handleLogicChange"
         >
@@ -24,7 +23,7 @@
         <Input
             v-if="['single', 'multiple'].includes(valueType)"
             :class="singleInputClassess"
-            :value="model.value"
+            :value="value.value"
             :type="valueType === 'single' ? 'text' : 'textarea'"
             :size="field.size || 'default'"
             :placeholder="field.placeholder"
@@ -80,13 +79,6 @@ import {logicInputMap} from '../utils/const';
 import {classPrifix} from '../utils/const';
 export default {
     props: {
-        formModel: {
-            type: Object,
-            required: true,
-            default() {
-                return {};
-            }
-        },
         model: {
             type: Object,
             required: true
@@ -135,6 +127,22 @@ export default {
             return logicInputMap[this.value.logic].valueType || 'input';
         }
     },
+    watch: {
+        value: {
+            handler({value}) {
+                if (Array.isArray(value)) {
+                    this.start = value[0];
+                    this.end = value[1];
+                }
+                else {
+                    this.start = '',
+                    this.end = '';
+                }
+            },
+            deep: true,
+            immediate: true
+        }
+    },
     methods: {
         remoteMethod() {
             // TODO
@@ -168,7 +176,7 @@ export default {
             this.handleDoubleTextChange();
         },
         handleDoubleTextChange() {
-            this.value.value = this.start + ' - ' + this.end;
+            this.value.value = [this.start, this.end];
             this.$emit('on-change', this.field.model, this.value, null, this.field);
         }
     }
