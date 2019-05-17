@@ -14,13 +14,6 @@ import getOptions from '../mixins/getOptions';
 export default {
     mixins: [getOptions],
     props: {
-        formModel: {
-            type: Object,
-            required: true,
-            default() {
-                return {};
-            }
-        },
         model: {
             type: [Object, Array, String, Boolean],
             required: true

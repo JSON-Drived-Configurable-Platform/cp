@@ -7,6 +7,7 @@
         :options="options"
         :editable="true"
         :style="style"
+        change-on-select
         @on-change="handleChange"
     />
 </template>
