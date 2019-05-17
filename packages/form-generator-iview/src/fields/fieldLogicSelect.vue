@@ -162,6 +162,12 @@ export default {
         }
     },
     methods: {
+        remoteMethod() {
+            if (!this.field.api) {
+                return;
+            }
+            this.getRemoteOptions();
+        },
         handleLogicValueChange(value) {
             this.value.value = value;
             this.handleChange();
