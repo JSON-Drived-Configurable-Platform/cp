@@ -12,6 +12,11 @@
     />
 </template>
 <script>
+const getDate = function(days = 0) {
+    const date = new Date();
+    date.setTime(date.getTime() + 3600 * 1000 * 24 * days);
+    return date;
+};
 export default {
     props: {
         model: {
@@ -24,48 +29,133 @@ export default {
         }
     },
     data() {
+        let subTypeToShortcuts = {
+            'date': [
+                {
+                    text: '今天',
+                    value() {
+                        return getDate(0);
+                    }
+                },
+                {
+                    text: '昨天',
+                    value() {
+                        return getDate(-1);
+                    }
+                },
+                {
+                    text: '前天',
+                    value() {
+                        return getDate(-2);
+                    }
+                },
+                {
+                    text: '7天前',
+                    value() {
+                        return getDate(-7);
+                    }
+                },
+                {
+                    text: '30天前',
+                    value() {
+                        return getDate(-30);
+                    }
+                },
+            ],
+            'daterange': [
+                {
+                    text: '最近7天',
+                    value() {
+                        return [getDate(-7), getDate(0)];
+                    }
+                },
+                {
+                    text: '最近30天',
+                    value() {
+                        return [getDate(-30), getDate(0)];
+                    }
+                },
+                {
+                    text: '最近90天',
+                    value() {
+                        return [getDate(-90), getDate(0)];
+                    }
+                },
+                {
+                    text: '最近182天',
+                    value() {
+                        return [getDate(-180), getDate(0)];
+                    }
+                },
+                {
+                    text: '最近365天',
+                    value() {
+                        return [getDate(-365), getDate(0)];
+                    }
+                }
+            ],
+            'datetime': [
+                {
+                    text: '昨天',
+                    value() {
+                        return getDate(-1);
+                    }
+                },
+                {
+                    text: '前天',
+                    value() {
+                        return getDate(-2);
+                    }
+                },
+                {
+                    text: '7天前',
+                    value() {
+                        return getDate(-7);
+                    }
+                },
+                {
+                    text: '30天前',
+                    value() {
+                        return getDate(-30);
+                    }
+                },
+            ],
+            'datetimerange': [
+                {
+                    text: '最近7天',
+                    value() {
+                        return [getDate(-7), getDate(0)];
+                    }
+                },
+                {
+                    text: '最近30天',
+                    value() {
+                        return [getDate(-30), getDate(0)];
+                    }
+                },
+                {
+                    text: '最近90天',
+                    value() {
+                        return [getDate(-90), getDate(0)];
+                    }
+                },
+                {
+                    text: '最近182天',
+                    value() {
+                        return [getDate(-182), getDate(0)];
+                    }
+                },
+                {
+                    text: '最近365',
+                    value() {
+                        return [getDate(-365), getDate(0)];
+                    }
+                }
+            ]
+        };
         return {
             options: {
-                disabledDate() {
-
-                },
-                shortcuts: [
-                    {
-                        text: '最近一周',
-                        onClick() {
-                            // TODO
-                            // console.log('最近一周');
-                        }
-                    },
-                    {
-                        text: '最近一月',
-                        onClick() {
-                            // TODO
-                            // console.log('最近一月');
-                        }
-                    },
-                    {
-                        text: '最近三月',
-                        onClick() {
-                            // TODO
-                            // console.log('最近三月');
-                        }
-                    },
-                    {
-                        text: '最近半年',
-                        onClick() {
-                            // TODO
-                            // console.log('最近半年');
-                        }
-                    },
-                    {
-                        text: '最近一年',
-                        onClick() {
-                            // TODO
-                            // console.log('最近一年');
-                        }
-                    }
-                ]
+                shortcuts: subTypeToShortcuts[this.field.subType]
             }
         };
     },
