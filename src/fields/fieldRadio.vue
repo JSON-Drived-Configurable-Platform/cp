@@ -40,10 +40,6 @@ export default {
     },
     methods: {
         remoteMethod() {
-            // TODO
-            if (!this.field.api) {
-                return;
-            }
             this.loading = true;
         },
         handleChange(value) {

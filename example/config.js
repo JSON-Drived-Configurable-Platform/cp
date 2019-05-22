@@ -375,7 +375,7 @@ export const model = {
 export const options = {
     labelWidth: 100,
     inline: true,
-    itemWidth: '1000',
+    itemWidth: '400',
     title: '测试表单',
     // extraType: 'bottom',
     tip: {

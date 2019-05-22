@@ -9,10 +9,12 @@
                 v-if="tip.title"
                 :class="tipsClasses"
                 :title="tip.title"
-                :content="tip.content"
                 placement="left-start"
             >
                 <Icon type="md-help-circle" />
+                <div slot="content">
+                    <p v-html="tip.content" />
+                </div>
             </Poptip>
         </h3>
         <Divider
