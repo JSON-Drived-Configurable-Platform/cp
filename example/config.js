@@ -162,6 +162,8 @@ export const fields = [
         label: '省/城市/景点',
         model: 'cascader',
         required: true,
+        changeType: 'all',
+        // changeType: 'step',
         options: [{
             value: 'beijing',
             label: '北京',
