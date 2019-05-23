@@ -6,6 +6,7 @@
         :clearable="field.clearable"
         :placeholder="field.placeholder"
         :filterable="true"
+        :change-on-select="changeOnSelect"
         @on-change="handleChange"
     />
 </template>
@@ -42,6 +43,12 @@ export default {
         },
         computedOptions() {
             return this.options.length > 0 ? this.options : this.field.options;
+        },
+        changeOnSelect() {
+            if (this.field.changeType === undefined) {
+                return false;
+            }
+            return this.field.changeType !== 'all';
         }
     },
 
