@@ -106,6 +106,14 @@ export default {
                 .submit().then(data => {
                     // eslint-disable-next-line no-console
                     console.log('submit', data);
+                    const conditons = [];
+                    Object.keys(data).map(key => {
+                        conditons.push({
+                            key,
+                            value: data[key]
+                        });
+                    });
+                    console.log('submit', JSON.stringify(conditons));
                 });
         },
         handleSubmit() {
