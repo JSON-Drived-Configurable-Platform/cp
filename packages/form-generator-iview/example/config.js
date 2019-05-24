@@ -3,7 +3,7 @@ export const fields = [
         key: '1000',
         type: 'Input',
         label: '输入框',
-        model: 'name',
+        model: 'input',
         placeholder: '请输入用户名',
         required: true,
         defaultHide: false
@@ -12,7 +12,7 @@ export const fields = [
         key: '10001',
         type: 'Input',
         label: '用户名-禁用',
-        model: 'name-forbidden',
+        model: 'inputForbidden',
         readonly: true,
         disabled: true,
         placeholder: '请输入用户名',
@@ -23,7 +23,7 @@ export const fields = [
         type: 'Input',
         subType: 'textarea',
         label: '输入框',
-        model: 'name-textarea',
+        model: 'textarea',
         placeholder: '请输入用户名',
         required: true,
         defaultHide: false
@@ -35,7 +35,7 @@ export const fields = [
         model: 'inputNumber',
         placeholder: '',
         required: true,
-        defaultHide: true
+        //defaultHide: true
     },
     {
         key: '1002',
@@ -53,7 +53,7 @@ export const fields = [
                 value: '2'
             }
         ],
-        defaultHide: true
+        //defaultHide: true
     },
     {
         key: '100211',
@@ -63,7 +63,7 @@ export const fields = [
         required: true,
         api: '/selectApi',
         apiParams: ['radio'],
-        defaultHide: true
+        //defaultHide: true
     },
     {
         key: '10021',
@@ -82,7 +82,7 @@ export const fields = [
             }
         ],
         required: true,
-        defaultHide: true
+        //defaultHide: true
     },
     {
         key: '10023',
@@ -92,7 +92,7 @@ export const fields = [
         api: '/selectApi',
         apiParams: ['radio'],
         model: 'multiSelectApi',
-        defaultHide: true
+        //defaultHide: true
     },
     // {
     //     key: '10023',
@@ -128,7 +128,7 @@ export const fields = [
             }
         ],
         required: true,
-        defaultHide: true
+        //defaultHide: true
     },
     {
         key: '1004',
@@ -154,7 +154,7 @@ export const fields = [
             }
         ],
         required: true,
-        defaultHide: true
+        //defaultHide: true
     },
     {
         key: '1005',
@@ -221,7 +221,7 @@ export const fields = [
                 }
             ],
         }],
-        defaultHide: true
+        //defaultHide: true
     },
     {
         key: '1005',
@@ -231,7 +231,7 @@ export const fields = [
         required: true,
         api: '/cascaderApi',
         apiParams: ['radio'],
-        defaultHide: true,
+        //defaultHide: true,
         options: [{
             value: 'beijing',
             label: '北京',
@@ -260,7 +260,7 @@ export const fields = [
         model: 'date',
         placeholder: '',
         required: true,
-        defaultHide: true
+        //defaultHide: true
     },
     {
         key: '100061',
@@ -270,7 +270,7 @@ export const fields = [
         model: 'daterange',
         placeholder: '',
         required: true,
-        defaultHide: true
+        //defaultHide: true
     },
     {
         key: '100062',
@@ -280,7 +280,7 @@ export const fields = [
         model: 'datetime',
         placeholder: '',
         required: true,
-        defaultHide: true
+        //defaultHide: true
     },
     {
         key: '100063',
@@ -290,7 +290,7 @@ export const fields = [
         model: 'datetimerange',
         placeholder: '',
         required: true,
-        defaultHide: true
+        //defaultHide: true
     },
     {
         key: '10007',
@@ -299,7 +299,7 @@ export const fields = [
         model: 'logicInput',
         required: true,
         enables: ['=', '>', '>=', '<', '<=', 'betweenIn', 'betweenWith', '!=', 'multiple'],
-        defaultHide: true
+        //defaultHide: true
     },
     {
         key: '10008',
@@ -326,7 +326,7 @@ export const fields = [
                 value: '4'
             }
         ],
-        defaultHide: true
+        //defaultHide: true
     },
     {
 
@@ -338,15 +338,15 @@ export const fields = [
         enables: ['=', '>', '>=', '<', '<=', 'betweenIn', 'betweenWith', '!=', 'multiple'],
         api: '/selectApi',
         apiParams: ['radio'],
-        defaultHide: true
+        //defaultHide: true
     }
 ];
 
 
 export const model = {
-    name: 'wangbing',
-    'name-forbidden': 'wangbing',
-    'name-textarea': '啊啊啊啊啊',
+    input: 'wangbing',
+    'inputForbidden': 'wangbing',
+    'textarea': '啊啊啊啊啊',
     singleSelect: '1',
     singleSelectApi: '1',
     multiSelect: ['1', '2'],
