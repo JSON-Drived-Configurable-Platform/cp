@@ -279,6 +279,7 @@ export const fields = [
         label: '日期时间选择',
         model: 'datetime',
         placeholder: '',
+        required: true,
         editable: true,
         clearable: true
         //defaultHide: true

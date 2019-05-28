@@ -168,16 +168,14 @@ export default {
             return !!this.field.api || this.field.filterable;
         },
         editable() {
-            if (this.field.required) {
-                return false;
-            }
-            return this.field.editable === undefined ? true : this.field.editable;
+            return this.field.editable === undefined
+                ? this.field.required ? false : true
+                : this.field.editable;
         },
         clearable() {
-            if (this.field.required) {
-                return false;
-            }
-            return this.field.clearable === undefined ? true : this.field.clearable;
+            return this.field.clearable === undefined
+                ? this.field.required ? false : true
+                : this.field.clearable;
         },
         subType() {
             return this.field.subType || 'date';
