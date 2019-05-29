@@ -1,6 +1,6 @@
 <template>
     <CheckboxGroup
-        :value="model"
+        :value="formModel[field.model]"
         @on-change="handleChange"
     >
         <Checkbox
@@ -16,14 +16,17 @@
 <script>
 export default {
     props: {
-        model: {
-            type: Array,
-            required: true
-        },
         field: {
             type: Object,
             required: true
-        }
+        },
+        formModel: {
+            type: Object,
+            required: true,
+            default() {
+                return {};
+            }
+        },
     },
     data() {
         return {

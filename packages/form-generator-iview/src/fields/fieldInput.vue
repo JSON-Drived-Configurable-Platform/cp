@@ -1,6 +1,6 @@
 <template>
     <Input
-        :value="model"
+        :value="formModel[field.model]"
         :type="field.subType"
         :size="field.size || 'default'"
         :placeholder="field.placeholder"
@@ -17,14 +17,17 @@
 <script>
 export default {
     props: {
-        model: {
-            type: [String],
-            required: true
-        },
         field: {
             type: Object,
             required: true
-        }
+        },
+        formModel: {
+            type: Object,
+            required: true,
+            default() {
+                return {};
+            }
+        },
     },
     methods: {
         handleChange(e) {

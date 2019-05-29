@@ -1,6 +1,6 @@
 <template>
     <Cascader
-        :value="model"
+        :value="formModel[field.model]"
         :data="computedOptions"
         :disabled="field.disabled"
         :clearable="field.clearable"
@@ -15,10 +15,6 @@ import getOptions from '../mixins/getOptions';
 export default {
     mixins: [getOptions],
     props: {
-        model: {
-            type: [Object, Array, String, Boolean],
-            required: true
-        },
         field: {
             type: Object,
             required: true

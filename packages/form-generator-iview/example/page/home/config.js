@@ -131,6 +131,25 @@ export const fields = [
         //defaultHide: true
     },
     {
+        key: '100311',
+        type: 'Radio',
+        subType: 'button',
+        label: '单选按钮',
+        model: 'radioButton',
+        required: true,
+        options: [
+            {
+                label: '选项一',
+                value: '1'
+            },
+            {
+                label: '选项二',
+                value: '2'
+            }
+        ],
+        //defaultHide: true
+    },
+    {
         key: '1004',
         type: 'Checkbox',
         label: '多选',
@@ -341,6 +360,21 @@ export const fields = [
         api: '/selectApi',
         apiParams: ['radio'],
         //defaultHide: true
+    },
+    {
+        key: '10009',
+        type: 'Switch',
+        label: '切换',
+        trueValue: 'A',
+        falseValue: 'B',
+        model: 'switch',
+    },
+    {
+        key: '1000111111',
+        type: 'Upload',
+        action: '/upload',
+        label: '文件上传',
+        model: 'upload',
     }
 ];
 
@@ -350,6 +384,7 @@ export const model = {
     'inputForbidden': 'wangbing',
     'textarea': '啊啊啊啊啊',
     singleSelect: '1',
+    radioButton: '1',
     singleSelectApi: '1',
     multiSelect: ['1', '2'],
     multiSelectApi: ['1', '2'],
@@ -373,7 +408,9 @@ export const model = {
     logicSelectApi: {
         logic: 'betweenIn',
         value: ['1', '2']
-    }
+    },
+    switch: false,
+    upload: ''
 };
 
 export const options = {

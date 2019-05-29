@@ -2,10 +2,10 @@
     <div>
         <Select
             v-if="remote"
-            :value="model"
+            :value="formModel[field.model]"
             :multiple="field.multiple || false"
             :disabled="field.disabled || false"
-            :clearable="field.clearable || false"
+            :clearable="clearable"
             :size="field.size || 'default'"
             :placeholder="field.placeholder"
             :remote="remote"
@@ -23,10 +23,10 @@
         </Select>
         <Select
             v-else
-            :value="model"
+            :value="formModel[field.model]"
             :multiple="field.multiple || false"
             :disabled="field.disabled || false"
-            :clearable="field.clearable || false"
+            :clearable="clearable"
             :size="field.size || 'default'"
             :placeholder="field.placeholder"
             :filterable="filterable || false"
@@ -47,10 +47,6 @@ import getOptions from '../mixins/getOptions';
 export default {
     mixins: [getOptions],
     props: {
-        model: {
-            type: [String, Number, Array],
-            required: true
-        },
         field: {
             type: Object,
             required: true
@@ -58,7 +54,14 @@ export default {
         apiBase: {
             type: String,
             default: ''
-        }
+        },
+        formModel: {
+            type: Object,
+            required: true,
+            default() {
+                return {};
+            }
+        },
     },
     data() {
         return {
@@ -73,12 +76,20 @@ export default {
         filterable() {
             return !!this.field.api || this.field.filterable;
         },
+        clearable() {
+            return this.field.clearable === undefined
+                ? this.field.required ? false : true
+                : this.field.clearable;
+        },
         computedOptions() {
             return this.options.length > 0 ? this.options : this.field.options;
         }
     },
     methods: {
         handleChange(value) {
+            if (value === undefined || value === null) {
+                value = '';
+            }
             this.$emit('on-change', this.field.model, value, null, this.field);
         },
         remoteMethod() {

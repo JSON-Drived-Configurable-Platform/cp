@@ -79,20 +79,23 @@ import {logicInputMap} from '../utils/const';
 import {classPrifix} from '../utils/const';
 export default {
     props: {
-        model: {
-            type: Object,
-            required: true
-        },
         field: {
             type: Object,
             required: true
-        }
+        },
+        formModel: {
+            type: Object,
+            required: true,
+            default() {
+                return {};
+            }
+        },
     },
     data() {
         return {
             start: '',
             end: '',
-            value: this.model || {logic: '=', value: ''}
+            value: this.formModel[this.field.model] || {logic: '=', value: ''}
         };
     },
     computed: {

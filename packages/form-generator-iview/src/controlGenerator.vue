@@ -3,7 +3,6 @@
         :is="getFieldCom(field.type)"
         :class="classes"
         :field="field"
-        :model="model"
         :form-model="formModel"
         :api-base="apiBase"
         @on-change="onFieldChange"
@@ -25,10 +24,6 @@ export default {
             default() {
                 return {};
             }
-        },
-        model: {
-            type: [Object, Array, String, Boolean, Number, null, undefined],
-            required: true
         },
         field: {
             type: Object,
