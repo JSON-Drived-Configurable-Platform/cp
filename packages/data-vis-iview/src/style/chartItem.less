@@ -1,0 +1,64 @@
+.@{css-prefix}-item {
+    position: relative;
+    border: solid 1px #e4e4e4;
+    border-radius: 10px;
+    margin: 10px;
+    float: left;
+    height: auto;
+
+    .@{css-prefix}-item-tip {
+        position: absolute;
+        top: 5px;
+        right: 2px;
+        color: #999;
+    }
+
+    .@{css-prefix}-item-header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        height: 40px;
+        line-height: 40px;
+        padding: 0 5px 0 0;
+        font-size: 14px;
+        font-weight: normal;
+    }
+
+    .@{css-prefix}-item-type {
+        margin: 0 10px;
+    }
+
+    .@{css-prefix}-item-chart-box {
+        float: left;
+    }
+
+    .@{css-prefix}-chart-inline-items-box {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+
+        .@{css-prefix}-chart-inline-item-box {
+            margin: 10px;
+            min-width: 220px;
+        }
+    }
+
+    .@{css-prefix}-item-chart-conditions {
+        display: inline-block;
+        height: 40px;
+        flex-grow: 1;
+
+        .fg-ivu-default-items-box {
+            display: flex;
+            justify-content: flex-end;
+            padding-top: 2px;
+
+            .fg-ivu-form-item {
+                margin-right: 0;
+            }
+        }
+    }
+}

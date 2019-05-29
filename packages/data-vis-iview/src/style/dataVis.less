@@ -1,0 +1,38 @@
+.@{css-prefix}-tip {
+    float: right;
+    margin-right: 30px;
+    color: #999;
+}
+
+.@{css-prefix}-header {
+    height: 30px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.@{css-prefix}-items-box {
+    &:after {
+        content: '';
+        clear: both;
+        display: block;
+    }
+
+    .ivu-card-body {
+        padding: 0 16px;
+
+        &:after {
+            content: '';
+            clear: both;
+            display: block;
+        }
+    }
+
+    .ivu-card-body {
+        width: 100%;
+        height: auto;
+    }
+
+    .ivu-divider-horizontal {
+        margin: 0;
+    }
+}

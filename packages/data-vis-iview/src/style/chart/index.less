@@ -1,0 +1,28 @@
+@import "./chartCard.less";
+@import "./chartTable.less";
+@import "./chartLine.less";
+@import "./chartRetain.less";
+
+.@{css-prefix}-chart {
+    width: 100%;
+    min-height: 236px;
+    height: auto;
+}
+
+.@{css-prefix}-chart-loading {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &-spin {
+        position: absolute;
+        z-index: 999;
+        width: 100%;
+        height: auto;
+        min-height: 236px;
+        .ivu-spin-main {
+            margin: 100px auto 0;
+            display: inline-block;
+        }
+    }
+}
