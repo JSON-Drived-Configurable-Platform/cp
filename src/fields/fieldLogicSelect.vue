@@ -149,10 +149,6 @@ import getOptions from '../mixins/getOptions';
 export default {
     mixins: [getOptions],
     props: {
-        model: {
-            type: Object,
-            required: true
-        },
         field: {
             type: Object,
             required: true
@@ -160,13 +156,20 @@ export default {
         apiBase: {
             type: String,
             default: ''
-        }
+        },
+        formModel: {
+            type: Object,
+            required: true,
+            default() {
+                return {};
+            }
+        },
     },
     data() {
         return {
             start: '',
             end: '',
-            value: this.model || {logic: '=', value: ''},
+            value: this.formModel[this.field.model] || {logic: '=', value: ''},
             options: []
         };
     },

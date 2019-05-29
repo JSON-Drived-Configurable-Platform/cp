@@ -1,21 +1,21 @@
 <template>
-    <InputNumber
+    <iSwitch
         :value="formModel[field.model]"
-        :type="field.subType"
-        :step="field.step"
-        :precision="field.precision"
-        :size="field.size || 'default'"
-        :max="field.max"
-        :min="field.min"
-        :placeholder="field.placeholder"
-        :clearable="field.clearable"
+        :true-value="field.trueValue"
+        :false-value="field.falseValue"
         :disabled="field.disabled"
-        :readonly="field.readonly"
+        :size="field.size"
         @on-change="handleChange"
     />
 </template>
 <script>
+import {Switch as iSwitch} from 'iview';
+import getOptions from '../mixins/getOptions';
 export default {
+    components: {
+        iSwitch
+    },
+    mixins: [getOptions],
     props: {
         field: {
             type: Object,
@@ -29,11 +29,13 @@ export default {
             }
         },
     },
+    data() {
+        return {
+            loading: false
+        };
+    },
     methods: {
         handleChange(value) {
-            if (value === null) {
-                value = 0;
-            }
             this.$emit('on-change', this.field.model, value, null, this.field);
         }
     }

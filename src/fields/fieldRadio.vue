@@ -1,6 +1,7 @@
 <template>
     <RadioGroup
-        :value="model"
+        :value="formModel[field.model]"
+        :type="field.subType"
         @on-change="handleChange"
     >
         <Radio
@@ -16,14 +17,17 @@
 <script>
 export default {
     props: {
-        model: {
-            type: [String, Number],
-            required: true
-        },
         field: {
             type: Object,
             required: true
-        }
+        },
+        formModel: {
+            type: Object,
+            required: true,
+            default() {
+                return {};
+            }
+        },
     },
     data() {
         return {

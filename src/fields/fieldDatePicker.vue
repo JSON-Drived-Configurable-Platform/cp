@@ -2,7 +2,7 @@
     <DatePicker
         :type="subType"
         :placeholder="field.placeholder"
-        :value="model"
+        :value="formModel[field.model]"
         :disabled="field.disabled"
         :options="options"
         :editable="editable"
@@ -20,14 +20,17 @@ const getDate = function(days = 0) {
 };
 export default {
     props: {
-        model: {
-            type: [Array, String],
-            required: true
-        },
         field: {
             type: Object,
             required: true
-        }
+        },
+        formModel: {
+            type: Object,
+            required: true,
+            default() {
+                return {};
+            }
+        },
     },
     data() {
         let subTypeToShortcuts = {

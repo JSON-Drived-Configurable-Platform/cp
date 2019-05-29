@@ -42,7 +42,6 @@
                 >
                     <ControlGenerator
                         :field="field"
-                        :model="formModel[field.model]"
                         :form-model="formModel"
                         :api-base="apiBase"
                         @on-field-change="handleFieldChange"
@@ -258,7 +257,25 @@ export default {
                     item => this.selectedDefaultHideFields.includes(item.model)
                 )
             ];
+        },
+        // 根据apiParams计算出某字段更改后，受影响的字段有哪些
+        needResetFieldsOnChangeMap() {
+            let fields = this.fields || [];
+            let map = {};
+            fields.forEach(field => {
+                let apiParams = field.apiParams || [];
+                if (apiParams.length > 0) {
+                    apiParams.forEach(param => {
+                        if (!map[param]) {
+                            map[param] = [];
+                        }
+                        map[param].push(field);
+                    });
+                }
+            });
+            return map;
         }
+
     },
     watch: {
         model: {
@@ -270,7 +287,12 @@ export default {
     },
     methods: {
         handleFieldChange(model, value){
-            this.formModel[model] = value;
+            // 关联项需要清空
+            let needResetFields = this.needResetFieldsOnChangeMap[model] || [];
+            needResetFields.forEach(field => {
+                this.resetField(field);
+            });
+            this.$set(this.formModel, model, value);
             this.$refs.form.validateField(model);
         },
         getRules(field) {
@@ -312,6 +334,16 @@ export default {
                 });
             }
             return rules;
+        },
+        resetField(field) {
+            let typeToResetValues = {
+                string: '',
+                array: [],
+                object: {},
+                number: 0
+            };
+            let type = this.getValidType(field);
+            this.$set(this.formModel, field.model, typeToResetValues[type]);
         },
         getValidType(field) {
             const type = field.type.toLowerCase();
