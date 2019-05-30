@@ -1,7 +1,7 @@
 <template>
     <div>
         <Row class="container">
-            <iCol span="9">
+            <iCol span="10">
                 <div class="container">
                     <FormGenerator
                         ref="FormGenerator"
@@ -32,7 +32,7 @@
                 />
             </iCol>
             <iCol
-                span="8"
+                span="7"
                 :style="{margin: '60px 10px'}"
             >
                 <Form :model="form">
