@@ -113,7 +113,8 @@ export default {
             index: 0,
             model: {},
             options: {
-                inline: true
+                inline: true,
+                size: 'small'
             }
         };
     },

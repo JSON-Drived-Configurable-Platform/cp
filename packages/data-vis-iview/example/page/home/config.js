@@ -242,6 +242,7 @@ export const config = [
                         {
                             key: '1000611',
                             type: 'Radio',
+                            subType: 'button',
                             model: '1000611',
                             placeholder: '',
                             required: true,

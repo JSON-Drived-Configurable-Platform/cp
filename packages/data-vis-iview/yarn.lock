@@ -2852,10 +2852,10 @@ form-data@~2.3.2:
     combined-stream "^1.0.6"
     mime-types "^2.1.12"
 
-form-generator-iview@^0.0.5:
-  version "0.0.5"
-  resolved "http://registry.npm.baidu-int.com/form-generator-iview/-/form-generator-iview-0.0.5.tgz#5a648b806db878728a17ee7392e49f3502f3243b"
-  integrity sha512-QdQUr1Y5TST+BwpLEo7teZQZndyI2rNt1uUN2LWR7YqxU2v2Mp6cbL71j+wkrLwloRdne6dqsHoKPwFajPSnUw==
+form-generator-iview@^0.0.6:
+  version "0.0.6"
+  resolved "http://registry.npm.baidu-int.com/form-generator-iview/-/form-generator-iview-0.0.6.tgz#f7c40228905103dcb8c3c36c106cbd17b97e1ccc"
+  integrity sha512-kylfYPdPFzLxmnnHhD9jnQTnmoErI4T55jybt9vOC7G+MESa0yj78leYi0DMhvNg9ghtdal3htp+W1vTd1FOpg==
   dependencies:
     axios "^0.18.0"
     core-js "2"
