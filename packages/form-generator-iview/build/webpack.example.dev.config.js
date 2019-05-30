@@ -98,6 +98,15 @@ module.exports = merge(webpackBaseConfig, {
 
                 });
             });
+
+            app.post('/uploadApi', function(req, res){
+                res.json({
+                    status: 0,
+                    data: {
+                        url: 'uploadUrl'
+                    }
+                });
+            });
         },
     },
 

@@ -372,7 +372,20 @@ export const fields = [
     {
         key: '1000111111',
         type: 'Upload',
-        action: '/upload',
+        subType: 'drag',
+        accept: 'image/gif, image/jpeg, image/png',
+        format: ['jpg','jpeg','png'],
+        maxSize: 20000,
+        action: '/uploadApi',
+        multiple: false,
+        paste: true,
+        disabled: false,
+        data: {
+            userName: 'bingblog'
+        },
+        withCredentials: true,
+        showUploadList: true,
+        apiParams: ['radio'],
         label: '文件上传',
         model: 'upload',
     }
@@ -410,7 +423,16 @@ export const model = {
         value: ['1', '2']
     },
     switch: false,
-    upload: ''
+    upload: [
+        {
+            name: 'img1.jpg',
+            url: 'http://www.xxx.com/img1.jpg'
+        },
+        {
+            name: 'img2.jpg',
+            url: 'http://www.xxx.com/img2.jpg'
+        }
+    ]
 };
 
 export const options = {
