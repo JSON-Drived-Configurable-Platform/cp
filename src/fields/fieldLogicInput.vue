@@ -127,7 +127,10 @@ export default {
             });
         },
         valueType() {
-            return logicInputMap[this.value.logic].valueType || 'input';
+            if (!this.value.logic) {
+                return 'text';
+            }
+            return logicInputMap[this.value.logic].valueType || 'text';
         }
     },
     watch: {
@@ -145,6 +148,17 @@ export default {
             deep: true,
             immediate: true
         }
+    },
+    created() {
+        this.$watch(`formModel.${this.field.model}`, ({logic, value = ''}) => {
+            if (!logic) {
+                logic = this.enables[0].value;
+            }
+            this.value = {
+                logic,
+                value
+            };
+        });
     },
     methods: {
         remoteMethod() {

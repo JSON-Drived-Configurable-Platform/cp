@@ -45,11 +45,9 @@ export default {
                 url: apiBase + this.field.api,
                 method: 'get',
                 params: Object.assign({}, params, newParams)
-            }).then(({errno, status, data}) => {
-                if (+status === 0 || +status === 200 || +errno === 0) {
-                    this.options = data;
-                    this.loading = false;
-                }
+            }).then(({data}) => {
+                this.options = data;
+                this.loading = false;
             });
         },
     },

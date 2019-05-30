@@ -205,8 +205,10 @@ export default {
             });
         },
         valueType() {
-            let logic = this.value.logic || '';
-            return logicInputMap[logic].valueType;
+            if (!this.value.logic) {
+                return 'text';
+            }
+            return logicInputMap[this.value.logic].valueType || 'text';
         },
         computedOptions() {
             return this.options.length > 0 ? this.options : this.field.options;
@@ -227,6 +229,17 @@ export default {
             deep: true,
             immediate: true
         }
+    },
+    created() {
+        this.$watch(`formModel.${this.field.model}`, ({logic, value = ''}) => {
+            if (!logic) {
+                logic = this.enables[0].value;
+            }
+            this.value = {
+                logic,
+                value
+            };
+        });
     },
     methods: {
         remoteMethod() {
