@@ -17,6 +17,7 @@
         :on-exceeded-size="onExceededSize"
         :on-success="onSuccess"
         :default-file-list="formModel[field.model]"
+        :size="size"
     >
         <Button icon="ios-cloud-upload-outline">
             上传
@@ -36,6 +37,12 @@ export default {
             required: true,
             default() {
                 return {};
+            }
+        },
+        size: {
+            type: String,
+            default() {
+                return 'default';
             }
         },
     },

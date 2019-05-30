@@ -4,7 +4,7 @@
             :value="value.logic"
             :disabled="field.disabled"
             :clearable="field.clearable"
-            :size="field.size"
+            :size="size"
             placeholder="请选择逻辑类型"
             :class="logicSelectClassess"
             @on-change="handleLogicChange"
@@ -25,7 +25,7 @@
             :disabled="field.disabled"
             :clearable="field.clearable"
             :filterable="filterable"
-            :size="field.size"
+            :size="size"
             :placeholder="field.placeholder"
             :remote="remote"
             :remote-method="remoteMethod"
@@ -46,7 +46,7 @@
             :disabled="field.disabled"
             :clearable="field.clearable"
             :filterable="filterable"
-            :size="field.size"
+            :size="size"
             :placeholder="field.placeholder"
             :class="singleSelectClassess"
             @on-change="handleLogicValueChange"
@@ -68,7 +68,7 @@
                 :disabled="field.disabled"
                 :clearable="field.clearable"
                 :filterable="filterable"
-                :size="field.size"
+                :size="size"
                 :placeholder="field.placeholder"
                 :remote="remote"
                 :remote-method="remoteMethod"
@@ -88,7 +88,7 @@
                 :disabled="field.disabled"
                 :clearable="field.clearable"
                 :filterable="filterable"
-                :size="field.size"
+                :size="size"
                 :placeholder="field.placeholder"
                 :class="singleSelectClassess"
                 @on-change="handleStartChange"
@@ -107,7 +107,7 @@
                 :disabled="field.disabled"
                 :clearable="field.clearable"
                 :filterable="filterable"
-                :size="field.size"
+                :size="size"
                 :placeholder="field.placeholder"
                 :remote="remote"
                 :remote-method="remoteMethod"
@@ -127,7 +127,7 @@
                 :disabled="field.disabled"
                 :clearable="field.clearable"
                 :filterable="filterable"
-                :size="field.size"
+                :size="size"
                 :placeholder="field.placeholder"
                 :class="singleSelectClassess"
                 @on-change="handleEndChange"
@@ -162,6 +162,12 @@ export default {
             required: true,
             default() {
                 return {};
+            }
+        },
+        size: {
+            type: String,
+            default() {
+                return 'default';
             }
         },
     },

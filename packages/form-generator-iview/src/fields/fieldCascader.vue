@@ -7,6 +7,7 @@
         :placeholder="field.placeholder"
         :filterable="true"
         :change-on-select="changeOnSelect"
+        :size="size"
         @on-change="handleChange"
     />
 </template>
@@ -22,7 +23,13 @@ export default {
         apiBase: {
             type: String,
             default: ''
-        }
+        },
+        size: {
+            type: String,
+            default() {
+                return 'default';
+            }
+        },
     },
     data() {
         return {

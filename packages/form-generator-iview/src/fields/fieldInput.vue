@@ -2,7 +2,6 @@
     <Input
         :value="formModel[field.model]"
         :type="field.subType"
-        :size="field.size || 'default'"
         :placeholder="field.placeholder"
         :clearable="field.clearable"
         :disabled="field.disabled"
@@ -11,6 +10,7 @@
         :prefix="field.prefix"
         :suffix="field.suffix"
         :autofocus="field.autofocus"
+        :size="size"
         @on-change="handleChange"
     />
 </template>
@@ -26,6 +26,12 @@ export default {
             required: true,
             default() {
                 return {};
+            }
+        },
+        size: {
+            type: String,
+            default() {
+                return 'default';
             }
         },
     },

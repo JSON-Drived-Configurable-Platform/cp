@@ -6,7 +6,7 @@
             :disabled="field.disabled"
             :clearable="field.clearable"
             :filterable="field.filterable"
-            :size="field.size"
+            :size="size"
             :placeholder="field.placeholder"
             :class="logicSelectClassess"
             @on-change="handleLogicChange"
@@ -25,7 +25,7 @@
             :class="singleInputClassess"
             :value="value.value"
             :type="valueType === 'single' ? 'text' : 'textarea'"
-            :size="field.size || 'default'"
+            :size="size"
             :placeholder="field.placeholder"
             :clearable="field.clearable"
             :disabled="field.disabled"
@@ -43,7 +43,7 @@
             <Input
                 :value="start"
                 type="text"
-                :size="field.size || 'default'"
+                :size="size"
                 :placeholder="field.placeholder"
                 :clearable="field.clearable"
                 :disabled="field.disabled"
@@ -59,7 +59,7 @@
             <Input
                 :value="end"
                 type="text"
-                :size="field.size || 'default'"
+                :size="size"
                 :placeholder="field.placeholder"
                 :clearable="field.clearable"
                 :disabled="field.disabled"
@@ -88,6 +88,12 @@ export default {
             required: true,
             default() {
                 return {};
+            }
+        },
+        size: {
+            type: String,
+            default() {
+                return 'default';
             }
         },
     },

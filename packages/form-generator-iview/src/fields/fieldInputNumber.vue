@@ -4,7 +4,7 @@
         :type="field.subType"
         :step="field.step"
         :precision="field.precision"
-        :size="field.size || 'default'"
+        :size="size"
         :max="field.max"
         :min="field.min"
         :placeholder="field.placeholder"
@@ -26,6 +26,12 @@ export default {
             required: true,
             default() {
                 return {};
+            }
+        },
+        size: {
+            type: String,
+            default() {
+                return 'default';
             }
         },
     },
