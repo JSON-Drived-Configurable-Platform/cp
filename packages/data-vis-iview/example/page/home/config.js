@@ -1,132 +1,6 @@
 export const config = [
     {
         title: '整体趋势',
-        tip: {
-            title: '规则',
-            content: '规则内容规则内容规则内容规则内容规则<br>内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容',
-        },
-        rows: [
-            [
-                {
-                    display: 'inline',
-                    conditions: [
-                        {
-                            key: '100060',
-                            type: 'DatePicker',
-                            subType: 'date',
-                            model: 'date',
-                            placeholder: '',
-                            required: true,
-                            defaultValue: '2019-01-01'
-                        }
-                    ],
-                    chartGroup: [
-                        {
-                            'type':'card',
-                            'label': '新增用户',
-                            'api': '/chartCard'
-                        },
-                        {
-                            'type':'card',
-                            'label': '活跃用户',
-                            'api': '/chartCard'
-                        },
-                        {
-                            'type':'card',
-                            'label': '月活',
-                            'api': '/chartCard'
-                        },
-                        {
-                            'type':'card',
-                            'label': '年活跃',
-                            'data': [
-                                {
-                                    label: '新增用111户数',
-                                    value: '100000000',
-                                    unit: '人',
-                                    showChange: false,
-                                },
-                                {
-                                    label: '日环比',
-                                    value: '3.95',
-                                    unit: '%',
-                                    showChange: true,
-                                },
-                                {
-                                    label: '当前值a',
-                                    value: '8888888',
-                                    unit: '人',
-                                    showChange: false,
-                                },
-                                {
-                                    label: '日环比',
-                                    value: '3.95',
-                                    unit: '%',
-                                    showChange: true,
-                                },
-                                {
-                                    label: '当前值b',
-                                    value: '8888888',
-                                    unit: '人',
-                                    showChange: false,
-                                },
-                                {
-                                    label: '日环比',
-                                    value: '3.95%',
-                                    unit: '%',
-                                    showChange: true,
-                                }
-                            ]
-                        },
-                        {
-                            'type':'card',
-                            'label': 'aaa',
-                            'data': [
-                                {
-                                    label: '新增用111户数',
-                                    value: '100000000',
-                                    unit: '人',
-                                    showChange: false,
-                                },
-                                {
-                                    label: '日环比',
-                                    value: '3.95',
-                                    unit: '%',
-                                    showChange: true,
-                                },
-                                {
-                                    label: '当前值a',
-                                    value: '8888888',
-                                    unit: '人',
-                                    showChange: false,
-                                },
-                                {
-                                    label: '日环比',
-                                    value: '3.95',
-                                    unit: '%',
-                                    showChange: true,
-                                },
-                                {
-                                    label: '当前值b',
-                                    value: '8888888',
-                                    unit: '人',
-                                    showChange: false,
-                                },
-                                {
-                                    label: '日环比',
-                                    value: '3.95%',
-                                    unit: '%',
-                                    showChange: true,
-                                }
-                            ]
-                        },
-                    ],
-                },
-            ],
-        ],
-    },
-    {
-        title: '整体趋势',
         rows: [
             [
                 {
@@ -1073,5 +947,131 @@ export const config = [
                 }
             ]
         ]
-    }
+    },
+    {
+        title: '整体趋势',
+        tip: {
+            title: '规则',
+            content: '规则内容规则内容规则内容规则内容规则<br>内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容',
+        },
+        rows: [
+            [
+                {
+                    display: 'inline',
+                    conditions: [
+                        {
+                            key: '100060',
+                            type: 'DatePicker',
+                            subType: 'date',
+                            model: 'date',
+                            placeholder: '',
+                            required: true,
+                            defaultValue: '2019-01-01'
+                        }
+                    ],
+                    chartGroup: [
+                        {
+                            'type':'card',
+                            'label': '新增用户',
+                            'api': '/chartCard'
+                        },
+                        {
+                            'type':'card',
+                            'label': '活跃用户',
+                            'api': '/chartCard'
+                        },
+                        {
+                            'type':'card',
+                            'label': '月活',
+                            'api': '/chartCard'
+                        },
+                        {
+                            'type':'card',
+                            'label': '年活跃',
+                            'data': [
+                                {
+                                    label: '新增用111户数',
+                                    value: '100000000',
+                                    unit: '人',
+                                    showChange: false,
+                                },
+                                {
+                                    label: '日环比',
+                                    value: '3.95',
+                                    unit: '%',
+                                    showChange: true,
+                                },
+                                {
+                                    label: '当前值a',
+                                    value: '8888888',
+                                    unit: '人',
+                                    showChange: false,
+                                },
+                                {
+                                    label: '日环比',
+                                    value: '3.95',
+                                    unit: '%',
+                                    showChange: true,
+                                },
+                                {
+                                    label: '当前值b',
+                                    value: '8888888',
+                                    unit: '人',
+                                    showChange: false,
+                                },
+                                {
+                                    label: '日环比',
+                                    value: '3.95%',
+                                    unit: '%',
+                                    showChange: true,
+                                }
+                            ]
+                        },
+                        {
+                            'type':'card',
+                            'label': 'aaa',
+                            'data': [
+                                {
+                                    label: '新增用111户数',
+                                    value: '100000000',
+                                    unit: '人',
+                                    showChange: false,
+                                },
+                                {
+                                    label: '日环比',
+                                    value: '3.95',
+                                    unit: '%',
+                                    showChange: true,
+                                },
+                                {
+                                    label: '当前值a',
+                                    value: '8888888',
+                                    unit: '人',
+                                    showChange: false,
+                                },
+                                {
+                                    label: '日环比',
+                                    value: '3.95',
+                                    unit: '%',
+                                    showChange: true,
+                                },
+                                {
+                                    label: '当前值b',
+                                    value: '8888888',
+                                    unit: '人',
+                                    showChange: false,
+                                },
+                                {
+                                    label: '日环比',
+                                    value: '3.95%',
+                                    unit: '%',
+                                    showChange: true,
+                                }
+                            ]
+                        },
+                    ],
+                },
+            ],
+        ],
+    },
 ];
