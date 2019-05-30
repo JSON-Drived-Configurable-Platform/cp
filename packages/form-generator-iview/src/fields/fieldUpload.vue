@@ -13,10 +13,11 @@
         :accept="field.accept"
         :format="field.format"
         :max-size="field.maxSize"
+        :default-file-list="formModel[field.model]"
         :on-format-error="onFormatError"
         :on-exceeded-size="onExceededSize"
         :on-success="onSuccess"
-        :default-file-list="formModel[field.model]"
+        :on-remove="onRemove"
         :size="size"
     >
         <Button icon="ios-cloud-upload-outline">
@@ -48,21 +49,31 @@ export default {
     },
     data() {
         return {
+            fileList: this.formModel[this.field.model],
             loading: false
         };
     },
     methods: {
-        handleChange(value) {
-            this.$emit('on-change', this.field.model, value, null, this.field);
+        handleChange() {
+            this.$emit('on-change', this.field.model, this.fileList, null, this.field);
         },
-        onSuccess({data = {}}) {
+        onSuccess({data = {}}, file) {
             const {url} = data;
             if (url) {
                 this.$Message.info('上传成功!');
+                const fileList = this.fileList || [];
+                file.url = url;
+                fileList.push(file);
+                this.fileList = fileList.slice();
+                this.handleChange();
             }
             else {
                 this.$Message.error('上传失败!');
             }
+        },
+        onRemove(file, fileList) {
+            this.fileList = fileList.slice();
+            this.handleChange();
         },
         onFormatError() {
             this.$Message.error({
