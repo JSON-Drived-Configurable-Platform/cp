@@ -6,7 +6,7 @@
             :multiple="field.multiple || false"
             :disabled="field.disabled || false"
             :clearable="clearable"
-            :size="field.size || 'default'"
+            :size="size"
             :placeholder="field.placeholder"
             :remote="remote"
             :filterable="filterable || false"
@@ -27,7 +27,7 @@
             :multiple="field.multiple || false"
             :disabled="field.disabled || false"
             :clearable="clearable"
-            :size="field.size || 'default'"
+            :size="size"
             :placeholder="field.placeholder"
             :filterable="filterable || false"
             :loading="loading"
@@ -60,6 +60,12 @@ export default {
             required: true,
             default() {
                 return {};
+            }
+        },
+        size: {
+            type: String,
+            default() {
+                return 'default';
             }
         },
     },

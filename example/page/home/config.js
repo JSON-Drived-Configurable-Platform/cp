@@ -474,7 +474,8 @@ export const options = {
         title: '规则',
         content: '规则内容',
     },
-    apiBase: ''
+    apiBase: '',
+    size: 'small'
 };
 
 

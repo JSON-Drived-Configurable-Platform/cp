@@ -1,6 +1,7 @@
 <template>
     <CheckboxGroup
         :value="formModel[field.model]"
+        :size="size"
         @on-change="handleChange"
     >
         <Checkbox
@@ -25,6 +26,12 @@ export default {
             required: true,
             default() {
                 return {};
+            }
+        },
+        size: {
+            type: String,
+            default() {
+                return 'default';
             }
         },
     },

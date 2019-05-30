@@ -8,6 +8,7 @@
         :editable="editable"
         :clearable="clearable"
         :style="style"
+        :size="size"
         change-on-select
         @on-change="handleChange"
     />
@@ -29,6 +30,12 @@ export default {
             required: true,
             default() {
                 return {};
+            }
+        },
+        size: {
+            type: String,
+            default() {
+                return 'default';
             }
         },
     },

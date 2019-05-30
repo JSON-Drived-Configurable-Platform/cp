@@ -2,6 +2,7 @@
     <RadioGroup
         :value="formModel[field.model]"
         :type="field.subType"
+        :size="size"
         @on-change="handleChange"
     >
         <Radio
@@ -26,6 +27,12 @@ export default {
             required: true,
             default() {
                 return {};
+            }
+        },
+        size: {
+            type: String,
+            default() {
+                return 'default';
             }
         },
     },

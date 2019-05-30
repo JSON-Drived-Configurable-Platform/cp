@@ -4,7 +4,7 @@
         :true-value="field.trueValue"
         :false-value="field.falseValue"
         :disabled="field.disabled"
-        :size="field.size"
+        :size="size"
         @on-change="handleChange"
     />
 </template>
@@ -26,6 +26,12 @@ export default {
             required: true,
             default() {
                 return {};
+            }
+        },
+        size: {
+            type: String,
+            default() {
+                return 'default';
             }
         },
     },

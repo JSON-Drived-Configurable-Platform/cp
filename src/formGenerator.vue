@@ -44,6 +44,7 @@
                         :field="field"
                         :form-model="formModel"
                         :api-base="apiBase"
+                        :size="options.size"
                         @on-field-change="handleFieldChange"
                         @on-submit="handleSubmit"
                     />

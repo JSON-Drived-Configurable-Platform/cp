@@ -5,6 +5,7 @@
         :field="field"
         :form-model="formModel"
         :api-base="apiBase"
+        :size="size"
         @on-change="onFieldChange"
         @submit="handleSubmit"
     />
@@ -30,6 +31,12 @@ export default {
             required: true,
             default() {
                 return [];
+            }
+        },
+        size: {
+            type: String,
+            default() {
+                return 'default';
             }
         },
         apiBase: {
