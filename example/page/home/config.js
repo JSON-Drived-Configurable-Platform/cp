@@ -388,6 +388,32 @@ export const fields = [
         apiParams: ['radio'],
         label: '文件上传',
         model: 'upload',
+    },
+    {
+        key: '1002311a',
+        type: 'Select',
+        label: '省',
+        api: '/selectApi',
+        model: 'province',
+        //defaultHide: true
+    },
+    {
+        key: '100231aaa',
+        type: 'Select',
+        label: '市',
+        api: '/selectApi',
+        apiParams: ['province'],
+        model: 'cidy',
+        //defaultHide: true
+    },
+    {
+        key: '10023acc',
+        type: 'Select',
+        label: '县',
+        api: '/selectApi',
+        apiParams: ['province', 'cidy'],
+        model: 'town',
+        //defaultHide: true
     }
 ];
 
@@ -432,7 +458,10 @@ export const model = {
             name: 'img2.jpg',
             url: 'http://www.xxx.com/img2.jpg'
         }
-    ]
+    ],
+    province: '',
+    city: '',
+    town: ''
 };
 
 export const options = {
