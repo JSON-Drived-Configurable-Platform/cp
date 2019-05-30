@@ -404,7 +404,7 @@ export const fields = [
         api: '/selectApi',
         apiParams: ['province'],
         model: 'cidy',
-        //defaultHide: true
+        defaultHide: true
     },
     {
         key: '10023acc',
@@ -413,7 +413,7 @@ export const fields = [
         api: '/selectApi',
         apiParams: ['province', 'cidy'],
         model: 'town',
-        //defaultHide: true
+        defaultHide: true
     }
 ];
 
@@ -475,7 +475,7 @@ export const options = {
         content: '规则内容',
     },
     apiBase: '',
-    size: 'small'
+    // size: 'small'
 };
 
 
