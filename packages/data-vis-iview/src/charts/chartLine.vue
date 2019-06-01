@@ -147,12 +147,12 @@ export default {
                     width: '60%',
                     data: data.map(item => item.name)
                 },
-                grid: {
-                    left: '3%',
-                    right: '4%',
-                    bottom: '3%',
-                    containLabel: true
-                },
+                // grid: {
+                //     left: '3%',
+                //     right: '4%',
+                //     bottom: '10%',
+                //     containLabel: true
+                // },
                 toolbox: {
                     top: '-1%',
                     right: '4%',

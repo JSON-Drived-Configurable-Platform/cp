@@ -31,6 +31,7 @@
             :loading="loading"
         />
         <Page
+            v-if="pageNum > 1"
             :current="pageNum"
             :class="pageClasses"
             :page-size="pageSize"
@@ -63,7 +64,7 @@ export default {
         return {
             chartData: [],
             chartColumns: [],
-            pageSize: 10,
+            pageSize: 20,
             pageNum: 1,
             loading: false,
             elWidth: 0

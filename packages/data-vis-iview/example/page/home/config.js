@@ -1002,12 +1002,7 @@ export const config = [
                                     unit: '%',
                                     showChange: true,
                                 },
-                                {
-                                    label: '当前值a',
-                                    value: '8888888',
-                                    unit: '人',
-                                    showChange: false,
-                                },
+
                                 {
                                     label: '日环比',
                                     value: '3.95',
@@ -1019,12 +1014,6 @@ export const config = [
                                     value: '8888888',
                                     unit: '人',
                                     showChange: false,
-                                },
-                                {
-                                    label: '日环比',
-                                    value: '3.95%',
-                                    unit: '%',
-                                    showChange: true,
                                 }
                             ]
                         },
@@ -1040,19 +1029,14 @@ export const config = [
                                 },
                                 {
                                     label: '日环比',
-                                    value: '3.95',
+                                    value: '-32.95',
                                     unit: '%',
                                     showChange: true,
                                 },
-                                {
-                                    label: '当前值a',
-                                    value: '8888888',
-                                    unit: '人',
-                                    showChange: false,
-                                },
+
                                 {
                                     label: '日环比',
-                                    value: '3.95',
+                                    value: '-13.95',
                                     unit: '%',
                                     showChange: true,
                                 },
@@ -1061,12 +1045,6 @@ export const config = [
                                     value: '8888888',
                                     unit: '人',
                                     showChange: false,
-                                },
-                                {
-                                    label: '日环比',
-                                    value: '3.95%',
-                                    unit: '%',
-                                    showChange: true,
                                 }
                             ]
                         },

@@ -1,5 +1,5 @@
 <template>
-    <div :class="[classes, classPrifix, loadingClasses]">
+    <div :class="[classes, loadingClasses]">
         <Spin
             v-if="loading"
             :class="spinClasses"
@@ -18,18 +18,6 @@
                     >{{ first.unit }}</i>
                 </span>
             </div>
-            <div :class="[secondClasses, getColorClasses(second)]">
-                <span :class="secondLabelClasses">
-                    {{ second.label }}
-                </span>
-                <span :class="secondValueClasses">
-                    {{ second.value }}
-                    <i
-                        v-if="second.unit"
-                        :class="unitClasses"
-                    >{{ second.unit }}</i>
-                </span>
-            </div>
         </div>
         <Divider
             :class="dividerClassess"
@@ -40,15 +28,25 @@
             <li
                 v-for="(item, index) in others"
                 :key="index"
-                :class="[othersItemClasses, getColorClasses(item)]"
+                :class="othersItemClasses"
             >
-                <span :class="othersItemLabelClasses">{{ item.label }}&nbsp;&nbsp;</span>
+                <span :class="othersItemLabelClasses">{{ item.label }}&nbsp;</span>
                 <span :class="othersItemContentClasses">
                     {{ item.value }}
                     <i
-                        v-if="first.unit"
+                        v-if="item.unit"
                         :class="unitClasses"
-                    >{{ first.unit }}</i>
+                    >{{ item.unit }}</i>
+                    <Icon
+                        v-if="item.showChange && item.value < 0"
+                        color="#19be6b"
+                        type="md-arrow-dropdown"
+                    />
+                    <Icon
+                        v-if="item.showChange && item.value > 0"
+                        color="#ed4014"
+                        type="md-arrow-dropup"
+                    />
                 </span>
             </li>
         </ul>
@@ -103,22 +101,6 @@ export default {
         unitClasses() {
             return `${this.classes}-unit`;
         },
-        secondClasses() {
-            const {showChange, value} = this.second;
-            return [
-                `${this.classes}-second`,
-                {
-                    [`${this.classes}-increase`]: showChange && parseFloat(value) > 0,
-                    [`${this.classes}-decrease`]: showChange && parseFloat(value) < 0,
-                }
-            ];
-        },
-        secondLabelClasses() {
-            return `${this.classes}-second-label`;
-        },
-        secondValueClasses() {
-            return `${this.classes}-second-value`;
-        },
         dividerClassess() {
             return `${this.classes}-divider`;
         },
@@ -140,12 +122,9 @@ export default {
         first() {
             return this.data[0] || {};
         },
-        second() {
-            return this.data[1] || {};
-        },
         others() {
             const data = this.data;
-            return data.slice(2, data.length);
+            return data.slice(1, data.length);
         },
     },
     methods: {

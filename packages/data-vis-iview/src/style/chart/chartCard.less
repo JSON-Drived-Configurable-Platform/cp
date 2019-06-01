@@ -1,4 +1,6 @@
 .@{css-prefix}-chart-card {
+    padding: 10px 0;
+    max-width: 300px;
     flex-direction: column;
     align-items: flex-start;
     &-first-second-box{
@@ -11,6 +13,7 @@
         line-height: 40px;
         font-size: 14px;
         font-weight: normal;
+        color: rgba(0,0,0,.45);
     }
     &-first-value {
         font-size: 28px;
@@ -26,22 +29,13 @@
         font-style: normal;
     }
 
-    &-second{
-        width: 100%;
-        height: 30px;
-        line-height: 30px;
-        font-size: 14px;
-        font-weight: normal;
-
-        &-label {
-            min-width: 60px;
-            display: inline-block;
-        }
-    }
-
     &-others {
+        margin-top: 10px;
         width: 100%;
         &-item {
+            display: inline-block;
+            min-width: 120px;
+            margin: 0 20px 0 0;
             height: 30px;
             line-height: 30px;
             font-size: 14px;
@@ -49,7 +43,6 @@
             list-style: none;
 
             &-label {
-                min-width: 60px;
                 display: inline-block;
             }
         }
