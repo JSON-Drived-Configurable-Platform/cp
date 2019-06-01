@@ -1,0 +1,71 @@
+@uploader-prefix-cls: ~"@{css-prefix}-imgupload";
+
+
+.@{uploader-prefix-cls} {
+
+    .ivu-upload-drag {
+        overflow: visible;
+    }
+
+    &-file-list {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        list-style: none;
+
+        &-item {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 5px 5px 30px 5px;
+            padding: 2px;
+            border: solid 1px #e4e4e4;
+            border-radius: 4px;
+
+            &-img {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+
+            &-name {
+                display: block;
+                font-size: 12px;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+
+            &-remove {
+                position: absolute;
+                right: 0;
+                top: 0;
+                display: none;
+            }
+
+            &-edit {
+                position: absolute;
+                right: 30px;
+                top: 0;
+                line-height: 24px;
+                display: none;
+                text-align: left;
+
+                .ivu-poptip-content {
+                    width: 200px;
+                    height: auto;
+                }
+            }
+        }
+
+        &-item:hover {
+            .@{uploader-prefix-cls}-file-list-item-remove {
+                display: initial;
+            }
+
+            .@{uploader-prefix-cls}-file-list-item-edit {
+                display: initial;
+            }
+        }
+    }
+}
