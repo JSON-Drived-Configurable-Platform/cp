@@ -5,93 +5,93 @@
     .ivu-form {
         position: relative;
     }
-}
 
-.@{css-prefix}-hide {
-    display: none;
-}
-
-
-.@{css-prefix}-header {
-    height: 30px;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 30px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.@{css-prefix}-tip {
-    margin-right: 40px;
-    line-height: 30px;
-}
-
-.@{css-prefix}-default-items-box {
-    width: 90%;
-    display: inline-block;
-
-    .@{css-prefix}-form-item {
-        max-width: 100%;
-        margin-right: 30px;
+    &-hide {
+        display: none;
     }
-}
 
-.@{css-prefix}-default-items-box-no-right {
-    width: 100%;
-}
 
-.@{css-prefix}-extra-box-right {
-    position: absolute;
-    top: 0;
-    right: 10px;
-    width: 9%;
-    height: 32px;
-    line-height: 32px;
-    display: inline-block;
-    text-align: right;
-}
-
-.@{css-prefix}-extra-right-content {
-    z-index: 100;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    padding: 10px;
-    width: auto;
-    height: auto;
-    border: solid 1px #e4e4e4;
-    border-radius: 10px;
-    background-color: #fff;
-    display: inline-block;
-    .ivu-checkbox-group-item {
-        width: 140px;
-        text-align: left;
+    &-header {
+        height: 30px;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 30px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
     }
-}
 
-
-.@{css-prefix}-extra-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 40px;
-    color: #2d8cf0;
-
-    &::after{
-        content: "";
-        display: block;
-        clear: both;
+    &-tip {
+        margin-right: 40px;
+        line-height: 30px;
     }
-}
 
-.@{css-prefix}-extra-left {
-    float: left;
-    height: 24px;
-    line-height: 24px;
-}
+    &-default-items-box {
+        width: 90%;
+        display: inline-block;
 
-.@{css-prefix}-extra-select-box {
-    margin: 0 auto;
-    width: 96%;
+        &-form-item {
+            max-width: 100%;
+            margin-right: 30px;
+        }
+    }
+
+    &-default-items-box-no-right {
+        width: 100%;
+    }
+
+    &-extra-box-right {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        width: 9%;
+        height: 32px;
+        line-height: 32px;
+        display: inline-block;
+        text-align: right;
+    }
+
+    &-extra-right-content {
+        z-index: 100;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        padding: 10px;
+        width: auto;
+        height: auto;
+        border: solid 1px #e4e4e4;
+        border-radius: 10px;
+        background-color: #fff;
+        display: inline-block;
+        .ivu-checkbox-group-item {
+            width: 140px;
+            text-align: left;
+        }
+    }
+
+
+    &-extra-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 40px;
+        color: #2d8cf0;
+
+        &::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+    }
+
+    &-extra-left {
+        float: left;
+        height: 24px;
+        line-height: 24px;
+    }
+
+    &-extra-select-box {
+        margin: 0 auto;
+        width: 96%;
+    }
 }
