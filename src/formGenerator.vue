@@ -219,7 +219,7 @@ export default {
         },
         itemStyle() {
             return {
-                minWidth: this.options.itemWidth + 'px'
+                width: this.options.itemWidth + 'px'
             };
         },
         tip() {
