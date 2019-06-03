@@ -138,14 +138,19 @@ export default {
                 return;
             }
             let option = {
-                tooltip: {
-                    trigger: 'axis'
-                },
                 legend: {
                     left: '25%',
                     type: 'scroll',
                     width: '60%',
                     data: data.map(item => item.name)
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        label: {
+                            formatter: function() {}
+                        }
+                    }
                 },
                 // grid: {
                 //     left: '3%',

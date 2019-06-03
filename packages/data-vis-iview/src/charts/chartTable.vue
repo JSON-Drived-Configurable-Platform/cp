@@ -79,6 +79,9 @@ import {classPrifix} from '../utils/const';
 import {xlsDownload} from '../utils/download';
 import expandRow from './expandRow.vue';
 const calculateWidth = function(str = '') {
+    if (str === null) {
+        return '-';
+    }
     str = str.toString().replace(/[\u4e00-\u9fa5]/g, '00');
     return str.length * 6 + 40;
 };
