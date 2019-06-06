@@ -15,6 +15,7 @@
     "url": "https://github.com/BingBlog/data-vis-iview"
   },
   "dependencies": {
+    "@babel/plugin-transform-spread": "^7.2.2",
     "axios": "^0.18.0",
     "echarts": "^4.2.1",
     "file-saver": "^2.0.1",

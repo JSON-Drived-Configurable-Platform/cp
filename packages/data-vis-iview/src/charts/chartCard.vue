@@ -11,7 +11,7 @@
                     {{ first.label }}
                 </h4>
                 <span :class="firstValueClasses">
-                    {{ first.value }}
+                    {{ first.value | dataFormat }}
                     <i
                         v-if="first.unit"
                         :class="unitClasses"
@@ -32,7 +32,7 @@
             >
                 <span :class="othersItemLabelClasses">{{ item.label }}&nbsp;</span>
                 <span :class="othersItemContentClasses">
-                    {{ item.value }}
+                    {{ item.value | dataFormat }}
                     <i
                         v-if="item.unit"
                         :class="unitClasses"
@@ -55,8 +55,20 @@
 <script>
 import dataGetter from '../mixins/dataGetter';
 import {classPrifix} from '../utils/const';
+import {addCommas, isNumber} from '../utils/utils';
 export default {
     name: 'ChartCard',
+    filters: {
+        dataFormat(value) {
+            if (value === null) {
+                return '-';
+            }
+            if (isNumber(value)) {
+                return addCommas(value);
+            }
+            return value;
+        }
+    },
     mixins: [dataGetter],
     props: {
         chart: {

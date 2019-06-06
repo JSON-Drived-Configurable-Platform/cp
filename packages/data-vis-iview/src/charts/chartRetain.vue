@@ -48,6 +48,7 @@
 import dataGetter from '../mixins/dataGetter';
 import {classPrifix} from '../utils/const';
 import {xlsDownload} from '../utils/download';
+import {addCommas, isNumber, calculateTableCellWidth} from '../utils/utils';
 export default {
     name: 'ChartRetain',
     mixins: [dataGetter],
@@ -99,18 +100,26 @@ export default {
         },
         displayColumns() {
             let columns = this.columns || [];
+            let columnsWidth = this.columnsWidth || {};
+            let expandWidth = this.isExpand ? 30 : 0;
+            let totalWidth = columns.map(item => columnsWidth[item.key]).reduce(function(prev,cur){
+                return prev + cur;
+            },0) + expandWidth;
             return columns.map((item, index) => {
                 if (item.type === 'expand') {
                     return item;
                 }
-                item.width = index > 1 ? 54 : 75;
+                item.width = this.elWidth < totalWidth
+                    ? columnsWidth[item.key]
+                    : (this.elWidth / Object.keys(columnsWidth).length) < columnsWidth[item.key] ? columnsWidth[item.key] : 'auto';
                 item.render = (h, params) => {
                     const key = params.column.key;
                     let value = params.row[key];
                     let text = value;
                     let className = '';
-                    if (index === 1 && Number.isInteger(text)) {
-                        text = value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+                    if (index === 1 && isNumber(value)) {
+                        // 如果是整数
+                        text = addCommas(value.toString());
                     }
                     if (index > 1) {
                         // 颜色
@@ -142,7 +151,27 @@ export default {
                 return this.data;
             }
             return this.data.slice((this.pageNum - 1) * this.pageSize, (this.pageNum) * this.pageSize);
-        }
+        },
+        headerColumnsWidth() {
+            let widths = {};
+            this.columns.forEach(item => {
+                widths[item.key] = calculateTableCellWidth(item.title);
+            });
+            return widths;
+        },
+        columnsWidth() {
+            let widths = this.headerColumnsWidth || {};
+            this.displayData.forEach((item = {}) => {
+                Object.keys(item).forEach(fieldName => {
+                    if (!widths[fieldName]) {
+                        widths[fieldName] = 80;
+                    }
+                    const width = calculateTableCellWidth(item[fieldName]);
+                    widths[fieldName] = Math.max(widths[fieldName], width);
+                });
+            });
+            return widths;
+        },
     },
 
     mounted() {

@@ -40,7 +40,7 @@ import {classPrifix} from '../utils/const';
 echarts.registerTheme('tdTheme', tdTheme);
 
 export default {
-    name: 'ChartBar',
+    name: 'ChartLine',
     mixins: [dataGetter],
     props: {
         chart: {
@@ -78,7 +78,7 @@ export default {
             return origin.map(item => {
                 let length = item.data.length;
                 let gap = maxLength - length;
-                item.data = item.data.concat([...new Array(gap)].map(() => ''));
+                item.data = item.data.concat([...new Array(gap)].map(() => '-'));
                 return item;
             });
         },

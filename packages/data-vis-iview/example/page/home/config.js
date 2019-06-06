@@ -360,7 +360,7 @@ export const config = [
                                     age: 18,
                                     address: '啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊',
                                     date: '2016-10-03',
-                                    money: 121212122112,
+                                    money: 121212122112.22223,
                                     'name-1': 'John Brown-api',
                                     'age-1': 18,
                                     'address-1': 'New York No. 1 Lake Park-api',
@@ -437,7 +437,7 @@ export const config = [
                                     'age-1': 18,
                                     'address-1': 'New York No. 1 Lake Park-api',
                                     'date-1': '2016-10-03',
-                                    'money-1': 121212122112
+                                    'money-1': 121212122112.22223
                                 },
                                 {
                                     name: 'John Brown-api',
@@ -456,7 +456,7 @@ export const config = [
                                     age: 18,
                                     address: '啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊',
                                     date: '2016-10-03',
-                                    money: 121212122112,
+                                    money: null,
                                     'name-1': 'John Brown-api',
                                     'age-1': 18,
                                     'address-1': 'New York No. 1 Lake Park-api',
@@ -992,20 +992,20 @@ export const config = [
                             'data': [
                                 {
                                     label: '新增用111户数',
-                                    value: '100000000',
+                                    value: 100000000.22,
                                     unit: '人',
                                     showChange: false,
                                 },
                                 {
                                     label: '日环比',
-                                    value: '3.95',
+                                    value: 3.95,
                                     unit: '%',
                                     showChange: true,
                                 },
 
                                 {
                                     label: '日环比',
-                                    value: '3.95',
+                                    value: 3.95,
                                     unit: '%',
                                     showChange: true,
                                 },
