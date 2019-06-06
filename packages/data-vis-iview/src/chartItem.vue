@@ -31,6 +31,7 @@
             />
         </h3>
         <Divider
+            v-if="showHeader"
             dashed
             size="small"
         />
