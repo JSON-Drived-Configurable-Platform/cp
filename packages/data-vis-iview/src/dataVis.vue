@@ -117,8 +117,7 @@ export default {
     methods: {
         getItemBoxStyle(row) {
             return {
-                width: (100 / row.length - 3) + '%',
-                float: 'left',
+                width: ((100 - 2 * row.length) / row.length) + '%',
                 height: 'auto'
             };
         }
