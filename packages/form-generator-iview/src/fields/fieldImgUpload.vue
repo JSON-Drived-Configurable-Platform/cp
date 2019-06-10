@@ -153,6 +153,7 @@ export default {
                 }
             });
             this.fileList = list;
+            this.handleChange();
         },
         handleSmallImgClick(e, index) {
             if (e) {
