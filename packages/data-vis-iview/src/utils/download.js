@@ -40,6 +40,6 @@ export const xlsDownload = function (data, name) {
                 type: 'application/octet-stream'
             }
         ),
-        name + '.xlsx' || 'sheetjs.xlsx'
+        (name || '下载') + '.xlsx'
     );
 };
