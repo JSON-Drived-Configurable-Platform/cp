@@ -145,19 +145,8 @@ export default {
                     data: data.map(item => item.name)
                 },
                 tooltip: {
-                    trigger: 'axis',
-                    axisPointer: {
-                        label: {
-                            formatter: function() {}
-                        }
-                    }
+                    trigger: 'axis'
                 },
-                // grid: {
-                //     left: '3%',
-                //     right: '4%',
-                //     bottom: '10%',
-                //     containLabel: true
-                // },
                 toolbox: {
                     top: '-1%',
                     right: '4%',
