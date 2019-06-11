@@ -105,5 +105,5 @@
     "lint": "eslint --fix --ext .js,.vue src"
   },
   "title": "dataVisIView",
-  "version": "0.0.15"
+  "version": "0.0.16"
 }
