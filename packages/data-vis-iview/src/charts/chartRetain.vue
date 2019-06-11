@@ -65,7 +65,7 @@ export default {
         return {
             chartData: [],
             chartColumns: [],
-            pageSize: 20,
+            pageSize: 1000,
             pageNum: 1,
             loading: false,
             elWidth: 0
