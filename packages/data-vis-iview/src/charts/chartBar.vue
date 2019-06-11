@@ -87,6 +87,9 @@ export default {
                         saveAsImage: {}
                     }
                 },
+                grid: {
+                    containLabel: true
+                },
                 xAxis: {
                     type: 'category',
                     data: columns

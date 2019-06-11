@@ -92,6 +92,9 @@ export default {
                     trigger: 'item',
                     formatter: '{a} <br/>{b} : {c} ({d}%)'
                 },
+                grid: {
+                    containLabel: true
+                },
                 series : [
                     {
                         name:'访问来源',

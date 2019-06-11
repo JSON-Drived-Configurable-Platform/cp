@@ -147,6 +147,9 @@ export default {
                 tooltip: {
                     trigger: 'axis'
                 },
+                grid: {
+                    containLabel: true
+                },
                 toolbox: {
                     top: '-1%',
                     right: '4%',
