@@ -132,7 +132,8 @@ export default {
             // 条件选择
             || this.conditionFields.length > 0
             // 当前图的标题
-            || this.chart.label
+            || !this.isInline && this.chart.label
+            // 显示切换按钮
             || !this.isInline && this.charts.length > 1;
         },
         classes() {

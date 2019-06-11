@@ -959,17 +959,6 @@ export const config = [
             [
                 {
                     display: 'inline',
-                    conditions: [
-                        {
-                            key: '100060',
-                            type: 'DatePicker',
-                            subType: 'date',
-                            model: 'date',
-                            placeholder: '',
-                            required: true,
-                            defaultValue: '2019-01-01'
-                        }
-                    ],
                     chartGroup: [
                         {
                             'type':'card',
