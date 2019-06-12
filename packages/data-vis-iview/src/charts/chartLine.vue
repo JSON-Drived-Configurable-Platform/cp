@@ -170,9 +170,13 @@ export default {
                         return parseInt(value.min - value.min * 0.01);
                     }
                 },
-                series: data.map(item => {
-                    item.type = 'line';
-                    return item;
+                series: data.map((item, index) => {
+                    return {
+                        ...item,
+                        type: 'line',
+                        xAxisIndex: index,
+                        yAxisIndex: index
+                    };
                 })
             };
             this.dom && this.dom.setOption(option);
