@@ -170,11 +170,10 @@ export default {
                         return parseInt(value.min - value.min * 0.01);
                     }
                 },
-                series: data.map((item, index) => {
+                series: data.map(item => {
                     return {
                         ...item,
-                        type: 'line',
-                        xAxisIndex: index
+                        type: 'line'
                     };
                 })
             };
