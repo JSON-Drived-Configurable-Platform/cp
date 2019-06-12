@@ -14,6 +14,7 @@
     >
         <h3 :class="headerClasses">
             <Button
+                v-if="downloadAble"
                 size="small"
                 type="primary"
                 @click="handleDownloadClick"
@@ -86,6 +87,12 @@ export default {
         },
         pageClasses() {
             return `${classPrifix}-chart-retain-page`;
+        },
+        downloadAble() {
+            if (this.chart.downloadAble === undefined) {
+                return true;
+            }
+            return this.chart.downloadAble;
         },
         columns() {
             let chartColumns = this.chartColumns || [];

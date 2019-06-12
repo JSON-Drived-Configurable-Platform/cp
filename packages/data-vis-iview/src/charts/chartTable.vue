@@ -22,6 +22,7 @@
                 自定义列
             </Button>
             <Button
+                v-if="downloadAble"
                 size="small"
                 type="primary"
                 @click="handleDownloadClick"
@@ -131,6 +132,12 @@ export default {
         },
         showElevator() {
             return this.chart.hideElevator === undefined ? true : !this.chart.hideElevator;
+        },
+        downloadAble() {
+            if (this.chart.downloadAble === undefined) {
+                return true;
+            }
+            return this.chart.downloadAble;
         },
         columns() {
             let chartColumns = this.chartColumns || [];

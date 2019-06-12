@@ -298,6 +298,7 @@ export const config = [
                             'type':'table',
                             'hideElevator': true,
                             'hideSizer': true,
+                            'downloadAble': false,
                             'customColumns': ['name', 'age', 'address', 'money', 'name-1', 'age-1', 'address-1', 'money-1'],
                             // 'downLoadApi': '/tableDataDownLoad',
                             'columns': [
@@ -762,6 +763,7 @@ export const config = [
                     chartGroup: [
                         {
                             'type':'retain',
+                            'downloadAble': false,
                             'columns': [
                                 {
                                     title: '日期',
