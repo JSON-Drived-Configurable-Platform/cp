@@ -21,6 +21,7 @@ A form generator with json schema based on iview ui.
 - [ ] Tree
 - [ ] Rich Text
 - [ ] Json Editor
+- [ ] Matrix Select
 
 
 
