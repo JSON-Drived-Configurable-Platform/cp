@@ -174,8 +174,7 @@ export default {
                     return {
                         ...item,
                         type: 'line',
-                        xAxisIndex: index,
-                        yAxisIndex: index
+                        xAxisIndex: index
                     };
                 })
             };
