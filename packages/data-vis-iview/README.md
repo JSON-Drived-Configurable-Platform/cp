@@ -11,6 +11,7 @@ A charts generator with json schema based on iview ui.
 - [x] retain table
 - [x] card
 - [] map
+- [] liquidFill https://gallery.echartsjs.com/editor.html?c=xSgRUrdtr_
 
 
 
