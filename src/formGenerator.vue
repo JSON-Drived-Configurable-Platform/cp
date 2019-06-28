@@ -27,7 +27,7 @@
             :model="formModel"
             :label-width="options.labelWidth"
             :inline="options.inline"
-            label-position="left"
+            :label-position="options.labelPosition || 'left'"
         >
             <div :class="defaultItemsBoxClassess">
                 <FormItem
