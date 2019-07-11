@@ -20,6 +20,7 @@ export default {
     },
     data() {
         return {
+            defaultFileList: [],
             uploadFileList: [],
             loading: false
         };
