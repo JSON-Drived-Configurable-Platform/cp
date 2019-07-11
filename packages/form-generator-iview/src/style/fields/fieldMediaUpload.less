@@ -1,4 +1,4 @@
-@uploader-prefix-cls: ~"@{css-prefix}-imgupload";
+@uploader-prefix-cls: ~"@{css-prefix}-mediaupload";
 
 
 .@{uploader-prefix-cls} {
@@ -24,9 +24,12 @@
             border-radius: 4px;
 
             &-img {
+                overflow: hidden;
                 display: block;
                 width: 100%;
                 height: 100%;
+                word-break: break-all;
+                background: #666
             }
 
             &-name {

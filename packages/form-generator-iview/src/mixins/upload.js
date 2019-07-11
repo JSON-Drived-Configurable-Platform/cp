@@ -20,7 +20,7 @@ export default {
     },
     data() {
         return {
-            fileList: this.formModel[this.field.model],
+            uploadFileList: [],
             loading: false
         };
     },
@@ -31,26 +31,22 @@ export default {
     },
     methods: {
         handleChange() {
-            this.$emit('on-change', this.field.model, this.fileList, null, this.field);
+            this.$emit('on-change', this.field.model, this.uploadFileList, null, this.field);
         },
         onSuccess({data = {}}, file) {
             const {url} = data;
             if (url) {
                 this.$Message.info('上传成功!');
-                const fileList = this.fileList || [];
-                fileList.push({
-                    ...file,
-                    ...data
-                });
-                this.fileList = fileList.slice();
+                file.url = url;
+                this.uploadFileList = this.$refs.upload.fileList;
                 this.handleChange();
             }
             else {
                 this.$Message.error('上传失败!');
             }
         },
-        onRemove(file, fileList) {
-            this.fileList = fileList.slice();
+        onRemove(file, uploadFileList) {
+            this.uploadFileList = uploadFileList.slice();
             this.handleChange();
         },
         onFormatError() {

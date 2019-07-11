@@ -1,5 +1,6 @@
 <template>
     <Upload
+        ref="upload"
         :action="field.action"
         :headers="field.headers"
         :multiple="field.multiple"
@@ -8,12 +9,12 @@
         :data="field.data"
         :name="field.name"
         :with-credentials="field.withCredentials"
-        :show-upload-list="field.showUploadList"
+        :show-upload-list="defaultFileList"
         :type="field.subType"
         :accept="field.accept"
         :format="field.format"
         :max-size="field.maxSize"
-        :default-file-list="formModel[field.model]"
+        :default-file-list="[]"
         :on-format-error="onFormatError"
         :on-exceeded-size="onExceededSize"
         :on-success="onSuccess"
