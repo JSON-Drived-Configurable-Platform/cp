@@ -96,7 +96,6 @@ export default {
     mixins: [upload],
     data() {
         return {
-            defaultFileList: [],
             previewModal: {
                 open: false,
                 file: {}
