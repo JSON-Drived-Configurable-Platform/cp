@@ -9,7 +9,7 @@
         :data="field.data"
         :name="field.name"
         :with-credentials="field.withCredentials"
-        :show-upload-list="defaultFileList"
+        :show-upload-list="field.showUploadList"
         :type="field.subType"
         :accept="field.accept"
         :format="field.format"

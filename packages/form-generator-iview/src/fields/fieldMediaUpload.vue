@@ -69,7 +69,7 @@
                         :size="24"
                         style="color: #FFF"
                         type="ios-trash-outline"
-                        @click="handleRemove($event, index)"
+                        @click="handleRemove($event, file)"
                     />
                 </li>
             </ul>
@@ -132,12 +132,11 @@ export default {
         this.uploadFileList = this.$refs.upload.fileList;
     },
     methods: {
-        handleRemove(e, index) {
+        handleRemove(e, file) {
             if (e) {
                 e.stopPropagation();
             }
-            const list = this.uploadFileList.filter((file, i) => i !== index);
-            this.uploadFileList = list;
+            this.onRemove(file);
         },
         handlePoptipClick(e) {
             if (e) {

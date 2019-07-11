@@ -39,15 +39,17 @@ export default {
             if (url) {
                 this.$Message.info('上传成功!');
                 file.url = url;
-                this.uploadFileList = this.$refs.upload.fileList;
+                this.uploadFileList = this.$refs.upload.fileList.slice();
                 this.handleChange();
             }
             else {
                 this.$Message.error('上传失败!');
             }
         },
-        onRemove(file, uploadFileList) {
-            this.uploadFileList = uploadFileList.slice();
+        onRemove(file) {
+            const fileList = this.$refs.upload.fileList;
+            this.$refs.upload.fileList.splice(fileList.indexOf(file), 1);
+            this.uploadFileList = this.$refs.upload.fileList.slice();
             this.handleChange();
         },
         onFormatError() {
