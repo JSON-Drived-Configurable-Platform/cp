@@ -392,13 +392,13 @@ export const fields = [
     },
     {
         key: '10001111111',
-        type: 'ImgUpload',
+        type: 'MediaUpload',
         subType: 'drag',
         accept: 'image/gif, image/jpeg, image/png',
         format: ['jpg','jpeg','png'],
         maxSize: 20000,
         action: '/uploadApi',
-        multiple: false,
+        multiple: true,
         paste: true,
         data: {
             userName: 'bingblog'
@@ -408,7 +408,7 @@ export const fields = [
         showUploadList: true,
         apiParams: ['radio'],
         label: '文件上传',
-        model: 'imgUpload',
+        model: 'mediaUpload',
         tip: '上传的提示信息或者帮助信息'
     },
     {
@@ -472,7 +472,7 @@ export const model = {
     },
     switch: false,
     upload: [],
-    imgUpload: [
+    mediaUpload: [
         {
             id: '13414214123412421341234',
             name: 'img1img1img1img1img1.jpg',

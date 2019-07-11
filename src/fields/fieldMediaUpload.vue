@@ -1,6 +1,7 @@
 <template>
     <div :class="classes">
         <Upload
+            ref="upload"
             :action="field.action"
             :headers="field.headers"
             :multiple="field.multiple"
@@ -14,7 +15,7 @@
             :accept="field.accept"
             :format="field.format"
             :max-size="field.maxSize"
-            :default-file-list="formModel[field.model]"
+            :default-file-list="defaultFileList"
             :on-format-error="onFormatError"
             :on-exceeded-size="onExceededSize"
             :on-success="onSuccess"
@@ -29,7 +30,7 @@
             <p v-html="tip" />
             <ul :class="fileListClass">
                 <li
-                    v-for="(file, index) in fileList"
+                    v-for="(file, index) in uploadFileList"
                     :key="index"
                     :class="fileListItemClass"
                 >
@@ -95,6 +96,7 @@ export default {
     mixins: [upload],
     data() {
         return {
+            defaultFileList: [],
             previewModal: {
                 open: false,
                 file: {}
@@ -127,13 +129,16 @@ export default {
             return this.previewModal.file || {};
         }
     },
+    mounted () {
+        this.uploadFileList = this.$refs.upload.fileList;
+    },
     methods: {
         handleRemove(e, index) {
             if (e) {
                 e.stopPropagation();
             }
-            const list = this.fileList.filter((file, i) => i !== index);
-            this.fileList = list;
+            const list = this.uploadFileList.filter((file, i) => i !== index);
+            this.uploadFileList = list;
         },
         handlePoptipClick(e) {
             if (e) {
@@ -141,7 +146,7 @@ export default {
             }
         },
         handleFileNameInput(value, index) {
-            const list = this.fileList.map((file, i) => {
+            const list = this.uploadFileList.map((file, i) => {
                 if (index !== i) {
                     return file;
                 }
@@ -152,7 +157,7 @@ export default {
                     };
                 }
             });
-            this.fileList = list;
+            this.uploadFileList = list;
             this.handleChange();
         },
         handleSmallImgClick(e, index) {
@@ -161,7 +166,7 @@ export default {
             }
             this.previewModal = {
                 open: true,
-                file: this.fileList[index]
+                file: this.uploadFileList[index]
             };
         }
     }
