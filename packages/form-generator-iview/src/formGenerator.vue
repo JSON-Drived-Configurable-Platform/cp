@@ -351,6 +351,11 @@ export default {
             let type = this.getValidType(field);
             this.$set(this.formModel, field.model, typeToResetValues[type]);
         },
+        reset() {
+            this.fields.forEach(field => {
+                this.resetField(field);
+            });
+        },
         getValidType(field) {
             const type = field.type.toLowerCase();
             const subType = field.subType;
@@ -388,6 +393,9 @@ export default {
             }
             if (['logicinput', 'logicselect'].includes(type)) {
                 return 'object';
+            }
+            if (['imgupload', 'upload'].includes(type)) {
+                return 'array';
             }
         },
         getFormModel() {
