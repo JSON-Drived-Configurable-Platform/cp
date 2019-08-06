@@ -24,6 +24,9 @@ A form generator with json schema based on iview ui.
 - [ ] Matrix Select
 
 
+## design
+
+![project mind mapping](./project-mind-mapping.png)
 
 ## developer
 
