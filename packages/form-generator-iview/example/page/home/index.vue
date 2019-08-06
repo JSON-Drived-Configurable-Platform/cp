@@ -88,10 +88,10 @@ export default {
             }
         };
     },
-    mounted: function() {
+    mounted() {
 
     },
-    beforeDestroy: function() {
+    beforeDestroy() {
 
     },
     methods: {
