@@ -1,6 +1,10 @@
 import axios from '../utils/http';
 export default {
     props: {
+        requestInterceptor: {
+            type: [Function, null],
+            default: null
+        },
         formModel: {
             type: Object,
             required: true,
@@ -38,16 +42,35 @@ export default {
             let formModel = this.formModel;
             let apiParams = this.field.apiParams || [];
             let params = {};
+            let finalApi = apiBase + this.field.api;
             apiParams.forEach(param => {
                 params[param] = formModel[param];
             });
-            axios.request({
-                url: apiBase + this.field.api,
-                method: 'get',
-                params: Object.assign({}, params, newParams)
-            }).then(({data}) => {
-                this.options = data;
+            let finalParams = Object.assign({}, params, newParams);
+            this.requestMethod(finalApi, finalParams).then(res => {
+                this.requestResolve(res);
+            }, reject => {
+                this.requestReject(reject);
+            });
+        },
+        requestResolve(res) {
+            if (+res.status === 0 || +res.errno === 0 || +res.status === 200) {
+                this.options = res.data;
                 this.loading = false;
+            }
+        },
+        requestReject(reject) {
+            // eslint-disable-next-line no-console
+            console.log(reject);
+        },
+        requestMethod(url, finalParams) {
+            if (this.requestInterceptor) {
+                return this.requestInterceptor(url, finalParams);
+            }
+            return axios.request({
+                url,
+                method: 'get',
+                params: finalParams
             });
         },
     },

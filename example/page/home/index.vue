@@ -8,6 +8,7 @@
                         :fields="fields"
                         :model="model"
                         :options="options"
+                        :request-interceptor="requestInterceptor"
                         @on-submit="handleSubmit"
                     />
                     <Button
@@ -55,6 +56,7 @@
 <script>
 import {Col} from 'iview';
 import {config, model, fields, options} from './config';
+import axios from 'axios';
 export default {
     components: {
         iCol: Col
@@ -67,6 +69,18 @@ export default {
             model,
             fields,
             options,
+            // requestInterceptor: null
+            requestInterceptor: function(url, params) {
+                return new Promise((resolve, reject) => {
+                    axios.get(url, {
+                        query: params
+                    }).then(res => {
+                        resolve(res);
+                    }).catch(error => {
+                        reject(error);
+                    });
+                });
+            }
         };
     },
     mounted: function() {
