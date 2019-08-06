@@ -30,6 +30,11 @@ export default {
             return this.field.tip || '点击或者拖拽文件即可上传';
         }
     },
+    mounted() {
+        this.uploadFileList = this.formModel[this.field.model];
+        this.$refs.upload.fileList = this.uploadFileList;
+
+    },
     methods: {
         handleChange() {
             this.$emit('on-change', this.field.model, this.uploadFileList, null, this.field);

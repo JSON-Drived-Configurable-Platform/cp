@@ -392,7 +392,7 @@ export const fields = [
     },
     {
         key: '10001111111',
-        type: 'MediaUpload',
+        type: 'ImgUpload',
         subType: 'drag',
         accept: 'image/gif, image/jpeg, image/png',
         format: ['jpg','jpeg','png'],
@@ -407,8 +407,8 @@ export const fields = [
         withCredentials: true,
         showUploadList: true,
         apiParams: ['radio'],
-        label: '文件上传',
-        model: 'mediaUpload',
+        label: '图片上传',
+        model: 'imgUpload',
         tip: '上传的提示信息或者帮助信息'
     },
     {
@@ -472,7 +472,7 @@ export const model = {
     },
     switch: false,
     upload: [],
-    mediaUpload: [
+    imgUpload: [
         {
             id: '13414214123412421341234',
             name: 'img1img1img1img1img1.jpg',
@@ -490,7 +490,7 @@ export const model = {
 };
 
 export const options = {
-    // labelWidth: 100,
+    // labelWidth: 120,
     inline: true,
     itemWidth: '400',
     title: '测试表单',
