@@ -6,6 +6,7 @@
         :form-model="formModel"
         :api-base="apiBase"
         :size="size"
+        :request-interceptor="requestInterceptor"
         @on-change="onFieldChange"
         @submit="handleSubmit"
     />
@@ -19,6 +20,10 @@ export default {
         ...fieldComponents
     },
     props: {
+        requestInterceptor: {
+            type: [Function, null],
+            default: null
+        },
         formModel: {
             type: Object,
             required: true,

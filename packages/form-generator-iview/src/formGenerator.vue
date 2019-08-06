@@ -45,6 +45,7 @@
                         :form-model="formModel"
                         :api-base="apiBase"
                         :size="options.size"
+                        :request-interceptor="requestInterceptor"
                         @on-field-change="handleFieldChange"
                         @on-submit="handleSubmit"
                     />
@@ -145,6 +146,10 @@ export default {
         clickOutside: vClickOutside.directive
     },
     props: {
+        requestInterceptor: {
+            type: [Function, null],
+            default: null
+        },
         fields: {
             type: Array,
             required: true,
