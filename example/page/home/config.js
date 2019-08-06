@@ -471,7 +471,18 @@ export const model = {
         value: ['1', '2']
     },
     switch: false,
-    upload: [],
+    upload: [
+        {
+            id: '13414214123412421341234',
+            name: 'img1img1img1img1img1.jpg',
+            url: 'https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3276523708,1156514398&fm=173&app=49&f=JPEG?w=218&h=146&s=DAB210C768C5AA471C5DFBA403007081'
+        },
+        {
+            id: '13414214123412421341234',
+            name: 'img2img2img2img2img2.jpg',
+            url: 'https://pics1.baidu.com/feed/500fd9f9d72a6059c36c75cfc82edd9f023bba83.jpeg?token=e779a49797d7d1ed7ea5bf253dccd408&s=6151AB6415402EEE28D4C09B03009082'
+        }
+    ],
     imgUpload: [
         {
             id: '13414214123412421341234',

@@ -33,7 +33,6 @@ export default {
     mounted() {
         this.uploadFileList = this.formModel[this.field.model];
         this.$refs.upload.fileList = this.uploadFileList;
-
     },
     methods: {
         handleChange() {
