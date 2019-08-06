@@ -17,8 +17,6 @@
         :default-file-list="[]"
         :on-format-error="onFormatError"
         :on-exceeded-size="onExceededSize"
-        :on-success="onSuccess"
-        :on-remove="onRemove"
         :size="size"
     >
         <Icon
