@@ -348,6 +348,12 @@ export default {
                 object: {},
                 number: 0
             };
+
+            // If type of field is string, it's the model identify of
+            if (typeof field === 'string') {
+                field = this.fields.find(item => item.model === field);
+            }
+
             let type = this.getValidType(field);
             this.$set(this.formModel, field.model, typeToResetValues[type]);
         },
