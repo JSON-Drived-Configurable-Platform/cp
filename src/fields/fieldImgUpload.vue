@@ -128,9 +128,6 @@ export default {
             return this.previewModal.file || {};
         }
     },
-    mounted () {
-        this.uploadFileList = this.$refs.upload.fileList;
-    },
     methods: {
         handleRemove(e, file) {
             if (e) {

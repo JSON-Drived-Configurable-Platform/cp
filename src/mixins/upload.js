@@ -25,6 +25,14 @@ export default {
             loading: false
         };
     },
+    watch: {
+        formModel(formModel) {
+            if (formModel[this.field.model].length === 0) {
+                this.$refs.upload.clearFiles();
+                this.uploadFileList = [];
+            }
+        }
+    },
     computed: {
         tip() {
             return this.field.tip || '点击或者拖拽文件即可上传';
