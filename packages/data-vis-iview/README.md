@@ -10,11 +10,18 @@ A charts generator with json schema based on [iview ui](https://www.iviewui.com/
 - [x] Pie
 - [x] Retain table
 - [x] Card
-- [] Map
-- [] LiquidFill
-- [] Custom
+- [ ] Map
+- [ ] LiquidFill
+- [ ] Custom
 
 ## Quick Exmaple
+
+This is a part of screenshot of the [example](https://github.com/BingBlog/form-generator-iview/tree/master/example/page/home).
+
+![project mind mapping](./example.png)
+
+You can get a result like this simply by:
+
 ```javascript
 <template>
     <DataVis :config="config" />
@@ -136,10 +143,6 @@ export default {
 </script>
 
 ```
-
-Then get a result:
-
-![project mind mapping](./example.png)
 
 Pull the repo to see more or you can take a look at the [example code](https://github.com/BingBlog/form-generator-iview/tree/master/example/page/home);
 
