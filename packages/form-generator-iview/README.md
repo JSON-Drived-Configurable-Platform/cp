@@ -26,7 +26,7 @@ A form generator with json schema based on iview ui.
 
 ## design
 
-![project mind mapping](./project-mind-mapping.png)
+![project mind mapping](./project-mind-mapping.svg)
 
 ## developer
 
