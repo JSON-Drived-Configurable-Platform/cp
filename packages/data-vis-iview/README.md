@@ -4,14 +4,15 @@
 
 A charts generator with json schema based on iview ui.
 
-- [x] table
-- [x] lines
-- [x] bar
-- [x] pie
-- [x] retain table
-- [x] card
-- [] map
-- [] liquidFill https://gallery.echartsjs.com/editor.html?c=xSgRUrdtr_
+- [x] Table
+- [x] Lines
+- [x] Bar
+- [x] Pie
+- [x] Retain table
+- [x] Card
+- [] Map
+- [] LiquidFill
+- [] Custom
 
 ## Quick Exmaple
 ```javascript
@@ -136,27 +137,8 @@ export default {
     },
     data() {
         return {
-            form: {
-                config: JSON.stringify(config, null, 8)
-            },
-            config,
-            paramsContainer: {
-                test1: '1',
-                test2: '2'
-            },
-            apiBase: ''
+            config
         };
-    },
-    methods: {
-        handleConfigChange(e) {
-            let config;
-            try {
-                config = JSON.parse(e.target.value || '') || [];
-            } catch (error) {
-                this.$Message('配置信息不是一个合法的json数据');
-            }
-            this.config = config;
-        }
     }
 };
 </script>
