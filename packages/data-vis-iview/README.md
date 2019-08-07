@@ -13,6 +13,9 @@ A charts generator with json schema based on iview ui.
 - [] map
 - [] liquidFill https://gallery.echartsjs.com/editor.html?c=xSgRUrdtr_
 
+## design
+
+![project mind mapping](./data-vis-mind-mapping.svg)
 
 
 ## developer
