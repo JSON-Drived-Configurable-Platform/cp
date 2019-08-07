@@ -9,6 +9,10 @@ const merge = require('webpack-merge');
 const webpackBaseConfig = require('./webpack.base.config.js');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
+// example-data-api
+const selectApiData = require('../docs/example-data-api/selectApi');
+const cascaderApiData = require('../docs/example-data-api/cascaderApi');
+const uploadApiData = require('../docs/example-data-api/uploadApi');
 
 module.exports = merge(webpackBaseConfig, {
     mode: 'development',
@@ -21,92 +25,16 @@ module.exports = merge(webpackBaseConfig, {
         inline: true,
         open: true,
         before: function(app) {
-            let data = [];
-            for (let i = 0; i <= 100; i++) {
-                data.push({
-                    label: `选项${i}`,
-                    value: i + ''
-                });
-            }
             app.get('/selectApi', function(req, res) {
-                res.json({
-                    status: 0,
-                    data
-                });
+                res.json(selectApiData);
             });
 
             app.get('/cascaderApi', function(req, res) {
-                res.json({
-                    status: 0,
-                    data: [{
-                        value: 'beijing',
-                        label: '北京',
-                        children: [
-                            {
-                                value: 'gugong',
-                                label: '故宫'
-                            },
-                            {
-                                value: 'tiantan',
-                                label: '天坛'
-                            },
-                            {
-                                value: 'wangfujing',
-                                label: '王府井'
-                            }
-                        ]
-                    }, {
-                        value: 'jiangsu',
-                        label: '江苏',
-                        children: [
-                            {
-                                value: 'nanjing',
-                                label: '南京',
-                                children: [
-                                    {
-                                        value: 'fuzimiao',
-                                        label: '夫子庙',
-                                    }
-                                ]
-                            },
-                            {
-                                value: 'suzhou',
-                                label: '苏州',
-                                children: [
-                                    {
-                                        value: 'zhuozhengyuan',
-                                        label: '拙政园',
-                                    },
-                                    {
-                                        value: 'shizilin',
-                                        label: '狮子林狮子林狮子林狮子林狮子林狮子林',
-                                        children: [
-                                            {
-                                                value: '1',
-                                                label: '选项一',
-                                            },
-                                            {
-                                                value: '2',
-                                                label: '选项2选项2选项2选项2选项2选项2选项2选项2',
-                                            }
-                                        ]
-                                    }
-                                ]
-                            }
-                        ],
-                    }],
-
-                });
+                res.json(cascaderApiData);
             });
 
             app.post('/uploadApi', function(req, res){
-                res.json({
-                    status: 0,
-                    data: {
-                        id: '13141234124',
-                        url: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2615193282,909154413&fm=173&app=49&f=JPEG?w=218&h=146&s=A33256841E0D3F5B54284D15030090E0'
-                    }
-                });
+                res.json(uploadApiData);
             });
         },
     },
