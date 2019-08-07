@@ -2,7 +2,7 @@
 
 ## Description
 
-A charts generator with json schema based on iview ui.
+A charts generator with json schema based on [iview ui](https://www.iviewui.com/).
 
 - [x] Table
 - [x] Lines
@@ -17,15 +17,7 @@ A charts generator with json schema based on iview ui.
 ## Quick Exmaple
 ```javascript
 <template>
-    <DataVis
-        v-for="(item, index) in config"
-        :key="index"
-        ref="DataVis"
-        :style="{marginTop: '40px'}"
-        :config="item"
-        :params-container="paramsContainer"
-        :api-base="apiBase"
-    />
+    <DataVis :config="config" />
 </template>
 
 <script>
