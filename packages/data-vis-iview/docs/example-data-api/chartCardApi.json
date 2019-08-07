@@ -1,0 +1,41 @@
+{
+    "status": 0,
+    "data": [
+        {
+            "label": "新增用户数111",
+            "value": "100000000",
+            "unit": "人",
+            "showChange": false
+        },
+        {
+            "label": "日环比",
+            "value": "3.95",
+            "unit": "%",
+            "showChange": true
+        },
+        {
+            "label": "当前值a",
+            "value": "8888888",
+            "unit": "人",
+            "showChange": false
+        },
+        {
+            "label": "日环比",
+            "value": "3.95",
+            "unit": "%",
+            "showChange": true
+        },
+        {
+            "label": "当前值b",
+            "value": "8888888",
+            "unit": "人",
+            "showChange": false
+        },
+        {
+            "label": "日环比",
+            "value": "3.95%",
+            "unit": "%",
+            "showChange": true
+        }
+    ]
+}

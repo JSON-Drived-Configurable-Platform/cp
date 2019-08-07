@@ -924,7 +924,7 @@ export const config = [
                         {
                             'label':'留存',
                             'type':'retain',
-                            'api': '/chartRetain'
+                            'api': '/chartRetainApi'
                         },
                     ]
                 }
@@ -945,17 +945,17 @@ export const config = [
                         {
                             'type':'card',
                             'label': '新增用户',
-                            'api': '/chartCard'
+                            'api': '/chartCardApi'
                         },
                         {
                             'type':'card',
                             'label': '活跃用户',
-                            'api': '/chartCard'
+                            'api': '/chartCardApi'
                         },
                         {
                             'type':'card',
                             'label': '月活',
-                            'api': '/chartCard'
+                            'api': '/chartCardApi'
                         },
                         {
                             'type':'card',
