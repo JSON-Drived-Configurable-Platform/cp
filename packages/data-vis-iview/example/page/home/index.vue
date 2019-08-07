@@ -84,13 +84,6 @@ export default {
                 this.$Message('配置信息不是一个合法的json数据');
             }
             this.config = config;
-        },
-        submit() {
-            this.$refs.FormGenerator
-                .submit().then(data => {
-                    // eslint-disable-next-line no-console
-                    console.log('submit', data);
-                });
         }
     }
 };
