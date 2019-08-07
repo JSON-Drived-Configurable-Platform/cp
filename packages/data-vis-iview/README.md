@@ -167,7 +167,7 @@ Then get a result:
 
 ![project mind mapping](./example.png)
 
-
+Pull the repo to see more or you can take a look at the [example code](https://github.com/BingBlog/form-generator-iview/tree/master/example/page/home);
 
 ## Design
 
