@@ -36,6 +36,13 @@ export const config = [
                             'type':'bar',
                             'columns': ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
                             'data': [120, 200, 150, 80, 70, 110, 130]
+                        },
+                        {
+                            'label':'新增用户-水平',
+                            'type':'bar',
+                            'direction': 'vetical',
+                            'columns': ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                            'data': [120, 200, 150, 80, 70, 110, 130]
                         }
                     ]
                 },

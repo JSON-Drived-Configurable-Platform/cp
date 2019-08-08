@@ -103,7 +103,7 @@
     "build-prod": "webpack --color --progress --config build/webpack.dist.prod.config.js",
     "deploy": "fis3 release --root=./example/dist/ --file=./deploy-baidu/config.js",
     "dev": "webpack-dev-server --color --progress --config build/webpack.example.dev.config.js",
-    "lint": "eslint --fix --ext .js,.vue,.json src --fix --ext .json docs/example-data-api"
+    "lint": "eslint --fix --ext .js,.vue,.json src --fix --ext .js,.vue,.json example --fix --ext .json docs/example-data-api"
   },
   "title": "dataVisIView",
   "version": "0.0.21"
