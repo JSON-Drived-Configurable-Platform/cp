@@ -148,7 +148,7 @@ Pull the repo to see more or you can take a look at the [example code](https://g
 
 ## Design
 
-![project mind mapping](./data-vis-mind-mapping.svg)
+![project mind mapping](./project-mind-mapping.svg)
 
 
 ## Developer
