@@ -101,6 +101,18 @@ export const config = [
                             'label':'柱状图api2',
                             'type':'bar',
                             'api': '/chartBarApi'
+                        },
+                        {
+                            'label':'用户转化',
+                            'type':'funnel',
+                            'columns':  ['展现','点击','访问','咨询','订单'],
+                            'data': [
+                                {value: 54, name: '访问'},
+                                {value: 12, name: '咨询'},
+                                {value: 5, name: '订单'},
+                                {value: 83, name: '点击'},
+                                {value: 100, name: '展现'}
+                            ]
                         }
                     ]
                 }

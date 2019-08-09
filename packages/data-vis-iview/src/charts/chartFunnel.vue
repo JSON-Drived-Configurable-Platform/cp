@@ -22,7 +22,7 @@ import {classPrifix} from '../utils/const';
 echarts.registerTheme('tdTheme', tdTheme);
 
 export default {
-    name: 'ChartPie',
+    name: 'ChartFunnel',
     mixins: [dataGetter],
     props: {
         chart: {
@@ -36,6 +36,7 @@ export default {
         return {
             loading: false,
             dom: null,
+            chartColumns: [],
             chartData: []
         };
     },
@@ -43,7 +44,7 @@ export default {
         classes() {
             return [
                 `${classPrifix}-chart`,
-                `${classPrifix}-chart-pie`
+                `${classPrifix}-chart-funnel`
             ];
         },
         displayClasses() {
@@ -55,6 +56,11 @@ export default {
         },
         data() {
             return this.chart.api ? this.chartData : this.chart.data;
+        },
+        columns() {
+            let chartColumns = this.chartColumns || [];
+            let columns = this.chart.columns || [];
+            return chartColumns.length > 0 ? chartColumns : columns;
         }
     },
     mounted () {
@@ -88,26 +94,44 @@ export default {
                         saveAsImage: {}
                     }
                 },
-                tooltip : {
+                tooltip: {
                     trigger: 'item',
-                    formatter: '{a} <br/>{b} : {c} ({d}%)'
+                    formatter: '{a} <br/>{b} : {c}%'
                 },
                 grid: {
                     containLabel: true
                 },
-                series : [
+                legend: {
+                    data: this.columns
+                },
+                calculable: true,
+                series: [
                     {
                         name: this.chart.label,
-                        type: 'pie',
-                        radius : '55%',
-                        center: ['50%', '50%'],
-                        data: data.sort(function (a, b) { return a.value - b.value; }),
-                        roseType: 'radius',
-                        animationType: 'scale',
-                        animationEasing: 'elasticOut',
-                        animationDelay: function () {
-                            return Math.random() * 200;
-                        }
+                        type: 'funnel',
+                        min: 0,
+                        max: 100,
+                        minSize: '0%',
+                        maxSize: '100%',
+                        sort: 'descending',
+                        label: {
+                            show: true,
+                            position: 'ouside',
+                            formatter: '{b}: {c}%'
+                        },
+                        labelLine: {
+                            length: 10,
+                            lineStyle: {
+                                width: 1,
+                                type: 'solid'
+                            }
+                        },
+                        emphasis: {
+                            label: {
+                                fontSize: 14
+                            }
+                        },
+                        data: this.data
                     }
                 ]
             };
