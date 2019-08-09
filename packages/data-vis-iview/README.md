@@ -10,6 +10,7 @@ A charts generator with json schema based on [iview ui](https://www.iviewui.com/
 - [x] Pie
 - [x] Retain table
 - [x] Card
+- [x] Funnel
 - [ ] Map
 - [ ] LiquidFill
 - [ ] Custom
