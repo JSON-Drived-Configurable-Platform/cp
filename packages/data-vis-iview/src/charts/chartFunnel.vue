@@ -131,9 +131,13 @@ export default {
                                 fontSize: 14
                             }
                         },
-                        data: this.data
+                        data: this.data,
+                        animationDuration: function (idx) {
+                            // 越往后的数据延迟越大
+                            return idx * 1000;
+                        }
                     }
-                ]
+                ],
             };
             this.dom && this.dom.setOption(option);
             on(window, 'resize', this.resize);
