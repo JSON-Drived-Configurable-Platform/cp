@@ -37,6 +37,7 @@
     "core-js": "2",
     "css-loader": "^2.1.1",
     "eslint": "^5.16.0",
+    "eslint-plugin-json": "^1.4.0",
     "eslint-plugin-vue": "^5.2.2",
     "file-loader": "^3.0.1",
     "html-loader": "^0.5.5",
@@ -58,8 +59,7 @@
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.3.1",
-    "webpack-merge": "^4.2.1",
-    "eslint-plugin-json": "^1.4.0"
+    "webpack-merge": "^4.2.1"
   },
   "engines": {
     "node": ">=8.9.1",
@@ -106,5 +106,5 @@
     "lint": "eslint --fix --ext .js,.vue,.json src --fix --ext .js,.vue,.json example --fix --ext .json docs/example-data-api"
   },
   "title": "dataVisIView",
-  "version": "0.0.21"
+  "version": "0.0.23"
 }

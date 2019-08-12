@@ -74,7 +74,7 @@ export default {
         render() {
             const data = this.data;
             const columns = this.columns;
-            const isVetical = this.chart.direction === 'vetical';
+            const isHorizontal = this.chart.direction === 'horizontal';
             this.dom && this.dom.clear();
             this.dom = this.$refs.dom && echarts.init(this.$refs.dom, 'tdTheme');
             if (columns.length === 0 || data.length === 0) {
@@ -91,14 +91,14 @@ export default {
                 grid: {
                     containLabel: true
                 },
-                xAxis: isVetical
+                xAxis: isHorizontal
                     ? {
                         type: 'value'
                     } : {
                         type: 'category',
                         data: columns
                     },
-                yAxis: isVetical
+                yAxis: isHorizontal
                     ? {
                         type: 'category',
                         data: columns
