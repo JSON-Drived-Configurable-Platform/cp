@@ -54,6 +54,7 @@ export default {
         return {
             loading: false,
             dom: null,
+            dataZoom: '',
             chartData: [],
             chartColumns: [],
             selectedGroups: []
@@ -137,7 +138,12 @@ export default {
             if (columns.length === 0 || data.length === 0) {
                 return;
             }
+            
             let option = {
+                tooltip: {
+                    trigger: 'axis'
+                },
+                dataZoom: '',
                 legend: {
                     left: '25%',
                     type: 'scroll',
@@ -182,6 +188,16 @@ export default {
                     };
                 })
             };
+            if (this.chart.dataZoom) {
+                option.dataZoom = [
+                    {
+                        show: true,
+                        realtime: true,
+                        start: 100,
+                        end: 0
+                    }
+                ];
+            }
             this.dom && this.dom.setOption(option);
             on(window, 'resize', this.resize);
         }
