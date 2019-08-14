@@ -34,7 +34,7 @@
 <script>
 import echarts from 'echarts';
 import tdTheme from './theme.json';
-import { on, off } from '../utils/utils';
+import { on, off, makeNumberReadable, roundNumber} from '../utils/utils';
 import dataGetter from '../mixins/dataGetter';
 import {classPrifix} from '../utils/const';
 echarts.registerTheme('tdTheme', tdTheme);
@@ -167,7 +167,12 @@ export default {
                 yAxis: {
                     type: 'value',
                     min: function(value) {
-                        return parseInt(value.min - value.min * 0.01);
+                        return roundNumber(parseInt(value.min - value.min * 0.01));
+                    },
+                    axisLabel: {
+                        formatter: function (value) {
+                            return makeNumberReadable(value);
+                        }
                     }
                 },
                 series: data.map(item => {

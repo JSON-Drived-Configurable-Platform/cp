@@ -89,3 +89,37 @@ export function calculateTableCellWidth(value) {
 
     return length * 6 + 20;
 }
+
+/**
+ * 值 < 9999                        保持原样
+ * 10000 <= 值 < 1000000            单位为万
+ * 100000000 <= 值                  单位为亿
+ * 小数点后四舍五入保留2位
+ * @param {number} number 输入值
+ * @return {string} 返回值
+ */
+export function makeNumberReadable(number) {
+    number = parseInt(number, 10);
+    if (number > 99999999) {
+        number = Math.round(number / 10000000);
+        return (number / 10) + '亿';
+    }
+    if (number > 9999) {
+        number = Math.round(number / 1000);
+        return (number / 10) + '万';
+    }
+    return number;
+}
+
+/**
+ * 取整，仅保留一位有效数值
+ * 9523 -> 9000
+ *
+ * @param {number} number
+ */
+export function roundNumber(number) {
+    number = parseInt(number, 10);
+    let length = number.toString().length;
+    let tail = Math.pow(10, length - 1);
+    return Math.floor(number / tail) * tail;
+}
