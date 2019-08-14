@@ -138,7 +138,7 @@ export default {
             if (columns.length === 0 || data.length === 0) {
                 return;
             }
-            
+
             let option = {
                 tooltip: {
                     trigger: 'axis'
@@ -149,9 +149,6 @@ export default {
                     type: 'scroll',
                     width: '60%',
                     data: data.map(item => item.name)
-                },
-                tooltip: {
-                    trigger: 'axis'
                 },
                 grid: {
                     containLabel: true
@@ -188,13 +185,15 @@ export default {
                     };
                 })
             };
+            // 是否显示拖拽缩放
             if (this.chart.dataZoom) {
                 option.dataZoom = [
                     {
                         show: true,
                         realtime: true,
                         start: 100,
-                        end: 0
+                        end: 0,
+                        xAxisIndex: columns.map((item, index) => index)
                     }
                 ];
             }
