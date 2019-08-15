@@ -16,8 +16,8 @@ npm-debug.log
 *.swp
 *.swo
 *.log
-examples/dist/
+doc-devs/dist/
 yarn-error.log
 test/unit/coverage
-/example/dist
+/doc-dev/dist
 /dist
