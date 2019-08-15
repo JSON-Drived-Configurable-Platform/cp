@@ -55,11 +55,12 @@
 
 <script>
 import axios from 'axios';
+import {columns, data} from './config';
 export default {
     data() {
         return {
-            columns: [],
-            data: [],
+            columns,
+            data,
             editModel: {},
             requestInterceptor: function(url, params) {
                 return new Promise((resolve, reject) => {
