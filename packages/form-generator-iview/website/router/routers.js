@@ -8,6 +8,7 @@ import Main from '../components/main';
 import home from '../page/home';
 import start from '../page/start';
 import doc from '../page/doc';
+import practice from '../page/practice';
 import formGeneratorExample from '../page/examples/form-generator-example';
 import controlGeneratorExample from '../page/examples/control-generator-example';
 
@@ -27,6 +28,11 @@ export default [
                 path: '/start',
                 name: 'start',
                 component: start
+            },
+            {
+                path: '/practice',
+                name: 'practice',
+                component: practice
             },
             {
                 path: '/doc',
