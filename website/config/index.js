@@ -36,6 +36,10 @@ export default {
             name: '/start'
         },
         {
+            label: 'Practice && Thoughts',
+            name: '/practice'
+        },
+        {
             label: 'Document',
             name: '/doc'
         },

@@ -12,6 +12,9 @@
                 <MenuItem name="1">
                     开始
                 </MenuItem>
+                <MenuItem name="1">
+                    思考与实践
+                </MenuItem>
                 <MenuItem name="2">
                     文档
                 </MenuItem>
