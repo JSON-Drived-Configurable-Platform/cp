@@ -16,9 +16,9 @@ npm-debug.log
 *.swp
 *.swo
 *.log
-doc-devs/dist/
+websites/dist/
 yarn-error.log
 test/unit/coverage
-/doc-dev/dist
+/website/dist
 /dist
 /deploy-baidu
