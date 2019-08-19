@@ -31,7 +31,7 @@ export const fields = [
     {
         key: '100021',
         type: 'InputNumber',
-        label: '数字多行输入框',
+        label: '数值多行输入框',
         model: 'inputNumber',
         placeholder: '',
         required: true,
@@ -502,7 +502,7 @@ export const model = {
 
 export const options = {
     // labelWidth: 120,
-    inline: true,
+    // inline: true,
     itemWidth: '400',
     title: '测试表单',
     labelPosition: 'top',

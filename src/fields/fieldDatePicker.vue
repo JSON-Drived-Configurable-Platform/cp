@@ -7,13 +7,14 @@
         :options="options"
         :editable="editable"
         :clearable="clearable"
-        :style="style"
+        :class="itemClasses"
         :size="size"
         change-on-select
         @on-change="handleChange"
     />
 </template>
 <script>
+import {classPrifix} from '../utils/const';
 const getDate = function(days = 0) {
     const date = new Date();
     date.setTime(date.getTime() + 3600 * 1000 * 24 * days);
@@ -38,6 +39,10 @@ export default {
                 return 'default';
             }
         },
+        inline: {
+            type: Boolean,
+            default: false
+        }
     },
     data() {
         let subTypeToShortcuts = {
@@ -190,16 +195,17 @@ export default {
         subType() {
             return this.field.subType || 'date';
         },
-        style() {
-            const subTypeToStyleWidth = {
-                date: '110',
-                daterange: '180',
-                datetime: '160',
-                datetimerange: '280'
-            };
-            return {
-                width: subTypeToStyleWidth[this.subType] + 'px'
-            };
+        classes() {
+            return `${classPrifix}-${this.field.type.toLowerCase()}`;
+        },
+        itemClasses() {
+            const inlineClasses = this.inline ? 'inline' : 'full-width';
+            if (this.inline) {
+                return `${this.classes}-${inlineClasses}-${this.field.subType.toLowerCase()}`;
+            }
+            else {
+                return `${this.classes}-${inlineClasses}`;
+            }
         }
     },
     methods: {

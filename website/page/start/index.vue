@@ -46,34 +46,32 @@
                 <i-code slot="code" lang="html">{{ code.introduce.demo }}</i-code>
             </Demo>
 
-            <!-- <inAnchor title="版本" h2></inAnchor>
+            <!-- TODO -->
+            <inAnchor title="版本" h2 />
             <p>
-                <a href="https://www.npmjs.com/package/iview" target="_blank">
-                    <img src="https://img.shields.io/npm/v/iview.svg?style=flat-square">
+                <a href="https://www.npmjs.com/package/form-generator-iview" target="_blank">
+                    <img src="https://img.shields.io/npm/v/form-generator-iview.svg?style=flat-square">
                 </a>
+                <br>
+                <i>目前仍为开发中，不建议生产环境使用。</i>
             </p>
-            <inAnchor title="兼容" h2></inAnchor>
+
+            <inAnchor title="兼容" h2 />
             <ul>
-                <li>支持 Vue.js 2.x</li>
-                <li>支持 Vue.js 1.x <a href="http://v1.iviewui.com">查看 1.0 文档</a></li>
-                <li>支持服务端渲染</li>
-                <li>支持 Nuxt.js</li>
-                <li>支持 TypeScript</li>
-                <li>支持 <a href="http://electron.atom.io/" target="_blank">Electron</a></li>
-                <li>大部分组件和功能支持 IE9 及以上浏览器，部分组件和功能不支持 IE</li>
+                <li>支持 iView 3.0</li>
             </ul>
-            <inAnchor title="相关链接" h2></inAnchor>
+
+            <inAnchor title="相关链接" h2 />
             <ul>
                 <li>
-                    <a href="http://cn.vuejs.org/" target="_blank">Vue官方文档</a>
+                    <a href="https://iviewui.com/" target="_blank">iView官方文档</a>
                 </li>
-                <li>
-                    <a href="http://webpack.github.io/" target="_blank">Webpack</a>
-                </li>
-                <li>
-                    <a href="https://git.oschina.net/icarusion/iview" target="_blank">码云</a>
-                </li>
-            </ul> -->
+            </ul>
+
+            <inAnchor title="感谢" h2 />
+            <p>
+                没有iView组件库及社区，这个库不会出现。在工具的实现中，大量的"借鉴"了iView组织的代码。包含但不限于组件库、文档。
+            </p>
         </article>
     </i-article>
 </template>

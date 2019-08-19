@@ -24,6 +24,7 @@
     span.copy:hover, span.scale:hover, span.open-fiddle:hover{
         color: #5c6b77;
     }
+
 </style>
 <style>
     .code-scale-modal .ivu-modal-body{

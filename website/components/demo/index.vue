@@ -2,8 +2,8 @@
     @import './index.less';
 </style>
 <template>
-    <Row class="example" :class="{'example-vertical': isVertical}" :id="title_link">
-        <i-col class="example-demo" :span="isVertical ? 24 : 12">
+    <Row :id="title_link" class="example" :class="{'example-vertical': isVertical}">
+        <i-col class="example-demo" :span="isVertical ? 24 : 10">
             <div class="example-case">
                 <slot name="demo" />
             </div>
@@ -18,7 +18,7 @@
             </div>
         </i-col>
         <div class="example-split" />
-        <i-col class="example-code" :style="codeHeight" :span="isVertical ? 24 : 12">
+        <i-col class="example-code" :style="codeHeight" :span="isVertical ? 24 : 14">
             <div :style="style">
                 <slot name="code" />
             </div>

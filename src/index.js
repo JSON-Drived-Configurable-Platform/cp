@@ -1,17 +1,17 @@
 import FormGenerator from './formGenerator';
-import ControlGenerator from './controlGenerator';
+import FieldGenerator from './fieldGenerator';
 
 const install = function(Vue) {
     if (install.installed) return;
     Vue.component('FormGenerator', FormGenerator);
-    Vue.component('ControlGenerator', ControlGenerator);
+    Vue.component('FieldGenerator', FieldGenerator);
 };
 
 const API = {
     version: process.env.VERSION, // eslint-disable-line no-undef
     install,
     FormGenerator,
-    ControlGenerator
+    FieldGenerator
 };
 
 export default API;
