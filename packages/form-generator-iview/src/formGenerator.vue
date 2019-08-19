@@ -40,11 +40,12 @@
                     :class="itemClasses"
                     :style="itemStyle"
                 >
-                    <ControlGenerator
+                    <FieldGenerator
                         :field="field"
                         :form-model="formModel"
                         :api-base="apiBase"
                         :size="options.size"
+                        :inline="options.inline"
                         :request-interceptor="requestInterceptor"
                         @on-field-change="handleFieldChange"
                         @on-submit="handleSubmit"
@@ -134,13 +135,13 @@
     </div>
 </template>
 <script>
-import ControlGenerator from './controlGenerator';
+import FieldGenerator from './fieldGenerator';
 import {classPrifix} from './utils/const';
 import vClickOutside from 'v-click-outside';
 export default {
     name: 'FormGenerator',
     components: {
-        ControlGenerator
+        FieldGenerator
     },
     directives: {
         clickOutside: vClickOutside.directive

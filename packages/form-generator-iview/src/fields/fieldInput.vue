@@ -10,6 +10,13 @@
         :prefix="field.prefix"
         :suffix="field.suffix"
         :autofocus="field.autofocus"
+        :autocomplete="field.autocomplete"
+        :autosize="field.autosize"
+        :search="field.search"
+        :spellcheck="field.spellcheck"
+        :rows="field.rows"
+        :number="field.number"
+        :enter-button="field.enterButton"
         :size="size"
         @on-change="handleChange"
     />

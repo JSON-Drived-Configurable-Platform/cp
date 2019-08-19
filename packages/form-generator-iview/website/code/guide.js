@@ -17,7 +17,7 @@ const fields = [
     {
         label: '出生日期',
         type: 'DatePicker',
-        subtype: 'date',
+        subType: 'datetimerange',
         model: 'birthday'
     },
     {
@@ -62,13 +62,15 @@ introduce.demo = `
     />
 </template>
 <script>
-data() {
-    return {
-        fields: ${JSON.stringify(fields)},
-        model: ${JSON.stringify(model)},
-        options: ${JSON.stringify(options)}
-    };
-}
+export default {
+    data() {
+        return {
+            fields: ${JSON.stringify(fields)},
+            model: ${JSON.stringify(model)},
+            options: ${JSON.stringify(options)}
+        };
+    }
+};
 <script>
 `;
 

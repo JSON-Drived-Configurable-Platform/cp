@@ -40,8 +40,22 @@ export default {
             name: '/practice'
         },
         {
-            label: 'Document',
-            name: '/doc'
+            label: 'API Document',
+            name: '/doc',
+            submenu: [
+                {
+                    label: 'FormGenerator',
+                    name: '/doc/FormGenerator'
+                },
+                {
+                    label: 'FieldGenerator',
+                    name: '/doc/FieldGenerator'
+                },
+                {
+                    label: 'Input',
+                    name: '/doc/Input'
+                },
+            ]
         },
         {
             label: 'Examples',
@@ -52,8 +66,8 @@ export default {
                     name: '/form-generator-example'
                 },
                 {
-                    label: 'Control Generator',
-                    name: '/control-generator-example'
+                    label: 'Field Generator',
+                    name: '/field-generator-example'
                 },
             ]
         },

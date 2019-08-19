@@ -5,6 +5,7 @@
         :step="field.step"
         :precision="field.precision"
         :size="size"
+        :class="itemClasses"
         :max="field.max"
         :min="field.min"
         :placeholder="field.placeholder"
@@ -15,6 +16,7 @@
     />
 </template>
 <script>
+import {classPrifix} from '../utils/const';
 export default {
     props: {
         field: {
@@ -34,6 +36,19 @@ export default {
                 return 'default';
             }
         },
+        inline: {
+            type: Boolean,
+            default: false
+        }
+    },
+    computed: {
+        classes() {
+            return `${classPrifix}-${this.field.type.toLowerCase()}`;
+        },
+        itemClasses() {
+            const inlineClasses = this.inline ? '' : 'full-width';
+            return `${this.classes}-${inlineClasses}`;
+        }
     },
     methods: {
         handleChange(value) {

@@ -7,11 +7,13 @@ import Main from '../components/main';
 
 import home from '../page/home';
 import start from '../page/start';
-import doc from '../page/doc';
+
 import practice from '../page/practice';
 import formGeneratorExample from '../page/examples/form-generator-example';
-import controlGeneratorExample from '../page/examples/control-generator-example';
-
+import fieldGeneratorExample from '../page/examples/field-generator-example';
+import FormGenerator from '../page/doc/FormGenerator';
+import FieldGenerator from '../page/doc/FieldGenerator';
+import Input from '../page/doc/Input';
 export default [
     {
         path: '/',
@@ -36,8 +38,23 @@ export default [
             },
             {
                 path: '/doc',
-                name: 'app',
-                component: doc
+                redirect: '/doc/FormGenerator',
+                name: 'doc',
+            },
+            {
+                path: '/doc/FormGenerator',
+                name: 'doc-FormGenerator',
+                component: FormGenerator
+            },
+            {
+                path: '/doc/FieldGenerator',
+                name: 'doc-FieldGenerator',
+                component: FieldGenerator
+            },
+            {
+                path: '/doc/Input',
+                name: 'doc-Input',
+                component: Input
             },
             {
                 path: '/form-generator-example',
@@ -45,9 +62,9 @@ export default [
                 component: formGeneratorExample
             },
             {
-                path: '/control-generator-example',
+                path: '/field-generator-example',
                 name: 'data',
-                component: controlGeneratorExample
+                component: fieldGeneratorExample
             },
         ]
     }
