@@ -61,6 +61,7 @@ export default {
             this.getRemoteOptions();
         },
         handleChange(value) {
+            this.$set(this.formModel, this.field.model, value);
             this.$emit('on-change', this.field.model, value, null, this.field);
         }
     }

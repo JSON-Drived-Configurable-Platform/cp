@@ -293,13 +293,13 @@ export default {
         }
     },
     methods: {
-        handleFieldChange(model, value){
+        handleFieldChange(model){
             // 关联项需要清空
             let needResetFields = this.needResetFieldsOnChangeMap[model] || [];
             needResetFields.forEach(field => {
                 this.resetField(field);
             });
-            this.$set(this.formModel, model, value);
+            // this.$set(this.formModel, model, value);
             this.$refs.form.validateField(model);
         },
         getRules(field) {

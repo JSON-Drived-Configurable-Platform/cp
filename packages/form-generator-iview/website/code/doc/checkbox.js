@@ -2,17 +2,17 @@
 let simple = {};
 
 const field = {
-    type: 'Radio',
-    model: 'gender',
+    type: 'Checkbox',
+    model: 'fruit',
     options: [
-        {label: '男', 'value': 'M'},
-        {label: '女', 'value': 'F'},
-        {label: '保密', 'value': 'unknown', disabled: true}
+        {label: '西瓜', 'value': '1'},
+        {label: '苹果', 'value': '2'},
+        {label: '梨', 'value': '3', disabled: true}
     ]
 };
 
 const model = {
-    gender: 'F'
+    fruit: ['1', '2']
 };
 
 simple.data = {
@@ -48,14 +48,14 @@ export default {
 // 使用api
 let api = {};
 const apiField = {
-    type: 'Radio',
-    model: 'gender',
-    options: '/radioApi'
+    type: 'Checkbox',
+    model: 'fruit',
+    options: '/checkboxApi'
     // api: '/radioApi'
 };
 
 const apiModel = {
-    gender: 'F'
+    fruit: ['1', '2']
 };
 
 api.data = {
@@ -82,32 +82,35 @@ export default {
 </template>
 `;
 
-// 按钮形态
-let button = {};
-const buttonField = {
-    type: 'Radio',
+// 全选
+let checkAll = {};
+const checkAllField = {
+    type: 'Checkbox',
     model: 'fruit',
-    options: '/radioApi',
-    subtype: 'button'
-    // api: '/radioApi'
+    checkAll: true,
+    options: [
+        {label: '西瓜', 'value': '1'},
+        {label: '苹果', 'value': '2'},
+        {label: '梨', 'value': '3'}
+    ]
 };
 
-const buttonModel = {
-    fruit: 'F'
+const checkAllModel = {
+    fruit: ['1', '2']
 };
 
-button.data = {
-    field: buttonField,
-    model: buttonModel
+checkAll.data = {
+    field: checkAllField,
+    model: checkAllModel
 };
 
-button.code = `
+checkAll.code = `
 <script>
 export default {
     data() {
         return {
-            field: ${JSON.stringify(buttonField)},
-            model: ${JSON.stringify(buttonModel)}
+            field: ${JSON.stringify(checkAllField)},
+            model: ${JSON.stringify(checkAllModel)}
         };
     }
 };
@@ -123,5 +126,5 @@ export default {
 export default {
     simple,
     api,
-    button
+    checkAll
 };

@@ -59,6 +59,10 @@ export default {
                     label: 'Radio',
                     name: '/doc/Radio'
                 },
+                {
+                    label: 'Checkbox',
+                    name: '/doc/Checkbox'
+                },
             ]
         },
         {

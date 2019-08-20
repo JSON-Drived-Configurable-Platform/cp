@@ -15,6 +15,7 @@ import FormGenerator from '../page/doc/FormGenerator';
 import FieldGenerator from '../page/doc/FieldGenerator';
 import Input from '../page/doc/Input';
 import Radio from '../page/doc/Radio';
+import Checkbox from '../page/doc/Checkbox';
 export default [
     {
         path: '/',
@@ -61,6 +62,11 @@ export default [
                 path: '/doc/Radio',
                 name: 'doc-Radio',
                 component: Radio
+            },
+            {
+                path: '/doc/Checkbox',
+                name: 'doc-Checkbox',
+                component: Checkbox
             },
             {
                 path: '/form-generator-example',
