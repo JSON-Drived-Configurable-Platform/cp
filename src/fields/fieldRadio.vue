@@ -1,7 +1,8 @@
 <template>
     <RadioGroup
+        v-if="field.subtype"
         :value="formModel[field.model]"
-        :type="field.subType"
+        :type="field.subtype"
         :size="size"
         @on-change="handleChange"
     >

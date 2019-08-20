@@ -11,7 +11,7 @@
             :name="field.name"
             :with-credentials="field.withCredentials"
             :show-upload-list="false"
-            :type="field.subType"
+            :type="field.subtype"
             :accept="field.accept"
             :format="field.format"
             :max-size="field.maxSize"

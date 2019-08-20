@@ -17,7 +17,7 @@ const fields = [
     {
         label: '出生日期',
         type: 'DatePicker',
-        subType: 'datetimerange',
+        subtype: 'datetimerange',
         model: 'birthday'
     },
     {

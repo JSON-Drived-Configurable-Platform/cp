@@ -1,7 +1,7 @@
 <template>
     <Input
         :value="formModel[field.model]"
-        :type="field.subType"
+        :type="field.subtype"
         :placeholder="field.placeholder"
         :clearable="field.clearable"
         :disabled="field.disabled"

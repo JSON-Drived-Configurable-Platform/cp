@@ -304,10 +304,10 @@ export default {
         },
         getRules(field) {
             const type = field.type.toLowerCase();
-            const subType = field.subType;
+            const subtype = field.subtype;
             let rules = [];
             if (field.required) {
-                if (type === 'datepicker' && ['daterange', 'datetimerange'].includes(subType)) {
+                if (type === 'datepicker' && ['daterange', 'datetimerange'].includes(subtype)) {
                     rules.push({
                         validator(rule, value, callback) {
                             if (value.length === 2 && value[0] && value[1]) {
@@ -365,7 +365,7 @@ export default {
         },
         getValidType(field) {
             const type = field.type.toLowerCase();
-            const subType = field.subType;
+            const subtype = field.subtype;
             const multiple = field.multiple;
             if (type === 'input') {
                 return 'string';
@@ -388,7 +388,7 @@ export default {
                 return 'array';
             }
             if (type === 'datepicker') {
-                if (['daterange', 'datetimerange'].includes(subType)){
+                if (['daterange', 'datetimerange'].includes(subtype)){
                     return 'array';
                 }
                 else {

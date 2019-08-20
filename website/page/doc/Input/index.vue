@@ -112,7 +112,7 @@
                     />
                 </div>
                 <div slot="desc">
-                    <p>通过设置<code>field.subType</code>可以展示文本域</p>
+                    <p>通过设置<code>field.subtype</code>可以展示文本域</p>
                     <p>通过设置<code>field.rows</code>来控制默认展示行数</p>
                 </div>
                 <i-code slot="code" lang="html">{{ code.textarea.code }}</i-code>
@@ -160,7 +160,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>subType</td>
+                            <td>subtype</td>
                             <td>输入框类型，可选值为 <code>text</code>、<code>password</code>、<code>textarea</code>、<code>url</code>、<code>email</code>、<code>date</code></td>
                             <td>String</td>
                             <td>text</td>

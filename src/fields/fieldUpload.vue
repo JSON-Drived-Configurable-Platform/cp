@@ -10,7 +10,7 @@
         :name="field.name"
         :with-credentials="field.withCredentials"
         :show-upload-list="field.showUploadList"
-        :type="field.subType"
+        :type="field.subtype"
         :accept="field.accept"
         :format="field.format"
         :max-size="field.maxSize"
