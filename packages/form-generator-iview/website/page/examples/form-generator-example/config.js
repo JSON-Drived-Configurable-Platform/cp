@@ -21,7 +21,7 @@ export const fields = [
     {
         key: '10002',
         type: 'Input',
-        subType: 'textarea',
+        subtype: 'textarea',
         label: '输入框',
         model: 'textarea',
         placeholder: '请输入用户名',
@@ -133,7 +133,7 @@ export const fields = [
     {
         key: '100311',
         type: 'Radio',
-        subType: 'button',
+        subtype: 'button',
         label: '单选按钮',
         model: 'radioButton',
         required: true,
@@ -274,7 +274,7 @@ export const fields = [
     {
         key: '10006',
         type: 'DatePicker',
-        subType: 'date',
+        subtype: 'date',
         label: '日期选择',
         model: 'date',
         placeholder: '',
@@ -284,7 +284,7 @@ export const fields = [
     {
         key: '100061',
         type: 'DatePicker',
-        subType: 'daterange',
+        subtype: 'daterange',
         label: '日期区间选择',
         model: 'daterange',
         placeholder: '',
@@ -294,7 +294,7 @@ export const fields = [
     {
         key: '100062',
         type: 'DatePicker',
-        subType: 'datetime',
+        subtype: 'datetime',
         label: '日期时间选择',
         model: 'datetime',
         placeholder: '',
@@ -306,7 +306,7 @@ export const fields = [
     {
         key: '100063',
         type: 'DatePicker',
-        subType: 'datetimerange',
+        subtype: 'datetimerange',
         label: '日期时间区间选择',
         model: 'datetimerange',
         placeholder: '',
@@ -372,7 +372,7 @@ export const fields = [
     {
         key: '1000111111',
         type: 'Upload',
-        subType: 'drag',
+        subtype: 'drag',
         accept: 'image/gif, image/jpeg, image/png',
         format: ['jpg','jpeg','png'],
         maxSize: 20000,
@@ -393,7 +393,7 @@ export const fields = [
     {
         key: '10001111111',
         type: 'ImgUpload',
-        subType: 'drag',
+        subtype: 'drag',
         accept: 'image/gif, image/jpeg, image/png',
         format: ['jpg','jpeg','png'],
         maxSize: 20000,

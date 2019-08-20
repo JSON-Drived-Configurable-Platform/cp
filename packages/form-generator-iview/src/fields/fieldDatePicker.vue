@@ -1,6 +1,6 @@
 <template>
     <DatePicker
-        :type="subType"
+        :type="subtype"
         :placeholder="field.placeholder"
         :value="formModel[field.model]"
         :disabled="field.disabled"
@@ -45,7 +45,7 @@ export default {
         }
     },
     data() {
-        let subTypeToShortcuts = {
+        let subtypeToShortcuts = {
             'date': [
                 {
                     text: '今天',
@@ -171,7 +171,7 @@ export default {
         };
         return {
             options: {
-                shortcuts: subTypeToShortcuts[this.field.subType]
+                shortcuts: subtypeToShortcuts[this.field.subtype]
             }
         };
     },
@@ -192,8 +192,8 @@ export default {
                 ? this.field.required ? false : true
                 : this.field.clearable;
         },
-        subType() {
-            return this.field.subType || 'date';
+        subtype() {
+            return this.field.subtype || 'date';
         },
         classes() {
             return `${classPrifix}-${this.field.type.toLowerCase()}`;
@@ -201,7 +201,7 @@ export default {
         itemClasses() {
             const inlineClasses = this.inline ? 'inline' : 'full-width';
             if (this.inline) {
-                return `${this.classes}-${inlineClasses}-${this.field.subType.toLowerCase()}`;
+                return `${this.classes}-${inlineClasses}-${this.field.subtype.toLowerCase()}`;
             }
             else {
                 return `${this.classes}-${inlineClasses}`;

@@ -295,7 +295,7 @@ let textarea = {};
 const textareaField = {
     type: 'Input',
     model: 'name',
-    subType: 'textarea',
+    subtype: 'textarea',
     rows: 4
 };
 
@@ -333,7 +333,7 @@ let aotusizeTextarea = {};
 const aotusizeTextareaField = {
     type: 'Input',
     model: 'name',
-    subType: 'textarea',
+    subtype: 'textarea',
     autosize: true
 };
 
@@ -377,7 +377,7 @@ const disabledInputField = {
 const disabledTextareaField = {
     type: 'Input',
     model: 'intro',
-    subType: 'textarea',
+    subtype: 'textarea',
     disabled: true
 };
 

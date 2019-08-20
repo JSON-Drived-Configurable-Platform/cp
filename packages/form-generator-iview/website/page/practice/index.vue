@@ -3,7 +3,7 @@
         <article>
             <h1>思考与实践</h1>
             <p>
-                FormGeneratorIView 作为<a href="">CP - Configurable Platform</a>的一部分。
+                FormGeneratorIView 作为<a href="https://github.com/BingBlog/cp" target="_blank">CP - Configurable Platform</a>的一部分。
                 主要是为了解决在配置系统中大量的表单需求。这一点受到了<a target="_blank" href="https://github.com/mozilla-services/react-jsonschema-form">react-jsonschema-form</a>以及<a href="https://github.com/baidu/amis" target="_blank">amis配置工具</a>的启发。
             </p>
             <inAnchor
@@ -35,6 +35,16 @@
             <p>iView通过组件化的方式，更关注与编码层面。</p>
             <p><a href="https://github.com/baidu/amis" target="_blank">amis配置工具</a>，通过可视化配置，更关注于提供一站式解决方案。</p>
             <p>FormGenerator介于两者之间，让你在不丢失编码灵活性的同时，可以通过配置提高代码复用度，提升开发效率。</p>
+
+            <inAnchor
+                title="基于JSON的模板配置平台"
+                h2
+            />
+            <p>
+                <a href="https://github.com/BingBlog/cp" target="_blank">CP - Configurable Platform</a>是一个基于JSON的模板配置平台。FormGeneratorIView是其中的一个工具。
+                除了包含表单渲染工具、可视化渲染工具、可配置的脚手架之外，还会提供了很多可直接使用的模板。
+                另外，还将搭建一个平台，让用户可以上传自己封装后的模板，供社区使用（类似于echarts的gallery）。
+            </p>
         </article>
     </i-article>
 </template>

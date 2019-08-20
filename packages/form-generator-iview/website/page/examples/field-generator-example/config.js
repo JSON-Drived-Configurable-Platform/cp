@@ -48,7 +48,7 @@ export const columns = [
         slot: 'birthday',
         editControlConfig: {
             type: 'DatePicker',
-            subType: 'date',
+            subtype: 'date',
             model: 'birthday',
             placeholder: '请输入出生日期',
             required: true

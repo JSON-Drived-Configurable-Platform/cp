@@ -1,7 +1,7 @@
 <template>
     <InputNumber
         :value="formModel[field.model]"
-        :type="field.subType"
+        :type="field.subtype"
         :step="field.step"
         :precision="field.precision"
         :size="size"
