@@ -7,7 +7,7 @@
         border-radius: 0 0 3px 3px;
         padding: 2px 5px;
         position: absolute;
-        top: 25px;
+        top: 5px;
         right: 0;
         color: #b2b2b2;
         cursor: pointer;
@@ -36,11 +36,7 @@
 </style>
 <template>
     <div>
-        <pre :class="{bg: bg}">
-            <code ref="code" :class="language">
-                <slot />
-            </code>
-        </pre>
+        <pre :class="{bg: bg}"><code ref="code" :class="language"><slot /></code></pre>
         <!-- <span v-if="title !== 'Code'" class="open-fiddle" @click="openFiddle">
             <Tooltip :content="$t('index.code_jsfiddle')" placement="top" transfer>
                 <Icon type="md-code" size="18" />

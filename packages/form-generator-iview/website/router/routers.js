@@ -14,6 +14,7 @@ import fieldGeneratorExample from '../page/examples/field-generator-example';
 import FormGenerator from '../page/doc/FormGenerator';
 import FieldGenerator from '../page/doc/FieldGenerator';
 import Input from '../page/doc/Input';
+import Radio from '../page/doc/Radio';
 export default [
     {
         path: '/',
@@ -55,6 +56,11 @@ export default [
                 path: '/doc/Input',
                 name: 'doc-Input',
                 component: Input
+            },
+            {
+                path: '/doc/Radio',
+                name: 'doc-Radio',
+                component: Radio
             },
             {
                 path: '/form-generator-example',

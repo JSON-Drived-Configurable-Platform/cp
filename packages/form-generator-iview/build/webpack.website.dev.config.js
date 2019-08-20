@@ -13,6 +13,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const selectApiData = require('../docs/website-data-api/selectApi');
 const cascaderApiData = require('../docs/website-data-api/cascaderApi');
 const uploadApiData = require('../docs/website-data-api/uploadApi');
+const radioApiData = require('../docs/website-data-api/radioApi');
 
 module.exports = merge(webpackBaseConfig, {
     mode: 'development',
@@ -25,6 +26,10 @@ module.exports = merge(webpackBaseConfig, {
         inline: true,
         open: true,
         before: function(app) {
+            app.get('/radioApi', function(req, res) {
+                res.json(radioApiData);
+            });
+
             app.get('/selectApi', function(req, res) {
                 res.json(selectApiData);
             });

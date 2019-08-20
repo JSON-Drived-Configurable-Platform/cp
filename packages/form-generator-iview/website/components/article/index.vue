@@ -24,12 +24,6 @@
                                         :href="'#' + item.path"
                                         :title="item.title"
                                     />
-                                    <AnchorLink
-                                        v-if="need_api"
-                                        :scroll-offset="140"
-                                        href="#API"
-                                        title="API"
-                                    />
                                 </Anchor>
                             </div>
                         </Affix>
@@ -47,34 +41,32 @@ export default {
         };
     },
     mounted () {
-        const examples = this.$slots.default[0].elm.querySelectorAll('.example');
-
-        // 有示例时，显示示例的目录，没有，显示标题为目录
-        if (examples.length) {
-            this.need_api = true;
-            for (let i = 0; i < examples.length; i++) {
-                const path = examples[i].querySelectorAll('header span a')[0].getAttribute('href').replace('#', '');
-                const title = examples[i].querySelectorAll('header span a')[0].getAttribute('data-title').replace('#', '');
-                this.list.push({
-                    title: title,
+        let list = [];
+        const headers = this.$slots.default[0].elm.querySelectorAll('.anchor');
+        for (let i = 0; i < headers.length; i++) {
+            const title = headers[i].querySelectorAll('h2')[0];
+            if (title) {
+                const title_name = title.innerHTML;
+                const path = headers[i].querySelectorAll('h2')[0].getAttribute('id');
+                list.push({
+                    title: title_name,
                     path: path
                 });
             }
-        } else {
-            this.need_api = false;
-            const headers = this.$slots.default[0].elm.querySelectorAll('.anchor');
-            for (let i = 0; i < headers.length; i++) {
-                const title = headers[i].querySelectorAll('h2')[0];
-                if (title) {
-                    const title_name = title.innerHTML;
-                    const path = headers[i].querySelectorAll('h2')[0].getAttribute('id');
-                    this.list.push({
-                        title: title_name,
-                        path: path
-                    });
-                }
-            }
         }
+
+        const examples = this.$slots.default[0].elm.querySelectorAll('.example');
+        // 有示例时，显示示例的目录，没有，显示标题为目录
+        for (let i = 0; i < examples.length; i++) {
+            const path = examples[i].querySelectorAll('header span a')[0].getAttribute('href').replace('#', '');
+            const title = examples[i].querySelectorAll('header span a')[0].getAttribute('data-title').replace('#', '');
+            list.push({
+                title: title,
+                path: path
+            });
+        }
+
+        this.list = list;
     },
     methods: {
         // 控制锚点跳转
