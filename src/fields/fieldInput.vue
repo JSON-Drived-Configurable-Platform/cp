@@ -44,7 +44,9 @@ export default {
     },
     methods: {
         handleChange(e) {
-            this.$emit('on-change', this.field.model, e.target.value, e, this.field);
+            let value = e.target.value;
+            this.$set(this.formModel, this.field.model, value);
+            this.$emit('on-change', this.field.model, value, e, this.field);
         }
     }
 };

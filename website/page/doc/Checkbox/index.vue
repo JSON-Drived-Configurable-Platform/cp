@@ -1,9 +1,9 @@
 <template>
     <i-article>
         <article>
-            <h1>Radio</h1>
+            <h1>Checkbox 多选框</h1>
             <inAnchor title="概述" h2 />
-            <p>基本组件-单选框。主要用于一组可选项单项选择</p>
+            <p>基本组件-多选框。主要用于一组可选项多项选择，或者单独用于标记切换某种状态。</p>
             <div class="api">
                 <inAnchor title="配置款速查询" h2 />
                 <inAnchor title="核心配置" h3 />
@@ -25,7 +25,7 @@
                         </tr>
                         <tr>
                             <td>options</td>
-                            <td>选项列表或者选项数据接口，如[{label: '男', 'value': 'M'},{label: '女', 'value': 'F'}, {label: '保密', 'value': 'unknown', disabled: true}]</td>
+                            <td>选项列表或者选项数据接口，如[{label: '西瓜', 'value': '1'},{label: '苹果', 'value': '2'}, {label: '梨', 'value': '3', disabled: true}]</td>
                             <td>Array(option) | String</td>
                             <td>[] | '', 如果为String则为获取选项数据的api。</td>
                         </tr>
@@ -33,13 +33,13 @@
                             <td>api</td>
                             <td>获取选项的接口</td>
                             <td>String</td>
-                            <td>''，api的返回值格式为{status: 0, data: [{label: '男', 'value': 'M'}]}</td>
+                            <td>''，api的返回值格式为{status: 0, data: [{label: '西瓜', 'value': '1'}]}</td>
                         </tr>
                         <tr>
-                            <td>type</td>
-                            <td>可选值为 button 或不填，为 button 时使用按钮样式</td>
-                            <td>String</td>
-                            <td>-</td>
+                            <td>checkAll</td>
+                            <td>是否展示全选</td>
+                            <td>Boolean</td>
+                            <td>false</td>
                         </tr>
                         <tr>
                             <td>size</td>
@@ -114,18 +114,19 @@
                 <i-code slot="code" lang="html">{{ code.api.code }}</i-code>
             </Demo>
 
-            <Demo title="Button形态">
+            <Demo title="全选">
                 <div slot="demo">
                     <FieldGenerator
-                        :field="code.button.data.field"
-                        :form-model="code.button.data.model"
+                        :field="code.checkAll.data.field"
+                        :form-model="code.checkAll.data.model"
                     />
                 </div>
                 <div slot="desc">
-                    <p>通过设置<code>field.subtype</code>为<code>button</code>可以展示为button形态</p>
+                    <p>通过设置<code>field.checkAll</code>可以控制是否展示全选。</p>
                 </div>
-                <i-code slot="code" lang="html">{{ code.button.code }}</i-code>
+                <i-code slot="code" lang="html">{{ code.checkAll.code }}</i-code>
             </Demo>
+
         </article>
     </i-article>
 </template>
@@ -135,7 +136,7 @@ import iArticle from '../../../components/article';
 import inAnchor from '../../../components/anchor';
 import iCode from '../../../components/code';
 import Demo from '../../../components/Demo';
-import Code from '../../../code/doc/radio';
+import Code from '../../../code/doc/checkbox';
 
 export default {
     components: {

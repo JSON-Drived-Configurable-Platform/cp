@@ -14,6 +14,7 @@ const selectApiData = require('../docs/website-data-api/selectApi');
 const cascaderApiData = require('../docs/website-data-api/cascaderApi');
 const uploadApiData = require('../docs/website-data-api/uploadApi');
 const radioApiData = require('../docs/website-data-api/radioApi');
+const checkboxApiData = require('../docs/website-data-api/checkboxApi');
 
 module.exports = merge(webpackBaseConfig, {
     mode: 'development',
@@ -28,6 +29,10 @@ module.exports = merge(webpackBaseConfig, {
         before: function(app) {
             app.get('/radioApi', function(req, res) {
                 res.json(radioApiData);
+            });
+
+            app.get('/checkboxApi', function(req, res){
+                res.json(checkboxApiData);
             });
 
             app.get('/selectApi', function(req, res) {

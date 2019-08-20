@@ -1,21 +1,35 @@
 <template>
-    <CheckboxGroup
-        :value="formModel[field.model]"
-        :size="size"
-        @on-change="handleChange"
-    >
-        <Checkbox
-            v-for="item in field.options"
-            :key="item.value"
-            :label="item.value"
-            :disabled="item.disabled"
+    <div>
+        <div
+            v-if="field.checkAll"
+            style="border-bottom: 1px solid #e9e9e9;padding-bottom:6px;margin-bottom:6px;"
         >
-            {{ item.label }}
-        </Checkbox>
-    </CheckboxGroup>
+            <Checkbox
+                :indeterminate="indeterminate"
+                :value="checkAll"
+                @click.prevent.native="handleCheckAll"
+            >全选</Checkbox>
+        </div>
+        <CheckboxGroup
+            :value="formModel[field.model]"
+            :size="size"
+            @on-change="handleChange"
+        >
+            <Checkbox
+                v-for="item in computedOptions"
+                :key="item.value"
+                :label="item.value"
+                :disabled="item.disabled"
+            >
+                {{ item.label }}
+            </Checkbox>
+        </CheckboxGroup>
+    </div>
 </template>
 <script>
+import getOptions from '../mixins/getOptions';
 export default {
+    mixins: [getOptions],
     props: {
         field: {
             type: Object,
@@ -37,23 +51,61 @@ export default {
     },
     data() {
         return {
-            loading: false
+            loading: false,
+            options: [],
+            indeterminate: true,
+            checkAll: false
         };
     },
     computed: {
-        remote() {
-            return !!this.field.api;
+        computedOptions() {
+            return this.options.length > 0 ? this.options : this.field.options;
         },
-        filterable() {
-            return !!this.field.api || this.field.filterable;
+        optionsApi() {
+            return !Array.isArray(this.field.options) ? this.field.options : '';
         }
     },
     methods: {
         remoteMethod() {
-            this.loading = true;
+            if (!this.field.api && !this.optionsApi) {
+                return;
+            }
+            this.getRemoteOptions();
         },
         handleChange(value) {
+            if (this.field.checkAll) {
+                this.checkAllGroupChange(value);
+            }
+            this.$set(this.formModel, this.field.model, value);
             this.$emit('on-change', this.field.model, value, null, this.field);
+        },
+        handleCheckAll() {
+            let value = [];
+            if (this.indeterminate) {
+                this.checkAll = false;
+            } else {
+                this.checkAll = !this.checkAll;
+            }
+            this.indeterminate = false;
+
+            if (this.checkAll) {
+                value = this.computedOptions.map(option => option.value);
+            } else {
+                value = [];
+            }
+            this.handleChange(value);
+        },
+        checkAllGroupChange(value) {
+            if (value.length === this.computedOptions.length) {
+                this.indeterminate = false;
+                this.checkAll = true;
+            } else if (value.length > 0) {
+                this.indeterminate = true;
+                this.checkAll = false;
+            } else {
+                this.indeterminate = false;
+                this.checkAll = false;
+            }
         }
     }
 };

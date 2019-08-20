@@ -1,0 +1,18 @@
+{
+    "status": 0,
+    "data": [
+        {
+            "label": "西瓜",
+            "value": "1"
+        },
+        {
+            "label": "苹果",
+            "value": "2"
+        },
+        {
+            "label": "梨",
+            "value": "3",
+            "disabled": true
+        }
+    ]
+}
