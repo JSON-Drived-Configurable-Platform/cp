@@ -12,6 +12,10 @@ export default {
                 return {};
             }
         },
+        apiBase: {
+            type: String,
+            default: ''
+        }
     },
     computed: {
         params() {
@@ -27,7 +31,7 @@ export default {
     watch: {
         params: {
             handler(val) {
-                if (this.field.api) {
+                if (this.field.api || this.optionsApi) {
                     this.getRemoteOptions(val);
                 }
             },
@@ -42,7 +46,7 @@ export default {
             let formModel = this.formModel;
             let apiParams = this.field.apiParams || [];
             let params = {};
-            let finalApi = apiBase + this.field.api;
+            let finalApi = apiBase + (this.field.api || this.optionsApi);
             apiParams.forEach(param => {
                 params[param] = formModel[param];
             });

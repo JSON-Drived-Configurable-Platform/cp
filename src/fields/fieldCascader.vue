@@ -20,10 +20,6 @@ export default {
             type: Object,
             required: true
         },
-        apiBase: {
-            type: String,
-            default: ''
-        },
         size: {
             type: String,
             default() {

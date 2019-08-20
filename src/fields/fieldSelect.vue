@@ -51,10 +51,6 @@ export default {
             type: Object,
             required: true
         },
-        apiBase: {
-            type: String,
-            default: ''
-        },
         formModel: {
             type: Object,
             required: true,

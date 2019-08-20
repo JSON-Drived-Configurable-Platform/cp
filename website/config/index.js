@@ -55,6 +55,10 @@ export default {
                     label: 'Input',
                     name: '/doc/Input'
                 },
+                {
+                    label: 'Radio',
+                    name: '/doc/Radio'
+                },
             ]
         },
         {

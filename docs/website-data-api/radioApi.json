@@ -1,0 +1,18 @@
+{
+    "status": 0,
+    "data": [
+        {
+            "label": "男",
+            "value": "M"
+        },
+        {
+            "label": "女",
+            "value": "F"
+        },
+        {
+            "label": "保密",
+            "value": "unknown",
+            "disabled": true
+        }
+    ]
+}

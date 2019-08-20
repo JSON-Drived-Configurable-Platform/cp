@@ -1,13 +1,13 @@
 <template>
     <RadioGroup
-        v-if="field.subtype"
         :value="formModel[field.model]"
         :type="field.subtype"
+        :vertical="field.vertical"
         :size="size"
         @on-change="handleChange"
     >
         <Radio
-            v-for="item in field.options"
+            v-for="item in computedOptions"
             :key="item.value"
             :label="item.value"
             :disabled="item.disabled"
@@ -17,7 +17,9 @@
     </RadioGroup>
 </template>
 <script>
+import getOptions from '../mixins/getOptions';
 export default {
+    mixins: [getOptions],
     props: {
         field: {
             type: Object,
@@ -39,20 +41,24 @@ export default {
     },
     data() {
         return {
-            loading: false
+            loading: false,
+            options: []
         };
     },
     computed: {
-        remote() {
-            return !!this.field.api;
+        computedOptions() {
+            return this.options.length > 0 ? this.options : this.field.options;
         },
-        filterable() {
-            return !!this.field.api || this.field.filterable;
+        optionsApi() {
+            return !Array.isArray(this.field.options) ? this.field.options : '';
         }
     },
     methods: {
         remoteMethod() {
-            this.loading = true;
+            if (!this.field.api && !this.optionsApi) {
+                return;
+            }
+            this.getRemoteOptions();
         },
         handleChange(value) {
             this.$emit('on-change', this.field.model, value, null, this.field);
