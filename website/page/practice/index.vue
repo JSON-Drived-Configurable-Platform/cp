@@ -4,7 +4,7 @@
             <h1>思考与实践</h1>
             <p>
                 FormGeneratorIView 作为<a href="">CP - Configurable Platform</a>的一部分。
-                主要是为了解决在配置系统中大量的表单需求。这一点受到了<a target="_blank" href="https://github.com/mozilla-services/react-jsonschema-form">react-jsonschema-form</a>的启发。
+                主要是为了解决在配置系统中大量的表单需求。这一点受到了<a target="_blank" href="https://github.com/mozilla-services/react-jsonschema-form">react-jsonschema-form</a>以及<a href="https://github.com/baidu/amis" target="_blank">amis配置工具</a>的启发。
             </p>
             <inAnchor
                 title="我的中台表单开发经历"
@@ -29,33 +29,12 @@
             <p>以上就是这个工具的由来。</p>
 
             <inAnchor
-                title="与iView的一致性"
+                title="编码、JSON配置、可视化配置"
                 h2
             />
-            <p>
-                在设计上，很多命名都尽量保持与iView一致，包含组件名称、组件属性名称、组件方法名称等。
-            </p>
-
-            <inAnchor
-                title="可配置的属性"
-                h2
-            />
-            <p>
-                <strong>表单选项：</strong>
-            </p>
-            <p>
-                <strong>组件：</strong>
-            </p>
-
-            <!-- TODO -->
-            <inAnchor
-                title="场景限制"
-                h2
-            />
-            <p>做成可配置的，其实是用灵活性去换效率。使用时，需要仔细考虑是否使用可配置的方式。目前的功能会在处理一下几个场景时遇到问题：</p>
-            <ul>
-                <li>交互中，多个表单项之间有关联逻辑。特别是展现关联、校验关联的场景；</li>
-            </ul>
+            <p>iView通过组件化的方式，更关注与编码层面。</p>
+            <p><a href="https://github.com/baidu/amis" target="_blank">amis配置工具</a>，通过可视化配置，更关注于提供一站式解决方案。</p>
+            <p>FormGenerator介于两者之间，让你在不丢失编码灵活性的同时，可以通过配置提高代码复用度，提升开发效率。</p>
         </article>
     </i-article>
 </template>
