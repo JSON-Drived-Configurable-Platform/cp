@@ -15,6 +15,7 @@ const cascaderApiData = require('../docs/website-data-api/cascaderApi');
 const uploadApiData = require('../docs/website-data-api/uploadApi');
 const radioApiData = require('../docs/website-data-api/radioApi');
 const checkboxApiData = require('../docs/website-data-api/checkboxApi');
+const selectGroupApiData = require('../docs/website-data-api/selectGroupApi');
 
 module.exports = merge(webpackBaseConfig, {
     mode: 'development',
@@ -37,6 +38,10 @@ module.exports = merge(webpackBaseConfig, {
 
             app.get('/selectApi', function(req, res) {
                 res.json(selectApiData);
+            });
+
+            app.get('/selectGroupApi', function(req, res) {
+                res.json(selectGroupApiData);
             });
 
             app.get('/cascaderApi', function(req, res) {

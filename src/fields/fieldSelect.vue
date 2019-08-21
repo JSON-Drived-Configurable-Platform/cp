@@ -14,12 +14,25 @@
             :remote-method="remoteMethod"
             @on-change="handleChange"
         >
-            <Option
-                v-for="item in computedOptions"
-                :key="item.value"
-                :value="item.value"
-                :disabled="item.disabled"
-            >{{ item.label }}</Option>
+            <template v-for="item in computedOptions">
+                <OptionGroup
+                    v-if="item.groupOptions"
+                    :key="item.groupLabel"
+                    :label="item.groupLabel"
+                >
+                    <Option
+                        v-for="groupItem in item.groupOptions"
+                        :key="groupItem.value"
+                        :value="groupItem.value"
+                    >{{ groupItem.label }}</Option>
+                </OptionGroup>
+                <Option
+                    v-else
+                    :key="item.value"
+                    :value="item.value"
+                    :disabled="item.disabled"
+                >{{ item.label }}</Option>
+            </template>
         </Select>
         <Select
             v-else
@@ -33,12 +46,25 @@
             :loading="loading"
             @on-change="handleChange"
         >
-            <Option
-                v-for="item in computedOptions"
-                :key="item.value"
-                :value="item.value"
-                :disabled="item.disabled"
-            >{{ item.label }}</Option>
+            <template v-for="item in computedOptions">
+                <OptionGroup
+                    v-if="item.groupOptions"
+                    :key="item.groupLabel"
+                    :label="item.groupLabel"
+                >
+                    <Option
+                        v-for="groupItem in item.groupOptions"
+                        :key="groupItem.value"
+                        :value="groupItem.value"
+                    >{{ groupItem.label }}</Option>
+                </OptionGroup>
+                <Option
+                    v-else
+                    :key="item.value"
+                    :value="item.value"
+                    :disabled="item.disabled"
+                >{{ item.label }}</Option>
+            </template>
         </Select>
     </div>
 </template>
@@ -73,10 +99,10 @@ export default {
     },
     computed: {
         remote() {
-            return this.field.remote;
+            return this.field.remote && !!this.optionsApi;
         },
         filterable() {
-            return this.field.filterable;
+            return this.field.filterable || this.remote;
         },
         clearable() {
             return this.field.clearable === undefined
@@ -98,11 +124,15 @@ export default {
             this.$set(this.formModel, this.field.model, value);
             this.$emit('on-change', this.field.model, value, null, this.field);
         },
-        remoteMethod() {
+        remoteMethod(query) {
             if (!this.remote) {
                 return;
             }
-            this.getRemoteOptions();
+            this.getRemoteOptions(
+                {
+                    [this.field.model]: query
+                }
+            );
         }
     }
 };
