@@ -40,7 +40,7 @@ export default {
             name: '/practice'
         },
         {
-            label: 'API Document',
+            label: 'Config Document',
             name: '/doc',
             submenu: [
                 {
