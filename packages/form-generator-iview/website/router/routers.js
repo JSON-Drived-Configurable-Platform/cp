@@ -82,6 +82,11 @@ export default [
                 component: (resolve) => require(['../page/doc/Select'], resolve)
             },
             {
+                path: '/doc/DatePicker',
+                name: 'doc-DatePicker',
+                component: (resolve) => require(['../page/doc/DatePicker'], resolve)
+            },
+            {
                 path: '/form-generator-example',
                 name: 'data',
                 component: (resolve) => require(['../page/examples/form-generator-example'], resolve)
