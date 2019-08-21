@@ -73,10 +73,10 @@ export default {
     },
     computed: {
         remote() {
-            return !!this.field.api;
+            return this.field.remote;
         },
         filterable() {
-            return !!this.field.api || this.field.filterable;
+            return this.field.filterable;
         },
         clearable() {
             return this.field.clearable === undefined
@@ -84,7 +84,10 @@ export default {
                 : this.field.clearable;
         },
         computedOptions() {
-            return this.options.length > 0 ? this.options : this.field.options;
+            return this.options.length > 0 ? this.options : (Array.isArray(this.field.options) ? this.field.options : []);
+        },
+        optionsApi() {
+            return this.field.api || !Array.isArray(this.field.options) ? this.field.options : '';
         }
     },
     methods: {
@@ -92,10 +95,11 @@ export default {
             if (value === undefined || value === null) {
                 value = '';
             }
+            this.$set(this.formModel, this.field.model, value);
             this.$emit('on-change', this.field.model, value, null, this.field);
         },
         remoteMethod() {
-            if (!this.field.api) {
+            if (!this.remote) {
                 return;
             }
             this.getRemoteOptions();

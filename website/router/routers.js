@@ -77,6 +77,11 @@ export default [
                 component: (resolve) => require(['../page/doc/Switch'], resolve)
             },
             {
+                path: '/doc/Select',
+                name: 'doc-Select',
+                component: (resolve) => require(['../page/doc/Select'], resolve)
+            },
+            {
                 path: '/form-generator-example',
                 name: 'data',
                 component: (resolve) => require(['../page/examples/form-generator-example'], resolve)

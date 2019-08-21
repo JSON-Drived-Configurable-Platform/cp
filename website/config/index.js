@@ -67,6 +67,10 @@ export default {
                     label: 'Switch',
                     name: '/doc/Switch'
                 },
+                {
+                    label: 'Select',
+                    name: '/doc/Select'
+                },
             ]
         },
         {
