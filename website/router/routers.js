@@ -16,6 +16,7 @@ import FieldGenerator from '../page/doc/FieldGenerator';
 import Input from '../page/doc/Input';
 import Radio from '../page/doc/Radio';
 import Checkbox from '../page/doc/Checkbox';
+import Switch from '../page/doc/Switch';
 export default [
     {
         path: '/',
@@ -67,6 +68,11 @@ export default [
                 path: '/doc/Checkbox',
                 name: 'doc-Checkbox',
                 component: Checkbox
+            },
+            {
+                path: '/doc/Switch',
+                name: 'doc-Switch',
+                component: Switch
             },
             {
                 path: '/form-generator-example',
