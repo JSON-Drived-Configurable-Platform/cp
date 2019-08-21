@@ -71,6 +71,10 @@ export default {
                     label: 'Select',
                     name: '/doc/Select'
                 },
+                {
+                    label: 'DatePicker',
+                    name: '/doc/DatePicker'
+                },
             ]
         },
         {
