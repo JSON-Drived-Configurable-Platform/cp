@@ -154,6 +154,7 @@ export const fields = [
         type: 'Checkbox',
         label: '多选',
         model: 'checkbox',
+        checkAll: true,
         options: [
             {
                 label: '选项一',

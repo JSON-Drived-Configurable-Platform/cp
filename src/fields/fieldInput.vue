@@ -1,5 +1,5 @@
 <template>
-    <Input
+    <i-input
         :value="formModel[field.model]"
         :type="field.subtype"
         :placeholder="field.placeholder"
@@ -19,10 +19,17 @@
         :enter-button="field.enterButton"
         :size="size"
         @on-change="handleChange"
-    />
+    >
+        <span v-if="field.prepend" slot="prepend">{{ field.prepend }}</span>
+        <span v-if="field.append" slot="append">{{ field.append }}</span>
+    </i-input>
 </template>
 <script>
+import {Input} from 'iView';
 export default {
+    components: {
+        iInput: Input
+    },
     props: {
         field: {
             type: Object,
@@ -41,6 +48,12 @@ export default {
                 return 'default';
             }
         },
+    },
+    data() {
+        return {
+            prependSelectModel: '',
+            appendSelectModel: ''
+        };
     },
     methods: {
         handleChange(e) {
