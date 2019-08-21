@@ -33,9 +33,102 @@
                     />
                 </div>
                 <div slot="desc">
-                    可以将<code>options</code>的值设置为获取数据的接口。
+                    可以将<code>filed.options</code>的值设置为获取数据的接口。
                 </div>
                 <i-code slot="code" lang="html">{{ code.api.code }}</i-code>
+            </Demo>
+            <Demo title="多选">
+                <div slot="demo">
+                    <FieldGenerator
+                        :field="code.multiple.data.field"
+                        :form-model="code.multiple.data.model"
+                        @on-field-change="handleFieldChange"
+                    />
+                </div>
+                <div slot="desc">
+                    设置<code>field.multiple</code>可以控制多选，此时控件返回值为数组。
+                </div>
+                <i-code slot="code" lang="html">{{ code.multiple.code }}</i-code>
+            </Demo>
+            <Demo title="可搜索">
+                <div slot="demo">
+                    <FieldGenerator
+                        :field="code.filterable.data.field"
+                        :form-model="code.filterable.data.model"
+                        @on-field-change="handleFieldChange"
+                    />
+                    <FieldGenerator
+                        :field="code.filterable.data.multipleField"
+                        :form-model="code.filterable.data.model"
+                        @on-field-change="handleFieldChange"
+                    />
+                </div>
+                <div slot="desc">
+                    设置<code>field.filterable</code>可以控制是否可搜索，可以通过输入值来过滤选项。
+                </div>
+                <i-code slot="code" lang="html">{{ code.filterable.code }}</i-code>
+            </Demo>
+            <Demo title="远程搜索">
+                <div slot="demo">
+                    <FieldGenerator
+                        :field="code.remote.data.field"
+                        :form-model="code.remote.data.model"
+                        @on-field-change="handleFieldChange"
+                    />
+                    <FieldGenerator
+                        :field="code.remote.data.multipleField"
+                        :form-model="code.remote.data.model"
+                        @on-field-change="handleFieldChange"
+                    />
+                </div>
+                <div slot="desc">
+                    <p>设置<code>field.remote</code>为true后，可以根据输入进行远程搜索。</p>
+                    <p>此项值依赖<code>field.options</code>为获取数据的url。如果为数组，则无效</p>
+                </div>
+                <i-code slot="code" lang="html">{{ code.remote.code }}</i-code>
+            </Demo>
+            <Demo title="分组">
+                <div slot="demo">
+                    <FieldGenerator
+                        :field="code.group.data.field"
+                        :form-model="code.group.data.model"
+                        @on-field-change="handleFieldChange"
+                    />
+                    <FieldGenerator
+                        :field="code.group.data.multipleField"
+                        :form-model="code.group.data.model"
+                        @on-field-change="handleFieldChange"
+                    />
+                </div>
+                <div slot="desc">
+                    设置<code>field.options</code>格式为
+                    <pre>
+[{
+    "groupLabel":"直辖",
+    "groupOptions":[
+        {
+            "label":"北京",
+            "value":"110000000000"
+        }
+    ]
+},
+{
+    "groupLabel": "全部",
+    "groupOptions": [
+        {
+            "label": "北京",
+            "value": "110000000000"
+        },
+        {
+            "label": "天津",
+            "value": "120000000000"
+        }
+    ]
+}]
+                    </pre>
+                    可以使选项按照分组展示。
+                </div>
+                <i-code slot="code" lang="html">{{ code.group.code }}</i-code>
             </Demo>
         </article>
     </i-article>
@@ -70,7 +163,7 @@ export default {
 </script>
 
 <style>
-.fg-ivu-input {
+.fg-ivu-select {
     margin-top: 20px;
 }
 </style>
