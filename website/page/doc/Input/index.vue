@@ -5,7 +5,7 @@
             <inAnchor title="概述" h2 />
             <p>基本表单组件，支持 input 和 textarea，并在原生控件基础上进行了功能扩展，可以组合使用。</p>
             <div class="api">
-                <inAnchor title="配置款速查询" h2 />
+                <inAnchor title="配置快速查询" h2 />
                 <inAnchor title="核心配置" h3 />
                 <table>
                     <thead>

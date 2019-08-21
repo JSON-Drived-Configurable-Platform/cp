@@ -5,7 +5,7 @@
             <inAnchor title="概述" h2 />
             <p>基本组件-单选框。主要用于一组可选项单项选择</p>
             <div class="api">
-                <inAnchor title="配置款速查询" h2 />
+                <inAnchor title="配置快速查询" h2 />
                 <inAnchor title="核心配置" h3 />
                 <table>
                     <thead>

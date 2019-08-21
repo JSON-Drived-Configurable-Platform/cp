@@ -6,7 +6,7 @@
             <p>使用模拟的增强下拉选择器来代替浏览器原生的选择器。</p>
             <p>选择器支持单选、多选、搜索，以及键盘快捷操作。</p>
             <div class="api">
-                <inAnchor title="配置款速查询" h2 />
+                <inAnchor title="配置快速查询" h2 />
                 <inAnchor title="核心配置" h3 />
             </div>
             <inAnchor title="代码示例" h2 />

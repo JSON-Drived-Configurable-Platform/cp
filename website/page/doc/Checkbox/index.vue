@@ -5,7 +5,7 @@
             <inAnchor title="概述" h2 />
             <p>基本组件-多选框。主要用于一组可选项多项选择，或者单独用于标记切换某种状态。</p>
             <div class="api">
-                <inAnchor title="配置款速查询" h2 />
+                <inAnchor title="配置快速查询" h2 />
                 <inAnchor title="核心配置" h3 />
                 <table>
                     <thead>
