@@ -281,11 +281,90 @@ export default {
 </template>
 `;
 
+
+// 可清空
+let clearable = {};
+const clearableField = {
+    type: 'Select',
+    model: 'province',
+    clearable: true,
+    filterable: true,
+    options: '/selectApi'
+};
+
+const clearableModel = {
+    province: '110000000000',
+};
+
+clearable.data = {
+    field: clearableField,
+    model: clearableModel
+};
+
+clearable.code = `
+<script>
+export default {
+    data() {
+        return {
+            field: ${JSON.stringify(clearableField)},
+            model: ${JSON.stringify(clearableModel)}
+        };
+    }
+};
+<script>
+<template>
+    <FieldGenerator
+        :field="field"
+        :form-model="model"
+    />
+</template>
+`;
+
+// 前缀图标
+let prefix = {};
+const prefixField = {
+    type: 'Select',
+    model: 'province',
+    prefix: 'ios-home',
+    filterable: true,
+    options: '/selectApi'
+};
+
+const prefixModel = {
+    province: '110000000000',
+};
+
+prefix.data = {
+    field: prefixField,
+    model: prefixModel
+};
+
+prefix.code = `
+<script>
+export default {
+    data() {
+        return {
+            field: ${JSON.stringify(prefixField)},
+            model: ${JSON.stringify(prefixModel)}
+        };
+    }
+};
+<script>
+<template>
+    <FieldGenerator
+        :field="field"
+        :form-model="model"
+    />
+</template>
+`;
+
 export default {
     simple,
     api,
     multiple,
     filterable,
     remote,
-    group
+    group,
+    clearable,
+    prefix
 };

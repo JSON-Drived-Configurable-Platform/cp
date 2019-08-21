@@ -12,6 +12,7 @@
             :filterable="filterable || false"
             :loading="loading"
             :remote-method="remoteMethod"
+            :prefix="field.prefix"
             @on-change="handleChange"
         >
             <template v-for="item in computedOptions">
@@ -44,6 +45,7 @@
             :placeholder="field.placeholder"
             :filterable="filterable || false"
             :loading="loading"
+            :prefix="field.prefix"
             @on-change="handleChange"
         >
             <template v-for="item in computedOptions">

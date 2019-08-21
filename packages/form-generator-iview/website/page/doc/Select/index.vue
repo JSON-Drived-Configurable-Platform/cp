@@ -130,6 +130,32 @@
                 </div>
                 <i-code slot="code" lang="html">{{ code.group.code }}</i-code>
             </Demo>
+            <Demo title="可清空">
+                <div slot="demo">
+                    <FieldGenerator
+                        :field="code.clearable.data.field"
+                        :form-model="code.clearable.data.model"
+                        @on-field-change="handleFieldChange"
+                    />
+                </div>
+                <div slot="desc">
+                    <p>通过设置<code>field.clearable</code>是否展示可清空的icon。</p>
+                </div>
+                <i-code slot="code" lang="html">{{ code.clearable.code }}</i-code>
+            </Demo>
+            <Demo title="前缀图标">
+                <div slot="demo">
+                    <FieldGenerator
+                        :field="code.prefix.data.field"
+                        :form-model="code.prefix.data.model"
+                        @on-field-change="handleFieldChange"
+                    />
+                </div>
+                <div slot="desc">
+                    <p>通过设置<code>field.prefix</code>是否展示前缀图标。</p>
+                </div>
+                <i-code slot="code" lang="html">{{ code.prefix.code }}</i-code>
+            </Demo>
         </article>
     </i-article>
 </template>
