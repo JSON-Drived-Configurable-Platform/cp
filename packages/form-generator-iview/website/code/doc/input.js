@@ -412,6 +412,69 @@ disabled.data = {
     disabledModel
 };
 
+// 复合型输入框
+// prepend append
+
+let prependAndAppend = {};
+
+const prependField = {
+    type: 'Input',
+    model: 'url',
+    prepend: 'https://'
+};
+
+const appendField = {
+    type: 'Input',
+    model: 'url',
+    append: '.com'
+};
+
+const prependAndappendField = {
+    type: 'Input',
+    model: 'url',
+    prepend: 'https://',
+    append: '.com'
+};
+
+const prependAndAppendModel = {
+    url: ''
+};
+
+prependAndAppend.code = `
+<script>
+export default {
+    data() {
+        return {
+            prependField: ${JSON.stringify(prependField)},
+            suffixField: ${JSON.stringify(appendField)},
+            prependAndSuffixField: ${JSON.stringify(prependAndappendField)},
+            model: ${JSON.stringify(prependAndAppendModel)}
+        };
+    }
+};
+<script>
+<template>
+    <FieldGenerator
+        :field="prependField"
+        :form-model="model"
+    />
+    <FieldGenerator
+        :field="suffixField"
+        :form-model="model"
+    />
+    <FieldGenerator
+        :field="prependAndSuffixField"
+        :form-model="model"
+    />
+</template>
+`;
+
+prependAndAppend.data = {
+    prependField,
+    appendField,
+    prependAndappendField,
+    model: prependAndAppendModel
+};
 export default {
     simple,
     size,
@@ -421,5 +484,6 @@ export default {
     search,
     textarea,
     aotusizeTextarea,
-    disabled
+    disabled,
+    prependAndAppend
 };

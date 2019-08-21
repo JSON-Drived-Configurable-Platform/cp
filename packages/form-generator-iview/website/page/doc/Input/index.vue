@@ -156,6 +156,18 @@
                             <td>String</td>
                             <td>soft</td>
                         </tr> -->
+                        <tr>
+                            <td>prepend</td>
+                            <td>复合型输入前置信息，仅展示使用，不影响输入值</td>
+                            <td>String</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>append</td>
+                            <td>复合型输入后置信息，仅展示使用，不影响输入值</td>
+                            <td>String</td>
+                            <td>-</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -298,6 +310,29 @@
                     <p>通过设置<code>field.disabled</code>可以禁用输入框</p>
                 </div>
                 <i-code slot="code" lang="html">{{ code.disabled.code }}</i-code>
+            </Demo>
+            <Demo title="复合型输入框">
+                <div slot="demo">
+                    <FieldGenerator
+                        :field="code.prependAndAppend.data.prependField"
+                        :form-model="code.prependAndAppend.data.model"
+                    />
+                    <FieldGenerator
+                        :field="code.prependAndAppend.data.appendField"
+                        :form-model="code.prependAndAppend.data.model"
+                    />
+                    <FieldGenerator
+                        :field="code.prependAndAppend.data.prependAndappendField"
+                        :form-model="code.prependAndAppend.data.model"
+                    />
+                </div>
+                <div slot="desc">
+                    <p>通过设置<code>field.prepend</code>或者<code>field.prepend</code>可以实现复合型输入框。</p>
+                    <blockquote>
+                        不支持<code>Select</code>类型的复合型输入。
+                    </blockquote>
+                </div>
+                <i-code slot="code" lang="html">{{ code.prependAndAppend.code }}</i-code>
             </Demo>
         </article>
     </i-article>

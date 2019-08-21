@@ -4,4 +4,4 @@
       "javascriptreact",
       { "language": "vue", "autoFix": true }
     ]
-  }
+}
