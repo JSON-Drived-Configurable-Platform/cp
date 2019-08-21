@@ -5,7 +5,7 @@
             <inAnchor title="概述" h2 />
             <p>在两种状态间切换时用到的开关选择器。</p>
             <div class="api">
-                <inAnchor title="配置款速查询" h2 />
+                <inAnchor title="配置快速查询" h2 />
                 <inAnchor title="核心配置" h3 />
                 <table>
                     <thead>
