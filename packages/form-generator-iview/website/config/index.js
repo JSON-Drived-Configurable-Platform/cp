@@ -75,6 +75,10 @@ export default {
                     label: 'DatePicker',
                     name: '/doc/DatePicker'
                 },
+                {
+                    label: 'TimePicker',
+                    name: '/doc/TimePicker'
+                },
             ]
         },
         {

@@ -199,6 +199,7 @@ export default {
             return !!this.field.api || this.field.filterable;
         },
         editable() {
+            // TODO
             return this.field.editable === undefined
                 ? this.field.required ? false : true
                 : this.field.editable;
@@ -225,13 +226,6 @@ export default {
         }
     },
     methods: {
-        remoteMethod() {
-            // TODO
-            if (!this.field.api) {
-                return;
-            }
-            this.loading = true;
-        },
         handleChange(value) {
             this.$set(this.formModel, this.field.model, value);
             this.$emit('on-change', this.field.model, value, null, this.field);

@@ -4,6 +4,7 @@
         :true-value="trueValue"
         :false-value="falseValue"
         :disabled="field.disabled"
+        :class="classes"
         :size="size"
         @on-change="handleChange"
     >
@@ -17,6 +18,7 @@
 <script>
 import {Switch as iSwitch} from 'iview';
 import getOptions from '../mixins/getOptions';
+import {classPrifix} from '../utils/const';
 export default {
     components: {
         iSwitch
@@ -64,6 +66,9 @@ export default {
             else {
                 return info.value;
             }
+        },
+        classes() {
+            return `${classPrifix}-${this.field.type.toLowerCase()}`;
         }
     },
     methods: {

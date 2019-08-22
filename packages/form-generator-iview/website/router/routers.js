@@ -87,6 +87,11 @@ export default [
                 component: (resolve) => require(['../page/doc/DatePicker'], resolve)
             },
             {
+                path: '/doc/TimePicker',
+                name: 'doc-TimePicker',
+                component: (resolve) => require(['../page/doc/TimePicker'], resolve)
+            },
+            {
                 path: '/form-generator-example',
                 name: 'data',
                 component: (resolve) => require(['../page/examples/form-generator-example'], resolve)
