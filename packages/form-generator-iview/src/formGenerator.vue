@@ -25,7 +25,7 @@
         <Form
             ref="form"
             :model="formModel"
-            :label-width="options.labelWidth || 80"
+            :label-width="options | labelWidth"
             :inline="options.inline"
             :label-position="options.labelPosition || 'right'"
         >
@@ -147,6 +147,14 @@ export default {
         clickOutside: vClickOutside.directive
     },
     filters: {
+        labelWidth(options) {
+            if (options.inline) {
+                return options.labelWidth;
+            }
+            else {
+                return options.labelWidth || 80;
+            }
+        },
         itemStyle(options, field) {
             return {
                 width: (field.width || options.itemWidth) + 'px'
