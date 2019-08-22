@@ -17,6 +17,8 @@
         :default-file-list="[]"
         :on-format-error="onFormatError"
         :on-exceeded-size="onExceededSize"
+        :on-success="onSuccess"
+        :on-remove="onRemove"
         :size="size"
     >
         <Icon
@@ -32,5 +34,11 @@
 import upload from '../mixins/upload';
 export default {
     mixins: [upload],
+    methods: {
+        onRemove() {
+            this.uploadFileList = this.$refs.upload.fileList.slice();
+            this.handleChange();
+        }
+    }
 };
 </script>

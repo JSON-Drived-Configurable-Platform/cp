@@ -55,6 +55,7 @@ export default {
             if (value === null) {
                 value = 0;
             }
+            this.$set(this.formModel, this.field.model, value);
             this.$emit('on-change', this.field.model, value, null, this.field);
         }
     }

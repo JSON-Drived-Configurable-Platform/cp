@@ -72,6 +72,10 @@ export default {
                     name: '/doc/Select'
                 },
                 {
+                    label: 'LogicSelect',
+                    name: '/doc/LogicSelect'
+                },
+                {
                     label: 'DatePicker',
                     name: '/doc/DatePicker'
                 },
@@ -79,6 +83,22 @@ export default {
                     label: 'TimePicker',
                     name: '/doc/TimePicker'
                 },
+                {
+                    label: 'Cascader',
+                    name: '/doc/Cascader'
+                },
+                {
+                    label: 'InputNumber',
+                    name: '/doc/InputNumber'
+                },
+                {
+                    label: 'Upload',
+                    name: '/doc/Upload'
+                },
+                // {
+                //     label: 'ImgUpload',
+                //     name: '/doc/ImgUpload'
+                // },
             ]
         },
         {
