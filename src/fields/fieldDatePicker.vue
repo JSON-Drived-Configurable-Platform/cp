@@ -4,6 +4,8 @@
         :placeholder="field.placeholder"
         :value="formModel[field.model]"
         :disabled="field.disabled"
+        :split-panels="field.splitPanels"
+        :multiple="field.multiple"
         :options="options"
         :editable="editable"
         :clearable="clearable"
@@ -169,9 +171,23 @@ export default {
                 }
             ]
         };
+        const disabledDates = this.field.disabledDates || [];
         return {
             options: {
-                shortcuts: subtypeToShortcuts[this.field.subtype]
+                shortcuts: subtypeToShortcuts[this.field.subtype || 'date'],
+                disabledDate(date) {
+                    // disabledDates 的格式为 [[, 2018-12-30], [2019-1-30, 2019-2-30], [2019-3-30,]]
+                    if (disabledDates.length === 0) {
+                        return false;
+                    }
+                    // 只要满足 disabledDates 中任意一个区间，则禁用。
+                    return disabledDates.some(daterange => {
+                        const startTime = daterange[0] ? (new Date(daterange[0])).getTime() : -Infinity;
+                        const endTime = daterange[1] ? new Date(daterange[1]).getTime() : Infinity;
+                        const currentDateTime = date.getTime();
+                        return currentDateTime >= startTime && currentDateTime <= endTime;
+                    });
+                }
             }
         };
     },
@@ -217,6 +233,7 @@ export default {
             this.loading = true;
         },
         handleChange(value) {
+            this.$set(this.formModel, this.field.model, value);
             this.$emit('on-change', this.field.model, value, null, this.field);
         }
     }
