@@ -23,8 +23,8 @@ module.exports = merge(webpackBaseConfig, {
     output: {
         path: path.resolve(__dirname, '../website/dist'),
         publicPath: '',
-        filename: '[name].js',
-        chunkFilename: '[name].chunk.js'
+        filename: '[name].[contentHash].js',
+        chunkFilename: '[name].[contentHash].chunk.js'
     },
     plugins: [
         new HtmlWebpackPlugin({
