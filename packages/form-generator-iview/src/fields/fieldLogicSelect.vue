@@ -100,7 +100,7 @@
                     :disabled="item.disabled"
                 >{{ item.label }}</Option>
             </Select>
-            <span :style="{width: '20px',textAlign: 'center'}">~</span>
+            <span :class="midClasses">~</span>
             <Select
                 v-if="remote"
                 :value="end"
@@ -186,6 +186,9 @@ export default {
         classes() {
             return `${classPrifix}-${this.field.type.toLowerCase()}`;
         },
+        midClasses() {
+            return `${this.classes}-logic-mid`;
+        },
         logicSelectClassess() {
             return `${this.classes}-logic`;
         },
@@ -268,6 +271,7 @@ export default {
             this.handleChange();
         },
         handleChange() {
+            this.$set(this.formModel, this.field.model, this.value);
             this.$emit('on-change', this.field.model, this.value, null, this.field);
         },
         handleStartChange(value) {
@@ -280,7 +284,7 @@ export default {
         },
         handleDoubleTextChange() {
             this.value.value = [this.start, this.end];
-            this.$emit('on-change', this.field.model, this.value, null, this.field);
+            this.handleChange();
         }
     }
 };

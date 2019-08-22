@@ -82,6 +82,11 @@ export default [
                 component: (resolve) => require(['../page/doc/Select'], resolve)
             },
             {
+                path: '/doc/LogicSelect',
+                name: 'doc-LogicSelect',
+                component: (resolve) => require(['../page/doc/LogicSelect'], resolve)
+            },
+            {
                 path: '/doc/DatePicker',
                 name: 'doc-DatePicker',
                 component: (resolve) => require(['../page/doc/DatePicker'], resolve)
@@ -91,6 +96,26 @@ export default [
                 name: 'doc-TimePicker',
                 component: (resolve) => require(['../page/doc/TimePicker'], resolve)
             },
+            {
+                path: '/doc/Cascader',
+                name: 'doc-Cascader',
+                component: (resolve) => require(['../page/doc/Cascader'], resolve)
+            },
+            {
+                path: '/doc/InputNumber',
+                name: 'doc-InputNumber',
+                component: (resolve) => require(['../page/doc/InputNumber'], resolve)
+            },
+            {
+                path: '/doc/Upload',
+                name: 'doc-Upload',
+                component: (resolve) => require(['../page/doc/Upload'], resolve)
+            },
+            // {
+            //     path: '/doc/ImgUpload',
+            //     name: 'doc-ImgUpload',
+            //     component: (resolve) => require(['../page/doc/ImgUpload'], resolve)
+            // },
             {
                 path: '/form-generator-example',
                 name: 'data',

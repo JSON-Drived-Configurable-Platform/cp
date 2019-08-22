@@ -19,7 +19,6 @@
             :on-format-error="onFormatError"
             :on-exceeded-size="onExceededSize"
             :on-success="onSuccess"
-            :on-remove="onRemove"
             :size="size"
         >
             <Icon
@@ -163,7 +162,13 @@ export default {
                 open: true,
                 file: this.uploadFileList[index]
             };
-        }
+        },
+        onRemove(file) {
+            const fileList = this.$refs.upload.fileList;
+            this.$refs.upload.fileList.splice(fileList.indexOf(file), 1);
+            this.uploadFileList = this.$refs.upload.fileList.slice();
+            this.handleChange();
+        },
     }
 };
 </script>

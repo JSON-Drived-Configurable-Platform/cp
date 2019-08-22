@@ -41,7 +41,7 @@ export default {
             return !!this.field.api || this.field.filterable;
         },
         computedOptions() {
-            return this.options.length > 0 ? this.options : this.field.options;
+            return this.options.length > 0 ? this.options : (this.field.options || this.field.data);
         },
         changeOnSelect() {
             if (this.field.changeType === undefined) {
@@ -53,6 +53,7 @@ export default {
 
     methods: {
         handleChange(value) {
+            this.$set(this.formModel, this.field.model, value);
             this.$emit('on-change', this.field.model, value, null, this.field);
         }
     }

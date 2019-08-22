@@ -44,6 +44,7 @@ export default {
     },
     methods: {
         handleChange() {
+            this.$set(this.formModel, this.field.model, this.uploadFileList);
             this.$emit('on-change', this.field.model, this.uploadFileList, null, this.field);
         },
         onSuccess({data = {}}, file) {
@@ -57,12 +58,6 @@ export default {
             else {
                 this.$Message.error('上传失败!');
             }
-        },
-        onRemove(file) {
-            const fileList = this.$refs.upload.fileList;
-            this.$refs.upload.fileList.splice(fileList.indexOf(file), 1);
-            this.uploadFileList = this.$refs.upload.fileList.slice();
-            this.handleChange();
         },
         onFormatError() {
             this.$Message.error({
