@@ -71,6 +71,9 @@ export default {
             if (this.requestInterceptor) {
                 return this.requestInterceptor(url, finalParams);
             }
+            else if (this.FormGeneratorInstallOptions && this.FormGeneratorInstallOptions.requestInterceptor) {
+                return this.FormGeneratorInstallOptions.requestInterceptor(url, finalParams);
+            }
             return axios.request({
                 url,
                 method: 'get',
