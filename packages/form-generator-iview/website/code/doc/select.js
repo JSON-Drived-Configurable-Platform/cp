@@ -293,7 +293,7 @@ const clearableField = {
 };
 
 const clearableModel = {
-    province: '110000000000',
+    province: 'Beijing',
 };
 
 clearable.data = {
@@ -331,7 +331,7 @@ const prefixField = {
 };
 
 const prefixModel = {
-    province: '110000000000',
+    province: 'Beijing',
 };
 
 prefix.data = {

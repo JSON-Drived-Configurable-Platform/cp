@@ -8,16 +8,30 @@
             <Demo title="简单示例">
                 <div slot="demo">
                     <FormGenerator
-                        :fields="code.introduce.data.fields"
-                        :model="code.introduce.data.model"
-                        :options="code.introduce.data.options"
+                        :fields="code.simple.data.fields"
+                        :model="code.simple.data.model"
+                        :options="code.simple.data.options"
                     />
                 </div>
                 <div slot="desc">
                     <p>FormGenerator组件依赖三个属性: <code>fields</code>, <code>model</code>, <code>options</code>。</p>
                     <p>通过设置<code>fields</code>, <code>model</code>, <code>options</code>即可生成一个表单UI。</p>
                 </div>
-                <i-code slot="code" lang="html">{{ code.introduce.demo }}</i-code>
+                <i-code slot="code" lang="html">{{ code.simple.code }}</i-code>
+            </Demo>
+            <Demo title="表单控件">
+                <div slot="demo">
+                    <FormGenerator
+                        :fields="code.form.data.fields"
+                        :model="code.form.data.model"
+                        :options="code.form.data.options"
+                    />
+                </div>
+                <div slot="desc">
+                    <!-- <p>FormGenerator组件依赖三个属性: <code>fields</code>, <code>model</code>, <code>options</code>。</p> -->
+                    <!-- <p>通过设置<code>fields</code>, <code>model</code>, <code>options</code>即可生成一个表单UI。</p> -->
+                </div>
+                <i-code slot="code" lang="html">{{ code.form.code }}</i-code>
             </Demo>
         </article>
     </i-article>
@@ -28,7 +42,7 @@ import iArticle from '../../../components/article';
 import inAnchor from '../../../components/anchor';
 import iCode from '../../../components/code';
 import Demo from '../../../components/Demo';
-import Code from '../../../code/guide';
+import Code from '../../../code/doc/formGenerator';
 export default {
     components: {
         iArticle,

@@ -25,9 +25,9 @@
         <Form
             ref="form"
             :model="formModel"
-            :label-width="options.labelWidth"
+            :label-width="options.labelWidth || 80"
             :inline="options.inline"
-            :label-position="options.labelPosition || 'left'"
+            :label-position="options.labelPosition || 'right'"
         >
             <div :class="defaultItemsBoxClassess">
                 <FormItem
@@ -38,7 +38,7 @@
                     :required="field.required"
                     :rules="getRules(field)"
                     :class="itemClasses"
-                    :style="itemStyle"
+                    :style="options | itemStyle(field)"
                 >
                     <FieldGenerator
                         :field="field"
@@ -146,6 +146,13 @@ export default {
     directives: {
         clickOutside: vClickOutside.directive
     },
+    filters: {
+        itemStyle(options, field) {
+            return {
+                width: (field.width || options.itemWidth) + 'px'
+            };
+        }
+    },
     props: {
         requestInterceptor: {
             type: [Function, null],
@@ -222,11 +229,6 @@ export default {
         },
         itemClasses() {
             return `${classPrifix}-form-item`;
-        },
-        itemStyle() {
-            return {
-                width: this.options.itemWidth + 'px'
-            };
         },
         tip() {
             return {
@@ -336,9 +338,12 @@ export default {
                 rules.push({
                     required: true,
                     type: this.getValidType(field),
-                    message: field.label + '不可为空',
+                    message: field.label || field.model + '不可为空',
                     trigger: 'change'
                 });
+            }
+            if (field.rules) {
+                rules = rules.concat(field.rules);
             }
             return rules;
         },
@@ -409,18 +414,34 @@ export default {
             return this.formModel;
         },
         handleSubmit() {
-            this.$emit('on-submit');
+            this.submit().then(formModel => {
+                // eslint-disable-next-line no-console
+                console.log('formModel', formModel);
+            }).catch(err => {
+                // eslint-disable-next-line no-console
+                console.log('err', err);
+            });
         },
         submit() {
             return new Promise((resolve, reject) => {
-                this.$refs.form.validate().then(valid => {
-                    if (valid) {
-                        resolve(this.formModel);
-                    }
-                    else {
-                        reject();
-                    }
-                });
+                try {
+                    this.$refs.form.validate().then(valid => {
+                        if (valid) {
+                            resolve(this.formModel);
+                        }
+                        else {
+                            reject(valid);
+                        }
+                    }).catch(err => {
+                        reject(err);
+                    });
+                }
+                catch(err) {
+                    // eslint-disable-next-line no-console
+                    console.log(err);
+                    reject(err);
+                }
+
             });
         },
         handleExtraBtnClick() {

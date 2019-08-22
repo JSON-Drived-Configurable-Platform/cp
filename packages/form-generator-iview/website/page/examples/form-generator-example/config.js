@@ -502,11 +502,11 @@ export const model = {
 };
 
 export const options = {
-    // labelWidth: 120,
+    labelWidth: 120,
     // inline: true,
     itemWidth: '400',
     title: '测试表单',
-    labelPosition: 'top',
+    labelPosition: 'left',
     // extraType: 'bottom',
     tip: {
         title: '规则',

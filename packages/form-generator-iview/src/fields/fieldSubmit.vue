@@ -1,11 +1,17 @@
 <template>
     <Button
-        type="primary"
+        :type="field.subtype || 'default'"
         @click="handleClick"
-    >提交</Button>
+    >{{ field.text }}</Button>
 </template>
 <script>
 export default {
+    props: {
+        field: {
+            type: Object,
+            required: true
+        },
+    },
     methods: {
         handleClick() {
             this.$emit('submit');
