@@ -6,6 +6,7 @@
                 <appSlider
                     :menu-list="menuList"
                     :active-name="pagePath"
+                    :open-names="openNames"
                     @on-select="turnToPage"
                 />
                 <Layout class="layout-body-right">
@@ -23,6 +24,7 @@
 import appHeader from './components/header/appHeader';
 // import Breadcrumb from './components/breadcrumb/Breadcrumb';
 import appSlider from './components/slider/appSlider';
+import config from '../../config';
 export default {
     components: {
         appHeader,
@@ -38,14 +40,14 @@ export default {
             return this.$store.state.app.menuList || [];
         },
 
+        openNames() {
+            return config.defaultOpenNames ? [config.defaultOpenNames] : [];
+        },
+
         pagePath() {
             return this.$store.state.page.pagePath || '';
-        }
+        },
 
-        // cat() {
-        //     const current = this.menuList.find(item => item.name === this.pagePath);
-        //     return ['>' + current.label];
-        // }
     },
 
     methods: {

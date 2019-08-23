@@ -5,6 +5,7 @@
     >
         <Menu
             :active-name="activeName"
+            :open-names="openNames"
             theme="light"
             width="auto"
             @on-select="handleSelect"
@@ -51,6 +52,12 @@ export default {
         activeName: {
             type: String,
             default: ''
+        },
+        openNames: {
+            type: Array,
+            default() {
+                return [];
+            }
         }
     },
     data() {
