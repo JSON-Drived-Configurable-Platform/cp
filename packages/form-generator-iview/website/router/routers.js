@@ -5,19 +5,24 @@
 
 import Main from '../components/main';
 
-// import home from '../page/home';
-// import start from '../page/start';
-// import practice from '../page/practice';
-
-// import FormGenerator from '../page/doc/FormGenerator';
-// import FieldGenerator from '../page/doc/FieldGenerator';
-// import Input from '../page/doc/Input';
-// import Radio from '../page/doc/Radio';
-// import Checkbox from '../page/doc/Checkbox';
-// import Switch from '../page/doc/Switch';
-
-// import formGeneratorExample from '../page/examples/form-generator-example';
-// import fieldGeneratorExample from '../page/examples/field-generator-example';
+const home = () => import(/* webpackChunkName: "home" */ '../page/home');
+const start = () => import(/* webpackChunkName: "start" */ '../page/start');
+const practice = () => import(/* webpackChunkName: "practice" */ '../page/practice');
+const FormGenerator = () => import(/* webpackChunkName: "FormGenerator" */ '../page/doc/FieldGenerator');
+const FieldGenerator = () => import(/* webpackChunkName: "FieldGenerator" */ '../page/doc/FieldGenerator');
+const Input = () => import(/* webpackChunkName: "Input" */ '../page/doc/Input');
+const Radio = () => import(/* webpackChunkName: "Radio" */ '../page/doc/Radio');
+const Checkbox = () => import(/* webpackChunkName: "Checkbox" */ '../page/doc/Checkbox');
+const Switch = () => import(/* webpackChunkName: "Switch" */ '../page/doc/Switch');
+const Select = () => import(/* webpackChunkName: "Select" */ '../page/doc/Select');
+const LogicSelect = () => import(/* webpackChunkName: "LogicSelect" */ '../page/doc/LogicSelect');
+const DatePicker = () => import(/* webpackChunkName: "DatePicker" */ '../page/doc/DatePicker');
+const TimePicker = () => import(/* webpackChunkName: "TimePicker" */ '../page/doc/TimePicker');
+const Cascader = () => import(/* webpackChunkName: "Cascader" */ '../page/doc/Cascader');
+const InputNumber = () => import(/* webpackChunkName: "InputNumber" */ '../page/doc/InputNumber');
+const Upload = () => import(/* webpackChunkName: "Upload" */ '../page/doc/Upload');
+const formGeneratorExample = () => import(/* webpackChunkName: "formGeneratorExample" */ '../page/examples/form-generator-example');
+const fieldGeneratorExample = () => import(/* webpackChunkName: "fieldGeneratorExample" */ '../page/examples/field-generator-example');
 
 export default [
     {
@@ -29,17 +34,17 @@ export default [
             {
                 path: '/home',
                 name: 'home',
-                component: (resolve) => require(['../page/home'], resolve)
+                component: home
             },
             {
                 path: '/start',
                 name: 'start',
-                component: (resolve) => require(['../page/start'], resolve)
+                component: start
             },
             {
                 path: '/practice',
                 name: 'practice',
-                component: (resolve) => require(['../page/practice'], resolve)
+                component: practice
             },
             {
                 path: '/doc',
@@ -49,82 +54,82 @@ export default [
             {
                 path: '/doc/FormGenerator',
                 name: 'doc-FormGenerator',
-                component: (resolve) => require(['../page/doc/FormGenerator'], resolve)
+                component: FormGenerator
             },
             {
                 path: '/doc/FieldGenerator',
                 name: 'doc-FieldGenerator',
-                component: (resolve) => require(['../page/doc/FieldGenerator'], resolve)
+                component: FieldGenerator
             },
             {
                 path: '/doc/Input',
                 name: 'doc-Input',
-                component: (resolve) => require(['../page/doc/Input'], resolve)
+                component: Input
             },
             {
                 path: '/doc/Radio',
                 name: 'doc-Radio',
-                component: (resolve) => require(['../page/doc/Radio'], resolve)
+                component: Radio
             },
             {
                 path: '/doc/Checkbox',
                 name: 'doc-Checkbox',
-                component: (resolve) => require(['../page/doc/Checkbox'], resolve)
+                component: Checkbox
             },
             {
                 path: '/doc/Switch',
                 name: 'doc-Switch',
-                component: (resolve) => require(['../page/doc/Switch'], resolve)
+                component: Switch
             },
             {
                 path: '/doc/Select',
                 name: 'doc-Select',
-                component: (resolve) => require(['../page/doc/Select'], resolve)
+                component: Select
             },
             {
                 path: '/doc/LogicSelect',
                 name: 'doc-LogicSelect',
-                component: (resolve) => require(['../page/doc/LogicSelect'], resolve)
+                component: LogicSelect
             },
             {
                 path: '/doc/DatePicker',
                 name: 'doc-DatePicker',
-                component: (resolve) => require(['../page/doc/DatePicker'], resolve)
+                component: DatePicker
             },
             {
                 path: '/doc/TimePicker',
                 name: 'doc-TimePicker',
-                component: (resolve) => require(['../page/doc/TimePicker'], resolve)
+                component: TimePicker
             },
             {
                 path: '/doc/Cascader',
                 name: 'doc-Cascader',
-                component: (resolve) => require(['../page/doc/Cascader'], resolve)
+                component: Cascader
             },
             {
                 path: '/doc/InputNumber',
                 name: 'doc-InputNumber',
-                component: (resolve) => require(['../page/doc/InputNumber'], resolve)
+                component: InputNumber
             },
             {
                 path: '/doc/Upload',
                 name: 'doc-Upload',
-                component: (resolve) => require(['../page/doc/Upload'], resolve)
+                component: Upload
             },
             // {
             //     path: '/doc/ImgUpload',
             //     name: 'doc-ImgUpload',
-            //     component: (resolve) => require(['../page/doc/ImgUpload'], resolve)
+            //     component: ImgUpload
             // },
             {
                 path: '/form-generator-example',
                 name: 'data',
-                component: (resolve) => require(['../page/examples/form-generator-example'], resolve)
+                component: formGeneratorExample
             },
             {
                 path: '/field-generator-example',
                 name: 'data',
-                component: (resolve) => require(['../page/examples/field-generator-example'], resolve)
+                component: fieldGeneratorExample
             },
         ]
     }
