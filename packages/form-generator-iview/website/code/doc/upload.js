@@ -23,7 +23,12 @@ const field = {
 };
 
 const model = {
-    fileList: []
+    fileList: [
+        {
+            name: '测试文件1️一',
+            url: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2615193282,909154413&fm=173&app=49&f=JPEG?w=218&h=146&s=A33256841E0D3F5B54284D15030090E0',
+        }
+    ]
 };
 
 simple.data = {
@@ -33,10 +38,11 @@ simple.data = {
 
 simple.code = `
 <script>
+const field = ${JSON.stringify(field, null, 4)};
 export default {
     data() {
         return {
-            field: ${JSON.stringify(field, null, 4)},
+            field,
             model: ${JSON.stringify(model)}
         };
     }
