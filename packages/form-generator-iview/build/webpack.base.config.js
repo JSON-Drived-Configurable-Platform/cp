@@ -13,6 +13,11 @@ function resolve (dir) {
 module.exports = {
     // 加载器
     module: {
+        noParse: [
+            // /[\\/]node_modules[\\/]vue[\\/]/,
+            /[\\/]node_modules[\\/]vuex[\\/]/,
+            /[\\/]node_modules[\\/]echarts[\\/]/
+        ],
         // https://doc.webpack-china.org/guides/migrating/#module-loaders-module-rules
         rules: [
             {
@@ -67,7 +72,8 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.vue'],
         alias: {
-            'vue': 'vue/dist/vue.esm.js',
+            // 'vue': 'vue/dist/vue.esm.js',
+            'vuex': 'vuex/dist/vuex.min.js',
             '@': resolve('src')
         }
     },
