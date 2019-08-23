@@ -26,20 +26,25 @@ export default {
         };
     },
     watch: {
-        formModel(formModel) {
-            if (formModel[this.field.model].length === 0) {
-                this.$refs.upload.clearFiles();
-                this.uploadFileList = [];
-            }
+        value(value) {
+            this.uploadFileList = value;
+            this.$refs.upload.fileList = this.uploadFileList;
         }
     },
     computed: {
         tip() {
             return this.field.tip || '点击或者拖拽文件即可上传';
+        },
+        value() {
+            let value = this.formModel[this.field.model] || [];
+            return value.map(item => {
+                item.status = 'finished';
+                return item;
+            });
         }
     },
     mounted() {
-        this.uploadFileList = this.formModel[this.field.model];
+        this.uploadFileList = this.value;
         this.$refs.upload.fileList = this.uploadFileList;
     },
     methods: {
