@@ -8,7 +8,7 @@ import Main from '../components/main';
 const home = () => import(/* webpackChunkName: "home" */ '../page/home');
 const start = () => import(/* webpackChunkName: "start" */ '../page/start');
 const practice = () => import(/* webpackChunkName: "practice" */ '../page/practice');
-const FormGenerator = () => import(/* webpackChunkName: "FormGenerator" */ '../page/doc/FieldGenerator');
+const FormGenerator = () => import(/* webpackChunkName: "FormGenerator" */ '../page/doc/FormGenerator');
 const FieldGenerator = () => import(/* webpackChunkName: "FieldGenerator" */ '../page/doc/FieldGenerator');
 const Input = () => import(/* webpackChunkName: "Input" */ '../page/doc/Input');
 const Radio = () => import(/* webpackChunkName: "Radio" */ '../page/doc/Radio');
