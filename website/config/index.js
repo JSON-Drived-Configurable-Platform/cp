@@ -26,6 +26,8 @@ export default {
      */
     homeName: 'home',
 
+    defaultOpenNames: '/doc',
+
     menuList: [
         {
             label: 'Home',
@@ -103,7 +105,7 @@ export default {
         },
         {
             label: 'Examples',
-            name: '/doc',
+            name: '/examples',
             submenu: [
                 {
                     label: 'Form Generator',
