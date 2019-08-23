@@ -157,9 +157,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.fg-ivu-input {
-    margin-top: 20px;
-}
-</style>

@@ -366,7 +366,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .fg-ivu-input {
     margin-top: 20px;
 }
