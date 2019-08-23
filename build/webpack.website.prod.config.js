@@ -45,50 +45,30 @@ module.exports = merge(webpackBaseConfig, {
             })
         ],
         splitChunks: {
-            // don't use maxSize  option because of chunk hash problems
-            chunks: 'initial',
-            maxInitialRequests: 8,
+            chunks: 'async',
+            minSize: 30000,
+            maxSize: 0,
+            minChunks: 1,
+            maxAsyncRequests: 5,
+            maxInitialRequests: 3,
+            automaticNameDelimiter: '~',
+            // automaticNameMaxLength: 30,
+            name: true,
             cacheGroups: {
-                styles: {
-                    name: 'styles',
-                    test: /\.css$/,
-                    priority: 10
-                },
-
-                commons: {
-                    chunks: 'initial',
-                    priority: 10,
-                    minChunks: 2,
-                    name: 'commons',
-                    test: /\.js$/,
-                    reuseExistingChunk: true
-                },
-
-                vendors: {
-                    test: /[\\/]node_modules[\\/].*js$/,
-                    priority: 10
-                },
-
                 iview: {
                     test: /[\\/]node_modules[\\/]iview/,
-                    priority: 90,
                     name: 'iview',
-                    reuseExistingChunk: true
+                    chunks: 'all'
                 },
-
-                vue: {
-                    test: /[\\/]node_modules[\\/]vue[\\/]dist[\\/]vue\.min\.js/,
-                    priority: 100,
-                    name: 'vue',
-                    reuseExistingChunk: true
+                vendors: {
+                    test: /[\\/]node_modules[\\/]/,
+                    priority: -10
                 },
-
-                vuex: {
-                    test: /[\\/]node_modules[\\/]vuex[\\/]dist[\\/]vuex\.min\.js/,
-                    priority: 100,
-                    name: 'vuex',
+                default: {
+                    minChunks: 2,
+                    priority: -20,
                     reuseExistingChunk: true
-                },
+                }
             }
         }
     },
