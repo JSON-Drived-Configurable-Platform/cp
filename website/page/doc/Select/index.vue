@@ -188,7 +188,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .fg-ivu-select {
     margin-top: 20px;
 }

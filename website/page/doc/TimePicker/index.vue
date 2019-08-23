@@ -58,7 +58,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .fg-ivu-datepicker {
     margin-top: 20px;
 }
