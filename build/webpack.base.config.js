@@ -60,8 +60,28 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
-                loader: 'url-loader?limit=8192'
+                test: /\.(gif|jpg|png)\??.*$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 4000,
+                            name: path.join('static', 'img/[name].[hash:7].[ext]')
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.(woff|svg|eot|ttf)\??.*$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 4000,
+                            name: path.join('static', 'font/[name].[hash:7].[ext]')
+                        }
+                    }
+                ]
             },
             {
                 test: /\.(html|tpl)$/,

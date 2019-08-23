@@ -96,15 +96,15 @@ module.exports = merge(webpackBaseConfig, {
     output: {
         path: path.resolve(__dirname, '../website/dist'),
         publicPath: '',
-        filename: '[name].[contentHash].js',
-        chunkFilename: '[name].[contentHash].chunk.js'
+        filename: path.join('static', 'js/[name].[contentHash].js'),
+        chunkFilename: path.join('static', 'js/[name].[contentHash].chunk.js')
     },
     plugins: [
         new MiniCssExtractPlugin({
             // Options similar to the same options in webpackOptions.output
             // both options are optional
-            filename: path.resolve(__dirname, 'css/[name].[contentHash].css'),
-            chunkFilename: path.resolve(__dirname, 'css/[name].[contentHash].css')
+            filename: path.resolve('static', 'css/[name].[contentHash].css'),
+            chunkFilename: path.resolve('static', 'css/[name].[contentHash].css')
         }),
         new HtmlWebpackPlugin({
             inject: true,
