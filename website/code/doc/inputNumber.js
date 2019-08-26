@@ -32,11 +32,12 @@ export default {
 };
 <script>
 <template>
-    <FieldGenerator
-        :field="field"
-        :form-model="model"
-        @on-field-change="handleFieldChange"
-    />
+    <Form :model="model">
+        <FieldGenerator
+            :field="field"
+            @on-field-change="handleFieldChange"
+        />
+    </Form>
 </template>
 `;
 

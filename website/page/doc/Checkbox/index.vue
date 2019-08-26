@@ -90,11 +90,12 @@
             <inAnchor title="代码示例" h2 />
             <Demo title="基础用法">
                 <div slot="demo">
-                    <FieldGenerator
-                        :field="code.simple.data.field"
-                        :form-model="code.simple.data.model"
-                        @on-field-change="handleFieldChange"
-                    />
+                    <Form :model="code.simple.data.model">
+                        <FieldGenerator
+                            :field="code.simple.data.field"
+                            @on-field-change="handleFieldChange"
+                        />
+                    </Form>
                 </div>
                 <div slot="desc">
                     <p>通过设置<code>field</code>, <code>model</code>即可生成一个Radio。</p>
@@ -103,10 +104,11 @@
             </Demo>
             <Demo title="使用api获取选项信息">
                 <div slot="demo">
-                    <FieldGenerator
-                        :field="code.api.data.field"
-                        :form-model="code.api.data.model"
-                    />
+                    <Form :model="code.simple.data.model">
+                        <FieldGenerator
+                            :field="code.api.data.field"
+                        />
+                    </Form>
                 </div>
                 <div slot="desc">
                     <p>通过设置<code>field.api</code>可以动态获取选项信息</p>
@@ -116,10 +118,12 @@
 
             <Demo title="全选">
                 <div slot="demo">
-                    <FieldGenerator
-                        :field="code.checkAll.data.field"
-                        :form-model="code.checkAll.data.model"
-                    />
+                    <Form :model="code.checkAll.data.model">
+                        <FieldGenerator
+                            :field="code.checkAll.data.field"
+                            @on-field-change="handleFieldChange"
+                        />
+                    </Form>
                 </div>
                 <div slot="desc">
                     <p>通过设置<code>field.checkAll</code>可以控制是否展示全选。</p>

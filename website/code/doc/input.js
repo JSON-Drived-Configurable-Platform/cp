@@ -32,11 +32,12 @@ export default {
 };
 <script>
 <template>
-    <FieldGenerator
-        :field="field"
-        :form-model="model"
-        @on-field-change="handleFieldChange"
-    />
+    <Form :model="model">
+        <FieldGenerator
+            :field="field"
+            @on-field-change="handleFieldChange"
+        />
+    </Form>
 </template>
 `;
 
@@ -73,24 +74,23 @@ export default {
             sizeLargeField: ${JSON.stringify(sizeLargeField)},
             sizeNormalField: ${JSON.stringify(sizeDefaultField)},
             sizeSmallField: ${JSON.stringify(sizeSmallField)},
-            model: ${JSON.stringify(model)}
+            model: ${JSON.stringify(sizeModel)}
         };
     }
 };
 <script>
 <template>
-    <FieldGenerator
-        :field="sizeLargeField"
-        :form-model="model"
-    />
-    <FieldGenerator
-        :field="sizeNormalField"
-        :form-model="model"
-    />
-    <FieldGenerator
-        :field="sizeSmallField"
-        :form-model="model"
-    />
+    <Form :model="model">
+        <FieldGenerator
+            :field="sizeLargeField"
+        />
+        <FieldGenerator
+            :field="sizeNormalField"
+        />
+        <FieldGenerator
+            :field="sizeSmallField"
+        />
+    </Form>
 </template>
 `;
 
@@ -98,7 +98,7 @@ size.data = {
     sizeLargeField,
     sizeDefaultField,
     sizeSmallField,
-    sizeModel
+    model: sizeModel
 };
 
 // 可清空
@@ -126,10 +126,11 @@ export default {
 };
 <script>
 <template>
-    <FieldGenerator
-        :field="field"
-        :form-model="model"
-    />
+    <Form :model="model">
+        <FieldGenerator
+            :field="field"
+        />
+    </Form>
 </template>
 `;
 
@@ -163,10 +164,11 @@ export default {
 };
 <script>
 <template>
-    <FieldGenerator
-        :field="field"
-        :form-model="model"
-    />
+    <Form :model="model">
+        <FieldGenerator
+            :field="field"
+        />
+    </Form>
 </template>
 `;
 
@@ -209,14 +211,14 @@ export default {
 };
 <script>
 <template>
-    <FieldGenerator
-        :field="prefixField"
-        :form-model="model"
-    />
-    <FieldGenerator
-        :field="suffixField"
-        :form-model="model"
-    />
+    <Form :model="model">
+        <FieldGenerator
+            :field="prefixField"
+        />
+        <FieldGenerator
+            :field="suffixField"
+        />
+    </Form>
 </template>
 `;
 
@@ -267,18 +269,17 @@ export default {
 };
 <script>
 <template>
-    <FieldGenerator
-        :field="searchField"
-        :form-model="model"
-    />
-    <FieldGenerator
-        :field="enterButtonField"
-        :form-model="model"
-    />
-    <FieldGenerator
-        :field="searchWithEnterButtonField"
-        :form-model="model"
-    />
+    <Form :model="model">
+        <FieldGenerator
+            :field="searchField"
+        />
+        <FieldGenerator
+            :field="enterButtonField"
+        />
+        <FieldGenerator
+            :field="searchWithEnterButtonField"
+        />
+    </Form>
 </template>
 `;
 
@@ -315,10 +316,11 @@ export default {
 };
 <script>
 <template>
-    <FieldGenerator
-        :field="field"
-        :form-model="model"
-    />
+    <Form :model="model">
+        <FieldGenerator
+            :field="field"
+        />
+    </Form>
 </template>
 `;
 
@@ -353,10 +355,11 @@ export default {
 };
 <script>
 <template>
-    <FieldGenerator
-        :field="field"
-        :form-model="model"
-    />
+    <Form :model="model">
+        <FieldGenerator
+            :field="field"
+        />
+    </Form>
 </template>
 `;
 
@@ -399,17 +402,18 @@ export default {
 };
 <script>
 <template>
-    <FieldGenerator
-        :field="field"
-        :form-model="model"
-    />
+    <Form :model="model">
+        <FieldGenerator
+            :field="field"
+        />
+    </Form>
 </template>
 `;
 
 disabled.data = {
     inputField: disabledInputField,
     textareaField: disabledTextareaField,
-    disabledModel
+    model: disabledModel
 };
 
 // 复合型输入框
@@ -454,18 +458,17 @@ export default {
 };
 <script>
 <template>
-    <FieldGenerator
-        :field="prependField"
-        :form-model="model"
-    />
-    <FieldGenerator
-        :field="suffixField"
-        :form-model="model"
-    />
-    <FieldGenerator
-        :field="prependAndSuffixField"
-        :form-model="model"
-    />
+    <Form :model="model">
+        <FieldGenerator
+            :field="prependField"
+        />
+        <FieldGenerator
+            :field="suffixField"
+        />
+        <FieldGenerator
+            :field="prependAndSuffixField"
+        />
+    </Form>
 </template>
 `;
 

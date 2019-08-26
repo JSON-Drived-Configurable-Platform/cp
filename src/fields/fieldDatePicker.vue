@@ -2,7 +2,7 @@
     <DatePicker
         :type="subtype"
         :placeholder="field.placeholder"
-        :value="formModel[field.model]"
+        :value="form.model[field.model]"
         :disabled="field.disabled"
         :split-panels="field.splitPanels"
         :multiple="field.multiple"
@@ -23,17 +23,11 @@ const getDate = function(days = 0) {
     return date;
 };
 export default {
+    inject: ['form'],
     props: {
         field: {
             type: Object,
             required: true
-        },
-        formModel: {
-            type: Object,
-            required: true,
-            default() {
-                return {};
-            }
         },
         size: {
             type: String,
@@ -227,7 +221,7 @@ export default {
     },
     methods: {
         handleChange(value) {
-            this.$set(this.formModel, this.field.model, value);
+            this.$set(this.form.model, this.field.model, value);
             this.$emit('on-change', this.field.model, value, null, this.field);
         }
     }

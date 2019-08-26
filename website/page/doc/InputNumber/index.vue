@@ -10,11 +10,12 @@
             <inAnchor title="代码示例" h2 />
             <Demo title="基础用法">
                 <div slot="demo">
-                    <FieldGenerator
-                        :field="code.simple.data.field"
-                        :form-model="code.simple.data.model"
-                        @on-field-change="handleFieldChange"
-                    />
+                    <Form :model="code.simple.data.model">
+                        <FieldGenerator
+                            :field="code.simple.data.field"
+                            @on-field-change="handleFieldChange"
+                        />
+                    </Form>
                 </div>
                 <div slot="desc">
                     <p>通过设置<code>field</code>, <code>model</code>即可生成一个InputNumber。</p>

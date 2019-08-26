@@ -10,10 +10,12 @@
             <inAnchor title="示例" h2 />
             <Demo title="简单示例">
                 <div slot="demo">
-                    <FieldGenerator
-                        :field="code.simple.data.field"
-                        :form-model="code.simple.data.model"
-                    />
+                    <Form :model="code.simple.data.model">
+                        <FieldGenerator
+                            :field="code.simple.data.field"
+                            :form-model="code.simple.data.model"
+                        />
+                    </Form>
                 </div>
                 <div slot="desc">
                     <p>通过设置<code>field</code>, <code>model</code>即可生成一个Input。</p>

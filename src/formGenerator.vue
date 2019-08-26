@@ -30,27 +30,19 @@
             :label-position="options.labelPosition || 'right'"
         >
             <div :class="defaultItemsBoxClassess">
-                <FormItem
+                <FieldGenerator
                     v-for="field in displayFields"
                     :key="field.model"
-                    :label="field.label"
-                    :prop="field.model"
-                    :required="field.required"
-                    :rules="getRules(field)"
-                    :class="itemClasses"
-                    :style="options | itemStyle(field)"
-                >
-                    <FieldGenerator
-                        :field="field"
-                        :form-model="formModel"
-                        :api-base="apiBase"
-                        :size="options.size"
-                        :inline="options.inline"
-                        :request-interceptor="requestInterceptor"
-                        @on-field-change="handleFieldChange"
-                        @on-submit="handleSubmit"
-                    />
-                </FormItem>
+                    :field="field"
+                    :form-model="formModel"
+                    :api-base="apiBase"
+                    :size="options.size"
+                    :item-width="options.itemWidth"
+                    :inline="options.inline"
+                    :request-interceptor="requestInterceptor"
+                    @on-field-change="handleFieldChange"
+                    @on-submit="handleSubmit"
+                />
             </div>
 
             <div
@@ -138,6 +130,7 @@
 import FieldGenerator from './fieldGenerator';
 import {classPrifix} from './utils/const';
 import vClickOutside from 'v-click-outside';
+import {getValidType} from './utils/getValidType';
 export default {
     name: 'FormGenerator',
     components: {
@@ -154,11 +147,6 @@ export default {
             else {
                 return options.labelWidth || 80;
             }
-        },
-        itemStyle(options, field) {
-            return {
-                width: (field.width || options.itemWidth) + 'px'
-            };
         }
     },
     props: {
@@ -235,9 +223,6 @@ export default {
         extraSelectBoxClasses() {
             return `${classPrifix}-extra-select-box`;
         },
-        itemClasses() {
-            return `${classPrifix}-form-item`;
-        },
         tip() {
             return {
                 title: this.options.tip && this.options.tip.title,
@@ -312,49 +297,7 @@ export default {
             // this.$set(this.formModel, model, value);
             this.$refs.form.validateField(model);
         },
-        getRules(field) {
-            const type = field.type.toLowerCase();
-            const subtype = field.subtype;
-            let rules = [];
-            if (field.required) {
-                if (type === 'datepicker' && ['daterange', 'datetimerange'].includes(subtype)) {
-                    rules.push({
-                        validator(rule, value, callback) {
-                            if (value.length === 2 && value[0] && value[1]) {
-                                callback();
-                            }
-                            else {
-                                callback(new Error(field.label + '不可为空'));
-                            }
-                        },
-                        trigger: 'change'
-                    });
-                }
-                if (type === 'logicinput') {
-                    rules.push({
-                        validator(rule, value, callback) {
-                            if (value.logic && value.value) {
-                                callback();
-                            }
-                            else {
-                                callback(new Error(field.label + '不可为空'));
-                            }
-                        },
-                        trigger: 'change'
-                    });
-                }
-                rules.push({
-                    required: true,
-                    type: this.getValidType(field),
-                    message: field.label || field.model + '不可为空',
-                    trigger: 'change'
-                });
-            }
-            if (field.rules) {
-                rules = rules.concat(field.rules);
-            }
-            return rules;
-        },
+
         resetField(field) {
             let typeToResetValues = {
                 string: '',
@@ -368,7 +311,7 @@ export default {
                 field = this.fields.find(item => item.model === field);
             }
 
-            let type = this.getValidType(field);
+            let type = getValidType(field);
             this.$set(this.formModel, field.model, typeToResetValues[type]);
         },
         reset() {
@@ -376,48 +319,7 @@ export default {
                 this.resetField(field);
             });
         },
-        getValidType(field) {
-            const type = field.type.toLowerCase();
-            const subtype = field.subtype;
-            const multiple = field.multiple;
-            if (type === 'input') {
-                return 'string';
-            }
-            if (type === 'inputnumber') {
-                return 'number';
-            }
-            if (type === 'select') {
-                if (multiple) {
-                    return 'array';
-                }
-                else {
-                    return 'string';
-                }
-            }
-            if (type === 'radio') {
-                return 'string';
-            }
-            if (type === 'checkbox') {
-                return 'array';
-            }
-            if (type === 'datepicker') {
-                if (['daterange', 'datetimerange'].includes(subtype)){
-                    return 'array';
-                }
-                else {
-                    return 'string';
-                }
-            }
-            if (type === 'cascader') {
-                return 'array';
-            }
-            if (['logicinput', 'logicselect'].includes(type)) {
-                return 'object';
-            }
-            if (['imgupload', 'upload'].includes(type)) {
-                return 'array';
-            }
-        },
+
         getFormModel() {
             return this.formModel;
         },

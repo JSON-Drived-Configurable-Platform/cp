@@ -12,11 +12,13 @@
             <inAnchor title="代码示例" h2 />
             <Demo title="基础用法">
                 <div slot="demo">
-                    <FieldGenerator
-                        :field="code.simple.data.field"
-                        :form-model="code.simple.data.model"
-                        @on-field-change="handleFieldChange"
-                    />
+                    <Form :model="code.simple.data.model">
+                        <FieldGenerator
+                            :field="code.simple.data.field"
+                            :form-model="code.simple.data.model"
+                            @on-field-change="handleFieldChange"
+                        />
+                    </Form>
                 </div>
                 <div slot="desc">
                     <p>单选时，value 只接受字符串和数字类型，多选时，只接受数组类型，组件会自动根据<code>Option</code>的<code>value</code>来返回选中的数据。</p>
@@ -26,11 +28,13 @@
             </Demo>
             <Demo title="远程获取选项">
                 <div slot="demo">
-                    <FieldGenerator
-                        :field="code.api.data.field"
-                        :form-model="code.api.data.model"
-                        @on-field-change="handleFieldChange"
-                    />
+                    <Form :model="code.api.data.model">
+                        <FieldGenerator
+                            :field="code.api.data.field"
+                            :form-model="code.api.data.model"
+                            @on-field-change="handleFieldChange"
+                        />
+                    </Form>
                 </div>
                 <div slot="desc">
                     可以将<code>filed.options</code>的值设置为获取数据的接口。
@@ -39,11 +43,13 @@
             </Demo>
             <Demo title="多选">
                 <div slot="demo">
-                    <FieldGenerator
-                        :field="code.multiple.data.field"
-                        :form-model="code.multiple.data.model"
-                        @on-field-change="handleFieldChange"
-                    />
+                    <Form :model="code.multiple.data.model">
+                        <FieldGenerator
+                            :field="code.multiple.data.field"
+                            :form-model="code.multiple.data.model"
+                            @on-field-change="handleFieldChange"
+                        />
+                    </Form>
                 </div>
                 <div slot="desc">
                     设置<code>field.multiple</code>可以控制多选，此时控件返回值为数组。
@@ -52,16 +58,18 @@
             </Demo>
             <Demo title="可搜索">
                 <div slot="demo">
-                    <FieldGenerator
-                        :field="code.filterable.data.field"
-                        :form-model="code.filterable.data.model"
-                        @on-field-change="handleFieldChange"
-                    />
-                    <FieldGenerator
-                        :field="code.filterable.data.multipleField"
-                        :form-model="code.filterable.data.model"
-                        @on-field-change="handleFieldChange"
-                    />
+                    <Form :model="code.filterable.data.model">
+                        <FieldGenerator
+                            :field="code.filterable.data.field"
+                            :form-model="code.filterable.data.model"
+                            @on-field-change="handleFieldChange"
+                        />
+                        <FieldGenerator
+                            :field="code.filterable.data.multipleField"
+                            :form-model="code.filterable.data.model"
+                            @on-field-change="handleFieldChange"
+                        />
+                    </Form>
                 </div>
                 <div slot="desc">
                     设置<code>field.filterable</code>可以控制是否可搜索，可以通过输入值来过滤选项。
@@ -70,16 +78,18 @@
             </Demo>
             <Demo title="远程搜索">
                 <div slot="demo">
-                    <FieldGenerator
-                        :field="code.remote.data.field"
-                        :form-model="code.remote.data.model"
-                        @on-field-change="handleFieldChange"
-                    />
-                    <FieldGenerator
-                        :field="code.remote.data.multipleField"
-                        :form-model="code.remote.data.model"
-                        @on-field-change="handleFieldChange"
-                    />
+                    <Form :model="code.remote.data.model">
+                        <FieldGenerator
+                            :field="code.remote.data.field"
+                            :form-model="code.remote.data.model"
+                            @on-field-change="handleFieldChange"
+                        />
+                        <FieldGenerator
+                            :field="code.remote.data.multipleField"
+                            :form-model="code.remote.data.model"
+                            @on-field-change="handleFieldChange"
+                        />
+                    </Form>
                 </div>
                 <div slot="desc">
                     <p>设置<code>field.remote</code>为true后，可以根据输入进行远程搜索。</p>
@@ -89,16 +99,18 @@
             </Demo>
             <Demo title="分组">
                 <div slot="demo">
-                    <FieldGenerator
-                        :field="code.group.data.field"
-                        :form-model="code.group.data.model"
-                        @on-field-change="handleFieldChange"
-                    />
-                    <FieldGenerator
-                        :field="code.group.data.multipleField"
-                        :form-model="code.group.data.model"
-                        @on-field-change="handleFieldChange"
-                    />
+                    <Form :model="code.group.data.model">
+                        <FieldGenerator
+                            :field="code.group.data.field"
+                            :form-model="code.group.data.model"
+                            @on-field-change="handleFieldChange"
+                        />
+                        <FieldGenerator
+                            :field="code.group.data.multipleField"
+                            :form-model="code.group.data.model"
+                            @on-field-change="handleFieldChange"
+                        />
+                    </Form>
                 </div>
                 <div slot="desc">
                     设置<code>field.options</code>格式为
@@ -132,11 +144,13 @@
             </Demo>
             <Demo title="可清空">
                 <div slot="demo">
-                    <FieldGenerator
-                        :field="code.clearable.data.field"
-                        :form-model="code.clearable.data.model"
-                        @on-field-change="handleFieldChange"
-                    />
+                    <Form :model="code.clearable.data.model">
+                        <FieldGenerator
+                            :field="code.clearable.data.field"
+                            :form-model="code.clearable.data.model"
+                            @on-field-change="handleFieldChange"
+                        />
+                    </Form>
                 </div>
                 <div slot="desc">
                     <p>通过设置<code>field.clearable</code>是否展示可清空的icon。</p>
@@ -145,11 +159,13 @@
             </Demo>
             <Demo title="前缀图标">
                 <div slot="demo">
-                    <FieldGenerator
-                        :field="code.prefix.data.field"
-                        :form-model="code.prefix.data.model"
-                        @on-field-change="handleFieldChange"
-                    />
+                    <Form :model="code.prefix.data.model">
+                        <FieldGenerator
+                            :field="code.prefix.data.field"
+                            :form-model="code.prefix.data.model"
+                            @on-field-change="handleFieldChange"
+                        />
+                    </Form>
                 </div>
                 <div slot="desc">
                     <p>通过设置<code>field.prefix</code>是否展示前缀图标。</p>

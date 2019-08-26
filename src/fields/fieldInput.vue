@@ -1,6 +1,6 @@
 <template>
     <i-input
-        :value="formModel[field.model]"
+        :value="form.model[field.model]"
         :type="field.subtype"
         :placeholder="field.placeholder"
         :clearable="field.clearable"
@@ -27,6 +27,7 @@
 <script>
 import {Input} from 'iview';
 export default {
+    inject: ['form'],
     components: {
         iInput: Input
     },
@@ -34,13 +35,6 @@ export default {
         field: {
             type: Object,
             required: true
-        },
-        formModel: {
-            type: Object,
-            required: true,
-            default() {
-                return {};
-            }
         },
         size: {
             type: String,
@@ -58,7 +52,7 @@ export default {
     methods: {
         handleChange(e) {
             let value = e.target.value;
-            this.$set(this.formModel, this.field.model, value);
+            this.$set(this.form.model, this.field.model, value);
             this.$emit('on-change', this.field.model, value, e, this.field);
         }
     }
