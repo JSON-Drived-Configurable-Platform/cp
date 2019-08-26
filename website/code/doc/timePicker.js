@@ -13,8 +13,8 @@ const timerangeField = {
 };
 
 const model = {
-    time: '03:07',
-    timerange: ['03:07', '12:14']
+    time: '03:07:00',
+    timerange: ['03:07:00', '12:14:00']
 };
 
 simple.data = {
