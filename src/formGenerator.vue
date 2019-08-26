@@ -24,7 +24,7 @@
         />
         <Form
             ref="form"
-            :model="formModel"
+            :model="model"
             :label-width="options | labelWidth"
             :inline="options.inline"
             :label-position="options.labelPosition || 'right'"
@@ -41,6 +41,7 @@
                     :request-interceptor="requestInterceptor"
                     @on-field-change="handleFieldChange"
                     @on-submit="handleSubmit"
+                    @on-reset="handleReset"
                 />
             </div>
 
@@ -177,7 +178,6 @@ export default {
     },
     data () {
         return {
-            formModel: this.model || {},
             isShowExtra: false,
             selectedDefaultHideFields: []
         };
@@ -281,14 +281,14 @@ export default {
         }
 
     },
-    watch: {
-        model: {
-            handler: function (val) {
-                this.formModel = val;
-            },
-            deep: true
-        }
-    },
+    // watch: {
+    //     model: {
+    //         handler: function (val) {
+    //             this.formModel = val;
+    //         },
+    //         deep: true
+    //     }
+    // },
     methods: {
         handleFieldChange(model){
             // 关联项需要清空
@@ -300,46 +300,22 @@ export default {
             this.$refs.form.validateField(model);
         },
 
-        resetField(field) {
-            let typeToResetValues = {
-                string: '',
-                array: [],
-                object: {},
-                number: 0
-            };
-
-            // If type of field is string, it's the model identify of
-            if (typeof field === 'string') {
-                field = this.fields.find(item => item.model === field);
-            }
-
-            let type = getValidType(field);
-            this.$set(this.formModel, field.model, typeToResetValues[type]);
-        },
-        reset() {
-            this.fields.forEach(field => {
-                this.resetField(field);
-            });
-        },
-
-        getFormModel() {
-            return this.formModel;
-        },
         handleSubmit() {
-            this.submit().then(formModel => {
+            this.submit().then(model => {
                 // eslint-disable-next-line no-console
-                console.log('formModel', formModel);
+                console.log('model', model);
             }).catch(err => {
                 // eslint-disable-next-line no-console
                 console.log('err', err);
             });
         },
+
         submit() {
             return new Promise((resolve, reject) => {
                 try {
                     this.$refs.form.validate().then(valid => {
                         if (valid) {
-                            resolve(this.formModel);
+                            resolve(this.model);
                         }
                         else {
                             reject(valid);
@@ -356,6 +332,32 @@ export default {
 
             });
         },
+
+        handleReset() {
+            this.reset();
+        },
+
+        resetField(field) {
+            let typeToResetValues = {
+                string: '',
+                array: [],
+                object: {},
+                number: 0
+            };
+
+            // If type of field is string, it's the model identify of
+            if (typeof field === 'string') {
+                field = this.fields.find(item => item.model === field);
+            }
+            let type = getValidType(field);
+            this.$set(this.model, field.model, typeToResetValues[type]);
+        },
+        reset() {
+            this.fields.forEach(field => {
+                this.resetField(field);
+            });
+        },
+
         handleExtraBtnClick() {
             this.isShowExtra = !this.isShowExtra;
         },
