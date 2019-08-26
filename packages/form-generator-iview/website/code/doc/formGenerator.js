@@ -101,12 +101,28 @@ let formFields = [
         label: 'Select',
         type: 'Select',
         model: 'select',
-        placehold: '请选择'
+        placehold: '请选择',
+        options: [
+            {label: '北京', 'value': 'Beijing'},
+            {label: '上海', 'value': 'Shanghai'},
+            {label: '广州', 'value': 'Guangzhou'},
+            {label: '深圳', 'value': 'Shenzhen'}
+        ]
     },
     {
         label: 'Date',
         type: 'DatePicker',
-        model: 'date'
+        model: 'date',
+        width: '50%',
+        inline: true
+    },
+    {
+        label: '',
+        type: 'TimePicker',
+        model: 'time',
+        width: '50%',
+        inline: true,
+        labelWidth: 20
     },
     {
         label: 'Radio',
@@ -150,6 +166,16 @@ let formFields = [
         type: 'Submit',
         subtype: 'primary',
         text: '提交',
+        width: '50%',
+        inline: true
+    },
+    {
+        type: 'Reset',
+        subtype: 'primary',
+        text: '重置',
+        width: '50%',
+        labelWidth: 0,
+        inline: true
     }
 ];
 
@@ -172,8 +198,8 @@ form.data = {
 
 form.code = `
 <script>
-const field = ${JSON.stringify(fields, null, 4)};
-const model = ${JSON.stringify(model, null, 4)};
+const field = ${JSON.stringify(formFields, null, 4)};
+const model = ${JSON.stringify(formModel, null, 4)};
 export default {
     data() {
         return {

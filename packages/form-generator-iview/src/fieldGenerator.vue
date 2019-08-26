@@ -2,7 +2,7 @@
     <div
         v-if="notFormfield"
         :class="itemClasses"
-        :style="itemWidth | itemStyle(field)"
+        :style="itemStyle"
     >
         <component
             :is="getFieldCom(field.type)"
@@ -18,8 +18,9 @@
         :prop="field.model"
         :required="field.required"
         :rules="getRules(field)"
+        :label-width="field.labelWidth"
         :class="itemClasses"
-        :style="itemWidth | itemStyle(field)"
+        :style="itemStyle"
     >
         <component
             :is="getFieldCom(field.type)"
@@ -31,6 +32,7 @@
             :request-interceptor="requestInterceptor"
             @on-change="handleFieldChange"
             @on-submit-click="handleSubmitClick"
+            @on-reset-click="handleResetClick"
             @submit="handleSubmit"
         />
     </FormItem>
@@ -46,13 +48,16 @@ export default {
     components: {
         ...fieldComponents
     },
-    filters: {
-        itemStyle(itemWidth, field) {
-            return {
-                width: (field.width || itemWidth) + 'px'
-            };
-        }
-    },
+    // filters: {
+    //     itemStyle(itemWidth, field) {
+    //         const width = field.width || itemWidth;
+    //         return {
+    //             width: '160px',
+    //             display:
+    //             // width: typeof width !== 'number' ? width + 'px' : width
+    //         };
+    //     }
+    // },
     props: {
         requestInterceptor: {
             type: [Function, null],
@@ -94,6 +99,15 @@ export default {
         notFormfield() {
             return notFormfields.includes(this.field.type);
         },
+        itemStyle() {
+            const width = this.field.width || this.itemWidth;
+            const inline = this.field.inline || this.inline;
+            return {
+                width: typeof width === 'string' ? width : width + 'px',
+                display: inline ? 'inline-block' : 'block'
+                // width: typeof width !== 'number' ? width + 'px' : width
+            };
+        }
     },
     methods: {
         handleFieldChange(model, value) {
@@ -101,6 +115,9 @@ export default {
         },
         handleSubmitClick() {
             this.$emit('on-submit');
+        },
+        handleResetClick() {
+            this.$emit('on-reset');
         },
         getFieldCom(comType = '') {
             return `field${comType}`;
