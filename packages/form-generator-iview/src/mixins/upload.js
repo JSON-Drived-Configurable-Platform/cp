@@ -1,15 +1,9 @@
 export default {
+    inject: ['form'],
     props: {
         field: {
             type: Object,
             required: true
-        },
-        formModel: {
-            type: Object,
-            required: true,
-            default() {
-                return {};
-            }
         },
         size: {
             type: String,
@@ -36,7 +30,7 @@ export default {
             return this.field.tip || '点击或者拖拽文件即可上传';
         },
         value() {
-            let value = this.formModel[this.field.model] || [];
+            let value = this.form.model[this.field.model] || [];
             return value.map(item => {
                 item.status = 'finished';
                 return item;
@@ -49,7 +43,7 @@ export default {
     },
     methods: {
         handleChange() {
-            this.$set(this.formModel, this.field.model, this.uploadFileList);
+            this.$set(this.form.model, this.field.model, this.uploadFileList);
             this.$emit('on-change', this.field.model, this.uploadFileList, null, this.field);
         },
         onSuccess({data = {}}, file) {

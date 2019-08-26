@@ -95,11 +95,12 @@
             <inAnchor title="代码示例" h2 />
             <Demo title="基础用法">
                 <div slot="demo">
-                    <FieldGenerator
-                        :field="code.simple.data.field"
-                        :form-model="code.simple.data.model"
-                        @on-field-change="handleFieldChange"
-                    />
+                    <Form :model="code.simple.data.model">
+                        <FieldGenerator
+                            :field="code.simple.data.field"
+                            @on-field-change="handleFieldChange"
+                        />
+                    </Form>
                 </div>
                 <div slot="desc">
                     <p>通过设置<code>field</code>, <code>model</code>即可生成一个Radio。</p>
@@ -108,11 +109,12 @@
             </Demo>
             <Demo title="文字">
                 <div slot="demo">
-                    <FieldGenerator
-                        :field="code.text.data.field"
-                        :form-model="code.text.data.model"
-                        @on-field-change="handleFieldChange"
-                    />
+                    <Form :model="code.text.data.model">
+                        <FieldGenerator
+                            :field="code.text.data.field"
+                            @on-field-change="handleFieldChange"
+                        />
+                    </Form>
                 </div>
                 <div slot="desc">
                     <p>通过设置<code>field.true.label</code>, <code>field.false.label</code>展示自定义文字。</p>
@@ -121,11 +123,12 @@
             </Demo>
             <Demo title="图标">
                 <div slot="demo">
-                    <FieldGenerator
-                        :field="code.icon.data.field"
-                        :form-model="code.icon.data.model"
-                        @on-field-change="handleFieldChange"
-                    />
+                    <Form :model="code.icon.data.model">
+                        <FieldGenerator
+                            :field="code.icon.data.field"
+                            @on-field-change="handleFieldChange"
+                        />
+                    </Form>
                 </div>
                 <div slot="desc">
                     <p>通过设置<code>field.true.icon</code>, <code>field.false.icon</code>展示自定义文字。</p>

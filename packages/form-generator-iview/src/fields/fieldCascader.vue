@@ -1,6 +1,6 @@
 <template>
     <Cascader
-        :value="formModel[field.model]"
+        :value="form.model[field.model]"
         :data="computedOptions"
         :disabled="field.disabled"
         :clearable="field.clearable"
@@ -14,6 +14,7 @@
 <script>
 import getOptions from '../mixins/getOptions';
 export default {
+    inject: ['form'],
     mixins: [getOptions],
     props: {
         field: {
@@ -53,7 +54,7 @@ export default {
 
     methods: {
         handleChange(value) {
-            this.$set(this.formModel, this.field.model, value);
+            this.$set(this.form.model, this.field.model, value);
             this.$emit('on-change', this.field.model, value, null, this.field);
         }
     }

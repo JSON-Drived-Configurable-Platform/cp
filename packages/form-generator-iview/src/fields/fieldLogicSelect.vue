@@ -147,6 +147,7 @@ import {logicInputMap} from '../utils/const';
 import {classPrifix} from '../utils/const';
 import getOptions from '../mixins/getOptions';
 export default {
+    inject: ['form'],
     mixins: [getOptions],
     props: {
         field: {
@@ -156,13 +157,6 @@ export default {
         apiBase: {
             type: String,
             default: ''
-        },
-        formModel: {
-            type: Object,
-            required: true,
-            default() {
-                return {};
-            }
         },
         size: {
             type: String,
@@ -175,7 +169,7 @@ export default {
         return {
             start: '',
             end: '',
-            value: this.formModel[this.field.model] || {logic: '=', value: ''},
+            value: this.form.model[this.field.model] || {logic: '=', value: ''},
             options: []
         };
     },
@@ -221,7 +215,10 @@ export default {
         },
         computedOptions() {
             return this.options.length > 0 ? this.options : this.field.options;
-        }
+        },
+        formModel() {
+            return this.form.model;
+        },
     },
     watch: {
         value: {
@@ -271,7 +268,7 @@ export default {
             this.handleChange();
         },
         handleChange() {
-            this.$set(this.formModel, this.field.model, this.value);
+            this.$set(this.form.model, this.field.model, this.value);
             this.$emit('on-change', this.field.model, this.value, null, this.field);
         },
         handleStartChange(value) {

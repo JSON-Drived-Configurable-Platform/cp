@@ -1,6 +1,6 @@
 <template>
     <i-switch
-        :value="formModel[field.model]"
+        :value="form.model[field.model]"
         :true-value="trueValue"
         :false-value="falseValue"
         :disabled="field.disabled"
@@ -20,6 +20,7 @@ import {Switch as iSwitch} from 'iview';
 import getOptions from '../mixins/getOptions';
 import {classPrifix} from '../utils/const';
 export default {
+    inject: ['form'],
     components: {
         iSwitch
     },
@@ -28,13 +29,6 @@ export default {
         field: {
             type: Object,
             required: true
-        },
-        formModel: {
-            type: Object,
-            required: true,
-            default() {
-                return {};
-            }
         },
         size: {
             type: String,
@@ -73,7 +67,7 @@ export default {
     },
     methods: {
         handleChange(value) {
-            this.$set(this.formModel, this.field.model, value);
+            this.$set(this.form.model, this.field.model, value);
             this.$emit('on-change', this.field.model, value, null, this.field);
         }
     }

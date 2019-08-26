@@ -2,7 +2,7 @@
     <TimePicker
         :type="field.subtype || 'time'"
         :placeholder="field.placeholder"
-        :value="formModel[field.model]"
+        :value="form.model[field.model]"
         :disabled="field.disabled"
         :editable="field.editable"
         :clearable="field.clearable"
@@ -15,17 +15,11 @@
 <script>
 import {classPrifix} from '../utils/const';
 export default {
+    inject: ['form'],
     props: {
         field: {
             type: Object,
             required: true
-        },
-        formModel: {
-            type: Object,
-            required: true,
-            default() {
-                return {};
-            }
         },
         size: {
             type: String,

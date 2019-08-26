@@ -5,13 +5,6 @@ export default {
             type: [Function, null],
             default: null
         },
-        formModel: {
-            type: Object,
-            required: true,
-            default() {
-                return {};
-            }
-        },
         apiBase: {
             type: String,
             default: ''
@@ -19,7 +12,7 @@ export default {
     },
     computed: {
         params() {
-            let formModel = this.formModel;
+            let formModel = this.form.model || {};
             let apiParams = this.field.apiParams || [];
             let params = {};
             apiParams.forEach(param => {
@@ -43,7 +36,7 @@ export default {
         getRemoteOptions(newParams) {
             this.loading = true;
             let apiBase = this.apiBase;
-            let formModel = this.formModel;
+            let formModel = this.form.model;
             let apiParams = this.field.apiParams || [];
             let params = {};
             let finalApi = apiBase + (this.field.api || this.optionsApi);

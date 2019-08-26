@@ -78,17 +78,11 @@
 import {logicInputMap} from '../utils/const';
 import {classPrifix} from '../utils/const';
 export default {
+    inject: ['form'],
     props: {
         field: {
             type: Object,
             required: true
-        },
-        formModel: {
-            type: Object,
-            required: true,
-            default() {
-                return {};
-            }
         },
         size: {
             type: String,
@@ -101,7 +95,7 @@ export default {
         return {
             start: '',
             end: '',
-            value: this.formModel[this.field.model] || {logic: '=', value: ''}
+            value: this.form.model[this.field.model] || {logic: '=', value: ''}
         };
     },
     computed: {
@@ -137,7 +131,10 @@ export default {
                 return 'text';
             }
             return logicInputMap[this.value.logic].valueType || 'text';
-        }
+        },
+        formModel() {
+            return this.form.model;
+        },
     },
     watch: {
         value: {
@@ -187,6 +184,7 @@ export default {
             this.handleChange();
         },
         handleChange() {
+            this.$set(this.form.model, this.field.model, this.value);
             this.$emit('on-change', this.field.model, this.value, null, this.field);
         },
         handleStartChange(e) {

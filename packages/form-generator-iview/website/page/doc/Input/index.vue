@@ -174,11 +174,12 @@
             <inAnchor title="代码示例" h2 />
             <Demo title="基础用法">
                 <div slot="demo">
-                    <FieldGenerator
-                        :field="code.simple.data.field"
-                        :form-model="code.simple.data.model"
-                        @on-field-change="handleFieldChange"
-                    />
+                    <Form :model="code.simple.data.model">
+                        <FieldGenerator
+                            :field="code.simple.data.field"
+                            @on-field-change="handleFieldChange"
+                        />
+                    </Form>
                 </div>
                 <div slot="desc">
                     <p>通过设置<code>field</code>, <code>model</code>即可生成一个Input。</p>
@@ -187,18 +188,17 @@
             </Demo>
             <Demo title="尺寸">
                 <div slot="demo">
-                    <FieldGenerator
-                        :field="code.size.data.sizeLargeField"
-                        :form-model="code.size.data.model"
-                    />
-                    <FieldGenerator
-                        :field="code.size.data.sizeDefaultField"
-                        :form-model="code.size.data.model"
-                    />
-                    <FieldGenerator
-                        :field="code.size.data.sizeSmallField"
-                        :form-model="code.size.data.model"
-                    />
+                    <Form :model="code.size.data.model">
+                        <FieldGenerator
+                            :field="code.size.data.sizeLargeField"
+                        />
+                        <FieldGenerator
+                            :field="code.size.data.sizeDefaultField"
+                        />
+                        <FieldGenerator
+                            :field="code.size.data.sizeSmallField"
+                        />
+                    </Form>
                 </div>
                 <div slot="desc">
                     <p>通过设置<code>field.size</code>可以控制大小。</p>
@@ -209,10 +209,11 @@
             </Demo>
             <Demo title="可清空">
                 <div slot="demo">
-                    <FieldGenerator
-                        :field="code.clearable.data.field"
-                        :form-model="code.clearable.data.model"
-                    />
+                    <Form :model="code.clearable.data.model">
+                        <FieldGenerator
+                            :field="code.clearable.data.field"
+                        />
+                    </Form>
                 </div>
                 <div slot="desc">
                     <p>通过设置<code>field.clearable</code>是否展示可清空的icon</p>
@@ -221,10 +222,11 @@
             </Demo>
             <Demo title="带Icon">
                 <div slot="demo">
-                    <FieldGenerator
-                        :field="code.withIcon.data.field"
-                        :form-model="code.withIcon.data.model"
-                    />
+                    <Form :model="code.withIcon.data.model">
+                        <FieldGenerator
+                            :field="code.withIcon.data.field"
+                        />
+                    </Form>
                 </div>
                 <div slot="desc">
                     <p>通过设置<code>field.icon</code>可以控制展示icon</p>
@@ -233,14 +235,14 @@
             </Demo>
             <Demo title="前缀和后缀图标">
                 <div slot="demo">
-                    <FieldGenerator
-                        :field="code.prefixAndSuffix.data.prefixField"
-                        :form-model="code.prefixAndSuffix.data.model"
-                    />
-                    <FieldGenerator
-                        :field="code.prefixAndSuffix.data.suffixField"
-                        :form-model="code.prefixAndSuffix.data.model"
-                    />
+                    <Form :model="code.prefixAndSuffix.data.model">
+                        <FieldGenerator
+                            :field="code.prefixAndSuffix.data.prefixField"
+                        />
+                        <FieldGenerator
+                            :field="code.prefixAndSuffix.data.suffixField"
+                        />
+                    </Form>
                 </div>
                 <div slot="desc">
                     <p>通过设置<code>field.prefix</code>、<code>field.suffix</code>可以给input添加前后缀icon。</p>
@@ -249,18 +251,17 @@
             </Demo>
             <Demo title="搜索框">
                 <div slot="demo">
-                    <FieldGenerator
-                        :field="code.search.data.searchField"
-                        :form-model="code.search.data.model"
-                    />
-                    <FieldGenerator
-                        :field="code.search.data.enterButtonField"
-                        :form-model="code.search.data.model"
-                    />
-                    <FieldGenerator
-                        :field="code.search.data.searchWithEnterButtonField"
-                        :form-model="code.search.data.model"
-                    />
+                    <Form :model="code.search.data.model">
+                        <FieldGenerator
+                            :field="code.search.data.searchField"
+                        />
+                        <FieldGenerator
+                            :field="code.search.data.enterButtonField"
+                        />
+                        <FieldGenerator
+                            :field="code.search.data.searchWithEnterButtonField"
+                        />
+                    </Form>
                 </div>
                 <div slot="desc">
                     <p>通过设置<code>field.search</code>、<code>field.enterButton</code>可以展示搜索框</p>
@@ -272,10 +273,12 @@
             </Demo>
             <Demo title="文本域">
                 <div slot="demo">
-                    <FieldGenerator
-                        :field="code.textarea.data.field"
-                        :form-model="code.textarea.data.model"
-                    />
+                    <Form :model="code.textarea.data.model">
+                        <FieldGenerator
+                            :field="code.textarea.data.field"
+                            :form-model="code.textarea.data.model"
+                        />
+                    </Form>
                 </div>
                 <div slot="desc">
                     <p>通过设置<code>field.subtype</code>可以展示文本域</p>
@@ -285,10 +288,12 @@
             </Demo>
             <Demo title="适应文本高度的文本域">
                 <div slot="demo">
-                    <FieldGenerator
-                        :field="code.aotusizeTextarea.data.field"
-                        :form-model="code.aotusizeTextarea.data.model"
-                    />
+                    <Form :model="code.aotusizeTextarea.data.model">
+                        <FieldGenerator
+                            :field="code.aotusizeTextarea.data.field"
+                            :form-model="code.aotusizeTextarea.data.model"
+                        />
+                    </Form>
                 </div>
                 <div slot="desc">
                     <p>通过设置<code>field.autosize</code>可以使文本域大小适应内容</p>
@@ -297,14 +302,16 @@
             </Demo>
             <Demo title="禁用">
                 <div slot="demo">
-                    <FieldGenerator
-                        :field="code.disabled.data.inputField"
-                        :form-model="code.disabled.data.model"
-                    />
-                    <FieldGenerator
-                        :field="code.disabled.data.textareaField"
-                        :form-model="code.disabled.data.model"
-                    />
+                    <Form :model="code.disabled.data.model">
+                        <FieldGenerator
+                            :field="code.disabled.data.inputField"
+                            :form-model="code.disabled.data.model"
+                        />
+                        <FieldGenerator
+                            :field="code.disabled.data.textareaField"
+                            :form-model="code.disabled.data.model"
+                        />
+                    </Form>
                 </div>
                 <div slot="desc">
                     <p>通过设置<code>field.disabled</code>可以禁用输入框</p>
@@ -313,18 +320,17 @@
             </Demo>
             <Demo title="复合型输入框">
                 <div slot="demo">
-                    <FieldGenerator
-                        :field="code.prependAndAppend.data.prependField"
-                        :form-model="code.prependAndAppend.data.model"
-                    />
-                    <FieldGenerator
-                        :field="code.prependAndAppend.data.appendField"
-                        :form-model="code.prependAndAppend.data.model"
-                    />
-                    <FieldGenerator
-                        :field="code.prependAndAppend.data.prependAndappendField"
-                        :form-model="code.prependAndAppend.data.model"
-                    />
+                    <Form :model="code.prependAndAppend.data.model">
+                        <FieldGenerator
+                            :field="code.prependAndAppend.data.prependField"
+                        />
+                        <FieldGenerator
+                            :field="code.prependAndAppend.data.appendField"
+                        />
+                        <FieldGenerator
+                            :field="code.prependAndAppend.data.prependAndappendField"
+                        />
+                    </Form>
                 </div>
                 <div slot="desc">
                     <p>通过设置<code>field.prepend</code>或者<code>field.prepend</code>可以实现复合型输入框。</p>

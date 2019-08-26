@@ -1,6 +1,6 @@
 <template>
     <InputNumber
-        :value="formModel[field.model]"
+        :value="form.model[field.model]"
         :type="field.subtype"
         :step="field.step"
         :precision="field.precision"
@@ -18,17 +18,11 @@
 <script>
 import {classPrifix} from '../utils/const';
 export default {
+    inject: ['form'],
     props: {
         field: {
             type: Object,
             required: true
-        },
-        formModel: {
-            type: Object,
-            required: true,
-            default() {
-                return {};
-            }
         },
         size: {
             type: String,
@@ -55,7 +49,7 @@ export default {
             if (value === null) {
                 value = 0;
             }
-            this.$set(this.formModel, this.field.model, value);
+            this.$set(this.form.model, this.field.model, value);
             this.$emit('on-change', this.field.model, value, null, this.field);
         }
     }

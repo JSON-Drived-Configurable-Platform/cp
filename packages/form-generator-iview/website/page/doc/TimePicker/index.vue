@@ -10,16 +10,16 @@
             <inAnchor title="代码示例" h2 />
             <Demo title="基础用法">
                 <div slot="demo">
-                    <FieldGenerator
-                        :field="code.simple.data.field"
-                        :form-model="code.simple.data.model"
-                        @on-field-change="handleFieldChange"
-                    />
-                    <FieldGenerator
-                        :field="code.simple.data.timerangeField"
-                        :form-model="code.simple.data.model"
-                        @on-field-change="handleFieldChange"
-                    />
+                    <Form :model="code.simple.data.model">
+                        <FieldGenerator
+                            :field="code.simple.data.field"
+                            @on-field-change="handleFieldChange"
+                        />
+                        <FieldGenerator
+                            :field="code.simple.data.timerangeField"
+                            @on-field-change="handleFieldChange"
+                        />
+                    </Form>
                 </div>
                 <div slot="desc">
                     <p>设置属性 type 为 time 或 timerange 分别显示选择单个时间和选择范围时间类型。</p>

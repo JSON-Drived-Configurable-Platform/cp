@@ -2,7 +2,7 @@
     <div>
         <Select
             v-if="remote"
-            :value="formModel[field.model]"
+            :value="form.model[field.model]"
             :multiple="field.multiple || false"
             :disabled="field.disabled || false"
             :clearable="clearable"
@@ -37,7 +37,7 @@
         </Select>
         <Select
             v-else
-            :value="formModel[field.model]"
+            :value="form.model[field.model]"
             :multiple="field.multiple || false"
             :disabled="field.disabled || false"
             :clearable="clearable"
@@ -73,18 +73,12 @@
 <script>
 import getOptions from '../mixins/getOptions';
 export default {
+    inject: ['form'],
     mixins: [getOptions],
     props: {
         field: {
             type: Object,
             required: true
-        },
-        formModel: {
-            type: Object,
-            required: true,
-            default() {
-                return {};
-            }
         },
         size: {
             type: String,
@@ -123,7 +117,7 @@ export default {
             if (value === undefined || value === null) {
                 value = '';
             }
-            this.$set(this.formModel, this.field.model, value);
+            this.$set(this.form.model, this.field.model, value);
             this.$emit('on-change', this.field.model, value, null, this.field);
         },
         remoteMethod(query) {

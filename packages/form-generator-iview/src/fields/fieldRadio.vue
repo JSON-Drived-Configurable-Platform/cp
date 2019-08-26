@@ -1,6 +1,6 @@
 <template>
     <RadioGroup
-        :value="formModel[field.model]"
+        :value="form.model[field.model]"
         :type="field.subtype"
         :vertical="field.vertical"
         :size="size"
@@ -19,18 +19,12 @@
 <script>
 import getOptions from '../mixins/getOptions';
 export default {
+    inject: ['form'],
     mixins: [getOptions],
     props: {
         field: {
             type: Object,
             required: true
-        },
-        formModel: {
-            type: Object,
-            required: true,
-            default() {
-                return {};
-            }
         },
         size: {
             type: String,
@@ -61,7 +55,7 @@ export default {
             this.getRemoteOptions();
         },
         handleChange(value) {
-            this.$set(this.formModel, this.field.model, value);
+            this.$set(this.form.model, this.field.model, value);
             this.$emit('on-change', this.field.model, value, null, this.field);
         }
     }
