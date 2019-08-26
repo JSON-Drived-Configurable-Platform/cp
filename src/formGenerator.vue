@@ -4,7 +4,7 @@
             v-if="options.title || tip.title"
             :class="headerClasses"
         >
-            {{ options.title }}
+            <span :class="headerTextClasses">{{ options.title }}</span>
             <Poptip
                 v-if="tip.title"
                 :class="tipsClasses"
@@ -34,7 +34,6 @@
                     v-for="field in displayFields"
                     :key="field.model"
                     :field="field"
-                    :form-model="formModel"
                     :api-base="apiBase"
                     :size="options.size"
                     :item-width="options.itemWidth"
@@ -190,6 +189,9 @@ export default {
         },
         headerClasses() {
             return `${classPrifix}-header`;
+        },
+        headerTextClasses() {
+            return `${classPrifix}-header-text`;
         },
         tipsClasses() {
             return `${classPrifix}-tip`;

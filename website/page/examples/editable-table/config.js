@@ -2,7 +2,7 @@ export const columns = [
     {
         title: '姓名',
         slot: 'name',
-        editControlConfig: {
+        formField: {
             type: 'Input',
             model: 'name',
             placeholder: '请输入用户名',
@@ -12,7 +12,7 @@ export const columns = [
     {
         title: '年龄',
         slot: 'age',
-        editControlConfig: {
+        formField: {
             type: 'InputNumber',
             model: 'age',
             placeholder: '请输入年龄',
@@ -22,7 +22,7 @@ export const columns = [
     {
         title: '性别',
         slot: 'gender',
-        editControlConfig: {
+        formField: {
             type: 'Select',
             model: 'gender',
             placeholder: '请输入性别',
@@ -46,7 +46,7 @@ export const columns = [
     {
         title: '出生日期',
         slot: 'birthday',
-        editControlConfig: {
+        formField: {
             type: 'DatePicker',
             subtype: 'date',
             model: 'birthday',
@@ -57,7 +57,7 @@ export const columns = [
     {
         title: '地址',
         slot: 'address',
-        editControlConfig: {
+        formField: {
             type: 'Input',
             model: 'address',
             placeholder: '请输入地址',
@@ -66,7 +66,11 @@ export const columns = [
     },
     {
         title: '操作',
-        slot: 'action'
+        slot: 'action',
+        formField: {
+            type: 'Submit',
+            text: '保存'
+        }
     }
 ];
 

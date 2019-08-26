@@ -29,10 +29,23 @@
     &-default-items-box {
         width: 90%;
         display: inline-block;
+    }
+    &-form-item {
+        max-width: 100%;
+        margin-right: 30px;
 
-        &-form-item {
-            max-width: 100%;
-            margin-right: 30px;
+        // Divider style
+        .ivu-divider {
+            margin: 0 20px;
+        }
+
+        .ivu-divider:before {
+            width: 0;
+        }
+
+        .ivu-divider .ivu-divider-inner-text,
+        .ivu-divider .ivu-divider-inner-text {
+            padding: 0;
         }
     }
 
