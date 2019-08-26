@@ -22,7 +22,7 @@ const Cascader = () => import(/* webpackChunkName: "Cascader" */ '../page/doc/Ca
 const InputNumber = () => import(/* webpackChunkName: "InputNumber" */ '../page/doc/InputNumber');
 const Upload = () => import(/* webpackChunkName: "Upload" */ '../page/doc/Upload');
 const formGeneratorExample = () => import(/* webpackChunkName: "formGeneratorExample" */ '../page/examples/form-generator-example');
-const fieldGeneratorExample = () => import(/* webpackChunkName: "fieldGeneratorExample" */ '../page/examples/field-generator-example');
+const editableTable = () => import(/* webpackChunkName: "fieldGeneratorExample" */ '../page/examples/editable-table');
 
 export default [
     {
@@ -127,9 +127,9 @@ export default [
                 component: formGeneratorExample
             },
             {
-                path: '/field-generator-example',
+                path: '/editable-table',
                 name: 'data',
-                component: fieldGeneratorExample
+                component: editableTable
             },
         ]
     }

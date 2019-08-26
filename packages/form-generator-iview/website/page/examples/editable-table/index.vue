@@ -1,55 +1,35 @@
 <template>
     <div class="control-generaotor-demo">
-        <Table
-            :columns="columns"
-            :data="data"
-        >
-            <template
-                v-for="column in columns"
-                :slot="column.slot"
-                slot-scope="{ row, index }"
+        <Form :model="editModel">
+            <Table
+                :columns="columns"
+                :data="data"
             >
-                <!-- 可编辑项 -->
                 <template
-                    v-if="column.slot !== 'action'"
+                    v-for="column in columns"
+                    :slot="column.slot"
+                    slot-scope="{ row, index }"
                 >
                     <FieldGenerator
                         v-if="editModel.index === index"
                         :key="column.slot"
-                        :field="column.editControlConfig"
-                        :form-model="editModel"
+                        :field="column.formField"
                         :request-interceptor="requestInterceptor"
                         @on-field-change="handleFieldChange"
+                        @on-submit="handleSave(index)"
                     />
                     <span
-                        v-else
+                        v-else-if="column.slot !== 'action'"
                         :key="column.slot"
                     >{{ row[column.slot] }}</span>
-                </template>
-                <!-- 操作项 -->
-                <template v-else>
-                    <div
-                        v-if="editModel.index === index"
-                        :key="column.slot"
-                    >
-                        <Button
-                            @click="handleSave(index)"
-                        >保存</Button>
-                        <Button
-                            @click="editModel.index = -1"
-                        >取消</Button>
-                    </div>
-                    <div
+                    <Button
                         v-else
                         :key="column.slot"
-                    >
-                        <Button
-                            @click="handleEdit(row, index)"
-                        >操作</Button>
-                    </div>
+                        @click="handleEdit(row, index)"
+                    >编辑</Button>
                 </template>
-            </template>
-        </Table>
+            </Table>
+        </Form>
     </div>
 </template>
 
@@ -99,7 +79,15 @@ export default {
         margin: 10px
     }
     .control-generaotor-demo {
+        .ivu-form-item {
+            margin-top: 20px;
+        }
+
         .ivu-table-wrapper {
+            overflow: visible;
+        }
+
+        .ivu-table-cell {
             overflow: visible;
         }
     }

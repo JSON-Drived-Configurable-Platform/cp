@@ -14,7 +14,7 @@ export default {
     },
     methods: {
         handleClick() {
-            this.$emit('submit');
+            this.$emit('on-submit-click');
         }
     }
 };

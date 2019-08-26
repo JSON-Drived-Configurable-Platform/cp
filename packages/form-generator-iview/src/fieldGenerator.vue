@@ -1,5 +1,19 @@
 <template>
+    <div
+        v-if="notFormfield"
+        :class="itemClasses"
+        :style="itemWidth | itemStyle(field)"
+    >
+        <component
+            :is="getFieldCom(field.type)"
+            :class="classes"
+            :field="field"
+            :inline="inline"
+            :size="field.size || size"
+        />
+    </div>
     <FormItem
+        v-else
         :label="field.label"
         :prop="field.model"
         :required="field.required"
@@ -15,7 +29,8 @@
             :api-base="apiBase"
             :size="field.size || size"
             :request-interceptor="requestInterceptor"
-            @on-change="onFieldChange"
+            @on-change="handleFieldChange"
+            @on-submit-click="handleSubmitClick"
             @submit="handleSubmit"
         />
     </FormItem>
@@ -24,6 +39,7 @@
 import fieldComponents from './utils/fieldsLoader.js';
 import {classPrifix} from './utils/const';
 import {getValidType} from './utils/getValidType';
+const notFormfields = ['Divider'];
 export default {
     inject: ['form'],
     name: 'FieldGenerator',
@@ -75,10 +91,16 @@ export default {
         itemClasses() {
             return `${classPrifix}-form-item`;
         },
+        notFormfield() {
+            return notFormfields.includes(this.field.type);
+        },
     },
     methods: {
-        onFieldChange(model, value) {
+        handleFieldChange(model, value) {
             this.$emit('on-field-change', model, value);
+        },
+        handleSubmitClick() {
+            this.$emit('on-submit');
         },
         getFieldCom(comType = '') {
             return `field${comType}`;

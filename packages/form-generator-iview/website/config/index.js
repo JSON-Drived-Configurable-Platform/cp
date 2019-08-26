@@ -112,8 +112,8 @@ export default {
                     name: '/form-generator-example'
                 },
                 {
-                    label: 'Field Generator',
-                    name: '/field-generator-example'
+                    label: 'Editable-Table',
+                    name: '/editable-table'
                 },
             ]
         },

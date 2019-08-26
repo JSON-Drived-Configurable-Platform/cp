@@ -1,5 +1,12 @@
 export const fields = [
     {
+        type: 'Divider',
+        label: '输入框',
+        orientation: 'left',
+        dashed: true,
+        size: 'small'
+    },
+    {
         key: '1000',
         type: 'Input',
         label: '输入框',
@@ -36,6 +43,13 @@ export const fields = [
         placeholder: '',
         required: true,
         //defaultHide: true
+    },
+    {
+        type: 'Divider',
+        label: '下拉选择',
+        orientation: 'left',
+        dashed: true,
+        size: 'small'
     },
     {
         key: '1002',
@@ -113,6 +127,13 @@ export const fields = [
     //     ]
     // },
     {
+        type: 'Divider',
+        label: '单选框',
+        orientation: 'left',
+        dashed: true,
+        size: 'small'
+    },
+    {
         key: '1003',
         type: 'Radio',
         label: '单选',
@@ -150,6 +171,13 @@ export const fields = [
         //defaultHide: true
     },
     {
+        type: 'Divider',
+        label: '复选框',
+        orientation: 'left',
+        dashed: true,
+        size: 'small'
+    },
+    {
         key: '1004',
         type: 'Checkbox',
         label: '多选',
@@ -175,6 +203,13 @@ export const fields = [
         ],
         required: true,
         //defaultHide: true
+    },
+    {
+        type: 'Divider',
+        label: '级联选择',
+        orientation: 'left',
+        dashed: true,
+        size: 'small'
     },
     {
         key: '1005',
@@ -273,6 +308,13 @@ export const fields = [
 
     },
     {
+        type: 'Divider',
+        label: '日期时间',
+        orientation: 'left',
+        dashed: true,
+        size: 'small'
+    },
+    {
         key: '10006',
         type: 'DatePicker',
         subtype: 'date',
@@ -313,6 +355,13 @@ export const fields = [
         placeholder: '',
         required: true,
         //defaultHide: true
+    },
+    {
+        type: 'Divider',
+        label: '逻辑输入',
+        orientation: 'left',
+        dashed: true,
+        size: 'small'
     },
     {
         key: '10007',
@@ -363,12 +412,26 @@ export const fields = [
         //defaultHide: true
     },
     {
+        type: 'Divider',
+        label: '切换',
+        orientation: 'left',
+        dashed: true,
+        size: 'small'
+    },
+    {
         key: '10009',
         type: 'Switch',
         label: '切换',
         trueValue: 'A',
         falseValue: 'B',
         model: 'switch',
+    },
+    {
+        type: 'Divider',
+        label: '文件上传',
+        orientation: 'left',
+        dashed: true,
+        size: 'small'
     },
     {
         key: '1000111111',
