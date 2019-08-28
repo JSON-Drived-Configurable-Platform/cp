@@ -7,6 +7,7 @@
             :style="{marginTop: '40px'}"
             :config="item"
             :params-container="paramsContainer"
+            :request-interceptor="requestInterceptor"
             :api-base="apiBase"
         />
     </div>
@@ -31,7 +32,7 @@ export default {
                 return new Promise((resolve, reject) => {
                     // eslint-disable-next-line no-undef
                     if (process.env.NODE_ENV === 'production') {
-                        url = `example-data-api/${url}.json`;
+                        url = `website-data-api/${url}.json`;
                     }
                     axios.get(url, {
                         query: params
