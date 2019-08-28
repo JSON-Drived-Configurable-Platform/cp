@@ -54,7 +54,7 @@ const field = {
 };
 
 const model = {
-    attraction: []
+    attraction: ['jiangsu', 'suzhou', 'shizilin']
 };
 
 simple.data = {

@@ -336,8 +336,14 @@ export default {
 
         handleReset() {
             // TODO still has problem
-            this.$refs.form.resetFields();
+            // this.$refs.form.resetFields();
             this.reset();
+        },
+
+        reset() {
+            this.fields.forEach(field => {
+                this.resetField(field);
+            });
         },
 
         resetField(field) {
@@ -353,12 +359,8 @@ export default {
                 field = this.fields.find(item => item.model === field);
             }
             let type = getValidType(field);
+            // console.log(type, field.model, typeToResetValues[type]);
             this.$set(this.model, field.model, typeToResetValues[type]);
-        },
-        reset() {
-            this.fields.forEach(field => {
-                this.resetField(field);
-            });
         },
 
         handleExtraBtnClick() {

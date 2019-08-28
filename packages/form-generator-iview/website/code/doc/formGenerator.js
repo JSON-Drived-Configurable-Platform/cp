@@ -149,12 +149,6 @@ let formFields = [
         type: 'Switch',
         model: 'open'
     },
-    // {
-    //     label: 'LogicSelect',
-    //     type: 'LogicSelect',
-    //     model: 'logicSelect',
-    //     placehold: '请选择'
-    // },
     {
         label: 'Textarea',
         type: 'Input',
@@ -400,7 +394,7 @@ const hiddenOnfields = [
         type: 'Input',
         model: 'phoneNumber',
         placehold: 'PhoneNumber',
-        prefix: 'ios-person-outline',
+        prefix: 'ios-phone-portrait',
         required: true,
         showOn: {
             loginType: [{
