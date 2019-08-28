@@ -8,14 +8,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge');
 const webpackBaseConfig = require('./webpack.base.config.js');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const fs = require('fs');
 
 // website-data-api
-const selectApiData = require('../docs/website-data-api/selectApi');
-const cascaderApiData = require('../docs/website-data-api/cascaderApi');
-const uploadApiData = require('../docs/website-data-api/uploadApi');
-const radioApiData = require('../docs/website-data-api/radioApi');
-const checkboxApiData = require('../docs/website-data-api/checkboxApi');
-const selectGroupApiData = require('../docs/website-data-api/selectGroupApi');
+let apiData = {};
+let fileNames = fs.readdirSync(path.resolve(__dirname, '../docs/website-data-api')).map(file => {
+    let fileName = file.split('.')[0];
+    apiData[fileName] = require(`../docs/website-data-api/${fileName}`);
+    return fileName;
+});
 
 module.exports = merge(webpackBaseConfig, {
     mode: 'development',
@@ -28,28 +29,10 @@ module.exports = merge(webpackBaseConfig, {
         inline: true,
         open: true,
         before: function(app) {
-            app.get('/radioApi', function(req, res) {
-                res.json(radioApiData);
-            });
-
-            app.get('/checkboxApi', function(req, res){
-                res.json(checkboxApiData);
-            });
-
-            app.get('/selectApi', function(req, res) {
-                res.json(selectApiData);
-            });
-
-            app.get('/selectGroupApi', function(req, res) {
-                res.json(selectGroupApiData);
-            });
-
-            app.get('/cascaderApi', function(req, res) {
-                res.json(cascaderApiData);
-            });
-
-            app.post('/uploadApi', function(req, res){
-                res.json(uploadApiData);
+            fileNames.forEach(item => {
+                app.get(`/${item}`, function(req, res) {
+                    res.json(apiData[item]);
+                });
             });
         },
     },

@@ -79,15 +79,12 @@ export default {
         margin: 10px
     }
     .control-generaotor-demo {
+
         .ivu-form-item {
             margin-top: 20px;
         }
 
-        .ivu-table-wrapper {
-            overflow: visible;
-        }
-
-        .ivu-table-cell {
+        .ivu-table, .ivu-table-wrapper, .ivu-table-cell {
             overflow: visible;
         }
     }

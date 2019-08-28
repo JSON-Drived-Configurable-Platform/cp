@@ -115,6 +115,10 @@ export default {
                     label: 'Editable-Table',
                     name: '/editable-table'
                 },
+                {
+                    label: 'Searchable-Chart',
+                    name: '/searchable-chart'
+                }
             ]
         },
     ]
