@@ -7,9 +7,7 @@ A form generator with json schema based on iview ui.
 - [x] Input
 - [x] Select
 - [x] Radio
-- [ ] RadioList
 - [x] Checkbox
-- [ ] CheckList
 - [x] DatePicker
 - [x] Upload
 - [x] ImgUpload
