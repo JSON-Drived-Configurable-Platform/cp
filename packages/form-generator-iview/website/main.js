@@ -2,7 +2,8 @@ import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 import iView from 'iview';
 import VueRouter from 'vue-router';
-import FieldGenerator from '../src/index';
+import FormGenerator from '../src/index';
+import dataVis from 'data-vis-iview';
 
 import App from './app.vue';
 import router from './router';
@@ -12,6 +13,9 @@ import Locales from './locale';
 
 import 'iview/dist/styles/iview.css';
 import '../src/style/index.less';
+import 'data-vis-iview/src/style/index.less';
+
+
 import axios from 'axios';
 
 const requestInterceptor = function(url, params) {
@@ -32,9 +36,10 @@ const requestInterceptor = function(url, params) {
 Vue.use(VueRouter);
 Vue.use(iView);
 Vue.use(VueI18n);
-Vue.use(FieldGenerator, {
+Vue.use(FormGenerator, {
     requestInterceptor
 });
+Vue.use(dataVis);
 
 const i18n = new VueI18n({
     locale: 'zh-CN', // 设置语言环境

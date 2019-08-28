@@ -16,7 +16,7 @@ module.exports = {
         noParse: [
             // /[\\/]node_modules[\\/]vue[\\/]/,
             /[\\/]node_modules[\\/]vuex[\\/]/,
-            /[\\/]node_modules[\\/]echarts[\\/]/
+            // /[\\/]node_modules[\\/]echarts[\\/]/
         ],
         // https://doc.webpack-china.org/guides/migrating/#module-loaders-module-rules
         rules: [
@@ -94,6 +94,7 @@ module.exports = {
         alias: {
             // 'vue': 'vue/dist/vue.esm.js',
             'vuex': 'vuex/dist/vuex.min.js',
+            'echarts': 'echarts/dist/echarts.min.js',
             '@': resolve('src')
         }
     },
