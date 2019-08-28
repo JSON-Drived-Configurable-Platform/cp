@@ -108,8 +108,8 @@ export default {
             name: '/examples',
             submenu: [
                 {
-                    label: 'Form Generator',
-                    name: '/form-generator-example'
+                    label: 'Group Form',
+                    name: '/group-form'
                 },
                 {
                     label: 'Editable-Table',

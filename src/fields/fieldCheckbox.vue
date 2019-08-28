@@ -57,6 +57,14 @@ export default {
         },
         optionsApi() {
             return !Array.isArray(this.field.options) ? this.field.options : '';
+        },
+        value() {
+            return this.form.model[this.field.model] || [];
+        }
+    },
+    watch: {
+        value(value = []) {
+            this.checkAllGroupChange(value);
         }
     },
     methods: {

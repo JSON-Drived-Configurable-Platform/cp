@@ -500,6 +500,21 @@ export const fields = [
         apiParams: ['province', 'cidy'],
         model: 'town',
         defaultHide: true
+    },
+    {
+        type: 'Submit',
+        subtype: 'primary',
+        text: '提交',
+        width: '50%',
+        inline: true
+    },
+    {
+        type: 'Reset',
+        subtype: 'primary',
+        text: '重置',
+        width: '50%',
+        labelWidth: 0,
+        inline: true
     }
 ];
 
@@ -566,16 +581,17 @@ export const model = {
 
 export const options = {
     labelWidth: 120,
-    // inline: true,
-    itemWidth: '400',
-    title: '测试表单',
+
+    title: ' 分组表单',
     labelPosition: 'left',
-    // extraType: 'bottom',
     tip: {
         title: '规则',
         content: '规则内容',
     },
-    apiBase: '',
+    // extraType: 'bottom',
+    // inline: true,
+    // itemWidth: '400',
+    // apiBase: '',
     // size: 'small'
 };
 
