@@ -159,7 +159,7 @@ export default {
                 rules.push({
                     required: true,
                     type: getValidType(field),
-                    message: field.label || field.model + '不可为空',
+                    message: (field.label || field.model) + '不可为空',
                     trigger: 'change'
                 });
             }

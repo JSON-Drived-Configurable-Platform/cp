@@ -6,26 +6,38 @@
                 FormGeneratorIView 作为<a href="https://github.com/BingBlog/cp" target="_blank">CP - Configurable Platform</a>的一部分。
                 主要是为了解决在配置系统中大量的表单需求。这一点受到了<a target="_blank" href="https://github.com/mozilla-services/react-jsonschema-form">react-jsonschema-form</a>以及<a href="https://github.com/baidu/amis" target="_blank">amis配置工具</a>的启发。
             </p>
+
             <inAnchor
-                title="我的中台表单开发经历"
+                title="一个常见的场景"
                 h2
             />
-            <p>
+            <!-- <p>
                 表单是中台组件化中非常重要的一部分。<strong>Ant Design</strong>、<strong>Element</strong>、<strong>iView</strong>都通过组件大大提升了中台的开发效率。
                 特别是经过了巨大的视觉、交互的投入后，这些组件库为中台的表单开发，提供了往常前端工程师无法独自开发出来的产品功能和体验。
+            </p> -->
+            <p>
+                如果一个平台中，有着大量的表单需求。直接通过组件拼装完成开发任务需要大量的人力和时间，后期表单项的频繁变更也增加了维护成本，而这些工作里面大多都是枯燥的重复工作。
             </p>
             <p style="text-align: center;">
                 <img width="100%" src="./example1.jpg" alt="大量表单的示例">
                 <strong>大量表单中台的示例（多个产品线，每个产品线对应多个页面）</strong>
             </p>
             <p>
-                如果一个平台中，有着大量的表单需求。直接通过组件拼装完成开发任务需要大量的人力和时间，后期表单项的频繁变更也增加了维护成本，而这些工作里面大多都是枯燥的重复工作。
-            </p>
-            <p>
                 通过表单渲染工具，将所有配置维护在JSON中，可以一定程度上解决这些问题。
             </p>
             <p>
                 其最大的优点是，不论前端还是后端同学，都可以通过编码来控制JSON配置，大大减少了表单的开发工作量。
+            </p>
+
+            <inAnchor
+                title="类似的场景"
+                h2
+            />
+            <p>
+                <ul>
+                    <li><strong>同时支持几十个页面的数据查询报表:</strong>在数据平台中有这大量的类似上图的场景，需要同时支持多个甚至几十个页面，且他们的结构通常比较相似；</li>
+                    <li><strong>可编辑的表格:</strong>在一个表格中对数据直接进行修改，且不同列的编辑形式不同，要支持输入、数值、日期、下来、选择等编辑形式；</li>
+                </ul>
             </p>
 
             <inAnchor

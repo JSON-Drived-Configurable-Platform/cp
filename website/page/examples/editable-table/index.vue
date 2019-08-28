@@ -1,6 +1,6 @@
 <template>
     <div class="control-generaotor-demo">
-        <Form :model="editModel">
+        <Form ref="form" :model="editModel">
             <Table
                 :columns="columns"
                 :data="data"
@@ -65,8 +65,12 @@ export default {
             this.editModel.index = index;
         },
         handleSave (index) {
-            this.data.splice(index, 1, this.editModel);
-            this.editModel.index = -1;
+            this.$refs.form.validate(valid => {
+                if (valid) {
+                    this.data.splice(index, 1, this.editModel);
+                    this.editModel.index = -1;
+                }
+            });
         },
         handleFieldChange(model, value) {
             this.$set(this.editModel, model, value);
