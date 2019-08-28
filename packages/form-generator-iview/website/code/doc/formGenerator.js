@@ -332,6 +332,160 @@ export default {
 </template>
 `;
 
+// 联动-隐藏
+
+// 简单示例
+let hiddenOn = {};
+
+const hiddenOnfields = [
+    {
+        label: '登录方式',
+        type: 'Radio',
+        model: 'loginType',
+        options: [
+            {label: '用户名密码登录', 'value': '1'},
+            {label: '手机号登录', 'value': '2'}
+        ],
+        required: true
+    },
+    {
+        label: '用户名',
+        type: 'Input',
+        model: 'username',
+        placehold: 'Username',
+        prefix: 'ios-person-outline',
+        rules: [
+            {
+                required: true,
+                message: 'Please fill in the user name',
+                trigger: 'blur'
+            }
+        ],
+        showOn: {
+            loginType: [{
+                type: 'enum',
+                enum: ['1']
+            }]
+        }
+    },
+    {
+        label: '密码',
+        type: 'Input',
+        subtype: 'password',
+        model: 'password',
+        placehold: 'Password',
+        prefix: 'ios-lock-outline',
+        rules: [
+            {
+                required: true,
+                message: 'Please fill in the password.',
+                trigger: 'blur'
+            },
+            {
+                type: 'string',
+                min: 6,
+                message: 'The password length cannot be less than 6 bits',
+                trigger: 'blur'
+            }
+        ],
+        showOn: {
+            loginType: [{
+                type: 'enum',
+                enum: ['1']
+            }]
+        }
+    },
+    {
+        label: '手机号',
+        type: 'Input',
+        model: 'phoneNumber',
+        placehold: 'PhoneNumber',
+        prefix: 'ios-person-outline',
+        required: true,
+        showOn: {
+            loginType: [{
+                type: 'enum',
+                required: true,
+                enum: ['2']
+            }]
+        }
+    },
+    {
+        // label: '发送验证码',
+        type: 'Button',
+        text: '发送验证码',
+        action: {
+            type: 'ajax',
+            api: '/sendValidCode'
+        },
+        showOn: {
+            loginType: [{
+                type: 'enum',
+                required: true,
+                enum: ['2']
+            }],
+            phoneNumber: [{
+                type: 'string',
+                required: true
+            }]
+        }
+    },
+    {
+        label: '验证码',
+        type: 'Input',
+        model: 'valideCode',
+        placehold: 'Please input valide code you riceived',
+        prefix: 'ios-lock-outline',
+        required: true,
+        showOn: {
+            loginType: [{
+                type: 'enum',
+                required: true,
+                enum: ['2']
+            }]
+        }
+    },
+    {
+        type: 'Submit',
+        subtype: 'primary',
+        text: '登录',
+        width: 80,
+    }
+];
+
+const hiddenOnModel = {
+    loginType: '1',
+    username: '',
+    password: ''
+};
+
+hiddenOn.data = {
+    fields: hiddenOnfields,
+    model: hiddenOnModel
+};
+
+hiddenOn.code = `
+<script>
+const field = ${JSON.stringify(hiddenOnfields, null, 4)};
+const model = ${JSON.stringify(hiddenOnModel, null, 4)};
+export default {
+    data() {
+        return {
+            field,
+            model,
+            options
+        };
+    }
+};
+<script>
+<template>
+    <FormGenerator
+        :field="field"
+        :options="options"
+        :model="model"
+    />
+</template>
+`;
 
 // 上传
 
@@ -340,5 +494,6 @@ export default {
 export default {
     simple,
     form,
-    validate
+    validate,
+    hiddenOn
 };
