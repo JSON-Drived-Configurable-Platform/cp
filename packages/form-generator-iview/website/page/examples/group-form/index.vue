@@ -10,18 +10,6 @@
                         :options="options"
                         :request-interceptor="requestInterceptor"
                     />
-                    <Button
-                        :style="{marginTop: '20px'}"
-                        @click="submit"
-                    >
-                        提交
-                    </Button>
-                    <Button
-                        :style="{marginTop: '20px'}"
-                        @click="reset"
-                    >
-                        重置
-                    </Button>
                 </div>
             </iCol>
             <iCol

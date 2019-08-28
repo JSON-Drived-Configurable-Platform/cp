@@ -21,7 +21,7 @@ const TimePicker = () => import(/* webpackChunkName: "TimePicker" */ '../page/do
 const Cascader = () => import(/* webpackChunkName: "Cascader" */ '../page/doc/Cascader');
 const InputNumber = () => import(/* webpackChunkName: "InputNumber" */ '../page/doc/InputNumber');
 const Upload = () => import(/* webpackChunkName: "Upload" */ '../page/doc/Upload');
-const formGeneratorExample = () => import(/* webpackChunkName: "formGeneratorExample" */ '../page/examples/form-generator-example');
+const groupForm = () => import(/* webpackChunkName: "formGeneratorExample" */ '../page/examples/group-form');
 const editableTable = () => import(/* webpackChunkName: "fieldGeneratorExample" */ '../page/examples/editable-table');
 
 export default [
@@ -122,9 +122,9 @@ export default [
             //     component: ImgUpload
             // },
             {
-                path: '/form-generator-example',
+                path: '/group-form',
                 name: 'data',
-                component: formGeneratorExample
+                component: groupForm
             },
             {
                 path: '/editable-table',
