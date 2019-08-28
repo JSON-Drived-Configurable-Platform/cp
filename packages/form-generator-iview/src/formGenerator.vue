@@ -334,6 +334,8 @@ export default {
         },
 
         handleReset() {
+            // TODO still has problem
+            this.$refs.form.resetFields();
             this.reset();
         },
 
