@@ -47,6 +47,20 @@
                 </div>
                 <i-code slot="code" lang="html">{{ code.validate.code }}</i-code>
             </Demo>
+            <Demo title="联动">
+                <div slot="demo">
+                    <FormGenerator
+                        :fields="code.hiddenOn.data.fields"
+                        :model="code.hiddenOn.data.model"
+                        :options="code.hiddenOn.data.options"
+                    />
+                </div>
+                <div slot="desc">
+                    <!-- <p>validateGenerator组件依赖三个属性: <code>fields</code>, <code>model</code>, <code>options</code>。</p> -->
+                    <!-- <p>通过设置<code>fields</code>, <code>model</code>, <code>options</code>即可生成一个表单UI。</p> -->
+                </div>
+                <i-code slot="code" lang="html">{{ code.hiddenOn.code }}</i-code>
+            </Demo>
         </article>
     </i-article>
 </template>

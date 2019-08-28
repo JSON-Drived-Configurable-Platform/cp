@@ -131,6 +131,7 @@ import FieldGenerator from './fieldGenerator';
 import {classPrifix} from './utils/const';
 import vClickOutside from 'v-click-outside';
 import {getValidType} from './utils/getValidType';
+import schema from 'async-validator';
 export default {
     name: 'FormGenerator',
     components: {
@@ -260,7 +261,7 @@ export default {
                 ...this.computedFields.defaultHideFields.filter(
                     item => this.selectedDefaultHideFields.includes(item.model)
                 )
-            ];
+            ].filter(item => this.checkHiddenOn(item));
         },
         // 根据apiParams计算出某字段更改后，受影响的字段有哪些
         needResetFieldsOnChangeMap() {
@@ -365,6 +366,31 @@ export default {
         },
         handleExtraSelectRightContentClickOutside() {
             this.isShowExtra = !this.isShowExtra;
+        },
+
+        checkHiddenOn(item) {
+            let show = true;
+            const model = this.model;
+            if (item.hiddenOn) {
+                let descriptor = item.hiddenOn;
+                let validator = new schema(descriptor);
+                validator.validate(model, (errors) => {
+                    if(!errors) {
+                        show = false;
+                    }
+                });
+            }
+            if (item.showOn) {
+                let descriptor = item.showOn;
+                let validator = new schema(descriptor);
+                validator.validate(model, (errors) => {
+                    if(errors) {
+                        show = false;
+                    }
+                });
+            }
+            // console.log(item.model, valid, model);
+            return show;
         }
     }
 };
