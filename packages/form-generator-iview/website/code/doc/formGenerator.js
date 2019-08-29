@@ -280,7 +280,6 @@ let validateFields = [
     },
     {
         type: 'Reset',
-        subtype: 'primary',
         text: '重置',
         width: '50%',
         labelWidth: 0,
@@ -326,12 +325,192 @@ export default {
 </template>
 `;
 
+// 分割线
+let divider = {};
+
+const dividerFields = [
+    {
+        type: 'Divider',
+        label: 'Personal',
+        orientation: 'left',
+        dashed: true
+    },
+    {
+        type: 'Input',
+        label: 'Name',
+        model: 'name'
+    },
+    {
+        type: 'DatePicker',
+        label: 'Birth',
+        model: 'birth'
+    },
+    {
+        type: 'Radio',
+        subtype: 'button',
+        size: 'small',
+        label: 'Favorite Animal',
+        options: [
+            {
+                label: 'Tiger',
+                value: 'tiger'
+            },
+            {
+                label: 'Lion',
+                value: 'lion'
+            },
+            {
+                label: 'Bear',
+                value: 'bear'
+            },
+            {
+                label: 'Bull',
+                value: 'bull'
+            },
+            {
+                label: 'Serval',
+                value: 'Serval'
+            }
+        ],
+        model: 'animal'
+    },
+    {
+        type: 'Divider',
+        label: 'Account',
+        orientation: 'left',
+        dashed: true
+    },
+    {
+        type: 'Input',
+        subtype: 'email',
+        label: 'Email',
+        placehold: 'example@email.com',
+        model: 'email'
+    },
+    {
+        type: 'Input',
+        subtype: 'password',
+        label: 'Password',
+        model: 'password'
+    },
+    {
+        type: 'Input',
+        subtype: 'password',
+        label: 'Verify Password',
+        model: 'varifyPassword'
+    },
+    {
+        type: 'Divider',
+        label: 'Contact',
+        orientation: 'left',
+        dashed: true
+    },
+    {
+        type: 'Input',
+        label: 'Address',
+        model: 'address'
+    },
+    {
+        type: 'Select',
+        label: 'State',
+        options: [
+            {
+                label: 'China',
+                value: 'China'
+            },
+            {
+                label: 'America',
+                value: 'America'
+            },
+            {
+                label: 'British',
+                value: 'British'
+            },
+            {
+                label: 'Japan',
+                value: 'Japan'
+            }
+        ],
+        model: 'state'
+    },
+    {
+        type: 'Input',
+        label: 'Phone',
+        model: 'phone'
+    },
+    {
+        type: 'Divider',
+        orientation: 'left',
+        dashed: true,
+        size: 'small'
+    },
+    {
+        type: 'Submit',
+        subtype: 'primary',
+        text: 'Submit',
+        width: '50%',
+        inline: true
+    },
+    {
+        type: 'Reset',
+        text: 'Reset',
+        labelWidth: '30',
+        width: '50%',
+        inline: true
+    }
+];
+const dividerModel = {
+    name: '',
+    birth: '',
+    animal: '',
+    email: '',
+    password: '',
+    varifyPassword: '',
+    address: '',
+    state: '',
+    phone: ''
+};
+
+const dividerOptions = {
+    labelWidth: 100
+};
+
+divider.data = {
+    fields: dividerFields,
+    model: dividerModel,
+    options: dividerOptions
+};
+
+divider.code = `
+<script>
+const field = ${JSON.stringify(dividerFields, null, 4)};
+const model = ${JSON.stringify(dividerModel, null, 4)};
+const options = ${JSON.stringify(dividerOptions, null, 4)};
+export default {
+    data() {
+        return {
+            field,
+            model,
+            options
+        };
+    }
+};
+<script>
+<template>
+    <FormGenerator
+        :field="field"
+        :options="options"
+        :model="model"
+    />
+</template>
+`;
+
+
 // 联动-隐藏
 
-// 简单示例
 let hiddenOn = {};
 
-const hiddenOnfields = [
+const hiddenOnFields = [
     {
         label: '登录方式',
         type: 'Radio',
@@ -454,13 +633,13 @@ const hiddenOnModel = {
 };
 
 hiddenOn.data = {
-    fields: hiddenOnfields,
+    fields: hiddenOnFields,
     model: hiddenOnModel
 };
 
 hiddenOn.code = `
 <script>
-const field = ${JSON.stringify(hiddenOnfields, null, 4)};
+const field = ${JSON.stringify(hiddenOnFields, null, 4)};
 const model = ${JSON.stringify(hiddenOnModel, null, 4)};
 export default {
     data() {
@@ -481,6 +660,8 @@ export default {
 </template>
 `;
 
+// 联动-选项
+
 // 上传
 
 // 扩展-图片上传
@@ -489,5 +670,6 @@ export default {
     simple,
     form,
     validate,
+    divider,
     hiddenOn
 };
