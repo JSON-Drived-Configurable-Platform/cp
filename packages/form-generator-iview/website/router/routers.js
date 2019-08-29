@@ -24,6 +24,8 @@ const Upload = () => import(/* webpackChunkName: "Upload" */ '../page/doc/Upload
 const groupForm = () => import(/* webpackChunkName: "groupForm" */ '../page/examples/group-form');
 const editableTable = () => import(/* webpackChunkName: "editableTable" */ '../page/examples/editable-table');
 const searchableChart = () => import(/* webpackChunkName: "searchableChart" */ '../page/examples/searchable-chart');
+const twoRelatedForm = () => import(/* webpackChunkName: "twoRelatedForm" */ '../page/examples/two-related-form');
+
 
 export default [
     {
@@ -136,6 +138,11 @@ export default [
                 path: '/searchable-chart',
                 name: 'searchable-chart',
                 component: searchableChart
+            },
+            {
+                path: '/two-related-form',
+                name: 'two-related-form',
+                component: twoRelatedForm
             }
         ]
     }

@@ -171,7 +171,6 @@ export default {
         },
         options: {
             type: Object,
-            required: true,
             default() {
                 return {};
             }
@@ -291,14 +290,14 @@ export default {
     //     }
     // },
     methods: {
-        handleFieldChange(model){
+        handleFieldChange(model, value){
             // 关联项需要清空
             let needResetFields = this.needResetFieldsOnChangeMap[model] || [];
             needResetFields.forEach(field => {
                 this.resetField(field);
             });
-            // this.$set(this.formModel, model, value);
             this.$refs.form.validateField(model);
+            this.$emit('on-field-change', model, value);
         },
 
         handleSubmit() {
