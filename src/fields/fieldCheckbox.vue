@@ -2,7 +2,7 @@
     <div>
         <div
             v-if="field.checkAll"
-            style="border-bottom: 1px solid #e9e9e9;padding-bottom:6px;margin-bottom:6px;"
+            :class="checkAllClasses"
         >
             <Checkbox
                 :indeterminate="indeterminate"
@@ -28,6 +28,7 @@
 </template>
 <script>
 import getOptions from '../mixins/getOptions';
+import {classPrifix} from '../utils/const';
 export default {
     inject: ['form'],
     mixins: [getOptions],
@@ -52,6 +53,12 @@ export default {
         };
     },
     computed: {
+        classes() {
+            return `${classPrifix}-${this.field.type.toLowerCase()}`;
+        },
+        checkAllClasses() {
+            return `${this.classes}-checkall`;
+        },
         computedOptions() {
             return this.options.length > 0 ? this.options : this.field.options;
         },
