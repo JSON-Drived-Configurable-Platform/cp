@@ -118,7 +118,11 @@ export default {
                 {
                     label: 'Searchable-Chart',
                     name: '/searchable-chart'
-                }
+                },
+                {
+                    label: 'Two-Related-Form',
+                    name: 'two-related-form'
+                },
             ]
         },
     ]
