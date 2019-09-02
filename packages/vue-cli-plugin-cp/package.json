@@ -1,0 +1,16 @@
+{
+  "name": "vue-cli-plugin-cp",
+  "version": "0.0.1",
+  "description": "A plugin for vue-cli to manage project when using Configurable-Platform ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vue-cli-plugin",
+    "cp",
+    "configurable-platform"
+  ],
+  "author": "abingblog@gmail.com",
+  "license": "MIT"
+}
