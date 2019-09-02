@@ -1,0 +1,51 @@
+Arguments: 
+  /usr/local/bin/node /Users/mac/.yarn/bin/yarn.js publish
+
+PATH: 
+  /Users/mac/.yarn/bin:/Users/mac/.config/yarn/global/node_modules/.bin:/usr/local/opt/libxml2/bin:/usr/local/opt/php/sbin:/usr/local/opt/php/bin:/usr/local/sbin:/usr/local/sbin:/Users/mac/Documents/study/google-analytics/google-cloud-sdk/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Applications/Wireshark.app/Contents/MacOS:/Users/mac/Documents/study/flutter/bin
+
+Yarn version: 
+  1.17.3
+
+Node version: 
+  10.3.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: http://registry.npm.baidu.com/-/user/org.couchdb.user:bingblog: this user already exists
+      at Request.params.callback [as _callback] (/Users/mac/.yarn/lib/cli.js:66830:18)
+      at Request.self.callback (/Users/mac/.yarn/lib/cli.js:140464:22)
+      at Request.emit (events.js:182:13)
+      at Request.<anonymous> (/Users/mac/.yarn/lib/cli.js:141436:10)
+      at Request.emit (events.js:182:13)
+      at IncomingMessage.<anonymous> (/Users/mac/.yarn/lib/cli.js:141358:12)
+      at Object.onceWrapper (events.js:273:13)
+      at IncomingMessage.emit (events.js:187:15)
+      at endReadableNT (_stream_readable.js:1090:12)
+      at process._tickCallback (internal/process/next_tick.js:63:19)
+
+npm manifest: 
+  {
+    "name": "vue-cli-plugin-cp",
+    "version": "0.0.2",
+    "description": "A plugin for vue-cli to manage project when using Configurable-Platform ",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+      "vue-cli-plugin",
+      "cp",
+      "configurable-platform"
+    ],
+    "author": "abingblog@gmail.com",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
