@@ -454,7 +454,7 @@ const dividerFields = [
     {
         type: 'Reset',
         text: 'Reset',
-        labelWidth: '30',
+        labelWidth: 30,
         width: '50%',
         inline: true
     }

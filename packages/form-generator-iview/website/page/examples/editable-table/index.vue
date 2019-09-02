@@ -1,5 +1,5 @@
 <template>
-    <div class="control-generaotor-demo">
+    <div class="editable-table-demo">
         <Form ref="form" :model="editModel">
             <Table :columns="columns" :data="data">
                 <!-- Detail about slot-scope, see: -->
@@ -48,7 +48,7 @@ export default {
         handleDelete(item, index) {
             this.data.splice(index, 1);
         },
-        handleSave (index) {
+        handleSave(index) {
             this.$refs.form.validate(valid => {
                 if (valid) {
                     this.data.splice(index, 1, this.editModel);
@@ -60,7 +60,7 @@ export default {
 };
 </script>
 <style lang="less">
-    .control-generaotor-demo {
+    .editable-table-demo {
         .ivu-form-item {
             margin-top: 20px;
         }

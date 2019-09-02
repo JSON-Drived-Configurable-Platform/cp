@@ -1,6 +1,6 @@
 <template>
     <div
-        v-if="notFormfield"
+        v-if="notFormfield && show"
         :class="itemClasses"
         :style="itemStyle"
     >
@@ -13,7 +13,7 @@
         />
     </div>
     <FormItem
-        v-else
+        v-else-if="show"
         :label="field.label"
         :prop="field.model"
         :required="field.required"
@@ -33,6 +33,7 @@
             @on-change="handleFieldChange"
             @on-submit-click="handleSubmitClick"
             @on-reset-click="handleResetClick"
+            @on-button-click="handleButtonClick"
             @submit="handleSubmit"
         />
     </FormItem>
@@ -41,6 +42,7 @@
 import fieldComponents from './utils/fieldsLoader.js';
 import {classPrifix} from './utils/const';
 import {getValidType} from './utils/getValidType';
+import schema from 'async-validator';
 const notFormfields = ['Divider'];
 export default {
     inject: ['form'],
@@ -86,7 +88,7 @@ export default {
         },
         itemWidth: {
             type: [String, Number],
-            default: '100%'
+            default: ''
         }
     },
     computed: {
@@ -100,13 +102,39 @@ export default {
             return notFormfields.includes(this.field.type);
         },
         itemStyle() {
-            const width = this.field.width || this.itemWidth;
             const inline = this.field.inline || this.inline;
+            const itemWidth = inline ? this.itemWidth : (this.itemWidth || '100%');
+            const width = this.field.width || itemWidth;
             return {
                 width: typeof width === 'string' ? width : width + 'px',
                 display: inline ? 'inline-block' : 'block'
                 // width: typeof width !== 'number' ? width + 'px' : width
             };
+        },
+        show() {
+            const field = this.field;
+            const model = this.form.model;
+            let show = true;
+            if (field.hiddenOn) {
+                let descriptor = field.hiddenOn;
+                let validator = new schema(descriptor);
+                validator.validate(model, (errors) => {
+                    if(!errors) {
+                        show = false;
+                    }
+                });
+            }
+            if (field.showOn) {
+                let descriptor = field.showOn;
+                let validator = new schema(descriptor);
+                validator.validate(model, (errors) => {
+                    if(errors) {
+                        show = false;
+                    }
+                });
+            }
+            // console.log(field.model, valid, model);
+            return show;
         }
     },
     methods: {
@@ -118,6 +146,9 @@ export default {
         },
         handleResetClick() {
             this.$emit('on-reset');
+        },
+        handleButtonClick($event) {
+            this.$emit('on-button-event', $event);
         },
         getFieldCom(comType = '') {
             return `field${comType}`;

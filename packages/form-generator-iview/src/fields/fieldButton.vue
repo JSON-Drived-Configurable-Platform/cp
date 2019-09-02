@@ -1,12 +1,28 @@
 <template>
+    <Poptip
+        v-if="field.confirmPoptip"
+        confirm
+        :title="field.confirmPoptip.title"
+        :placement="field.confirmPoptip.placement"
+        :class="classes"
+        @on-ok="handleClick"
+    >
+        <Button
+            :type="field.subtype || 'default'"
+            :size="field.size || 'default'"
+        >{{ field.text }}</Button>
+    </Poptip>
     <Button
+        v-else
         :type="field.subtype || 'default'"
         :size="field.size || 'default'"
+        :class="classes"
         @click="handleClick"
     >{{ text }}</Button>
 </template>
 <script>
 import axios from '../utils/http';
+import {classPrifix} from '../utils/const';
 export default {
     inject: ['form'],
     props: {
@@ -24,13 +40,24 @@ export default {
             text: ''
         };
     },
+    computed: {
+        classes() {
+            return `${classPrifix}-${this.field.type.toLowerCase()}`;
+        },
+    },
     mounted() {
         this.text = this.field.text;
     },
     methods: {
         handleClick() {
-            if (this.field.action.type === 'ajax') {
-                this.doAjaxAction();
+            switch (this.field.action.type) {
+                case 'ajax':
+                    this.doAjaxAction();
+                    break;
+                case 'event':
+                    this.$emit('on-button-click', {
+                        name: this.field.action.name
+                    });
             }
         },
         doAjaxAction() {

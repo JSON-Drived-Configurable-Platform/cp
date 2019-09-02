@@ -112,6 +112,10 @@ export default {
                     name: '/group-form'
                 },
                 {
+                    label: 'CURD Example',
+                    name: '/CURD-example'
+                },
+                {
                     label: 'Editable-Table',
                     name: '/editable-table'
                 },
