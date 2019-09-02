@@ -65,13 +65,13 @@ export const columns = [
     },
     {
         title: '地址',
-        slot: 'address',
-        formField: {
-            type: 'Input',
-            model: 'address',
-            placeholder: '请输入地址',
-            required: true
-        }
+        key: 'address'
+        // formField: {
+        //     type: 'Input',
+        //     model: 'address',
+        //     placeholder: '请输入地址',
+        //     required: true
+        // }
     },
     {
         title: '操作',
