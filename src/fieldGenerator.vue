@@ -92,6 +92,14 @@ export default {
         }
     },
     computed: {
+        computedField() {
+            let field = this.field;
+            // 老版本兼容
+            if (field.subType) {
+                field.subtype = field.subType;
+            }
+            return field;
+        },
         classes() {
             return `${classPrifix}-${this.field.type.toLowerCase()}`;
         },
