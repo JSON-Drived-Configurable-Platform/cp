@@ -20,9 +20,10 @@ export default {
     mixins: [upload],
     data() {
         return {
-            // See https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#Image_types
-            accept: 'image/gif, image/jpeg, image/png, image/apng, image/bmp, image/x-icon, image/svg+xml, image/tiff, image/webp',
-            format: ['gif', 'jpg', 'jpeg', 'png', '.apng', '.bmp', '.ico', '.cur', '.svg', '.tif', '.tiff', '.webp']
+            // See https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Containers#Browser_compatibility
+            // See https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats#Browser_compatibility
+            accept: 'video/mp4, audio/webm',
+            format: ['mp4', '.webm']
         };
     },
     computed: {

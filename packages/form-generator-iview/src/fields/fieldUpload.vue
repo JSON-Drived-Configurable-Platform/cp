@@ -36,9 +36,9 @@ export default {
     mixins: [upload],
     methods: {
         onRemove() {
-            this.uploadFileList = this.$refs.upload.fileList.slice();
+            this.uploadFileList = this.uploader.fileList.slice();
             this.handleChange();
         }
-    }
+    },
 };
 </script>

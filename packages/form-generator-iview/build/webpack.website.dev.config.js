@@ -30,7 +30,7 @@ module.exports = merge(webpackBaseConfig, {
         open: true,
         before: function(app) {
             fileNames.forEach(item => {
-                app.get(`/${item}`, function(req, res) {
+                app.all(`/${item}`, function(req, res) {
                     res.json(apiData[item]);
                 });
             });
