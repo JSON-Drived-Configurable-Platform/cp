@@ -15,11 +15,8 @@
         "form-generator-iview"
     ],
     "main": "src/index.js",
-    "typings": "types/index.d.ts",
     "files": [
-        "dist",
         "src",
-        "types"
     ],
     "scripts": {
         "dev": "webpack-dev-server --color --progress --config build/webpack.website.dev.config.js",
@@ -34,7 +31,7 @@
         "type": "git",
         "url": "https://github.com/BingBlog/form-generator-iview"
     },
-    "author": "Aresn",
+    "author": "abingblog@gmail.com",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/BingBlog/form-generator-iview"
