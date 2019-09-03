@@ -3,6 +3,6 @@
  * @author wangbing11(wangbing11@baidu.com)
  */
 
-import Layout from './Layout';
-import './layout.less';
+import Layout from "./Layout";
+import "./layout.less";
 export default Layout;

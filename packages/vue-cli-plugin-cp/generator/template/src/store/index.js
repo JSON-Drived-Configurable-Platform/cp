@@ -3,26 +3,26 @@
  * @author wangbing11(wangbing11@baidu.com)
  */
 
-import Vue from 'vue';
-import Vuex from 'vuex';
+import Vue from "vue";
+import Vuex from "vuex";
 
-import app from './module/app';
-import page from './module/page';
+import app from "./module/app";
+import page from "./module/page";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-    state: {
+  state: {
     //
-    },
-    mutations: {
+  },
+  mutations: {
     //
-    },
-    actions: {
+  },
+  actions: {
     //
-    },
-    modules: {
-        app,
-        page
-    }
+  },
+  modules: {
+    app,
+    page
+  }
 });

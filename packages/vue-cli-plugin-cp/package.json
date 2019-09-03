@@ -9,7 +9,8 @@
   "homepage": "https://github.com/BingBlog/vue-cli-plugin-cp",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "format": "prettier --write \"./**/*.{js,vue,json}\"",
+    "lint": "eslint ./ --fix"
   },
   "keywords": [
     "vue-cli-plugin",
@@ -19,6 +20,13 @@
   "author": "abingblog@gmail.com",
   "license": "MIT",
   "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.3.0",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-loader": "^3.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-vue": "^5.2.3",
+    "prettier": "^1.18.2",
     "rimraf": "^3.0.0"
   }
 }

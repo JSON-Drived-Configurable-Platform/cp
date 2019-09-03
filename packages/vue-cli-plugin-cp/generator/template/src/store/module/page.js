@@ -5,12 +5,12 @@
 
 /* eslint-disable no-param-reassign */
 export default {
-    state: {
-        pagePath: ''
-    },
-    mutations: {
-        setPagePath(state, pagePath) {
-            state.pagePath = pagePath;
-        }
+  state: {
+    pagePath: ""
+  },
+  mutations: {
+    setPagePath(state, pagePath) {
+      state.pagePath = pagePath;
     }
+  }
 };

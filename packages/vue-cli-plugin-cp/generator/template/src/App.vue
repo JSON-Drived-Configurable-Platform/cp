@@ -1,15 +1,14 @@
 <template>
-    <div class="app">
-        <router-view />
-    </div>
+  <div class="app">
+    <router-view />
+  </div>
 </template>
 
 <script>
 export default {
-    data() {
-        return {};
-    }
+  data() {
+    return {};
+  }
 };
 </script>
-<style lang="less">
-</style>
+<style lang="less"></style>
