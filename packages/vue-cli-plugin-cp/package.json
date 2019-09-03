@@ -2,6 +2,11 @@
   "name": "vue-cli-plugin-cp",
   "version": "0.0.1",
   "description": "A plugin for vue-cli to manage project when using Configurable-Platform ",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BingBlog/vue-cli-plugin-cp"
+  },
+  "homepage": "https://github.com/BingBlog/vue-cli-plugin-cp",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,5 +17,8 @@
     "configurable-platform"
   ],
   "author": "abingblog@gmail.com",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "rimraf": "^3.0.0"
+  }
 }
