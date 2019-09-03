@@ -16,7 +16,7 @@
     ],
     "main": "src/index.js",
     "files": [
-        "src",
+        "src"
     ],
     "scripts": {
         "dev": "webpack-dev-server --color --progress --config build/webpack.website.dev.config.js",
