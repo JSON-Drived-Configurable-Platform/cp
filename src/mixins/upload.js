@@ -16,13 +16,16 @@ export default {
         return {
             defaultFileList: [],
             uploadFileList: [],
-            loading: false
+            loading: false,
+            uploader: null
         };
     },
     watch: {
         value(value) {
             this.uploadFileList = value;
-            this.$refs.upload.fileList = this.uploadFileList;
+            if (this.uploader) {
+                this.uploader.fileList = this.uploadFileList;
+            }
         }
     },
     computed: {
@@ -38,8 +41,9 @@ export default {
         }
     },
     mounted() {
+        this.uploader = this.$refs.upload || this.$refs.mediaUpload.$refs.upload;
         this.uploadFileList = this.value;
-        this.$refs.upload.fileList = this.uploadFileList;
+        this.uploader.fileList = this.uploadFileList;
     },
     methods: {
         handleChange() {
@@ -51,7 +55,7 @@ export default {
             if (url) {
                 this.$Message.info('上传成功!');
                 file.url = url;
-                this.uploadFileList = this.$refs.upload.fileList.slice();
+                this.uploadFileList = this.uploader.fileList.slice();
                 this.handleChange();
             }
             else {
