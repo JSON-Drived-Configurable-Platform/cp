@@ -464,6 +464,22 @@ export const fields = [
         tip: '上传的提示信息或者帮助信息'
     },
     {
+        type: 'MediaUpload',
+        subtype: 'drag',
+        maxSize: 200000,
+        action: '/uploadVideoApi',
+        multiple: true,
+        paste: true,
+        data: {
+            userName: 'bingblog'
+        },
+        nameEditable: true,
+        withCredentials: true,
+        label: '媒体上传',
+        model: 'mediaUpload',
+        tip: '上传的提示信息或者帮助信息'
+    },
+    {
         type: 'Select',
         label: '省',
         api: '/selectApi',
@@ -565,6 +581,13 @@ export const model = {
             name: 'b6aafe3af127fd2ef47a1afb54fcd4bd.mp4',
             url: 'http://sc4.hao123img.com/materials/xz.upload/b6/b6aafe3af127fd2ef47a1afb54fcd4bd.mp4'
         }
+    ],
+    mediaUpload: [
+        {
+            id: '134142141234121421341234',
+            name: '08a237bc1a51794c8e3ff2d410045066.mp4',
+            url: 'http://sc2.hao123img.com/materials/xz.upload/08/08a237bc1a51794c8e3ff2d410045066.mp4'
+        },
     ],
     province: '',
     city: '',
