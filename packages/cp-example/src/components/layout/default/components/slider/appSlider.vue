@@ -8,19 +8,19 @@
       @on-select="handleSelect"
     >
       <template v-for="(menu, i) in menuList">
-        <Submenu v-if="menu.submenu" :key="i" :name="menu.name">
+        <Submenu v-if="menu.submenu" :key="i" :name="menu.path">
           <template slot="title">
             {{ menu.label }}
           </template>
           <MenuItem
             v-for="(item, j) in menu.submenu"
             :key="j"
-            :name="item.name"
+            :name="item.path"
           >
             {{ item.label }}
           </MenuItem>
         </Submenu>
-        <MenuItem v-else :key="i" :name="menu.name">
+        <MenuItem v-else :key="i" :name="menu.path">
           {{ menu.label }}
         </MenuItem>
       </template>
