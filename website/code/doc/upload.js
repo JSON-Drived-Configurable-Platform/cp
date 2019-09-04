@@ -100,12 +100,12 @@ image.data = {
 
 image.code = `
 <script>
-const field = ${JSON.stringify(field, null, 4)};
+const field = ${JSON.stringify(imageField, null, 4)};
 export default {
     data() {
         return {
             field,
-            model: ${JSON.stringify(model)}
+            model: ${JSON.stringify(imageModel)}
         };
     }
     methods: {
@@ -163,12 +163,12 @@ video.data = {
 
 video.code = `
 <script>
-const field = ${JSON.stringify(field, null, 4)};
+const field = ${JSON.stringify(videoField, null, 4)};
 export default {
     data() {
         return {
             field,
-            model: ${JSON.stringify(model)}
+            model: ${JSON.stringify(videoModel)}
         };
     }
     methods: {
