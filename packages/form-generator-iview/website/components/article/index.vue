@@ -7,7 +7,7 @@
             <div class="wrapper-container">
                 <Row>
                     <i-col span="21">
-                        <div class="wrapper-content ivu-article">
+                        <div class="wrapper-content">
                             <slot />
                         </div>
                     </i-col>
