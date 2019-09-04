@@ -92,14 +92,6 @@ export default {
         }
     },
     computed: {
-        computedField() {
-            let field = this.field;
-            // 老版本兼容
-            if (field.subType) {
-                field.subtype = field.subType;
-            }
-            return field;
-        },
         classes() {
             return `${classPrifix}-${this.field.type.toLowerCase()}`;
         },
@@ -144,6 +136,14 @@ export default {
             // console.log(field.model, valid, model);
             return show;
         }
+    },
+    created() {
+        let field = this.field;
+        // 老版本兼容
+        if (field.subType) {
+            field.subtype = field.subType;
+        }
+        return field;
     },
     methods: {
         handleFieldChange(model, value) {
