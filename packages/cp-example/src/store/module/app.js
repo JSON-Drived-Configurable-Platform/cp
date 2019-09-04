@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { getMenuList } from "../service/app";
+import services from "@/service";
 
 export default {
   state: {
@@ -19,7 +19,8 @@ export default {
     getMenuList({ commit }) {
       return new Promise((resolve, reject) => {
         try {
-          getMenuList()
+          services
+            .getMenuList()
             .then(({ status, data }) => {
               if (+status === 200 || +status === 0) {
                 commit("setMenuList", data);

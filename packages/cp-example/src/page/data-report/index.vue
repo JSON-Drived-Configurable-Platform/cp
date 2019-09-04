@@ -31,7 +31,8 @@
 
 <script>
 import axios from "@/libs/api.request";
-import { getPageConfig } from "./service";
+import services from "@/service";
+console.log(services);
 export default {
   data() {
     return {
@@ -60,10 +61,14 @@ export default {
     }
   },
   mounted() {
-    getPageConfig().then(res => {
-      this.pageConfig = res.data;
-      this.loading = false;
-    });
+    services
+      .getPageConfig({
+        aaa: "aaa"
+      })
+      .then(res => {
+        this.pageConfig = res.data;
+        this.loading = false;
+      });
   },
   methods: {
     interceptor(url, params) {

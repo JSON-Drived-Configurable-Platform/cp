@@ -4,7 +4,7 @@
  */
 
 import Main from "../components/layout/default";
-
+import dataReportRouter from "../page/data-report/router";
 export default [
   {
     path: "/",
@@ -15,11 +15,7 @@ export default [
         path: "/home",
         component: () => import(/* webpackChunkName: "home" */ "../page/home")
       },
-      {
-        path: "/data-report",
-        component: () =>
-          import(/* webpackChunkName: "data-report" */ "../page/data-report")
-      }
+      ...dataReportRouter
     ]
   }
   // {

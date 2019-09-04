@@ -3,8 +3,8 @@ import Router from "vue-router";
 import routes from "./routers";
 import store from "../store";
 import iView from "iview";
-Vue.use(Router);
 
+Vue.use(Router);
 const router = new Router({
   routes,
   mode: "hash"

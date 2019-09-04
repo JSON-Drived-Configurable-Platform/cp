@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 /* eslint-disable no-param-reassign */
-import { getUserInfo } from "../service/user";
+import services from "@/service";
 
 export default {
   state: {
@@ -24,7 +24,8 @@ export default {
     getUserInfo({ commit }) {
       return new Promise((resolve, reject) => {
         try {
-          getUserInfo()
+          services
+            .getUserInfo()
             .then(({ status, data }) => {
               if (+status === 200 || +status === 0) {
                 commit("setDepartmentName", data.departmentName);

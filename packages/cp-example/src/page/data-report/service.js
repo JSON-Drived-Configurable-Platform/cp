@@ -1,8 +1,7 @@
-import axios from "@/libs/api.request";
-
-export const getPageConfig = () => {
-  return axios.request({
+export const getPageConfig = (params = {}) => {
+  return {
     url: "/api/data-report/page-config",
-    method: "get"
-  });
+    method: "get",
+    params
+  };
 };
