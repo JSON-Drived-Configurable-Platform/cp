@@ -10,19 +10,30 @@
 </template>
 
 <script>
-import upload from '../mixins/upload';
 import {classPrifix} from '../utils/const';
 import mediaUpload from './fieldMediaUpload';
 export default {
     components: {
         mediaUpload
     },
-    mixins: [upload],
+    inject: ['form'],
+    props: {
+        field: {
+            type: Object,
+            required: true
+        },
+        size: {
+            type: String,
+            default() {
+                return 'default';
+            }
+        },
+    },
     data() {
         return {
             // See https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#Image_types
             accept: 'image/gif, image/jpeg, image/png, image/apng, image/bmp, image/x-icon, image/svg+xml, image/tiff, image/webp',
-            format: ['gif', 'jpg', 'jpeg', 'png', '.apng', '.bmp', '.ico', '.cur', '.svg', '.tif', '.tiff', '.webp']
+            format: ['gif', 'jpg', 'jpeg', 'png', '.apng', '.bmp', '.ico', '.cur', '.svg', '.tif', '.tiff', '.webp'],
         };
     },
     computed: {

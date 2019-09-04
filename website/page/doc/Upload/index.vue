@@ -13,7 +13,6 @@
                     <Form :model="code.simple.data.model">
                         <FieldGenerator
                             :field="code.simple.data.field"
-                            :form-model="code.simple.data.model"
                             @on-field-change="handleFieldChange"
                         />
                     </Form>
@@ -22,6 +21,34 @@
                     <p>通过设置<code>field</code>, <code>model</code>即可生成一个Upload。</p>
                 </div>
                 <i-code slot="code" lang="html">{{ code.simple.code }}</i-code>
+            </Demo>
+            <Demo title="图片上传">
+                <div slot="demo">
+                    <Form :model="code.image.data.model">
+                        <FieldGenerator
+                            :field="code.image.data.field"
+                            @on-field-change="handleFieldChange"
+                        />
+                    </Form>
+                </div>
+                <div slot="desc">
+                    <p>通过设置<code>field</code>, <code>model</code>即可生成一个Upload。</p>
+                </div>
+                <i-code slot="code" lang="html">{{ code.image.code }}</i-code>
+            </Demo>
+            <Demo title="视频上传">
+                <div slot="demo">
+                    <Form :model="code.video.data.model">
+                        <FieldGenerator
+                            :field="code.video.data.field"
+                            @on-field-change="handleFieldChange"
+                        />
+                    </Form>
+                </div>
+                <div slot="desc">
+                    <p>通过设置<code>field</code>, <code>model</code>即可生成一个Upload。</p>
+                </div>
+                <i-code slot="code" lang="html">{{ code.video.code }}</i-code>
             </Demo>
         </article>
     </i-article>

@@ -19,6 +19,7 @@
             :on-format-error="onFormatError"
             :on-exceeded-size="onExceededSize"
             :on-success="onSuccess"
+            :on-progress="onProgress"
             :size="size"
         >
             <Icon
@@ -80,7 +81,7 @@
                         />
                     </template>
                     <template v-else>
-                        <Progress :percent="item.percentage" hide-info />
+                        <Progress :percent="file.percentage" hide-info />
                     </template>
                 </li>
             </ul>
@@ -109,14 +110,23 @@
 </template>
 <script>
 
-import upload from '../mixins/upload';
 import {classPrifix} from '../utils/const';
 const defaultImgExtensions = ['gif', 'jpg', 'jpeg', 'png'];
 const defaultVideoExtensions = ['mp4', '.webm'];
 export default {
-    mixins: [upload],
+    inject: ['form'],
     // props may from imgUpload or videoUpload
     props: {
+        field: {
+            type: Object,
+            required: true
+        },
+        size: {
+            type: String,
+            default() {
+                return 'default';
+            }
+        },
         accept: {
             type: String,
             default: 'image/gif, image/jpeg, image/png, video/mp4'
@@ -133,7 +143,11 @@ export default {
             previewModal: {
                 open: false,
                 file: {}
-            }
+            },
+            uploadFileList: [],
+            defaultFileList: [],
+            loading: false,
+            uploader: null
         };
     },
     computed: {
@@ -169,18 +183,69 @@ export default {
         },
         computedFormat() {
             return this.field.format || this.format;
+        },
+        tip() {
+            return this.field.tip || '点击或者拖拽文件即可上传';
+        },
+        value() {
+            let value = this.form.model[this.field.model] || [];
+            return value.map(item => {
+                item.status = 'finished';
+                return item;
+            });
         }
     },
+    watch: {
+        value(value) {
+            this.uploadFileList = value;
+            if (this.uploader) {
+                this.uploader.fileList = this.uploadFileList;
+            }
+        },
+    },
     mounted() {
-        this.uploader = this.uploader;
+        this.uploader = this.$refs.upload || this.$refs.mediaUpload.$refs.upload;
+        this.uploader.fileList = this.value;
+        this.uploadFileList = this.uploader.fileList;
     },
     methods: {
-        // 通过URL和
-        isImage({name = '', url = ''}) {
-            return defaultImgExtensions.some(item => {
-                const reg = new RegExp(`.${item}$`);
-                return reg.test(name) || reg.test(url);
+        onRemove(file) {
+            const fileList = this.uploader.fileList;
+            this.uploader.fileList.splice(fileList.indexOf(file), 1);
+            this.uploadFileList = this.uploader.fileList.slice();
+            this.handleChange();
+        },
+        onProgress(event, file, fileList) {
+            this.uploadFileList = fileList;
+        },
+        onSuccess({data = {}}, file) {
+            const {url} = data;
+            if (url) {
+                // this.$Message.info('上传成功!');
+                file.url = url;
+                this.uploadFileList = this.uploader.fileList;
+                this.handleChange();
+            }
+            else {
+                this.onRemove(file);
+                this.$Message.error('上传失败!');
+            }
+        },
+        onFormatError() {
+            this.$Message.error({
+                content: `上传文件格式需为:${this.field.accept},且后缀名为:${this.field.format}`,
+                duration: 2,
             });
+        },
+        onExceededSize() {
+            this.$Message.error({
+                content: `上传文件大小不能超过:${this.field.maxSize / 1024}MB`,
+                duration: 2,
+            });
+        },
+        handleChange() {
+            this.$set(this.form.model, this.field.model, this.uploadFileList);
+            this.$emit('on-change', this.field.model, this.uploadFileList, null, this.field);
         },
         handleRemove(e, file) {
             if (e) {
@@ -217,11 +282,12 @@ export default {
                 file: this.uploadFileList[index]
             };
         },
-        onRemove(file) {
-            const fileList = this.uploader.fileList;
-            this.uploader.fileList.splice(fileList.indexOf(file), 1);
-            this.uploadFileList = this.uploader.fileList.slice();
-            this.handleChange();
+        // 通过URL和
+        isImage({name = '', url = ''}) {
+            return defaultImgExtensions.some(item => {
+                const reg = new RegExp(`.${item}$`);
+                return reg.test(name) || reg.test(url);
+            });
         },
     }
 };

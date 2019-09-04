@@ -31,7 +31,9 @@ module.exports = merge(webpackBaseConfig, {
         before: function(app) {
             fileNames.forEach(item => {
                 app.all(`/${item}`, function(req, res) {
-                    res.json(apiData[item]);
+                    setTimeout(() => {
+                        res.json(apiData[item]);
+                    }, 2000);
                 });
             });
         },
