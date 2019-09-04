@@ -1,30 +1,40 @@
-/**
- * @file app状态
- * @author wangbing11(wangbing11@baidu.com)
- */
-
 /* eslint-disable no-param-reassign */
-import config from "../../config";
+import { getMenuList } from "../service/app";
 
-const { menuList } = config;
 export default {
   state: {
-    menuList,
-    breadCrumbList: [],
-    tagNavList: [],
-    homeRoute: {},
-    errorList: [],
-    hasReadErrorPage: false
+    menuList: [],
+    breadCrumbList: []
   },
   mutations: {
-    setLocal(state, lang) {
-      state.local = lang;
+    setMenuList(state, menuList) {
+      state.menuList = menuList;
     },
-    addError(state, error) {
-      state.errorList.push(error);
-    },
-    setHasReadErrorLoggerStatus(state, status = true) {
-      state.hasReadErrorPage = status;
+
+    breadCrumbList(state, breadCrumbList) {
+      state.breadCrumbList = breadCrumbList;
+    }
+  },
+  actions: {
+    getMenuList({ commit }) {
+      return new Promise((resolve, reject) => {
+        try {
+          getMenuList()
+            .then(({ status, data }) => {
+              if (+status === 200 || +status === 0) {
+                commit("setMenuList", data);
+                resolve(data);
+              } else {
+                reject(new Error(`response status is: ${status}`));
+              }
+            })
+            .catch(err => {
+              reject(err);
+            });
+        } catch (error) {
+          reject(error);
+        }
+      });
     }
   }
 };

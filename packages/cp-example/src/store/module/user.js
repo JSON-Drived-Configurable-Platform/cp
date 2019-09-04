@@ -1,8 +1,3 @@
-/**
- * @file 用户状态
- * @author wangbing11(wangbing11@baidu.com)
- */
-
 /* eslint-disable camelcase */
 /* eslint-disable no-param-reassign */
 import { getUserInfo } from "../service/user";

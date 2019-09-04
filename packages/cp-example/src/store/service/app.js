@@ -1,8 +1,8 @@
 import axios from "@/libs/api.request";
 
-export const getUserInfo = () => {
+export const getMenuList = () => {
   return axios.request({
-    url: "/api/user/user-info",
+    url: "/api/app/menu-list",
     method: "get"
   });
 };

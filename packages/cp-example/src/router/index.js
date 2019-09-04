@@ -11,11 +11,15 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
+  iView.LoadingBar.start();
+  if (!store.state.app.menuList.length > 0) {
+    store.dispatch("getMenuList");
+  }
   if (!store.state.user.userName) {
     store.dispatch("getUserInfo");
   }
-  iView.LoadingBar.start();
   store.commit("setPagePath", to.fullPath);
+
   next();
 });
 
