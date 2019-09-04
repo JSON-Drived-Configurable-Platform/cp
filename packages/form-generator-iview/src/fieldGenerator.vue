@@ -104,7 +104,11 @@ export default {
         itemStyle() {
             const inline = this.field.inline || this.inline;
             const itemWidth = inline ? this.itemWidth : (this.itemWidth || '100%');
-            const width = this.field.width || itemWidth;
+            let width = this.field.width || itemWidth;
+            // 兼容老版本的字符串数值，如果是数值字符串，则转为int
+            if (typeof width === 'string' && /^\d+$/.test(width)) {
+                width = parseInt(width);
+            }
             return {
                 width: typeof width === 'string' ? width : width + 'px',
                 display: inline ? 'inline-block' : 'block'
