@@ -8,6 +8,7 @@ import Vuex from "vuex";
 
 import app from "./module/app";
 import page from "./module/page";
+import user from "./module/user";
 
 Vue.use(Vuex);
 
@@ -23,6 +24,7 @@ export default new Vuex.Store({
   },
   modules: {
     app,
-    page
+    page,
+    user
   }
 });

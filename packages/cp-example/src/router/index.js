@@ -1,8 +1,3 @@
-/**
- * @file 路径配置配置
- * @author wangbing11(wangbing11@baidu.com)
- */
-
 import Vue from "vue";
 import Router from "vue-router";
 import routes from "./routers";
@@ -16,6 +11,9 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
+  if (!store.state.user.userName) {
+    store.dispatch("getUserInfo");
+  }
   iView.LoadingBar.start();
   store.commit("setPagePath", to.fullPath);
   next();

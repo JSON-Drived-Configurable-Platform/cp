@@ -36,7 +36,7 @@ export default {
   data() {
     return {
       model: {},
-      loading: false,
+      loading: true,
       pageConfig: {
         form: {},
         charts: []
@@ -62,24 +62,18 @@ export default {
   mounted() {
     getPageConfig().then(res => {
       this.pageConfig = res.data;
+      this.loading = false;
     });
   },
   methods: {
     interceptor(url, params) {
       return new Promise((resolve, reject) => {
-        const conditions = [];
-        Object.keys(params).forEach(key => {
-          conditions.push({
-            key,
-            value: params[key]
-          });
-        });
         axios
           .request({
             url,
             method: "get",
             params: {
-              conditions: JSON.stringify(conditions)
+              conditions: JSON.stringify(params)
             }
           })
           .then(
