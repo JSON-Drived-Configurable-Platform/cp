@@ -13,24 +13,34 @@ module.exports = api => {
 
   api.injectImports(
     api.entryFile,
-    `import "form-generator-iview/src/style/index.less"`
+    `import "form-generator-iview/src/style/index.less";`
   );
   api.injectImports(
     api.entryFile,
-    `import "data-vis-iview/src/style/index.less"`
+    `import "data-vis-iview/src/style/index.less";`
   );
   api.injectImports(
     api.entryFile,
-    `import "data-vis-iview/src/style/index.less"`
+    `import "data-vis-iview/src/style/index.less";`
   );
   api.injectImports(
     api.entryFile,
-    `import FormGenerator from "form-generator-iview/src/index"`
+    `import FormGenerator from "form-generator-iview/src/index";`
   );
-  api.injectImports(api.entryFile, `import DataVis from "data-vis-iview"`);
+  api.injectImports(api.entryFile, `import DataVis from "data-vis-iview";`);
+
+  api.render("./template");
 
   // Vue.use(FormGenerator);
   // Vue.use(DataVis);
-
-  api.render("./template");
+  api.onCreateComplete(() => {
+    const { EOL } = require("os");
+    const fs = require("fs");
+    const contentMain = fs.readFileSync(api.entryFile, { encoding: "utf-8" });
+    const lines = contentMain.split(/\r?\n/g);
+    const renderIndex = lines.findIndex(line => line.match(/^new\sVue\(\{$/));
+    lines[
+      renderIndex
+    ] += `${EOL}  Vue.use(FormGenerator);${EOL}  Vue.use(DataVis);`;
+  });
 };
