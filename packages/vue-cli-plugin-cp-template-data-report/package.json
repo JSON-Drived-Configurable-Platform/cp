@@ -1,12 +1,6 @@
 {
-    "name": "cp-example",
+    "name": "vue-cli-plugin-cp-template-data-report",
     "version": "0.1.0",
-    "private": true,
-    "scripts": {
-        "serve": "vue-cli-service serve",
-        "build": "vue-cli-service build",
-        "lint": "vue-cli-service lint"
-    },
     "dependencies": {
         "axios": "^0.18.0",
         "core-js": "^2.6.5",
