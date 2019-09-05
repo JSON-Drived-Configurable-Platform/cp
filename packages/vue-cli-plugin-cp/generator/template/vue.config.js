@@ -20,13 +20,13 @@ module.exports = {
       });
 
       function getMockApiData() {
-        let mockPaths = glob.sync("**/__mock__/**/*.json", {
+        let mockPaths = glob.sync("**/mock/**/*.json", {
           cwd: path.resolve(__dirname, "./src")
         });
         let mockApiData = {};
         mockPaths.forEach(mockPath => {
           console.log(mockPath);
-          const fileIndex = /^__mock__(.+)\.json/.exec(mockPath)[1];
+          const fileIndex = /^mock(.+)\.json/.exec(mockPath)[1];
           const filepath = path.resolve(
             path.resolve(__dirname, "./src"),
             mockPath
