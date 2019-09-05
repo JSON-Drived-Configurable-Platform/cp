@@ -11,5 +11,26 @@ module.exports = api => {
     }
   });
 
+  api.injectImports(
+    api.entryFile,
+    `import "form-generator-iview/src/style/index.less"`
+  );
+  api.injectImports(
+    api.entryFile,
+    `import "data-vis-iview/src/style/index.less"`
+  );
+  api.injectImports(
+    api.entryFile,
+    `import "data-vis-iview/src/style/index.less"`
+  );
+  api.injectImports(
+    api.entryFile,
+    `import FormGenerator from "form-generator-iview/src/index"`
+  );
+  api.injectImports(api.entryFile, `import DataVis from "data-vis-iview"`);
+
+  // Vue.use(FormGenerator);
+  // Vue.use(DataVis);
+
   api.render("./template");
 };
