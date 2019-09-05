@@ -1,15 +1,10 @@
-/**
- * @file 路径配置配置
- * @author wangbing11(wangbing11@baidu.com)
- */
-
 import Vue from "vue";
 import Router from "vue-router";
 import routes from "./routers";
 import store from "../store";
 import iView from "iview";
-Vue.use(Router);
 
+Vue.use(Router);
 const router = new Router({
   routes,
   mode: "hash"
@@ -17,7 +12,14 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   iView.LoadingBar.start();
+  if (!store.state.app.menuList.length > 0) {
+    store.dispatch("getMenuList");
+  }
+  if (!store.state.user.userName) {
+    store.dispatch("getUserInfo");
+  }
   store.commit("setPagePath", to.fullPath);
+
   next();
 });
 

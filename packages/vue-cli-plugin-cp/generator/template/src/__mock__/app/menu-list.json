@@ -1,0 +1,13 @@
+{
+    "status": 0,
+    "data": [
+        {
+            "label": "Home",
+            "path": "/home"
+        },
+        {
+            "label": "Data Report",
+            "path": "/data-report"
+        }
+    ]
+}

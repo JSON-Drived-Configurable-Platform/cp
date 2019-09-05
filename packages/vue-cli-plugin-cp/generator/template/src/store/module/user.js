@@ -1,29 +1,36 @@
+/* eslint-disable camelcase */
 /* eslint-disable no-param-reassign */
 import services from "@/service";
 
 export default {
   state: {
-    menuList: [],
-    breadCrumbList: []
+    userName: "",
+    userAvatar: "",
+    departmentName: ""
   },
   mutations: {
-    setMenuList(state, menuList) {
-      state.menuList = menuList;
+    setAvatar(state, userAvatar) {
+      state.userAvatar = userAvatar;
     },
-
-    breadCrumbList(state, breadCrumbList) {
-      state.breadCrumbList = breadCrumbList;
+    setUserName(state, userName) {
+      state.userName = userName;
+    },
+    setDepartmentName(state, departmentName) {
+      state.departmentName = departmentName;
     }
   },
   actions: {
-    getMenuList({ commit }) {
+    // 获取用户相关信息
+    getUserInfo({ commit }) {
       return new Promise((resolve, reject) => {
         try {
           services
-            .getMenuList()
+            .getUserInfo()
             .then(({ status, data }) => {
               if (+status === 200 || +status === 0) {
-                commit("setMenuList", data);
+                commit("setDepartmentName", data.departmentName);
+                commit("setAvatar", data.headUrl);
+                commit("setUserName", data.userName);
                 resolve(data);
               } else {
                 reject(new Error(`response status is: ${status}`));

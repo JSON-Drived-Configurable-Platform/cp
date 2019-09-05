@@ -4,44 +4,18 @@
  */
 
 import Main from "../components/layout/default";
-
-const home = () => import(/* webpackChunkName: "home" */ "../page/home");
-const groupForm = () =>
-  import(/* webpackChunkName: "groupForm" */ "../page/examples/group-form");
-const CURDExample = () =>
-  import(/* webpackChunkName: "CURDExample" */ "../page/examples/CURD-example");
-const editableTable = () =>
-  import(
-    /* webpackChunkName: "editableTable" */ "../page/examples/editable-table"
-  );
-
+import dataReportRouter from "../page/data-report/router";
 export default [
   {
     path: "/",
-    name: "home",
     redirect: "/home",
     component: Main,
     children: [
       {
         path: "/home",
-        name: "home",
-        component: home
+        component: () => import(/* webpackChunkName: "home" */ "../page/home")
       },
-      {
-        path: "/group-form",
-        name: "group-form",
-        component: groupForm
-      },
-      {
-        path: "/CURD-example",
-        name: "CURD-example",
-        component: CURDExample
-      },
-      {
-        path: "/editable-table",
-        name: "editable-table",
-        component: editableTable
-      }
+      ...dataReportRouter
     ]
   }
   // {

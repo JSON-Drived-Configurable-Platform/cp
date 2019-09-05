@@ -31,25 +31,11 @@ export default {
   menuList: [
     {
       label: "Home",
-      name: "/home"
+      path: "/home"
     },
     {
-      label: "Examples",
-      name: "/examples",
-      submenu: [
-        {
-          label: "Group Form",
-          name: "/group-form"
-        },
-        {
-          label: "CURD Example",
-          name: "/CURD-example"
-        },
-        {
-          label: "Editable-Table",
-          name: "/editable-table"
-        }
-      ]
+      label: "Data Report",
+      path: "/data-report"
     }
   ]
 };

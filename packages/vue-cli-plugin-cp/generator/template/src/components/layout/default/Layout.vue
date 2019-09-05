@@ -10,7 +10,7 @@
           @on-select="turnToPage"
         />
         <Layout class="layout-body-right">
-          <!-- <Breadcrumb :cat="cat" /> -->
+          <Breadcrumb v-if="breadcrumb.length > 1" :data="breadcrumb" />
           <Content class="layout-body-right-content">
             <router-view />
           </Content>
@@ -22,13 +22,14 @@
 
 <script>
 import appHeader from "./components/header/appHeader";
-// import Breadcrumb from './components/breadcrumb/Breadcrumb';
+import Breadcrumb from "./components/breadcrumb/Breadcrumb";
 import appSlider from "./components/slider/appSlider";
 import config from "../../../config";
+import { computeBreadCrumbList } from "../../../libs/utils";
 export default {
   components: {
     appHeader,
-    // Breadcrumb,
+    Breadcrumb,
     appSlider
   },
   data() {
@@ -40,12 +41,16 @@ export default {
       return this.$store.state.app.menuList || [];
     },
 
-    openNames() {
-      return config.defaultOpenNames ? [config.defaultOpenNames] : [];
-    },
-
     pagePath() {
       return this.$store.state.page.pagePath || "";
+    },
+
+    breadcrumb() {
+      return computeBreadCrumbList(this.pagePath, this.menuList);
+    },
+
+    openNames() {
+      return config.defaultOpenNames ? [config.defaultOpenNames] : [];
     }
   },
 
