@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-plugin-cp",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A plugin for vue-cli to init a project when using Configurable-Platform ",
   "repository": {
     "type": "git",
