@@ -26,7 +26,7 @@ module.exports = {
         let mockApiData = {};
         mockPaths.forEach(mockPath => {
           console.log(mockPath);
-          const fileIndex = /^mock(.+)\.json/.exec(mockPath)[1];
+          const fileIndex = /mock(.+)\.json/.exec(mockPath)[1];
           const filepath = path.resolve(
             path.resolve(__dirname, "./src"),
             mockPath
