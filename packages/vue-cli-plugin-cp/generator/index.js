@@ -3,7 +3,6 @@ module.exports = api => {
   // 添加新的依赖
   api.extendPackage({
     dependencies: {
-      "form-generator-iview": "^0.0.11",
       axios: "^0.18.0",
       iview: "^3.4.0",
       vuex: "^3.1.1",
