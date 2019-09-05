@@ -39,8 +39,12 @@ module.exports = api => {
     const contentMain = fs.readFileSync(api.entryFile, { encoding: "utf-8" });
     const lines = contentMain.split(/\r?\n/g);
     const renderIndex = lines.findIndex(line => line.match(/^new\sVue\(\{$/));
+    console.log("renderIndex", renderIndex);
+    console.log(lines[renderIndex]);
     lines[
       renderIndex
-    ] += `${EOL}  Vue.use(FormGenerator);${EOL}  Vue.use(DataVis);`;
+    ] = `Vue.use(FormGenerator);${EOL}Vue.use(DataVis);${EOL}${lines[renderIndex]}`;
+    console.log(lines[renderIndex]);
+    fs.writeFileSync(api.entryFile, lines.join(EOL), { encoding: "utf-8" });
   });
 };
