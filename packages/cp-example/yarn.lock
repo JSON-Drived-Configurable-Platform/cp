@@ -1069,14 +1069,6 @@ address@^1.0.3:
   version "1.1.2"
   resolved "http://registry.npm.baidu-int.com/address/-/address-1.1.2.tgz#bf1116c9c758c51b7a933d296b72c221ed9428b6"
 
-adler-32@~1.2.0:
-  version "1.2.0"
-  resolved "http://registry.npm.baidu-int.com/adler-32/-/adler-32-1.2.0.tgz#6a3e6bf0a63900ba15652808cb15c6813d1a5f25"
-  integrity sha1-aj5r8KY5ALoVZSgIyxXGgT0aXyU=
-  dependencies:
-    exit-on-epipe "~1.0.1"
-    printj "~1.1.0"
-
 ajv-errors@^1.0.0:
   version "1.0.1"
   resolved "http://registry.npm.baidu-int.com/ajv-errors/-/ajv-errors-1.0.1.tgz#f35986aceb91afadec4102fbd85014950cefa64d"
@@ -1267,6 +1259,7 @@ async-limiter@~1.0.0:
 async-validator@^1.10.0:
   version "1.12.2"
   resolved "http://registry.npm.baidu-int.com/async-validator/-/async-validator-1.12.2.tgz#beae671e7174d2938b7b4b69d2fb7e722b7fd72c"
+  integrity sha512-57EETfCPFiB7M4QscvQzWSGNsmtkjjzZv318SK1CBlstk+hycV72ocjriMOOM48HjvmoAoJGpJNjC7Z76RlnZA==
 
 async@^1.5.2:
   version "1.5.2"
@@ -1303,6 +1296,7 @@ aws4@^1.8.0:
 axios@^0.18.0:
   version "0.18.1"
   resolved "http://registry.npm.baidu-int.com/axios/-/axios-0.18.1.tgz#ff3f0de2e7b5d180e757ad98000f1081b87bcea3"
+  integrity sha512-0BfJq4NSfQXd+SkFdrvFbG7addhYSBA2mQwISr46pD6E5iqkWg02RAs8vyTT/j0RTnoYmeXauBuSv1qKwR179g==
   dependencies:
     follow-redirects "1.5.10"
     is-buffer "^2.0.2"
@@ -1374,6 +1368,7 @@ base@^0.11.1:
 batch-processor@1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.baidu-int.com/batch-processor/-/batch-processor-1.0.0.tgz#75c95c32b748e0850d10c2b168f6bdbe9891ace8"
+  integrity sha1-dclcMrdI4IUNEMKxaPa9vpiRrOg=
 
 batch@0.6.1:
   version "0.6.1"
@@ -1691,16 +1686,6 @@ caseless@~0.12.0:
   version "0.12.0"
   resolved "http://registry.npm.baidu-int.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
 
-cfb@^1.1.2:
-  version "1.1.3"
-  resolved "http://registry.npm.baidu-int.com/cfb/-/cfb-1.1.3.tgz#05de6816259c8e8bc32713aba905608ee385df66"
-  integrity sha512-joXBW0nMuwV9no7UTMiyVJnQL6XIU3ThXVjFUDHgl9MpILPOomyfaGqC290VELZ48bbQKZXnQ81UT5HouTxHsw==
-  dependencies:
-    adler-32 "~1.2.0"
-    commander "^2.16.0"
-    crc-32 "~1.2.0"
-    printj "~1.1.2"
-
 chalk@^1.0.0, chalk@^1.1.3:
   version "1.1.3"
   resolved "http://registry.npm.baidu-int.com/chalk/-/chalk-1.1.3.tgz#a8115c55e4a702fe4d150abd3872822a7e09fc98"
@@ -1867,14 +1852,6 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "http://registry.npm.baidu-int.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
 
-codepage@~1.14.0:
-  version "1.14.0"
-  resolved "http://registry.npm.baidu-int.com/codepage/-/codepage-1.14.0.tgz#8cbe25481323559d7d307571b0fff91e7a1d2f99"
-  integrity sha1-jL4lSBMjVZ19MHVxsP/5HnodL5k=
-  dependencies:
-    commander "~2.14.1"
-    exit-on-epipe "~1.0.1"
-
 collection-visit@^1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.baidu-int.com/collection-visit/-/collection-visit-1.0.0.tgz#4bc0373c164bc3291b4d368c829cf1a80a59dca0"
@@ -1916,18 +1893,13 @@ combined-stream@^1.0.6, combined-stream@~1.0.6:
   dependencies:
     delayed-stream "~1.0.0"
 
-commander@2.17.x, commander@~2.17.1:
+commander@2.17.x:
   version "2.17.1"
   resolved "http://registry.npm.baidu-int.com/commander/-/commander-2.17.1.tgz#bd77ab7de6de94205ceacc72f1716d29f20a77bf"
 
-commander@^2.14.1, commander@^2.16.0, commander@^2.18.0, commander@^2.20.0, commander@^2.9.0:
+commander@^2.14.1, commander@^2.18.0, commander@^2.20.0, commander@^2.9.0:
   version "2.20.0"
   resolved "http://registry.npm.baidu-int.com/commander/-/commander-2.20.0.tgz#d58bb2b5c1ee8f87b0d340027e9e94e222c5a422"
-
-commander@~2.14.1:
-  version "2.14.1"
-  resolved "http://registry.npm.baidu-int.com/commander/-/commander-2.14.1.tgz#2235123e37af8ca3c65df45b026dbd357b01b9aa"
-  integrity sha1-IjUSPjevjKPGXfRbAm29NXsBuao=
 
 commander@~2.19.0:
   version "2.19.0"
@@ -2048,7 +2020,7 @@ copy-webpack-plugin@^4.6.0:
     p-limit "^1.0.0"
     serialize-javascript "^1.4.0"
 
-core-js@2, core-js@^2.6.5:
+core-js@^2.6.5:
   version "2.6.9"
   resolved "http://registry.npm.baidu-int.com/core-js/-/core-js-2.6.9.tgz#6b4b214620c834152e179323727fc19741b084f2"
 
@@ -2064,14 +2036,6 @@ cosmiconfig@^5.0.0, cosmiconfig@^5.2.0:
     is-directory "^0.3.1"
     js-yaml "^3.13.1"
     parse-json "^4.0.0"
-
-crc-32@~1.2.0:
-  version "1.2.0"
-  resolved "http://registry.npm.baidu-int.com/crc-32/-/crc-32-1.2.0.tgz#cb2db6e29b88508e32d9dd0ec1693e7b41a18208"
-  integrity sha512-1uBwHxF+Y/4yF5G48fwnKq6QsIXheor3ZLPT80yGBV1oEUwpPojlEhQbWKVw1VwcTQyMGHK1/XMmTjmlsmTTGA==
-  dependencies:
-    exit-on-epipe "~1.0.1"
-    printj "~1.1.0"
 
 create-ecdh@^4.0.0:
   version "4.0.3"
@@ -2305,17 +2269,6 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
-data-vis-iview@^0.0.23:
-  version "0.0.23"
-  resolved "http://registry.npm.baidu-int.com/data-vis-iview/-/data-vis-iview-0.0.23.tgz#acb54b76db45219a98c216debc09f040807239ba"
-  integrity sha512-7o2OlG4kWEydMnVCwYPUkSwLkvoFrMWV2mQ+FmQkgSdd3ypO1uSGXuyLq+a5XudKGxbG6pIqAaVZotIQylXWVg==
-  dependencies:
-    axios "^0.18.0"
-    echarts "^4.2.1"
-    file-saver "^2.0.1"
-    form-generator-iview "^0.0.6"
-    xlsx "^0.14.3"
-
 date-fns@^1.27.2:
   version "1.30.1"
   resolved "http://registry.npm.baidu-int.com/date-fns/-/date-fns-1.30.1.tgz#2e71bf0b119153dbb4cc4e88d9ea5acfb50dc05c"
@@ -2337,6 +2290,7 @@ debug@2.6.9, debug@^2.2.0, debug@^2.3.3:
 debug@=3.1.0:
   version "3.1.0"
   resolved "http://registry.npm.baidu-int.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
+  integrity sha1-W7WgZyYotkFJVmuhaBnmFRjGcmE=
   dependencies:
     ms "2.0.0"
 
@@ -2390,6 +2344,7 @@ deepmerge@^1.5.2:
 deepmerge@^2.2.1:
   version "2.2.1"
   resolved "http://registry.npm.baidu-int.com/deepmerge/-/deepmerge-2.2.1.tgz#5d3ff22a01c00f645405a2fbc17d0778a1801170"
+  integrity sha512-R9hc1Xa/NOBi9WRVUWg19rl1UB7Tt4kuPd+thNJgFZoxXsTz7ncaPaeIm+40oSGuP33DfMb4sZt1QIGiJzC4EA==
 
 default-gateway@^4.2.0:
   version "4.2.0"
@@ -2615,13 +2570,6 @@ ecc-jsbn@~0.1.1:
     jsbn "~0.1.0"
     safer-buffer "^2.1.0"
 
-echarts@^4.2.1:
-  version "4.2.1"
-  resolved "http://registry.npm.baidu-int.com/echarts/-/echarts-4.2.1.tgz#9a8ea3b03354f86f824d97625c334cf16965ef03"
-  integrity sha1-mo6jsDNU+G+CTZdiXDNM8Wll7wM=
-  dependencies:
-    zrender "4.0.7"
-
 ee-first@1.1.1:
   version "1.1.1"
   resolved "http://registry.npm.baidu-int.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
@@ -2641,6 +2589,7 @@ elegant-spinner@^1.0.1:
 element-resize-detector@^1.2.0:
   version "1.2.0"
   resolved "http://registry.npm.baidu-int.com/element-resize-detector/-/element-resize-detector-1.2.0.tgz#63344fd6f4e5ecff6f018d027e17b281fd4fa338"
+  integrity sha1-YzRP1vTl7P9vAY0Cfheygf1Pozg=
   dependencies:
     batch-processor "1.0.0"
 
@@ -2995,11 +2944,6 @@ execa@^2.0.3:
     signal-exit "^3.0.2"
     strip-final-newline "^2.0.0"
 
-exit-on-epipe@~1.0.1:
-  version "1.0.1"
-  resolved "http://registry.npm.baidu-int.com/exit-on-epipe/-/exit-on-epipe-1.0.1.tgz#0bdd92e87d5285d267daa8171d0eb06159689692"
-  integrity sha512-h2z5mrROTxce56S+pnvAV890uu7ls7f1kEvVGJbw1OlFH3/mlJ5bkXu0KRyW94v37zzHPiUd55iLn3DA7TjWpw==
-
 expand-brackets@^2.1.4:
   version "2.1.4"
   resolved "http://registry.npm.baidu-int.com/expand-brackets/-/expand-brackets-2.1.4.tgz#b77735e315ce30f6b6eff0f83b04151a22449622"
@@ -3185,11 +3129,6 @@ file-loader@^3.0.1:
     loader-utils "^1.0.2"
     schema-utils "^1.0.0"
 
-file-saver@^2.0.1:
-  version "2.0.2"
-  resolved "http://registry.npm.baidu-int.com/file-saver/-/file-saver-2.0.2.tgz#06d6e728a9ea2df2cce2f8d9e84dfcdc338ec17a"
-  integrity sha1-BtbnKKnqLfLM4vjZ6E383DOOwXo=
-
 filesize@^3.6.1:
   version "3.6.1"
   resolved "http://registry.npm.baidu-int.com/filesize/-/filesize-3.6.1.tgz#090bb3ee01b6f801a8a8be99d31710b3422bb317"
@@ -3300,6 +3239,7 @@ fn-name@~2.0.1:
 follow-redirects@1.5.10:
   version "1.5.10"
   resolved "http://registry.npm.baidu-int.com/follow-redirects/-/follow-redirects-1.5.10.tgz#7b7a9f9aea2fdff36786a94ff643ed07f4ff5e2a"
+  integrity sha1-e3qfmuov3/NnhqlP9kPtB/T/Xio=
   dependencies:
     debug "=3.1.0"
 
@@ -3325,32 +3265,9 @@ form-data@~2.3.2:
     combined-stream "^1.0.6"
     mime-types "^2.1.12"
 
-form-generator-iview@^0.0.11:
-  version "0.0.11"
-  resolved "http://registry.npm.baidu-int.com/form-generator-iview/-/form-generator-iview-0.0.11.tgz#607b4ca70ef5d3a14e0034207a463cc1f2190cc4"
-  integrity sha512-yW4J/cdleJ3QSRKOLHcLPFtykfi3raX8VbtLhZg4E75mnliEe9VClTKsDJ7eh8/Tm7Hb9AITg252eWAk02RvIw==
-  dependencies:
-    axios "^0.18.0"
-    core-js "2"
-    v-click-outside "^2.1.3"
-
-form-generator-iview@^0.0.6:
-  version "0.0.6"
-  resolved "http://registry.npm.baidu-int.com/form-generator-iview/-/form-generator-iview-0.0.6.tgz#f7c40228905103dcb8c3c36c106cbd17b97e1ccc"
-  integrity sha512-kylfYPdPFzLxmnnHhD9jnQTnmoErI4T55jybt9vOC7G+MESa0yj78leYi0DMhvNg9ghtdal3htp+W1vTd1FOpg==
-  dependencies:
-    axios "^0.18.0"
-    core-js "2"
-    v-click-outside "^2.1.3"
-
 forwarded@~0.1.2:
   version "0.1.2"
   resolved "http://registry.npm.baidu-int.com/forwarded/-/forwarded-0.1.2.tgz#98c23dab1175657b8c0573e8ceccd91b0ff18c84"
-
-frac@~1.1.2:
-  version "1.1.2"
-  resolved "http://registry.npm.baidu-int.com/frac/-/frac-1.1.2.tgz#3d74f7f6478c88a1b5020306d747dc6313c74d0b"
-  integrity sha512-w/XBfkibaTl3YDqASwfDUqkna4Z2p9cFSr1aHDt0WoMTECnRfBOv2WArlZILlqgWlmdIlALXGpM2AOhEk5W3IA==
 
 fragment-cache@^0.2.1:
   version "0.2.1"
@@ -4016,6 +3933,7 @@ is-buffer@^1.1.5:
 is-buffer@^2.0.2:
   version "2.0.3"
   resolved "http://registry.npm.baidu-int.com/is-buffer/-/is-buffer-2.0.3.tgz#4ecf3fcf749cbd1e472689e109ac66261a25e725"
+  integrity sha512-U15Q7MXTuZlrbymiz95PJpZxu8IlipAp4dtS3wOdgPXx3mqBnslrWU14kxfHB+Py/+2PVKSr37dMAgM2A4uArw==
 
 is-callable@^1.1.4:
   version "1.1.4"
@@ -4241,8 +4159,9 @@ isstream@~0.1.2:
   resolved "http://registry.npm.baidu-int.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
 
 iview@^3.4.0:
-  version "3.4.2"
-  resolved "http://registry.npm.baidu-int.com/iview/-/iview-3.4.2.tgz#1deafe8183fe29b9b33179d85faa37b3813b0f73"
+  version "3.5.0"
+  resolved "http://registry.npm.baidu-int.com/iview/-/iview-3.5.0.tgz#9aaf0c499a3e9718b453ee545f871cc3f3a1743b"
+  integrity sha512-UVHW8vo+36X7pt3HMwxHTK4q8iIpBSTL/tubOU2w9Mw8LIwzzzsNFtLFB305E3fzLxhCAYcOLUVj0F11yLShzQ==
   dependencies:
     async-validator "^1.10.0"
     deepmerge "^2.2.1"
@@ -4260,6 +4179,7 @@ javascript-stringify@^1.6.0:
 js-calendar@^1.2.3:
   version "1.2.3"
   resolved "http://registry.npm.baidu-int.com/js-calendar/-/js-calendar-1.2.3.tgz#a583b0644b4e695ba394f344d103dbcc7a7a7d3e"
+  integrity sha1-pYOwZEtOaVujlPNE0QPbzHp6fT4=
 
 js-levenshtein@^1.1.3:
   version "1.1.6"
@@ -4568,6 +4488,7 @@ lodash.memoize@^4.1.2:
 lodash.throttle@^4.1.1:
   version "4.1.1"
   resolved "http://registry.npm.baidu-int.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
+  integrity sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=
 
 lodash.transform@^4.6.0:
   version "4.6.0"
@@ -5547,6 +5468,7 @@ pluralize@^7.0.0:
 popper.js@^1.14.6:
   version "1.15.0"
   resolved "http://registry.npm.baidu-int.com/popper.js/-/popper.js-1.15.0.tgz#5560b99bbad7647e9faa475c6b8056621f5a4ff2"
+  integrity sha1-VWC5m7rXZH6fqkdca4BWYh9aT/I=
 
 portfinder@^1.0.20, portfinder@^1.0.21:
   version "1.0.23"
@@ -5892,11 +5814,6 @@ pretty-error@^2.0.2:
   dependencies:
     renderkid "^2.0.1"
     utila "~0.4"
-
-printj@~1.1.0, printj@~1.1.2:
-  version "1.1.2"
-  resolved "http://registry.npm.baidu-int.com/printj/-/printj-1.1.2.tgz#d90deb2975a8b9f600fb3a1c94e3f4c53c78a222"
-  integrity sha512-zA2SmoLaxZyArQTOPj5LXecR+RagfPSU5Kw1qP+jkWeNlrq+eJZyY2oS68SU1Z/7/myXM4lo9716laOFAVStCQ==
 
 private@^0.1.6:
   version "0.1.8"
@@ -6690,13 +6607,6 @@ sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "http://registry.npm.baidu-int.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
 
-ssf@~0.10.2:
-  version "0.10.2"
-  resolved "http://registry.npm.baidu-int.com/ssf/-/ssf-0.10.2.tgz#65b2b4fcdfd967bc8e8383a41349009893115976"
-  integrity sha512-rDhAPm9WyIsY8eZEKyE8Qsotb3j/wBdvMWBUsOhJdfhKGLfQidRjiBUV0y/MkyCLiXQ38FG6LWW/VYUtqlIDZQ==
-  dependencies:
-    frac "~1.1.2"
-
 sshpk@^1.7.0:
   version "1.16.1"
   resolved "http://registry.npm.baidu-int.com/sshpk/-/sshpk-1.16.1.tgz#fb661c0bef29b39db40769ee39fa70093d6f6877"
@@ -7057,6 +6967,7 @@ timsort@^0.3.0:
 tinycolor2@^1.4.1:
   version "1.4.1"
   resolved "http://registry.npm.baidu-int.com/tinycolor2/-/tinycolor2-1.4.1.tgz#f4fad333447bc0b07d4dc8e9209d8f39a8ac77e8"
+  integrity sha1-9PrTM0R7wLB9TcjpIJ2POaisd+g=
 
 tmp@^0.0.33:
   version "0.0.33"
@@ -7323,10 +7234,7 @@ uuid@^3.0.1, uuid@^3.3.2:
 v-click-outside-x@^3.5.6:
   version "3.7.1"
   resolved "http://registry.npm.baidu-int.com/v-click-outside-x/-/v-click-outside-x-3.7.1.tgz#aa03eaa0e41e44cb5207dcf86c2d9f0dd64084c1"
-
-v-click-outside@^2.1.3:
-  version "2.1.3"
-  resolved "http://registry.npm.baidu-int.com/v-click-outside/-/v-click-outside-2.1.3.tgz#b7297abe833a439dc0895e6418a494381e64b5e7"
+  integrity sha1-qgPqoOQeRMtSB9z4bC2fDdZAhME=
 
 validate-npm-package-license@^3.0.1:
   version "3.0.4"
@@ -7355,7 +7263,7 @@ vm-browserify@^1.0.1:
   version "1.1.0"
   resolved "http://registry.npm.baidu-int.com/vm-browserify/-/vm-browserify-1.1.0.tgz#bd76d6a23323e2ca8ffa12028dc04559c75f9019"
 
-"vue-cli-plugin-cp@file:../vue-cli-plugin-cp":
+"vue-cli-plugin-cp@file:/Users/mac/Documents/study/vue-cli-plugin-cp":
   version "0.0.1"
 
 vue-eslint-parser@^2.0.3:
@@ -7397,6 +7305,7 @@ vue-loader@^15.7.0:
 vue-router@^3.0.6:
   version "3.1.3"
   resolved "http://registry.npm.baidu-int.com/vue-router/-/vue-router-3.1.3.tgz#e6b14fabc0c0ee9fda0e2cbbda74b350e28e412b"
+  integrity sha512-8iSa4mGNXBjyuSZFCCO4fiKfvzqk+mhL0lnKuGcQtO1eoj8nq3CmbEG8FwK5QqoqwDgsjsf1GDuisDX4cdb/aQ==
 
 vue-style-loader@^4.1.0:
   version "4.1.2"
@@ -7423,6 +7332,7 @@ vue@^2.6.10:
 vuex@^3.1.1:
   version "3.1.1"
   resolved "http://registry.npm.baidu-int.com/vuex/-/vuex-3.1.1.tgz#0c264bfe30cdbccf96ab9db3177d211828a5910e"
+  integrity sha1-DCZL/jDNvM+Wq52zF30hGCilkQ4=
 
 watchpack@^1.6.0:
   version "1.6.0"
@@ -7646,19 +7556,6 @@ ws@^6.0.0, ws@^6.2.1:
   dependencies:
     async-limiter "~1.0.0"
 
-xlsx@^0.14.3:
-  version "0.14.5"
-  resolved "http://registry.npm.baidu-int.com/xlsx/-/xlsx-0.14.5.tgz#3637e914d791bdca7382816e173f7d725ed0e0d2"
-  integrity sha512-s/5f4/mjeWREmIWZ+HtDfh/rnz51ar+dZ4LWKZU3u9VBx2zLdSIWTdXgoa52/pnZ9Oe/Vu1W1qzcKzLVe+lq4w==
-  dependencies:
-    adler-32 "~1.2.0"
-    cfb "^1.1.2"
-    codepage "~1.14.0"
-    commander "~2.17.1"
-    crc-32 "~1.2.0"
-    exit-on-epipe "~1.0.1"
-    ssf "~0.10.2"
-
 xtend@^4.0.0, xtend@~4.0.1:
   version "4.0.2"
   resolved "http://registry.npm.baidu-int.com/xtend/-/xtend-4.0.2.tgz#bb72779f5fa465186b1f438f674fa347fdb5db54"
@@ -7740,8 +7637,3 @@ yup@^0.27.0:
     property-expr "^1.5.0"
     synchronous-promise "^2.0.6"
     toposort "^2.0.2"
-
-zrender@4.0.7:
-  version "4.0.7"
-  resolved "http://registry.npm.baidu-int.com/zrender/-/zrender-4.0.7.tgz#15ae960822f5efed410995d37e5107fe3de10e6d"
-  integrity sha1-Fa6WCCL17+1BCZXTflEH/j3hDm0=

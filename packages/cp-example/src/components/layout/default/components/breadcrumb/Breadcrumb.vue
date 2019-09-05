@@ -16,10 +16,10 @@ export default {
       }
     }
   },
-  computed: {},
   data() {
     return {};
-  }
+  },
+  computed: {}
 };
 </script>
 <style lang="less" scoped></style>

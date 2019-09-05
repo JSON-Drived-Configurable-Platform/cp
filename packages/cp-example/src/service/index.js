@@ -1,17 +1,27 @@
 import axios from "../libs/api.request";
 
-import * as appServices from "./module/app";
-import * as userServices from "./module/user";
+import appServices from "./module/app";
+import userServices from "./module/user";
 
-import * as dataReportServices from "../page/data-report/service";
+const templateServiceContext = require.context("../page", true, /service\.js$/);
+const templateServices = {};
+
+templateServiceContext.keys().map(key => {
+  const contextObj = templateServiceContext(key).default;
+  Object.keys(contextObj).forEach(service => {
+    templateServices[service] = contextObj[service];
+  });
+});
 
 const servicesConfig = {
   ...appServices,
   ...userServices,
-  ...dataReportServices
+  ...templateServices
 };
 
+console.log(servicesConfig);
 let services = {};
+
 Object.keys(servicesConfig).forEach(service => {
   services[service] = (params = {}) => {
     return axios.request(servicesConfig[service](params));

@@ -8,39 +8,30 @@ module.exports = {
     inline: true,
     open: true,
     before: function(app) {
-      const fs = require("fs");
       const path = require("path");
-
-      const mockPaths = getTemplatesMockPaths();
-      const mockApiData = getMockApiData(mockPaths);
-
+      const glob = require("glob");
+      const mockApiData = getMockApiData();
       Object.keys(mockApiData).forEach(item => {
-        app.all(`/api/${item}`, function(req, res) {
+        app.all(`/api${item}`, function(req, res) {
           setTimeout(() => {
             res.json(mockApiData[item]);
           }, 1000);
         });
       });
 
-      function getTemplatesMockPaths() {
-        return ["./src/__mock__", "./src/page/data-report/__mock__"];
-      }
-
-      function getMockApiData(mockPaths) {
+      function getMockApiData() {
+        let mockPaths = glob.sync("**/mock/**/*.json", {
+          cwd: path.resolve(__dirname, "./src")
+        });
         let mockApiData = {};
         mockPaths.forEach(mockPath => {
-          fs.readdirSync(path.resolve(__dirname, mockPath)).forEach(dirname => {
-            fs.readdirSync(
-              path.resolve(__dirname, `${mockPath}/${dirname}`)
-            ).forEach(filename => {
-              const fileIndex = `${dirname}/${filename.split(".json")[0]}`;
-              const filepath = path.resolve(
-                __dirname,
-                `${mockPath}/${dirname}/${filename}`
-              );
-              mockApiData[fileIndex] = require(filepath);
-            });
-          });
+          console.log(mockPath);
+          const fileIndex = /^mock(.+)\.json/.exec(mockPath)[1];
+          const filepath = path.resolve(
+            path.resolve(__dirname, "./src"),
+            mockPath
+          );
+          mockApiData[fileIndex] = require(filepath);
         });
         return mockApiData;
       }

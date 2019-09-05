@@ -4,10 +4,6 @@
         {
             "label": "Home",
             "path": "/home"
-        },
-        {
-            "label": "Data Report",
-            "path": "/data-report"
         }
     ]
 }
