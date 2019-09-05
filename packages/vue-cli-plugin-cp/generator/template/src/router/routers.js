@@ -4,19 +4,18 @@
  */
 
 import Main from "../components/layout/default";
-import dataReportRouter from "../page/data-report/router";
+
+const routersContext = require.context("../page/", true, /router\.js$/);
+const routers = routersContext.keys().map(key => {
+  return routersContext(key).default;
+});
+
 export default [
   {
     path: "/",
     redirect: "/home",
     component: Main,
-    children: [
-      {
-        path: "/home",
-        component: () => import(/* webpackChunkName: "home" */ "../page/home")
-      },
-      ...dataReportRouter
-    ]
+    children: [...routers]
   }
   // {
   //     path: '/401',

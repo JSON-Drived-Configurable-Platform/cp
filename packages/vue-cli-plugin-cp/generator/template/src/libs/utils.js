@@ -1,5 +1,4 @@
 export function computeBreadCrumbList(currentPath = "", menuList = []) {
-  console.log(currentPath, menuList);
   let breadCrumbList = [];
   menuList.forEach(item => {
     if (item.submenu) {
