@@ -1,4 +1,6 @@
-export default {
-  path: "/home",
-  component: () => import(/* webpackChunkName: "home" */ "./index")
-};
+export default [
+  {
+    path: "/home",
+    component: () => import(/* webpackChunkName: "home" */ "./index")
+  }
+];
