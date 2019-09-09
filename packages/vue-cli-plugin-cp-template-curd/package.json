@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-plugin-cp-template-curd",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A plugin for CP to quickly build a curd page",
   "repository": {
     "type": "git",
