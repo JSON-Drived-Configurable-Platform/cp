@@ -25,7 +25,7 @@ module.exports = api => {
   );
   api.injectImports(
     api.entryFile,
-    `import FormGenerator from "form-generator-iview/src/index";`
+    `import FormGenerator from "form-generator-iview";`
   );
   api.injectImports(api.entryFile, `import DataVis from "data-vis-iview";`);
 
@@ -39,9 +39,17 @@ module.exports = api => {
     const contentMain = fs.readFileSync(api.entryFile, { encoding: "utf-8" });
     const lines = contentMain.split(/\r?\n/g);
     const renderIndex = lines.findIndex(line => line.match(/^new\sVue\(\{$/));
+    let formGeneratorInsertStr = "";
+    let dataVisInsertStr = "";
+    if (!lines.find(line => line.match(/^Vue\.use\(FormGenerator\);$/))) {
+      formGeneratorInsertStr = "Vue.use(FormGenerator);";
+    }
+    if (!lines.find(line => line.match(/^Vue\.use\(DataVis\);$/))) {
+      dataVisInsertStr = "Vue.use(DataVis);";
+    }
     lines[
       renderIndex
-    ] = `Vue.use(FormGenerator);${EOL}Vue.use(DataVis);${EOL}${lines[renderIndex]}`;
+    ] = `${formGeneratorInsertStr}${EOL}${dataVisInsertStr}${EOL}${lines[renderIndex]}`;
     fs.writeFileSync(api.entryFile, lines.join(EOL), { encoding: "utf-8" });
   });
 };
