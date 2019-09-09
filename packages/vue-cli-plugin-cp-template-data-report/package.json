@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-plugin-cp-template-data-report",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A plugin for vue-cli-plugin-cp to quickly build a data-report page",
   "repository": {
     "type": "git",
