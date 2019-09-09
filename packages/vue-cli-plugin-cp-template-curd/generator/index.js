@@ -24,18 +24,17 @@ module.exports = api => {
   api.render("./template");
 
   // Vue.use(FormGenerator);
-  // Vue.use(DataVis);
   api.onCreateComplete(() => {
     const { EOL } = require("os");
     const fs = require("fs");
     const contentMain = fs.readFileSync(api.entryFile, { encoding: "utf-8" });
     const lines = contentMain.split(/\r?\n/g);
     const renderIndex = lines.findIndex(line => line.match(/^new\sVue\(\{$/));
-    if (!lines.find(line => line.match(/^Vue\.use\(DataVis\);$/))) {
-      let dataVisInsertStr = "Vue.use(DataVis);";
+    if (!lines.find(line => line.match(/^Vue\.use\(FormGenerator\);$/))) {
+      let formGeneratorInsertStr = "Vue.use(FormGenerator);";
       lines[
         renderIndex
-      ] = `${EOL}${dataVisInsertStr}${EOL}${lines[renderIndex]}`;
+      ] = `${EOL}${formGeneratorInsertStr}${EOL}${lines[renderIndex]}`;
       fs.writeFileSync(api.entryFile, lines.join(EOL), { encoding: "utf-8" });
     }
   });
