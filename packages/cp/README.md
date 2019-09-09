@@ -21,7 +21,13 @@ You can follow `Quick Start` tutorial to learn how to build a data report platfo
 
 > CP is only support for vue.js projects, beacause the `templates` supported are built on top of vue.js.
 
-### Modules
+### Powerful Modules
 Modules are fundement tools provide within the templates. You can also use this tools to build a new template.
 
 Consider a situation like this: you are asked to develop a project which contains lot of forms: steps forms, form within CURD, form fields in editale tables and many other situations. Even if you delelop theses page one by one using this components mentioned above, there will be lots of repeating works and will be hard to maintain in the future.
+
+CP-modules is a collection of modules solving problems in particular areas in platform UI developemnt, like form, data visualization, tables and etc. Here is a list of these modules:
+
+ - 1. FormGenerator
+ - 2. DataVis
+ - 3. SchemaTable(coming soon)
