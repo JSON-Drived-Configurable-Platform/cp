@@ -1,13 +1,13 @@
 <template>
-  <div class="page-pc">
-    <div v-if="loading" class="page-pc-loading">
-      <Spin class="page-pc-loading-spin" size="large" />
+  <div class="page-data-report">
+    <div v-if="loading" class="page-data-report-loading">
+      <Spin class="page-data-report-loading-spin" size="large" />
     </div>
     <div v-else>
       <FormGenerator
         v-if="fields.length > 0"
         ref="FormGenerator"
-        class="page-pc-conditions"
+        class="page-data-report-conditions"
         :fields="fields"
         :model="model"
         :options="options"
@@ -32,6 +32,7 @@
 <script>
 import axios from "@/libs/api.request";
 import services from "@/service";
+const { getPageConfig } = services["data-report"];
 export default {
   data() {
     return {
@@ -60,14 +61,13 @@ export default {
     }
   },
   mounted() {
-    services
-      .getPageConfig({
-        aaa: "aaa"
-      })
-      .then(res => {
-        this.pageConfig = res.data;
-        this.loading = false;
-      });
+    const { pageId } = this.$route.params;
+    getPageConfig({
+      pageId
+    }).then(res => {
+      this.pageConfig = res.data;
+      this.loading = false;
+    });
   },
   methods: {
     interceptor(url, params) {
@@ -98,7 +98,7 @@ export default {
 };
 </script>
 <style lang="less">
-.page-pc {
+.page-data-report {
   &-loading {
     text-align: center;
     padding: 140px;

@@ -5,7 +5,7 @@ module.exports = api => {
       axios: "^0.18.0",
       "core-js": "^2.6.5",
       "data-vis-iview": "^0.0.23",
-      "form-generator-iview": "^0.0.11",
+      "form-generator-iview": "^0.0.18",
       iview: "^3.4.0",
       vue: "^2.6.10"
     }
