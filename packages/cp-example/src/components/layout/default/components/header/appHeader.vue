@@ -44,7 +44,7 @@ export default {
   float: left;
   position: relative;
   top: 6px;
-  left: 50px;
+  left: 20px;
   line-height: 40px;
   text-align: center;
   color: #fff;

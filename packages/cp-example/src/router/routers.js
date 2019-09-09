@@ -15,7 +15,7 @@ export default [
     path: "/",
     redirect: "/home",
     component: Main,
-    children: [...routers]
+    children: [...[].concat(...routers)]
   }
   // {
   //     path: '/401',

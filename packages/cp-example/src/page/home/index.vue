@@ -24,6 +24,7 @@
 </template>
 <script>
 import service from "@/service";
+const { getHomeData } = service.home;
 export default {
   data() {
     return {
@@ -33,8 +34,7 @@ export default {
     };
   },
   mounted() {
-    service.getHomeData().then(res => {
-      console.log();
+    getHomeData().then(res => {
       const { carouselData, hotTemplates } = res.data;
       this.carouselData = carouselData;
       this.hotTemplates = hotTemplates;
