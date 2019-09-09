@@ -16,8 +16,8 @@ npm-debug.log
 *.swp
 *.swo
 *.log
-examples/dist/
+website/dist/
+website/libs/pinyin
 yarn-error.log
 test/unit/coverage
-/example/dist
 /dist

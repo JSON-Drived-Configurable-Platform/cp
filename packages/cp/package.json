@@ -15,7 +15,10 @@
     "url": "https://github.com/BingBlog/data-vis-iview"
   },
   "dependencies": {
-    "data-vis-iview": "^0.0.23"
+    "clipboard": "^2.0.4",
+    "data-vis-iview": "^0.0.23",
+    "highlightjs": "^9.12.0",
+    "vue-i18n": "^8.14.0"
   },
   "deprecated": false,
   "description": "A charts generator with json schema based on iview ui",
@@ -93,13 +96,13 @@
     "url": "git+https://github.com/BingBlog/data-vis-iview.git"
   },
   "scripts": {
-    "build": "npm run build-dev && npm run build-prod",
+    "dev": "webpack-dev-server --color --progress --config build/webpack.website.dev.config.js",
+    "build-website": "webpack --color --progress --config build/webpack.website.prod.config.js",
     "build-dev": "webpack --color --progress --config build/webpack.dist.dev.config.js",
-    "build-example": "webpack --color --progress --config build/webpack.example.prod.config.js",
     "build-prod": "webpack --color --progress --config build/webpack.dist.prod.config.js",
-    "deploy": "fis3 release --root=./example/dist/ --file=./deploy-baidu/config.js",
-    "dev": "webpack-dev-server --color --progress --config build/webpack.example.dev.config.js",
-    "lint": "eslint --fix --ext .js,.vue,.json example"
+    "build": "npm run build-dev && npm run build-prod",
+    "lint": "eslint --fix --ext .js,.vue,.json website",
+    "deploy": "fis3 release --root=./website/dist/ --file=./deploy-baidu/config.js"
   },
   "title": "dataVisIView",
   "version": "0.0.23"

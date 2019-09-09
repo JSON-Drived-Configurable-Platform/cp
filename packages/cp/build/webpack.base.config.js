@@ -13,6 +13,11 @@ function resolve (dir) {
 module.exports = {
     // 加载器
     module: {
+        noParse: [
+            // /[\\/]node_modules[\\/]vue[\\/]/,
+            /[\\/]node_modules[\\/]vuex[\\/]/,
+            // /[\\/]node_modules[\\/]echarts[\\/]/
+        ],
         // https://doc.webpack-china.org/guides/migrating/#module-loaders-module-rules
         rules: [
             {
@@ -55,8 +60,28 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
-                loader: 'url-loader?limit=8192'
+                test: /\.(gif|jpg|png)\??.*$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 4000,
+                            name: path.join('static', 'img/[name].[hash:7].[ext]')
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.(woff|svg|eot|ttf)\??.*$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 4000,
+                            name: path.join('static', 'font/[name].[hash:7].[ext]')
+                        }
+                    }
+                ]
             },
             {
                 test: /\.(html|tpl)$/,
@@ -67,7 +92,9 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.vue'],
         alias: {
-            'vue': 'vue/dist/vue.esm.js',
+            // 'vue': 'vue/dist/vue.esm.js',
+            'vuex': 'vuex/dist/vuex.min.js',
+            'echarts': 'echarts/dist/echarts.min.js',
             '@': resolve('src')
         }
     },
