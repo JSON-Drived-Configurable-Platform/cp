@@ -32,7 +32,6 @@
 <script>
 import axios from "@/libs/api.request";
 import services from "@/service";
-console.log(services);
 export default {
   data() {
     return {
