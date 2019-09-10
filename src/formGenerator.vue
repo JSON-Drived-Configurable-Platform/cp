@@ -279,16 +279,11 @@ export default {
             });
             return map;
         }
-
     },
-    // watch: {
-    //     model: {
-    //         handler: function (val) {
-    //             this.formModel = val;
-    //         },
-    //         deep: true
-    //     }
-    // },
+    mounted() {
+        this.form = this.$refs.form;
+        this.form.model = this.model;
+    },
     methods: {
         handleFieldChange(model, value){
             // 关联项需要清空
@@ -296,6 +291,8 @@ export default {
             needResetFields.forEach(field => {
                 this.resetField(field);
             });
+            // 由于有自定义的组件，所以不能依赖form自己的赋值
+            this.$set(this.form.model, model, value);
             this.$refs.form.validateField(model);
             this.$emit('on-field-change', model, value);
         },
@@ -316,7 +313,7 @@ export default {
                 try {
                     this.$refs.form.validate().then(valid => {
                         if (valid) {
-                            resolve(this.model);
+                            resolve(this.form.model);
                         }
                         else {
                             reject(valid);
@@ -336,7 +333,6 @@ export default {
 
         handleReset() {
             // TODO still has problem
-            // this.$refs.form.resetFields();
             this.reset();
         },
 
@@ -359,8 +355,11 @@ export default {
                 field = this.fields.find(item => item.model === field);
             }
             let type = getValidType(field);
-            // console.log(type, field.model, typeToResetValues[type]);
-            this.$set(this.model, field.model, typeToResetValues[type]);
+            let fieldComponent = this.$refs.form.fields.find(item => item.prop === field.model);
+            if (fieldComponent) {
+                this.$set(this.form.model, field.model, typeToResetValues[type]);
+                fieldComponent.resetField();
+            }
         },
 
         handleButtonEvent($event) {

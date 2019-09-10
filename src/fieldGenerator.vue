@@ -50,16 +50,6 @@ export default {
     components: {
         ...fieldComponents
     },
-    // filters: {
-    //     itemStyle(itemWidth, field) {
-    //         const width = field.width || itemWidth;
-    //         return {
-    //             width: '160px',
-    //             display:
-    //             // width: typeof width !== 'number' ? width + 'px' : width
-    //         };
-    //     }
-    // },
     props: {
         requestInterceptor: {
             type: [Function, null],
@@ -186,7 +176,7 @@ export default {
                         trigger: 'change'
                     });
                 }
-                if (type === 'logicinput') {
+                if (['logicinput', 'logicselect'].includes(type)) {
                     rules.push({
                         validator(rule, value, callback) {
                             if (value.logic && value.value) {
