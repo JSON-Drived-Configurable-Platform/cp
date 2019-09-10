@@ -5,6 +5,6 @@ export default [
   },
   {
     path: "/curd/:pageId",
-    component: () => import(/* webpackChunkName: "data-report" */ "./index")
+    component: () => import(/* webpackChunkName: "curd" */ "./index")
   }
 ];
