@@ -150,7 +150,7 @@ export default {
     handleSave() {
       this.$refs.FormGenerator.submit()
         .then(() => {
-          // 新增用户
+          // 新增
           if (this.editModel.type === "add") {
             this.editModel.type = "";
             this.addRequest(this.editModel);
