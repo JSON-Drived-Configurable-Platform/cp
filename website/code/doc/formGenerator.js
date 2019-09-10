@@ -288,14 +288,11 @@ let validateFields = [
 ];
 
 let validateModel = {
-    input: '',
-    select: '',
-    date: '',
+    name: '',
+    city: '',
+    birthday: '',
     gender: '',
     fruit: [],
-    open: true,
-    textarea: '',
-    // logicSelect: ''
 };
 
 
