@@ -4105,10 +4105,10 @@ isstream@~0.1.2:
   resolved "https://registry.npmjs.org/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
 
-iview@^3.4.0:
-  version "3.4.2"
-  resolved "https://registry.npmjs.org/iview/-/iview-3.4.2.tgz#1deafe8183fe29b9b33179d85faa37b3813b0f73"
-  integrity sha512-02GK6ew+ufywSk3bGJYQZJxnPzyqfolVIfeJOZPFjf671SUPDMQJ/NTDbTAFJVF/jHJJHFaVdqtvStTKf95xpA==
+iview@^3.5.0:
+  version "3.5.0"
+  resolved "https://registry.npmjs.org/iview/-/iview-3.5.0.tgz#9aaf0c499a3e9718b453ee545f871cc3f3a1743b"
+  integrity sha512-UVHW8vo+36X7pt3HMwxHTK4q8iIpBSTL/tubOU2w9Mw8LIwzzzsNFtLFB305E3fzLxhCAYcOLUVj0F11yLShzQ==
   dependencies:
     async-validator "^1.10.0"
     deepmerge "^2.2.1"
