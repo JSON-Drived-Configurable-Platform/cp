@@ -7341,6 +7341,9 @@ vm-browserify@^1.0.1:
   version "1.1.0"
   resolved "http://registry.npm.baidu-int.com/vm-browserify/-/vm-browserify-1.1.0.tgz#bd76d6a23323e2ca8ffa12028dc04559c75f9019"
 
+"vue-cli-plugin-cp-template-curd@file:/Users/mac/Documents/study/vue-cli-plugin-cp-template-curd":
+  version "0.0.4"
+
 vue-cli-plugin-cp-template-data-report@^0.0.3:
   version "0.0.3"
   resolved "http://registry.npm.baidu-int.com/vue-cli-plugin-cp-template-data-report/-/vue-cli-plugin-cp-template-data-report-0.0.3.tgz#58d5b2c46901a86a57ef9a26af8f68abadc31cab"
