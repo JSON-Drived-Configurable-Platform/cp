@@ -242,6 +242,10 @@ export default {
     .ivu-form-item {
       margin-bottom: 0;
     }
+
+    .ivu-poptip-content {
+      text-align: left;
+    }
   }
   .ivu-table,
   .ivu-table-wrapper,
