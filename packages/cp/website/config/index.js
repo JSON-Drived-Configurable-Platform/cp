@@ -35,11 +35,11 @@ export default {
         },
         {
             label: 'Introduce',
-            name: '/introduce'
+            name: '/doc/introduce'
         },
         {
             label: 'Quick Start',
-            name: '/start'
+            name: '/doc/start'
         }
         // {
         //     label: 'Concept',
