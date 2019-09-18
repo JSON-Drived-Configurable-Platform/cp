@@ -12,6 +12,10 @@ const practice = () => import(/* webpackChunkName: "practice" */ '../page/practi
 
 export default [
     {
+        path: '/',
+        redirect: '/home'
+    },
+    {
         path: '/home',
         name: 'home',
         component: home

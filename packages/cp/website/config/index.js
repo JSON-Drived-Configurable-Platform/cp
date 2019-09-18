@@ -40,24 +40,24 @@ export default {
         {
             label: 'Quick Start',
             name: '/start'
-        },
-        {
-            label: 'Concept',
-            name: '/concept',
-            submenu: [
-                {
-                    label: 'Basic Plugin',
-                    name: '/basic-plugin',
-                },
-                {
-                    label: 'Template Plugin',
-                    name: '/template-plugin',
-                }
-            ]
-        },
-        {
-            label: 'Practice && Thoughts',
-            name: '/practice'
-        },
+        }
+        // {
+        //     label: 'Concept',
+        //     name: '/concept',
+        //     submenu: [
+        //         {
+        //             label: 'Basic Plugin',
+        //             name: '/basic-plugin',
+        //         },
+        //         {
+        //             label: 'Template Plugin',
+        //             name: '/template-plugin',
+        //         }
+        //     ]
+        // },
+        // {
+        //     label: 'Practice && Thoughts',
+        //     name: '/practice'
+        // },
     ]
 };
