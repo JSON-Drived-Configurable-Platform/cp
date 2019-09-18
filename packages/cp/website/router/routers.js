@@ -12,28 +12,28 @@ const practice = () => import(/* webpackChunkName: "practice" */ '../page/practi
 
 export default [
     {
-        path: '/',
+        path: '/home',
         name: 'home',
-        redirect: '/home',
+        component: home
+    },
+    {
+        path: '/doc',
+        name: 'doc',
+        redirect: '/doc/introduce',
         component: Main,
         children: [
             {
-                path: '/home',
-                name: 'home',
-                component: home
-            },
-            {
-                path: '/introduce',
+                path: '/doc/introduce',
                 name: 'introduce',
                 component: introduce
             },
             {
-                path: '/start',
+                path: '/doc/start',
                 name: 'start',
                 component: start
             },
             {
-                path: '/practice',
+                path: '/doc/practice',
                 name: 'practice',
                 component: practice
             },
