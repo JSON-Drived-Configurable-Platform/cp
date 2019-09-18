@@ -98,11 +98,7 @@
   "scripts": {
     "dev": "webpack-dev-server --color --progress --config build/webpack.website.dev.config.js",
     "build-website": "webpack --color --progress --config build/webpack.website.prod.config.js",
-    "build-dev": "webpack --color --progress --config build/webpack.dist.dev.config.js",
-    "build-prod": "webpack --color --progress --config build/webpack.dist.prod.config.js",
-    "build": "npm run build-dev && npm run build-prod",
-    "lint": "eslint --fix --ext .js,.vue,.json website",
-    "deploy": "fis3 release --root=./website/dist/ --file=./deploy-baidu/config.js"
+    "lint": "eslint --fix --ext .js,.vue,.json website"
   },
   "title": "dataVisIView",
   "version": "0.0.23"
