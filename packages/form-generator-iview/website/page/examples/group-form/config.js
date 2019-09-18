@@ -429,7 +429,8 @@ export const fields = [
         apiParams: ['radio'],
         label: '文件上传',
         model: 'upload',
-        tip: '上传的提示信息或者帮助信息'
+        tip: '上传的提示信息或者帮助信息',
+        required: true,
     },
     {
         type: 'ImgUpload',
@@ -445,7 +446,8 @@ export const fields = [
         withCredentials: true,
         label: '图片上传',
         model: 'imgUpload',
-        tip: '上传的提示信息或者帮助信息'
+        tip: '上传的提示信息或者帮助信息',
+        required: true,
     },
     {
         type: 'VideoUpload',
@@ -461,7 +463,8 @@ export const fields = [
         withCredentials: true,
         label: '视频上传',
         model: 'videoUpload',
-        tip: '上传的提示信息或者帮助信息'
+        tip: '上传的提示信息或者帮助信息',
+        required: true,
     },
     {
         type: 'MediaUpload',
@@ -477,7 +480,8 @@ export const fields = [
         withCredentials: true,
         label: '媒体上传',
         model: 'mediaUpload',
-        tip: '上传的提示信息或者帮助信息'
+        tip: '上传的提示信息或者帮助信息',
+        required: true,
     },
     {
         type: 'Select',

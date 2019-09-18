@@ -30,6 +30,15 @@
             <p>使用 npm</p>
             <i-code lang="auto" bg>{{ code.introduce.install }}</i-code>
 
+            <inAnchor title="引入" h2 />
+            <p>在项目的主文件中添加如下代码：</p>
+            <i-code lang="auto" bg>{{ code.introduce.import }}</i-code>
+
+            <alert>FormGeneratorIView依赖iview，可以通过如下代码安装和引入iview</alert>
+            <strong>安装和引入iview</strong>
+            <i-code lang="auto" bg>{{ code.introduce.installIView }}</i-code>
+            <i-code lang="auto" bg>{{ code.introduce.importIView }}</i-code>
+
             <inAnchor title="示例" h2 />
             <Demo title="简单示例">
                 <div slot="demo">
