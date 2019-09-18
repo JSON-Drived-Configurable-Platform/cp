@@ -195,12 +195,12 @@ export default {
         editable() {
             // TODO
             return this.field.editable === undefined
-                ? this.field.required ? false : true
+                ? true
                 : this.field.editable;
         },
         clearable() {
             return this.field.clearable === undefined
-                ? this.field.required ? false : true
+                ? true
                 : this.field.clearable;
         },
         subtype() {

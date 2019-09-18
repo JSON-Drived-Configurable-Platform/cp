@@ -8,6 +8,165 @@
             <div class="api">
                 <inAnchor title="配置快速查询" h2 />
                 <inAnchor title="核心配置" h3 />
+                <table>
+                    <thead>
+                        <tr>
+                            <th>属性</th>
+                            <th>说明</th>
+                            <th>类型</th>
+                            <th>默认值</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>model</td>
+                            <td>绑定的值的名称</td>
+                            <td>String</td>
+                            <td>不可为空</td>
+                        </tr>
+                        <tr>
+                            <td>type</td>
+                            <td>日期选择器的类型，不可改</td>
+                            <td>String</td>
+                            <td>Select</td>
+                        </tr>
+                        <tr>
+                            <td>placeholder</td>
+                            <td>占位文本</td>
+                            <td>String</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>prefix</td>
+                            <td>在 Select 内部显示图标，传入<a href="https://www.iviewui.com/components/icon">icon</a>名称</td>
+                            <td>String</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>options</td>
+                            <td>由option/groupOption组成的数组或者api接口，见下方option/groupOption的属性</td>
+                            <td>Array|String</td>
+                            <td>[]</td>
+                        </tr>
+                        <tr>
+                            <td>filterable</td>
+                            <td>是否支持搜索</td>
+                            <td>Boolean</td>
+                            <td>false</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <inAnchor title="扩展配置" h3 />
+                <table>
+                    <thead>
+                        <tr>
+                            <th>属性</th>
+                            <th>说明</th>
+                            <th>类型</th>
+                            <th>默认值</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>required</td>
+                            <td>是否必须选择</td>
+                            <td>Boolean</td>
+                            <td>false</td>
+                        </tr>
+                        <tr>
+                            <td>clearable</td>
+                            <td>是否可以清空选项，只在单选时有效</td>
+                            <td>Boolean</td>
+                            <td>false</td>
+                        </tr>
+                        <tr>
+                            <td>size</td>
+                            <td>尺寸，可选值为large、small、default或者不设置</td>
+                            <td>String</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>disabled</td>
+                            <td>是否禁用选择器</td>
+                            <td>Boolean</td>
+                            <td>false</td>
+                        </tr>
+                        <tr>
+                            <td>multiple</td>
+                            <td>是否支持多选</td>
+                            <td>Boolean</td>
+                            <td>false</td>
+                        </tr>
+                        <tr>
+                            <td>remote</td>
+                            <td>是否使用远程搜索</td>
+                            <td>Boolean</td>
+                            <td>false</td>
+                        </tr>
+                        <tr>
+                            <td>api</td>
+                            <td>由远程api接口获得数据（已废弃）</td>
+                            <td>String</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <inAnchor title="Option配置" h3 />
+                <table>
+                    <thead>
+                        <tr>
+                            <th>属性</th>
+                            <th>说明</th>
+                            <th>类型</th>
+                            <th>默认值</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>value</td>
+                            <td>选项值，默认根据此属性值进行筛选，必填</td>
+                            <td>String | Number</td>
+                            <td>无</td>
+                        </tr>
+                        <tr>
+                            <td>label</td>
+                            <td>选项显示的内容，默认优先读取该 label 值，无 label 时，读取 value。当选中时，选择器会显示 label 为已选文案。</td>
+                            <td>String</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>disabled</td>
+                            <td>是否禁用当前项</td>
+                            <td>Boolean</td>
+                            <td>false</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <inAnchor title="GroupOption配置" h3 />
+                <table>
+                    <thead>
+                        <tr>
+                            <th>属性</th>
+                            <th>说明</th>
+                            <th>类型</th>
+                            <th>默认值</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>groupLabel</td>
+                            <td>分组显示的内容，必填</td>
+                            <td>String</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>groupOptions</td>
+                            <td>分组的内容，由option组成</td>
+                            <td>Array</td>
+                            <td>[]</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <inAnchor title="代码示例" h2 />
             <Demo title="基础用法">
@@ -26,6 +185,7 @@
                 </div>
                 <i-code slot="code" lang="html">{{ code.simple.code }}</i-code>
             </Demo>
+
             <Demo title="远程获取选项">
                 <div slot="demo">
                     <Form :model="code.api.data.model">
@@ -172,6 +332,7 @@
                 </div>
                 <i-code slot="code" lang="html">{{ code.prefix.code }}</i-code>
             </Demo>
+
         </article>
     </i-article>
 </template>

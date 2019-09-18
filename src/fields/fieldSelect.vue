@@ -102,7 +102,7 @@ export default {
         },
         clearable() {
             return this.field.clearable === undefined
-                ? this.field.required ? false : true
+                ? false
                 : this.field.clearable;
         },
         computedOptions() {
