@@ -70,7 +70,6 @@
                             <td>false</td>
                         </tr>
                         <tr>
-                            <td>editable</td>
                             <td>文本框是否可以输入，只在没有使用 slot 时有效</td>
                             <td>Boolean</td>
                             <td>true</td>
