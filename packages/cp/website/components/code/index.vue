@@ -1,4 +1,7 @@
 <style scoped>
+   .i-code {
+       margin: 0 0 10px 0;
+   }
     div{
         position: relative;
         font-size: 14px;
@@ -35,7 +38,7 @@
     }
 </style>
 <template>
-    <div>
+    <div class="i-code">
         <pre :class="{bg: bg}"><code ref="code" :class="language"><slot /></code></pre>
         <!-- <span v-if="title !== 'Code'" class="open-fiddle" @click="openFiddle">
             <Tooltip :content="$t('index.code_jsfiddle')" placement="top" transfer>

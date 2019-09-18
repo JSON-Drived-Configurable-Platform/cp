@@ -34,8 +34,26 @@ export default {
             name: '/home'
         },
         {
-            label: 'Start',
+            label: 'Introduce',
+            name: '/introduce'
+        },
+        {
+            label: 'Quick Start',
             name: '/start'
+        },
+        {
+            label: 'Concept',
+            name: '/concept',
+            submenu: [
+                {
+                    label: 'Basic Plugin',
+                    name: '/basic-plugin',
+                },
+                {
+                    label: 'Template Plugin',
+                    name: '/template-plugin',
+                }
+            ]
         },
         {
             label: 'Practice && Thoughts',

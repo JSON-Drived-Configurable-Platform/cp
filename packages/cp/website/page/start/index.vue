@@ -1,113 +1,127 @@
 <template>
     <i-article>
         <article>
-            <h1>关于 CP</h1>
-            <p>CP 是一套基于 iView UI 的开源的表单生成工具，可以很方便的基于Json配置生成表单，主要服务于 PC 界面的中后台产品。</p>
+            <h1>Quick Start</h1>
+            <p>本文介绍如何使用CP来快速创建一个平台的UI，除了包含顶部导航、动态侧边栏导航等基础功能外，还包含一个可配置的支持可视化、查询功能的数据报表模板。</p>
             <inAnchor
-                title="特性"
+                title="使用vue-cli创建一个空项目"
                 h2
             />
-            <ul>
-                <li>可配置、高效率</li>
-                <li>可复用、易维护</li>
-                <li>文档详细，查询方便</li>
-            </ul>
+            <i-code>vue create cp-demo</i-code>
+            <p>创建项目的时候的配置项可以如下设置：</p>
+            <div class="api">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>选项</th>
+                            <th>选择</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>preset</td>
+                            <td>Manually select features</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>features</td>
+                            <td>Babel、CSS Pre-processors、Linter / Formatter</td>
+                            <td>必须选择Babel</td>
+                        </tr>
+                        <tr>
+                            <td>CSS pre-processor</td>
+                            <td>Less</td>
+                            <td>必须选择Less、模板都基于Less开发。</td>
+                        </tr>
+                        <tr>
+                            <td>linter / formatter</td>
+                            <td>ESLint + Prettier</td>
+                            <td>可自主选择</td>
+                        </tr>
+                        <tr>
+                            <td>additional lint features</td>
+                            <td>Lint on save</td>
+                            <td>可自主选择</td>
+                        </tr>
+                        <tr>
+                            <td>config for Babel</td>
+                            <td>In dedicated config files</td>
+                            <td>可自主选择</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>安装完成后，我们将得到一个初始化的项目。</p>
+            <alert>
+                <code>CP</code>依赖<code>vue-cli</code>，需要在全局安装<code>vue-cli</code>，详见<a href="https://cli.vuejs.org/guide/installation.html">Vue CLI Installation</a>
+            </alert>
 
             <inAnchor
-                title="谁在使用"
+                title="安装vue-cli-plugin-cp"
                 h2
             />
-            <ul>
-                <li>
-                    <a href="https://www.baidu.com/" target="_blank">百度</a>
-                </li>
-            </ul>
-            <blockquote>
-                如果你的公司和产品使用了FormGeneratorIView，欢迎到 <a href="https://github.com/BingBlog/form-generator-iview/issues/8" target="_blank">这里</a> 留言。
-            </blockquote>
-
-            <inAnchor title="安装" h2 />
-            <p>使用 npm</p>
-            <i-code lang="auto" bg>{{ code.introduce.install }}</i-code>
-
-            <!-- TODO -->
-            <inAnchor title="版本" h2 />
+            <p>到项目的目录中执行:</p>
+            <i-code>vue add cp</i-code>
+            <alert>绿色的为新增文件或者文件夹，黄色的表示有变更，可以通过编辑器查看详细的变更。</alert>
+            <p>安装完毕后，执行：</p>
+            <i-code>yarn serve</i-code>
             <p>
-                <a href="https://www.npmjs.com/package/form-generator-iview" target="_blank">
-                    <img src="https://img.shields.io/npm/v/form-generator-iview.svg?style=flat-square">
-                </a>
-                <br>
-                <i>目前仍为开发中，不建议生产环境使用。</i>
+                路由到<strong>/home</strong>页面，可以看到打开的页面上展示了很多模板。
+                在后续的项目开发中，你可以根据自己的需要选择模板添加。
+                本文后续将添加<strong>cp-template-data-report</strong>这个模板。
+                并演示如何通过简单的配置变更，快速完成一个数据报表页面的开发。
             </p>
 
-            <inAnchor title="兼容" h2 />
-            <ul>
-                <li>支持 iView 3.0</li>
-            </ul>
-
             <inAnchor
-                title="目标用户"
+                title="添加template-data-report模板"
                 h2
             />
-            <p>已经或者打算使用iView组件库来开发中台的<strong>前端同学</strong>。</p>
-            <p>特别项目中有很多的表单场景，直接使用模板开发会导致开发量增加、维护起来很困难。</p>
-            <blockquote>
-                如果你是从头开始开发一个中台，可以先看看<a href="https://github.com/BingBlog/cp">CP</a>。这个项目中汇总了很多中台中使用到的工具和模板。有可能会帮助到你。
-            </blockquote>
-            <blockquote>
-                如果你是一个不了解前端技术的<strong>后端同学</strong>，可以考虑使用<a href="https://github.com/baidu/amis" target="_blank">amis配置工具</a>。
-                这个工具可以让你在没有前端同学支持的情况下配置出完整的平台，功能非常强大。
-            </blockquote>
+            <i-code>vue add cp-template-data-report</i-code>
+            <p>安装完毕后，重启项目并路由到<code>/data-report</code>就可以看到一个具有可视化、查询等功能的数据报表页面。</p>
+            <alert>
+                <code>cp-template-data-report</code>支持非常丰富的可视化组件以及查询组件，而且这些都可以通过JSON来配置。
+                查看<a href="https://github.com/BingBlog/vue-cli-plugin-cp-template-data-report">cp-template-data-report</a>了解更多用法。
+            </alert>
 
             <inAnchor
-                title="关于文档"
+                title="发生了什么"
                 h2
             />
-            <p>文档的作用主要有一下几点：</p>
-            <ul>
-                <li>1. 帮助您了解如何使用这个工具；</li>
-                <li>2. 提供各个组件的配置速查表；这些表对于<strong>后端同学</strong>了解如何更改配置很有帮助。</li>
-            </ul>
-            <blockquote>
-                在我们的实践中，通常是前端将配置以接口的形式暴露给后端，
-                主要的交互和UI部分仍由前端来完成，后续细节的调整可以由后端直接更改。
-            </blockquote>
-
-            <!-- TODO -->
-            <inAnchor
-                title="场景限制"
-                h2
-            />
-            <p>做成可配置的，其实是用灵活性去换效率。使用时，需要仔细考虑是否使用可配置的方式。目前的功能会在处理一下几个场景时遇到问题：</p>
-            <ul>
-                <li>交互中，多个表单项之间有关联逻辑。特别是展现关联、校验关联的场景；</li>
-            </ul>
-
-            <inAnchor
-                title="与iView的关系"
-                h2
-            />
-            <p>工具中的大部分组件都基于iView组件开发。所以在设计上，很多命名都尽量保持与iView一致，包含组件名称、组件属性名称、组件方法名称等。</p>
-            <p>这个工具仅仅是对iView做了一些封装。目的是为了让使用iView的同时，也可以通过配置生成表单。希望对iView社区有一定帮助。</p>
-            <p>选用iView是因为iView社区的活跃度很高，组件库和文档的质量也很好。</p>
-
-            <inAnchor title="相关链接" h2 />
-            <ul>
-                <li>
-                    <a href="https://iviewui.com/" target="_blank">iView官方文档</a>
-                </li>
-                <li>
-                    <a href="https://github.com/BingBlog/cp" target="_blank">A configurable platform frontend ui solution based on iView UI.</a>
-                </li>
-                <li>
-                    <a href="https://github.com/baidu/amis" target="_blank">baidu出品的amis配置工具</a>
-                </li>
-            </ul>
-
-            <inAnchor title="感谢" h2 />
+            <p>到这个时候，你可能会有很多疑问。现在我们就来简单的了解下到底发生了什么。</p>
+            <p>我们安装了两个插件，这两个插件都生成了一些代码。</p>
             <p>
-                没有iView组件库及社区，这个库不会出现。在工具的实现中，大量的"借鉴"了iView组织的代码。包含但不限于组件库、文档。
+                <strong><a href="https://github.com/BingBlog/vue-cli-plugin-cp">vue-cli-plugin-cp</a></strong>
+                是一个CP基础插件，这个插件生成了脚手架、Layout相关代码。在安装后，就能看到顶部导航栏及侧边栏。
+                还注入了vue-router、vuex项目核心依赖，并进行了Home页面的router和store的声明以及router和store动态加载机制的注入。
             </p>
+            <p>
+                <strong><a href="https://github.com/BingBlog/vue-cli-plugin-cp-template-data-report">vue-cli-plugin-cp-template-data-report</a></strong>
+                是一个模板插件，这个插件生成了数据报表相关的代码。并自动注入了data-report所依赖的包和库，同时还声明了data-report的路由。
+            </p>
+            <p>我们对比一下每次操作后的文件变更，可以更直观的理解到底发生了什么？如下是每次操作后的代码目录：</p>
+            <p class="project-structure-imgs">
+                <ul>
+                    <li><span>vue初始化项目目录结构</span><img width="200" src="./images/vue-init-project.png" alt="vue初始化项目目录结构"></li>
+                    <li><span>安装vue-cli-plugin-cp之后的代码目录</span><img width="200" src="./images/vue-add-cp.png" alt="安装vue-cli-plugin-cp之后的代码目录"></li>
+                    <li><span>安装vue-cli-plugin-cp-template-data-report之后的代码目录</span><img width="200" src="./images/vue-add-cp-template-data-report.png" alt="安装vue-cli-plugin-cp-template-data-report之后的代码目录"></li>
+                </ul>
+            </p>
+            <p>
+                现在我们对CP已经有了基本的认识，它基于vue-cli生成项目，然后通过安装一个基础插件来生成项目所需要的基础代码，然后再通过安装模板插件来生成模板页面。
+                并通过一些约定来使基础插件和模板插件可以相互配合，以此来达到模板复用的目的。
+            </p>
+
+            <inAnchor
+                title="基础插件:vue-cli-plugin-cp"
+                h2
+            />
+
+            <inAnchor
+                title="模板插件:vue-cli-plugin-cp-template-data-report"
+                h2
+            />
+            <p><code>template-data-report</code>模板插件，仅注入了一个路由，真实业务中，一般会有多个页面都是用这个页面模板。我们可以添加额外的路由。</p>
         </article>
     </i-article>
 </template>
@@ -116,12 +130,14 @@
 import iArticle from '../../components/article';
 import inAnchor from '../../components/anchor';
 import iCode from '../../components/code';
+// import Demo from '../../components/Demo';
 import Code from '../../code/guide';
 export default {
     components: {
         iArticle,
         inAnchor,
         iCode
+        // Demo
     },
     data() {
         return {
@@ -131,6 +147,30 @@ export default {
 };
 </script>
 
-<style>
-
-</style>
+<style lang="less" scoped>
+.project-structure-imgs {
+    margin: 20px auto;
+    ul {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        li {
+            margin: 0 20px;
+            width: 25%;
+            text-align: center;
+            img {
+                margin: 0 auto;
+                max-width: 200px;
+                display: block;
+                width: 100%;
+            }
+            span {
+                display: inline-block;
+                height: 60px;
+                line-height: 30px;
+                font-size: 12px;
+            }
+        }
+    }
+}
+</style>>

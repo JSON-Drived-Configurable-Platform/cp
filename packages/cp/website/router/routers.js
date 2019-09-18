@@ -7,6 +7,7 @@ import Main from '../components/main';
 
 const home = () => import(/* webpackChunkName: "home" */ '../page/home');
 const start = () => import(/* webpackChunkName: "start" */ '../page/start');
+const introduce = () => import(/* webpackChunkName: "introduce" */ '../page/introduce');
 const practice = () => import(/* webpackChunkName: "practice" */ '../page/practice');
 
 export default [
@@ -20,6 +21,11 @@ export default [
                 path: '/home',
                 name: 'home',
                 component: home
+            },
+            {
+                path: '/introduce',
+                name: 'introduce',
+                component: introduce
             },
             {
                 path: '/start',

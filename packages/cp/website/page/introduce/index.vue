@@ -1,0 +1,70 @@
+<template>
+    <i-article>
+        <article>
+            <h1>关于 CP</h1>
+            <p>CP 是一套基于<code>vue-cli</code>的模板化平台开发解决方案，可以使用提供的模板快速开发平台项目。</p>
+            <inAnchor
+                title="特性"
+                h2
+            />
+            <ul>
+                <li>可配置、高效率</li>
+                <li>可复用、易维护</li>
+                <li>基础组件和工具都基于社区成熟项目</li>
+                <li>文档详细，查询方便</li>
+            </ul>
+
+            <inAnchor
+                title="谁在使用"
+                h2
+            />
+            <ul>
+                <li>
+                    <a href="https://www.baidu.com/" target="_blank">百度</a>
+                </li>
+            </ul>
+            <blockquote>
+                如果你的公司和产品使用了CP，欢迎到 <a href="https://github.com/BingBlog/cp/issues/1" target="_blank">这里</a> 留言。
+            </blockquote>
+
+            <inAnchor title="快速开始" h2 />
+            <p> <router-link to="/foo">Go to Foo</router-link></p>
+
+            <inAnchor
+                title="目标用户"
+                h2
+            />
+            <p>已经或者打算使用iView组件库来开发中台的<strong>前端同学</strong>。</p>
+            <blockquote>
+                如果你是一个不了解前端技术的<strong>后端同学</strong>，可以考虑使用<a href="https://github.com/baidu/amis" target="_blank">amis配置工具</a>。
+                这个工具可以让你在没有前端同学支持的情况下配置出完整的平台，功能非常强大。
+            </blockquote>
+
+            <inAnchor title="感谢" h2 />
+            <p>
+                感谢vue及其强大的社区和完善的基础工具链。
+            </p>
+        </article>
+    </i-article>
+</template>
+
+<script>
+import iArticle from '../../components/article';
+import inAnchor from '../../components/anchor';
+import Code from '../../code/guide';
+export default {
+    components: {
+        iArticle,
+        inAnchor
+    },
+    data() {
+        return {
+            code: Code
+        };
+    }
+};
+</script>
+
+<style>
+
+</style>
