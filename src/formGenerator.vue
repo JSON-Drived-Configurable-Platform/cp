@@ -298,13 +298,13 @@ export default {
         },
 
         handleSubmit() {
-            this.submit().then(model => {
-                // eslint-disable-next-line no-console
-                console.log('model', model);
-            }).catch(err => {
-                // eslint-disable-next-line no-console
-                console.log('err', err);
-            });
+            // this.submit().then(model => {
+            //     // eslint-disable-next-line no-console
+            //     console.log('model', model);
+            // }).catch(err => {
+            //     // eslint-disable-next-line no-console
+            //     console.log('err', err);
+            // });
             this.$emit('on-submit');
         },
 

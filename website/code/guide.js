@@ -7,6 +7,25 @@ $ npm install form-generator-iview --save
 $ yarn add form-generator-iview
 `;
 
+introduce.import = `
+import "form-generator-iview/src/style/index.less";
+import FormGenerator from "form-generator-iview";
+
+Vue.use(FormGenerator);
+`;
+
+introduce.installIView = `
+$ npm install iview --save
+# or
+$ npm add iview
+`;
+
+introduce.importIView = `
+import iView from "iview";
+import "iview/dist/styles/iview.css";
+
+Vue.use(iView);
+`;
 
 const fields = [
     {

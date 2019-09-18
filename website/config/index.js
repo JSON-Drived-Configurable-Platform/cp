@@ -29,13 +29,13 @@ export default {
     defaultOpenNames: '/doc',
 
     menuList: [
+        // {
+        //     label: 'Home',
+        //     name: '/home'
+        // },
         {
-            label: 'Home',
-            name: '/home'
-        },
-        {
-            label: 'Start',
-            name: '/start'
+            label: 'Intro',
+            name: '/intro'
         },
         {
             label: 'Practice && Thoughts',

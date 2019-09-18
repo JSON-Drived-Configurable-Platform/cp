@@ -18,6 +18,9 @@
     span.open-fiddle{
         right: 50px;
     }
+    .bg {
+        margin: 20px auto;
+    }
     .bg + span.copy{
         right: 5px;
     }

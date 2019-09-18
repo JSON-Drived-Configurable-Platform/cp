@@ -5,8 +5,8 @@
 
 import Main from '../components/main';
 
-const home = () => import(/* webpackChunkName: "home" */ '../page/home');
-const start = () => import(/* webpackChunkName: "start" */ '../page/start');
+// const home = () => import(/* webpackChunkName: "home" */ '../page/home');
+const intro = () => import(/* webpackChunkName: "start" */ '../page/intro');
 const practice = () => import(/* webpackChunkName: "practice" */ '../page/practice');
 const FormGenerator = () => import(/* webpackChunkName: "FormGenerator" */ '../page/doc/FormGenerator');
 const FieldGenerator = () => import(/* webpackChunkName: "FieldGenerator" */ '../page/doc/FieldGenerator');
@@ -30,19 +30,19 @@ const twoRelatedForm = () => import(/* webpackChunkName: "twoRelatedForm" */ '..
 export default [
     {
         path: '/',
-        name: 'home',
-        redirect: '/home',
+        name: 'intro',
+        redirect: '/intro',
         component: Main,
         children: [
+            // {
+            //     path: '/home',
+            //     name: 'home',
+            //     component: home
+            // },
             {
-                path: '/home',
-                name: 'home',
-                component: home
-            },
-            {
-                path: '/start',
-                name: 'start',
-                component: start
+                path: '/intro',
+                name: 'intro',
+                component: intro
             },
             {
                 path: '/practice',
