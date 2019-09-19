@@ -7,8 +7,8 @@
         :split-panels="field.splitPanels"
         :multiple="field.multiple"
         :options="options"
-        :editable="editable"
-        :clearable="clearable"
+        :editable="field.editable"
+        :clearable="field.clearable"
         :class="itemClasses"
         :size="size"
         change-on-select
@@ -191,17 +191,6 @@ export default {
         },
         filterable() {
             return !!this.field.api || this.field.filterable;
-        },
-        editable() {
-            // TODO
-            return this.field.editable === undefined
-                ? this.field.required ? false : true
-                : this.field.editable;
-        },
-        clearable() {
-            return this.field.clearable === undefined
-                ? this.field.required ? false : true
-                : this.field.clearable;
         },
         subtype() {
             return this.field.subtype || 'date';

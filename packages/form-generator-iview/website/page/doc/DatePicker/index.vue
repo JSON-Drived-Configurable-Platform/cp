@@ -70,16 +70,15 @@
                             <td>false</td>
                         </tr>
                         <tr>
-                            <td>editable</td>
-                            <td>文本框是否可以输入，只在没有使用 slot 时有效，默认依赖于required属性，与required相反</td>
+                            <td>文本框是否可以输入，只在没有使用 slot 时有效</td>
                             <td>Boolean</td>
-                            <td>!required</td>
+                            <td>true</td>
                         </tr>
                         <tr>
                             <td>clearable</td>
-                            <td>是否显示清除按钮，默认依赖于required属性，与required相反</td>
+                            <td>是否显示清除按钮</td>
                             <td>Boolean</td>
-                            <td>!required</td>
+                            <td>true</td>
                         </tr>
                         <tr>
                             <td>size</td>
