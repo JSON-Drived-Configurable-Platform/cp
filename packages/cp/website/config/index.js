@@ -26,7 +26,7 @@ export default {
      */
     homeName: 'home',
 
-    defaultOpenNames: '/doc',
+    defaultOpenNames: ['/doc', '/concept', '/contribute'],
 
     menuList: [
         {
@@ -40,24 +40,42 @@ export default {
         {
             label: 'Quick Start',
             name: '/doc/start'
-        }
-        // {
-        //     label: 'Concept',
-        //     name: '/concept',
-        //     submenu: [
-        //         {
-        //             label: 'Basic Plugin',
-        //             name: '/basic-plugin',
-        //         },
-        //         {
-        //             label: 'Template Plugin',
-        //             name: '/template-plugin',
-        //         }
-        //     ]
-        // },
-        // {
-        //     label: 'Practice && Thoughts',
-        //     name: '/practice'
-        // },
+        },
+        {
+            label: 'Concept',
+            name: '/concept',
+            submenu: [
+                {
+                    label: 'Routers',
+                    name: '/concept/routers',
+                },
+                {
+                    label: 'Services',
+                    name: '/concept/services',
+                },
+                {
+                    label: 'Basic Plugin',
+                    name: '/concept/basic-plugin',
+                },
+                {
+                    label: 'Template Plugin',
+                    name: '/concept/template-plugin',
+                }
+            ]
+        },
+        {
+            label: 'Contribute',
+            name: '/contribute',
+            submenu: [
+                {
+                    label: 'Contribute A Layout',
+                    name: '/concept/contribute-layout',
+                },
+                {
+                    label: 'Contribute A Template',
+                    name: '/concept/contribute-template',
+                }
+            ]
+        },
     ]
 };

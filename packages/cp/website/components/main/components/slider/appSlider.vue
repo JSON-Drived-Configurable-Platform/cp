@@ -1,7 +1,8 @@
 <template>
     <Sider
         hide-trigger
-        :style="{background: '#fff', width: '240px'}"
+        width="210"
+        :style="{background: '#fff'}"
     >
         <Menu
             :active-name="activeName"

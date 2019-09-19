@@ -47,7 +47,7 @@ export default {
         },
 
         openNames() {
-            return config.defaultOpenNames ? [config.defaultOpenNames] : [];
+            return config.defaultOpenNames ? config.defaultOpenNames : [];
         },
 
         pagePath() {

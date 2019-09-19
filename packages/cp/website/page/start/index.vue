@@ -79,10 +79,6 @@
             />
             <i-code>vue add cp-template-data-report</i-code>
             <p>安装完毕后，重启项目并路由到<code>/data-report</code>就可以看到一个具有可视化、查询等功能的数据报表页面。</p>
-            <alert>
-                <code>cp-template-data-report</code>支持非常丰富的可视化组件以及查询组件，而且这些都可以通过JSON来配置。
-                查看<a href="https://github.com/BingBlog/vue-cli-plugin-cp-template-data-report">cp-template-data-report</a>了解更多用法。
-            </alert>
 
             <inAnchor
                 title="发生了什么"
@@ -100,11 +96,11 @@
                 是一个模板插件，这个插件生成了数据报表相关的代码。并自动注入了data-report所依赖的包和库，同时还声明了data-report的路由。
             </p>
             <p>我们对比一下每次操作后的文件变更，可以更直观的理解到底发生了什么？如下是每次操作后的代码目录：</p>
-            <p class="project-structure-imgs">
+            <p class="img-list">
                 <ul>
-                    <li><span>vue初始化项目目录结构</span><img width="200" src="./images/vue-init-project.png" alt="vue初始化项目目录结构"></li>
-                    <li><span>安装vue-cli-plugin-cp之后的代码目录</span><img width="200" src="./images/vue-add-cp.png" alt="安装vue-cli-plugin-cp之后的代码目录"></li>
-                    <li><span>安装vue-cli-plugin-cp-template-data-report之后的代码目录</span><img width="200" src="./images/vue-add-cp-template-data-report.png" alt="安装vue-cli-plugin-cp-template-data-report之后的代码目录"></li>
+                    <li><img src="./images/vue-init-project.png" alt="vue初始化项目目录结构"><span>vue初始化项目目录结构</span></li>
+                    <li><img src="./images/vue-add-cp.png" alt="安装vue-cli-plugin-cp之后的代码目录"><span>安装vue-cli-plugin-cp之后的代码目录</span></li>
+                    <li><img src="./images/vue-add-cp-template-data-report.png" alt="安装vue-cli-plugin-cp-template-data-report之后的代码目录"><span>安装vue-cli-plugin-cp-template-data-report之后的代码目录</span></li>
                 </ul>
             </p>
             <p>
@@ -113,15 +109,82 @@
             </p>
 
             <inAnchor
-                title="基础插件:vue-cli-plugin-cp"
+                title="更改侧边栏配置"
                 h2
             />
+            <p>侧边栏的配置维护在<code>layout</code>模板里面。在这个例子中，<code>layout</code>模板是通过<code>vue-cli-plugin-cp</code>注入的。</p>
+            <p>我们希望需要更改侧边栏，增加一个数据报表的菜单项。对于当前项目的<code>layout</code>，侧边栏的配置是通过<code>src/service/module/app.js</code>里面的<code>getMenuList</code>来获取的。所以我们仅需要更改这个接口的数据即可。</p>
+            <p>在开发环境下，默认使用了json来mock数据。更改<code>src/mock/app/menu-list.json</code>里面的配置就可以完成对侧边栏配置的更新。</p>
+            <alert>mock数据的变更需要重启webpack才能生效。</alert>
+            <p class="img-list">
+                <ul>
+                    <li><img width="400" src="./images/modify-mock-data.png" alt="更改menu-list.json里的mock数据"><span>更改menu-list.json里的mock数据</span></li>
+                    <li><img width="400" src="./images/slide-after-modified.png" alt="变更之后的侧边栏"><span>变更之后的侧边栏</span></li>
+                </ul>
+            </p>
+            <alert>如果先要了解更多关于<code>service</code>中的配置，可阅读<a href="/concept/services">Concept Services</a></alert>
 
             <inAnchor
-                title="模板插件:vue-cli-plugin-cp-template-data-report"
+                title="配置报表路由"
                 h2
             />
-            <p><code>template-data-report</code>模板插件，仅注入了一个路由，真实业务中，一般会有多个页面都是用这个页面模板。我们可以添加额外的路由。</p>
+            <p>现在我们已经有了一个功能完整的数据报表页面，这个页面是通过模板插件注入到项目中的，Router的配置是模板默认的，如果我们想要变更路由，可以直接更改<code>src/page/data-report/router.js</code>下的路由配置。</p>
+            <p class="img-list">
+                <ul>
+                    <li><img width="80%" src="./images/modify-router.png" alt="更改路由"><span>更改menu-list.json里的mock数据</span></li>
+                </ul>
+            </p>
+            <p>上图展示了如何将<code>/data-report</code>更改为<code>/my-report</code>。</p>
+            <p>router的申明要遵循一定的格式，由于router的申明会分离在不同的模板页面中，所以需要我们自己来控制路由的命名冲突问题。</p>
+            <alert>如果想要了解<code>router</code>的申明格式，注入机制，可阅读<a href="/concept/routers">Concept Routers</a></alert>
+
+            <inAnchor
+                title="Data Report模板的详细用法"
+                h2
+            />
+            <p>现在我们添加了侧边栏菜单项，也增加了Data Report的路由。我们得到了一个完整的数据报表。</p>
+            <p>但是这仅限于开发环境。实际生产中，我们需要满足具体的业务需求。数据报表的查询项和可视化的图表都需要结合业务来实现。</p>
+            <p>
+                Data Report模板是通过可配置的JSON来驱动页面的，包括页面结构与布局，图表类型与数据，查询条件等。
+                <code>vue-cli-plugin-cp-template-data-report</code>支持非常丰富的可视化组件以及查询组件，而且这些都可以通过JSON来配置。
+                查看<a href="https://github.com/BingBlog/vue-cli-plugin-cp-template-data-report">cp-template-data-report</a>了解更多用法。
+            </p>
+
+            <inAnchor
+                title="模板、模块、可配置平台"
+                h2
+            />
+            <p>Data Report模板是通过可配置的JSON来驱动的，通常这些<strong>可配置的模板(Configuable Template)</strong>都基于一些<strong>基础模块(Modules)</strong>来构建。</p>
+            <p>
+                Data Report模版构建在
+                <strong><a href="https://github.com/BingBlog/form-generator-iview">FormGeneratorIView</a></strong>
+                和
+                <strong><a href="https://github.com/BingBlog/data-vis-iview">DataVisIView</a></strong>
+                之上。
+                前者主要解决平台开发中的表单问题，提供基于JSON的表单渲染。后者主要解决可视化图表的渲染，实际上在DataVisIView里面就使用了FormGeneratorIView。
+            </p>
+            <p>这些<strong>可配置的模板(Configuable Template)和基础模块(Modules)是CP整个项目的重点</strong>。</p>
+
+            <inAnchor
+                title="Atomic Design"
+                h2
+            />
+            <p class="img-list">
+                <ul>
+                    <li>
+                        <a target="_blank" href="http://bradfrost.com/blog/post/atomic-web-design/">
+                            <img width="60%" src="./images/atomic-design.jpg" alt="Atomic Design">
+                        </a>
+                        <a target="_blank" href="http://bradfrost.com/blog/post/atomic-web-design/"><span>Atomic Design</span></a>
+                    </li>
+                </ul>
+            </p>
+            <p><strong>CP</strong>的意义不仅限于提供了一套模板复用机制，更在于在平台开发中践行<strong>Atomic Design</strong>的原则。</p>
+            <p>
+                从iView到FormGeneratorIView、DataVisIView，再到vue-cli-plugin-cp-template-data-report，最终到Data Report页面。
+                也就是从Atoms、Molecules到Organisms，再到Templates，最终到Pages的过程。
+            </p>
+            <p>如果想要了解更多关于<Strong>CP</Strong>的设计理念，可以参考<a href="/concept/main-thoery">Concept Main Thoery</a></p>
         </article>
     </i-article>
 </template>
@@ -148,25 +211,22 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.project-structure-imgs {
+.img-list {
     margin: 20px auto;
     ul {
         display: flex;
         align-items: flex-start;
         justify-content: center;
         li {
-            margin: 0 20px;
-            width: 25%;
+            margin: 0 50px;
             text-align: center;
             img {
                 margin: 0 auto;
-                max-width: 200px;
                 display: block;
                 width: 100%;
             }
             span {
                 display: inline-block;
-                height: 60px;
                 line-height: 30px;
                 font-size: 12px;
             }
