@@ -5,13 +5,12 @@
         </h3>
         <div class="page-home-container">
             <div class="page-home-container-content">
-                <div class="page-home-container-content-slogon">同样的场景，我们只写一次</div>
-                <div class="page-home-container-content-advantages">
-                    <ul>
-                        <li><strong>开发环境基于<a href="https://cli.vuejs.org/">vue-cli</a>，组件库基于<a href="https://iviewui.com/">iview</a>。都是社区很成熟的项目</strong></li>
-                        <li><strong>多种场景下的模板可供选择，即插即用。</strong></li>
-                        <li><strong>提供了多种场景下的基础工具库，是你可以高效的开发自己的页面模板。</strong></li>
-                    </ul>
+                <div class="page-home-container-content-title">Configurable Platform</div>
+                <!-- <div class="page-home-container-content-slogon">同样的场景，我们只写一次</div> -->
+                <div class="page-home-container-content-desc">
+                    <p>
+                        服务于企业级应用前端开发，基于vue-cli插件机制的模板复用方案。
+                    </p>
                 </div>
                 <div class="page-home-container-content-actions">
                     <Button to="/doc/introduce" target="_blank" type="primary" size="large">文档</Button>
@@ -39,6 +38,8 @@ export default {
     height: 100%;
     background: url('./cool-background.svg') no-repeat;
     background-size: cover;
+    font-family: Avenir,-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei','Helvetica Neue',Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol',sans-serif;
+
     &-header {
         &-logo {
             margin: 20px 0 0 60px;
@@ -57,17 +58,18 @@ export default {
             top: 10%;
             left: 10%;
 
-            &-slogon {
-                height: 100px;
-                font-size: 50px;
+            &-title {
+                color: #314659;
+                margin: 8px 0 28px;
+                font-weight: 500;
+                font-size: 68px;
             }
 
-            &-advantages {
-                font-size: 18px;
-                font-weight: 200;
-                li {
-                    line-height: 32px;
-                }
+            &-desc {
+                color: #314659;
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 40px;
             }
 
             &-actions {
