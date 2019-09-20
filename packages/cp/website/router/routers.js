@@ -9,6 +9,17 @@ const home = () => import(/* webpackChunkName: "home" */ '../page/home');
 const start = () => import(/* webpackChunkName: "start" */ '../page/start');
 const introduce = () => import(/* webpackChunkName: "introduce" */ '../page/introduce');
 const practice = () => import(/* webpackChunkName: "practice" */ '../page/practice');
+const mainTheory = () => import(/* webpackChunkName: "mainTheory" */ '../page/concept/main-theory');
+const basicPlugin = () => import(/* webpackChunkName: "basicPlugin" */ '../page/concept/basic-plugin');
+const routerConfig = () => import(/* webpackChunkName: "routerConfig" */ '../page/concept/router-config');
+const serviceConfig = () => import(/* webpackChunkName: "serviceConfig" */ '../page/concept/service-config');
+const templatePlugin = () => import(/* webpackChunkName: "templatePlugin" */ '../page/concept/template-plugin');
+const layoutTemplate = () => import(/* webpackChunkName: "layoutTemplate" */ '../page/concept/layout-template');
+const pageTemplate = () => import(/* webpackChunkName: "pageTemplate" */ '../page/concept/page-template');
+const templatesGallery = () => import(/* webpackChunkName: "pageTemplate" */ '../page/templates-gallery');
+const modules = () => import(/* webpackChunkName: "modules" */ '../page/modules');
+const contributeLayoutTemplate = () => import(/* webpackChunkName: "contributeLayoutTemplate" */ '../page/contribute/layout-template');
+const contributePageTemplate = () => import(/* webpackChunkName: "contributePageTemplate" */ '../page/contribute/page-template');
 
 export default [
     {
@@ -40,9 +51,87 @@ export default [
                 path: '/doc/practice',
                 name: 'practice',
                 component: practice
+            }
+        ]
+    },
+    {
+        path: '/concept',
+        name: 'main-theory',
+        redirect: '/concept/main-theory',
+        component: Main,
+        children: [
+            {
+                path: '/concept/main-theory',
+                name: 'main-theory',
+                component: mainTheory
             },
+            {
+                path: '/concept/basic-plugin',
+                name: 'basic-plugin',
+                component: basicPlugin
+            },
+            {
+
+                path: '/concept/template-plugin',
+                name: 'template-plugin',
+                component: templatePlugin
+            },
+            {
+                path: '/concept/layout-template',
+                name: 'layout-template',
+                component: layoutTemplate
+            },
+            {
+                path: '/concept/page-template',
+                name: 'page-template',
+                component: pageTemplate
+            },
+            {
+                path: '/concept/router-config',
+                name: 'router-config',
+                component: routerConfig
+            },
+            {
+                path: '/concept/service-config',
+                name: 'service-config',
+                component: serviceConfig
+            }
+        ]
+    },
+    {
+        path: '/templates-gallery/:tpye',
+        name: 'templates-gallery',
+        component: templatesGallery
+    },
+    {
+        path: '/modules',
+        component: Main,
+        children: [
+            {
+                path: '/modules',
+                name: 'modules',
+                component: modules,
+            }
+        ]
+    },
+    {
+        path: '/contribute',
+        redirect: '/contribute/layout-template',
+        component: Main,
+        children: [
+            {
+                path: '/contribute/layout-template',
+                name: 'contribute-layout-template',
+                component: contributeLayoutTemplate,
+            },
+            {
+                path: '/contribute/page-template',
+                name: 'contribute-page-template',
+                component: contributePageTemplate,
+            }
         ]
     }
+
     // {
     //     path: '/401',
     //     name: 'error_401',

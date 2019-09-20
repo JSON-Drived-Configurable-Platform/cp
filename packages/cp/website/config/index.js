@@ -50,34 +50,38 @@ export default {
                     name: '/concept/basic-plugin',
                 },
                 {
-                    label: 'Layout',
-                    name: '/concept/layout',
-                },
-                {
-                    label: 'Routers',
-                    name: '/concept/routers',
-                },
-                {
-                    label: 'Services',
-                    name: '/concept/services',
-                },
-                {
                     label: 'Template Plugin',
                     name: '/concept/template-plugin',
-                }
-            ]
-        },
-        {
-            label: 'Templates',
-            name: '/templates',
-            submenu: [
+                },
+                {
+                    label: 'Router Config',
+                    name: '/concept/router-config',
+                },
+                {
+                    label: 'Service Config',
+                    name: '/concept/service-config',
+                },
                 {
                     label: 'Layout Templates',
-                    name: '/templates/layout-templates',
+                    name: '/concept/layout-template',
                 },
                 {
                     label: 'Page Templates',
-                    name: '/templates/page-templates',
+                    name: '/concept/page-template',
+                },
+            ]
+        },
+        {
+            label: 'Templates Gallery',
+            name: '/templates-gallery',
+            submenu: [
+                {
+                    label: 'Layout Templates',
+                    name: '/templates-gallery/layout',
+                },
+                {
+                    label: 'Page Templates',
+                    name: '/templates-gallery/page',
                 }
             ]
         },
@@ -90,12 +94,12 @@ export default {
             name: '/contribute',
             submenu: [
                 {
-                    label: 'Contribute A Layout',
-                    name: '/concept/contribute-layout',
+                    label: 'Layout Template',
+                    name: '/contribute/layout-template',
                 },
                 {
-                    label: 'Contribute A Template',
-                    name: '/concept/contribute-template',
+                    label: 'Page Template',
+                    name: '/contribute/page-template',
                 }
             ]
         },

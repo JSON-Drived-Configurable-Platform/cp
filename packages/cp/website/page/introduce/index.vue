@@ -2,15 +2,17 @@
     <i-article>
         <article>
             <h1>关于 CP</h1>
-            <p>CP 是一套基于<code><a href="https://cli.vuejs.org/">vue-cli</a></code>的模板化平台开发解决方案，可以使用提供的模板快速开发平台项目。我们的目标是：<strong>一个场景，我们只写一次</strong>。</p>
+            <p>CP 是一套服务于企业级应用前端开发，基于<code><a href="https://cli.vuejs.org/">vue-cli</a></code>插件机制的模板复用方案。可以使用提供的模板快速开发平台项目。</p>
+            <p>我们的目标是：<strong>一个场景，我们只写一次</strong>。</p>
+
             <inAnchor
                 title="特性"
                 h2
             />
             <ul>
-                <li><strong>开发环境基于<a href="https://cli.vuejs.org/">vue-cli</a>，组件库基于<a href="https://iviewui.com/">iview</a>。都是社区很成熟的项目</strong></li>
+                <li><strong>开发环境基于<a href="https://cli.vuejs.org/">vue-cli</a>，组件库基于<a href="https://iviewui.com/">iview</a>，都是社区很成熟的项目</strong>。</li>
                 <li><strong>多种场景下的模板可供选择，即插即用。</strong></li>
-                <li><strong>提供了多种场景下的基础工具库，是你可以高效的开发自己的页面模板。</strong></li>
+                <li><strong>提供了多种场景下的基础工具库，包括表单生成工具、图表可视化工具等，使你可以快速开发自己的页面模板。</strong></li>
             </ul>
 
             <inAnchor
