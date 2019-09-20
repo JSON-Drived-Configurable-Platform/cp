@@ -1,8 +1,6 @@
 <template>
     <div class="page-home">
-        <h3 class="page-home-header">
-            <div class="page-home-header-logo" />
-        </h3>
+        <app-header />
         <div class="page-home-container">
             <div class="page-home-container-content">
                 <div class="page-home-container-content-title">Configurable Platform</div>
@@ -13,8 +11,16 @@
                     </p>
                 </div>
                 <div class="page-home-container-content-actions">
-                    <Button to="/doc/introduce" target="_blank" type="primary" size="large">文档</Button>
-                    <Button to="/doc/start" target="_blank" type="primary" size="large">快速开始</Button>
+                    <Button type="primary" size="large" shape="circle">
+                        <router-link :style="{color: '#f8f8f8'}" to="/doc/start">快速开始</router-link>
+                    </Button>
+                    <Button size="large" shape="circle">
+                        <router-link to="/concept">主要概念</router-link>
+                    </Button>
+                    <Button to="https://github.com/BingBlog/cp" target="_blank" size="large" shape="circle">
+                        <Icon type="logo-github" />
+                        GitHub
+                    </Button>
                     <!-- <Button type="primary">模板</Button> -->
                 </div>
             </div>
@@ -23,8 +29,11 @@
     </div>
 </template>
 <script>
+import appHeader from '../../components/main/components/header/appHeader';
 export default {
-
+    components: {
+        appHeader
+    }
 };
 </script>
 <style lang="less">
@@ -40,15 +49,28 @@ export default {
     background-size: cover;
     font-family: Avenir,-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei','Helvetica Neue',Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol',sans-serif;
 
-    &-header {
-        &-logo {
-            margin: 20px 0 0 60px;
-            width: 140px;
-            height: 140px;;
-            background: url('./logo.png') no-repeat;
-            background-size: cover;
+    .ivu-layout-header {
+        background: none;
+    }
+    .ivu-menu-dark {
+        background: none;
+    }
+
+    .layout-nav {
+        a {
+            color: #f8f8f8;
+        }
+        .ivu-menu-item {
+            color: #f8f8f8;
+        }
+        .ivu-menu-submenu-title {
+            color: #f8f8f8;
+        }
+        .ivu-select-dropdown {
+            background-color: blue
         }
     }
+
 
     &-container {
         position: relative;
@@ -60,12 +82,13 @@ export default {
 
             &-title {
                 color: #314659;
-                margin: 8px 0 28px;
+                margin: 8px 0 58px;
                 font-weight: 500;
                 font-size: 68px;
             }
 
             &-desc {
+                margin: 8px 0 58px;
                 color: #314659;
                 font-weight: 500;
                 font-size: 20px;

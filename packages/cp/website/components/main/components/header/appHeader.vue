@@ -5,28 +5,37 @@
             theme="dark"
             active-name="1"
         >
-            <div class="layout-logo" />
+            <router-link to="/home">
+                <div class="layout-logo" />
+            </router-link>
             <div class="layout-nav">
-                <MenuItem name="1">
-                    开始
+                <MenuItem name="doc">
+                    <router-link to="/doc">文档</router-link>
                 </MenuItem>
-                <MenuItem name="1">
-                    思考与实践
+                <MenuItem name="templates-gallery">
+                    Templates Gallery
                 </MenuItem>
-                <MenuItem name="2">
-                    文档
-                </MenuItem>
-                <Submenu name="3">
+                <Submenu name="Modules">
                     <template slot="title">
-                        生态
+                        Modules
                     </template>
-                    <MenuItem name="3-1">
-                        Configurable Plaform
+                    <MenuItem name="FormGeneratorIView">
+                        <a target="_blank" href="https://github.com/BingBlog/form-generator-iview">
+                            FormGeneratorIView
+                        </a>
                     </MenuItem>
-                    <MenuItem name="3-2">
-                        data-vis-iview
+                    <MenuItem name="FormGeneratorIView">
+                        <a target="_blank" href="https://github.com/BingBlog/data-vis-iview">
+                            DataVisIView
+                        </a>
                     </MenuItem>
                 </Submenu>
+                <MenuItem name="GitHub">
+                    <a target="_blank" href="https://github.com/BingBlog/cp">
+                        <Icon type="logo-github" />
+                        GitHub
+                    </a>
+                </MenuItem>
             </div>
         </Menu>
     </Header>

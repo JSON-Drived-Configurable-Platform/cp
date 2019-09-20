@@ -66,11 +66,6 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-    .ivu-layout-header {
-        padding: 0 30px;
-    }
-</style>
-<style lang="less" scoped>
 .layout{
     border: 1px solid #d7dde4;
     background: #f5f7f9;

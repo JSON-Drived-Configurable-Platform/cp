@@ -30,10 +30,6 @@ export default {
 
     menuList: [
         {
-            label: 'Home',
-            name: '/home'
-        },
-        {
             label: 'Introduce',
             name: '/doc/introduce'
         },
@@ -46,6 +42,18 @@ export default {
             name: '/concept',
             submenu: [
                 {
+                    label: 'Main Theory',
+                    name: '/concept/main-theory',
+                },
+                {
+                    label: 'Basic Plugin',
+                    name: '/concept/basic-plugin',
+                },
+                {
+                    label: 'Layout',
+                    name: '/concept/layout',
+                },
+                {
                     label: 'Routers',
                     name: '/concept/routers',
                 },
@@ -54,14 +62,28 @@ export default {
                     name: '/concept/services',
                 },
                 {
-                    label: 'Basic Plugin',
-                    name: '/concept/basic-plugin',
-                },
-                {
                     label: 'Template Plugin',
                     name: '/concept/template-plugin',
                 }
             ]
+        },
+        {
+            label: 'Templates',
+            name: '/templates',
+            submenu: [
+                {
+                    label: 'Layout Templates',
+                    name: '/templates/layout-templates',
+                },
+                {
+                    label: 'Page Templates',
+                    name: '/templates/page-templates',
+                }
+            ]
+        },
+        {
+            label: 'Modules',
+            name: '/modules',
         },
         {
             label: 'Contribute',
