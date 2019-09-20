@@ -18,7 +18,7 @@
 <script>
 import {Switch as iSwitch} from 'iview';
 import getOptions from '../mixins/getOptions';
-import {classPrifix} from '../utils/const';
+import {classPrefix} from '../utils/const';
 export default {
     inject: ['form'],
     components: {
@@ -62,7 +62,7 @@ export default {
             }
         },
         classes() {
-            return `${classPrifix}-${this.field.type.toLowerCase()}`;
+            return `${classPrefix}-${this.field.type.toLowerCase()}`;
         }
     },
     methods: {

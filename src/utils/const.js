@@ -1,4 +1,4 @@
-export const classPrifix = 'fg-ivu';
+export const classPrefix = 'fg-ivu';
 
 /**
  *

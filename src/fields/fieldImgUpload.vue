@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import {classPrifix} from '../utils/const';
+import {classPrefix} from '../utils/const';
 import mediaUpload from './fieldMediaUpload';
 export default {
     components: {
@@ -38,7 +38,7 @@ export default {
     },
     computed: {
         classes() {
-            return `${classPrifix}-${this.field.type.toLowerCase()}`;
+            return `${classPrefix}-${this.field.type.toLowerCase()}`;
         },
         computedAccept() {
             return this.field.accept || this.accept;

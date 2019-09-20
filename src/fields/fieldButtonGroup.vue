@@ -11,7 +11,7 @@
 
 <script>
 import fieldButton from './fieldButton';
-import {classPrifix} from '../utils/const';
+import {classPrefix} from '../utils/const';
 export default {
     components: {
         fieldButton
@@ -28,7 +28,7 @@ export default {
     },
     computed: {
         classes() {
-            return `${classPrifix}-${this.field.type.toLowerCase()}`;
+            return `${classPrefix}-${this.field.type.toLowerCase()}`;
         },
     }
 };

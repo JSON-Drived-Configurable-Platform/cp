@@ -144,7 +144,7 @@
 </template>
 <script>
 import {logicInputMap} from '../utils/const';
-import {classPrifix} from '../utils/const';
+import {classPrefix} from '../utils/const';
 import getOptions from '../mixins/getOptions';
 export default {
     inject: ['form'],
@@ -178,7 +178,7 @@ export default {
             return this.value.logic;
         },
         classes() {
-            return `${classPrifix}-${this.field.type.toLowerCase()}`;
+            return `${classPrefix}-${this.field.type.toLowerCase()}`;
         },
         midClasses() {
             return `${this.classes}-logic-mid`;

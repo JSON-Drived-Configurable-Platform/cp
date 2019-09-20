@@ -28,7 +28,7 @@
 </template>
 <script>
 import getOptions from '../mixins/getOptions';
-import {classPrifix} from '../utils/const';
+import {classPrefix} from '../utils/const';
 export default {
     inject: ['form'],
     mixins: [getOptions],
@@ -54,7 +54,7 @@ export default {
     },
     computed: {
         classes() {
-            return `${classPrifix}-${this.field.type.toLowerCase()}`;
+            return `${classPrefix}-${this.field.type.toLowerCase()}`;
         },
         checkAllClasses() {
             return `${this.classes}-checkall`;

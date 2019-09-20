@@ -16,7 +16,7 @@
     />
 </template>
 <script>
-import {classPrifix} from '../utils/const';
+import {classPrefix} from '../utils/const';
 const getDate = function(days = 0) {
     const date = new Date();
     date.setTime(date.getTime() + 3600 * 1000 * 24 * days);
@@ -196,7 +196,7 @@ export default {
             return this.field.subtype || 'date';
         },
         classes() {
-            return `${classPrifix}-${this.field.type.toLowerCase()}`;
+            return `${classPrefix}-${this.field.type.toLowerCase()}`;
         },
         itemClasses() {
             const inlineClasses = this.inline ? 'inline' : 'full-width';
