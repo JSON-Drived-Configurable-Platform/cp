@@ -10,12 +10,12 @@ export default [
   {
     path: "/form/simple",
     component: () =>
-      import(/* webpackChunkName: "form-simple" */ "./views/simple")
+      import(/* webpackChunkName: "form-simple" */ "./views/simple.vue")
   },
   {
     path: "/form/modal",
     component: () =>
-      import(/* webpackChunkName: "form-modal" */ "./views/modal")
+      import(/* webpackChunkName: "form-modal" */ "./views/modal.vue")
   },
   {
     path: "/form/multi-modal",

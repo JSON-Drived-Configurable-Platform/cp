@@ -55,13 +55,14 @@ export default {
       font-weight: 600;
     }
     p {
+      margin-top: 10px;
       font-size: 14px;
       line-height: 22px;
     }
   }
   &-form {
-    margin: 40px auto;
-    width: 800px;
+    margin: 30px auto;
+    width: 760px;
   }
 }
 </style>

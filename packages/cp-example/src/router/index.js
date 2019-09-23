@@ -11,6 +11,7 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
+  console.log(store);
   iView.LoadingBar.start();
   if (!store.state.app.menuList.length > 0) {
     store.dispatch("getMenuList");

@@ -10,6 +10,7 @@ const routers = routersContext.keys().map(key => {
   return routersContext(key).default;
 });
 
+console.log(routers);
 export default [
   {
     path: "/",

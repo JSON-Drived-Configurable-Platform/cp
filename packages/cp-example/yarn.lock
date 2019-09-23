@@ -3316,10 +3316,10 @@ form-data@~2.3.2:
     combined-stream "^1.0.6"
     mime-types "^2.1.12"
 
-form-generator-iview@^0.0.18:
-  version "0.0.18"
-  resolved "http://registry.npm.baidu-int.com/form-generator-iview/-/form-generator-iview-0.0.18.tgz#681f67906ffefa6480d3b666112d517c58e20f64"
-  integrity sha512-fvbXrCMcFLx3qK3fWQUaobuUSjjMiClSwhl5ncsTXYP2eiUh2Ygjj05iYizfUIiyCfZbzxepSQqwXPaf79akdg==
+form-generator-iview@^0.0.19:
+  version "0.0.19"
+  resolved "http://registry.npm.baidu-int.com/form-generator-iview/-/form-generator-iview-0.0.19.tgz#2146b38b30c7466b924b08bb6354a3275aa7ec25"
+  integrity sha512-/ss0JZarjVCzvUMU2vsUqcHjAdcPsMPF1UfvzOkJuNPq0CrLlgKtKFGU2zs1u7k5fbqkKxLf18LywOsWYJ533Q==
   dependencies:
     axios "^0.18.0"
     v-click-outside "^2.1.3"
@@ -7341,8 +7341,8 @@ vm-browserify@^1.0.1:
   version "1.1.0"
   resolved "http://registry.npm.baidu-int.com/vm-browserify/-/vm-browserify-1.1.0.tgz#bd76d6a23323e2ca8ffa12028dc04559c75f9019"
 
-"vue-cli-plugin-cp-template-curd@file:/Users/mac/Documents/study/vue-cli-plugin-cp-template-curd":
-  version "0.0.4"
+"vue-cli-plugin-cp-template-curd@file:../vue-cli-plugin-cp-template-curd":
+  version "0.0.6"
 
 vue-cli-plugin-cp-template-data-report@^0.0.3:
   version "0.0.3"

@@ -28,14 +28,5 @@ export default {
 
   defaultOpenNames: "/doc",
 
-  menuList: [
-    {
-      label: "Home",
-      path: "/home"
-    },
-    {
-      label: "Data Report",
-      path: "/data-report"
-    }
-  ]
+  menuList: []
 };
