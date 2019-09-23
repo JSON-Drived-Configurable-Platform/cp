@@ -19,7 +19,7 @@
   </div>
 </template>
 <script>
-import pageConfig from "./simple.js";
+import pageConfig from "./form-config.js";
 export default {
   data() {
     return {

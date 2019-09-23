@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import pageConfig from "./simple.js";
+import pageConfig from "./form-config.js";
 import Vue from "vue";
 import modalCom from "./modalCom.vue";
 function generateModal(fields, model, title) {
