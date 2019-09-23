@@ -32,7 +32,7 @@
                 <ul>
                     <li>
                         <a target="_blank" href="http://bradfrost.com/blog/post/atomic-web-design/">
-                            <img width="60%" src="website/assets/atomic-design.jpg" alt="Atomic Design">
+                            <img width="60%" src="./assets/atomic-design.jpg" alt="Atomic Design">
                         </a>
                         <a target="_blank" href="http://bradfrost.com/blog/post/atomic-web-design/"><span>Atomic Design</span></a>
                     </li>

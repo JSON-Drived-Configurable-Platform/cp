@@ -8,7 +8,6 @@ import Main from '../components/main';
 const home = () => import(/* webpackChunkName: "home" */ '../page/home');
 const start = () => import(/* webpackChunkName: "start" */ '../page/start');
 const introduce = () => import(/* webpackChunkName: "introduce" */ '../page/introduce');
-const practice = () => import(/* webpackChunkName: "practice" */ '../page/practice');
 const mainTheory = () => import(/* webpackChunkName: "mainTheory" */ '../page/concept/main-theory');
 const scaffoldPlugin = () => import(/* webpackChunkName: "scaffoldPlugin" */ '../page/concept/scaffold-plugin');
 const routerConfig = () => import(/* webpackChunkName: "routerConfig" */ '../page/concept/router-config');
@@ -46,11 +45,6 @@ export default [
                 path: '/doc/start',
                 name: 'start',
                 component: start
-            },
-            {
-                path: '/doc/practice',
-                name: 'practice',
-                component: practice
             }
         ]
     },

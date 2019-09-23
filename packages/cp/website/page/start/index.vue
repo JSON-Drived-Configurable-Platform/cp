@@ -103,9 +103,9 @@
             <p>我们对比一下每次操作后的文件变更，可以更直观的理解到底发生了什么？如下是每次操作后的代码目录：</p>
             <p class="img-list">
                 <ul>
-                    <li><img src="website/assets/vue-init-project.png" alt="vue初始化项目目录结构"><span>vue初始化项目目录结构</span></li>
-                    <li><img src="website/assets/vue-add-cp.png" alt="安装vue-cli-plugin-cp之后的代码目录"><span>安装vue-cli-plugin-cp之后的代码目录</span></li>
-                    <li><img src="website/assets/vue-add-cp-template-data-report.png" alt="安装vue-cli-plugin-cp-template-data-report之后的代码目录"><span>安装vue-cli-plugin-cp-template-data-report之后的代码目录</span></li>
+                    <li><img src="./assets/vue-init-project.png" alt="vue初始化项目目录结构"><span>vue初始化项目目录结构</span></li>
+                    <li><img src="./assets/vue-add-cp.png" alt="安装vue-cli-plugin-cp之后的代码目录"><span>安装vue-cli-plugin-cp之后的代码目录</span></li>
+                    <li><img src="./assets/vue-add-cp-template-data-report.png" alt="安装vue-cli-plugin-cp-template-data-report之后的代码目录"><span>安装vue-cli-plugin-cp-template-data-report之后的代码目录</span></li>
                 </ul>
             </p>
             <p>
@@ -123,8 +123,8 @@
             <alert>mock数据的变更需要重启webpack才能生效。</alert>
             <p class="img-list">
                 <ul>
-                    <li><img width="400" src="website/assets/modify-mock-data.png" alt="更改menu-list.json里的mock数据"><span>更改menu-list.json里的mock数据</span></li>
-                    <li><img width="400" src="website/assets/slide-after-modified.png" alt="变更之后的侧边栏"><span>变更之后的侧边栏</span></li>
+                    <li><img width="400" src="./assets/modify-mock-data.png" alt="更改menu-list.json里的mock数据"><span>更改menu-list.json里的mock数据</span></li>
+                    <li><img width="400" src="./assets/slide-after-modified.png" alt="变更之后的侧边栏"><span>变更之后的侧边栏</span></li>
                 </ul>
             </p>
             <alert>如果先要了解更多关于<code>service</code>中的配置，可阅读<a href="/concept/services">Concept Services</a></alert>
@@ -136,7 +136,7 @@
             <p>现在我们已经有了一个功能完整的数据报表页面，这个页面是通过模板插件注入到项目中的，Router的配置是模板默认的，如果我们想要变更路由，可以直接更改<code>src/page/data-report/router.js</code>下的路由配置。</p>
             <p class="img-list">
                 <ul>
-                    <li><img width="80%" src="website/assets/modify-router.png" alt="更改路由"><span>更改menu-list.json里的mock数据</span></li>
+                    <li><img width="80%" src="./assets/modify-router.png" alt="更改路由"><span>更改menu-list.json里的mock数据</span></li>
                 </ul>
             </p>
             <p>上图展示了如何将<code>/data-report</code>更改为<code>/my-report</code>。</p>
@@ -178,7 +178,7 @@
                 <ul>
                     <li>
                         <a target="_blank" href="http://bradfrost.com/blog/post/atomic-web-design/">
-                            <img width="60%" src="website/assets/atomic-design.jpg" alt="Atomic Design">
+                            <img width="60%" src="./assets/atomic-design.jpg" alt="Atomic Design">
                         </a>
                         <a target="_blank" href="http://bradfrost.com/blog/post/atomic-web-design/"><span>Atomic Design</span></a>
                     </li>
