@@ -65,13 +65,13 @@ simple.data = {
 
 simple.code = `
 <script>
-const field = ${JSON.stringify(fields, null, 4)};
+const fields = ${JSON.stringify(fields, null, 4)};
 const model = ${JSON.stringify(model, null, 4)};
 const options = ${JSON.stringify(options, null, 4)};
 export default {
     data() {
         return {
-            field,
+            fields,
             model,
             options
         };
@@ -80,7 +80,7 @@ export default {
 <script>
 <template>
     <FormGenerator
-        :field="field"
+        :fields="fields"
         :options="options"
         :model="model"
     />
@@ -192,12 +192,12 @@ form.data = {
 
 form.code = `
 <script>
-const field = ${JSON.stringify(formFields, null, 4)};
+const fields = ${JSON.stringify(formFields, null, 4)};
 const model = ${JSON.stringify(formModel, null, 4)};
 export default {
     data() {
         return {
-            field,
+            fields,
             model
         };
     }
@@ -205,7 +205,7 @@ export default {
 <script>
 <template>
     <FormGenerator
-        :field="field"
+        :fields="fields"
         :model="model"
     />
 </template>
@@ -303,12 +303,12 @@ validate.data = {
 
 validate.code = `
 <script>
-const field = ${JSON.stringify(formFields, null, 4)};
+const fields = ${JSON.stringify(formFields, null, 4)};
 const model = ${JSON.stringify(formModel, null, 4)};
 export default {
     data() {
         return {
-            field,
+            fields,
             model
         };
     }
@@ -316,7 +316,7 @@ export default {
 <script>
 <template>
     <FormGenerator
-        :field="field"
+        :fields="fields"
         :model="model"
     />
 </template>
@@ -480,13 +480,13 @@ divider.data = {
 
 divider.code = `
 <script>
-const field = ${JSON.stringify(dividerFields, null, 4)};
+const fields = ${JSON.stringify(dividerFields, null, 4)};
 const model = ${JSON.stringify(dividerModel, null, 4)};
 const options = ${JSON.stringify(dividerOptions, null, 4)};
 export default {
     data() {
         return {
-            field,
+            fields,
             model,
             options
         };
@@ -495,7 +495,7 @@ export default {
 <script>
 <template>
     <FormGenerator
-        :field="field"
+        :fields="fields"
         :options="options"
         :model="model"
     />
@@ -636,12 +636,12 @@ hiddenOn.data = {
 
 hiddenOn.code = `
 <script>
-const field = ${JSON.stringify(hiddenOnFields, null, 4)};
+const fields = ${JSON.stringify(hiddenOnFields, null, 4)};
 const model = ${JSON.stringify(hiddenOnModel, null, 4)};
 export default {
     data() {
         return {
-            field,
+            fields,
             model,
             options
         };
@@ -650,7 +650,7 @@ export default {
 <script>
 <template>
     <FormGenerator
-        :field="field"
+        :fields="fields"
         :options="options"
         :model="model"
     />
