@@ -46,8 +46,8 @@ export default {
                     name: '/concept/main-theory',
                 },
                 {
-                    label: 'Basic Plugin',
-                    name: '/concept/basic-plugin',
+                    label: 'Scaffold Plugin',
+                    name: '/concept/scaffold-plugin',
                 },
                 {
                     label: 'Template Plugin',

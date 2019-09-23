@@ -45,7 +45,7 @@ export default {
     bottom: 0;
     width: 100%;
     height: 100%;
-    background: url('./cool-background.svg') no-repeat;
+    background: url('./assets/cool-background.svg') no-repeat;
     background-size: cover;
     font-family: Avenir,-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei','Helvetica Neue',Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol',sans-serif;
 

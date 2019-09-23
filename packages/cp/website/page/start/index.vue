@@ -2,7 +2,12 @@
     <i-article>
         <article>
             <h1>Quick Start</h1>
-            <p>本文介绍如何使用CP来快速创建一个平台的UI，除了包含顶部导航、动态侧边栏导航等基础功能外，还包含一个可配置的支持可视化、查询功能的数据报表模板。</p>
+            <p>本文介绍如何使用CP来快速构建一个简单的数据报表平台前端项目，包含如下功能:</p>
+            <ul>
+                <li>（1）、包含顶部导航、动态侧边栏导航、用户中心等平台基础功能；</li>
+                <li>（2）、包含一个可配置的支持可视化、查询功能的数据报表模板；</li>
+                <li>（3）、支持变更配置来动态更改侧边栏及导航。</li>
+            </ul>
             <inAnchor
                 title="使用vue-cli创建一个空项目"
                 h2
@@ -54,7 +59,7 @@
             </div>
             <p>安装完成后，我们将得到一个初始化的项目。</p>
             <alert>
-                <code>CP</code>依赖<code>vue-cli</code>，需要在全局安装<code>vue-cli</code>，详见<a href="https://cli.vuejs.org/guide/installation.html">Vue CLI Installation</a>
+                <code>CP</code>依赖<code><a href="https://cli.vuejs.org/">vue-cli</a></code>，需要在全局安装<code>vue-cli</code>，详见<a href="https://cli.vuejs.org/guide/installation.html">Vue CLI Installation</a>
             </alert>
 
             <inAnchor
@@ -98,13 +103,13 @@
             <p>我们对比一下每次操作后的文件变更，可以更直观的理解到底发生了什么？如下是每次操作后的代码目录：</p>
             <p class="img-list">
                 <ul>
-                    <li><img src="./images/vue-init-project.png" alt="vue初始化项目目录结构"><span>vue初始化项目目录结构</span></li>
-                    <li><img src="./images/vue-add-cp.png" alt="安装vue-cli-plugin-cp之后的代码目录"><span>安装vue-cli-plugin-cp之后的代码目录</span></li>
-                    <li><img src="./images/vue-add-cp-template-data-report.png" alt="安装vue-cli-plugin-cp-template-data-report之后的代码目录"><span>安装vue-cli-plugin-cp-template-data-report之后的代码目录</span></li>
+                    <li><img src="website/assets/vue-init-project.png" alt="vue初始化项目目录结构"><span>vue初始化项目目录结构</span></li>
+                    <li><img src="website/assets/vue-add-cp.png" alt="安装vue-cli-plugin-cp之后的代码目录"><span>安装vue-cli-plugin-cp之后的代码目录</span></li>
+                    <li><img src="website/assets/vue-add-cp-template-data-report.png" alt="安装vue-cli-plugin-cp-template-data-report之后的代码目录"><span>安装vue-cli-plugin-cp-template-data-report之后的代码目录</span></li>
                 </ul>
             </p>
             <p>
-                现在我们对CP已经有了基本的认识，它基于vue-cli生成项目，然后通过安装一个基础插件来生成项目所需要的基础代码，然后再通过安装模板插件来生成模板页面。
+                现在我们对CP已经有了基本的认识，它基于<code><a href="https://cli.vuejs.org/">vue-cli</a></code>生成项目，然后通过安装一个基础插件来生成项目所需要的基础代码，然后再通过安装模板插件来生成模板页面。
                 并通过一些约定来使基础插件和模板插件可以相互配合，以此来达到模板复用的目的。
             </p>
 
@@ -118,8 +123,8 @@
             <alert>mock数据的变更需要重启webpack才能生效。</alert>
             <p class="img-list">
                 <ul>
-                    <li><img width="400" src="./images/modify-mock-data.png" alt="更改menu-list.json里的mock数据"><span>更改menu-list.json里的mock数据</span></li>
-                    <li><img width="400" src="./images/slide-after-modified.png" alt="变更之后的侧边栏"><span>变更之后的侧边栏</span></li>
+                    <li><img width="400" src="website/assets/modify-mock-data.png" alt="更改menu-list.json里的mock数据"><span>更改menu-list.json里的mock数据</span></li>
+                    <li><img width="400" src="website/assets/slide-after-modified.png" alt="变更之后的侧边栏"><span>变更之后的侧边栏</span></li>
                 </ul>
             </p>
             <alert>如果先要了解更多关于<code>service</code>中的配置，可阅读<a href="/concept/services">Concept Services</a></alert>
@@ -131,12 +136,12 @@
             <p>现在我们已经有了一个功能完整的数据报表页面，这个页面是通过模板插件注入到项目中的，Router的配置是模板默认的，如果我们想要变更路由，可以直接更改<code>src/page/data-report/router.js</code>下的路由配置。</p>
             <p class="img-list">
                 <ul>
-                    <li><img width="80%" src="./images/modify-router.png" alt="更改路由"><span>更改menu-list.json里的mock数据</span></li>
+                    <li><img width="80%" src="website/assets/modify-router.png" alt="更改路由"><span>更改menu-list.json里的mock数据</span></li>
                 </ul>
             </p>
             <p>上图展示了如何将<code>/data-report</code>更改为<code>/my-report</code>。</p>
             <p>router的申明要遵循一定的格式，由于router的申明会分离在不同的模板页面中，所以需要我们自己来控制路由的命名冲突问题。</p>
-            <alert>如果想要了解<code>router</code>的申明格式，注入机制，可阅读<a href="/concept/routers">Concept Routers</a></alert>
+            <alert>如果想要了解<code>router</code>的申明格式，注入机制，可阅读<router-link to="/concept/router-config">Concept/Router Config</router-link></alert>
 
             <inAnchor
                 title="Data Report模板的详细用法"
@@ -173,7 +178,7 @@
                 <ul>
                     <li>
                         <a target="_blank" href="http://bradfrost.com/blog/post/atomic-web-design/">
-                            <img width="60%" src="./images/atomic-design.jpg" alt="Atomic Design">
+                            <img width="60%" src="website/assets/atomic-design.jpg" alt="Atomic Design">
                         </a>
                         <a target="_blank" href="http://bradfrost.com/blog/post/atomic-web-design/"><span>Atomic Design</span></a>
                     </li>

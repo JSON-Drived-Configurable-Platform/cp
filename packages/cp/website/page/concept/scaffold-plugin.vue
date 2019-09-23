@@ -1,7 +1,7 @@
 <template>
     <i-article>
         <article>
-            <h1>Basic Plugin</h1>
+            <h1>Scaffold Plugin</h1>
             <p>本文介绍<code><strong>CP</strong></code>的主要代码库<code><strong>vue-cli-plugin-cp</strong></code>。主要包含：</p>
             <ul>
                 <li>在模板复用中，<code>vue-cli-plugin-cp</code>要解决哪些问题。</li>

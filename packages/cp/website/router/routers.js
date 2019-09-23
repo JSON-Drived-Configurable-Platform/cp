@@ -10,7 +10,7 @@ const start = () => import(/* webpackChunkName: "start" */ '../page/start');
 const introduce = () => import(/* webpackChunkName: "introduce" */ '../page/introduce');
 const practice = () => import(/* webpackChunkName: "practice" */ '../page/practice');
 const mainTheory = () => import(/* webpackChunkName: "mainTheory" */ '../page/concept/main-theory');
-const basicPlugin = () => import(/* webpackChunkName: "basicPlugin" */ '../page/concept/basic-plugin');
+const scaffoldPlugin = () => import(/* webpackChunkName: "scaffoldPlugin" */ '../page/concept/scaffold-plugin');
 const routerConfig = () => import(/* webpackChunkName: "routerConfig" */ '../page/concept/router-config');
 const serviceConfig = () => import(/* webpackChunkName: "serviceConfig" */ '../page/concept/service-config');
 const templatePlugin = () => import(/* webpackChunkName: "templatePlugin" */ '../page/concept/template-plugin');
@@ -62,13 +62,13 @@ export default [
         children: [
             {
                 path: '/concept/main-theory',
-                name: 'main-theory',
+                name: '/concept/main-theory',
                 component: mainTheory
             },
             {
-                path: '/concept/basic-plugin',
-                name: 'basic-plugin',
-                component: basicPlugin
+                path: '/concept/scaffold-plugin',
+                name: 'scaffold-plugin',
+                component: scaffoldPlugin
             },
             {
 

@@ -19,7 +19,7 @@
                 如果一个平台中，有着大量的表单需求。直接通过组件拼装完成开发任务需要大量的人力和时间，后期表单项的频繁变更也增加了维护成本，而这些工作里面大多都是枯燥的重复工作。
             </p>
             <p style="text-align: center;">
-                <img width="100%" src="./example1.jpg" alt="大量表单的示例">
+                <img width="100%" src="website/assets/example1.jpg" alt="大量表单的示例">
                 <strong>大量表单中台的示例（多个产品线，每个产品线对应多个页面）</strong>
             </p>
             <p>

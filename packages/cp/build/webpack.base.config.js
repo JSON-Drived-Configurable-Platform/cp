@@ -95,7 +95,7 @@ module.exports = {
             // 'vue': 'vue/dist/vue.esm.js',
             'vuex': 'vuex/dist/vuex.min.js',
             'echarts': 'echarts/dist/echarts.min.js',
-            '@': resolve('src')
+            'website': resolve('website')
         }
     },
     plugins: [
