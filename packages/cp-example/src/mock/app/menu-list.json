@@ -6,26 +6,6 @@
             "path": "/home"
         },
         {
-            "label": "Data Report",
-            "path": "/data-report",
-            "submenu": [
-                {
-                    "label": "General",
-                    "path": "/data-report/:general"
-                }
-            ]
-        },
-        {
-            "label": "Curd",
-            "path": "/curd",
-            "submenu": [
-                {
-                    "label": "User Management",
-                    "path": "/curd/:uer-management"
-                }
-            ]
-        },
-        {
             "label": "Form",
             "path": "/form",
             "submenu": [
@@ -76,6 +56,26 @@
                 {
                     "label": "Conversational",
                     "path": "/form/conversational"
+                }
+            ]
+        },
+        {
+            "label": "Data Report",
+            "path": "/data-report",
+            "submenu": [
+                {
+                    "label": "General",
+                    "path": "/data-report/:general"
+                }
+            ]
+        },
+        {
+            "label": "Curd",
+            "path": "/curd",
+            "submenu": [
+                {
+                    "label": "User Management",
+                    "path": "/curd/:uer-management"
                 }
             ]
         }

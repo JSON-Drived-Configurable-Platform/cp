@@ -58,7 +58,7 @@ export default [
       import(/* webpackChunkName: "form-sectioned" */ "./views/sectioned")
   },
   {
-    path: "/form/conversational ",
+    path: "/form/conversational",
     component: () =>
       import(
         /* webpackChunkName: "form-conversational" */ "./views/conversational"
