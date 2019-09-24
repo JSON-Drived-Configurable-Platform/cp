@@ -1,5 +1,6 @@
 module.exports = {
-  publicPath: "/",
+  publicPath: "./",
+  assetsDir: "static",
   devServer: {
     compress: true,
     port: 9000,
