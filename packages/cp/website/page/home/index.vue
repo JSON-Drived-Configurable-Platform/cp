@@ -14,11 +14,21 @@
                     <Button type="primary" size="large" shape="circle">
                         <router-link :style="{color: '#f8f8f8'}" to="/doc/start">快速开始</router-link>
                     </Button>
-                    <Button size="large" shape="circle">
-                        <router-link to="/concept">主要概念</router-link>
+                    <Button
+                        to="https://bingblog.github.io/cp-example/"
+                        target="_blank"
+                        size="large"
+                        shape="circle"
+                    >
+                        预览
                     </Button>
-                    <Button to="https://github.com/BingBlog/cp" target="_blank" size="large" shape="circle">
-                        <Icon type="logo-github" />
+                    <Button
+                        to="https://github.com/BingBlog/cp"
+                        icon="logo-github"
+                        target="_blank"
+                        size="large"
+                        shape="circle"
+                    >
                         GitHub
                     </Button>
                     <!-- <Button type="primary">模板</Button> -->
@@ -100,6 +110,7 @@ export default {
 
                 .ivu-btn {
                     margin-right: 20px;
+                    width: 100px;
                 }
             }
         }
