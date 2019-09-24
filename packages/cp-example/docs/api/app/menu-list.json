@@ -1,0 +1,83 @@
+{
+    "status": 0,
+    "data": [
+        {
+            "label": "Home",
+            "path": "/home"
+        },
+        {
+            "label": "Form",
+            "path": "/form",
+            "submenu": [
+                {
+                    "label": "Index",
+                    "path": "/form"
+                },
+                {
+                    "label": "Simple",
+                    "path": "/form/simple"
+                },
+                {
+                    "label": "Modal",
+                    "path": "/form/modal"
+                },
+                {
+                    "label": "Multi Modal",
+                    "path": "/form/multi-modal"
+                },
+                {
+                    "label": "Slideout",
+                    "path": "/form/slideout"
+                },
+                {
+                    "label": "Popover",
+                    "path": "/form/popover"
+                },
+                {
+                    "label": "Inline Table",
+                    "path": "/form/inline"
+                },
+                {
+                    "label": "Editable Table",
+                    "path": "/form/editable-table"
+                },
+                {
+                    "label": "Takeover",
+                    "path": "/form/takeover"
+                },
+                {
+                    "label": "Wizard",
+                    "path": "/form/wizard"
+                },
+                {
+                    "label": "Sectioned",
+                    "path": "/form/sectioned"
+                },
+                {
+                    "label": "Conversational",
+                    "path": "/form/conversational"
+                }
+            ]
+        },
+        {
+            "label": "Data Report",
+            "path": "/data-report",
+            "submenu": [
+                {
+                    "label": "General",
+                    "path": "/data-report/:general"
+                }
+            ]
+        },
+        {
+            "label": "Curd",
+            "path": "/curd",
+            "submenu": [
+                {
+                    "label": "User Management",
+                    "path": "/curd/:uer-management"
+                }
+            ]
+        }
+    ]
+}
