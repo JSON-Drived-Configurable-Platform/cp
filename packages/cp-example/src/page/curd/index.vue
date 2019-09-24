@@ -110,7 +110,6 @@ export default {
 
     handlePageSizeChange(pageSize) {
       this.pageSize = pageSize;
-      console.log(pageSize);
       this.getTableData();
     },
 
@@ -124,7 +123,6 @@ export default {
     },
 
     handleButtonEvent($event, row, index) {
-      console.log($event.name);
       this[$event.name](row, index);
     },
 

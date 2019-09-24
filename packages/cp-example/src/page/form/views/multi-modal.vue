@@ -115,10 +115,12 @@ export default {
     handleSave() {
       this.$refs.FormGenerator.submit()
         .then(data => {
+          // eslint-disable-next-line no-console
           console.log("update model", data);
           this.$Message.info("update success!");
         })
         .catch(valid => {
+          // eslint-disable-next-line no-console
           console.log("valid", valid);
         });
     },

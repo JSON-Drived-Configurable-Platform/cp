@@ -88,11 +88,13 @@ export default {
     handleSave(index) {
       this.$refs.form.validate(valid => {
         if (valid) {
+          // eslint-disable-next-line no-console
           console.log("update model", this.editModel);
           this.data.splice(index, 1, this.editModel);
           this.editModel.index = -1;
           this.$Message.info("update success!");
         } else {
+          // eslint-disable-next-line no-console
           console.log("valid", valid);
         }
       });
