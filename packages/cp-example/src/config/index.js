@@ -7,7 +7,7 @@
 const baseUrlMap = {
   development: "",
   test: "",
-  production: ""
+  production: "/cp-example"
 };
 
 export default {
