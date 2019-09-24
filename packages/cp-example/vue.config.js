@@ -15,7 +15,7 @@ module.exports = {
         app.all(`/api${item}`, function(req, res) {
           setTimeout(() => {
             res.json(mockApiData[item]);
-          }, 1000);
+          }, 200);
         });
       });
 

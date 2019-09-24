@@ -1,6 +1,22 @@
-const getSimplePageConfig = (params = {}) => {
+const getPageConfig = (params = {}) => {
   return {
-    url: "/api/form/simple-page-config",
+    url: "/api/form/page-config",
+    method: "get",
+    params
+  };
+};
+
+const getEditableTablePageConfig = (params = {}) => {
+  return {
+    url: "/api/form/editable-table-page-config",
+    method: "get",
+    params
+  };
+};
+
+const getList = (params = {}) => {
+  return {
+    url: "/api/form/data",
     method: "get",
     params
   };
@@ -15,6 +31,8 @@ const formSubmit = (params = {}) => {
 };
 
 export default {
-  getSimplePageConfig,
-  formSubmit
+  getPageConfig,
+  getEditableTablePageConfig,
+  formSubmit,
+  getList
 };

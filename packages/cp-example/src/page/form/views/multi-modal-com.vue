@@ -1,5 +1,12 @@
 <template>
-  <Modal :value="value" :styles="styles" :title="title" footer-hide draggable>
+  <Modal
+    ref="modal"
+    :value="value"
+    :styles="styles"
+    :title="title"
+    footer-hide
+    draggable
+  >
     <FormGenerator
       ref="FormGenerator"
       :fields="fields"
@@ -11,6 +18,11 @@
 </template>
 
 <script>
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //不含最大值，含最小值
+}
 export default {
   props: {
     title: {
@@ -24,10 +36,6 @@ export default {
       },
       required: true
     },
-    value: {
-      type: Boolean,
-      default: true
-    },
     model: {
       type: Object,
       default() {
@@ -37,18 +45,28 @@ export default {
   },
   data() {
     return {
-      styles: {}
+      styles: {},
+      value: true
+    };
+  },
+  mounted() {
+    this.$refs.modal.dragData = {
+      x: getRandomInt(0, 700),
+      y: getRandomInt(100, 200),
+      dragX: 0,
+      dragY: 0,
+      dragging: false
     };
   },
   methods: {
     handleEditClick() {
-      this.open = true;
+      this.value = true;
     },
     handleSave() {
       this.$refs.FormGenerator.submit()
         .then(data => {
           console.log("update model", data);
-          this.open = false;
+          this.value = false;
           this.$Message.info("update success!");
         })
         .catch(valid => {

@@ -1,44 +1,116 @@
 <template>
-  <div>
-    <Button @click="open = true" type="primary">Create</Button>
-    <Drawer title="Create" v-model="open" width="420" :mask-closable="false">
+  <div class="page-form-slideout">
+    <Table :loading="tableLoading" :columns="columns" :data="data">
+      <template slot-scope="{ row }" slot="action">
+        <Button
+          type="primary"
+          size="small"
+          style="margin-right: 5px"
+          @click="handleEditButtonClick(row)"
+          >编辑</Button
+        >
+      </template>
+    </Table>
+    <div class="page-form-slideout-pagenation">
+      <Page :total="total" show-total />
+    </div>
+    <Drawer
+      title="编辑"
+      v-model="editDialogOpeon"
+      width="420"
+      :mask-closable="false"
+    >
       <FormGenerator
         ref="FormGenerator"
-        :fields="fields"
-        :options="options"
-        :model="model"
-        @submit="handleSubmit"
-        @reset="handelReset"
+        :fields="editFormFields"
+        :model="editModel"
+        @on-submit="handleSave"
       />
     </Drawer>
   </div>
 </template>
 <script>
-import pageConfig from "./form-config.js";
+import services from "@/service";
+const { getPageConfig, getList } = services["form"];
 export default {
   data() {
     return {
-      open: false,
-      model: {},
-      pageConfig: {
-        form: {}
-      }
+      loading: true,
+      tableLoading: true,
+      data: [],
+      editModel: {},
+      pageConfig: {},
+      editDialogOpeon: false,
+      pageSize: 10,
+      pageNumber: 1,
+      total: 0,
+      model: {}
     };
   },
   computed: {
-    fields() {
-      return this.pageConfig.form.fields;
-    },
     options() {
       return this.pageConfig.form.options;
+    },
+    columns() {
+      return this.pageConfig.columns;
+    },
+    editFormFields() {
+      return this.pageConfig.editFormFields;
     }
   },
   mounted() {
-    this.pageConfig = pageConfig;
+    const { pageId } = this.$route.params;
+    getPageConfig({
+      pageId
+    }).then(res => {
+      this.pageConfig = res.data;
+      this.loading = false;
+      this.getTableData();
+    });
   },
   methods: {
-    handleSubmit() {},
-    handelReset() {}
+    getTableData() {
+      this.tableLoading = true;
+      const { pageId } = this.$route.params;
+      const params = {
+        pageSize: this.pageSize,
+        pageNumber: this.pageNumber,
+        pageId
+      };
+      getList(params).then(res => {
+        const { list, pageSize, pageNumber, total } = res.data;
+        this.data = list || [];
+        this.pageSize = pageSize || this.pageSize;
+        this.pageNumber = pageNumber || this.pageNumber;
+        this.total = total || this.total;
+        this.tableLoading = false;
+      });
+    },
+    handleEditButtonClick(row, index) {
+      // eslint-disable-next-line no-console
+      this.editModel = row;
+      this.editModel.index = index;
+      this.editDialogOpeon = true;
+    },
+    handleSave() {
+      this.$refs.FormGenerator.submit()
+        .then(data => {
+          console.log("update model", data);
+          this.editDialogOpeon = false;
+          this.$Message.info("update success!");
+        })
+        .catch(valid => {
+          console.log("valid", valid);
+        });
+    }
   }
 };
 </script>
+<style lang="less">
+.page-form-slideout {
+  &-pagenation {
+    margin-top: 20px;
+    text-align: right;
+  }
+}
+</style>
