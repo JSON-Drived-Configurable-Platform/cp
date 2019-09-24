@@ -26,7 +26,7 @@ class HttpRequest {
     // 请求拦截
     console.log(url, process.env.NODE_ENV);
     if (process.env.NODE_ENV === "production") {
-      url = `.${url}.json`;
+      url = `mock-data${url}.json`;
     }
     instance.interceptors.request.use(
       config => {
