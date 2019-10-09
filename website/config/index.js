@@ -97,6 +97,14 @@ export default {
                     label: 'Upload',
                     name: '/doc/Upload'
                 },
+                {
+                    label: 'Tag',
+                    name: '/doc/Tag'
+                },
+                {
+                    label: 'Tags',
+                    name: '/doc/Tags'
+                }
                 // {
                 //     label: 'ImgUpload',
                 //     name: '/doc/ImgUpload'

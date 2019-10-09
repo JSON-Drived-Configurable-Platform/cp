@@ -21,6 +21,8 @@ const TimePicker = () => import(/* webpackChunkName: "TimePicker" */ '../page/do
 const Cascader = () => import(/* webpackChunkName: "Cascader" */ '../page/doc/Cascader');
 const InputNumber = () => import(/* webpackChunkName: "InputNumber" */ '../page/doc/InputNumber');
 const Upload = () => import(/* webpackChunkName: "Upload" */ '../page/doc/Upload');
+const Tag = () => import(/* webpackChunkName: "Tag" */ '../page/doc/Tag');
+// examples
 const groupForm = () => import(/* webpackChunkName: "groupForm" */ '../page/examples/group-form');
 const CURDExample = () => import(/* webpackChunkName: "CURDExample" */ '../page/examples/CURD-example');
 const editableTable = () => import(/* webpackChunkName: "editableTable" */ '../page/examples/editable-table');
@@ -124,6 +126,11 @@ export default [
             //     name: 'doc-ImgUpload',
             //     component: ImgUpload
             // },
+            {
+                path: '/doc/Tag',
+                name: 'doc-Tag',
+                component: Tag
+            },
             {
                 path: '/group-form',
                 name: 'group-form',
