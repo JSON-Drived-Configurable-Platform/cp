@@ -1,13 +1,13 @@
 <template>
-  <div v-if="loading" class="page-curd-loading">
-    <Spin class="page-curd-loading-spin" size="large" />
+  <div v-if="loading" class="page-rbac-user-loading">
+    <Spin class="page-rbac-user-loading-spin" size="large" />
   </div>
-  <div v-else class="page-curd">
-    <h3 class="page-curd-header">
+  <div v-else class="page-rbac-user">
+    <h3 class="page-rbac-user-header">
       <Button type="primary" @click="handleCreateButtonClick">创建用户</Button>
     </h3>
     <Table
-      class="page-curd-table"
+      class="page-rbac-user-table"
       :loading="tableLoading"
       :columns="columns"
       :data="data"
@@ -27,7 +27,7 @@
         </Form>
       </template>
     </Table>
-    <div class="page-curd-pagenation">
+    <div class="page-rbac-user-pagenation">
       <Page
         :total="total"
         show-total
@@ -37,7 +37,7 @@
         @on-page-size-change="handlePageSizeChange($event)"
       />
     </div>
-    <Modal v-model="editDialogOpeon" title="编辑" footer-hide>
+    <Modal v-model="editDialogOpeon" title="用户" footer-hide>
       <FormGenerator
         ref="FormGenerator"
         :fields="editFormFields"
@@ -45,12 +45,20 @@
         @on-submit="handleSave"
       />
     </Modal>
+    <Modal v-model="editRoleDialogOpeon" title="用户角色" footer-hide>
+      <FormGenerator
+        ref="FormGenerator"
+        :fields="editRoleFormFields"
+        :model="editModel"
+        @on-submit="handleRoleSave"
+      />
+    </Modal>
   </div>
 </template>
 <script>
 import services from "@/service";
-const { getPageConfig, getList, add, edit, del, toBlack, toWhite } = services[
-  "curd"
+const { getUserPageConfig, getUserList, userAdd, userEdit, userDel } = services[
+  "rbac"
 ];
 export default {
   data() {
@@ -61,6 +69,7 @@ export default {
       editModel: {},
       pageConfig: {},
       editDialogOpeon: false,
+      editRoleDialogOpeon: false,
       pageSize: 10,
       pageNumber: 1,
       total: 0
@@ -72,11 +81,14 @@ export default {
     },
     editFormFields() {
       return this.pageConfig.editFormFields;
+    },
+    editRoleFormFields() {
+      return this.pageConfig.editRoleFormFields;
     }
   },
   mounted() {
     const { pageId } = this.$route.params;
-    getPageConfig({
+    getUserPageConfig({
       pageId
     }).then(res => {
       this.pageConfig = res.data;
@@ -93,7 +105,7 @@ export default {
         pageNumber: this.pageNumber,
         pageId
       };
-      getList(params).then(res => {
+      getUserList(params).then(res => {
         const { list, pageSize, pageNumber, total } = res.data;
         this.data = list || [];
         this.pageSize = pageSize || this.pageSize;
@@ -123,14 +135,20 @@ export default {
     },
 
     handleButtonEvent($event, row, index) {
+      console.log($event, row, index);
       this[$event.name](row, index);
     },
 
     editButtonClick(row, index) {
-      // eslint-disable-next-line no-console
       this.editModel = row;
       this.editModel.index = index;
       this.editDialogOpeon = true;
+    },
+
+    roleButtonClick(row, index) {
+      this.editModel = row;
+      this.editModel.index = index;
+      this.editRoleDialogOpeon = true;
     },
 
     deleteButtonClick(row) {
@@ -165,7 +183,7 @@ export default {
     },
 
     addRequest(params) {
-      add(params).then(res => {
+      userAdd(params).then(res => {
         if (+res.status === 0) {
           this.$Message.info("Add Success!");
           this.editDialogOpeon = false;
@@ -177,7 +195,7 @@ export default {
     },
 
     editRequest(params) {
-      edit(params).then(res => {
+      userEdit(params).then(res => {
         if (+res.status === 0) {
           this.$Message.info("Edit Success!");
           this.editDialogOpeon = false;
@@ -189,7 +207,7 @@ export default {
     },
 
     deleteRequest(params) {
-      del(params).then(res => {
+      userDel(params).then(res => {
         if (+res.status === 0) {
           this.$Message.info("Delete Success!");
           this.getTableData();
@@ -199,32 +217,14 @@ export default {
       });
     },
 
-    toBlackRequest(params) {
-      toBlack(params).then(res => {
-        if (+res.status === 0) {
-          this.$Message.info("ToBlack Success!");
-          this.getTableData();
-        } else {
-          this.$Message.error("ToBlack Failed!");
-        }
-      });
-    },
-
-    toWhiteRequest(params) {
-      toWhite(params).then(res => {
-        if (+res.status === 0) {
-          this.$Message.info("toWhite Success!");
-          this.getTableData();
-        } else {
-          this.$Message.error("toWhite Failed!");
-        }
-      });
+    handleRoleSave() {
+      // 角色保存
     }
   }
 };
 </script>
 <style lang="less">
-.page-curd {
+.page-rbac-user {
   &-loading {
     text-align: center;
     padding: 140px;

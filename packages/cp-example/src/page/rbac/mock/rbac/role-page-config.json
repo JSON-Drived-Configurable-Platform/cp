@@ -1,0 +1,90 @@
+{
+    "status": 0,
+    "data": {
+        "columns": [
+            {
+                "title": "名称",
+                "key": "name"
+            },
+            {
+                "title": "描述",
+                "key": "description"
+            },
+            {
+                "title": "创建时间",
+                "key": "create_time"
+            },
+            {
+                "title": "更新时间",
+                "key": "update_time"
+            },
+            {
+                "title": "操作",
+                "slot": "action",
+                "align": "center",
+                "formFields": [
+                    {
+                        "type": "Button",
+                        "text": "编辑",
+                        "subtype": "primary",
+                        "size": "small",
+                        "action": {
+                            "type": "event",
+                            "name": "editButtonClick"
+                        },
+                        "inline": true
+                    },
+                    {
+                        "type": "Button",
+                        "text": "权限管理",
+                        "subtype": "primary",
+                        "size": "small",
+                        "action": {
+                            "type": "event",
+                            "name": "permissionButtonClick"
+                        },
+                        "inline": true
+                    },
+                    {
+                        "type": "Button",
+                        "text": "删除",
+                        "subtype": "error",
+                        "size": "small",
+                        "confirmPoptip": {
+                            "title": "确定删除?",
+                            "placement": "left"
+                        },
+                        "action": {
+                            "type": "event",
+                            "name": "deleteButtonClick"
+                        },
+                        "inline": true
+                    }
+                ]
+            }
+        ],
+        "editFormFields": [
+            {
+                "type": "Input",
+                "label": "名称",
+                "model": "name",
+                "placeholder": "请输入姓名",
+                "required": true
+            },
+            {
+                "type": "Input",
+                "subtype": "textarea",
+                "label": "描述",
+                "model": "description",
+                "placeholder": "请输入描述",
+                "required": true
+            },
+            {
+                "type": "Submit",
+                "subtype": "primary",
+                "text": "保存"
+            }
+        ]
+    },
+    "msg": "ok"
+}

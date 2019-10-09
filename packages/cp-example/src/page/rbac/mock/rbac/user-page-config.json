@@ -1,0 +1,184 @@
+{
+    "status": 0,
+    "data": {
+        "columns": [
+            {
+                "title": "用户名",
+                "key": "username"
+            },
+            {
+                "title": "邮箱",
+                "key": "email"
+            },
+            {
+                "title": "性别",
+                "key": "gender"
+            },
+            {
+                "title": "出生日期",
+                "key": "birthday"
+            },
+            {
+                "title": "角色",
+                "slot": "roles",
+                "formFields": [
+                    {
+                        "type": "Tag",
+                        "model": "roles",
+                        "options": [
+                            {
+                                "name": "admin",
+                                "value": 1,
+                                "disabled": true
+                            },
+                            {
+                                "name": "user",
+                                "value": 2,
+                                "disabled": true
+                            },
+                            {
+                                "name": "editor",
+                                "value": 3,
+                                "disabled": true
+                            },
+                            {
+                                "name": "auditor",
+                                "value": 4,
+                                "disabled": true
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "操作",
+                "slot": "action",
+                "align": "center",
+                "width": 300,
+                "formFields": [
+                    {
+                        "type": "Button",
+                        "text": "编辑",
+                        "subtype": "primary",
+                        "size": "small",
+                        "action": {
+                            "type": "event",
+                            "name": "editButtonClick"
+                        },
+                        "inline": true
+                    },
+                    {
+                        "type": "Button",
+                        "text": "角色管理",
+                        "subtype": "primary",
+                        "size": "small",
+                        "action": {
+                            "type": "event",
+                            "name": "roleButtonClick"
+                        },
+                        "inline": true
+                    },
+                    {
+                        "type": "Button",
+                        "text": "删除",
+                        "subtype": "error",
+                        "size": "small",
+                        "confirmPoptip": {
+                            "title": "确定删除?",
+                            "placement": "left"
+                        },
+                        "action": {
+                            "type": "event",
+                            "name": "deleteButtonClick"
+                        },
+                        "inline": true
+                    }
+                ]
+            }
+        ],
+        "editFormFields": [
+            {
+                "type": "Input",
+                "label": "姓名",
+                "model": "name",
+                "placeholder": "请输入姓名",
+                "rules": [
+                    {
+                        "type": "string",
+                        "required": true,
+                        "pattern": "^[\\u4e00-\\u9fa5]+$",
+                        "message": "请输入中文姓名"
+                    }
+                ]
+            },
+            {
+                "type": "Input",
+                "label": "邮箱",
+                "model": "email",
+                "placeholder": "请输入邮箱",
+                "required": true
+            },
+            {
+                "type": "Select",
+                "label": "性别",
+                "model": "gender",
+                "placeholder": "请输入性别",
+                "required": true,
+                "options": [
+                    {
+                        "label": "男",
+                        "value": "男"
+                    },
+                    {
+                        "label": "女",
+                        "value": "女"
+                    },
+                    {
+                        "label": "保密",
+                        "value": "保密"
+                    }
+                ]
+            },
+            {
+                "type": "DatePicker",
+                "label": "日期",
+                "subtype": "date",
+                "model": "birthday",
+                "placeholder": "请输入出生日期",
+                "required": true
+            },
+            {
+                "type": "Submit",
+                "subtype": "primary",
+                "text": "保存"
+            }
+        ],
+        "editRoleFormFields": [
+            {
+                "type": "Checkbox",
+                "label": "角色选择",
+                "model": "roles",
+                "required": true,
+                "options": [
+                    {
+                        "label": "admin",
+                        "value": 1
+                    },
+                    {
+                        "label": "user",
+                        "value": 2
+                    },
+                    {
+                        "label": "editor",
+                        "value": 3
+                    },
+                    {
+                        "label": "auditor",
+                        "value": 4
+                    }
+                ]
+            }
+        ]
+    },
+    "msg": "ok"
+}

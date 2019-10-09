@@ -1,13 +1,13 @@
 <template>
-  <div v-if="loading" class="page-curd-loading">
-    <Spin class="page-curd-loading-spin" size="large" />
+  <div v-if="loading" class="page-rbac-permission-loading">
+    <Spin class="page-rbac-permission-loading-spin" size="large" />
   </div>
-  <div v-else class="page-curd">
-    <h3 class="page-curd-header">
-      <Button type="primary" @click="handleCreateButtonClick">创建用户</Button>
+  <div v-else class="page-rbac-permission">
+    <h3 class="page-rbac-permission-header">
+      <Button type="primary" @click="handleCreateButtonClick">新增权限</Button>
     </h3>
     <Table
-      class="page-curd-table"
+      class="page-rbac-permission-table"
       :loading="tableLoading"
       :columns="columns"
       :data="data"
@@ -27,7 +27,7 @@
         </Form>
       </template>
     </Table>
-    <div class="page-curd-pagenation">
+    <div class="page-rbac-permission-pagenation">
       <Page
         :total="total"
         show-total
@@ -49,9 +49,13 @@
 </template>
 <script>
 import services from "@/service";
-const { getPageConfig, getList, add, edit, del, toBlack, toWhite } = services[
-  "curd"
-];
+const {
+  getPermissionPageConfig,
+  getPermissionList,
+  permissionAdd,
+  permissionEdit,
+  permissionDel
+} = services["rbac"];
 export default {
   data() {
     return {
@@ -76,7 +80,7 @@ export default {
   },
   mounted() {
     const { pageId } = this.$route.params;
-    getPageConfig({
+    getPermissionPageConfig({
       pageId
     }).then(res => {
       this.pageConfig = res.data;
@@ -93,7 +97,7 @@ export default {
         pageNumber: this.pageNumber,
         pageId
       };
-      getList(params).then(res => {
+      getPermissionList(params).then(res => {
         const { list, pageSize, pageNumber, total } = res.data;
         this.data = list || [];
         this.pageSize = pageSize || this.pageSize;
@@ -165,7 +169,7 @@ export default {
     },
 
     addRequest(params) {
-      add(params).then(res => {
+      permissionAdd(params).then(res => {
         if (+res.status === 0) {
           this.$Message.info("Add Success!");
           this.editDialogOpeon = false;
@@ -177,7 +181,7 @@ export default {
     },
 
     editRequest(params) {
-      edit(params).then(res => {
+      permissionEdit(params).then(res => {
         if (+res.status === 0) {
           this.$Message.info("Edit Success!");
           this.editDialogOpeon = false;
@@ -189,7 +193,7 @@ export default {
     },
 
     deleteRequest(params) {
-      del(params).then(res => {
+      permissionDel(params).then(res => {
         if (+res.status === 0) {
           this.$Message.info("Delete Success!");
           this.getTableData();
@@ -197,34 +201,12 @@ export default {
           this.$Message.error("Delete Failed!");
         }
       });
-    },
-
-    toBlackRequest(params) {
-      toBlack(params).then(res => {
-        if (+res.status === 0) {
-          this.$Message.info("ToBlack Success!");
-          this.getTableData();
-        } else {
-          this.$Message.error("ToBlack Failed!");
-        }
-      });
-    },
-
-    toWhiteRequest(params) {
-      toWhite(params).then(res => {
-        if (+res.status === 0) {
-          this.$Message.info("toWhite Success!");
-          this.getTableData();
-        } else {
-          this.$Message.error("toWhite Failed!");
-        }
-      });
     }
   }
 };
 </script>
 <style lang="less">
-.page-curd {
+.page-rbac-permission {
   &-loading {
     text-align: center;
     padding: 140px;

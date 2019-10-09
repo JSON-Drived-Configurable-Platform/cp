@@ -1,0 +1,56 @@
+{
+    "status": 0,
+    "data": {
+        "total": 20,
+        "pageNumber": 1,
+        "pageSize": 20,
+        "list": [
+            {
+                "id": 1,
+                "name": "用户管理",
+                "url": "/api/rbac/user-*",
+                "permission": "Service_Page_Api_RbacUser",
+                "method": "",
+                "parent_id": "",
+                "parent_name": ""
+            },
+            {
+                "id": 2,
+                "name": "查看用户",
+                "url": "/api/rbac/user-list",
+                "permission": "Service_Page_Api_RbacUserList",
+                "method": "GET",
+                "parent_id": 1,
+                "parent_name": "用户管理"
+            },
+            {
+                "id": 3,
+                "name": "添加用户",
+                "url": "/api/rbac/user-add",
+                "permission": "Service_Page_Api_RbacUserAdd",
+                "method": "POST",
+                "parent_id": 1,
+                "parent_name": "用户管理"
+            },
+            {
+                "id": 4,
+                "name": "删除用户",
+                "url": "/api/rbac/user-delete",
+                "permission": "Service_Page_Api_UserDel",
+                "method": "POST",
+                "parent_id": 1,
+                "parent_name": "用户管理"
+            },
+            {
+                "id": 5,
+                "name": "编辑用户",
+                "url": "/api/rbac/user-edit",
+                "permission": "Service_Page_Api_RbacUserUpdate",
+                "method": "POST",
+                "parent_id": 1,
+                "parent_name": "用户管理"
+            }
+        ]
+    },
+    "msg": "ok"
+}

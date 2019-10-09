@@ -1,0 +1,118 @@
+{
+    "status": 0,
+    "data": {
+        "columns": [
+            {
+                "title": "名称",
+                "key": "name"
+            },
+            {
+                "title": "URL",
+                "key": "url"
+            },
+            {
+                "title": "权限",
+                "key": "permission"
+            },
+            {
+                "title": "方法",
+                "key": "method"
+            },
+            {
+                "title": "父级ID",
+                "key": "parent_id"
+            },
+            {
+                "title": "父级权限",
+                "key": "parent_name"
+            },
+            {
+                "title": "操作",
+                "slot": "action",
+                "align": "center",
+                "formFields": [
+                    {
+                        "type": "Button",
+                        "text": "编辑",
+                        "subtype": "primary",
+                        "size": "small",
+                        "action": {
+                            "type": "event",
+                            "name": "editButtonClick"
+                        },
+                        "inline": true
+                    },
+                    {
+                        "type": "Button",
+                        "text": "删除",
+                        "subtype": "error",
+                        "size": "small",
+                        "confirmPoptip": {
+                            "title": "确定删除?",
+                            "placement": "left"
+                        },
+                        "action": {
+                            "type": "event",
+                            "name": "deleteButtonClick"
+                        },
+                        "inline": true
+                    }
+                ]
+            }
+        ],
+        "editFormFields": [
+            {
+                "type": "Input",
+                "label": "名称",
+                "model": "name",
+                "placeholder": "请输入权限名称",
+                "required": true
+            },
+            {
+                "type": "Input",
+                "label": "URL",
+                "model": "description",
+                "placeholder": "请输入权限URL",
+                "required": true
+            },
+            {
+                "type": "Input",
+                "label": "权限表达式",
+                "model": "permission",
+                "placeholder": "请输入权限匹配表达式",
+                "required": true
+            },
+            {
+                "type": "Select",
+                "label": "方法",
+                "model": "method",
+                "placeholder": "请选择方法",
+                "required": true,
+                "options": [
+                    {
+                        "label": "GET",
+                        "value": "GET"
+                    },
+                    {
+                        "label": "POST",
+                        "value": "POST"
+                    },
+                    {
+                        "label": "PUT",
+                        "value": "PUT"
+                    },
+                    {
+                        "label": "DELETE",
+                        "value": "DELETE"
+                    }
+                ]
+            },
+            {
+                "type": "Submit",
+                "subtype": "primary",
+                "text": "保存"
+            }
+        ]
+    },
+    "msg": "ok"
+}
