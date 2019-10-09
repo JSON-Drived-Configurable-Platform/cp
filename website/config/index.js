@@ -100,10 +100,6 @@ export default {
                 {
                     label: 'Tag',
                     name: '/doc/Tag'
-                },
-                {
-                    label: 'Tags',
-                    name: '/doc/Tags'
                 }
                 // {
                 //     label: 'ImgUpload',

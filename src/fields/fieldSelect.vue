@@ -40,7 +40,7 @@
             :value="form.model[field.model]"
             :multiple="field.multiple || false"
             :disabled="field.disabled || false"
-            :clearable="clearable"
+            :clearable="field.clearable"
             :size="size"
             :placeholder="field.placeholder"
             :filterable="filterable || false"
