@@ -68,6 +68,9 @@ export default {
             this.$emit('on-change', this.field.model, value, null, this.field);
         },
         handleSelectChange(selection) {
+            if (this.field.multiple) {
+                return;
+            }
             this.handleChange(selection.map(item => item.id));
         },
         handleCheckChange(checked) {
