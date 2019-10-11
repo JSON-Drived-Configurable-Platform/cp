@@ -194,6 +194,104 @@ export const fields = [
     },
     {
         type: 'Divider',
+        label: '表格选择',
+        orientation: 'left',
+        dashed: true,
+        size: 'small'
+    },
+    {
+        type: 'TableSelect',
+        label: '表格单选',
+        model: 'tableSelect',
+        columns: [
+            {
+                title: '名称',
+                key: 'name'
+            },
+            {
+                title: '描述',
+                key: 'description'
+            }
+        ],
+        options: [
+            {
+                id: 1,
+                name: 'admin',
+                description: '超级管理员，拥有所有权限',
+                create_time: '2019-9-10',
+                update_time: '2019-10-10'
+            },
+            {
+                id: 2,
+                name: 'user',
+                description: '普通用户，只有浏览的权限',
+                create_time: '2019-9-10',
+                update_time: '2019-10-10'
+            },
+            {
+                id: 3,
+                name: 'editor',
+                description: '编辑，可以编辑、发布文章等',
+                create_time: '2019-9-10',
+                update_time: '2019-10-10'
+            },
+            {
+                id: 4,
+                name: 'auditor',
+                description: '审核人员，可以查看、审核文案',
+                create_time: '2019-9-10',
+                update_time: '2019-10-10'
+            }
+        ]
+    },
+    {
+        type: 'TableSelect',
+        label: '表格多选',
+        multiple: true,
+        model: 'multipleTableSelect',
+        columns: [
+            {
+                title: '名称',
+                key: 'name'
+            },
+            {
+                title: '描述',
+                key: 'description'
+            }
+        ],
+        options: [
+            {
+                id: 1,
+                name: 'admin',
+                description: '超级管理员，拥有所有权限',
+                create_time: '2019-9-10',
+                update_time: '2019-10-10'
+            },
+            {
+                id: 2,
+                name: 'user',
+                description: '普通用户，只有浏览的权限',
+                create_time: '2019-9-10',
+                update_time: '2019-10-10'
+            },
+            {
+                id: 3,
+                name: 'editor',
+                description: '编辑，可以编辑、发布文章等',
+                create_time: '2019-9-10',
+                update_time: '2019-10-10'
+            },
+            {
+                id: 4,
+                name: 'auditor',
+                description: '审核人员，可以查看、审核文案',
+                create_time: '2019-9-10',
+                update_time: '2019-10-10'
+            }
+        ]
+    },
+    {
+        type: 'Divider',
         label: '级联选择',
         orientation: 'left',
         dashed: true,
@@ -615,6 +713,8 @@ export const model = {
     datetimerange: [],
     cascader: [],
     cascaderApi: [],
+    tableSelect: 1,
+    multipleTableSelect: [1, 2],
     inputNumber: 0,
     logicInput: {},
     logicSelect: {},
