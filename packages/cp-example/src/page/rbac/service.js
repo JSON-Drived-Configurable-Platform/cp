@@ -73,6 +73,41 @@ const getPermissionList = (params = {}) => {
   };
 };
 
+// 获取用户的角色权限信息
+const getUserRolePermission = (params = {}) => {
+  return {
+    url: "/api/rbac/user-role-permission",
+    method: "get",
+    params
+  };
+};
+
+// 更新用户的角色
+const updateUserRole = (params = {}) => {
+  return {
+    url: "/api/rbac/user-role-update",
+    method: "get",
+    params
+  };
+};
+
+// 获取角色当前的权限节点
+const getRolePermission = (params = {}) => {
+  return {
+    url: "/api/rbac/role-permission",
+    method: "get",
+    params
+  };
+};
+
+const updateRolePermission = (params = {}) => {
+  return {
+    url: "/api/rbac/role-permission-update",
+    method: "get",
+    params
+  };
+};
+
 export default {
   getUserPageConfig,
   getUserList,
@@ -82,5 +117,9 @@ export default {
   getRolePageConfig,
   getRoleList,
   getPermissionPageConfig,
-  getPermissionList
+  getPermissionList,
+  getUserRolePermission,
+  updateUserRole,
+  getRolePermission,
+  updateRolePermission
 };

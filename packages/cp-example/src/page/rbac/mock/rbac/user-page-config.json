@@ -19,38 +19,6 @@
                 "key": "birthday"
             },
             {
-                "title": "角色",
-                "slot": "roles",
-                "formFields": [
-                    {
-                        "type": "Tag",
-                        "model": "roles",
-                        "options": [
-                            {
-                                "name": "admin",
-                                "value": 1,
-                                "disabled": true
-                            },
-                            {
-                                "name": "user",
-                                "value": 2,
-                                "disabled": true
-                            },
-                            {
-                                "name": "editor",
-                                "value": 3,
-                                "disabled": true
-                            },
-                            {
-                                "name": "auditor",
-                                "value": 4,
-                                "disabled": true
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
                 "title": "操作",
                 "slot": "action",
                 "align": "center",
@@ -155,28 +123,55 @@
         ],
         "editRoleFormFields": [
             {
-                "type": "Checkbox",
+                "type": "TableSelect",
                 "label": "角色选择",
+                "multiple": true,
                 "model": "roles",
-                "required": true,
+                "columns": [
+                    {
+                        "title": "名称",
+                        "key": "name"
+                    },
+                    {
+                        "title": "描述",
+                        "key": "description"
+                    }
+                ],
                 "options": [
                     {
-                        "label": "admin",
-                        "value": 1
+                        "id": 1,
+                        "name": "admin",
+                        "description": "超级管理员，拥有所有权限",
+                        "create_time": "2019-9-10",
+                        "update_time": "2019-10-10"
                     },
                     {
-                        "label": "user",
-                        "value": 2
+                        "id": 2,
+                        "name": "user",
+                        "description": "普通用户，只有浏览的权限",
+                        "create_time": "2019-9-10",
+                        "update_time": "2019-10-10"
                     },
                     {
-                        "label": "editor",
-                        "value": 3
+                        "id": 3,
+                        "name": "editor",
+                        "description": "编辑，可以编辑、发布文章等",
+                        "create_time": "2019-9-10",
+                        "update_time": "2019-10-10"
                     },
                     {
-                        "label": "auditor",
-                        "value": 4
+                        "id": 4,
+                        "name": "auditor",
+                        "description": "审核人员，可以查看、审核文案",
+                        "create_time": "2019-9-10",
+                        "update_time": "2019-10-10"
                     }
                 ]
+            },
+            {
+                "type": "Submit",
+                "subtype": "primary",
+                "text": "保存"
             }
         ]
     },

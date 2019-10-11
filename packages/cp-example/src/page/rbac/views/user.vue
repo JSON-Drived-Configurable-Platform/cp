@@ -39,6 +39,7 @@
     </div>
     <Modal v-model="editDialogOpeon" title="用户" footer-hide>
       <FormGenerator
+        v-if="editDialogOpeon"
         ref="FormGenerator"
         :fields="editFormFields"
         :model="editModel"
@@ -47,7 +48,8 @@
     </Modal>
     <Modal v-model="editRoleDialogOpeon" title="用户角色" footer-hide>
       <FormGenerator
-        ref="FormGenerator"
+        v-if="editRoleDialogOpeon"
+        ref="FormRoleGenerator"
         :fields="editRoleFormFields"
         :model="editModel"
         @on-submit="handleRoleSave"
@@ -57,9 +59,15 @@
 </template>
 <script>
 import services from "@/service";
-const { getUserPageConfig, getUserList, userAdd, userEdit, userDel } = services[
-  "rbac"
-];
+const {
+  getUserPageConfig,
+  getUserList,
+  userAdd,
+  userEdit,
+  userDel,
+  getUserRolePermission,
+  updateUserRole
+} = services["rbac"];
 export default {
   data() {
     return {
@@ -85,6 +93,63 @@ export default {
     editRoleFormFields() {
       return this.pageConfig.editRoleFormFields;
     }
+    // editRoleTableColumns() {
+    //   return [
+    //     {
+    //       type: "selection",
+    //       width: 60,
+    //       align: "center"
+    //     },
+    //     {
+    //       title: "名称",
+    //       key: "name"
+    //     },
+    //     {
+    //       title: "描述",
+    //       key: "description"
+    //     }
+    //   ];
+    // },
+    // editRoleTableData() {
+    //   const roles = this.editModel.roles || [];
+    //   const data = [
+    //     {
+    //       _checked: true,
+    //       id: 1,
+    //       name: "admin",
+    //       description: "超级管理员，拥有所有权限",
+    //       create_time: "2019-9-10",
+    //       update_time: "2019-10-10"
+    //     },
+    //     {
+    //       id: 2,
+    //       name: "user",
+    //       description: "普通用户，只有浏览的权限",
+    //       create_time: "2019-9-10",
+    //       update_time: "2019-10-10"
+    //     },
+    //     {
+    //       id: 3,
+    //       name: "editor",
+    //       description: "编辑，可以编辑、发布文章等",
+    //       create_time: "2019-9-10",
+    //       update_time: "2019-10-10"
+    //     },
+    //     {
+    //       id: 4,
+    //       name: "auditor",
+    //       description: "审核人员，可以查看、审核文案",
+    //       create_time: "2019-9-10",
+    //       update_time: "2019-10-10"
+    //     }
+    //   ];
+    //   return data.map(item => {
+    //     if (roles.includes(item.id)) {
+    //       item._checked = true;
+    //     }
+    //     return item;
+    //   });
+    // }
   },
   mounted() {
     const { pageId } = this.$route.params;
@@ -146,9 +211,28 @@ export default {
     },
 
     roleButtonClick(row, index) {
-      this.editModel = row;
-      this.editModel.index = index;
-      this.editRoleDialogOpeon = true;
+      // 获取用户的角色信息
+      let username = row.username;
+      getUserRolePermission({
+        username
+      })
+        .then(res => {
+          let { data, errno } = res;
+          if (+errno === 0) {
+            this.editModel = row;
+            this.$set(
+              this.editModel,
+              "roles",
+              data.roles.map(item => parseInt(item.id))
+            );
+            this.editModel.index = index;
+            this.editRoleDialogOpeon = true;
+          }
+        })
+        .catch(err => {
+          // eslint-disable-next-line no-console
+          console.log(err);
+        });
     },
 
     deleteButtonClick(row) {
@@ -184,7 +268,7 @@ export default {
 
     addRequest(params) {
       userAdd(params).then(res => {
-        if (+res.status === 0) {
+        if (+res.errno === 0) {
           this.$Message.info("Add Success!");
           this.editDialogOpeon = false;
           this.getTableData();
@@ -196,7 +280,7 @@ export default {
 
     editRequest(params) {
       userEdit(params).then(res => {
-        if (+res.status === 0) {
+        if (+res.errno === 0) {
           this.$Message.info("Edit Success!");
           this.editDialogOpeon = false;
           this.getTableData();
@@ -208,7 +292,7 @@ export default {
 
     deleteRequest(params) {
       userDel(params).then(res => {
-        if (+res.status === 0) {
+        if (+res.errno === 0) {
           this.$Message.info("Delete Success!");
           this.getTableData();
         } else {
@@ -217,8 +301,30 @@ export default {
       });
     },
 
+    // 角色保存
     handleRoleSave() {
-      // 角色保存
+      this.$refs.FormRoleGenerator.submit()
+        .then(() => {
+          const roles = this.editModel.roles;
+          updateUserRole({
+            username: this.editModel.username,
+            role_id: roles.map(item => item.id).join(",")
+          })
+            .then(res => {
+              if (+res.errno === 0) {
+                this.$Message.info("Update Success!");
+              } else {
+                this.$Message.error("Update Failed!");
+              }
+            })
+            .catch(err => {
+              this.$Message.error(`Update Failed!${err.toString()}`);
+            });
+        })
+        .catch(err => {
+          // eslint-disable-next-line no-console
+          console.log(err);
+        });
     }
   }
 };

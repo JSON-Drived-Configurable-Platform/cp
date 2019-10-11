@@ -39,19 +39,35 @@
     </div>
     <Modal v-model="editDialogOpeon" title="编辑" footer-hide>
       <FormGenerator
+        v-if="editDialogOpeon"
         ref="FormGenerator"
         :fields="editFormFields"
         :model="editModel"
         @on-submit="handleSave"
       />
     </Modal>
+    <Modal v-model="editPermissionDialogOpeon" title="角色权限" footer-hide>
+      <FormGenerator
+        v-if="editPermissionDialogOpeon"
+        ref="FormPermissionGenerator"
+        :fields="editPermissionFormFields"
+        :model="editModel"
+        @on-submit="handlePermissionSave"
+      />
+    </Modal>
   </div>
 </template>
 <script>
 import services from "@/service";
-const { getRolePageConfig, getRoleList, roleAdd, roleEdit, roleDel } = services[
-  "rbac"
-];
+const {
+  getRolePageConfig,
+  getRoleList,
+  roleAdd,
+  roleEdit,
+  roleDel,
+  getRolePermission,
+  updateRolePermission
+} = services["rbac"];
 export default {
   data() {
     return {
@@ -61,6 +77,7 @@ export default {
       editModel: {},
       pageConfig: {},
       editDialogOpeon: false,
+      editPermissionDialogOpeon: false,
       pageSize: 10,
       pageNumber: 1,
       total: 0
@@ -72,6 +89,9 @@ export default {
     },
     editFormFields() {
       return this.pageConfig.editFormFields;
+    },
+    editPermissionFormFields() {
+      return this.pageConfig.editPermissionFormFields;
     }
   },
   mounted() {
@@ -137,6 +157,31 @@ export default {
       this.deleteRequest(row);
     },
 
+    permissionButtonClick(row, index) {
+      // 获取用户的角色信息
+      let username = row.username;
+      getRolePermission({
+        username
+      })
+        .then(res => {
+          let { data, errno } = res;
+          if (+errno === 0) {
+            this.editModel = row;
+            this.$set(
+              this.editModel,
+              "permissions",
+              data.permissions.map(item => item.id)
+            );
+            this.editModel.index = index;
+            this.editPermissionDialogOpeon = true;
+          }
+        })
+        .catch(err => {
+          // eslint-disable-next-line no-console
+          console.log(err);
+        });
+    },
+
     toBlackButtonClick(row) {
       this.toBlackRequest(row);
     },
@@ -166,7 +211,7 @@ export default {
 
     addRequest(params) {
       roleAdd(params).then(res => {
-        if (+res.status === 0) {
+        if (+res.errno === 0) {
           this.$Message.info("Add Success!");
           this.editDialogOpeon = false;
           this.getTableData();
@@ -178,7 +223,7 @@ export default {
 
     editRequest(params) {
       roleEdit(params).then(res => {
-        if (+res.status === 0) {
+        if (+res.errno === 0) {
           this.$Message.info("Edit Success!");
           this.editDialogOpeon = false;
           this.getTableData();
@@ -190,13 +235,38 @@ export default {
 
     deleteRequest(params) {
       roleDel(params).then(res => {
-        if (+res.status === 0) {
+        if (+res.errno === 0) {
           this.$Message.info("Delete Success!");
           this.getTableData();
         } else {
           this.$Message.error("Delete Failed!");
         }
       });
+    },
+
+    handlePermissionSave() {
+      this.$refs.FormPermissionGenerator.submit()
+        .then(() => {
+          console.log(this.editModel);
+          updateRolePermission({
+            role_id: this.editModel.id,
+            permission_ids: this.editModel.permissions.join(",")
+          })
+            .then(res => {
+              if (+res.errno === 0) {
+                this.$Message.info("Update Success!");
+              } else {
+                this.$Message.error("Update Failed!");
+              }
+            })
+            .catch(err => {
+              this.$Message.error(`Update Failed!${err.toString()}`);
+            });
+        })
+        .catch(err => {
+          // eslint-disable-next-line no-console
+          console.log(err);
+        });
     }
   }
 };

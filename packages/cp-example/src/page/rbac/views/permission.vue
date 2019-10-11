@@ -39,6 +39,7 @@
     </div>
     <Modal v-model="editDialogOpeon" title="编辑" footer-hide>
       <FormGenerator
+        v-if="editDialogOpeon"
         ref="FormGenerator"
         :fields="editFormFields"
         :model="editModel"
@@ -170,7 +171,7 @@ export default {
 
     addRequest(params) {
       permissionAdd(params).then(res => {
-        if (+res.status === 0) {
+        if (+res.errno === 0) {
           this.$Message.info("Add Success!");
           this.editDialogOpeon = false;
           this.getTableData();
@@ -182,7 +183,7 @@ export default {
 
     editRequest(params) {
       permissionEdit(params).then(res => {
-        if (+res.status === 0) {
+        if (+res.errno === 0) {
           this.$Message.info("Edit Success!");
           this.editDialogOpeon = false;
           this.getTableData();
@@ -194,7 +195,7 @@ export default {
 
     deleteRequest(params) {
       permissionDel(params).then(res => {
-        if (+res.status === 0) {
+        if (+res.errno === 0) {
           this.$Message.info("Delete Success!");
           this.getTableData();
         } else {
