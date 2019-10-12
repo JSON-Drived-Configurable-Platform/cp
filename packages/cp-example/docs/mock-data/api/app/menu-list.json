@@ -1,5 +1,5 @@
 {
-    "status": 0,
+    "errno": 0,
     "data": [
         {
             "label": "Home",
@@ -75,7 +75,29 @@
             "submenu": [
                 {
                     "label": "User Management",
-                    "path": "/curd/:uer-management"
+                    "path": "/curd/user-management"
+                }
+            ]
+        },
+        {
+            "label": "RBAC",
+            "path": "/rbac",
+            "submenu": [
+                {
+                    "label": "Home",
+                    "path": "/rbac/home"
+                },
+                {
+                    "label": "Users",
+                    "path": "/rbac/users"
+                },
+                {
+                    "label": "Roles",
+                    "path": "/rbac/roles"
+                },
+                {
+                    "label": "Permissions",
+                    "path": "/rbac/permissions"
                 }
             ]
         }
