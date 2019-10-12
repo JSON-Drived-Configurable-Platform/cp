@@ -56,7 +56,7 @@ const {
   permissionAdd,
   permissionEdit,
   permissionDel
-} = services["rbac"];
+} = services.rbac;
 export default {
   data() {
     return {

@@ -67,7 +67,7 @@ const {
   userDel,
   getUserRolePermission,
   updateUserRole
-} = services["rbac"];
+} = services.rbac;
 export default {
   data() {
     return {
@@ -93,63 +93,6 @@ export default {
     editRoleFormFields() {
       return this.pageConfig.editRoleFormFields;
     }
-    // editRoleTableColumns() {
-    //   return [
-    //     {
-    //       type: "selection",
-    //       width: 60,
-    //       align: "center"
-    //     },
-    //     {
-    //       title: "名称",
-    //       key: "name"
-    //     },
-    //     {
-    //       title: "描述",
-    //       key: "description"
-    //     }
-    //   ];
-    // },
-    // editRoleTableData() {
-    //   const roles = this.editModel.roles || [];
-    //   const data = [
-    //     {
-    //       _checked: true,
-    //       id: 1,
-    //       name: "admin",
-    //       description: "超级管理员，拥有所有权限",
-    //       create_time: "2019-9-10",
-    //       update_time: "2019-10-10"
-    //     },
-    //     {
-    //       id: 2,
-    //       name: "user",
-    //       description: "普通用户，只有浏览的权限",
-    //       create_time: "2019-9-10",
-    //       update_time: "2019-10-10"
-    //     },
-    //     {
-    //       id: 3,
-    //       name: "editor",
-    //       description: "编辑，可以编辑、发布文章等",
-    //       create_time: "2019-9-10",
-    //       update_time: "2019-10-10"
-    //     },
-    //     {
-    //       id: 4,
-    //       name: "auditor",
-    //       description: "审核人员，可以查看、审核文案",
-    //       create_time: "2019-9-10",
-    //       update_time: "2019-10-10"
-    //     }
-    //   ];
-    //   return data.map(item => {
-    //     if (roles.includes(item.id)) {
-    //       item._checked = true;
-    //     }
-    //     return item;
-    //   });
-    // }
   },
   mounted() {
     const { pageId } = this.$route.params;
@@ -200,7 +143,6 @@ export default {
     },
 
     handleButtonEvent($event, row, index) {
-      console.log($event, row, index);
       this[$event.name](row, index);
     },
 
@@ -212,18 +154,18 @@ export default {
 
     roleButtonClick(row, index) {
       // 获取用户的角色信息
-      let username = row.username;
+      const username = row.username;
       getUserRolePermission({
         username
       })
         .then(res => {
-          let { data, errno } = res;
+          const { data, errno } = res;
           if (+errno === 0) {
             this.editModel = row;
             this.$set(
               this.editModel,
               "roles",
-              data.roles.map(item => parseInt(item.id))
+              data.roles.map(item => parseInt(item.id, 10))
             );
             this.editModel.index = index;
             this.editRoleDialogOpeon = true;
@@ -252,7 +194,6 @@ export default {
         .then(() => {
           // 新增用户
           if (this.editModel.type === "add") {
-            this.editModel.type = "";
             this.addRequest(this.editModel);
             this.getTableData();
             return;

@@ -1,4 +1,12 @@
 // User
+const getRbacUserInfo = (params = {}) => {
+  return {
+    url: "/api/rbac/user-info",
+    method: "get",
+    params
+  };
+};
+
 const getUserPageConfig = (params = {}) => {
   return {
     url: "/api/rbac/user-page-config",
@@ -73,6 +81,30 @@ const getPermissionList = (params = {}) => {
   };
 };
 
+const permissionAdd = (params = {}) => {
+  return {
+    url: "/api/rbac/permission-add",
+    method: "post",
+    params
+  };
+};
+
+const permissionEdit = (params = {}) => {
+  return {
+    url: "/api/rbac/permission-update",
+    method: "post",
+    params
+  };
+};
+
+const permissionDel = (params = {}) => {
+  return {
+    url: "/api/rbac/permission-delete",
+    method: "post",
+    params
+  };
+};
+
 // 获取用户的角色权限信息
 const getUserRolePermission = (params = {}) => {
   return {
@@ -109,6 +141,7 @@ const updateRolePermission = (params = {}) => {
 };
 
 export default {
+  getRbacUserInfo,
   getUserPageConfig,
   getUserList,
   userAdd,
@@ -121,5 +154,8 @@ export default {
   getUserRolePermission,
   updateUserRole,
   getRolePermission,
-  updateRolePermission
+  updateRolePermission,
+  permissionAdd,
+  permissionEdit,
+  permissionDel
 };

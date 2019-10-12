@@ -1,10 +1,16 @@
 {
-    "status": 0,
+    "errno": 0,
     "data": {
         "columns": [
             {
+                "title": "ID",
+                "key": "id",
+                "width": 50
+            },
+            {
                 "title": "名称",
-                "key": "name"
+                "key": "name",
+                "width": 200
             },
             {
                 "title": "URL",
@@ -16,20 +22,39 @@
             },
             {
                 "title": "方法",
-                "key": "method"
+                "key": "method",
+                "width": 80
             },
             {
                 "title": "父级ID",
-                "key": "parent_id"
-            },
-            {
-                "title": "父级权限",
-                "key": "parent_name"
+                "slot": "parent_id",
+                "width": 150,
+                "formFields": [
+                    {
+                        "type": "Tag",
+                        "model": "parent_id",
+                        "options": [
+                            {
+                                "name": "无",
+                                "value": "0"
+                            },
+                            {
+                                "name": "用户管理",
+                                "value": "1"
+                            },
+                            {
+                                "name": "权限管理",
+                                "value": "7"
+                            }
+                        ]
+                    }
+                ]
             },
             {
                 "title": "操作",
                 "slot": "action",
                 "align": "center",
+                "width": 200,
                 "formFields": [
                     {
                         "type": "Button",
@@ -71,7 +96,7 @@
             {
                 "type": "Input",
                 "label": "URL",
-                "model": "description",
+                "model": "url",
                 "placeholder": "请输入权限URL",
                 "required": true
             },
@@ -104,6 +129,31 @@
                     {
                         "label": "DELETE",
                         "value": "DELETE"
+                    },
+                    {
+                        "label": "全部",
+                        "value": "*"
+                    }
+                ]
+            },
+            {
+                "type": "Select",
+                "label": "父级权限",
+                "model": "parent_id",
+                "placeholder": "请选择父级权限",
+                "required": true,
+                "options": [
+                    {
+                        "label": "无",
+                        "value": "0"
+                    },
+                    {
+                        "label": "用户管理",
+                        "value": "1"
+                    },
+                    {
+                        "label": "权限管理",
+                        "value": "7"
                     }
                 ]
             },
@@ -113,6 +163,5 @@
                 "text": "保存"
             }
         ]
-    },
-    "msg": "ok"
+    }
 }

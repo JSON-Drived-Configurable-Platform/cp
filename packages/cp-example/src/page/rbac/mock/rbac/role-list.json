@@ -1,54 +1,38 @@
 {
-    "status": 0,
+    "errno": 0,
     "data": {
-        "total": 20,
-        "pageNumber": 1,
-        "pageSize": 20,
+        "total": 4,
+        "totalPage": 1,
+        "page": 1,
         "list": [
             {
-                "id": "1",
-                "name": "admin",
-                "description": "超级管理员，拥有所有权限",
-                "create_time": "2019-9-10",
-                "update_time": "2019-10-10",
-                "permissions": [
-                    1
-                ]
-            },
-            {
-                "id": "2",
-                "name": "user",
-                "description": "普通用户，只有浏览的权限",
-                "create_time": "2019-9-10",
-                "update_time": "2019-10-10",
-                "permissions": [
-                    2
-                ]
+                "id": "4",
+                "name": "审核",
+                "description": "审核信息1",
+                "create_time": "2019-10-12 10:44:52",
+                "update_time": "2019-10-12 12:33:22"
             },
             {
                 "id": "3",
-                "name": "editor",
-                "description": "编辑，可以编辑、发布文章等",
-                "create_time": "2019-9-10",
-                "update_time": "2019-10-10",
-                "permissions": [
-                    2,
-                    3,
-                    5
-                ]
+                "name": "编辑",
+                "description": "用户信息编辑",
+                "create_time": "2019-10-11 19:03:07",
+                "update_time": "2019-10-11 19:04:13"
             },
             {
-                "id": "4",
-                "name": "auditor",
-                "description": "审核人员，可以查看、审核文案",
-                "create_time": "2019-9-10",
-                "update_time": "2019-10-10",
-                "permissions": [
-                    2,
-                    4
-                ]
+                "id": "2",
+                "name": "普通用户",
+                "description": "普通用户",
+                "create_time": "2018-12-12 18:52:27",
+                "update_time": "2018-12-12 18:52:27"
+            },
+            {
+                "id": "1",
+                "name": "admin1",
+                "description": "\b管理员大人",
+                "create_time": "2018-12-12 18:52:27",
+                "update_time": "2019-10-11 18:45:09"
             }
         ]
-    },
-    "msg": "ok"
+    }
 }

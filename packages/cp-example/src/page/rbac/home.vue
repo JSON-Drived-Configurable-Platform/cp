@@ -1,56 +1,32 @@
 <template>
-  <div class="page-home">RBAC Home</div>
+  <div class="page-home">
+    <h3>当前登录用户角色、权限信息如下：</h3>
+    <pre>{{ homeData }}</pre>
+  </div>
 </template>
 <script>
-import service from "@/service";
-const { getHomeData } = service.home;
+import services from "@/service";
+const { getRbacUserInfo } = services.rbac;
 export default {
   data() {
     return {
       current: 0,
-      carouselData: [],
-      hotTemplates: []
+      data: {}
     };
   },
+  computed: {
+    homeData() {
+      return JSON.stringify(this.data, null, 4);
+    }
+  },
   mounted() {
-    getHomeData().then(res => {
-      const { carouselData, hotTemplates } = res.data;
-      this.carouselData = carouselData;
-      this.hotTemplates = hotTemplates;
+    getRbacUserInfo().then(res => {
+      const { errno, data } = res;
+      if (+errno === 0) {
+        this.data = data;
+      }
     });
   }
 };
 </script>
-<style lang="less">
-.page-rbac {
-  &-carousel-content {
-    border-radius: 4px;
-    height: 300px;
-    font-size: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #506b9e;
-    color: #fff;
-  }
-
-  &-hot-templates {
-    margin-top: 30px;
-    &-header {
-      text-align: center;
-    }
-
-    &-cards {
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-    }
-    &-card {
-      width: 30%;
-      display: inline-block;
-      margin: 20px;
-      height: 120px;
-    }
-  }
-}
-</style>
+<style lang="less"></style>

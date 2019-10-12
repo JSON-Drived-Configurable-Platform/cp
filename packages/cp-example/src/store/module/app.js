@@ -21,12 +21,12 @@ export default {
         try {
           services
             .getMenuList()
-            .then(({ status, data }) => {
-              if (+status === 200 || +status === 0) {
+            .then(({ errno, data }) => {
+              if (+errno === 200 || +errno === 0) {
                 commit("setMenuList", data);
                 resolve(data);
               } else {
-                reject(new Error(`response status is: ${status}`));
+                reject(new Error(`response errno is: ${errno}`));
               }
             })
             .catch(err => {

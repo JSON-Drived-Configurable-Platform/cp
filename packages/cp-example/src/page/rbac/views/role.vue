@@ -67,7 +67,7 @@ const {
   roleDel,
   getRolePermission,
   updateRolePermission
-} = services["rbac"];
+} = services.rbac;
 export default {
   data() {
     return {
@@ -158,20 +158,14 @@ export default {
     },
 
     permissionButtonClick(row, index) {
-      // 获取用户的角色信息
-      let username = row.username;
       getRolePermission({
-        username
+        role_id: row.id
       })
         .then(res => {
-          let { data, errno } = res;
+          const { data, errno } = res;
           if (+errno === 0) {
             this.editModel = row;
-            this.$set(
-              this.editModel,
-              "permissions",
-              data.permissions.map(item => item.id)
-            );
+            this.$set(this.editModel, "permissions", data.map(item => item.id));
             this.editModel.index = index;
             this.editPermissionDialogOpeon = true;
           }
@@ -195,7 +189,6 @@ export default {
         .then(() => {
           // 新增用户
           if (this.editModel.type === "add") {
-            this.editModel.type = "";
             this.addRequest(this.editModel);
             this.getTableData();
             return;
@@ -247,7 +240,6 @@ export default {
     handlePermissionSave() {
       this.$refs.FormPermissionGenerator.submit()
         .then(() => {
-          console.log(this.editModel);
           updateRolePermission({
             role_id: this.editModel.id,
             permission_ids: this.editModel.permissions.join(",")
@@ -255,6 +247,7 @@ export default {
             .then(res => {
               if (+res.errno === 0) {
                 this.$Message.info("Update Success!");
+                this.editPermissionDialogOpeon = false;
               } else {
                 this.$Message.error("Update Failed!");
               }

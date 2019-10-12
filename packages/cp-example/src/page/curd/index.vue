@@ -166,7 +166,7 @@ export default {
 
     addRequest(params) {
       add(params).then(res => {
-        if (+res.status === 0) {
+        if (+res.errno === 0) {
           this.$Message.info("Add Success!");
           this.editDialogOpeon = false;
           this.getTableData();
@@ -178,7 +178,7 @@ export default {
 
     editRequest(params) {
       edit(params).then(res => {
-        if (+res.status === 0) {
+        if (+res.errno === 0) {
           this.$Message.info("Edit Success!");
           this.editDialogOpeon = false;
           this.getTableData();
@@ -190,7 +190,7 @@ export default {
 
     deleteRequest(params) {
       del(params).then(res => {
-        if (+res.status === 0) {
+        if (+res.errno === 0) {
           this.$Message.info("Delete Success!");
           this.getTableData();
         } else {
@@ -201,7 +201,7 @@ export default {
 
     toBlackRequest(params) {
       toBlack(params).then(res => {
-        if (+res.status === 0) {
+        if (+res.errno === 0) {
           this.$Message.info("ToBlack Success!");
           this.getTableData();
         } else {
@@ -212,7 +212,7 @@ export default {
 
     toWhiteRequest(params) {
       toWhite(params).then(res => {
-        if (+res.status === 0) {
+        if (+res.errno === 0) {
           this.$Message.info("toWhite Success!");
           this.getTableData();
         } else {
