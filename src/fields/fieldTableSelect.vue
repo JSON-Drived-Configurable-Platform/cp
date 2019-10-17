@@ -2,6 +2,7 @@
     <div :class="classes">
         <Table
             ref="table-select"
+            :loading="loading"
             :border="field.border"
             :highlight-row="!multiple"
             :columns="computedColumns"
@@ -26,6 +27,7 @@ export default {
     },
     data() {
         return {
+            loading: false,
             columns: [],
             options: []
         };
@@ -54,6 +56,9 @@ export default {
         computedOptions() {
             const options = this.options.length > 0 ? this.options : this.field.options;
             const value = this.form.model[this.field.model];
+            if (!Array.isArray(options)) {
+                return [];
+            }
             if (this.multiple) {
                 return options.map(item => {
                     if (value.includes(item.id)) {
@@ -75,9 +80,9 @@ export default {
                 return item;
             });
         },
-        dataApi() {
+        optionsApi() {
             return !Array.isArray(this.field.options) ? this.field.options : '';
-        }
+        },
     },
     methods: {
         remoteMethod() {

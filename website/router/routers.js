@@ -23,6 +23,7 @@ const InputNumber = () => import(/* webpackChunkName: "InputNumber" */ '../page/
 const Upload = () => import(/* webpackChunkName: "Upload" */ '../page/doc/Upload');
 const Tag = () => import(/* webpackChunkName: "Tag" */ '../page/doc/Tag');
 const Tree = () => import(/* webpackChunkName: "Tag" */ '../page/doc/Tree');
+const TableSelect = () => import(/* webpackChunkName: "Tag" */ '../page/doc/TableSelect');
 // examples
 const groupForm = () => import(/* webpackChunkName: "groupForm" */ '../page/examples/group-form');
 const CURDExample = () => import(/* webpackChunkName: "CURDExample" */ '../page/examples/CURD-example');
@@ -136,6 +137,11 @@ export default [
                 path: '/doc/Tree',
                 name: 'doc-Tree',
                 component: Tree
+            },
+            {
+                path: '/doc/TableSelect',
+                name: 'doc-TableSelect',
+                component: TableSelect
             },
             {
                 path: '/group-form',

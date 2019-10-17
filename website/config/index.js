@@ -104,6 +104,10 @@ export default {
                 {
                     label: 'Tree',
                     name: '/doc/Tree'
+                },
+                {
+                    label: 'TableSelect',
+                    name: '/doc/TableSelect'
                 }
                 // {
                 //     label: 'ImgUpload',
