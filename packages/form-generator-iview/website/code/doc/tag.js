@@ -53,7 +53,7 @@ export default {
 </template>
 `;
 
-// 简单示例
+// 多个示例
 let multiple = {};
 
 const multipleField = {
