@@ -1,5 +1,14 @@
 <template>
+    <div v-if="loading">
+        <Icon
+            type="ios-loading"
+            size="18"
+            class="spin-icon-load"
+        />
+    </div>
     <Tree
+        v-else
+        :class="classes"
         :data="computedOptions"
         :show-checkbox="field.showCheckbox"
         :multiple="field.multiple"
@@ -22,6 +31,7 @@ function updateNode(nodes = [], checkedList = [], multiple = false) {
         }
     });
 }
+import {classPrifix} from '../utils/const';
 import getOptions from '../mixins/getOptions';
 export default {
     inject: ['form'],
@@ -45,12 +55,21 @@ export default {
         };
     },
     computed: {
+        classes() {
+            return `${classPrifix}-${this.field.type.toLowerCase()}`;
+        },
         computedOptions() {
             const values = this.form.model[this.field.model];
             const options = this.options.length > 0 ? this.options : this.field.options;
             const multiple = this.field.multiple;
-            updateNode(options, values, multiple);
-            return JSON.parse(JSON.stringify(options));
+            if (Array.isArray(options)) {
+                updateNode(options, values, multiple);
+                return JSON.parse(JSON.stringify(options));
+            }
+            else {
+                return [];
+            }
+
         },
         optionsApi() {
             return !Array.isArray(this.field.options) ? this.field.options : '';

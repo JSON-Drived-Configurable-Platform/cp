@@ -22,6 +22,7 @@ const Cascader = () => import(/* webpackChunkName: "Cascader" */ '../page/doc/Ca
 const InputNumber = () => import(/* webpackChunkName: "InputNumber" */ '../page/doc/InputNumber');
 const Upload = () => import(/* webpackChunkName: "Upload" */ '../page/doc/Upload');
 const Tag = () => import(/* webpackChunkName: "Tag" */ '../page/doc/Tag');
+const Tree = () => import(/* webpackChunkName: "Tag" */ '../page/doc/Tree');
 // examples
 const groupForm = () => import(/* webpackChunkName: "groupForm" */ '../page/examples/group-form');
 const CURDExample = () => import(/* webpackChunkName: "CURDExample" */ '../page/examples/CURD-example');
@@ -32,7 +33,7 @@ const twoRelatedForm = () => import(/* webpackChunkName: "twoRelatedForm" */ '..
 export default [
     {
         path: '/',
-        name: 'intro',
+        name: 'home',
         redirect: '/intro',
         component: Main,
         children: [
@@ -130,6 +131,11 @@ export default [
                 path: '/doc/Tag',
                 name: 'doc-Tag',
                 component: Tag
+            },
+            {
+                path: '/doc/Tree',
+                name: 'doc-Tree',
+                component: Tree
             },
             {
                 path: '/group-form',
