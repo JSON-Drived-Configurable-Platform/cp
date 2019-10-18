@@ -23,6 +23,7 @@ const InputNumber = () => import(/* webpackChunkName: "InputNumber" */ '../page/
 const Upload = () => import(/* webpackChunkName: "Upload" */ '../page/doc/Upload');
 const groupForm = () => import(/* webpackChunkName: "groupForm" */ '../page/examples/group-form');
 const CURDExample = () => import(/* webpackChunkName: "CURDExample" */ '../page/examples/CURD-example');
+const inlineTable = () => import(/* webpackChunkName: "inlineTable" */ '../page/examples/inline-table');
 const editableTable = () => import(/* webpackChunkName: "editableTable" */ '../page/examples/editable-table');
 const searchableChart = () => import(/* webpackChunkName: "searchableChart" */ '../page/examples/searchable-chart');
 const twoRelatedForm = () => import(/* webpackChunkName: "twoRelatedForm" */ '../page/examples/two-related-form');
@@ -133,6 +134,11 @@ export default [
                 path: '/CURD-example',
                 name: 'CURD-example',
                 component: CURDExample
+            },
+            {
+                path: '/inline-table',
+                name: 'inline-table',
+                component: inlineTable
             },
             {
                 path: '/editable-table',

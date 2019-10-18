@@ -303,8 +303,8 @@ validate.data = {
 
 validate.code = `
 <script>
-const fields = ${JSON.stringify(formFields, null, 4)};
-const model = ${JSON.stringify(formModel, null, 4)};
+const fields = ${JSON.stringify(validateFields, null, 4)};
+const model = ${JSON.stringify(validateModel, null, 4)};
 export default {
     data() {
         return {
