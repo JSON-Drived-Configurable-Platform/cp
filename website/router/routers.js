@@ -5,8 +5,8 @@
 
 import Main from '../components/main';
 
-const home = () => import(/* webpackChunkName: "home" */ '../page/home');
-const start = () => import(/* webpackChunkName: "start" */ '../page/start');
+// const home = () => import(/* webpackChunkName: "home" */ '../page/home');
+const intro = () => import(/* webpackChunkName: "start" */ '../page/intro');
 const practice = () => import(/* webpackChunkName: "practice" */ '../page/practice');
 const FormGenerator = () => import(/* webpackChunkName: "FormGenerator" */ '../page/doc/FormGenerator');
 const FieldGenerator = () => import(/* webpackChunkName: "FieldGenerator" */ '../page/doc/FieldGenerator');
@@ -21,6 +21,10 @@ const TimePicker = () => import(/* webpackChunkName: "TimePicker" */ '../page/do
 const Cascader = () => import(/* webpackChunkName: "Cascader" */ '../page/doc/Cascader');
 const InputNumber = () => import(/* webpackChunkName: "InputNumber" */ '../page/doc/InputNumber');
 const Upload = () => import(/* webpackChunkName: "Upload" */ '../page/doc/Upload');
+const Tag = () => import(/* webpackChunkName: "Tag" */ '../page/doc/Tag');
+const Tree = () => import(/* webpackChunkName: "Tag" */ '../page/doc/Tree');
+const TableSelect = () => import(/* webpackChunkName: "Tag" */ '../page/doc/TableSelect');
+// examples
 const groupForm = () => import(/* webpackChunkName: "groupForm" */ '../page/examples/group-form');
 const CURDExample = () => import(/* webpackChunkName: "CURDExample" */ '../page/examples/CURD-example');
 const inlineTable = () => import(/* webpackChunkName: "inlineTable" */ '../page/examples/inline-table');
@@ -32,18 +36,18 @@ export default [
     {
         path: '/',
         name: 'home',
-        redirect: '/home',
+        redirect: '/intro',
         component: Main,
         children: [
+            // {
+            //     path: '/home',
+            //     name: 'home',
+            //     component: home
+            // },
             {
-                path: '/home',
-                name: 'home',
-                component: home
-            },
-            {
-                path: '/start',
-                name: 'start',
-                component: start
+                path: '/intro',
+                name: 'intro',
+                component: intro
             },
             {
                 path: '/practice',
@@ -125,6 +129,21 @@ export default [
             //     name: 'doc-ImgUpload',
             //     component: ImgUpload
             // },
+            {
+                path: '/doc/Tag',
+                name: 'doc-Tag',
+                component: Tag
+            },
+            {
+                path: '/doc/Tree',
+                name: 'doc-Tree',
+                component: Tree
+            },
+            {
+                path: '/doc/TableSelect',
+                name: 'doc-TableSelect',
+                component: TableSelect
+            },
             {
                 path: '/group-form',
                 name: 'group-form',

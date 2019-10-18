@@ -29,13 +29,13 @@ export default {
     defaultOpenNames: '/doc',
 
     menuList: [
+        // {
+        //     label: 'Home',
+        //     name: '/home'
+        // },
         {
-            label: 'Home',
-            name: '/home'
-        },
-        {
-            label: 'Start',
-            name: '/start'
+            label: 'Intro',
+            name: '/intro'
         },
         {
             label: 'Practice && Thoughts',
@@ -97,6 +97,18 @@ export default {
                     label: 'Upload',
                     name: '/doc/Upload'
                 },
+                {
+                    label: 'Tag',
+                    name: '/doc/Tag'
+                },
+                {
+                    label: 'Tree',
+                    name: '/doc/Tree'
+                },
+                {
+                    label: 'TableSelect',
+                    name: '/doc/TableSelect'
+                }
                 // {
                 //     label: 'ImgUpload',
                 //     name: '/doc/ImgUpload'

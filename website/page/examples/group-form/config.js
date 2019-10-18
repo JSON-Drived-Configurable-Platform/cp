@@ -194,6 +194,223 @@ export const fields = [
     },
     {
         type: 'Divider',
+        label: '表格选择',
+        orientation: 'left',
+        dashed: true,
+        size: 'small'
+    },
+    {
+        type: 'TableSelect',
+        label: '表格单选',
+        model: 'tableSelect',
+        columns: [
+            {
+                title: '名称',
+                key: 'name'
+            },
+            {
+                title: '描述',
+                key: 'description'
+            }
+        ],
+        options: [
+            {
+                id: 1,
+                name: 'admin',
+                description: '超级管理员，拥有所有权限',
+                create_time: '2019-9-10',
+                update_time: '2019-10-10'
+            },
+            {
+                id: 2,
+                name: 'user',
+                description: '普通用户，只有浏览的权限',
+                create_time: '2019-9-10',
+                update_time: '2019-10-10'
+            },
+            {
+                id: 3,
+                name: 'editor',
+                description: '编辑，可以编辑、发布文章等',
+                create_time: '2019-9-10',
+                update_time: '2019-10-10'
+            },
+            {
+                id: 4,
+                name: 'auditor',
+                description: '审核人员，可以查看、审核文案',
+                create_time: '2019-9-10',
+                update_time: '2019-10-10'
+            }
+        ]
+    },
+    {
+        type: 'TableSelect',
+        label: '表格多选',
+        multiple: true,
+        model: 'multipleTableSelect',
+        columns: [
+            {
+                title: '名称',
+                key: 'name'
+            },
+            {
+                title: '描述',
+                key: 'description'
+            }
+        ],
+        options: [
+            {
+                id: 1,
+                name: 'admin',
+                description: '超级管理员，拥有所有权限',
+                create_time: '2019-9-10',
+                update_time: '2019-10-10'
+            },
+            {
+                id: 2,
+                name: 'user',
+                description: '普通用户，只有浏览的权限',
+                create_time: '2019-9-10',
+                update_time: '2019-10-10'
+            },
+            {
+                id: 3,
+                name: 'editor',
+                description: '编辑，可以编辑、发布文章等',
+                create_time: '2019-9-10',
+                update_time: '2019-10-10'
+            },
+            {
+                id: 4,
+                name: 'auditor',
+                description: '审核人员，可以查看、审核文案',
+                create_time: '2019-9-10',
+                update_time: '2019-10-10'
+            }
+        ]
+    },
+    {
+        type: 'Divider',
+        label: '树形选择',
+        orientation: 'left',
+        dashed: true,
+        size: 'small'
+    },
+    {
+        type: 'Tree',
+        label: '树形单选',
+        model: 'tree',
+        options: [
+            {
+                id: '1',
+                title: '用户管理',
+                children: [
+                    {
+                        id: '2',
+                        title: '查看用户',
+                    },
+                    {
+                        id: '3',
+                        title: '新增用户',
+                    },
+                    {
+                        id: '4',
+                        title: '编辑用户',
+                    },
+                    {
+                        id: '5',
+                        title: '删除用户',
+                    },
+                    {
+                        id: '11',
+                        title: '编辑用户角色',
+                    }
+                ]
+            },
+            {
+                id: '6',
+                title: '角色管理',
+                children: [
+                    {
+                        id: '7',
+                        title: '查看角色',
+                    },
+                    {
+                        id: '8',
+                        title: '新增角色',
+                    },
+                    {
+                        id: '9',
+                        title: '编辑角色',
+                    },
+                    {
+                        id: '10',
+                        title: '删除角色',
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        type: 'Tree',
+        label: '树形多选',
+        model: 'multipleTree',
+        multiple: true,
+        showCheckbox: true,
+        options: [
+            {
+                id: '1',
+                title: '用户管理',
+                children: [
+                    {
+                        id: '2',
+                        title: '查看用户',
+                    },
+                    {
+                        id: '3',
+                        title: '新增用户',
+                    },
+                    {
+                        id: '4',
+                        title: '编辑用户',
+                    },
+                    {
+                        id: '5',
+                        title: '删除用户',
+                    },
+                    {
+                        id: '11',
+                        title: '编辑用户角色',
+                    }
+                ]
+            },
+            {
+                id: '6',
+                title: '角色管理',
+                children: [
+                    {
+                        id: '7',
+                        title: '查看角色',
+                    },
+                    {
+                        id: '8',
+                        title: '新增角色',
+                    },
+                    {
+                        id: '9',
+                        title: '编辑角色',
+                    },
+                    {
+                        id: '10',
+                        title: '删除角色',
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        type: 'Divider',
         label: '级联选择',
         orientation: 'left',
         dashed: true,
@@ -429,7 +646,8 @@ export const fields = [
         apiParams: ['radio'],
         label: '文件上传',
         model: 'upload',
-        tip: '上传的提示信息或者帮助信息'
+        tip: '上传的提示信息或者帮助信息',
+        required: true,
     },
     {
         type: 'ImgUpload',
@@ -445,7 +663,8 @@ export const fields = [
         withCredentials: true,
         label: '图片上传',
         model: 'imgUpload',
-        tip: '上传的提示信息或者帮助信息'
+        tip: '上传的提示信息或者帮助信息',
+        required: true,
     },
     {
         type: 'VideoUpload',
@@ -461,7 +680,8 @@ export const fields = [
         withCredentials: true,
         label: '视频上传',
         model: 'videoUpload',
-        tip: '上传的提示信息或者帮助信息'
+        tip: '上传的提示信息或者帮助信息',
+        required: true,
     },
     {
         type: 'MediaUpload',
@@ -477,7 +697,8 @@ export const fields = [
         withCredentials: true,
         label: '媒体上传',
         model: 'mediaUpload',
-        tip: '上传的提示信息或者帮助信息'
+        tip: '上传的提示信息或者帮助信息',
+        required: true,
     },
     {
         type: 'Select',
@@ -611,6 +832,10 @@ export const model = {
     datetimerange: [],
     cascader: [],
     cascaderApi: [],
+    tableSelect: 1,
+    multipleTableSelect: [1, 2],
+    tree: ['2'],
+    multipleTree: ['1', '2', '10'],
     inputNumber: 0,
     logicInput: {},
     logicSelect: {},

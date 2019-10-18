@@ -75,6 +75,11 @@ export default {
             model,
             options
         };
+    },
+    methods: {
+        handleSubmit(formName) {
+            console.log(this.$refs[formName].model);
+        }
     }
 };
 <script>
@@ -83,6 +88,7 @@ export default {
         :fields="fields"
         :options="options"
         :model="model"
+        @on-submit="handleSubmit('simple')"
     />
 </template>
 `;
