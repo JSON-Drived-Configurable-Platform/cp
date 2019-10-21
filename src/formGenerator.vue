@@ -129,7 +129,7 @@
 </template>
 <script>
 import FieldGenerator from './fieldGenerator';
-import {classPrifix} from './utils/const';
+import {classPrefix} from './utils/const';
 import vClickOutside from 'v-click-outside';
 import {getValidType} from './utils/getValidType';
 export default {
@@ -185,45 +185,45 @@ export default {
 
     computed: {
         classes() {
-            return classPrifix;
+            return classPrefix;
         },
         headerClasses() {
-            return `${classPrifix}-header`;
+            return `${classPrefix}-header`;
         },
         headerTextClasses() {
-            return `${classPrifix}-header-text`;
+            return `${classPrefix}-header-text`;
         },
         tipsClasses() {
-            return `${classPrifix}-tip`;
+            return `${classPrefix}-tip`;
         },
         defaultItemsBoxClassess() {
             return [
-                `${classPrifix}-default-items-box`,
+                `${classPrefix}-default-items-box`,
                 {
-                    [`${classPrifix}-default-items-box-no-right`]: this.computedFields.defaultHideFields.length === 0,
+                    [`${classPrefix}-default-items-box-no-right`]: this.computedFields.defaultHideFields.length === 0,
                 }
             ];
         },
         moreDividerClasses() {
-            return `${classPrifix}-more-divider-box`;
+            return `${classPrefix}-more-divider-box`;
         },
         extraItemsBoxClassess() {
-            return `${classPrifix}-extra-items-box`;
+            return `${classPrefix}-extra-items-box`;
         },
         extraSelectBoxRightClasses() {
-            return `${classPrifix}-extra-box-right`;
+            return `${classPrefix}-extra-box-right`;
         },
         extraSelectRightContentClasses() {
-            return `${classPrifix}-extra-right-content`;
+            return `${classPrefix}-extra-right-content`;
         },
         extraBtnBoxClasses() {
-            return `${classPrifix}-extra-box`;
+            return `${classPrefix}-extra-box`;
         },
         labelLeftClasses() {
-            return `${classPrifix}-extra-left`;
+            return `${classPrefix}-extra-left`;
         },
         extraSelectBoxClasses() {
-            return `${classPrifix}-extra-select-box`;
+            return `${classPrefix}-extra-select-box`;
         },
         tip() {
             return {

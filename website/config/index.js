@@ -132,6 +132,10 @@ export default {
                     name: '/editable-table'
                 },
                 {
+                    label: 'Inline-Table',
+                    name: '/inline-table'
+                },
+                {
                     label: 'Searchable-Chart',
                     name: '/searchable-chart'
                 },

@@ -22,7 +22,7 @@
 </template>
 <script>
 import axios from '../utils/http';
-import {classPrifix} from '../utils/const';
+import {classPrefix} from '../utils/const';
 export default {
     inject: ['form'],
     props: {
@@ -42,7 +42,7 @@ export default {
     },
     computed: {
         classes() {
-            return `${classPrifix}-${this.field.type.toLowerCase()}`;
+            return `${classPrefix}-${this.field.type.toLowerCase()}`;
         },
     },
     mounted() {
