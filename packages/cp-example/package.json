@@ -31,7 +31,7 @@
     "lint-staged": "^8.1.5",
     "prettier": "^1.18.2",
     "vue-cli-plugin-cp": "^0.0.7",
-    "vue-cli-plugin-cp-template-curd": "file:/Users/mac/Documents/study/vue-cli-plugin-cp-template-curd",
+    "vue-cli-plugin-cp-template-curd": "^0.0.6",
     "vue-cli-plugin-cp-template-data-report": "^0.0.3",
     "vue-template-compiler": "^2.6.10"
   },

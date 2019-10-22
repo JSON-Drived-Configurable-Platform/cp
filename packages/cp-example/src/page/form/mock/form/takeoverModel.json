@@ -1,0 +1,16 @@
+{
+    "errno": 0,
+    "data": {
+        "modelData": {
+            "taskName": "你好",
+            "showClient":["1"],
+            "relationTask": "1",
+            "taskHead": "222",
+            "taskExplain": "333",
+            "taskToolTips": "444",
+            "taskCycle": "555",
+            "taskNumber": "6"
+        }
+    },
+    "msg": "ok"
+}

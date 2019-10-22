@@ -7341,8 +7341,10 @@ vm-browserify@^1.0.1:
   version "1.1.0"
   resolved "http://registry.npm.baidu-int.com/vm-browserify/-/vm-browserify-1.1.0.tgz#bd76d6a23323e2ca8ffa12028dc04559c75f9019"
 
-"vue-cli-plugin-cp-template-curd@file:../vue-cli-plugin-cp-template-curd":
+vue-cli-plugin-cp-template-curd@^0.0.6:
   version "0.0.6"
+  resolved "http://registry.npm.baidu-int.com/vue-cli-plugin-cp-template-curd/-/vue-cli-plugin-cp-template-curd-0.0.6.tgz#ee30b95f16c90b72f70c9609d9674be77da49b7b"
+  integrity sha512-NTF0WY5faBIRZWftFD7Z1j2x7IlIuyNLHMP6A8Io63fSbt30Tj71lKMZY3RdVHjEgbc8Pt8xLxq26QZv1077DQ==
 
 vue-cli-plugin-cp-template-data-report@^0.0.3:
   version "0.0.3"
