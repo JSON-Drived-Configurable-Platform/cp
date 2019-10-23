@@ -46,6 +46,14 @@ const getWizardFormData = (params = {}) => {
   };
 };
 
+const getSenctionedFormData = (params = {}) => {
+  return {
+    url: "/api/form/sectionedData",
+    method: "get",
+    params
+  };
+};
+
 const formSubmit = (params = {}) => {
   return {
     url: "/api/form/submit",
@@ -61,5 +69,6 @@ export default {
   getList,
   getTakeoverFormData,
   getTakeoverModel,
-  getWizardFormData
+  getWizardFormData,
+  getSenctionedFormData
 };
