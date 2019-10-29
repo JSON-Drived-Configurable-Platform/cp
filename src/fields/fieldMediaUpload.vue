@@ -110,7 +110,7 @@
 </template>
 <script>
 
-import {classPrifix} from '../utils/const';
+import {classPrefix} from '../utils/const';
 const defaultImgExtensions = ['gif', 'jpg', 'jpeg', 'png'];
 const defaultVideoExtensions = ['mp4', '.webm'];
 export default {
@@ -152,7 +152,7 @@ export default {
     },
     computed: {
         classes() {
-            return `${classPrifix}-mediaupload`;
+            return `${classPrefix}-mediaupload`;
         },
         fileListClass() {
             return `${this.classes}-file-list`;
