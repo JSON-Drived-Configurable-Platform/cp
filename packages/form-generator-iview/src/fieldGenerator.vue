@@ -40,7 +40,7 @@
 </template>
 <script>
 import fieldComponents from './utils/fieldsLoader.js';
-import {classPrifix} from './utils/const';
+import {classPrefix} from './utils/const';
 import {getValidType} from './utils/getValidType';
 import schema from 'async-validator';
 const notFormfields = ['Divider'];
@@ -83,10 +83,10 @@ export default {
     },
     computed: {
         classes() {
-            return `${classPrifix}-${this.field.type.toLowerCase()}`;
+            return `${classPrefix}-${this.field.type.toLowerCase()}`;
         },
         itemClasses() {
-            return `${classPrifix}-form-item`;
+            return `${classPrefix}-form-item`;
         },
         notFormfield() {
             return notFormfields.includes(this.field.type);

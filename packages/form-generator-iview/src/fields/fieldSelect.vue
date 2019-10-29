@@ -5,7 +5,7 @@
             :value="form.model[field.model]"
             :multiple="field.multiple || false"
             :disabled="field.disabled || false"
-            :clearable="field.clearable"
+            :clearable="clearable"
             :size="size"
             :placeholder="field.placeholder"
             :remote="remote"
@@ -40,7 +40,7 @@
             :value="form.model[field.model]"
             :multiple="field.multiple || false"
             :disabled="field.disabled || false"
-            :clearable="field.clearable"
+            :clearable="clearable"
             :size="size"
             :placeholder="field.placeholder"
             :filterable="filterable || false"
@@ -99,6 +99,9 @@ export default {
         },
         filterable() {
             return this.field.filterable || this.remote;
+        },
+        clearable() {
+            return !this.field.multiple ? this.field.clearable: false;
         },
         computedOptions() {
             return this.options.length > 0 ? this.options : (Array.isArray(this.field.options) ? this.field.options : []);
