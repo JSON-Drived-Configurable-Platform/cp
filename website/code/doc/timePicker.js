@@ -6,6 +6,28 @@ const field = {
     model: 'time'
 };
 
+const timeDisabledField = {
+    type: 'TimePicker',
+    model: 'time',
+    disabled: true
+};
+
+const timeLargeField = {
+    type: 'TimePicker',
+    model: 'time',
+    size: 'large'
+};
+const timeSmallField = {
+    type: 'TimePicker',
+    model: 'time',
+    size: 'small'
+};
+const timeDefaultField = {
+    type: 'TimePicker',
+    model: 'time',
+    size: 'default'
+};
+
 const timerangeField = {
     type: 'TimePicker',
     subtype: 'timerange',
@@ -19,7 +41,11 @@ const model = {
 
 simple.data = {
     field,
+    timeDisabledField,
     timerangeField,
+    timeLargeField,
+    timeSmallField,
+    timeDefaultField,
     model
 };
 
