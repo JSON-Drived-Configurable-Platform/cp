@@ -165,7 +165,6 @@ export const config = [
                             },
                             'label': '折线图区域api',
                             'type': 'line',
-                            'dataZoom': true,
                             'api': '/chartLineAreaApi'
                         },
                     ]

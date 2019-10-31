@@ -15,7 +15,7 @@
     "url": "https://github.com/BingBlog/data-vis-iview"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "echarts": "^4.2.1",
     "file-saver": "^2.0.1",
     "form-generator-iview": "^0.0.6",
