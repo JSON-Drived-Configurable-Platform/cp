@@ -18,6 +18,7 @@ const chartLineApiData = require('../docs/example-data-api/chartLineApi');
 const chartTableApiData = require('../docs/example-data-api/chartTableApi');
 const chartTableNoColumnsApiData = require('../docs/example-data-api/chartTableNoColumnsApi');
 const chartRetainApiData = require('../docs/example-data-api/chartRetainApi');
+const chartLineAreaApiData = require('../docs/example-data-api/chartLineAreaApi');
 
 module.exports = merge(webpackBaseConfig, {
     mode: 'development',
@@ -62,6 +63,10 @@ module.exports = merge(webpackBaseConfig, {
 
             app.get('/chartRetainApi', function (req, res) {
                 res.json(chartRetainApiData);
+            });
+
+            app.get('/chartLineAreaApi', function (req, res) {
+                res.json(chartLineAreaApiData);
             });
         },
     },

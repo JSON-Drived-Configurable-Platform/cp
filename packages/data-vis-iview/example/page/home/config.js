@@ -158,6 +158,16 @@ export const config = [
                             'dataZoom': true,
                             'api': '/chartLineApi'
                         },
+                        {
+                            'tip': {
+                                title: '标题1',
+                                content: '内容1'
+                            },
+                            'label': '折线图区域api',
+                            'type': 'line',
+                            'dataZoom': true,
+                            'api': '/chartLineAreaApi'
+                        },
                     ]
                 }
             ]
