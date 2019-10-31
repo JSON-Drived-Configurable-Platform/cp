@@ -106,5 +106,5 @@
     "lint": "eslint --fix --ext .js,.vue,.json src --fix --ext .js,.vue,.json example --fix --ext .json docs/example-data-api"
   },
   "title": "dataVisIView",
-  "version": "0.0.23"
+  "version": "0.0.24"
 }
