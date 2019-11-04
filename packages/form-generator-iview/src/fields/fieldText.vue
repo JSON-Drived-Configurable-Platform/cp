@@ -1,5 +1,5 @@
 <template>
-    <span class="one-line">{{form.model[field.model]}}</span>
+    <span class="one-line">{{ form.model[field.model] }}</span>
 </template>
 
 <script>
