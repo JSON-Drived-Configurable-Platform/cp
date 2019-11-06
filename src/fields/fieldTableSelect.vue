@@ -16,6 +16,7 @@
 <script>
 import {classPrifix} from '../utils/const';
 import getOptions from '../mixins/getOptions';
+
 export default {
     inject: ['form'],
     mixins: [getOptions],
@@ -55,7 +56,7 @@ export default {
         },
         computedOptions() {
             const options = this.options.length > 0 ? this.options : this.field.options;
-            const value = this.form.model[this.field.model];
+            let value = this.form.model[this.field.model];
             if (!Array.isArray(options)) {
                 return [];
             }
@@ -63,20 +64,18 @@ export default {
                 return options.map(item => {
                     if (value.includes(item.id)) {
                         item._checked = true;
-                    }
-                    else {
+                    } else {
                         item._checked = false;
                     }
                     return item;
                 });
+            } else {
+                if (Array.isArray(value)) {
+                    value = value[0];
+                }
             }
             return options.map(item => {
-                if (value == item.id) {
-                    item._highlight = true;
-                }
-                else {
-                    item._highlight = false;
-                }
+                item._highlight = value === item.id;
                 return item;
             });
         },
