@@ -108,6 +108,10 @@ export default {
                 {
                     label: 'TableSelect',
                     name: '/doc/TableSelect'
+                },
+                {
+                    label: 'Carousel',
+                    name: '/doc/Carousel'
                 }
                 // {
                 //     label: 'ImgUpload',
