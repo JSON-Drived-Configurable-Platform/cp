@@ -70,11 +70,13 @@ simple.data = {
 
 simple.code = `
 <script>
+const field = ${JSON.stringify(field, null, 4)};
+const model = ${JSON.stringify(model, null, 4)};
 export default {
     data() {
         return {
-            field: ${JSON.stringify(field)},
-            model: ${JSON.stringify(model)}
+            field,
+            model, 
         };
     }
     methods: {

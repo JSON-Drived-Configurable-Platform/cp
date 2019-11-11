@@ -51,12 +51,48 @@ simple.data = {
 
 simple.code = `
 <script>
+const field = ${JSON.stringify(field, null, 4)};
+const timerangeField =  ${JSON.stringify(timerangeField, null, 4)};
+const model = ${JSON.stringify(model, null, 4)};
 export default {
     data() {
         return {
-            field: ${JSON.stringify(field)},
-            timerangefield: ${JSON.stringify(timerangeField)},
-            model: ${JSON.stringify(model)}
+            field: field,
+            timerangefield: timerangeField,
+            model: model
+        };
+    }
+    methods: {
+        handleFieldChange(model, value) {
+            console.log(model, value);
+        }
+    }
+};
+<script>
+<template>
+    <Form :model="model">
+        <FieldGenerator
+            :field="field"
+            @on-field-change="handleFieldChange"
+        />
+        <FieldGenerator
+            :field="timerangeField"
+            @on-field-change="handleFieldChange"
+        />
+    </Form>
+</template>
+`;
+simple.disabledCode = `
+<script>
+const timeDisabledField = ${JSON.stringify(timeDisabledField, null, 4)};
+const timerangeField =  ${JSON.stringify(timerangeField, null, 4)};
+const model = ${JSON.stringify(model, null, 4)};
+export default {
+    data() {
+        return {
+            field: timeDisabledField,
+            timerangefield: timerangeField,
+            model: model
         };
     }
     methods: {

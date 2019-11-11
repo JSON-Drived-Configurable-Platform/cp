@@ -56,11 +56,13 @@ simple.data = {
 };
 simple.code = `
 <script>
+const field = ${JSON.stringify(field, null, 4)};
+const model = ${JSON.stringify(model, null, 4)};
 export default {
     data() {
         return {
-            field: ${JSON.stringify(field, null, 4)},
-            model: ${JSON.stringify(model)}
+            field: field,
+            model: model
         };
     }
     methods: {
@@ -103,11 +105,13 @@ logicInput.data = {
 
 logicInput.code = `
 <script>
+const logicInputField = ${JSON.stringify(logicInputField, null, 4)};
+const model = ${JSON.stringify(logicInputModel, null , 4)};
 export default {
     data() {
         return {
-            field: ${JSON.stringify(logicInputField, null, 4)},
-            model: ${JSON.stringify(logicInputModel)}
+            field: logicInputField,
+            model: model
         };
     }
     methods: {
@@ -152,11 +156,13 @@ LogicSelectApi.data = {
 
 LogicSelectApi.code = `
 <script>
+const LogicSelectApiField = ${JSON.stringify(LogicSelectApiField, null, 4)};
+const model = ${JSON.stringify(LogicSelectApiModel, null, 4)};
 export default {
     data() {
         return {
-            field: ${JSON.stringify(LogicSelectApiField)},
-            model: ${JSON.stringify(LogicSelectApiModel)}
+            field: LogicSelectApiField,
+            model: model
         };
     }
     methods: {

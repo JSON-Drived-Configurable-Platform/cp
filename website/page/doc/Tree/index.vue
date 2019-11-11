@@ -3,7 +3,74 @@
         <article>
             <h1>Tree</h1>
             <inAnchor title="概述" h2 />
-            <p>Tree</p>
+            <p>文件夹、组织架构、生物分类、国家地区等等，世间万物的大多数结构都是树形结构。使用树控件可以完整展现其中的层级关系，并具有展开收起选择等交互功能。</p>
+            <div class="api">
+                <inAnchor title="配置快速查询" h2 />
+                <table>
+                    <thead>
+                        <tr>
+                            <th>属性</th>
+                            <th>说明</th>
+                            <th>类型</th>
+                            <th>默认值</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>model</td>
+                            <td>绑定的值的名称</td>
+                            <td>String</td>
+                            <td>time</td>
+                        </tr>
+                        <tr>
+                            <td>type</td>
+                            <td>Tree</td>
+                            <td>String</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>data</td>
+                            <td>可嵌套的节点属性的数组，生成 tree 的数据</td>
+                            <td>Array</td>
+                            <td>[]</td>
+                        </tr>
+                        <tr>
+                            <td>multiple</td>
+                            <td>是否支持多选</td>
+                            <td>Boolean</td>
+                            <td>false</td>
+                        </tr>
+                        <tr>
+                            <td>show-checkbox</td>
+                            <td>是否显示多选框</td>
+                            <td>Boolean</td>
+                            <td>false</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <inAnchor title="Tree events" h2 />
+                <table>
+                    <thead>
+                        <tr>
+                            <th>事件名</th>
+                            <th>说明</th>
+                            <th>返回值</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>on-select-change</td>
+                            <td>点击树节点时触发</td>
+                            <td>当前已选中的节点数组、当前项</td>
+                        </tr>
+                        <tr>
+                            <td>on-check-change</td>
+                            <td>点击复选框时触发</td>
+                            <td>当前已勾选节点的数组、当前项</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             <inAnchor title="代码示例" h2 />
             <Demo title="基础用法">
                 <div slot="demo">
