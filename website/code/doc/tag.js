@@ -87,8 +87,8 @@ multiple.code = `
 export default {
     data() {
         return {
-            field: ${JSON.stringify(field)},
-            model: ${JSON.stringify(model)}
+            field: ${JSON.stringify(multipleField)},
+            model: ${JSON.stringify(multipleModel)}
         };
     }
     methods: {
