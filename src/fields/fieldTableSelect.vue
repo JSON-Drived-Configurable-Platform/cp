@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import {classPrifix} from '../utils/const';
+import {classPrefix} from '../utils/const';
 import getOptions from '../mixins/getOptions';
 export default {
     inject: ['form'],
@@ -34,7 +34,7 @@ export default {
     },
     computed: {
         classes() {
-            return `${classPrifix}-${this.field.type.toLowerCase()}`;
+            return `${classPrefix}-${this.field.type.toLowerCase()}`;
         },
         multiple() {
             return this.field.multiple;

@@ -32,7 +32,7 @@ function updateNode(nodes = [], checkedList = [], multiple = false) {
         }
     });
 }
-import {classPrifix} from '../utils/const';
+import {classPrefix} from '../utils/const';
 import getOptions from '../mixins/getOptions';
 export default {
     inject: ['form'],
@@ -57,7 +57,7 @@ export default {
     },
     computed: {
         classes() {
-            return `${classPrifix}-${this.field.type.toLowerCase()}`;
+            return `${classPrefix}-${this.field.type.toLowerCase()}`;
         },
         computedOptions() {
             const values = this.form.model[this.field.model];
