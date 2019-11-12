@@ -6,6 +6,7 @@ const field = {
     'label': '树形多选',
     'model': 'permissions',
     'multiple': true,
+    'checkDirectly': true,
     'showCheckbox': true,
     'options': [
         {
@@ -103,6 +104,7 @@ const remoteField = {
     'model': 'permissions',
     'multiple': true,
     'showCheckbox': true,
+    'checkDirectly': true,
     'options': '/treeOptionApi'
 };
 

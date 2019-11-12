@@ -24,6 +24,7 @@ const Upload = () => import(/* webpackChunkName: "Upload" */ '../page/doc/Upload
 const Tag = () => import(/* webpackChunkName: "Tag" */ '../page/doc/Tag');
 const Tree = () => import(/* webpackChunkName: "Tag" */ '../page/doc/Tree');
 const TableSelect = () => import(/* webpackChunkName: "Tag" */ '../page/doc/TableSelect');
+const Carousel = () => import(/* webpackChunkName: "Carousel" */ '../page/doc/Carousel');
 // examples
 const groupForm = () => import(/* webpackChunkName: "groupForm" */ '../page/examples/group-form');
 const CURDExample = () => import(/* webpackChunkName: "CURDExample" */ '../page/examples/CURD-example');
@@ -143,6 +144,11 @@ export default [
                 path: '/doc/TableSelect',
                 name: 'doc-TableSelect',
                 component: TableSelect
+            },
+            {
+                path: '/doc/Carousel',
+                name: 'doc-Carousel',
+                component: Carousel
             },
             {
                 path: '/group-form',
