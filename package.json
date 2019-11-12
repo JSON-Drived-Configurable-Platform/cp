@@ -29,12 +29,12 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/BingBlog/form-generator-iview"
+        "url": "https://github.com/JSON-Drived-Configurable-Platform/form-generator-iview"
     },
-    "author": "abingblog@gmail.com",
+    "author": "abingblog@gmail.com, changyuqing_@outlook.com, Tobin1990",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/BingBlog/form-generator-iview"
+        "url": "https://github.com/JSON-Drived-Configurable-Platform/form-generator-iview"
     },
     "peerDependencies": {
         "iview": "^3.4.0",
