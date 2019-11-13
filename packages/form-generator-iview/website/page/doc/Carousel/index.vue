@@ -36,6 +36,20 @@
                 </div>
                 <i-code slot="code" lang="html">{{ code.video.code }}</i-code>
             </Demo>
+            <Demo title="值作为列表">
+                <div slot="demo">
+                    <Form :model="code.valueAsOptions.data.model">
+                        <FieldGenerator
+                            :field="code.valueAsOptions.data.field"
+                            @on-field-change="handleFieldChange"
+                        />
+                    </Form>
+                </div>
+                <div slot="desc">
+                    <p>通过设置<code>field</code>, <code>model</code>即可生成一个Cascader。</p>
+                </div>
+                <i-code slot="code" lang="html">{{ code.valueAsOptions.code }}</i-code>
+            </Demo>
         </article>
     </i-article>
 </template>
