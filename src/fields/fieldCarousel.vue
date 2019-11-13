@@ -53,6 +53,9 @@ export default {
             return `${this.classes}-item`;
         },
         computedOptions() {
+            if (this.field.valueAsOptions) {
+                return this.form.model[this.field.model];
+            }
             let fieldOptions = [];
             if (Array.isArray(this.field.options)) {
                 fieldOptions = this.field.options;
@@ -68,7 +71,8 @@ export default {
         currentIndex() {
             let computedOptions = this.computedOptions || [];
             let value = this.form.model[this.field.model];
-            return computedOptions.findIndex(item => item.value === value) || 0;
+            let index = computedOptions.findIndex(item => item.value === value);
+            return index >= 0 ? index : 0;
         }
     },
     methods: {
