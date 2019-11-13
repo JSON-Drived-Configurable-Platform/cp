@@ -95,12 +95,12 @@ video.data = {
 
 video.code = `
 <script>
-const field = ${JSON.stringify(field, null, 4)};
+const field = ${JSON.stringify(videoField, null, 4)};
 export default {
     data() {
         return {
             field,
-            model: ${JSON.stringify(model)}
+            model: ${JSON.stringify(videoModel)}
         };
     }
     methods: {
@@ -161,12 +161,12 @@ valueAsOptions.data = {
 
 valueAsOptions.code = `
 <script>
-const field = ${JSON.stringify(field, null, 4)};
+const field = ${JSON.stringify(valueAsOptionsField, null, 4)};
 export default {
     data() {
         return {
             field,
-            model: ${JSON.stringify(model)}
+            model: ${JSON.stringify(valueAsOptionsModel)}
         };
     }
     methods: {
