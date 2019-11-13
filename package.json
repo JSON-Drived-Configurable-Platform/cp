@@ -20,7 +20,7 @@
     ],
     "scripts": {
         "dev": "webpack-dev-server --color --progress --config build/webpack.website.dev.config.js",
-        "build-website": "webpack --color --progress --config build/webpack.website.prod.config.js",
+        "build-website": "webpack --color --progress --config build/webpack.website.prod.config.js && rm -rf docs/static docs/index.html && mv website/dist/* docs/",
         "build-dev": "webpack --color --progress --config build/webpack.dist.dev.config.js",
         "build-prod": "webpack --color --progress --config build/webpack.dist.prod.config.js",
         "build": "npm run build-dev && npm run build-prod",
