@@ -54,14 +54,15 @@ simple.data = {
     field,
     model
 };
-
 simple.code = `
 <script>
+const field = ${JSON.stringify(field, null, 4)};
+const model = ${JSON.stringify(model, null, 4)};
 export default {
     data() {
         return {
-            field: ${JSON.stringify(field, null, 4)},
-            model: ${JSON.stringify(model)}
+            field: field,
+            model: model
         };
     }
     methods: {
@@ -81,6 +82,109 @@ export default {
 </template>
 `;
 
+let logicInput = {};
+
+const logicInputField = {
+    type: 'LogicInput',
+    label: '逻辑输入',
+    model: 'version',
+    required: true,
+    enables: ['=', '>', '>=', '<', '<=', 'betweenIn', 'betweenWith', '!=', 'multiple'],
+    //defaultHide: true
+};
+const logicInputModel = {
+    version: {
+        logic: 'betweenWith',
+        value: ['1.3', '2.1']
+    }
+};
+logicInput.data = {
+    field: logicInputField,
+    model: logicInputModel
+};
+
+logicInput.code = `
+<script>
+const logicInputField = ${JSON.stringify(logicInputField, null, 4)};
+const model = ${JSON.stringify(logicInputModel, null , 4)};
+export default {
+    data() {
+        return {
+            field: logicInputField,
+            model: model
+        };
+    }
+    methods: {
+        handleFieldChange(model, value) {
+            console.log(model, value);
+        }
+    }
+};
+<script>
+<template>
+    <Form :model="model">
+        <FieldGenerator
+            :field="field"
+            @on-field-change="handleFieldChange"
+        />
+    </Form>
+</template>
+`;
+
+let LogicSelectApi = {};
+
+const LogicSelectApiField = {
+    type: 'LogicSelect',
+    label: '逻辑选择',
+    model: 'version',
+    required: true,
+    enables: ['=', '>', '>=', '<', '<=', 'betweenIn', 'betweenWith', '!=', 'multiple'],
+    // options: '/selectApi',
+    api: '/selectApi'
+    //defaultHide: true
+};
+const LogicSelectApiModel = {
+    version: {
+        logic: 'betweenWith',
+        value: ['']
+    }
+};
+LogicSelectApi.data = {
+    field: LogicSelectApiField,
+    model: LogicSelectApiModel
+};
+
+LogicSelectApi.code = `
+<script>
+const LogicSelectApiField = ${JSON.stringify(LogicSelectApiField, null, 4)};
+const model = ${JSON.stringify(LogicSelectApiModel, null, 4)};
+export default {
+    data() {
+        return {
+            field: LogicSelectApiField,
+            model: model
+        };
+    }
+    methods: {
+        handleFieldChange(model, value) {
+            console.log(model, value);
+        }
+    }
+};
+<script>
+<template>
+    <Form :model="model">
+        <FieldGenerator
+            :field="field"
+            @on-field-change="handleFieldChange"
+        />
+    </Form>
+</template>
+`;
+
+
 export default {
     simple,
+    logicInput,
+    LogicSelectApi
 };
