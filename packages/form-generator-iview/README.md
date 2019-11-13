@@ -11,7 +11,9 @@ A form generator with json schema based on iview ui.
 
 ## developer
 
-abingblog@gmail.com
+[BingBlog](https://github.com/BingBlog),
+[changyuqing](https://github.com/changyuqing),
+[Tobin1990](https://github.com/Tobin1990)
 
 ## development
 
