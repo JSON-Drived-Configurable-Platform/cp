@@ -18,10 +18,16 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>meta</td>
-                            <td>图片或视频元素</td>
-                            <td>Array</td>
-                            <td>[{metaType:'image',metaUrl:''}]</td>
+                            <td>model</td>
+                            <td>绑定的值的名称</td>
+                            <td>String</td>
+                            <td>不可为空</td>
+                        </tr>
+                        <tr>
+                            <td>options</td>
+                            <td>选项列表,如[{header: '',type: '',url: '',footer: '', showCheckBox: true}]</td>
+                            <td>Array(option) | String</td>
+                            <td>-</td>
                         </tr>
                     </tbody>
                 </table>
@@ -37,54 +43,55 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>metaType</td>
-                            <td>元素类型</td>
+                            <td>options.type</td>
+                            <td>内容类型(图片:image,视频:video)</td>
                             <td>String</td>
                             <td>-</td>
                         </tr>
                         <tr>
-                            <td>metaUrl</td>
-                            <td>元素地址</td>
+                            <td>options.url</td>
+                            <td>内容地址</td>
                             <td>String</td>
                             <td>-</td>
                         </tr>
                         <tr>
-                            <td>showCheckBox</td>
+                            <td>options.header</td>
+                            <td>自定义头部信息，可以使用html</td>
+                            <td>html</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>options.footer</td>
+                            <td>自定义尾部信息，可以使用html</td>
+                            <td>html</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>options.showCheckBox</td>
                             <td>是否展示checkbox</td>
                             <td>Boolean</td>
                             <td>true</td>
                         </tr>
+                    </tbody>
+                </table>
+                <inAnchor title="事件" h3 />
+                <table>
+                    <thead>
                         <tr>
-                            <td>header</td>
-                            <td>头部插槽</td>
-                            <td>html</td>
-                            <td>-</td>
+                            <th>方法名</th>
+                            <th>说明</th>
+                            <th>返回值</th>
                         </tr>
+                    </thead>
+                    <tbody>
                         <tr>
-                            <td>footer</td>
-                            <td>尾部插槽</td>
-                            <td>html</td>
-                            <td>-</td>
+                            <td>on-handle</td>
+                            <td>点击卡片时触发</td>
+                            <td>当前数据</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <inAnchor title="代码示例" h2 />
-            <Demo title="基础用法">
-                <div slot="demo">
-                    <Form :model="code.simple.data.model">
-                        <FieldGenerator
-                            :field="code.simple.data.field"
-                            @on-field-change="handleFieldChange"
-                        />
-                    </Form>
-                </div>
-                <div slot="desc">
-                    <p>通过设置<code>field</code>, <code>model</code>即可生成一个Radio。</p>
-                </div>
-                <i-code slot="code" lang="html">{{ code.simple.code }}</i-code>
-            </Demo>
-
         </article>
     </i-article>
 </template>
