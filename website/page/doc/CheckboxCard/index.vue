@@ -25,7 +25,7 @@
                         </tr>
                         <tr>
                             <td>options</td>
-                            <td>选项列表,如[{header: '',type: '',url: '',footer: '', showCheckBox: true}]</td>
+                            <td>选项列表,如[{header: '',type: '',url: '',footer: '', showCheckBox: true, disabled: false}]</td>
                             <td>Array(option) | String</td>
                             <td>-</td>
                         </tr>
@@ -72,6 +72,12 @@
                             <td>Boolean</td>
                             <td>true</td>
                         </tr>
+                        <tr>
+                            <td>options.disabled</td>
+                            <td>是否禁用该选项</td>
+                            <td>Boolean</td>
+                            <td>false</td>
+                        </tr>
                     </tbody>
                 </table>
                 <inAnchor title="事件" h3 />
@@ -85,9 +91,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>on-handle</td>
+                            <td>on-click</td>
                             <td>点击卡片时触发</td>
                             <td>当前数据</td>
+                        </tr>
+                        <tr>
+                            <td>on-change</td>
+                            <td>在选项状态发生改变时触发，返回已选中的数组</td>
+                            <td>[...]</td>
                         </tr>
                     </tbody>
                 </table>
