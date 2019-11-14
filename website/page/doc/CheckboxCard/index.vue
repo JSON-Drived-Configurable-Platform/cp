@@ -18,16 +18,10 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>metaType</td>
-                            <td>内容类型</td>
-                            <td>String</td>
-                            <td>image</td>
-                        </tr>
-                        <tr>
-                            <td>metaUrl</td>
-                            <td>内容地址</td>
-                            <td>String</td>
-                            <td>不可为空</td>
+                            <td>meta</td>
+                            <td>图片或视频元素</td>
+                            <td>Array</td>
+                            <td>[{metaType:'image',metaUrl:''}]</td>
                         </tr>
                     </tbody>
                 </table>
@@ -43,10 +37,22 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>disabled</td>
-                            <td>是否禁用该选项</td>
+                            <td>metaType</td>
+                            <td>元素类型</td>
+                            <td>String</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>metaUrl</td>
+                            <td>元素地址</td>
+                            <td>String</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>showCheckBox</td>
+                            <td>是否展示checkbox</td>
                             <td>Boolean</td>
-                            <td>false</td>
+                            <td>true</td>
                         </tr>
                         <tr>
                             <td>header</td>
