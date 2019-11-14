@@ -56,13 +56,13 @@
                         </tr>
                         <tr>
                             <td>header</td>
-                            <td>slot</td>
+                            <td>头部插槽</td>
                             <td>html</td>
                             <td>-</td>
                         </tr>
                         <tr>
                             <td>footer</td>
-                            <td>slot</td>
+                            <td>尾部插槽</td>
                             <td>html</td>
                             <td>-</td>
                         </tr>
