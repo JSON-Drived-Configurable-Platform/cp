@@ -57,13 +57,13 @@
                         <tr>
                             <td>options.header</td>
                             <td>自定义头部信息，可以使用html</td>
-                            <td>html</td>
+                            <td>String</td>
                             <td>-</td>
                         </tr>
                         <tr>
                             <td>options.footer</td>
                             <td>自定义尾部信息，可以使用html</td>
-                            <td>html</td>
+                            <td>String</td>
                             <td>-</td>
                         </tr>
                         <tr>
@@ -93,7 +93,7 @@
                         <tr>
                             <td>on-click</td>
                             <td>点击卡片时触发</td>
-                            <td>当前数据</td>
+                            <td>当前options</td>
                         </tr>
                         <tr>
                             <td>on-change</td>
