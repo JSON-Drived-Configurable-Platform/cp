@@ -1,0 +1,19 @@
+@checkboxcard-prefix-cls: ~"@{css-prefix}-checkboxcard";
+
+.@{checkboxcard-prefix-cls} {
+    &-group {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        &-item {
+            margin: 8px 8px;
+            float: left;
+            &-checkbox {
+                position: absolute;
+                top: -7px;
+                right: -6px;
+            }
+        }
+    }
+}
