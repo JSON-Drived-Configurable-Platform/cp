@@ -1,23 +1,38 @@
 <template>
     <div>
+        <div
+            v-if="field.checkAll || false"
+            :class="checkAllClasses"
+        >
+            <Checkbox
+                :indeterminate="indeterminate"
+                :value="checkAll"
+                @click.prevent.native="handleCheckAll"
+            >全选</Checkbox>
+        </div>
         <ul :class="checkboxCardGroupClasses">
-            <li v-for="(item, index) in field.options"
+            <li
+                v-for="(item, index) in field.options"
                 :key="index"
                 :class="checkboxCardItemClasses"
                 @click="handleClick(item)"
             >
                 <Card
-                    style="width:320px"
+                    :style="{width: field.size.itemWidth || '270px',height: field.size.itemHeight || '270px'}"
                 >
-                    <Checkbox
-                        :class="checkboxCardClasses"
-                        v-if="item.showCheckBox !== false"
-                        :disabled="item.disabled || false"
-                    >
-                        {{ '' }}
-                    </Checkbox>
+                    <div @click.stop="handleCheckboxClick($event)">
+                        <Checkbox
+                            v-if="item.showCheckBox !== false"
+                            :class="checkboxCardClasses"
+                            :disabled="item.disabled || false"
+                            :value="item.label | isChecked(value)"
+                            @on-change="handleChange($event, item)"
+                        >
+                            {{ '' }}
+                        </Checkbox>
+                    </div>
                     <dl v-if="item.header || false" v-html="item.header">
-                        {{item.header}}
+                        {{ item.header }}
                     </dl>
                     <img
                         v-if="item.type === 'image'"
@@ -26,7 +41,7 @@
                         width="100%"
                     >
                     <dl v-if="item.footer || false" v-html="item.footer">
-                        {{item.footer}}
+                        {{ item.footer }}
                     </dl>
                     <div v-if="item.type === 'video'">
                         <video controls>
@@ -43,6 +58,11 @@ import {classPrefix} from '../utils/const';
 import getOptions from '../mixins/getOptions';
 export default {
     inject: ['form'],
+    filters: {
+        isChecked(label, value) {
+            return value.includes(label);
+        }
+    },
     mixins: [getOptions],
     props: {
         field: {
@@ -52,13 +72,16 @@ export default {
     },
     data() {
         return {
-            loading: false,
-            options: []
+            indeterminate: true,
+            checkAll: false
         };
     },
     computed: {
         classes() {
             return `${classPrefix}-${this.field.type.toLowerCase()}`;
+        },
+        checkAllClasses() {
+            return `${this.classes}-checkall`;
         },
         checkboxCardGroupClasses() {
             return `${this.classes}-group`;
@@ -68,14 +91,60 @@ export default {
         },
         checkboxCardClasses() {
             return `${this.classes}-group-item-checkbox`;
+        },
+        value() {
+            return this.form.model[this.field.model] || [];
+        },
+        computedOptions() {
+            return this.field.options || [];
         }
     },
     mounted() {
-        // console.log(this.field);
     },
     methods: {
-        handleClick(item) {
-            this.$emit('on-click', item);
+        handleCheckboxClick(e) {
+            // eslint-disable-next-line no-console
+            console.log(e);
+        },
+        handleClick(value) { // 点击整个卡片触发事件
+            this.$emit('on-click', value);
+        },
+        handleChange(checked, value) {
+            if (checked) {
+                this.value.push(value.label);
+            }
+            else {
+                this.value.splice(this.value.indexOf(value.label), 1);
+            }
+            if (this.computedOptions.length == this.value.length) {
+                this.indeterminate = false;
+                this.checkAll = true;
+            } else if (this.value.length > 0) {
+                this.indeterminate = true;
+                this.checkAll = false;
+            }
+            else {
+                this.indeterminate = false;
+                this.checkAll = false;
+            }
+            this.$set(this.form.model, this.field.model, this.value);
+            
+        },
+        handleCheckAll() {
+            let value = [];
+            if (this.indeterminate) {
+                this.checkAll = false;
+            } else {
+                this.checkAll = !this.checkAll;
+            }
+            this.indeterminate = false;
+
+            if (this.checkAll) {
+                value = this.computedOptions.map(option => option.label);
+            } else {
+                value = [];
+            }
+            this.$set(this.form.model, this.field.model, value);
         }
     }
 };
