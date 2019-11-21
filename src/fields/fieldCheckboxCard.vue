@@ -18,9 +18,9 @@
                 @click="handleClick(item)"
             >
                 <Card
-                    :style="{width: field.cardWidth || '270px',height: field.cardHeight || '260px'}"
+                    :style="styleCard"
                 >
-                    <div @click.stop="handleCheckboxClick($event)" :class="checkboxCardClasses">
+                    <div :class="checkboxCardClasses" @click.stop="handleCheckboxClick($event)">
                         <Checkbox
                             v-if="item.showCheckBox !== false"
                             :disabled="item.disabled || false"
@@ -30,7 +30,7 @@
                             {{ '' }}
                         </Checkbox>
                     </div>
-                    <dl v-if="item.header || false" v-html="item.header" :class="headerClasses">
+                    <dl v-if="item.header || false" :class="headerClasses" v-html="item.header">
                         {{ item.header }}
                     </dl>
                     <img
@@ -39,7 +39,7 @@
                         :alt="item.label"
                         width="100%"
                     >
-                    <dl v-if="item.footer || false" v-html="item.footer" :class="footerClasses">
+                    <dl v-if="item.footer || false" :class="footerClasses" v-html="item.footer">
                         {{ item.footer }}
                     </dl>
                     <div v-if="item.type === 'video'">
@@ -66,7 +66,10 @@ export default {
     props: {
         field: {
             type: Object,
-            required: true
+            required: true,
+            default() {
+                return {};
+            }
         }
     },
     data() {
@@ -96,6 +99,9 @@ export default {
         },
         footerClasses() {
             return `${this.classes}-group-item-footer`;
+        },
+        styleCard() {
+            return `width: ${this.field.cardWidth || '270px'};height: ${this.field.cardHeight || '260px'}`;
         },
         value() {
             return this.form.model[this.field.model] || [];

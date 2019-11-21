@@ -115,22 +115,36 @@
                         </tr>
                     </tbody>
                 </table>
-                <inAnchor title="代码示例" h2 />
-                <Demo title="基础用法">
-                    <div slot="demo">
-                        <Form :model="code.simple.data.model">
-                            <FieldGenerator
-                                :field="code.simple.data.field"
-                                @on-checkboxCard-click="handleClick"
-                            />
-                        </Form>
-                    </div>
-                    <div slot="desc">
-                        <p>通过设置<code>field</code>, <code>model</code>即可生成一个checkboxCard。</p>
-                    </div>
-                    <i-code slot="code" lang="html">{{ code.simple.code }}</i-code>
-                </Demo>
             </div>
+            <inAnchor title="代码示例" h2 />
+            <Demo title="基础用法">
+                <div slot="demo">
+                    <Form :model="code.simple.data.model">
+                        <FieldGenerator
+                            :field="code.simple.data.field"
+                            @on-checkboxCard-click="handleClick"
+                        />
+                    </Form>
+                </div>
+                <div slot="desc">
+                    <p>通过设置<code>field</code>, <code>model</code>即可生成一个checkboxCard。</p>
+                </div>
+                <i-code slot="code" lang="html">{{ code.simple.code }}</i-code>
+            </Demo>
+            <Demo title="全选">
+                <div slot="demo">
+                    <Form :model="code.checkAll.data.model">
+                        <FieldGenerator
+                            :field="code.checkAll.data.field"
+                            @on-checkboxCard-click="handleClick"
+                        />
+                    </Form>
+                </div>
+                <div slot="desc">
+                    <p>通过设置<code>field.checkAll</code>可以控制是否展示全选。</p>
+                </div>
+                <i-code slot="code" lang="html">{{ code.checkAll.code }}</i-code>
+            </Demo>
         </article>
     </i-article>
 </template>
