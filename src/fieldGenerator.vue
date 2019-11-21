@@ -35,7 +35,7 @@
             @on-reset-click="handleResetClick"
             @on-button-click="handleButtonClick"
             @submit="handleSubmit"
-            @on-click="handelClick"
+            @on-checkboxCard-click="handelCheckboxCardClick"
         />
     </FormItem>
 </template>
@@ -159,8 +159,8 @@ export default {
         handleSubmit() {
             this.$emit('on-submit');
         },
-        handelClick(value) {
-            this.$emit('on-click', value);
+        handelCheckboxCardClick(value) {
+            this.$emit('on-checkboxCard-click', value);
         },
         getRules(field) {
             const type = field.type.toLowerCase();

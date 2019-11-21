@@ -13,12 +13,23 @@
         flex-wrap: wrap;
         &-item {
             margin: 8px 8px;
-            float: left;
             &-checkbox {
-                position: absolute;
-                top: -7px;
-                right: -6px;
+                float: right;
+            }
+            &-header {
+                font-size: 12px;
+                display: table-cell;
+                vertical-align: middle;
+            }
+            &-footer {
+                font-size: 12px;
             }
         }
     }
+}
+.ivu-card-body {
+    padding: 8px;
+}
+.ivu-checkbox-wrapper {
+    margin-right: 0;
 }

@@ -18,12 +18,11 @@
                 @click="handleClick(item)"
             >
                 <Card
-                    :style="{width: field.size.itemWidth || '270px',height: field.size.itemHeight || '270px'}"
+                    :style="{width: field.cardWidth || '270px',height: field.cardHeight || '260px'}"
                 >
-                    <div @click.stop="handleCheckboxClick($event)">
+                    <div @click.stop="handleCheckboxClick($event)" :class="checkboxCardClasses">
                         <Checkbox
                             v-if="item.showCheckBox !== false"
-                            :class="checkboxCardClasses"
                             :disabled="item.disabled || false"
                             :value="item.label | isChecked(value)"
                             @on-change="handleChange($event, item)"
@@ -31,7 +30,7 @@
                             {{ '' }}
                         </Checkbox>
                     </div>
-                    <dl v-if="item.header || false" v-html="item.header">
+                    <dl v-if="item.header || false" v-html="item.header" :class="headerClasses">
                         {{ item.header }}
                     </dl>
                     <img
@@ -40,7 +39,7 @@
                         :alt="item.label"
                         width="100%"
                     >
-                    <dl v-if="item.footer || false" v-html="item.footer">
+                    <dl v-if="item.footer || false" v-html="item.footer" :class="footerClasses">
                         {{ item.footer }}
                     </dl>
                     <div v-if="item.type === 'video'">
@@ -92,6 +91,12 @@ export default {
         checkboxCardClasses() {
             return `${this.classes}-group-item-checkbox`;
         },
+        headerClasses() {
+            return `${this.classes}-group-item-header`;
+        },
+        footerClasses() {
+            return `${this.classes}-group-item-footer`;
+        },
         value() {
             return this.form.model[this.field.model] || [];
         },
@@ -107,7 +112,7 @@ export default {
             console.log(e);
         },
         handleClick(value) { // 点击整个卡片触发事件
-            this.$emit('on-click', value);
+            this.$emit('on-checkboxCard-click', value);
         },
         handleChange(checked, value) {
             if (checked) {
