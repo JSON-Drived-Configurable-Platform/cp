@@ -65,7 +65,8 @@
                     <div
                         v-if="headerEditable && selectedIds[item.id]"
                         :class="footerEditClasses"
-                        @click.stop="handleCheckboxClick($event)">
+                        @click.stop="handleCheckboxClick($event)"
+                    >
                         <Poptip
                             title="修改文案"
                             placement="top-start"
@@ -162,7 +163,7 @@ export default {
             const selectedIds = {};
             this.selectedData.forEach(item => {
                 selectedIds[item.id] = true;
-            })
+            });
             return selectedIds || {};
         },
         selectedNum() {
@@ -178,7 +179,7 @@ export default {
             return this.field.headerEditable || false;
         },
         dataOptions() {
-            const options = this.options.length > 0 ? this.options : this.field.options;
+            let options = this.options.length > 0 ? this.options : this.field.options;
             if (Array.isArray(options)) {
                 return options;
             }
