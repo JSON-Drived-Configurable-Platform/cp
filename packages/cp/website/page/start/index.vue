@@ -92,12 +92,12 @@
             <p>到这个时候，你可能会有很多疑问。现在我们就来简单的了解下到底发生了什么。</p>
             <p>我们安装了两个插件，这两个插件都生成了一些代码。</p>
             <p>
-                <strong><a href="https://github.com/BingBlog/vue-cli-plugin-cp">vue-cli-plugin-cp</a></strong>
+                <strong><a href="https://github.com/JSON-Drived-Configurable-Platform/vue-cli-plugin-cp">vue-cli-plugin-cp</a></strong>
                 是一个CP基础插件，这个插件生成了脚手架、Layout相关代码。在安装后，就能看到顶部导航栏及侧边栏。
                 还注入了vue-router、vuex项目核心依赖，并进行了Home页面的router和store的声明以及router和store动态加载机制的注入。
             </p>
             <p>
-                <strong><a href="https://github.com/BingBlog/vue-cli-plugin-cp-template-data-report">vue-cli-plugin-cp-template-data-report</a></strong>
+                <strong><a href="https://github.com/JSON-Drived-Configurable-Platform/vue-cli-plugin-cp-template-data-report">vue-cli-plugin-cp-template-data-report</a></strong>
                 是一个模板插件，这个插件生成了数据报表相关的代码。并自动注入了data-report所依赖的包和库，同时还声明了data-report的路由。
             </p>
             <p>我们对比一下每次操作后的文件变更，可以更直观的理解到底发生了什么？如下是每次操作后的代码目录：</p>
@@ -152,7 +152,7 @@
             <p>
                 Data Report模板是通过可配置的JSON来驱动页面的，包括页面结构与布局，图表类型与数据，查询条件等。
                 <code>vue-cli-plugin-cp-template-data-report</code>支持非常丰富的可视化组件以及查询组件，而且这些都可以通过JSON来配置。
-                查看<a href="https://github.com/BingBlog/vue-cli-plugin-cp-template-data-report">cp-template-data-report</a>了解更多用法。
+                查看<a href="https://github.com/JSON-Drived-Configurable-Platform/vue-cli-plugin-cp-template-data-report">cp-template-data-report</a>了解更多用法。
             </p>
 
             <inAnchor
@@ -162,9 +162,9 @@
             <p>Data Report模板是通过可配置的JSON来驱动的，通常这些<strong>可配置的模板(Configuable Template)</strong>都基于一些<strong>基础模块(Modules)</strong>来构建。</p>
             <p>
                 Data Report模版构建在
-                <strong><a href="https://github.com/BingBlog/form-generator-iview">FormGeneratorIView</a></strong>
+                <strong><a href="https://github.com/JSON-Drived-Configurable-Platform/form-generator-iview">FormGeneratorIView</a></strong>
                 和
-                <strong><a href="https://github.com/BingBlog/data-vis-iview">DataVisIView</a></strong>
+                <strong><a href="https://github.com/JSON-Drived-Configurable-Platform/data-vis-iview">DataVisIView</a></strong>
                 之上。
                 前者主要解决平台开发中的表单问题，提供基于JSON的表单渲染。后者主要解决可视化图表的渲染，实际上在DataVisIView里面就使用了FormGeneratorIView。
             </p>

@@ -15,7 +15,7 @@
                         <router-link :style="{color: '#f8f8f8'}" to="/doc/start">快速开始</router-link>
                     </Button>
                     <Button
-                        to="https://bingblog.github.io/cp-example/"
+                        to="/cp-example/"
                         target="_blank"
                         size="large"
                         shape="circle"
@@ -23,7 +23,7 @@
                         预览
                     </Button>
                     <Button
-                        to="https://github.com/BingBlog/cp"
+                        to="https://github.com/JSON-Drived-Configurable-Platform/cp"
                         icon="logo-github"
                         target="_blank"
                         size="large"

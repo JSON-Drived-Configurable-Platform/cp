@@ -20,18 +20,18 @@
                         Modules
                     </template>
                     <MenuItem name="FormGeneratorIView">
-                        <a target="_blank" href="https://github.com/BingBlog/form-generator-iview">
+                        <a target="_blank" href="https://github.com/JSON-Drived-Configurable-Platform/form-generator-iview">
                             FormGeneratorIView
                         </a>
                     </MenuItem>
                     <MenuItem name="FormGeneratorIView">
-                        <a target="_blank" href="https://github.com/BingBlog/data-vis-iview">
+                        <a target="_blank" href="https://github.com/JSON-Drived-Configurable-Platform/data-vis-iview">
                             DataVisIView
                         </a>
                     </MenuItem>
                 </Submenu>
                 <MenuItem name="GitHub">
-                    <a target="_blank" href="https://github.com/BingBlog/cp">
+                    <a target="_blank" href="https://github.com/JSON-Drived-Configurable-Platform/cp">
                         <Icon type="logo-github" />
                         GitHub
                     </a>

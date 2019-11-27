@@ -25,7 +25,7 @@
                 </li>
             </ul>
             <blockquote>
-                如果你的公司和产品使用了CP，欢迎到 <a href="https://github.com/BingBlog/cp/issues/1" target="_blank">这里</a> 留言。
+                如果你的公司和产品使用了CP，欢迎到 <a href="https://github.com/JSON-Drived-Configurable-Platform/cp/issues/1" target="_blank">这里</a> 留言。
             </blockquote>
 
             <inAnchor

@@ -12,7 +12,7 @@
     "Android >= 6"
   ],
   "bugs": {
-    "url": "https://github.com/BingBlog/data-vis-iview"
+    "url": "https://github.com/JSON-Drived-Configurable-Platform/data-vis-iview"
   },
   "dependencies": {
     "clipboard": "^2.0.4",
@@ -71,7 +71,7 @@
     "dist",
     "src"
   ],
-  "homepage": "https://github.com/BingBlog/data-vis-iview#readme",
+  "homepage": "https://github.com/JSON-Drived-Configurable-Platform/data-vis-iview#readme",
   "keywords": [
     "iview",
     "vue",
@@ -95,7 +95,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BingBlog/data-vis-iview.git"
+    "url": "git+https://github.com/JSON-Drived-Configurable-Platform/data-vis-iview.git"
   },
   "scripts": {
     "dev": "webpack-dev-server --color --progress --config build/webpack.website.dev.config.js",
