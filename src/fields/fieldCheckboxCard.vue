@@ -24,7 +24,7 @@
                         <Checkbox
                             v-if="item.showCheckBox !== false"
                             :disabled="item.disabled || false"
-                            :value="item.id | isChecked(selectedIds)"
+                            :value="selectedIds[item.id]"
                             @on-change="handleChange($event, item)"
                         >
                             {{ '' }}
@@ -33,9 +33,12 @@
                     <p v-if="item.header || false" :class="headerClasses">
                         {{ item.header }}
                     </p>
-                    <div :class="headerEditClasses" @click.stop="handleCheckboxClick($event)">
+                    <div
+                        v-if="headerEditable && selectedIds[item.id]"
+                        :class="headerEditClasses"
+                        @click.stop="handleCheckboxClick($event)"
+                    >
                         <Poptip
-                            v-if="item.headerEdit || false"
                             title="修改名称"
                             placement="top-end"
                         >
@@ -59,9 +62,11 @@
                     <p v-if="item.footer || false" :class="footerClasses">
                         {{ item.footer }}
                     </p>
-                    <div :class="footerEditClasses" @click.stop="handleCheckboxClick($event)">
+                    <div
+                        v-if="headerEditable && selectedIds[item.id]"
+                        :class="footerEditClasses"
+                        @click.stop="handleCheckboxClick($event)">
                         <Poptip
-                            v-if="item.footerEdit || false"
                             title="修改文案"
                             placement="top-start"
                         >
@@ -85,8 +90,8 @@
             </li>
         </ul>
         <Page
-            v-if="field.isPage || false"
-            :total="field.total || 0"
+            v-if="field.pageLation || false"
+            :total="total"
             :page-size="pageSize"
             size="small"
             show-elevator
@@ -99,11 +104,6 @@ import {classPrefix} from '../utils/const';
 import getOptions from '../mixins/getOptions';
 export default {
     inject: ['form'],
-    filters: {
-        isChecked(id, selectedIds) {
-            return selectedIds.includes(id);
-        }
-    },
     mixins: [getOptions],
     props: {
         field: {
@@ -116,6 +116,7 @@ export default {
     },
     data() {
         return {
+            options: [],
             pageNum: 1, // 页码
             selectedData: [] // 存放选择的数据
         };
@@ -152,30 +153,56 @@ export default {
             return `width: ${this.field.cardWidth || '270px'};height: ${this.field.cardHeight || '260px'}`;
         },
         isAllSelected() {
-            return this.computedOptions.every(item => this.selectedIds.includes(item.id));
+            return this.computedOptions.every(item => this.selectedIds[item.id]);
         },
         indeterminate() {
-            return this.computedOptions.some(item => this.selectedIds.includes(item.id)) && !this.isAllSelected;
+            return this.computedOptions.some(item => this.selectedIds[item.id]) && !this.isAllSelected;
         },
         selectedIds() {
-            return this.selectedData.map(item => item.id);
+            const selectedIds = {};
+            this.selectedData.forEach(item => {
+                selectedIds[item.id] = true;
+            })
+            return selectedIds || {};
         },
         selectedNum() {
             return this.selectedData.length;
         },
+        total() {
+            return this.dataOptions.length || 0;
+        },
         pageSize() {
             return this.field.pageSize || 10;
         },
-        computedOptions() {
-            if (this.field.isPage) {
-                return this.field.options.slice((this.pageNum - 1) * this.pageSize, (this.pageNum) * this.pageSize);
+        headerEditable() {
+            return this.field.headerEditable || false;
+        },
+        dataOptions() {
+            const options = this.options.length > 0 ? this.options : this.field.options;
+            if (Array.isArray(options)) {
+                return options;
             }
-            return this.field.options;
+            return [];
+        },
+        computedOptions() {
+            if (this.field.pageLation) {
+                return this.dataOptions.slice((this.pageNum - 1) * this.pageSize, (this.pageNum) * this.pageSize);
+            }
+            return this.dataOptions;
+        },
+        optionsApi() {
+            return !Array.isArray(this.field.options) ? this.field.options : '';
         }
     },
     mounted() {
     },
     methods: {
+        remoteMethod() {
+            if (!this.optionsApi) {
+                return;
+            }
+            this.getRemoteOptions();
+        },
         handleCheckboxClick(e) {
             // eslint-disable-next-line no-console
             console.log(e);
@@ -206,7 +233,7 @@ export default {
             this.$set(this.form.model, this.field.model, this.selectedData);
         },
         addItem(item) {
-            if (!this.selectedIds.includes(item.id)) {
+            if (!this.selectedIds[item.id]) {
                 this.selectedData.push(item);
             }
         },

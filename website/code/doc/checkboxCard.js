@@ -121,9 +121,10 @@ const pageField = {
     type: 'CheckboxCard',
     model: 'card',
     checkAll: true,
-    isPage: true, // 是否分页
-    total: 6, // 数据总数
+    pageLation: true, // 是否分页
     pageSize: 3, // 分页数目
+    "headerEditable": true,
+    "footerEditable": true,
     "cardWidth": "220px",
     "cardHeight": "245px",
     "options": [
@@ -132,9 +133,7 @@ const pageField = {
             "id": "44",
             "url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574076041&di=dba60f4ce2b9330e330f13546ce963a0&imgtype=jpg&er=1&src=http%3A%2F%2Fwww.ijointoo.com%2Fdata%2Fnews%2Fimages%2F1521193045383.jpg",
             "footer": "文案：44这是北京鸟巢",
-            "header": "美丽北京",
-            "headerEdit": true,
-            "footerEdit": true
+            "header": "美丽北京"
         },
         {
             "type": "image",
@@ -203,8 +202,53 @@ export default {
 </template>
 `;
 
+// api
+let api = {};
+const apiField = {
+    type: 'CheckboxCard',
+    model: 'card',
+    checkAll: true,
+    pageLation: true, // 是否分页
+    pageSize: 3, // 分页数目
+    "headerEditable": true,
+    "footerEditable": true,
+    "cardWidth": "220px",
+    "cardHeight": "245px",
+    "options": "/checkboxCardApi"
+};
+
+const apiModel = {
+    card: []
+};
+
+api.data = {
+    field: apiField,
+    model: apiModel
+};
+
+api.code = `
+<script>
+export default {
+    data() {
+        return {
+            field: ${JSON.stringify(apiField)},
+            model: ${JSON.stringify(apiModel)}
+        };
+    }
+};
+<script>
+<template>
+    <Form :model="model">
+        <FieldGenerator
+            :field="field"
+        />
+    </Form>
+</template>
+`;
+
 export default {
     simple,
     checkAll,
-    page
+    page,
+    api
 };

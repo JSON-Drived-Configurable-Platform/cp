@@ -48,7 +48,7 @@
                             <td>220px</td>
                         </tr>
                         <tr>
-                            <td>isPage</td>
+                            <td>pageLation</td>
                             <td>是否分页</td>
                             <td>Boolean</td>
                             <td>false</td>
@@ -60,10 +60,16 @@
                             <td>10</td>
                         </tr>
                         <tr>
-                            <td>toatl</td>
-                            <td>数据总数</td>
-                            <td>Number</td>
-                            <td>0</td>
+                            <td>headerEditable</td>
+                            <td>头部文案是否可编辑</td>
+                            <td>Boolean</td>
+                            <td>false</td>
+                        </tr>
+                        <tr>
+                            <td>footerEditable</td>
+                            <td>尾部文案是否可编辑</td>
+                            <td>Boolean</td>
+                            <td>false</td>
                         </tr>
                     </tbody>
                 </table>
@@ -101,18 +107,6 @@
                             <td>尾部信息</td>
                             <td>String</td>
                             <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>options.headerEdit</td>
-                            <td>头部文案是否可编辑</td>
-                            <td>Boolean</td>
-                            <td>false</td>
-                        </tr>
-                        <tr>
-                            <td>options.footerEdit</td>
-                            <td>尾部文案是否可编辑</td>
-                            <td>Boolean</td>
-                            <td>false</td>
                         </tr>
                         <tr>
                             <td>options.showCheckBox</td>
@@ -188,6 +182,20 @@
                     <p>通过设置<code>field.isPage</code>可以控制是否本地分页。</p>
                 </div>
                 <i-code slot="code" lang="html">{{ code.page.code }}</i-code>
+            </Demo>
+            <Demo title="api" vertical>
+                <div slot="demo">
+                    <Form :model="code.api.data.model">
+                        <FieldGenerator
+                            :field="code.api.data.field"
+                            @on-checkboxCard-click="handleClick"
+                        />
+                    </Form>
+                </div>
+                <div slot="desc">
+                    <p>通过设置<code>field.options</code>可以是接口地址</p>
+                </div>
+                <i-code slot="code" lang="html">{{ code.api.code }}</i-code>
             </Demo>
         </article>
     </i-article>
