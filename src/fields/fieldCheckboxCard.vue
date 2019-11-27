@@ -6,13 +6,13 @@
         >
             <Checkbox
                 :indeterminate="indeterminate"
-                :value="checkAll"
-                @click.prevent.native="handleCheckAll"
-            >全选</Checkbox>
+                :value="isAllSelected"
+                @on-change="handleCheckAll"
+            >全选（已选<b>{{ selectedNum }}</b>张）</Checkbox>
         </div>
         <ul :class="checkboxCardGroupClasses">
             <li
-                v-for="(item, index) in field.options"
+                v-for="(item, index) in computedOptions"
                 :key="index"
                 :class="checkboxCardItemClasses"
                 @click="handleClick(item)"
@@ -24,24 +24,58 @@
                         <Checkbox
                             v-if="item.showCheckBox !== false"
                             :disabled="item.disabled || false"
-                            :value="item.label | isChecked(value)"
+                            :value="item.id | isChecked(selectedIds)"
                             @on-change="handleChange($event, item)"
                         >
                             {{ '' }}
                         </Checkbox>
                     </div>
-                    <dl v-if="item.header || false" :class="headerClasses" v-html="item.header">
+                    <p v-if="item.header || false" :class="headerClasses">
                         {{ item.header }}
-                    </dl>
+                    </p>
+                    <div :class="headerEditClasses" @click.stop="handleCheckboxClick($event)">
+                        <Poptip
+                            v-if="item.headerEdit || false"
+                            title="修改名称"
+                            placement="top-end"
+                        >
+                            <i-input
+                                slot="content"
+                                v-model="item.header"
+                                type="textarea"
+                            />
+                            <Icon
+                                type="ios-create-outline"
+                                size="20"
+                            />
+                        </Poptip>
+                    </div>
                     <img
                         v-if="item.type === 'image'"
                         :src="item.url"
-                        :alt="item.label"
+                        :alt="item.id"
                         width="100%"
                     >
-                    <dl v-if="item.footer || false" :class="footerClasses" v-html="item.footer">
+                    <p v-if="item.footer || false" :class="footerClasses">
                         {{ item.footer }}
-                    </dl>
+                    </p>
+                    <div :class="footerEditClasses" @click.stop="handleCheckboxClick($event)">
+                        <Poptip
+                            v-if="item.footerEdit || false"
+                            title="修改文案"
+                            placement="top-start"
+                        >
+                            <i-input
+                                slot="content"
+                                v-model="item.footer"
+                                type="textarea"
+                            />
+                            <Icon
+                                type="ios-create-outline"
+                                size="20"
+                            />
+                        </Poptip>
+                    </div>
                     <div v-if="item.type === 'video'">
                         <video controls>
                             <source :src="item.url">
@@ -50,6 +84,14 @@
                 </Card>
             </li>
         </ul>
+        <Page
+            v-if="field.isPage || false"
+            :total="field.total || 0"
+            :page-size="pageSize"
+            size="small"
+            show-elevator
+            @on-change="changePage"
+        />
     </div>
 </template>
 <script>
@@ -58,8 +100,8 @@ import getOptions from '../mixins/getOptions';
 export default {
     inject: ['form'],
     filters: {
-        isChecked(label, value) {
-            return value.includes(label);
+        isChecked(id, selectedIds) {
+            return selectedIds.includes(id);
         }
     },
     mixins: [getOptions],
@@ -74,8 +116,8 @@ export default {
     },
     data() {
         return {
-            indeterminate: true,
-            checkAll: false
+            pageNum: 1, // 页码
+            selectedData: [] // 存放选择的数据
         };
     },
     computed: {
@@ -100,14 +142,35 @@ export default {
         footerClasses() {
             return `${this.classes}-group-item-footer`;
         },
+        headerEditClasses() {
+            return `${this.classes}-group-item-headeredit`;
+        },
+        footerEditClasses() {
+            return `${this.classes}-group-item-footeredit`;
+        },
         styleCard() {
             return `width: ${this.field.cardWidth || '270px'};height: ${this.field.cardHeight || '260px'}`;
         },
-        value() {
-            return this.form.model[this.field.model] || [];
+        isAllSelected() {
+            return this.computedOptions.every(item => this.selectedIds.includes(item.id));
+        },
+        indeterminate() {
+            return this.computedOptions.some(item => this.selectedIds.includes(item.id)) && !this.isAllSelected;
+        },
+        selectedIds() {
+            return this.selectedData.map(item => item.id);
+        },
+        selectedNum() {
+            return this.selectedData.length;
+        },
+        pageSize() {
+            return this.field.pageSize || 10;
         },
         computedOptions() {
-            return this.field.options || [];
+            if (this.field.isPage) {
+                return this.field.options.slice((this.pageNum - 1) * this.pageSize, (this.pageNum) * this.pageSize);
+            }
+            return this.field.options;
         }
     },
     mounted() {
@@ -122,40 +185,37 @@ export default {
         },
         handleChange(checked, value) {
             if (checked) {
-                this.value.push(value.label);
+                this.addItem(value);
             }
             else {
-                this.value.splice(this.value.indexOf(value.label), 1);
+                this.removeItem(value);
             }
-            if (this.computedOptions.length == this.value.length) {
-                this.indeterminate = false;
-                this.checkAll = true;
-            } else if (this.value.length > 0) {
-                this.indeterminate = true;
-                this.checkAll = false;
-            }
-            else {
-                this.indeterminate = false;
-                this.checkAll = false;
-            }
-            this.$set(this.form.model, this.field.model, this.value);
-            
+            this.$set(this.form.model, this.field.model, this.selectedData);
         },
-        handleCheckAll() {
-            let value = [];
-            if (this.indeterminate) {
-                this.checkAll = false;
-            } else {
-                this.checkAll = !this.checkAll;
+        handleCheckAll(checked) {
+            this.computedOptions.forEach(item => {
+                if (!item.disabled) {
+                    if (checked) {
+                        this.addItem(item);
+                    }
+                    else {
+                        this.removeItem(item);
+                    }
+                }
+            });
+            this.$set(this.form.model, this.field.model, this.selectedData);
+        },
+        addItem(item) {
+            if (!this.selectedIds.includes(item.id)) {
+                this.selectedData.push(item);
             }
-            this.indeterminate = false;
-
-            if (this.checkAll) {
-                value = this.computedOptions.map(option => option.label);
-            } else {
-                value = [];
-            }
-            this.$set(this.form.model, this.field.model, value);
+        },
+        removeItem(item) {
+            const selectedData = this.selectedData.filter(i => i.id !== item.id);
+            this.selectedData = selectedData;
+        },
+        changePage(val) {
+            this.pageNum = val;
         }
     }
 };

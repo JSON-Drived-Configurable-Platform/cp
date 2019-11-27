@@ -5,15 +5,15 @@ const field = {
     type: 'CheckboxCard',
     model: 'card',
     "checkAll": false,
-    "cardWidth": "270px",
-    "cardHeight": "260px",
+    "cardWidth": "220px",
+    "cardHeight": "220px",
     "options": [
         {
             "type": "image",
-            "label": "11",
+            "id": "11",
             "url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574076041&di=dba60f4ce2b9330e330f13546ce963a0&imgtype=jpg&er=1&src=http%3A%2F%2Fwww.ijointoo.com%2Fdata%2Fnews%2Fimages%2F1521193045383.jpg",
-            "footer": "<p>文案：这是北京鸟巢</p>",
-            "header": "<p>上传者：阿甘</p>"
+            "footer": "文案：这是北京鸟巢",
+            "header": "美丽北京"
         }
     ]
 };
@@ -59,28 +59,35 @@ const checkAllField = {
     type: 'CheckboxCard',
     model: 'card',
     checkAll: true,
-    "cardWidth": "270px",
-    "cardHeight": "260px",
+    "cardWidth": "220px",
+    "cardHeight": "220px",
     "options": [
         {
             "type": "image",
-            "label": "22",
+            "id": "22",
             "url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574076041&di=dba60f4ce2b9330e330f13546ce963a0&imgtype=jpg&er=1&src=http%3A%2F%2Fwww.ijointoo.com%2Fdata%2Fnews%2Fimages%2F1521193045383.jpg",
-            "footer": "<p>文案：这是北京鸟巢</p>",
-            "header": "<p>上传者：阿甘</p>"
+            "footer": "文案：这是北京鸟巢",
+            "header": "美丽北京"
         },
         {
             "type": "image",
-            "label": "33",
+            "id": "33",
             "url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573481458804&di=5814ac5f18a6f1e9e67aa92db3557f84&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fitbbs%2F1503%2F18%2Fc27%2F4042859_1426655007661_mthumb.jpg",
-            "footer": "<p>文案：这是上海</p>",
-            "header": "<p>上传者：阿华</p>"
+            "footer": "文案：这是上海",
+            "header": "美丽上海"
+        },
+        {
+            "type": "image",
+            "id": "00",
+            "url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573481458804&di=5814ac5f18a6f1e9e67aa92db3557f84&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fitbbs%2F1503%2F18%2Fc27%2F4042859_1426655007661_mthumb.jpg",
+            "footer": "文案：这是上海",
+            "header": "美丽上海"
         }
     ]
 };
 
 const checkAllModel = {
-    card: ['22']
+    card: []
 };
 
 checkAll.data = {
@@ -108,7 +115,96 @@ export default {
 </template>
 `;
 
+// 分页
+let page = {};
+const pageField = {
+    type: 'CheckboxCard',
+    model: 'card',
+    checkAll: true,
+    isPage: true, // 是否分页
+    total: 6, // 数据总数
+    pageSize: 3, // 分页数目
+    "cardWidth": "220px",
+    "cardHeight": "245px",
+    "options": [
+        {
+            "type": "image",
+            "id": "44",
+            "url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574076041&di=dba60f4ce2b9330e330f13546ce963a0&imgtype=jpg&er=1&src=http%3A%2F%2Fwww.ijointoo.com%2Fdata%2Fnews%2Fimages%2F1521193045383.jpg",
+            "footer": "文案：44这是北京鸟巢",
+            "header": "美丽北京",
+            "headerEdit": true,
+            "footerEdit": true
+        },
+        {
+            "type": "image",
+            "id": "55",
+            "url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573481458804&di=5814ac5f18a6f1e9e67aa92db3557f84&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fitbbs%2F1503%2F18%2Fc27%2F4042859_1426655007661_mthumb.jpg",
+            "footer": "文案：55这是上海",
+            "header": "美丽上海"
+        },
+        {
+            "type": "image",
+            "id": "66",
+            "url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574076041&di=dba60f4ce2b9330e330f13546ce963a0&imgtype=jpg&er=1&src=http%3A%2F%2Fwww.ijointoo.com%2Fdata%2Fnews%2Fimages%2F1521193045383.jpg",
+            "footer": "文案：66这是北京鸟巢",
+            "header": "美丽北京"
+        },
+        {
+            "type": "image",
+            "id": "77",
+            "url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573481458804&di=5814ac5f18a6f1e9e67aa92db3557f84&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fitbbs%2F1503%2F18%2Fc27%2F4042859_1426655007661_mthumb.jpg",
+            "footer": "文案：77这是上海",
+            "header": "美丽上海"
+        },
+        {
+            "type": "image",
+            "id": "88",
+            "url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574076041&di=dba60f4ce2b9330e330f13546ce963a0&imgtype=jpg&er=1&src=http%3A%2F%2Fwww.ijointoo.com%2Fdata%2Fnews%2Fimages%2F1521193045383.jpg",
+            "footer": "文案：88这是北京鸟巢",
+            "header": "美丽北京"
+        },
+        {
+            "type": "image",
+            "id": "99",
+            "url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573481458804&di=5814ac5f18a6f1e9e67aa92db3557f84&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fitbbs%2F1503%2F18%2Fc27%2F4042859_1426655007661_mthumb.jpg",
+            "footer": "文案：99这是上海",
+            "header": "美丽上海"
+        }
+    ]
+};
+
+const pageModel = {
+    card: []
+};
+
+page.data = {
+    field: pageField,
+    model: pageModel
+};
+
+page.code = `
+<script>
+export default {
+    data() {
+        return {
+            field: ${JSON.stringify(pageField)},
+            model: ${JSON.stringify(pageModel)}
+        };
+    }
+};
+<script>
+<template>
+    <Form :model="model">
+        <FieldGenerator
+            :field="field"
+        />
+    </Form>
+</template>
+`;
+
 export default {
     simple,
-    checkAll
+    checkAll,
+    page
 };

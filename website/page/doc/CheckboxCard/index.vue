@@ -39,13 +39,31 @@
                             <td>cardWidth</td>
                             <td>Card宽度</td>
                             <td>String</td>
-                            <td>270px</td>
+                            <td>220px</td>
                         </tr>
                         <tr>
                             <td>cardHeight</td>
                             <td>Card高度</td>
                             <td>String</td>
-                            <td>260px</td>
+                            <td>220px</td>
+                        </tr>
+                        <tr>
+                            <td>isPage</td>
+                            <td>是否分页</td>
+                            <td>Boolean</td>
+                            <td>false</td>
+                        </tr>
+                        <tr>
+                            <td>pageSize</td>
+                            <td>每页条数</td>
+                            <td>Number</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>toatl</td>
+                            <td>数据总数</td>
+                            <td>Number</td>
+                            <td>0</td>
                         </tr>
                     </tbody>
                 </table>
@@ -74,15 +92,27 @@
                         </tr>
                         <tr>
                             <td>options.header</td>
-                            <td>自定义头部信息，可以使用html</td>
+                            <td>头部信息</td>
                             <td>String</td>
                             <td>-</td>
                         </tr>
                         <tr>
                             <td>options.footer</td>
-                            <td>自定义尾部信息，可以使用html</td>
+                            <td>尾部信息</td>
                             <td>String</td>
                             <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>options.headerEdit</td>
+                            <td>头部文案是否可编辑</td>
+                            <td>Boolean</td>
+                            <td>false</td>
+                        </tr>
+                        <tr>
+                            <td>options.footerEdit</td>
+                            <td>尾部文案是否可编辑</td>
+                            <td>Boolean</td>
+                            <td>false</td>
                         </tr>
                         <tr>
                             <td>options.showCheckBox</td>
@@ -117,7 +147,7 @@
                 </table>
             </div>
             <inAnchor title="代码示例" h2 />
-            <Demo title="基础用法">
+            <Demo title="基础用法" vertical>
                 <div slot="demo">
                     <Form :model="code.simple.data.model">
                         <FieldGenerator
@@ -131,7 +161,7 @@
                 </div>
                 <i-code slot="code" lang="html">{{ code.simple.code }}</i-code>
             </Demo>
-            <Demo title="全选">
+            <Demo title="全选" vertical>
                 <div slot="demo">
                     <Form :model="code.checkAll.data.model">
                         <FieldGenerator
@@ -144,6 +174,20 @@
                     <p>通过设置<code>field.checkAll</code>可以控制是否展示全选。</p>
                 </div>
                 <i-code slot="code" lang="html">{{ code.checkAll.code }}</i-code>
+            </Demo>
+            <Demo title="分页" vertical>
+                <div slot="demo">
+                    <Form :model="code.page.data.model">
+                        <FieldGenerator
+                            :field="code.page.data.field"
+                            @on-checkboxCard-click="handleClick"
+                        />
+                    </Form>
+                </div>
+                <div slot="desc">
+                    <p>通过设置<code>field.isPage</code>可以控制是否本地分页。</p>
+                </div>
+                <i-code slot="code" lang="html">{{ code.page.code }}</i-code>
             </Demo>
         </article>
     </i-article>
@@ -167,12 +211,23 @@ export default {
             code: Code
         };
     },
+    computed: {
+        pageModel() {
+            return this.code.page.data.model;
+        }
+    },
     watch: {
+        pageModel: {
+            handler() {
+                // console.log(this.pageModel);
+            },
+            deep: true
+        }
     },
     methods: {
         handleClick(value) {
             // eslint-disable-next-line no-console
-            console.log(value);
+            // console.log(value);
         }
     }
 };
