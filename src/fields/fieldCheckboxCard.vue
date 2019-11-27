@@ -233,12 +233,12 @@ export default {
             });
             this.$set(this.form.model, this.field.model, this.selectedData);
         },
-        addItem(item) {
+        addItem(item) { // 添加数据
             if (!this.selectedIds[item.id]) {
                 this.selectedData.push(item);
             }
         },
-        removeItem(item) {
+        removeItem(item) { // 移除数据
             const selectedData = this.selectedData.filter(i => i.id !== item.id);
             this.selectedData = selectedData;
         },
