@@ -30,6 +30,18 @@
                             <td>-</td>
                         </tr>
                         <tr>
+                            <td>optionsType</td>
+                            <td>内容类型(图片:image,视频:video)</td>
+                            <td>String</td>
+                            <td>image</td>
+                        </tr>
+                        <tr>
+                            <td>api</td>
+                            <td>获取选项的接口</td>
+                            <td>String</td>
+                            <td>''，api的返回值格式为{status: 0, data: [{"id": "","url": "","footer": "","header": ""}]}</td>
+                        </tr>
+                        <tr>
                             <td>checkAll</td>
                             <td>是否展示全选</td>
                             <td>Boolean	</td>
@@ -84,12 +96,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>options.type</td>
-                            <td>内容类型(图片:image,视频:video)</td>
-                            <td>String</td>
-                            <td>-</td>
-                        </tr>
                         <tr>
                             <td>options.url</td>
                             <td>内容地址</td>

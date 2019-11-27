@@ -54,7 +54,7 @@
                         </Poptip>
                     </div>
                     <img
-                        v-if="item.type === 'image'"
+                        v-if="optionsType === 'image'"
                         :src="item.url"
                         :alt="item.id"
                         width="100%"
@@ -63,7 +63,7 @@
                         {{ item.footer }}
                     </p>
                     <div
-                        v-if="headerEditable && selectedIds[item.id]"
+                        v-if="footerEditable && selectedIds[item.id]"
                         :class="footerEditClasses"
                         @click.stop="handleCheckboxClick($event)"
                     >
@@ -82,7 +82,7 @@
                             />
                         </Poptip>
                     </div>
-                    <div v-if="item.type === 'video'">
+                    <div v-if="optionsType === 'video'">
                         <video controls>
                             <source :src="item.url">
                         </video>
@@ -159,6 +159,9 @@ export default {
         indeterminate() {
             return this.computedOptions.some(item => this.selectedIds[item.id]) && !this.isAllSelected;
         },
+        optionsType() {
+            return this.field.optionsType || 'image';
+        },
         selectedIds() {
             const selectedIds = {};
             this.selectedData.forEach(item => {
@@ -166,17 +169,20 @@ export default {
             });
             return selectedIds || {};
         },
-        selectedNum() {
+        selectedNum() { // 已选数据数
             return this.selectedData.length;
         },
-        total() {
+        total() { // 数据总数
             return this.dataOptions.length || 0;
         },
-        pageSize() {
+        pageSize() { // 每页条数
             return this.field.pageSize || 10;
         },
-        headerEditable() {
+        headerEditable() { // 头部可编辑
             return this.field.headerEditable || false;
+        },
+        footerEditable() { // 尾部可编辑
+            return this.field.footerEditable || false;
         },
         dataOptions() {
             let options = this.options.length > 0 ? this.options : this.field.options;
@@ -211,7 +217,7 @@ export default {
         handleClick(value) { // 点击整个卡片触发事件
             this.$emit('on-checkboxCard-click', value);
         },
-        handleChange(checked, value) {
+        handleChange(checked, value) { // 单选
             if (checked) {
                 this.addItem(value);
             }
@@ -220,7 +226,7 @@ export default {
             }
             this.$set(this.form.model, this.field.model, this.selectedData);
         },
-        handleCheckAll(checked) {
+        handleCheckAll(checked) { // 全选
             this.computedOptions.forEach(item => {
                 if (!item.disabled) {
                     if (checked) {
@@ -242,7 +248,7 @@ export default {
             const selectedData = this.selectedData.filter(i => i.id !== item.id);
             this.selectedData = selectedData;
         },
-        changePage(val) {
+        changePage(val) { // 改变页码
             this.pageNum = val;
         }
     }
