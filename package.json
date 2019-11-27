@@ -1,6 +1,6 @@
 {
     "name": "form-generator-iview",
-    "version": "0.0.27",
+    "version": "0.0.30",
     "title": "formGeneratorIView",
     "description": "A form generator with json schema based on iview ui",
     "keywords": [
@@ -20,7 +20,7 @@
     ],
     "scripts": {
         "dev": "webpack-dev-server --color --progress --config build/webpack.website.dev.config.js",
-        "build-website": "webpack --color --progress --config build/webpack.website.prod.config.js",
+        "build-website": "webpack --color --progress --config build/webpack.website.prod.config.js && rm -rf docs/static docs/index.html && mv website/dist/* docs/",
         "build-dev": "webpack --color --progress --config build/webpack.dist.dev.config.js",
         "build-prod": "webpack --color --progress --config build/webpack.dist.prod.config.js",
         "build": "npm run build-dev && npm run build-prod",
@@ -29,12 +29,12 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/BingBlog/form-generator-iview"
+        "url": "https://github.com/JSON-Drived-Configurable-Platform/form-generator-iview"
     },
-    "author": "abingblog@gmail.com",
+    "author": "abingblog@gmail.com, changyuqing_@outlook.com, Tobin1990",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/BingBlog/form-generator-iview"
+        "url": "https://github.com/JSON-Drived-Configurable-Platform/form-generator-iview"
     },
     "peerDependencies": {
         "iview": "^3.4.0",

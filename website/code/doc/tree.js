@@ -6,6 +6,7 @@ const field = {
     'label': '树形多选',
     'model': 'permissions',
     'multiple': true,
+    'checkDirectly': true,
     'showCheckbox': true,
     'options': [
         {
@@ -76,7 +77,11 @@ export default {
     data() {
         return {
             field,
+<<<<<<< HEAD
             model, 
+=======
+            model,
+>>>>>>> 66282235fb839a1f994947710f2881be5e75b228
         };
     }
     methods: {
@@ -105,6 +110,7 @@ const remoteField = {
     'model': 'permissions',
     'multiple': true,
     'showCheckbox': true,
+    'checkDirectly': true,
     'options': '/treeOptionApi'
 };
 
@@ -122,8 +128,8 @@ remote.code = `
 export default {
     data() {
         return {
-            field: ${JSON.stringify(field)},
-            model: ${JSON.stringify(model)}
+            field: ${JSON.stringify(remoteField)},
+            model: ${JSON.stringify(remoteModel)}
         };
     }
     methods: {

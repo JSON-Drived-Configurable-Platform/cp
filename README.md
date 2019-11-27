@@ -4,23 +4,6 @@
 
 A form generator with json schema based on iview ui.
 
-- [x] Input
-- [x] Select
-- [x] Radio
-- [x] Checkbox
-- [x] DatePicker
-- [x] Upload
-- [x] ImgUpload
-- [x] LogicInput
-- [x] LogicSelect
-- [x] InputNumber
-- [x] Switch
-- [x] Cascader
-- [ ] Tree
-- [ ] Rich Text
-- [ ] Json Editor
-- [ ] Matrix Select
-
 
 ## design
 
@@ -28,7 +11,9 @@ A form generator with json schema based on iview ui.
 
 ## developer
 
-abingblog@gmail.com
+[BingBlog](https://github.com/BingBlog),
+[changyuqing](https://github.com/changyuqing),
+[Tobin1990](https://github.com/Tobin1990)
 
 ## development
 
