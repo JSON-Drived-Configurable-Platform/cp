@@ -118,8 +118,10 @@ export default {
     data() {
         return {
             options: [],
-            pageNum: 1, // 页码
-            selectedData: [] // 存放选择的数据
+            // 页码
+            pageNum: 1,
+            // 存放选择的数据
+            selectedData: []
         };
     },
     computed: {
@@ -169,19 +171,24 @@ export default {
             });
             return selectedIds || {};
         },
-        selectedNum() { // 已选数据数
+        // 已选数据数
+        selectedNum() {
             return this.selectedData.length;
         },
-        total() { // 数据总数
+        // 数据总数
+        total() {
             return this.dataOptions.length || 0;
         },
-        pageSize() { // 每页条数
+        // 每页条数
+        pageSize() {
             return this.field.pageSize || 10;
         },
-        headerEditable() { // 头部可编辑
+        // 头部可编辑
+        headerEditable() {
             return this.field.headerEditable || false;
         },
-        footerEditable() { // 尾部可编辑
+        // 尾部可编辑
+        footerEditable() {
             return this.field.footerEditable || false;
         },
         dataOptions() {
@@ -214,10 +221,12 @@ export default {
             // eslint-disable-next-line no-console
             console.log(e);
         },
-        handleClick(value) { // 点击整个卡片触发事件
+        // 点击整个卡片触发事件
+        handleClick(value) {
             this.$emit('on-checkboxCard-click', value);
         },
-        handleChange(checked, value) { // 单选
+        // 单选
+        handleChange(checked, value) {
             if (checked) {
                 this.addItem(value);
             }
@@ -226,7 +235,8 @@ export default {
             }
             this.$set(this.form.model, this.field.model, this.selectedData);
         },
-        handleCheckAll(checked) { // 全选
+        // 全选
+        handleCheckAll(checked) {
             this.computedOptions.forEach(item => {
                 if (!item.disabled) {
                     if (checked) {
@@ -239,16 +249,19 @@ export default {
             });
             this.$set(this.form.model, this.field.model, this.selectedData);
         },
-        addItem(item) { // 添加数据
+        // 添加数据
+        addItem(item) {
             if (!this.selectedIds[item.id]) {
                 this.selectedData.push(item);
             }
         },
-        removeItem(item) { // 移除数据
+        // 移除数据
+        removeItem(item) {
             const selectedData = this.selectedData.filter(i => i.id !== item.id);
             this.selectedData = selectedData;
         },
-        changePage(val) { // 改变页码
+        // 改变页码
+        changePage(val) {
             this.pageNum = val;
         }
     }
