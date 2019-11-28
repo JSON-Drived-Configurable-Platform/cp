@@ -199,7 +199,7 @@
                     </Form>
                 </div>
                 <div slot="desc">
-                    <p>通过设置<code>field.options</code>可以是接口地址</p>
+                    <p>通过设置<code>field.options</code>可以是接口地址,headerEditable | footerEditable 为true则可编辑头部尾部文本</p>
                 </div>
                 <i-code slot="code" lang="html">{{ code.api.code }}</i-code>
             </Demo>
