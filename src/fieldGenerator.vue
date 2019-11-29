@@ -33,7 +33,7 @@
             @on-change="handleFieldChange"
             @on-submit-click="handleSubmitClick"
             @on-reset-click="handleResetClick"
-            @on-button-click="handleButtonClick"
+            @on-button-event="handleButtonClick"
             @submit="handleSubmit"
             @on-checkboxCard-click="handelCheckboxCardClick"
         />

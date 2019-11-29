@@ -7,18 +7,32 @@
             <template
                 v-for="column in columns"
                 :slot="column.slot"
-                slot-scope="{ row, index }"
+                slot-scope="{ row, index}"
             >
-                <Form
-                    :key="column.slot"
-                    :model="row"
-                >
-                    <FieldGenerator
-                        v-for="(field, i) in column.formFields"
-                        :key="i"
-                        :field="field"
-                        @on-button-event="handleButtonEvent($event, row, index)"
-                    />
+                <Form :key="column.slot" :model="row">
+                    <Poptip
+                        v-if="column.poptip"
+                        :key="column.slot"
+                        placement="left-start"
+                    >
+                        <span>{{ row[column.slot] }}</span>
+                        <Icon type="ios-create-outline" size="20" />
+                        <div slot="content">
+                            <FieldGenerator
+                                v-for="(field, i) in column.poptip.formFields"
+                                :key="i"
+                                :field="field"
+                            />
+                        </div>
+                    </Poptip>
+                    <div v-if="column.formFields">
+                        <FieldGenerator
+                            v-for="(field, i) in column.formFields"
+                            :key="i"
+                            :field="field"
+                            @on-button-event="handleButtonEvent($event, row, index)"
+                        />
+                    </div>
                 </Form>
             </template>
         </Table>
@@ -31,13 +45,13 @@
                 ref="FormGenerator"
                 :fields="editFormFields"
                 :model="editModel"
-                @on-submit="handleSave"
+                @on-button-event="handleButtonEvent($event)"
             />
         </Modal>
     </div>
 </template>
 <script>
-import {columns, data, editFormFields} from './config';
+import {columns, data, editFormFields} from './inlineEdit.config';
 export default {
     data() {
         return {
@@ -59,46 +73,18 @@ export default {
         },
 
         handleButtonEvent($event, row, index) {
-            this[$event.name](row, index);
+            this[$event.name](row, index, $event.type);
         },
 
-        edit(row, index) {
+        editDialog(row, index) {
             // eslint-disable-next-line no-console
             this.editModel = row;
             this.editModel.index = index;
             this.editDialogOpeon = true;
         },
 
-        delete(row, index) {
-            // eslint-disable-next-line no-console
-            this.data.splice(index, 1);
-        },
-
-        handleSave() {
-            this.$refs.FormGenerator
-                .submit().then(() => {
-                    if (this.editModel.type === 'add') {
-                        this.editModel.type = '';
-                        this.data.unshift(this.editModel);
-                        return;
-                    }
-                    this.data.splice(this.editModel.index, 1, this.editModel);
-                    this.editModel.index = -1;
-                    this.editDialogOpeon = false;
-                }).catch(err => {
-                    // eslint-disable-next-line no-console
-                    console.log(err);
-                });
-        },
-
-        black(row, index) {
-            // eslint-disable-next-line no-console
-            console.log(row, index);
-        },
-
-        white(row, index) {
-            // eslint-disable-next-line no-console
-            console.log(row, index);
+        ajaxSuccess() {
+            this.editDialogOpeon = false;
         }
     }
 };

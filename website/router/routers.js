@@ -28,7 +28,8 @@ const TableSelect = () => import(/* webpackChunkName: "Tag" */ '../page/doc/Tabl
 const Carousel = () => import(/* webpackChunkName: "Carousel" */ '../page/doc/Carousel');
 // examples
 const groupForm = () => import(/* webpackChunkName: "groupForm" */ '../page/examples/group-form');
-const CURDExample = () => import(/* webpackChunkName: "CURDExample" */ '../page/examples/CURD-example');
+const CURDSimpleExample = () => import(/* webpackChunkName: "CURDExample" */ '../page/examples/CURD-example/simple');
+const CURDSimpleExampleInlineEdit = () => import(/* webpackChunkName: "CURDExample" */ '../page/examples/CURD-example/inline-edit');
 const inlineTable = () => import(/* webpackChunkName: "inlineTable" */ '../page/examples/inline-table');
 const editableTable = () => import(/* webpackChunkName: "editableTable" */ '../page/examples/editable-table');
 const searchableChart = () => import(/* webpackChunkName: "searchableChart" */ '../page/examples/searchable-chart');
@@ -163,8 +164,17 @@ export default [
             },
             {
                 path: '/CURD-example',
-                name: 'CURD-example',
-                component: CURDExample
+                redirect: '/CURD-example/simple',
+            },
+            {
+                path: '/CURD-example/simple',
+                name: 'CURD-example-simple',
+                component: CURDSimpleExample
+            },
+            {
+                path: '/CURD-example/inline-edit',
+                name: 'CURD-example-simple-inline-edit',
+                component: CURDSimpleExampleInlineEdit
             },
             {
                 path: '/inline-table',
