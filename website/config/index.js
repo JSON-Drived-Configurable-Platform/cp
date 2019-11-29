@@ -66,6 +66,10 @@ export default {
                     name: '/doc/Checkbox'
                 },
                 {
+                    label: 'CheckboxCard',
+                    name: '/doc/CheckboxCard'
+                },
+                {
                     label: 'Switch',
                     name: '/doc/Switch'
                 },
@@ -128,8 +132,12 @@ export default {
                     name: '/group-form'
                 },
                 {
-                    label: 'CURD Example',
-                    name: '/CURD-example'
+                    label: 'CURD Simple',
+                    name: '/CURD-example/simple'
+                },
+                {
+                    label: 'CURD Inlint Edit',
+                    name: '/CURD-example/inline-edit'
                 },
                 {
                     label: 'Editable-Table',

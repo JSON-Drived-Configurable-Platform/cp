@@ -13,6 +13,7 @@ const FieldGenerator = () => import(/* webpackChunkName: "FieldGenerator" */ '..
 const Input = () => import(/* webpackChunkName: "Input" */ '../page/doc/Input');
 const Radio = () => import(/* webpackChunkName: "Radio" */ '../page/doc/Radio');
 const Checkbox = () => import(/* webpackChunkName: "Checkbox" */ '../page/doc/Checkbox');
+const CheckboxCard = () => import(/* webpackChunkName: "Checkbox" */ '../page/doc/CheckboxCard');
 const Switch = () => import(/* webpackChunkName: "Switch" */ '../page/doc/Switch');
 const Select = () => import(/* webpackChunkName: "Select" */ '../page/doc/Select');
 const LogicSelect = () => import(/* webpackChunkName: "LogicSelect" */ '../page/doc/LogicSelect');
@@ -27,7 +28,8 @@ const TableSelect = () => import(/* webpackChunkName: "Tag" */ '../page/doc/Tabl
 const Carousel = () => import(/* webpackChunkName: "Carousel" */ '../page/doc/Carousel');
 // examples
 const groupForm = () => import(/* webpackChunkName: "groupForm" */ '../page/examples/group-form');
-const CURDExample = () => import(/* webpackChunkName: "CURDExample" */ '../page/examples/CURD-example');
+const CURDSimpleExample = () => import(/* webpackChunkName: "CURDExample" */ '../page/examples/CURD-example/simple');
+const CURDSimpleExampleInlineEdit = () => import(/* webpackChunkName: "CURDExample" */ '../page/examples/CURD-example/inline-edit');
 const inlineTable = () => import(/* webpackChunkName: "inlineTable" */ '../page/examples/inline-table');
 const editableTable = () => import(/* webpackChunkName: "editableTable" */ '../page/examples/editable-table');
 const searchableChart = () => import(/* webpackChunkName: "searchableChart" */ '../page/examples/searchable-chart');
@@ -84,6 +86,11 @@ export default [
                 path: '/doc/Checkbox',
                 name: 'doc-Checkbox',
                 component: Checkbox
+            },
+            {
+                path: '/doc/CheckboxCard',
+                name: 'doc-CheckboxCard',
+                component: CheckboxCard
             },
             {
                 path: '/doc/Switch',
@@ -157,8 +164,17 @@ export default [
             },
             {
                 path: '/CURD-example',
-                name: 'CURD-example',
-                component: CURDExample
+                redirect: '/CURD-example/simple',
+            },
+            {
+                path: '/CURD-example/simple',
+                name: 'CURD-example-simple',
+                component: CURDSimpleExample
+            },
+            {
+                path: '/CURD-example/inline-edit',
+                name: 'CURD-example-simple-inline-edit',
+                component: CURDSimpleExampleInlineEdit
             },
             {
                 path: '/inline-table',
