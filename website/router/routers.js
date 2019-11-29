@@ -13,6 +13,7 @@ const FieldGenerator = () => import(/* webpackChunkName: "FieldGenerator" */ '..
 const Input = () => import(/* webpackChunkName: "Input" */ '../page/doc/Input');
 const Radio = () => import(/* webpackChunkName: "Radio" */ '../page/doc/Radio');
 const Checkbox = () => import(/* webpackChunkName: "Checkbox" */ '../page/doc/Checkbox');
+const CheckboxCard = () => import(/* webpackChunkName: "Checkbox" */ '../page/doc/CheckboxCard');
 const Switch = () => import(/* webpackChunkName: "Switch" */ '../page/doc/Switch');
 const Select = () => import(/* webpackChunkName: "Select" */ '../page/doc/Select');
 const LogicSelect = () => import(/* webpackChunkName: "LogicSelect" */ '../page/doc/LogicSelect');
@@ -84,6 +85,11 @@ export default [
                 path: '/doc/Checkbox',
                 name: 'doc-Checkbox',
                 component: Checkbox
+            },
+            {
+                path: '/doc/CheckboxCard',
+                name: 'doc-CheckboxCard',
+                component: CheckboxCard
             },
             {
                 path: '/doc/Switch',
