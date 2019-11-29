@@ -17,6 +17,7 @@
         :type="field.subtype || 'default'"
         :size="field.size || 'default'"
         :class="classes"
+        :loading="loading"
         @click="handleClick"
     >{{ text }}</Button>
 </template>
@@ -37,7 +38,8 @@ export default {
     },
     data() {
         return {
-            text: ''
+            text: '',
+            loading: false
         };
     },
     computed: {
@@ -55,16 +57,18 @@ export default {
                     this.doAjaxAction();
                     break;
                 case 'event':
-                    this.$emit('on-button-click', {
+                    this.$emit('on-button-event', {
                         name: this.field.action.name
                     });
+                    break;
             }
         },
         doAjaxAction() {
             this.loading = true;
             let apiBase = this.apiBase || '';
             let formModel = this.form.model;
-            let apiParams = this.field.apiParams || [];
+            // default carry all formModel data as request params
+            let apiParams = this.field.apiParams || Object.keys(formModel);
             let params = {};
             let finalApi = apiBase + this.field.action.api;
             apiParams.forEach(param => {
@@ -73,13 +77,19 @@ export default {
             let finalParams = Object.assign({}, params);
             this.requestMethod(finalApi, finalParams).then(res => {
                 this.requestResolve(res);
+                this.$Message.info(`${this.field.text}成功!`);
+                this.$emit('on-button-event', {
+                    name: 'ajaxSuccess',
+                });
             }, reject => {
                 this.requestReject(reject);
             });
         },
         requestResolve(res) {
             if (+res.status === 0 || +res.errno === 0 || +res.status === 200) {
-                this.text = res.data.text;
+                if (res.data && res.data.text) {
+                    this.text = res.data.text;
+                }
                 this.loading = false;
             }
         },
