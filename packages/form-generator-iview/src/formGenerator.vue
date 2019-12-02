@@ -40,7 +40,7 @@
                     :inline="options.inline"
                     :request-interceptor="requestInterceptor"
                     @on-field-change="handleFieldChange"
-                    @on-submit="handleSubmit"
+                    @on-submit="handleSubmit($event)"
                     @on-reset="handleReset"
                     @on-button-event="handleButtonEvent($event)"
                 />
@@ -298,37 +298,7 @@ export default {
         },
 
         handleSubmit() {
-            // this.submit().then(model => {
-            //     // eslint-disable-next-line no-console
-            //     console.log('model', model);
-            // }).catch(err => {
-            //     // eslint-disable-next-line no-console
-            //     console.log('err', err);
-            // });
             this.$emit('on-submit');
-        },
-
-        submit() {
-            return new Promise((resolve, reject) => {
-                try {
-                    this.$refs.form.validate().then(valid => {
-                        if (valid) {
-                            resolve(this.form.model);
-                        }
-                        else {
-                            reject(valid);
-                        }
-                    }).catch(err => {
-                        reject(err);
-                    });
-                }
-                catch(err) {
-                    // eslint-disable-next-line no-console
-                    console.log(err);
-                    reject(err);
-                }
-
-            });
         },
 
         handleReset() {

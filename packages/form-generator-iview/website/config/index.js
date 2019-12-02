@@ -116,6 +116,10 @@ export default {
                 {
                     label: 'Carousel',
                     name: '/doc/Carousel'
+                },
+                {
+                    label: 'Submit',
+                    name: '/doc/Submit'
                 }
                 // {
                 //     label: 'ImgUpload',
