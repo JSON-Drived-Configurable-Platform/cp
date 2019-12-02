@@ -147,7 +147,9 @@ export default {
         },
         handleSubmitClick(component) {
             this.submit(component).then(() => {
+
             }).catch(() => {
+
             });
         },
         handleResetClick() {
@@ -220,8 +222,11 @@ export default {
                                     this.doAjaxAction(field).then(() => {
                                         resolve(this.form.model);
                                         component.loading = false;
+                                        this.$Message.info(`${field.text}成功!`);
                                     }).catch(() => {
                                         component.loading = false;
+                                        this.$Message.info(`${field.text}失败!`);
+                                        reject();
                                     });
                                 }
                             }
@@ -240,10 +245,13 @@ export default {
         },
         handleHttpRequest(component) {
             component.loading = true;
+            let field = component.field;
             this.doAjaxAction(component.field).then(() => {
                 component.loading = false;
+                this.$Message.info(`${field.text}成功!`);
             }).catch(() => {
                 component.loading = false;
+                this.$Message.info(`${field.text}失败!`);
             });
         },
 
@@ -263,7 +271,6 @@ export default {
                     this.requestMethod(finalApi, finalParams).then(res => {
                         if (this.requestResolve(res)) {
                             resolve();
-                            this.$Message.info(`${field.text}成功!`);
                             this.$emit('on-button-event', {
                                 name: 'ajaxSuccess',
                             });
@@ -271,8 +278,8 @@ export default {
                         else {
                             reject();
                         }
-                    }, reject => {
-                        this.requestReject(reject);
+                    }).catch(() => {
+                        reject();
                     });
                 }
                 catch(err) {
