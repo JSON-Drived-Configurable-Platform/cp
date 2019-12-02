@@ -26,6 +26,7 @@ const Tag = () => import(/* webpackChunkName: "Tag" */ '../page/doc/Tag');
 const Tree = () => import(/* webpackChunkName: "Tag" */ '../page/doc/Tree');
 const TableSelect = () => import(/* webpackChunkName: "Tag" */ '../page/doc/TableSelect');
 const Carousel = () => import(/* webpackChunkName: "Carousel" */ '../page/doc/Carousel');
+const Submit = () => import(/* webpackChunkName: "Submit" */ '../page/doc/Submit');
 // examples
 const groupForm = () => import(/* webpackChunkName: "groupForm" */ '../page/examples/group-form');
 const CURDSimpleExample = () => import(/* webpackChunkName: "CURDExample" */ '../page/examples/CURD-example/simple');
@@ -157,6 +158,12 @@ export default [
                 name: 'doc-Carousel',
                 component: Carousel
             },
+            {
+                path: '/doc/Submit',
+                name: 'doc-Submit',
+                component: Submit
+            },
+            // examples
             {
                 path: '/group-form',
                 name: 'group-form',

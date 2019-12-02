@@ -31,10 +31,10 @@
             :size="field.size || size"
             :request-interceptor="requestInterceptor"
             @on-change="handleFieldChange"
-            @on-submit-click="handleSubmitClick"
+            @on-submit-click="handleSubmitClick($event)"
+            @on-http-request="handleHttpRequest($event)"
             @on-reset-click="handleResetClick"
             @on-button-event="handleButtonClick"
-            @submit="handleSubmit"
             @on-checkboxCard-click="handelCheckboxCardClick"
         />
     </FormItem>
@@ -44,6 +44,7 @@ import fieldComponents from './utils/fieldsLoader.js';
 import {classPrefix} from './utils/const';
 import {getValidType} from './utils/getValidType';
 import schema from 'async-validator';
+import axios from './utils/http';
 const notFormfields = ['Divider'];
 export default {
     inject: ['form'],
@@ -144,8 +145,12 @@ export default {
         handleFieldChange(model, value) {
             this.$emit('on-field-change', model, value);
         },
-        handleSubmitClick() {
-            this.$emit('on-submit');
+        handleSubmitClick(component) {
+            this.submit(component).then(() => {
+
+            }).catch(() => {
+
+            });
         },
         handleResetClick() {
             this.$emit('on-reset');
@@ -155,9 +160,6 @@ export default {
         },
         getFieldCom(comType = '') {
             return `field${comType}`;
-        },
-        handleSubmit() {
-            this.$emit('on-submit');
         },
         handelCheckboxCardClick(value) {
             this.$emit('on-checkboxCard-click', value);
@@ -204,6 +206,108 @@ export default {
                 rules = rules.concat(field.rules);
             }
             return rules;
+        },
+
+        submit(component) {
+            let field = component.field;
+            return new Promise((resolve, reject) => {
+                try {
+                    this.form.validate(
+                        valid => {
+                            if (valid) {
+                                this.$emit('on-submit');
+                                // 如果有api则需要在此处理请求
+                                if (field.action && field.action.api) {
+                                    component.loading = true;
+                                    this.doAjaxAction(field).then(() => {
+                                        resolve(this.form.model);
+                                        component.loading = false;
+                                        this.$Message.info(`${field.text}成功!`);
+                                    }).catch(() => {
+                                        component.loading = false;
+                                        this.$Message.info(`${field.text}失败!`);
+                                        reject();
+                                    });
+                                }
+                            }
+                            else {
+                                reject(valid);
+                            }
+                        }
+                    );
+                }
+                catch(err) {
+                    // eslint-disable-next-line no-console
+                    console.log(err);
+                    reject(err);
+                }
+            });
+        },
+        handleHttpRequest(component) {
+            component.loading = true;
+            let field = component.field;
+            this.doAjaxAction(component.field).then(() => {
+                component.loading = false;
+                this.$Message.info(`${field.text}成功!`);
+            }).catch(() => {
+                component.loading = false;
+                this.$Message.info(`${field.text}失败!`);
+            });
+        },
+
+        doAjaxAction(field) {
+            return new Promise((resolve, reject) => {
+                try {
+                    let apiBase = this.apiBase || '';
+                    let formModel = this.form.model;
+                    // default carry all formModel data as request params
+                    let apiParams = field.apiParams || Object.keys(formModel);
+                    let params = {};
+                    let finalApi = apiBase + field.action.api;
+                    apiParams.forEach(param => {
+                        params[param] = formModel[param];
+                    });
+                    let finalParams = Object.assign({}, params);
+                    this.requestMethod(finalApi, finalParams).then(res => {
+                        if (this.requestResolve(res)) {
+                            resolve();
+                            this.$emit('on-button-event', {
+                                name: 'ajaxSuccess',
+                            });
+                        }
+                        else {
+                            reject();
+                        }
+                    }).catch(() => {
+                        reject();
+                    });
+                }
+                catch(err) {
+                    // eslint-disable-next-line no-console
+                    console.log(err);
+                    reject(err);
+                }
+            });
+        },
+
+        requestResolve(res) {
+            if (+res.status === 0 || +res.errno === 0 || +res.status === 200) {
+                return true;
+            }
+            return false;
+        },
+        requestMethod(url, finalParams) {
+            if (this.requestInterceptor) {
+                return this.requestInterceptor(url, finalParams);
+            }
+            else if (this.FormGeneratorInstallOptions && this.FormGeneratorInstallOptions.requestInterceptor) {
+                return this.FormGeneratorInstallOptions.requestInterceptor(url, finalParams);
+            }
+            return axios.request({
+                url,
+                method: 'get',
+                params: finalParams
+            });
         },
     }
 };

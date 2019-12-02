@@ -10,6 +10,7 @@
         <Button
             :type="field.subtype || 'default'"
             :size="field.size || 'default'"
+            :loading="loading"
         >{{ field.text }}</Button>
     </Poptip>
     <Button
@@ -22,7 +23,6 @@
     >{{ text }}</Button>
 </template>
 <script>
-import axios from '../utils/http';
 import {classPrefix} from '../utils/const';
 export default {
     inject: ['form'],
@@ -54,7 +54,7 @@ export default {
         handleClick() {
             switch (this.field.action.type) {
                 case 'ajax':
-                    this.doAjaxAction();
+                    this.$emit('on-http-request', this);
                     break;
                 case 'event':
                     this.$emit('on-button-event', {
@@ -62,53 +62,6 @@ export default {
                     });
                     break;
             }
-        },
-        doAjaxAction() {
-            this.loading = true;
-            let apiBase = this.apiBase || '';
-            let formModel = this.form.model;
-            // default carry all formModel data as request params
-            let apiParams = this.field.apiParams || Object.keys(formModel);
-            let params = {};
-            let finalApi = apiBase + this.field.action.api;
-            apiParams.forEach(param => {
-                params[param] = formModel[param];
-            });
-            let finalParams = Object.assign({}, params);
-            this.requestMethod(finalApi, finalParams).then(res => {
-                this.requestResolve(res);
-                this.$Message.info(`${this.field.text}成功!`);
-                this.$emit('on-button-event', {
-                    name: 'ajaxSuccess',
-                });
-            }, reject => {
-                this.requestReject(reject);
-            });
-        },
-        requestResolve(res) {
-            if (+res.status === 0 || +res.errno === 0 || +res.status === 200) {
-                if (res.data && res.data.text) {
-                    this.text = res.data.text;
-                }
-                this.loading = false;
-            }
-        },
-        requestReject(reject) {
-            // eslint-disable-next-line no-console
-            console.log(reject);
-        },
-        requestMethod(url, finalParams) {
-            if (this.requestInterceptor) {
-                return this.requestInterceptor(url, finalParams);
-            }
-            else if (this.FormGeneratorInstallOptions && this.FormGeneratorInstallOptions.requestInterceptor) {
-                return this.FormGeneratorInstallOptions.requestInterceptor(url, finalParams);
-            }
-            return axios.request({
-                url,
-                method: 'get',
-                params: finalParams
-            });
         },
     },
 };
