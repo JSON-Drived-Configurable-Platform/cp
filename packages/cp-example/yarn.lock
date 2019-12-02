@@ -1299,7 +1299,7 @@ aws4@^1.8.0:
   version "1.8.0"
   resolved "http://registry.npm.baidu-int.com/aws4/-/aws4-1.8.0.tgz#f0e003d9ca9e7f59c7a508945d7b2ef9a04a542f"
 
-axios@^0.18.0:
+axios@^0.18.0, axios@^0.18.1:
   version "0.18.1"
   resolved "http://registry.npm.baidu-int.com/axios/-/axios-0.18.1.tgz#ff3f0de2e7b5d180e757ad98000f1081b87bcea3"
   dependencies:
@@ -2300,11 +2300,12 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
-data-vis-iview@^0.0.23:
-  version "0.0.23"
-  resolved "http://registry.npm.baidu-int.com/data-vis-iview/-/data-vis-iview-0.0.23.tgz#acb54b76db45219a98c216debc09f040807239ba"
+data-vis-iview@^0.0.24:
+  version "0.0.24"
+  resolved "http://registry.npm.baidu-int.com/data-vis-iview/-/data-vis-iview-0.0.24.tgz#3523db40fedf09a04797b821971267fbaee96c9e"
+  integrity sha512-/vnnTgkNjnPlsRka9XxXomc2dNdZ1pmsmL4FmDFzh1f6Kh1n5qb0X6MPgJ0FywFBnujtPBMWTtH+L+wcgf7GWw==
   dependencies:
-    axios "^0.18.0"
+    axios "^0.18.1"
     echarts "^4.2.1"
     file-saver "^2.0.1"
     form-generator-iview "^0.0.6"
@@ -3316,10 +3317,10 @@ form-data@~2.3.2:
     combined-stream "^1.0.6"
     mime-types "^2.1.12"
 
-form-generator-iview@^0.0.24:
-  version "0.0.24"
-  resolved "http://registry.npm.baidu-int.com/form-generator-iview/-/form-generator-iview-0.0.24.tgz#15c31305e1cb8c8e69742f519eff1482f206b9c9"
-  integrity sha512-Idj9tZiP6a/66Vv2pDGIXNRA3JRTdL2r896Q4p+rpQIs4rvUVhwYRx75Q1Zi1yCrLRS1Eh1SO/2mmMFtHCNWTQ==
+form-generator-iview@^0.0.32:
+  version "0.0.32"
+  resolved "http://registry.npm.baidu-int.com/form-generator-iview/-/form-generator-iview-0.0.32.tgz#636a19c1b85f228f2eb158478ae14335e7d69e0b"
+  integrity sha1-Y2oZwbhfIo8usVhHiuFDNefWngs=
   dependencies:
     axios "^0.18.0"
     v-click-outside "^2.1.3"

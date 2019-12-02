@@ -4,14 +4,14 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build && rm -rf docs/static index.html && mv dist/* docs/",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "axios": "^0.18.0",
     "core-js": "^2.6.5",
-    "data-vis-iview": "^0.0.23",
-    "form-generator-iview": "^0.0.24",
+    "data-vis-iview": "^0.0.24",
+    "form-generator-iview": "^0.0.32",
     "iview": "^3.4.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.6",
