@@ -88,6 +88,7 @@
       <FormGenerator
         :fields="dialog.formFields"
         :model="dilogsModel[dialog.name]"
+        @on-button-event="handleButtonEvent($event)"
       />
     </Modal>
   </div>
@@ -187,7 +188,10 @@ export default {
     },
 
     ajaxSuccess() {
-      this.editDialogOpeon = false;
+      Object.keys(this.dilogsOpen).forEach(dialog => {
+        this.$set(this.dilogsOpen, dialog, false);
+        this.$set(this.dilogsModel, dialog, {});
+      });
     }
   }
 };
