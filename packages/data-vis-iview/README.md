@@ -17,9 +17,9 @@ A charts generator with json schema based on [iview ui](https://www.iviewui.com/
 
 ## Quick Exmaple
 
-This is a part of screenshot of the [example](https://github.com/BingBlog/form-generator-iview/tree/master/example/page/home).
+This is a part of screenshot of the [website](https://github.com/BingBlog/form-generator-iview/tree/master/website/page/home).
 
-![project mind mapping](./example.png)
+![project mind mapping](./website.png)
 
 You can get a result like this simply by:
 
@@ -145,7 +145,7 @@ export default {
 
 ```
 
-Pull the repo to see more or you can take a look at the [example code](https://github.com/BingBlog/form-generator-iview/tree/master/example/page/home);
+Pull the repo to see more or you can take a look at the [website code](https://github.com/BingBlog/form-generator-iview/tree/master/website/page/home);
 
 ## Design
 

@@ -14,11 +14,11 @@
 
 <script>
 import echarts from 'echarts';
-import tdTheme from './theme.json';
+import chartTheme from './theme.json';
 import { on, off } from '../utils/utils';
 import dataGetter from '../mixins/dataGetter';
 import {classPrifix} from '../utils/const';
-echarts.registerTheme('tdTheme', tdTheme);
+echarts.registerTheme('chartTheme', chartTheme);
 
 export default {
     name: 'ChartBar',
@@ -76,7 +76,7 @@ export default {
             const columns = this.columns;
             const isHorizontal = this.chart.direction === 'horizontal';
             this.dom && this.dom.clear();
-            this.dom = this.$refs.dom && echarts.init(this.$refs.dom, 'tdTheme');
+            this.dom = this.$refs.dom && echarts.init(this.$refs.dom, 'chartTheme');
             if (columns.length === 0 || data.length === 0) {
                 return;
             }

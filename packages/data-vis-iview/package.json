@@ -24,6 +24,9 @@
   "deprecated": false,
   "description": "A charts generator with json schema based on iview ui",
   "devDependencies": {
+    "highlightjs": "^9.16.2",
+    "vue-i18n": "^8.15.0",
+    "clipboard": "^2.0.4",
     "@babel/cli": "^7.4.3",
     "@babel/core": "^7.4.3",
     "@babel/plugin-proposal-class-properties": "^7.4.0",
@@ -99,11 +102,11 @@
   "scripts": {
     "build": "npm run build-dev && npm run build-prod",
     "build-dev": "webpack --color --progress --config build/webpack.dist.dev.config.js",
-    "build-example": "webpack --color --progress --config build/webpack.example.prod.config.js",
+    "build-website": "webpack --color --progress --config build/webpack.website.prod.config.js && rm -rf docs/static docs/index.html && mv website/dist/* docs/",
     "build-prod": "webpack --color --progress --config build/webpack.dist.prod.config.js",
-    "deploy": "fis3 release --root=./example/dist/ --file=./deploy-baidu/config.js",
-    "dev": "webpack-dev-server --color --progress --config build/webpack.example.dev.config.js",
-    "lint": "eslint --fix --ext .js,.vue,.json src --fix --ext .js,.vue,.json example --fix --ext .json docs/example-data-api"
+    "deploy": "fis3 release --root=./website/dist/ --file=./deploy-baidu/config.js",
+    "dev": "webpack-dev-server --color --progress --config build/webpack.website.dev.config.js",
+    "lint": "eslint --fix --ext .js,.vue,.json src --fix --ext .js,.vue,.json website --fix --ext .json docs/website-data-api"
   },
   "title": "dataVisIView",
   "version": "0.0.24"

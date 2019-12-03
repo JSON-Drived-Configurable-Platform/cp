@@ -20,7 +20,20 @@
         "semi": ["error", "always"],
         "vue/jsx-uses-vars": 2,
         "no-console": ["error"],
-        "vue/html-indent": ["error", 4]
+        "vue/html-indent": ["error", 4],
+        "vue/multiline-html-element-content-newline": "disabled",
+        "vue/max-attributes-per-line": ["error", {
+            "singleline": 4,
+            "multiline": {
+                "max": 1,
+                "allowFirstLine": false
+            }
+        }],
+        "vue/singleline-html-element-content-newline": ["error", {
+            "ignoreWhenNoAttributes": true,
+            "ignoreWhenEmpty": true,
+            "ignores": ["pre", "textarea", "i-code", "a", "template"]
+          }]
     },
     "plugins": [
         "json"

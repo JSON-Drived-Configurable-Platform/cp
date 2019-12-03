@@ -30,11 +30,13 @@
             :class="rowClasses"
         >
             <div :class="itemBoxClasses">
-                <chartItem
+                <DataVisItem
                     v-for="(item, index) in row"
                     :key="index"
                     :style="getItemBoxStyle(row)"
-                    :chart-group="item"
+                    :charts="item.charts || item.chartGroup"
+                    :conditions="item.conditions"
+                    :display="item.display"
                     :params-container="paramsContainer"
                     :api-base="apiBase"
                     :request-interceptor="requestInterceptor"
@@ -44,12 +46,12 @@
     </div>
 </template>
 <script>
-import chartItem from './chartItem';
+import DataVisItem from './dataVisItem';
 import {classPrifix} from './utils/const';
 export default {
     name: 'DataVis',
     components: {
-        chartItem
+        DataVisItem
     },
     props: {
         requestInterceptor: {
