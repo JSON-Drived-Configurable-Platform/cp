@@ -95,8 +95,17 @@
 </template>
 <script>
 import services from "@/service";
-const { getPageConfig, getList } = services["curd"];
+import axios from "../../libs/api.request";
+const { getPageConfig } = services["curd"];
 export default {
+  watch: {
+    searchFormModel: {
+      deep: true,
+      handler() {
+        this.getTableData();
+      }
+    }
+  },
   data() {
     return {
       pageConfig: {},
@@ -127,6 +136,9 @@ export default {
     headerActionsConfig() {
       return this.pageConfig.actions || [];
     },
+    tableRequestConfig() {
+      return (this.pageConfig.table && this.pageConfig.table.request) || {};
+    },
     tableColumnsConfig() {
       return (this.pageConfig.table && this.pageConfig.table.columns) || [];
     },
@@ -150,20 +162,28 @@ export default {
   methods: {
     getTableData() {
       this.tableLoading = true;
+      const { api, method } = this.tableRequestConfig;
       const { pageId } = this.$route.params;
       const params = {
         pageSize: this.pageSize,
         pageNumber: this.pageNumber,
-        pageId
+        pageId,
+        ...this.searchFormModel
       };
-      getList(params).then(res => {
-        const { list, pageSize, pageNumber, total } = res.data;
-        this.tableData = list || [];
-        this.pageSize = pageSize || this.pageSize;
-        this.pageNumber = pageNumber || this.pageNumber;
-        this.total = total || this.total;
-        this.tableLoading = false;
-      });
+      axios
+        .request({
+          method,
+          url: api,
+          params
+        })
+        .then(res => {
+          const { list, pageSize, pageNumber, total } = res.data;
+          this.tableData = list || [];
+          this.pageSize = pageSize || this.pageSize;
+          this.pageNumber = pageNumber || this.pageNumber;
+          this.total = total || this.total;
+          this.tableLoading = false;
+        });
     },
 
     handlePageNumberChange(pageNumber) {

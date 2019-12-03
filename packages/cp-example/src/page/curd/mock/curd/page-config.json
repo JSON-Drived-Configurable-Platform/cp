@@ -95,6 +95,13 @@
             }
         ],
         "table": {
+            "request": {
+                "api": "/api/curd/data",
+                "method": "get",
+                "apiParams": [
+                    "all"
+                ]
+            },
             "columns": [
                 {
                     "title": "姓名",
