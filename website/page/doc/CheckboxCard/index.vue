@@ -185,7 +185,7 @@
                     </Form>
                 </div>
                 <div slot="desc">
-                    <p>通过设置<code>field.isPage</code>可以控制是否本地分页。</p>
+                    <p>通过设置<code>field.pageLation</code>可以控制是否本地分页。</p>
                 </div>
                 <i-code slot="code" lang="html">{{ code.page.code }}</i-code>
             </Demo>
