@@ -3,7 +3,7 @@
         <article>
             <h1>DataVisItem</h1>
             <inAnchor title="概述" h2 />
-            <p>用于生成一个可视化区域，可以包含多个图，这些图会以Tab的形式组合起来。</p>
+            <p>用于生成一个可视化区域，可以包含多个图，这些图默认以Tab的形式组合起来，也可以设置display: 'inline'使其平铺开来。</p>
             <div class="api">
                 <inAnchor title="通用配置" h2 />
                 <table>
@@ -33,6 +33,12 @@
                             <td>图的标题</td>
                             <td>String</td>
                             <td>''</td>
+                        </tr>
+                        <tr>
+                            <td>chart.display</td>
+                            <td>图的组合方式， 设置为 inline 会使其平铺</td>
+                            <td>String</td>
+                            <td>'tab'</td>
                         </tr>
                     </tbody>
                 </table>
@@ -75,10 +81,46 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>charts</td>
-                            <td>图的配置集合</td>
+                            <td>chart.hideSizer</td>
+                            <td>是否隐藏页数选择器</td>
+                            <td>boolean</td>
+                            <td>false</td>
+                        </tr>
+                        <tr>
+                            <td>chart.hideElevator</td>
+                            <td>是否隐藏跳页输入框</td>
+                            <td>boolean</td>
+                            <td>false</td>
+                        </tr>
+                        <tr>
+                            <td>chart.downloadAble</td>
+                            <td>是否可下载</td>
+                            <td>boolean</td>
+                            <td>true</td>
+                        </tr>
+                        <tr>
+                            <td>chart.customColumns</td>
+                            <td>是否可控制展示该列</td>
                             <td>Array</td>
-                            <td>不可为空</td>
+                            <td>[]</td>
+                        </tr>
+                        <tr>
+                            <td>chart.columns</td>
+                            <td>表头，其中的设置项可参考<a href="http://iview.talkingdata.com/#/components/table">iView Table 表格 column</a></td>
+                            <td>Array</td>
+                            <td>[]</td>
+                        </tr>
+                        <tr>
+                            <td>chart.data</td>
+                            <td>表数据</td>
+                            <td>Array</td>
+                            <td>[]</td>
+                        </tr>
+                        <tr>
+                            <td>chart.api</td>
+                            <td>表数据的API</td>
+                            <td>string</td>
+                            <td>[]</td>
                         </tr>
                     </tbody>
                 </table>

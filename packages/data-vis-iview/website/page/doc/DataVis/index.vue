@@ -3,7 +3,9 @@
         <article>
             <h1>DataVis</h1>
             <inAnchor title="概述" h2 />
-            <p>通过 json 配置，将多个 DataVisItem 组织起来，控制他们布局方式。</p>
+            <p>
+                通过 json 配置，快速生成一个数据报表页面，可以支持<strong>数据概览卡片</strong>、<strong>可视化图表</strong>、<strong>数据表格和留存表格</strong>。
+            </p>
             <alert><strong>如果你希望自己控制布局，可以直接使用 DataVisItem。</strong></alert>
             <div class="api">
                 <inAnchor title="配置快速查询" h2 />
@@ -49,7 +51,9 @@
                             <td>
                                 必选, 值的类型为[[DataVisItem...], [DataVisItem...]]。<br>
                                 rows 的元素是数组，每个元素都是一系 DataVisItem 的集合，其内部的元素会在一行内展示。<br>
-                                假如现在有三个 DataVisItem, 希望第一行展示两个，第二行展示一个，则数据结构为 [[DataVisItem0, DataVisItem1], [DataVisItem2]]。如下图第一个Demo。
+                                假如现在有三个 DataVisItem, 希望第一行展示两个，第二行展示一个，则数据结构为 [[DataVisItem0, DataVisItem1], [DataVisItem2]]。
+                                <br>
+                                <strong><a href="/#/doc/DataVisItem">查看DataVisItem了解详细配置项</a></strong>
                             </td>
                         </tr>
                     </tbody>

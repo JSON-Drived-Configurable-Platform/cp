@@ -20,4 +20,5 @@ websites/dist/
 yarn-error.log
 test/unit/coverage
 /website/dist
+/website/libs/pinyin
 /dist
