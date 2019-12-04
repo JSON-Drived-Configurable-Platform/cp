@@ -306,6 +306,28 @@ export default {
             this.reset();
         },
 
+        submit() {
+            return new Promise((resolve, reject) => {
+                try {
+                    this.form.validate(
+                        valid => {
+                            if (valid) {
+                                resolve(this.form.model);
+                            }
+                            else {
+                                reject(valid);
+                            }
+                        }
+                    );
+                }
+                catch(err) {
+                    // eslint-disable-next-line no-console
+                    console.log(err);
+                    reject(err);
+                }
+            });
+        },
+
         reset() {
             this.fields.forEach(field => {
                 this.resetField(field);
