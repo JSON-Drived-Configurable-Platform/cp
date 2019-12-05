@@ -30,6 +30,7 @@
             :api-base="apiBase"
             :size="field.size || size"
             :request-interceptor="requestInterceptor"
+            :params-container="paramsContainer"
             @on-change="handleFieldChange"
             @on-submit-click="handleSubmitClick($event)"
             @on-http-request="handleHttpRequest($event)"
@@ -57,11 +58,17 @@ export default {
             type: [Function, null],
             default: null
         },
-        field: {
+        paramsContainer: {
             type: Object,
+            default() {
+                return {};
+            }
+        },
+        field: {
+            type: [Object, Array],
             required: true,
             default() {
-                return [];
+                return {};
             }
         },
         size: {
@@ -215,7 +222,7 @@ export default {
                     this.form.validate(
                         valid => {
                             if (valid) {
-                                this.$emit('on-submit');
+                                this.$emit('on-submit', this.form.model);
                                 // 如果有api则需要在此处理请求
                                 if (field.action && field.action.api) {
                                     component.loading = true;
@@ -259,20 +266,13 @@ export default {
             return new Promise((resolve, reject) => {
                 try {
                     let apiBase = this.apiBase || '';
-                    let formModel = this.form.model;
-                    // default carry all formModel data as request params
-                    let apiParams = field.apiParams || Object.keys(formModel);
-                    let params = {};
                     let finalApi = apiBase + field.action.api;
-                    apiParams.forEach(param => {
-                        params[param] = formModel[param];
-                    });
-                    let finalParams = Object.assign({}, params);
-                    this.requestMethod(finalApi, finalParams).then(res => {
+                    this.requestMethod(finalApi, this.getParams(field)).then(res => {
                         if (this.requestResolve(res)) {
                             resolve();
                             this.$emit('on-button-event', {
                                 name: 'ajaxSuccess',
+                                field
                             });
                         }
                         else {
@@ -288,6 +288,24 @@ export default {
                     reject(err);
                 }
             });
+        },
+
+        getParams({apiParams}) {
+            let formModel = this.form.model || {};
+            // put current formModel and outside param into paramsContainer
+            let paramsContainer = Object.assign({}, formModel, this.paramsContainer || {});
+            let params = {};
+            if (apiParams === 'all' || !apiParams) {
+                params = paramsContainer;
+            }
+            else {
+                if (Array.isArray(apiParams)) {
+                    apiParams.forEach(param => {
+                        params[param] = paramsContainer[param];
+                    });
+                }
+            }
+            return Object.assign({}, params);
         },
 
         requestResolve(res) {

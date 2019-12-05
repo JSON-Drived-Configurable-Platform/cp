@@ -9,7 +9,10 @@
                 :slot="column.slot"
                 slot-scope="{ row, index}"
             >
-                <Form :key="column.slot" :model="row">
+                <Form
+                    :key="column.slot"
+                    :model="JSON.parse(JSON.stringify(row))"
+                >
                     <Poptip
                         v-if="column.poptip"
                         :key="column.slot"
@@ -21,6 +24,7 @@
                             <FieldGenerator
                                 v-for="(field, i) in column.poptip.formFields"
                                 :key="i"
+                                :params-container="paramsContainer"
                                 :field="field"
                             />
                         </div>
@@ -45,6 +49,7 @@
                 ref="FormGenerator"
                 :fields="editFormFields"
                 :model="editModel"
+                :params-container="paramsContainer"
                 @on-button-event="handleButtonEvent($event)"
             />
         </Modal>
@@ -59,7 +64,10 @@ export default {
             data,
             editModel: {},
             editFormFields,
-            editDialogOpeon: false
+            editDialogOpeon: false,
+            paramsContainer: {
+                test: 'xxx'
+            }
         };
     },
     methods: {

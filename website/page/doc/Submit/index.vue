@@ -3,7 +3,7 @@
         <article>
             <h1>Submit</h1>
             <inAnchor title="概述" h2 />
-            <p>基础组件-提交。主要用于控制表单的提交操作。</p>
+            <p>基础组件-提交。主要用于控制表单的提交操作，如果表单有校验配置，会自动触发校验。</p>
             <div class="api">
                 <inAnchor title="配置快速查询" h2 />
                 <inAnchor title="核心配置" h3 />
@@ -27,6 +27,32 @@
                             <td>size</td>
                             <td>尺寸，可选值为<code>large</code>、<code>small</code>、<code>default</code>或者不设置</td>
                             <td>String</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <inAnchor title="事件" h3 />
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="160">方法名</th>
+                            <th>说明</th>
+                            <th>参数</th>
+                            <th>返回值</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>on-submit</td>
+                            <td>
+                                点击提交按钮时触发，如果有校验规则，会自动触发校验。<strong>校验成功后才会触发该事件。</strong>
+                                <br>
+                                action.type 为 ajax 时，请求成功会 emit 一个 on-button-event 事件， name 为 ajaxSuccess。
+                            </td>
+                            <td>
+                                model， 所在 form 的 model
+                            </td>
                             <td>-</td>
                         </tr>
                     </tbody>

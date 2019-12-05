@@ -8,6 +8,7 @@
                     :model="model"
                     :options="options"
                     :request-interceptor="requestInterceptor"
+                    :params-container="paramsContainer"
                 />
             </div>
         </Row>
@@ -26,6 +27,9 @@ export default {
             model,
             fields,
             options,
+            paramsContainer: {
+                paramsContainerTest: 'xxx'
+            },
             // requestInterceptor: null
             requestInterceptor: function(url, params) {
                 return new Promise((resolve, reject) => {
@@ -34,7 +38,7 @@ export default {
                         url = `website-data-api/${url}.json`;
                     }
                     axios.get(url, {
-                        query: params
+                        params
                     }).then(res => {
                         resolve(res.data);
                     }).catch(error => {

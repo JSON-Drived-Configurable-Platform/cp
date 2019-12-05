@@ -45,7 +45,7 @@ export const columns = [
                         type: 'ajax',
                         api: '/curdEdit'
                     },
-                    apiParams: ['name', 'address'],
+                    apiParams: ['name', 'address', 'test'],
                     inline: true
                 },
             ]
