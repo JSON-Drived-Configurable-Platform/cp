@@ -26,7 +26,7 @@ const getUserList = (params = {}) => {
 const userAdd = (params = {}) => {
   return {
     url: "/api/rbac/user-add",
-    method: "post",
+    method: "get",
     data: params
   };
 };
@@ -34,7 +34,7 @@ const userAdd = (params = {}) => {
 const userEdit = (params = {}) => {
   return {
     url: "/api/rbac/user-edit",
-    method: "post",
+    method: "get",
     data: params
   };
 };
@@ -42,7 +42,7 @@ const userEdit = (params = {}) => {
 const userDel = (params = {}) => {
   return {
     url: "/api/rbac/user-delete",
-    method: "post",
+    method: "get",
     data: params
   };
 };
@@ -84,7 +84,7 @@ const getPermissionList = (params = {}) => {
 const permissionAdd = (params = {}) => {
   return {
     url: "/api/rbac/permission-add",
-    method: "post",
+    method: "get",
     params
   };
 };
@@ -92,7 +92,7 @@ const permissionAdd = (params = {}) => {
 const permissionEdit = (params = {}) => {
   return {
     url: "/api/rbac/permission-update",
-    method: "post",
+    method: "get",
     params
   };
 };
@@ -100,7 +100,7 @@ const permissionEdit = (params = {}) => {
 const permissionDel = (params = {}) => {
   return {
     url: "/api/rbac/permission-delete",
-    method: "post",
+    method: "get",
     params
   };
 };

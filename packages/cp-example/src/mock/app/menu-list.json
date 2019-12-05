@@ -2,70 +2,18 @@
     "errno": 0,
     "data": [
         {
-            "label": "Home",
-            "path": "/home"
-        },
-        {
-            "label": "Form",
-            "path": "/form",
-            "submenu": [
-                {
-                    "label": "Index",
-                    "path": "/form"
-                },
-                {
-                    "label": "Simple",
-                    "path": "/form/simple"
-                },
-                {
-                    "label": "Modal",
-                    "path": "/form/modal"
-                },
-                {
-                    "label": "Multi Modal",
-                    "path": "/form/multi-modal"
-                },
-                {
-                    "label": "Slideout",
-                    "path": "/form/slideout"
-                },
-                {
-                    "label": "Popover",
-                    "path": "/form/popover"
-                },
-                {
-                    "label": "Inline Table",
-                    "path": "/form/inline"
-                },
-                {
-                    "label": "Editable Table",
-                    "path": "/form/editable-table"
-                },
-                {
-                    "label": "Takeover",
-                    "path": "/form/takeover"
-                },
-                {
-                    "label": "Wizard",
-                    "path": "/form/wizard"
-                },
-                {
-                    "label": "Sectioned",
-                    "path": "/form/sectioned"
-                },
-                {
-                    "label": "Conversational",
-                    "path": "/form/conversational"
-                }
-            ]
-        },
-        {
-            "label": "Data Report",
-            "path": "/data-report",
+            "label": "Data",
+            "path": "/data",
             "submenu": [
                 {
                     "label": "General",
-                    "path": "/data-report/:general"
+                    "path": "/data/general",
+                    "template": "template-data-report"
+                },
+                {
+                    "label": "Real-time",
+                    "path": "/data/real-time",
+                    "template": "template-data-report"
                 }
             ]
         },
@@ -75,29 +23,13 @@
             "submenu": [
                 {
                     "label": "User Management",
-                    "path": "/curd/user-management"
-                }
-            ]
-        },
-        {
-            "label": "RBAC",
-            "path": "/rbac",
-            "submenu": [
-                {
-                    "label": "Home",
-                    "path": "/rbac/home"
+                    "path": "/curd/user",
+                    "template": "template-curd"
                 },
                 {
-                    "label": "Users",
-                    "path": "/rbac/users"
-                },
-                {
-                    "label": "Roles",
-                    "path": "/rbac/roles"
-                },
-                {
-                    "label": "Permissions",
-                    "path": "/rbac/permissions"
+                    "label": "Post Management",
+                    "path": "/curd/post",
+                    "template": "template-curd"
                 }
             ]
         }

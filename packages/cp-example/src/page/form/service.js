@@ -17,7 +17,7 @@ const getEditableTablePageConfig = (params = {}) => {
 const getList = (params = {}) => {
   return {
     url: "/api/form/data",
-    method: "post",
+    method: "get",
     params
   };
 };
@@ -57,7 +57,7 @@ const getSenctionedFormData = (params = {}) => {
 const formSubmit = (params = {}) => {
   return {
     url: "/api/form/submit",
-    method: "post",
+    method: "get",
     params
   };
 };

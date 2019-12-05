@@ -26,7 +26,5 @@ export default {
    */
   homeName: "home",
 
-  defaultOpenNames: "/doc",
-
-  menuList: []
+  defaultOpenNames: "/doc"
 };

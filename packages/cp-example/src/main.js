@@ -1,7 +1,5 @@
 import Vue from "vue";
 import iView from "iview";
-import VueRouter from "vue-router";
-
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
@@ -12,7 +10,6 @@ import "data-vis-iview/src/style/index.less";
 import FormGenerator from "form-generator-iview";
 import DataVis from "data-vis-iview";
 
-Vue.use(VueRouter);
 Vue.use(iView);
 
 // 开启debug模式
