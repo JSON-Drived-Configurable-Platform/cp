@@ -9,7 +9,10 @@
                 :slot="column.slot"
                 slot-scope="{ row, index}"
             >
-                <Form :key="column.slot" :model="row">
+                <Form
+                    :key="column.slot"
+                    :model="JSON.parse(JSON.stringify(row))"
+                >
                     <Poptip
                         v-if="column.poptip"
                         :key="column.slot"
