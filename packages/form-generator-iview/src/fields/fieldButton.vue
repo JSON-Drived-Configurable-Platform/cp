@@ -58,7 +58,8 @@ export default {
                     break;
                 case 'event':
                     this.$emit('on-button-event', {
-                        name: this.field.action.name
+                        name: this.field.action.name,
+                        field: this.field
                     });
                     break;
             }

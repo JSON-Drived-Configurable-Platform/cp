@@ -27,6 +27,10 @@ const Tree = () => import(/* webpackChunkName: "Tag" */ '../page/doc/Tree');
 const TableSelect = () => import(/* webpackChunkName: "Tag" */ '../page/doc/TableSelect');
 const Carousel = () => import(/* webpackChunkName: "Carousel" */ '../page/doc/Carousel');
 const Submit = () => import(/* webpackChunkName: "Submit" */ '../page/doc/Submit');
+const Button = () => import(/* webpackChunkName: "Button" */ '../page/doc/Button');
+const Reset = () => import(/* webpackChunkName: "Button" */ '../page/doc/Reset');
+const Divider = () => import(/* webpackChunkName: "Button" */ '../page/doc/Divider');
+
 // examples
 const groupForm = () => import(/* webpackChunkName: "groupForm" */ '../page/examples/group-form');
 const CURDSimpleExample = () => import(/* webpackChunkName: "CURDExample" */ '../page/examples/CURD-example/simple');
@@ -162,6 +166,21 @@ export default [
                 path: '/doc/Submit',
                 name: 'doc-Submit',
                 component: Submit
+            },
+            {
+                path: '/doc/Button',
+                name: 'doc-Button',
+                component: Button
+            },
+            {
+                path: '/doc/Reset',
+                name: 'doc-Reset',
+                component: Reset
+            },
+            {
+                path: '/doc/Divider',
+                name: 'doc-Divider',
+                component: Divider
             },
             // examples
             {

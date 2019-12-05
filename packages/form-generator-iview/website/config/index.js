@@ -120,7 +120,19 @@ export default {
                 {
                     label: 'Submit',
                     name: '/doc/Submit'
-                }
+                },
+                {
+                    label: 'Reset',
+                    name: '/doc/Reset'
+                },
+                {
+                    label: 'Button',
+                    name: '/doc/Button'
+                },
+                {
+                    label: 'Divider',
+                    name: '/doc/Divider'
+                },
                 // {
                 //     label: 'ImgUpload',
                 //     name: '/doc/ImgUpload'
