@@ -5,6 +5,12 @@ export default {
             type: [Function, null],
             default: null
         },
+        paramsContainer: {
+            type: Object,
+            default() {
+                return {};
+            }
+        },
         apiBase: {
             type: String,
             default: ''
@@ -13,19 +19,28 @@ export default {
     computed: {
         params() {
             let formModel = this.form.model || {};
-            let apiParams = this.field.apiParams || [];
+            // put current formModel and outside param into paramsContainer
+            let paramsContainer = Object.assign({}, formModel, this.paramsContainer || {});
+            let apiParams = this.field.apiParams;
             let params = {};
-            apiParams.forEach(param => {
-                params[param] = formModel[param];
-            });
-            return params;
+            if (apiParams === 'all' || !apiParams) {
+                params = paramsContainer;
+            }
+            else {
+                if (Array.isArray(apiParams)) {
+                    apiParams.forEach(param => {
+                        params[param] = paramsContainer[param];
+                    });
+                }
+            }
+            return Object.assign({}, params);
         }
     },
     watch: {
         params: {
-            handler(val) {
+            handler() {
                 if (this.field.api || this.optionsApi) {
-                    this.getRemoteOptions(val);
+                    this.getRemoteOptions();
                 }
             },
             immediate: true,
@@ -33,17 +48,16 @@ export default {
         }
     },
     methods: {
+        /**
+         * request for options data
+         *
+         * @param {Object} newParams param not from form.model or paramsContainer. eg: in searchable fieldSelect, there is a search keyword need to be contained in params.
+         */
         getRemoteOptions(newParams) {
             this.loading = true;
             let apiBase = this.apiBase;
-            let formModel = this.form.model;
-            let apiParams = this.field.apiParams || [];
-            let params = {};
             let finalApi = apiBase + (this.field.api || this.optionsApi);
-            apiParams.forEach(param => {
-                params[param] = formModel[param];
-            });
-            let finalParams = Object.assign({}, params, newParams);
+            let finalParams = Object.assign({}, this.params, newParams);
             this.requestMethod(finalApi, finalParams).then(res => {
                 this.requestResolve(res);
             }, reject => {
