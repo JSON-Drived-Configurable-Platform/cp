@@ -39,6 +39,7 @@
                     :item-width="options.itemWidth"
                     :inline="options.inline"
                     :request-interceptor="requestInterceptor"
+                    :params-container="paramsContainer"
                     @on-field-change="handleFieldChange"
                     @on-submit="handleSubmit($event)"
                     @on-reset="handleReset"
@@ -154,6 +155,12 @@ export default {
         requestInterceptor: {
             type: [Function, null],
             default: null
+        },
+        paramsContainer: {
+            type: Object,
+            default() {
+                return {};
+            }
         },
         fields: {
             type: Array,
