@@ -65,10 +65,10 @@ export default {
             }
         },
         field: {
-            type: Object,
+            type: [Object, Array],
             required: true,
             default() {
-                return [];
+                return {};
             }
         },
         size: {
@@ -222,7 +222,7 @@ export default {
                     this.form.validate(
                         valid => {
                             if (valid) {
-                                this.$emit('on-submit');
+                                this.$emit('on-submit', this.form.model);
                                 // 如果有api则需要在此处理请求
                                 if (field.action && field.action.api) {
                                     component.loading = true;
@@ -272,6 +272,7 @@ export default {
                             resolve();
                             this.$emit('on-button-event', {
                                 name: 'ajaxSuccess',
+                                field
                             });
                         }
                         else {
