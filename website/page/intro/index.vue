@@ -122,7 +122,7 @@
                     <a href="https://iviewui.com/" target="_blank">iView官方文档</a>
                 </li>
                 <li>
-                    <a href="https://github.com/BingBlog/cp" target="_blank">A configurable platform frontend ui solution based on iView UI.</a>
+                    <a href="https://json-drived-configurable-platform.github.io/cp" target="_blank">A configurable platform frontend ui solution based on iView UI.</a>
                 </li>
                 <li>
                     <a href="https://github.com/baidu/amis" target="_blank">baidu出品的amis配置工具</a>

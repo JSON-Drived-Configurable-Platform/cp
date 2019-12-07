@@ -1,7 +1,7 @@
 <template>
     <div class="layout-container">
         <Layout>
-            <appHeader />
+            <appHeader :title="title" />
             <Layout class="layout-body ivu-layout-has-sider">
                 <appSlider
                     :menu-list="menuList"
@@ -36,18 +36,21 @@ export default {
     },
 
     computed: {
-        menuList() {
-            return this.$store.state.app.menuList || [];
+        title() {
+            return config.title || [];
         },
 
         openNames() {
             return config.defaultOpenNames || [];
         },
 
+        menuList() {
+            return this.$store.state.app.menuList || [];
+        },
+
         pagePath() {
             return this.$store.state.page.pagePath || '';
         },
-
     },
 
     methods: {

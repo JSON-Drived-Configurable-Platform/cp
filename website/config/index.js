@@ -14,7 +14,7 @@ export default {
     /**
      * @description 配置显示在浏览器标签的title
      */
-    title: 'form-generator-iview',
+    title: 'Form Generator IView',
 
     /**
      * @description api请求基础路径
