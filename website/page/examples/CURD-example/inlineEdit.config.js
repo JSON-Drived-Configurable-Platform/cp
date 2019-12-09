@@ -20,6 +20,35 @@ export const columns = [
         width: 150
     },
     {
+        title: '城市',
+        slot: 'city',
+        poptip: {
+            title: '编辑地址',
+            formFields: [
+                {
+                    type: 'Select',
+                    api: '/selectApi',
+                    model: 'city',
+                    inline: true,
+                    cache: true,
+                    width: 100
+                },
+                {
+                    type: 'Button',
+                    text: '保存',
+                    subtype: 'primary',
+                    size: 'small',
+                    action: {
+                        type: 'ajax',
+                        api: '/curdEdit'
+                    },
+                    apiParams: ['name', 'address', 'test'],
+                    inline: true
+                },
+            ]
+        }
+    },
+    {
         title: '地址',
         slot: 'address',
         poptip: {
@@ -164,6 +193,7 @@ export const data = [
         age: 18,
         gender: '男',
         birthday: '1999-2-21',
+        city: 'Beijing',
         address: '北京市朝阳区芍药居',
         status: '1'
     },
@@ -172,6 +202,7 @@ export const data = [
         age: 25,
         gender: '男',
         birthday: '1992-1-23',
+        city: 'Beijing',
         address: '北京市海淀区西二旗',
         status: '1'
     },
@@ -180,6 +211,7 @@ export const data = [
         age: 30,
         gender: '女',
         birthday: '1987-11-10',
+        city: 'Beijing',
         address: '上海市浦东新区世纪大道',
         status: '2'
     },
@@ -188,6 +220,43 @@ export const data = [
         age: 26,
         gender: '男',
         birthday: '1991-10-10',
+        city: 'Beijing',
+        address: '深圳市南山区深南大道',
+        status: '1'
+    },
+    {
+        name: '王小明',
+        age: 18,
+        gender: '男',
+        birthday: '1999-2-21',
+        city: 'Beijing',
+        address: '北京市朝阳区芍药居',
+        status: '1'
+    },
+    {
+        name: '张小刚',
+        age: 25,
+        gender: '男',
+        birthday: '1992-1-23',
+        city: 'Beijing',
+        address: '北京市海淀区西二旗',
+        status: '1'
+    },
+    {
+        name: '李小红',
+        age: 30,
+        gender: '女',
+        birthday: '1987-11-10',
+        city: 'Beijing',
+        address: '上海市浦东新区世纪大道',
+        status: '2'
+    },
+    {
+        name: '周小伟',
+        age: 26,
+        gender: '男',
+        birthday: '1991-10-10',
+        city: 'Beijing',
         address: '深圳市南山区深南大道',
         status: '1'
     }

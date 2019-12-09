@@ -1,4 +1,5 @@
 import axios from '../utils/http';
+let cachedRequestInterceptor = {};
 export default {
     props: {
         requestInterceptor: {
@@ -58,7 +59,7 @@ export default {
             let apiBase = this.apiBase;
             let finalApi = apiBase + (this.field.api || this.optionsApi);
             let finalParams = Object.assign({}, this.params, newParams);
-            this.requestMethod(finalApi, finalParams).then(res => {
+            this.requestMethod(finalApi, finalParams, this.field.cache).then(res => {
                 this.requestResolve(res);
             }, reject => {
                 this.requestReject(reject);
@@ -74,18 +75,30 @@ export default {
             // eslint-disable-next-line no-console
             console.log(reject);
         },
-        requestMethod(url, finalParams) {
+        requestMethod(url, finalParams, cache = false) {
+            let requestInterceptor = null;
+            if (!cachedRequestInterceptor) {
+                cachedRequestInterceptor = {};
+            }
+            if (cachedRequestInterceptor[url]) {
+                return cachedRequestInterceptor[url];
+            }
             if (this.requestInterceptor) {
-                return this.requestInterceptor(url, finalParams);
+                requestInterceptor = this.requestInterceptor(url, finalParams);
             }
             else if (this.FormGeneratorInstallOptions && this.FormGeneratorInstallOptions.requestInterceptor) {
-                return this.FormGeneratorInstallOptions.requestInterceptor(url, finalParams);
+                requestInterceptor = this.FormGeneratorInstallOptions.requestInterceptor(url, finalParams);
             }
-            return axios.request({
+            requestInterceptor = axios.request({
                 url,
                 method: 'get',
                 params: finalParams
             });
+
+            if (cache) {
+                cachedRequestInterceptor[url] = requestInterceptor;
+            }
+            return requestInterceptor;
         },
     },
 };

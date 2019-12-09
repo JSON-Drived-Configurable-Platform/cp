@@ -99,6 +99,9 @@ export default {
 </script>
 <style lang="less">
     .curd-example-demo {
+        .ivu-poptip-body-content {
+            overflow: visible;
+        }
         &-header {
             margin-bottom: 10px;
             text-align: right;
