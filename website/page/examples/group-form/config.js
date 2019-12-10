@@ -70,7 +70,7 @@ export const fields = [
         model: 'singleSelectApi',
         required: true,
         api: '/selectApi',
-        apiParams: ['radio'],
+        apiParams: ['radio', 'paramsContainerTest'],
         //defaultHide: true
     },
     {
@@ -96,7 +96,7 @@ export const fields = [
         multiple: true,
         label: '多选下拉支持搜索',
         api: '/selectApi',
-        apiParams: ['radio'],
+        apiParams: 'all',
         model: 'multiSelectApi',
         //defaultHide: true
     },
@@ -488,7 +488,6 @@ export const fields = [
         model: 'cascaderApi',
         required: true,
         api: '/cascaderApi',
-        apiParams: ['radio'],
         //defaultHide: true,
         options: [{
             value: 'beijing',
@@ -825,7 +824,7 @@ export const model = {
     multiSelect: [],
     multiSelectApi: [],
     checkbox: [],
-    radio: '',
+    radio: '1',
     date: '',
     daterange: [],
     datetime: '',

@@ -25,7 +25,21 @@
                         </tr>
                         <tr>
                             <td>options</td>
-                            <td>选项列表,如[{header: '',type: '',url: '',footer: '', showCheckBox: true, disabled: false}]</td>
+                            <td>选项列表,如
+                                <pre>
+                                    [
+                                        {
+                                            header: '',
+                                            type: '',
+                                            url: '',
+                                            footer: '',
+                                            showCheckBox: true,
+                                            disabled: false
+                                        }
+                                    ]
+                                </pre>
+
+                            </td>
                             <td>Array(option) | String</td>
                             <td>-</td>
                         </tr>
@@ -39,13 +53,33 @@
                             <td>api</td>
                             <td>获取选项的接口</td>
                             <td>String</td>
-                            <td>''，api的返回值格式为{status: 0, data: [{"id": "","url": "","footer": "","header": ""}]}</td>
+                            <td>''，api的返回值格式为:
+                                <pre>
+                                    {
+                                        status: 0,
+                                        data: [
+                                            {
+                                                "id": "",
+                                                "url": "",
+                                                "footer": "",
+                                                "header": ""
+                                            }
+                                        ]
+                                    }
+                                </pre>
+                            </td>
                         </tr>
                         <tr>
                             <td>checkAll</td>
                             <td>是否展示全选</td>
                             <td>Boolean	</td>
                             <td>false</td>
+                        </tr>
+                        <tr>
+                            <td>showCheckBox</td>
+                            <td>是否展示卡片checkbox</td>
+                            <td>Boolean</td>
+                            <td>true</td>
                         </tr>
                         <tr>
                             <td>cardWidth</td>
@@ -113,12 +147,6 @@
                             <td>尾部信息</td>
                             <td>String</td>
                             <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>options.showCheckBox</td>
-                            <td>是否展示checkbox</td>
-                            <td>Boolean</td>
-                            <td>true</td>
                         </tr>
                         <tr>
                             <td>options.disabled</td>
@@ -199,7 +227,7 @@
                     </Form>
                 </div>
                 <div slot="desc">
-                    <p>通过设置<code>field.options</code>可以是接口地址,headerEditable | footerEditable 为true则可编辑头部尾部文本</p>
+                    <p>通过设置<code>field.options</code>可以是接口地址</p>
                 </div>
                 <i-code slot="code" lang="html">{{ code.api.code }}</i-code>
             </Demo>
@@ -239,9 +267,9 @@ export default {
         }
     },
     methods: {
-        handleClick(value) {
+        handleClick() {
             // eslint-disable-next-line no-console
-            // console.log(value);
+            // console.log();
         }
     }
 };

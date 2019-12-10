@@ -4,16 +4,13 @@ let simple = {};
 const field = {
     type: 'CheckboxCard',
     model: 'card',
-    "checkAll": false,
+    "showCheckBox": false,
     "cardWidth": "220px",
-    "cardHeight": "220px",
+    "cardHeight": "150px",
     "options": [
         {
-            "type": "image",
             "id": "11",
-            "url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574076041&di=dba60f4ce2b9330e330f13546ce963a0&imgtype=jpg&er=1&src=http%3A%2F%2Fwww.ijointoo.com%2Fdata%2Fnews%2Fimages%2F1521193045383.jpg",
-            "footer": "文案：这是北京鸟巢",
-            "header": "美丽北京"
+            "url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574076041&di=dba60f4ce2b9330e330f13546ce963a0&imgtype=jpg&er=1&src=http%3A%2F%2Fwww.ijointoo.com%2Fdata%2Fnews%2Fimages%2F1521193045383.jpg"
         }
     ]
 };
@@ -124,7 +121,6 @@ const pageField = {
     "footerEditable": true,
     "cardWidth": "220px",
     "cardHeight": "245px",
-    "optionsType": "image",
     "options": [
         {
             "id": "44",
@@ -206,7 +202,6 @@ const apiField = {
     "footerEditable": true,
     "cardWidth": "220px",
     "cardHeight": "245px",
-    "optionsType": "image",
     "options": "/checkboxCardApi"
 };
 

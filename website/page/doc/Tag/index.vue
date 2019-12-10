@@ -32,18 +32,21 @@
                         </tr>
                         <tr>
                             <td>options</td>
-                            <td>标签类型，如[
-                                {
-                                name: '正常',
-                                value: '1',
-                                color: 'primary'
-                                },
-                                {
-                                name: '黑用户',
-                                value: '2',
-                                color: 'error'
-                                }
-                                ]
+                            <td>标签类型的配置集合，如:
+                                <pre>
+[
+    {
+        name: '正常',
+        value: '1',
+        color: 'primary'
+    },
+    {
+        name: '黑用户',
+        value: '2',
+        color: 'error'
+    }
+]
+                                </pre>
                             </td>
                             <td>Array(<a href="#TagOptions">TagOptions</a>)</td>
                             <td>[]<br></td>

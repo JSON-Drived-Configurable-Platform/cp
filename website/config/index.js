@@ -14,7 +14,7 @@ export default {
     /**
      * @description 配置显示在浏览器标签的title
      */
-    title: 'form-generator-iview',
+    title: 'Form Generator IView',
 
     /**
      * @description api请求基础路径
@@ -26,7 +26,7 @@ export default {
      */
     homeName: 'home',
 
-    defaultOpenNames: '/doc',
+    defaultOpenNames: ['/doc', '/examples'],
 
     menuList: [
         // {
@@ -116,7 +116,23 @@ export default {
                 {
                     label: 'Carousel',
                     name: '/doc/Carousel'
-                }
+                },
+                {
+                    label: 'Submit',
+                    name: '/doc/Submit'
+                },
+                {
+                    label: 'Reset',
+                    name: '/doc/Reset'
+                },
+                {
+                    label: 'Button',
+                    name: '/doc/Button'
+                },
+                {
+                    label: 'Divider',
+                    name: '/doc/Divider'
+                },
                 // {
                 //     label: 'ImgUpload',
                 //     name: '/doc/ImgUpload'
@@ -132,8 +148,12 @@ export default {
                     name: '/group-form'
                 },
                 {
-                    label: 'CURD Example',
-                    name: '/CURD-example'
+                    label: 'CURD Simple',
+                    name: '/CURD-example/simple'
+                },
+                {
+                    label: 'CURD Inlint Edit',
+                    name: '/CURD-example/inline-edit'
                 },
                 {
                     label: 'Editable-Table',

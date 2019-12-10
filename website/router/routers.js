@@ -5,7 +5,7 @@
 
 import Main from '../components/main';
 
-// const home = () => import(/* webpackChunkName: "home" */ '../page/home');
+const home = () => import(/* webpackChunkName: "home" */ '../page/home');
 const intro = () => import(/* webpackChunkName: "start" */ '../page/intro');
 const practice = () => import(/* webpackChunkName: "practice" */ '../page/practice');
 const FormGenerator = () => import(/* webpackChunkName: "FormGenerator" */ '../page/doc/FormGenerator');
@@ -26,9 +26,15 @@ const Tag = () => import(/* webpackChunkName: "Tag" */ '../page/doc/Tag');
 const Tree = () => import(/* webpackChunkName: "Tag" */ '../page/doc/Tree');
 const TableSelect = () => import(/* webpackChunkName: "Tag" */ '../page/doc/TableSelect');
 const Carousel = () => import(/* webpackChunkName: "Carousel" */ '../page/doc/Carousel');
+const Submit = () => import(/* webpackChunkName: "Submit" */ '../page/doc/Submit');
+const Button = () => import(/* webpackChunkName: "Button" */ '../page/doc/Button');
+const Reset = () => import(/* webpackChunkName: "Button" */ '../page/doc/Reset');
+const Divider = () => import(/* webpackChunkName: "Button" */ '../page/doc/Divider');
+
 // examples
 const groupForm = () => import(/* webpackChunkName: "groupForm" */ '../page/examples/group-form');
-const CURDExample = () => import(/* webpackChunkName: "CURDExample" */ '../page/examples/CURD-example');
+const CURDSimpleExample = () => import(/* webpackChunkName: "CURDExample" */ '../page/examples/CURD-example/simple');
+const CURDSimpleExampleInlineEdit = () => import(/* webpackChunkName: "CURDExample" */ '../page/examples/CURD-example/inline-edit');
 const inlineTable = () => import(/* webpackChunkName: "inlineTable" */ '../page/examples/inline-table');
 const editableTable = () => import(/* webpackChunkName: "editableTable" */ '../page/examples/editable-table');
 const searchableChart = () => import(/* webpackChunkName: "searchableChart" */ '../page/examples/searchable-chart');
@@ -37,15 +43,19 @@ const twoRelatedForm = () => import(/* webpackChunkName: "twoRelatedForm" */ '..
 export default [
     {
         path: '/',
+        redirect: '/home',
+    },
+    {
+        path: '/home',
         name: 'home',
-        redirect: '/intro',
+        component: home
+    },
+    {
+
+        path: '/doc',
+        redirect: '/doc/FormGenerator',
         component: Main,
         children: [
-            // {
-            //     path: '/home',
-            //     name: 'home',
-            //     component: home
-            // },
             {
                 path: '/intro',
                 name: 'intro',
@@ -55,11 +65,6 @@ export default [
                 path: '/practice',
                 name: 'practice',
                 component: practice
-            },
-            {
-                path: '/doc',
-                redirect: '/doc/FormGenerator',
-                name: 'doc',
             },
             {
                 path: '/doc/FormGenerator',
@@ -157,14 +162,44 @@ export default [
                 component: Carousel
             },
             {
+                path: '/doc/Submit',
+                name: 'doc-Submit',
+                component: Submit
+            },
+            {
+                path: '/doc/Button',
+                name: 'doc-Button',
+                component: Button
+            },
+            {
+                path: '/doc/Reset',
+                name: 'doc-Reset',
+                component: Reset
+            },
+            {
+                path: '/doc/Divider',
+                name: 'doc-Divider',
+                component: Divider
+            },
+            // examples
+            {
                 path: '/group-form',
                 name: 'group-form',
                 component: groupForm
             },
             {
                 path: '/CURD-example',
-                name: 'CURD-example',
-                component: CURDExample
+                redirect: '/CURD-example/simple',
+            },
+            {
+                path: '/CURD-example/simple',
+                name: 'CURD-example-simple',
+                component: CURDSimpleExample
+            },
+            {
+                path: '/CURD-example/inline-edit',
+                name: 'CURD-example-simple-inline-edit',
+                component: CURDSimpleExampleInlineEdit
             },
             {
                 path: '/inline-table',

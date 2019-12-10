@@ -3,15 +3,16 @@
         <Tag
             v-for="item in computedFields"
             :key="item.name"
+            border
             :color="item.color"
-            :type="item.subtype"
+            :type="item.subtype || 'border'"
             :fade="item.fade"
         >{{ item.name }}</Tag>
     </div>
     <Tag
         v-else
         :color="color"
-        :type="field.subtype"
+        :type="field.subtype || 'border'"
         :fade="field.fade"
         :class="classes"
     >{{ name }}</Tag>

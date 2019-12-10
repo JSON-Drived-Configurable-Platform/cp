@@ -39,8 +39,9 @@
                     :item-width="options.itemWidth"
                     :inline="options.inline"
                     :request-interceptor="requestInterceptor"
+                    :params-container="paramsContainer"
                     @on-field-change="handleFieldChange"
-                    @on-submit="handleSubmit"
+                    @on-submit="handleSubmit($event)"
                     @on-reset="handleReset"
                     @on-button-event="handleButtonEvent($event)"
                     @on-checkboxCard-click="handelCheckboxCardClick"
@@ -155,6 +156,12 @@ export default {
         requestInterceptor: {
             type: [Function, null],
             default: null
+        },
+        paramsContainer: {
+            type: Object,
+            default() {
+                return {};
+            }
         },
         fields: {
             type: Array,
@@ -299,42 +306,34 @@ export default {
         },
 
         handleSubmit() {
-            // this.submit().then(model => {
-            //     // eslint-disable-next-line no-console
-            //     console.log('model', model);
-            // }).catch(err => {
-            //     // eslint-disable-next-line no-console
-            //     console.log('err', err);
-            // });
             this.$emit('on-submit');
+        },
+
+        handleReset() {
+            // TODO still has problem
+            this.reset();
         },
 
         submit() {
             return new Promise((resolve, reject) => {
                 try {
-                    this.$refs.form.validate().then(valid => {
-                        if (valid) {
-                            resolve(this.form.model);
+                    this.form.validate(
+                        valid => {
+                            if (valid) {
+                                resolve(this.form.model);
+                            }
+                            else {
+                                reject(valid);
+                            }
                         }
-                        else {
-                            reject(valid);
-                        }
-                    }).catch(err => {
-                        reject(err);
-                    });
+                    );
                 }
                 catch(err) {
                     // eslint-disable-next-line no-console
                     console.log(err);
                     reject(err);
                 }
-
             });
-        },
-
-        handleReset() {
-            // TODO still has problem
-            this.reset();
         },
 
         reset() {

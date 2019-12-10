@@ -34,7 +34,6 @@
                 >
                     {{ menu.label }}
                 </MenuItem>
-
             </template>
         </Menu>
     </Sider>

@@ -22,7 +22,7 @@
                 >
                     <div :class="checkboxCardClasses" @click.stop="handleCheckboxClick($event)">
                         <Checkbox
-                            v-if="item.showCheckBox !== false"
+                            v-if="field.showCheckBox !== false"
                             :disabled="item.disabled || false"
                             :value="selectedIds[item.id]"
                             @on-change="handleChange($event, item)"
@@ -118,10 +118,8 @@ export default {
     data() {
         return {
             options: [],
-            // 页码
-            pageNum: 1,
-            // 存放选择的数据
-            selectedData: []
+            pageNum: 1, // 页码
+            selectedData: [] // 存放选择的数据
         };
     },
     computed: {
@@ -164,6 +162,7 @@ export default {
         optionsType() {
             return this.field.optionsType || 'image';
         },
+        // 选择的ids
         selectedIds() {
             const selectedIds = {};
             this.selectedData.forEach(item => {
@@ -206,9 +205,20 @@ export default {
         },
         optionsApi() {
             return !Array.isArray(this.field.options) ? this.field.options : '';
+        },
+        value() {
+            return this.form.model[this.field.model] || [];
         }
     },
-    mounted() {
+    watch: {
+        value: {
+            handler() {
+                if (this.form.model[this.field.model].length === 0) {
+                    this.selectedData = [];
+                }
+            },
+            deep: true
+        }
     },
     methods: {
         remoteMethod() {
@@ -217,9 +227,8 @@ export default {
             }
             this.getRemoteOptions();
         },
-        handleCheckboxClick(e) {
-            // eslint-disable-next-line no-console
-            console.log(e);
+        // 阻止事件冒泡
+        handleCheckboxClick() {
         },
         // 点击整个卡片触发事件
         handleClick(value) {
@@ -247,7 +256,7 @@ export default {
                     }
                 }
             });
-            this.$set(this.form.model, this.field.model, this.selectedData);
+            this.$set(this.form.model, this.field.model, this.field.model, this.selectedData);
         },
         // 添加数据
         addItem(item) {

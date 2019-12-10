@@ -24,8 +24,10 @@ const requestInterceptor = function(url, params) {
         if (process.env.NODE_ENV === 'production') {
             url = `website-data-api/${url}.json`;
         }
-        axios.get(url, {
-            query: params
+        axios.request({
+            url,
+            method: 'get',
+            params
         }).then(res => {
             resolve(res.data);
         }).catch(error => {
