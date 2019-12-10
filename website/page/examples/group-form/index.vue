@@ -7,7 +7,6 @@
                     :fields="fields"
                     :model="model"
                     :options="options"
-                    :request-interceptor="requestInterceptor"
                     :params-container="paramsContainer"
                 />
             </div>
@@ -17,7 +16,6 @@
 
 <script>
 import {config, model, fields, options} from './config';
-import axios from 'axios';
 export default {
     data() {
         return {
@@ -29,22 +27,6 @@ export default {
             options,
             paramsContainer: {
                 paramsContainerTest: 'xxx'
-            },
-            // requestInterceptor: null
-            requestInterceptor: function(url, params) {
-                return new Promise((resolve, reject) => {
-                    // eslint-disable-next-line no-undef
-                    if (process.env.NODE_ENV === 'production') {
-                        url = `website-data-api/${url}.json`;
-                    }
-                    axios.get(url, {
-                        params
-                    }).then(res => {
-                        resolve(res.data);
-                    }).catch(error => {
-                        reject(error);
-                    });
-                });
             }
         };
     },

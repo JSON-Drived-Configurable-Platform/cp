@@ -76,28 +76,38 @@ export default {
             // eslint-disable-next-line no-console
             console.log(reject);
         },
+        /**
+         *
+         * @param {String} url request url
+         * @param {Object} finalParams params for the request
+         * @param {Boolean} cache If cache is true, the same request by url and will be cached, and use only one request
+         */
         requestMethod(url, finalParams, cache = false) {
+            const cacheKey = `${url}${JSON.stringify(finalParams)}`;
             let requestInterceptor = null;
             if (!cachedRequestInterceptor) {
                 cachedRequestInterceptor = {};
             }
-            if (cachedRequestInterceptor[url]) {
-                return cachedRequestInterceptor[url];
+            if (cachedRequestInterceptor[cacheKey]) {
+                return cachedRequestInterceptor[cacheKey];
             }
+
             if (this.requestInterceptor) {
                 requestInterceptor = this.requestInterceptor(url, finalParams);
             }
             else if (this.FormGeneratorInstallOptions && this.FormGeneratorInstallOptions.requestInterceptor) {
                 requestInterceptor = this.FormGeneratorInstallOptions.requestInterceptor(url, finalParams);
             }
-            requestInterceptor = axios.request({
-                url,
-                method: 'get',
-                params: finalParams
-            });
+            else {
+                requestInterceptor = axios.request({
+                    url,
+                    method: 'get',
+                    params: finalParams
+                });
+            }
 
             if (cache) {
-                cachedRequestInterceptor[url] = requestInterceptor;
+                cachedRequestInterceptor[cacheKey] = requestInterceptor;
             }
             return requestInterceptor;
         },
