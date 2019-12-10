@@ -24,7 +24,8 @@ export default {
             let paramsContainer = Object.assign({}, formModel, this.paramsContainer || {});
             let apiParams = this.field.apiParams;
             let params = {};
-            if (apiParams === 'all' || !apiParams) {
+            // If set apiParams with 'all', then the params contain all the properties in paramsContainer
+            if (apiParams === 'all') {
                 params = paramsContainer;
             }
             else {
