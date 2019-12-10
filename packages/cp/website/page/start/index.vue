@@ -41,7 +41,7 @@
                         </tr>
                         <tr>
                             <td>linter / formatter</td>
-                            <td>ESLint + Prettier</td>
+                            <td>ESLint with error prevention only</td>
                             <td>可自主选择</td>
                         </tr>
                         <tr>
@@ -68,6 +68,7 @@
             />
             <p>到项目的目录中执行:</p>
             <i-code>vue add cp</i-code>
+            <alert>如果需要使用百度编码规范，请安装vue add cp-baidu</alert>
             <alert>绿色的为新增文件或者文件夹，黄色的表示有变更，可以通过编辑器查看详细的变更。</alert>
             <p>安装完毕后，执行：</p>
             <i-code>yarn serve</i-code>
