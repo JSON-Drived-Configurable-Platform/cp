@@ -2,7 +2,7 @@ export const columns = [
     {
         title: '姓名',
         key: 'name',
-        width: 150
+        width: 100
     },
     {
         title: '年龄',
@@ -20,15 +20,26 @@ export const columns = [
         width: 150
     },
     {
-        title: '城市',
-        slot: 'city',
+        title: '省',
+        slot: 'province',
+        width: 230,
         poptip: {
             title: '编辑地址',
+            displayField: {
+                type: 'Select',
+                api: '/selectApi',
+                model: 'province',
+                inline: true,
+                cache: true,
+                disabled: true,
+                width: 100,
+                size: 'small'
+            },
             formFields: [
                 {
                     type: 'Select',
                     api: '/selectApi',
-                    model: 'city',
+                    model: 'province',
                     inline: true,
                     cache: true,
                     width: 100
@@ -42,15 +53,43 @@ export const columns = [
                         type: 'ajax',
                         api: '/curdEdit'
                     },
-                    apiParams: ['name', 'address', 'test'],
+                    apiParams: ['name', 'province'],
                     inline: true
                 },
             ]
         }
     },
     {
+        title: '城市',
+        slot: 'city',
+        width: 230,
+        formFields: [
+            {
+                type: 'Select',
+                api: '/selectApi',
+                model: 'city',
+                inline: true,
+                cache: true,
+                width: 100
+            },
+            {
+                type: 'Button',
+                text: '保存',
+                subtype: 'primary',
+                size: 'small',
+                action: {
+                    type: 'ajax',
+                    api: '/curdEdit'
+                },
+                apiParams: ['name', 'province', 'city'],
+                inline: true
+            },
+        ]
+    },
+    {
         title: '地址',
         slot: 'address',
+        width: 200,
         poptip: {
             title: '编辑地址',
             formFields: [
@@ -195,6 +234,7 @@ export const data = [
         age: 18,
         gender: '男',
         birthday: '1999-2-21',
+        province: 'Beijing',
         city: 'Beijing',
         address: '北京市朝阳区芍药居',
         status: '1'
@@ -204,6 +244,7 @@ export const data = [
         age: 25,
         gender: '男',
         birthday: '1992-1-23',
+        province: 'Beijing',
         city: 'Beijing',
         address: '北京市海淀区西二旗',
         status: '1'
@@ -213,6 +254,7 @@ export const data = [
         age: 30,
         gender: '女',
         birthday: '1987-11-10',
+        province: 'Beijing',
         city: 'Beijing',
         address: '上海市浦东新区世纪大道',
         status: '2'
@@ -222,6 +264,7 @@ export const data = [
         age: 26,
         gender: '男',
         birthday: '1991-10-10',
+        province: 'Beijing',
         city: 'Beijing',
         address: '深圳市南山区深南大道',
         status: '1'
@@ -231,6 +274,7 @@ export const data = [
         age: 18,
         gender: '男',
         birthday: '1999-2-21',
+        province: 'Beijing',
         city: 'Beijing',
         address: '北京市朝阳区芍药居',
         status: '1'
@@ -240,6 +284,7 @@ export const data = [
         age: 25,
         gender: '男',
         birthday: '1992-1-23',
+        province: 'Beijing',
         city: 'Beijing',
         address: '北京市海淀区西二旗',
         status: '1'
@@ -249,6 +294,7 @@ export const data = [
         age: 30,
         gender: '女',
         birthday: '1987-11-10',
+        province: 'Beijing',
         city: 'Beijing',
         address: '上海市浦东新区世纪大道',
         status: '2'
@@ -258,6 +304,7 @@ export const data = [
         age: 26,
         gender: '男',
         birthday: '1991-10-10',
+        province: 'Beijing',
         city: 'Beijing',
         address: '深圳市南山区深南大道',
         status: '1'

@@ -18,7 +18,15 @@
                         :key="column.slot"
                         placement="left-start"
                     >
-                        <span>{{ row[column.slot] }}</span>
+                        <template v-if="column.poptip.displayField">
+                            <FieldGenerator
+                                :params-container="paramsContainer"
+                                :field="column.poptip.displayField"
+                            />
+                        </template>
+                        <template v-else>
+                            <span>{{ row[column.slot] }}</span>
+                        </template>
                         <Icon type="ios-create-outline" size="20" />
                         <div slot="content">
                             <FieldGenerator
@@ -100,6 +108,11 @@ export default {
 </script>
 <style lang="less">
     .curd-example-demo {
+        .ivu-poptip-rel {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
         .ivu-poptip-body-content {
             overflow: visible;
         }
