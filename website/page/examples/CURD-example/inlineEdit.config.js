@@ -63,7 +63,9 @@ export const columns = [
                             type: 'string',
                             required: true,
                         }
-                    ]
+                    ],
+                    width: 250,
+                    inline: true
                 },
                 {
                     type: 'Button',
