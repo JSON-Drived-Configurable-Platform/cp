@@ -44,6 +44,7 @@
             v-model="editDialogOpeon"
             title="编辑"
             footer-hide
+            width="900"
         >
             <FormGenerator
                 ref="FormGenerator"

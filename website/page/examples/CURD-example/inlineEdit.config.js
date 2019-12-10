@@ -326,7 +326,21 @@ export const editFormFields = [
         required: true
     },
     {
-        type: 'Button',
+        type: 'CheckboxCard',
+        model: 'card',
+        checkAll: true,
+        pageLation: true, // 是否分页
+        pageSize: 3, // 分页数目
+        'headerEditable': true,
+        'footerEditable': true,
+        'cardWidth': '220px',
+        'cardHeight': '245px',
+        'optionsType': 'image',
+        'options': '/checkboxCardApi',
+        required: true
+    },
+    {
+        type: 'Submit',
         text: '保存',
         subtype: 'primary',
         size: 'small',

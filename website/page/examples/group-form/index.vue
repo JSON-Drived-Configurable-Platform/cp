@@ -80,6 +80,6 @@ export default {
 <style lang="less" scoped>
     .container {
         margin: 10px 40px;
-        width: 70%;
+        width: 90%;
     }
 </style>
