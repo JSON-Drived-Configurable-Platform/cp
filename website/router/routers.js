@@ -39,6 +39,7 @@ const inlineTable = () => import(/* webpackChunkName: "inlineTable" */ '../page/
 const editableTable = () => import(/* webpackChunkName: "editableTable" */ '../page/examples/editable-table');
 const searchableChart = () => import(/* webpackChunkName: "searchableChart" */ '../page/examples/searchable-chart');
 const twoRelatedForm = () => import(/* webpackChunkName: "twoRelatedForm" */ '../page/examples/two-related-form');
+const auditExample = () => import(/* webpackChunkName: "auditExample" */ '../page/examples/audit/detail');
 
 export default [
     {
@@ -200,6 +201,11 @@ export default [
                 path: '/CURD-example/inline-edit',
                 name: 'CURD-example-simple-inline-edit',
                 component: CURDSimpleExampleInlineEdit
+            },
+            {
+                path: '/audit-example/detail',
+                name: 'audit-example-detail',
+                component: auditExample
             },
             {
                 path: '/inline-table',

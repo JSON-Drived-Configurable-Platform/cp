@@ -150,7 +150,10 @@ export default {
     },
     methods: {
         handleFieldChange(model, value) {
-            this.$emit('on-field-change', model, value);
+            this.$emit('on-field-change', {
+                model,
+                value
+            });
         },
         handleSubmitClick(component) {
             this.submit(component).then(() => {
@@ -295,7 +298,8 @@ export default {
             // put current formModel and outside param into paramsContainer
             let paramsContainer = Object.assign({}, formModel, this.paramsContainer || {});
             let params = {};
-            if (apiParams === 'all' || !apiParams) {
+            // If set apiParams with 'all', then the params contain all the properties in paramsContainer
+            if (apiParams === 'all') {
                 params = paramsContainer;
             }
             else {

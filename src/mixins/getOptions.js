@@ -1,4 +1,5 @@
 import axios from '../utils/http';
+let cachedRequestInterceptor = {};
 export default {
     props: {
         requestInterceptor: {
@@ -23,7 +24,8 @@ export default {
             let paramsContainer = Object.assign({}, formModel, this.paramsContainer || {});
             let apiParams = this.field.apiParams;
             let params = {};
-            if (apiParams === 'all' || !apiParams) {
+            // If set apiParams with 'all', then the params contain all the properties in paramsContainer
+            if (apiParams === 'all') {
                 params = paramsContainer;
             }
             else {
@@ -58,7 +60,7 @@ export default {
             let apiBase = this.apiBase;
             let finalApi = apiBase + (this.field.api || this.optionsApi);
             let finalParams = Object.assign({}, this.params, newParams);
-            this.requestMethod(finalApi, finalParams).then(res => {
+            this.requestMethod(finalApi, finalParams, this.field.cache).then(res => {
                 this.requestResolve(res);
             }, reject => {
                 this.requestReject(reject);
@@ -74,18 +76,40 @@ export default {
             // eslint-disable-next-line no-console
             console.log(reject);
         },
-        requestMethod(url, finalParams) {
+        /**
+         *
+         * @param {String} url request url
+         * @param {Object} finalParams params for the request
+         * @param {Boolean} cache If cache is true, the same request by url and will be cached, and use only one request
+         */
+        requestMethod(url, finalParams, cache = false) {
+            const cacheKey = `${url}${JSON.stringify(finalParams)}`;
+            let requestInterceptor = null;
+            if (!cachedRequestInterceptor) {
+                cachedRequestInterceptor = {};
+            }
+            if (cachedRequestInterceptor[cacheKey]) {
+                return cachedRequestInterceptor[cacheKey];
+            }
+
             if (this.requestInterceptor) {
-                return this.requestInterceptor(url, finalParams);
+                requestInterceptor = this.requestInterceptor(url, finalParams);
             }
             else if (this.FormGeneratorInstallOptions && this.FormGeneratorInstallOptions.requestInterceptor) {
-                return this.FormGeneratorInstallOptions.requestInterceptor(url, finalParams);
+                requestInterceptor = this.FormGeneratorInstallOptions.requestInterceptor(url, finalParams);
             }
-            return axios.request({
-                url,
-                method: 'get',
-                params: finalParams
-            });
+            else {
+                requestInterceptor = axios.request({
+                    url,
+                    method: 'get',
+                    params: finalParams
+                });
+            }
+
+            if (cache) {
+                cachedRequestInterceptor[cacheKey] = requestInterceptor;
+            }
+            return requestInterceptor;
         },
     },
 };
