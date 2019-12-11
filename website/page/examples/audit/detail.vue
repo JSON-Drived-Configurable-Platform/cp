@@ -20,7 +20,17 @@
                     :ref="column.slot"
                     slot-scope="{ row, index }"
                 >
+                    <template v-if="column.img">
+                        <img
+                            :key="column.slot"
+                            class="audit-detail-example-demo-table-td-img"
+                            :src="row[column.slot]"
+                            alt=""
+                            @click="handleImgClick(row[column.slot])"
+                        >
+                    </template>
                     <Form
+                        v-if="column.formFields"
                         :key="column.slot"
                         :ref="row.key"
                         :model="row"
@@ -31,6 +41,7 @@
                             :field="field"
                             @on-field-change="handleFieldChange($event, row)"
                             @on-button-event="handleButtonEvent($event, row, index)"
+                            @on-checkboxCard-click="handleCheckboxCardClick"
                         />
                     </Form>
                 </template>
@@ -39,6 +50,13 @@
         <div class="audit-detail-example-footer-actions">
             <Button type="primary" @click="handleSave">提交保存</Button>
         </div>
+        <Modal v-model="modalOpen" :width="800">
+            <img
+                class="audit-detail-example-demo-modal-img"
+                :src="modalImgUrl"
+                alt=""
+            >
+        </Modal>
     </div>
 </template>
 <script>
@@ -48,7 +66,9 @@ export default {
     data() {
         return {
             pageConfig,
-            formModel: {}
+            formModel: {},
+            modalOpen: false,
+            modalImgUrl: ''
         };
     },
     methods: {
@@ -87,12 +107,30 @@ export default {
                     console.log(err);
                 });
             });
+        },
+
+        handleImgClick(imgUrl) {
+            this.modalOpen = true;
+            this.modalImgUrl = imgUrl;
+        },
+
+        handleCheckboxCardClick({ url }) {
+            this.modalOpen = true;
+            this.modalImgUrl = url;
         }
     }
 };
 </script>
 <style lang="less">
     .audit-detail-example-demo {
+        &-table {
+            &-td-img {
+                width: 100%;
+            }
+        }
+        &-modal-img {
+            width: 100%;
+        }
         &-section {
             margin: 30px auto;
         }
