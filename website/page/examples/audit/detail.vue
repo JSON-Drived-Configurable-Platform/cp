@@ -41,6 +41,7 @@
                             :field="field"
                             @on-field-change="handleFieldChange($event, row)"
                             @on-button-event="handleButtonEvent($event, row, index)"
+                            @on-checkboxCard-click="handleCheckboxCardClick"
                         />
                     </Form>
                 </template>
@@ -111,6 +112,11 @@ export default {
         handleImgClick(imgUrl) {
             this.modalOpen = true;
             this.modalImgUrl = imgUrl;
+        },
+
+        handleCheckboxCardClick({ url }) {
+            this.modalOpen = true;
+            this.modalImgUrl = url;
         }
     }
 };
