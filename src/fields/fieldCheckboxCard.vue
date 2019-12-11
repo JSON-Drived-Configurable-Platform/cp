@@ -1,108 +1,103 @@
 <template>
-    <div :class="classes">
-        <div v-if="loading" :class="loadingClasses">
-			<Spin :class="loadingSpinClasses" size="large" />
-		</div>
-        <div v-else>
-            <div
-                v-if="field.checkAll || false"
-                :class="checkAllClasses"
-            >
-                <Checkbox
-                    :indeterminate="indeterminate"
-                    :value="isAllSelected"
-                    @on-change="handleCheckAll"
-                >全选（已选<b>{{ selectedNum }}</b>张）</Checkbox>
-            </div>
-            <ul :class="checkboxCardGroupClasses">
-                <li
-                    v-for="(item, index) in computedOptions"
-                    :key="index"
-                    :class="checkboxCardItemClasses"
-                    @click="handleClick(item)"
-                >
-                    <Card
-                        :style="styleCard"
-                    >
-                        <div :class="checkboxCardClasses" @click.stop="handleCheckboxClick($event)">
-                            <Checkbox
-                                v-if="field.showCheckBox !== false"
-                                :disabled="item.disabled || false"
-                                :value="selectedIds[item.id]"
-                                @on-change="handleChange($event, item)"
-                            >
-                                {{ '' }}
-                            </Checkbox>
-                        </div>
-                        <p v-if="item.header || false" :class="headerClasses">
-                            {{ item.header }}
-                        </p>
-                        <div
-                            v-if="headerEditable && selectedIds[item.id]"
-                            :class="headerEditClasses"
-                            @click.stop="handleCheckboxClick($event)"
-                        >
-                            <Poptip
-                                title="修改名称"
-                                placement="top-end"
-                            >
-                                <i-input
-                                    slot="content"
-                                    v-model="item.header"
-                                    type="textarea"
-                                />
-                                <Icon
-                                    type="ios-create-outline"
-                                    size="20"
-                                />
-                            </Poptip>
-                        </div>
-                        <img
-                            v-if="optionsType === 'image'"
-                            :src="item.url"
-                            :alt="item.id"
-                            width="100%"
-                        >
-                        <p v-if="item.footer || false" :class="footerClasses">
-                            {{ item.footer }}
-                        </p>
-                        <div
-                            v-if="footerEditable && selectedIds[item.id]"
-                            :class="footerEditClasses"
-                            @click.stop="handleCheckboxClick($event)"
-                        >
-                            <Poptip
-                                title="修改文案"
-                                placement="top-start"
-                            >
-                                <i-input
-                                    slot="content"
-                                    v-model="item.footer"
-                                    type="textarea"
-                                />
-                                <Icon
-                                    type="ios-create-outline"
-                                    size="20"
-                                />
-                            </Poptip>
-                        </div>
-                        <div v-if="optionsType === 'video'">
-                            <video controls>
-                                <source :src="item.url">
-                            </video>
-                        </div>
-                    </Card>
-                </li>
-            </ul>
-            <Page
-                v-if="field.pageLation || false"
-                :total="total"
-                :page-size="pageSize"
-                size="small"
-                show-elevator
-                @on-change="changePage"
-            />
+    <div>
+        <div
+            v-if="field.checkAll || false"
+            :class="checkAllClasses"
+        >
+            <Checkbox
+                :indeterminate="indeterminate"
+                :value="isAllSelected"
+                @on-change="handleCheckAll"
+            >全选（已选<b>{{ selectedNum }}</b>张）</Checkbox>
         </div>
+        <ul :class="checkboxCardGroupClasses">
+            <li
+                v-for="(item, index) in computedOptions"
+                :key="index"
+                :class="checkboxCardItemClasses"
+                @click="handleClick(item)"
+            >
+                <Card
+                    :style="styleCard"
+                >
+                    <div :class="checkboxCardClasses" @click.stop="handleCheckboxClick($event)">
+                        <Checkbox
+                            v-if="item.showCheckBox !== false"
+                            :disabled="item.disabled || false"
+                            :value="selectedIds[item.id]"
+                            @on-change="handleChange($event, item)"
+                        >
+                            {{ '' }}
+                        </Checkbox>
+                    </div>
+                    <p v-if="item.header || false" :class="headerClasses">
+                        {{ item.header }}
+                    </p>
+                    <div
+                        v-if="headerEditable && selectedIds[item.id]"
+                        :class="headerEditClasses"
+                        @click.stop="handleCheckboxClick($event)"
+                    >
+                        <Poptip
+                            title="修改名称"
+                            placement="top-end"
+                        >
+                            <i-input
+                                slot="content"
+                                v-model="item.header"
+                                type="textarea"
+                            />
+                            <Icon
+                                type="ios-create-outline"
+                                size="20"
+                            />
+                        </Poptip>
+                    </div>
+                    <img
+                        v-if="optionsType === 'image'"
+                        :src="item.url"
+                        :alt="item.id"
+                        width="100%"
+                    >
+                    <p v-if="item.footer || false" :class="footerClasses">
+                        {{ item.footer }}
+                    </p>
+                    <div
+                        v-if="footerEditable && selectedIds[item.id]"
+                        :class="footerEditClasses"
+                        @click.stop="handleCheckboxClick($event)"
+                    >
+                        <Poptip
+                            title="修改文案"
+                            placement="top-start"
+                        >
+                            <i-input
+                                slot="content"
+                                v-model="item.footer"
+                                type="textarea"
+                            />
+                            <Icon
+                                type="ios-create-outline"
+                                size="20"
+                            />
+                        </Poptip>
+                    </div>
+                    <div v-if="optionsType === 'video'">
+                        <video controls>
+                            <source :src="item.url">
+                        </video>
+                    </div>
+                </Card>
+            </li>
+        </ul>
+        <Page
+            v-if="field.pageLation || false"
+            :total="total"
+            :page-size="pageSize"
+            size="small"
+            show-elevator
+            @on-change="changePage"
+        />
     </div>
 </template>
 <script>
@@ -122,7 +117,6 @@ export default {
     },
     data() {
         return {
-            loading: false,
             options: [],
             pageNum: 1, // 页码
             selectedData: [] // 存放选择的数据
@@ -131,12 +125,6 @@ export default {
     computed: {
         classes() {
             return `${classPrefix}-${this.field.type.toLowerCase()}`;
-        },
-        loadingClasses() {
-            return `${this.classes}-loading`;
-        },
-        loadingSpinClasses() {
-            return `${this.classes}-loading-spin`;
         },
         checkAllClasses() {
             return `${this.classes}-checkall`;
@@ -174,7 +162,6 @@ export default {
         optionsType() {
             return this.field.optionsType || 'image';
         },
-        // 选择的ids
         selectedIds() {
             const selectedIds = {};
             this.selectedData.forEach(item => {
@@ -182,24 +169,19 @@ export default {
             });
             return selectedIds || {};
         },
-        // 已选数据数
-        selectedNum() {
+        selectedNum() { // 已选数据数
             return this.selectedData.length;
         },
-        // 数据总数
-        total() {
+        total() { // 数据总数
             return this.dataOptions.length || 0;
         },
-        // 每页条数
-        pageSize() {
+        pageSize() { // 每页条数
             return this.field.pageSize || 10;
         },
-        // 头部可编辑
-        headerEditable() {
+        headerEditable() { // 头部可编辑
             return this.field.headerEditable || false;
         },
-        // 尾部可编辑
-        footerEditable() {
+        footerEditable() { // 尾部可编辑
             return this.field.footerEditable || false;
         },
         dataOptions() {
@@ -217,20 +199,9 @@ export default {
         },
         optionsApi() {
             return !Array.isArray(this.field.options) ? this.field.options : '';
-        },
-        value() {
-            return this.form.model[this.field.model] || [];
         }
     },
-    watch: {
-        value: {
-            handler() {
-                if (this.form.model[this.field.model].length === 0) {
-                    this.selectedData = [];
-                }
-            },
-            deep: true
-        }
+    mounted() {
     },
     methods: {
         remoteMethod() {
@@ -239,15 +210,14 @@ export default {
             }
             this.getRemoteOptions();
         },
-        // 阻止事件冒泡
-        handleCheckboxClick() {
+        handleCheckboxClick(e) {
+            // eslint-disable-next-line no-console
+            console.log(e);
         },
-        // 点击整个卡片触发事件
-        handleClick(value) {
+        handleClick(value) { // 点击整个卡片触发事件
             this.$emit('on-checkboxCard-click', value);
         },
-        // 单选
-        handleChange(checked, value) {
+        handleChange(checked, value) { // 单选
             if (checked) {
                 this.addItem(value);
             }
@@ -256,8 +226,7 @@ export default {
             }
             this.$set(this.form.model, this.field.model, this.selectedData);
         },
-        // 全选
-        handleCheckAll(checked) {
+        handleCheckAll(checked) { // 全选
             this.computedOptions.forEach(item => {
                 if (!item.disabled) {
                     if (checked) {
@@ -268,21 +237,18 @@ export default {
                     }
                 }
             });
-            this.$set(this.form.model, this.field.model, this.field.model, this.selectedData);
+            this.$set(this.form.model, this.field.model, this.selectedData);
         },
-        // 添加数据
-        addItem(item) {
+        addItem(item) { // 添加数据
             if (!this.selectedIds[item.id]) {
                 this.selectedData.push(item);
             }
         },
-        // 移除数据
-        removeItem(item) {
+        removeItem(item) { // 移除数据
             const selectedData = this.selectedData.filter(i => i.id !== item.id);
             this.selectedData = selectedData;
         },
-        // 改变页码
-        changePage(val) {
+        changePage(val) { // 改变页码
             this.pageNum = val;
         }
     }

@@ -44,7 +44,6 @@
                     @on-submit="handleSubmit($event)"
                     @on-reset="handleReset"
                     @on-button-event="handleButtonEvent($event)"
-                    @on-checkboxCard-click="handelCheckboxCardClick"
                 />
             </div>
 
@@ -364,10 +363,6 @@ export default {
 
         handleButtonEvent($event) {
             this.$emit('on-button-event', $event);
-        },
-
-        handelCheckboxCardClick(value) {
-            this.$emit('on-checkboxCard-click', value);
         },
 
         handleExtraBtnClick() {
