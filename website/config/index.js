@@ -156,6 +156,10 @@ export default {
                     name: '/CURD-example/inline-edit'
                 },
                 {
+                    label: 'Audit Detail',
+                    name: '/Audit-example/detail'
+                },
+                {
                     label: 'Editable-Table',
                     name: '/editable-table'
                 },
