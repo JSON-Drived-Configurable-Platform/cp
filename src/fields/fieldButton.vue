@@ -52,15 +52,24 @@ export default {
     },
     methods: {
         handleClick() {
-            switch (this.field.action.type) {
+            const action = this.field.action;
+            switch (action.type) {
                 case 'ajax':
                     this.$emit('on-http-request', this);
                     break;
                 case 'event':
                     this.$emit('on-button-event', {
-                        name: this.field.action.name,
+                        name: action.name,
                         field: this.field
                     });
+                    break;
+                // vue route
+                case 'route':
+                    this.$router && this.$router.push(action.route);
+                    break;
+                // url
+                case 'url':
+                    action.url && window.open(action.url);
                     break;
             }
         },

@@ -111,7 +111,7 @@
             <inAnchor title="代码示例" h2 />
             <Demo title="基础用法">
                 <div slot="demo">
-                    <Form :model="code.ajax.data.model">
+                    <Form :model="code.simple.data.model">
                         <FieldGenerator
                             :field="code.simple.data.field"
                             @on-button-event="handleButtonEvent"
@@ -122,6 +122,36 @@
                     <p>通过设置<code>field</code>即可生成一个Button按钮</p>
                 </div>
                 <i-code slot="code" lang="html">{{ code.simple.code }}</i-code>
+            </Demo>
+
+            <Demo title="route">
+                <div slot="demo">
+                    <Form :model="code.route.data.model">
+                        <FieldGenerator
+                            :field="code.route.data.field"
+                            @on-button-event="handleButtonEvent"
+                        />
+                    </Form>
+                </div>
+                <div slot="desc">
+                    <p>通过设置<code>field</code>即可生成一个Button按钮</p>
+                </div>
+                <i-code slot="code" lang="html">{{ code.route.code }}</i-code>
+            </Demo>
+
+            <Demo title="链接">
+                <div slot="demo">
+                    <Form :model="code.url.data.model">
+                        <FieldGenerator
+                            :field="code.url.data.field"
+                            @on-button-event="handleButtonEvent"
+                        />
+                    </Form>
+                </div>
+                <div slot="desc">
+                    <p>通过设置<code>field</code>即可生成一个Button按钮</p>
+                </div>
+                <i-code slot="code" lang="html">{{ code.url.code }}</i-code>
             </Demo>
 
             <Demo title="点击发送Ajax请求">
