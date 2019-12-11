@@ -292,7 +292,7 @@ export default {
         this.form.model = this.model;
     },
     methods: {
-        handleFieldChange(model, value){
+        handleFieldChange({model, value}){
             // 关联项需要清空
             let needResetFields = this.needResetFieldsOnChangeMap[model] || [];
             needResetFields.forEach(field => {

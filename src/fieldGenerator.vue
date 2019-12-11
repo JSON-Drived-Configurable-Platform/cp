@@ -150,7 +150,10 @@ export default {
     },
     methods: {
         handleFieldChange(model, value) {
-            this.$emit('on-field-change', model, value);
+            this.$emit('on-field-change', {
+                model,
+                value
+            });
         },
         handleSubmitClick(component) {
             this.submit(component).then(() => {
