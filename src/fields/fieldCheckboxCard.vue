@@ -1,8 +1,8 @@
 <template>
     <div :class="classes">
         <div v-if="loading" :class="loadingClasses">
-			<Spin :class="loadingSpinClasses" size="large" />
-		</div>
+            <Spin :class="loadingSpinClasses" size="large" />
+        </div>
         <div v-else>
             <div
                 v-if="field.checkAll || false"
