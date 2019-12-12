@@ -86,7 +86,7 @@
                                 <br>
                                 <span>form.model</span>
                                 <pre>
-{{ JSON.stringify(code.route.data.field, null, 4) }}
+{{ JSON.stringify(code.route.data.model, null, 4) }}
                                 </pre>
                                 <span>Button.field</span>
                                 <pre>
@@ -105,7 +105,7 @@
                                 <br>
                                 <span>form.model</span>
                                 <pre>
-{{ JSON.stringify(code.url.data.field, null, 4) }}
+{{ JSON.stringify(code.url.data.model, null, 4) }}
                                 </pre>
                                 <span>Button.field</span>
                                 <pre>
