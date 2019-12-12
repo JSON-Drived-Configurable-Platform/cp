@@ -63,10 +63,7 @@ const routeField = {
     subtype: 'primary',
     text: '详情',
     action: {
-        type: 'route',
-        route: {
-            path: '/home'
-        }
+        type: 'route'
     },
 };
 
@@ -113,7 +110,6 @@ const urlField = {
     text: '详情',
     action: {
         type: 'url',
-        url: 'http://www.baidu.com'
     },
 };
 
