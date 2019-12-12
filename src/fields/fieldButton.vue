@@ -53,6 +53,8 @@ export default {
     methods: {
         handleClick() {
             const action = this.field.action;
+            const model = this.field.model;
+            const value = this.form.model[model];
             switch (action.type) {
                 case 'ajax':
                     this.$emit('on-http-request', this);
@@ -65,11 +67,13 @@ export default {
                     break;
                 // vue route
                 case 'route':
-                    this.$router && this.$router.push(action.route);
+                    // If use model, get route from the form.model
+                    this.$router && this.$router.push(value || action.route);
                     break;
                 // url
                 case 'url':
-                    action.url && window.open(action.url);
+                    // If use model, get url from the form.model
+                    action.url && window.open(value || action.url);
                     break;
             }
         },

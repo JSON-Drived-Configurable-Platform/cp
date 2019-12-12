@@ -1,5 +1,12 @@
 const model = {
-    id: 'test-id000001'
+    id: 'test-id000001',
+    detailUrl: 'https://www.baidu.com/s?wd=%E7%99%BE%E5%BA%A6',
+    detailRoute: {
+        path: '/home',
+        query: {
+            test: 'aaa'
+        }
+    }
 };
 
 // 简单示例
@@ -52,6 +59,7 @@ const route = {};
 
 const routeField = {
     type: 'Button',
+    model: 'detailRoute',
     subtype: 'primary',
     text: '详情',
     action: {
@@ -100,6 +108,7 @@ const url = {};
 
 const urlField = {
     type: 'Button',
+    model: 'detailUrl',
     subtype: 'primary',
     text: '详情',
     action: {

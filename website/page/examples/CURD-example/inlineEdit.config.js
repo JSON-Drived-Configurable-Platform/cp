@@ -224,6 +224,18 @@ export const columns = [
                 apiParams: ['name'],
                 inline: true
             },
+            {
+                type: 'Button',
+                model: 'detailRoute',
+                text: '详情',
+                subtype: 'primary',
+                size: 'small',
+                action: {
+                    type: 'route'
+                },
+                apiParams: ['name'],
+                inline: true
+            },
         ]
     }
 ];
@@ -237,7 +249,13 @@ export const data = [
         province: 'Beijing',
         city: 'Beijing',
         address: '北京市朝阳区芍药居',
-        status: '1'
+        status: '1',
+        detailRoute: {
+            path: '/home',
+            query: {
+                name: '王小明',
+            }
+        }
     },
     {
         name: '张小刚',
@@ -247,7 +265,13 @@ export const data = [
         province: 'Beijing',
         city: 'Beijing',
         address: '北京市海淀区西二旗',
-        status: '1'
+        status: '1',
+        detailRoute: {
+            path: '/home',
+            query: {
+                name: '张小刚',
+            }
+        }
     },
     {
         name: '李小红',
@@ -257,7 +281,13 @@ export const data = [
         province: 'Beijing',
         city: 'Beijing',
         address: '上海市浦东新区世纪大道',
-        status: '2'
+        status: '2',
+        detailRoute: {
+            path: '/home',
+            query: {
+                name: '李小红',
+            }
+        }
     },
     {
         name: '周小伟',
@@ -267,7 +297,13 @@ export const data = [
         province: 'Beijing',
         city: 'Beijing',
         address: '深圳市南山区深南大道',
-        status: '1'
+        status: '1',
+        detailRoute: {
+            path: '/home',
+            query: {
+                name: '周小伟',
+            }
+        }
     },
     {
         name: '王小明',
@@ -277,7 +313,13 @@ export const data = [
         province: 'Beijing',
         city: 'Beijing',
         address: '北京市朝阳区芍药居',
-        status: '1'
+        status: '1',
+        detailRoute: {
+            path: '/home',
+            query: {
+                name: '王小明',
+            }
+        }
     },
     {
         name: '张小刚',
@@ -287,7 +329,13 @@ export const data = [
         province: 'Beijing',
         city: 'Beijing',
         address: '北京市海淀区西二旗',
-        status: '1'
+        status: '1',
+        detailRoute: {
+            path: '/home',
+            query: {
+                name: '张小刚',
+            }
+        }
     },
     {
         name: '李小红',
@@ -297,7 +345,13 @@ export const data = [
         province: 'Beijing',
         city: 'Beijing',
         address: '上海市浦东新区世纪大道',
-        status: '2'
+        status: '2',
+        detailRoute: {
+            path: '/home',
+            query: {
+                name: '李小红',
+            }
+        }
     },
     {
         name: '周小伟',
@@ -307,7 +361,13 @@ export const data = [
         province: 'Beijing',
         city: 'Beijing',
         address: '深圳市南山区深南大道',
-        status: '1'
+        status: '1',
+        detailRoute: {
+            path: '/home',
+            query: {
+                name: '周小伟',
+            }
+        }
     }
 ];
 
