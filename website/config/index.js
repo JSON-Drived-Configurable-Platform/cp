@@ -133,6 +133,10 @@ export default {
                     label: 'Divider',
                     name: '/doc/Divider'
                 },
+                {
+                    label: 'Steps',
+                    name: '/doc/Steps'
+                }
                 // {
                 //     label: 'ImgUpload',
                 //     name: '/doc/ImgUpload'

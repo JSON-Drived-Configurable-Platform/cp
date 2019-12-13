@@ -30,7 +30,7 @@ const Submit = () => import(/* webpackChunkName: "Submit" */ '../page/doc/Submit
 const Button = () => import(/* webpackChunkName: "Button" */ '../page/doc/Button');
 const Reset = () => import(/* webpackChunkName: "Button" */ '../page/doc/Reset');
 const Divider = () => import(/* webpackChunkName: "Button" */ '../page/doc/Divider');
-
+const Steps = () => import(/* webpackChunkName: "Button" */ '../page/doc/Steps');
 // examples
 const groupForm = () => import(/* webpackChunkName: "groupForm" */ '../page/examples/group-form');
 const CURDSimpleExample = () => import(/* webpackChunkName: "CURDExample" */ '../page/examples/CURD-example/simple');
@@ -176,6 +176,11 @@ export default [
                 path: '/doc/Reset',
                 name: 'doc-Reset',
                 component: Reset
+            },
+            {
+                path: '/doc/Steps',
+                name: 'doc-Steps',
+                component: Steps
             },
             {
                 path: '/doc/Divider',

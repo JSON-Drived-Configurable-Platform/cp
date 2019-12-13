@@ -32,7 +32,7 @@
                     <Form
                         v-if="column.formFields"
                         :key="column.slot"
-                        :ref="row.key"
+                        :ref="column.slot + row.key"
                         :model="row"
                     >
                         <FieldGenerator
@@ -88,6 +88,7 @@ export default {
             let validCount = 0;
             const refKeys = Object.keys(this.$refs);
             refKeys.forEach(form => {
+                console.log(form, this.$refs[form][0].model);
                 this.$refs[form][0].validate().then(valid => {
                     if (valid) {
                         validCount++;
