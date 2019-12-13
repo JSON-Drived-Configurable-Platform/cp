@@ -1,6 +1,13 @@
 @checkbox-prefix-cls: ~"@{css-prefix}-checkbox";
 
 .@{checkbox-prefix-cls} {
+    &-loading {
+        height: 32px;
+        line-height: 32px;
+        &-spin {
+            display: inline-block;
+        }
+    }
     &-checkall {
         border-bottom: 1px solid #e9e9e9;
         padding-bottom: 6px;

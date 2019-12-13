@@ -41,6 +41,12 @@
                             <td>Function</td>
                             <td>-</td>
                         </tr>
+                        <tr>
+                            <td>paramsContainer</td>
+                            <td>表单控件中的请求（如Select的option动态获取，Button的Ajax请求等）的额外参数的传入，通常配合表单控件的 field.apiParams 一起使用。</td>
+                            <td>Object</td>
+                            <td>-</td>
+                        </tr>
                     </tbody>
                 </table>
                 <inAnchor title="option配置详解" h3 />
