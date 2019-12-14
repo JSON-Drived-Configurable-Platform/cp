@@ -31,7 +31,7 @@
                     </MenuItem>
                 </Submenu>
                 <MenuItem name="GitHub">
-                    <a target="_blank" href="https://json-drived-configurable-platform.github.io/form-generator-iview">
+                    <a target="_blank" href="https://github.com/JSON-Drived-Configurable-Platform/form-generator-iview">
                         <Icon type="logo-github" />
                         GitHub
                     </a>

@@ -1,29 +1,34 @@
 <template>
-    <div>
-        <div
-            v-if="field.checkAll"
-            :class="checkAllClasses"
-        >
-            <Checkbox
-                :indeterminate="indeterminate"
-                :value="checkAll"
-                @click.prevent.native="handleCheckAll"
-            >全选</Checkbox>
+    <div :class="classes">
+        <div v-if="loading" :class="loadingClasses">
+            <Spin :class="loadingSpinClasses" :size="size" />
         </div>
-        <CheckboxGroup
-            :value="form.model[field.model]"
-            :size="size"
-            @on-change="handleChange"
-        >
-            <Checkbox
-                v-for="item in computedOptions"
-                :key="item.value"
-                :label="item.value"
-                :disabled="item.disabled"
+        <template v-else>
+            <div
+                v-if="field.checkAll"
+                :class="checkAllClasses"
             >
-                {{ item.label }}
-            </Checkbox>
-        </CheckboxGroup>
+                <Checkbox
+                    :indeterminate="indeterminate"
+                    :value="checkAll"
+                    @click.prevent.native="handleCheckAll"
+                >全选</Checkbox>
+            </div>
+            <CheckboxGroup
+                :value="form.model[field.model]"
+                :size="size"
+                @on-change="handleChange"
+            >
+                <Checkbox
+                    v-for="item in computedOptions"
+                    :key="item.value"
+                    :label="item.value"
+                    :disabled="item.disabled"
+                >
+                    {{ item.label }}
+                </Checkbox>
+            </CheckboxGroup>
+        </template>
     </div>
 </template>
 <script>
@@ -56,11 +61,17 @@ export default {
         classes() {
             return `${classPrefix}-${this.field.type.toLowerCase()}`;
         },
+        loadingClasses() {
+            return `${this.classes}-loading`;
+        },
+        loadingSpinClasses() {
+            return `${this.classes}-loading-spin`;
+        },
         checkAllClasses() {
             return `${this.classes}-checkall`;
         },
         computedOptions() {
-            return this.options.length > 0 ? this.options : this.field.options;
+            return this.options.length > 0 ? this.options : (Array.isArray(this.field.options) ? this.field.options : []);
         },
         optionsApi() {
             return !Array.isArray(this.field.options) ? this.field.options : '';

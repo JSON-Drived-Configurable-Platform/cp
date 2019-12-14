@@ -52,15 +52,28 @@ export default {
     },
     methods: {
         handleClick() {
-            switch (this.field.action.type) {
+            const action = this.field.action;
+            const model = this.field.model;
+            const value = this.form.model[model];
+            switch (action.type) {
                 case 'ajax':
                     this.$emit('on-http-request', this);
                     break;
                 case 'event':
                     this.$emit('on-button-event', {
-                        name: this.field.action.name,
+                        name: action.name,
                         field: this.field
                     });
+                    break;
+                // vue route
+                case 'route':
+                    // If use model, get route from the form.model
+                    this.$router && this.$router.push(value || action.route);
+                    break;
+                // url
+                case 'url':
+                    // If use model, get url from the form.model
+                    action.url && window.open(value || action.url);
                     break;
             }
         },

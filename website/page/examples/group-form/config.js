@@ -193,6 +193,22 @@ export const fields = [
         //defaultHide: true
     },
     {
+        label: '卡片多选',
+        type: 'CheckboxCard',
+        model: 'card',
+        checkAll: true,
+        pageLation: true, // 是否分页
+        pageSize: 3, // 分页数目
+        'headerEditable': true,
+        'footerEditable': true,
+        'cardWidth': '220px',
+        'cardHeight': '245px',
+        'optionsType': 'image',
+        'options': '/checkboxCardApi',
+        inline: true,
+        required: true
+    },
+    {
         type: 'Divider',
         label: '表格选择',
         orientation: 'left',

@@ -119,14 +119,14 @@ let formFields = [
         label: 'Date',
         type: 'DatePicker',
         model: 'date',
-        width: '50%',
+        width: '40%',
         inline: true
     },
     {
         label: '',
         type: 'TimePicker',
         model: 'time',
-        width: '50%',
+        width: '40%',
         inline: true,
         labelWidth: 20
     },
@@ -166,14 +166,12 @@ let formFields = [
         type: 'Submit',
         subtype: 'primary',
         text: '提交',
-        width: '50%',
         inline: true
     },
     {
         type: 'Reset',
         subtype: 'primary',
         text: '重置',
-        width: '50%',
         labelWidth: 0,
         inline: true
     }
@@ -281,13 +279,11 @@ let validateFields = [
         type: 'Submit',
         subtype: 'primary',
         text: '提交',
-        width: '50%',
         inline: true
     },
     {
         type: 'Reset',
         text: '重置',
-        width: '50%',
         labelWidth: 0,
         inline: true
     }
@@ -451,14 +447,12 @@ const dividerFields = [
         type: 'Submit',
         subtype: 'primary',
         text: 'Submit',
-        width: '50%',
         inline: true
     },
     {
         type: 'Reset',
         text: 'Reset',
         labelWidth: 30,
-        width: '50%',
         inline: true
     }
 ];

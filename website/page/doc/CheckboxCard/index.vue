@@ -76,6 +76,12 @@
                             <td>false</td>
                         </tr>
                         <tr>
+                            <td>showCheckBox</td>
+                            <td>是否展示卡片checkbox</td>
+                            <td>Boolean</td>
+                            <td>true</td>
+                        </tr>
+                        <tr>
                             <td>cardWidth</td>
                             <td>Card宽度</td>
                             <td>String</td>
@@ -143,12 +149,6 @@
                             <td>-</td>
                         </tr>
                         <tr>
-                            <td>options.showCheckBox</td>
-                            <td>是否展示checkbox</td>
-                            <td>Boolean</td>
-                            <td>true</td>
-                        </tr>
-                        <tr>
                             <td>options.disabled</td>
                             <td>是否禁用该选项</td>
                             <td>Boolean</td>
@@ -213,7 +213,7 @@
                     </Form>
                 </div>
                 <div slot="desc">
-                    <p>通过设置<code>field.isPage</code>可以控制是否本地分页。</p>
+                    <p>通过设置<code>field.pageLation</code>可以控制是否本地分页。</p>
                 </div>
                 <i-code slot="code" lang="html">{{ code.page.code }}</i-code>
             </Demo>
@@ -269,7 +269,7 @@ export default {
     methods: {
         handleClick() {
             // eslint-disable-next-line no-console
-            // console.log(value);
+            // console.log();
         }
     }
 };
