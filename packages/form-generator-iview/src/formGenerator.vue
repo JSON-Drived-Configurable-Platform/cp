@@ -44,6 +44,7 @@
                     @on-submit="handleSubmit($event)"
                     @on-reset="handleReset"
                     @on-button-event="handleButtonEvent($event)"
+                    @on-checkboxCard-click="handelCheckboxCardClick"
                 />
             </div>
 
@@ -292,7 +293,7 @@ export default {
         this.form.model = this.model;
     },
     methods: {
-        handleFieldChange(model, value){
+        handleFieldChange({model, value}){
             // 关联项需要清空
             let needResetFields = this.needResetFieldsOnChangeMap[model] || [];
             needResetFields.forEach(field => {
@@ -363,6 +364,10 @@ export default {
 
         handleButtonEvent($event) {
             this.$emit('on-button-event', $event);
+        },
+
+        handelCheckboxCardClick(value) {
+            this.$emit('on-checkboxCard-click', value);
         },
 
         handleExtraBtnClick() {

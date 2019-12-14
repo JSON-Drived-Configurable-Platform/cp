@@ -13,7 +13,7 @@ const FieldGenerator = () => import(/* webpackChunkName: "FieldGenerator" */ '..
 const Input = () => import(/* webpackChunkName: "Input" */ '../page/doc/Input');
 const Radio = () => import(/* webpackChunkName: "Radio" */ '../page/doc/Radio');
 const Checkbox = () => import(/* webpackChunkName: "Checkbox" */ '../page/doc/Checkbox');
-const CheckboxCard = () => import(/* webpackChunkName: "Checkbox" */ '../page/doc/CheckboxCard');
+const CheckboxCard = () => import(/* webpackChunkName: "CheckboxCard" */ '../page/doc/CheckboxCard');
 const Switch = () => import(/* webpackChunkName: "Switch" */ '../page/doc/Switch');
 const Select = () => import(/* webpackChunkName: "Select" */ '../page/doc/Select');
 const LogicSelect = () => import(/* webpackChunkName: "LogicSelect" */ '../page/doc/LogicSelect');
@@ -30,7 +30,7 @@ const Submit = () => import(/* webpackChunkName: "Submit" */ '../page/doc/Submit
 const Button = () => import(/* webpackChunkName: "Button" */ '../page/doc/Button');
 const Reset = () => import(/* webpackChunkName: "Button" */ '../page/doc/Reset');
 const Divider = () => import(/* webpackChunkName: "Button" */ '../page/doc/Divider');
-
+const Steps = () => import(/* webpackChunkName: "Button" */ '../page/doc/Steps');
 // examples
 const groupForm = () => import(/* webpackChunkName: "groupForm" */ '../page/examples/group-form');
 const CURDSimpleExample = () => import(/* webpackChunkName: "CURDExample" */ '../page/examples/CURD-example/simple');
@@ -39,6 +39,7 @@ const inlineTable = () => import(/* webpackChunkName: "inlineTable" */ '../page/
 const editableTable = () => import(/* webpackChunkName: "editableTable" */ '../page/examples/editable-table');
 const searchableChart = () => import(/* webpackChunkName: "searchableChart" */ '../page/examples/searchable-chart');
 const twoRelatedForm = () => import(/* webpackChunkName: "twoRelatedForm" */ '../page/examples/two-related-form');
+const auditExample = () => import(/* webpackChunkName: "auditExample" */ '../page/examples/audit/detail');
 
 export default [
     {
@@ -177,6 +178,11 @@ export default [
                 component: Reset
             },
             {
+                path: '/doc/Steps',
+                name: 'doc-Steps',
+                component: Steps
+            },
+            {
                 path: '/doc/Divider',
                 name: 'doc-Divider',
                 component: Divider
@@ -200,6 +206,11 @@ export default [
                 path: '/CURD-example/inline-edit',
                 name: 'CURD-example-simple-inline-edit',
                 component: CURDSimpleExampleInlineEdit
+            },
+            {
+                path: '/audit-example/detail',
+                name: 'audit-example-detail',
+                component: auditExample
             },
             {
                 path: '/inline-table',

@@ -61,7 +61,7 @@
                         </tr>
                         <tr>
                             <td>action.type</td>
-                            <td>行为类型，目前支持事件和ajax请求，分别通过event、ajax来标识</td>
+                            <td>行为类型，目前支持事件、ajax请求、Route、Url四中形态，分别通过event、ajax、route、url来标识</td>
                             <td>String</td>
                             <td>必填</td>
                         </tr>
@@ -74,6 +74,44 @@
                         <tr>
                             <td>action.api</td>
                             <td>当 action.type 为 ajax 时，需要指定api， 触发点击后会向该接口返送请求。</td>
+                            <td>String</td>
+                            <td>当 action.name 为 ajax 时，必填</td>
+                        </tr>
+                        <tr>
+                            <td>action.route</td>
+                            <td>
+                                当 action.type 为 route 时，可以指定action.route， 触发点击后会向该接口返送请求。
+                                <br>
+                                <strong>另外一种常用的指定action.route方法是，申明field.model，然后会从form.model中获取对应的route值，参考下面的示例:</strong>
+                                <br>
+                                <span>form.model</span>
+                                <pre>
+{{ JSON.stringify(code.route.data.model, null, 4) }}
+                                </pre>
+                                <span>Button.field</span>
+                                <pre>
+{{ JSON.stringify(code.route.data.field, null, 4) }}
+                                </pre>
+                            </td>
+                            <td>String</td>
+                            <td>当 action.name 为 ajax 时，必填</td>
+                        </tr>
+                        <tr>
+                            <td>action.url</td>
+                            <td>
+                                当 action.type 为 url 时，可以指定action.url， 触发点击后会向该接口返送请求。
+                                <br>
+                                <strong>另外一种常用的指定action.url方法是，申明field.model，然后会从form.model中获取对应的route值，参考下面的示例:</strong>
+                                <br>
+                                <span>form.model</span>
+                                <pre>
+{{ JSON.stringify(code.url.data.model, null, 4) }}
+                                </pre>
+                                <span>Button.field</span>
+                                <pre>
+{{ JSON.stringify(code.url.data.field, null, 4) }}
+                                </pre>
+                            </td>
                             <td>String</td>
                             <td>当 action.name 为 ajax 时，必填</td>
                         </tr>
@@ -111,7 +149,7 @@
             <inAnchor title="代码示例" h2 />
             <Demo title="基础用法">
                 <div slot="demo">
-                    <Form :model="code.ajax.data.model">
+                    <Form :model="code.simple.data.model">
                         <FieldGenerator
                             :field="code.simple.data.field"
                             @on-button-event="handleButtonEvent"
@@ -122,6 +160,36 @@
                     <p>通过设置<code>field</code>即可生成一个Button按钮</p>
                 </div>
                 <i-code slot="code" lang="html">{{ code.simple.code }}</i-code>
+            </Demo>
+
+            <Demo title="route">
+                <div slot="demo">
+                    <Form :model="code.route.data.model">
+                        <FieldGenerator
+                            :field="code.route.data.field"
+                            @on-button-event="handleButtonEvent"
+                        />
+                    </Form>
+                </div>
+                <div slot="desc">
+                    <p>通过设置<code>field</code>即可生成一个Button按钮</p>
+                </div>
+                <i-code slot="code" lang="html">{{ code.route.code }}</i-code>
+            </Demo>
+
+            <Demo title="链接">
+                <div slot="demo">
+                    <Form :model="code.url.data.model">
+                        <FieldGenerator
+                            :field="code.url.data.field"
+                            @on-button-event="handleButtonEvent"
+                        />
+                    </Form>
+                </div>
+                <div slot="desc">
+                    <p>通过设置<code>field</code>即可生成一个Button按钮</p>
+                </div>
+                <i-code slot="code" lang="html">{{ code.url.code }}</i-code>
             </Demo>
 
             <Demo title="点击发送Ajax请求">

@@ -133,6 +133,10 @@ export default {
                     label: 'Divider',
                     name: '/doc/Divider'
                 },
+                {
+                    label: 'Steps',
+                    name: '/doc/Steps'
+                }
                 // {
                 //     label: 'ImgUpload',
                 //     name: '/doc/ImgUpload'
@@ -154,6 +158,10 @@ export default {
                 {
                     label: 'CURD Inlint Edit',
                     name: '/CURD-example/inline-edit'
+                },
+                {
+                    label: 'Audit Detail',
+                    name: '/Audit-example/detail'
                 },
                 {
                     label: 'Editable-Table',

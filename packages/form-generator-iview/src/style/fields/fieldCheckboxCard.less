@@ -1,10 +1,23 @@
 @checkboxcard-prefix-cls: ~"@{css-prefix}-checkboxcard";
 
 .@{checkboxcard-prefix-cls} {
+    .ivu-card-body {
+        padding: 8px;
+    }
+    .ivu-checkbox-wrapper {
+        margin-right: 0;
+    }
     &-checkall {
         border-bottom: 1px solid #e9e9e9;
         padding-bottom: 6px;
         margin-bottom: 6px;
+    }
+    &-loading {
+        text-align: center;
+        padding: 100px;
+        &-spin {
+            display: inline-block;
+        }
     }
     &-group {
         display: flex;
@@ -37,10 +50,4 @@
             }
         }
     }
-}
-.ivu-card-body {
-    padding: 8px;
-}
-.ivu-checkbox-wrapper {
-    margin-right: 0;
 }
