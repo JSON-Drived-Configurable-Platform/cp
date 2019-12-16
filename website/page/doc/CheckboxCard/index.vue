@@ -27,16 +27,16 @@
                             <td>options</td>
                             <td>选项列表,如
                                 <pre>
-                                    [
-                                        {
-                                            header: '',
-                                            type: '',
-                                            url: '',
-                                            footer: '',
-                                            showCheckBox: true,
-                                            disabled: false
-                                        }
-                                    ]
+[
+    {
+        header: '',
+        type: '',
+        url: '',
+        footer: '',
+        showCheckBox: true,
+        disabled: false
+    }
+]
                                 </pre>
 
                             </td>
@@ -55,17 +55,17 @@
                             <td>String</td>
                             <td>''，api的返回值格式为:
                                 <pre>
-                                    {
-                                        status: 0,
-                                        data: [
-                                            {
-                                                "id": "",
-                                                "url": "",
-                                                "footer": "",
-                                                "header": ""
-                                            }
-                                        ]
-                                    }
+{
+    status: 0,
+    data: [
+        {
+            "id": "",
+            "url": "",
+            "footer": "",
+            "header": ""
+        }
+    ]
+}
                                 </pre>
                             </td>
                         </tr>

@@ -20,26 +20,18 @@
                     :ref="column.slot"
                     slot-scope="{ row, index }"
                 >
-                    <template v-if="column.img">
-                        <img
-                            :key="column.slot"
-                            class="audit-detail-example-demo-table-td-img"
-                            :src="row[column.slot]"
-                            alt=""
-                            @click="handleImgClick(row[column.slot])"
-                        >
-                    </template>
                     <Form
                         v-if="column.formFields"
                         :key="column.slot"
                         :ref="column.slot + row.key"
                         :model="row"
                     >
+                        <!-- column.slot + row.key. eg: 'imgList' + 'action' or 'action' + 'name' -->
                         <FieldGenerator
                             v-for="(field, i) in column.formFields"
                             :key="i"
                             :field="field"
-                            @on-field-change="handleFieldChange($event, row)"
+                            @on-field-change="handleFieldChange($event, row, column.slot + row.key)"
                             @on-button-event="handleButtonEvent($event, row, index)"
                             @on-checkboxCard-click="handleCheckboxCardClick"
                         />
@@ -75,9 +67,20 @@ export default {
         handleButtonEvent($event, row, index) {
             this[$event.name](row, index);
         },
-        handleFieldChange({model, value}, {key}) {
+
+        /**
+         * When the field value changed, sync the value to this.formModel
+         * Notice there may be more than form in the per line in the table.
+         *
+         * @param ($event, row, refKey)
+         * @param {String} $event.model the changed field's model, eg: auditStatus
+         * @param {String} $event.value the change field's value, eg: 1 (one value of auditStatus's options)
+         * @param {String} row.key the changed field' identifier, eg: name
+         * @param {String} refKey the ref of the changed field's form, eg: actionname.
+         */
+        handleFieldChange({model, value}, {key}, refKey) {
             // eslint-disable-next-line no-console
-            this.$refs[key][0].validate();
+            this.$refs[refKey][0].validate();
             if (!this.formModel[key]) {
                 this.$set(this.formModel, key, {});
             }
@@ -96,7 +99,7 @@ export default {
                     else {
                         console.log('Valid Failed');
                     }
-                    // 所有的都通过了验证
+                    // All validate success
                     if (validCount === refKeys.length) {
                         console.log('All Valid!');
                         console.log('formModel', this.formModel);

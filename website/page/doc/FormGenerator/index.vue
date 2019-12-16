@@ -2,8 +2,7 @@
     <i-article>
         <article>
             <h1>FormGenerator</h1>
-            <p>在iView表单的基础上，新增了几种中台中常用的类型：逻辑输入、逻辑选择，对于文件上传，实现了图片上传和视频上传。</p>
-            <!-- 对于视频上传，我们还做了分片上传的方案。 -->
+            <p>用来生成一个完整的表单，关于支持的组件类型可以参考<router-link to="/intro#SJGL">简介中的设计概览</router-link>。</p>
             <div class="api">
                 <inAnchor title="配置快速查询" h2 />
                 <inAnchor title="核心配置" h3 />
@@ -134,7 +133,7 @@
                     <tbody>
 
                         <tr>
-                            <td>oon-field-change</td>
+                            <td>on-field-change</td>
                             <td>表单项数据变更时</td>
                             <td>(model, value) model；表单项的标识；value：表单项的值；</td>
                         </tr>

@@ -3,7 +3,7 @@
         <article>
             <h1>思考与实践</h1>
             <p>
-                FormGeneratorIView 作为<a href="https://github.com/BingBlog/cp" target="_blank">CP - Configurable Platform</a>的一部分。
+                FormGeneratorIView 作为<a href="https://json-drived-configurable-platform.github.io/cp" target="_blank">CP - JSON Drived Configurable Platform</a>的一部分。
                 主要是为了解决在配置系统中大量的表单需求。这一点受到了<a target="_blank" href="https://github.com/mozilla-services/react-jsonschema-form">react-jsonschema-form</a>以及<a href="https://github.com/baidu/amis" target="_blank">amis配置工具</a>的启发。
             </p>
 
@@ -11,10 +11,6 @@
                 title="一个常见的场景"
                 h2
             />
-            <!-- <p>
-                表单是中台组件化中非常重要的一部分。<strong>Ant Design</strong>、<strong>Element</strong>、<strong>iView</strong>都通过组件大大提升了中台的开发效率。
-                特别是经过了巨大的视觉、交互的投入后，这些组件库为中台的表单开发，提供了往常前端工程师无法独自开发出来的产品功能和体验。
-            </p> -->
             <p>
                 如果一个平台中，有着大量的表单需求。直接通过组件拼装完成开发任务需要大量的人力和时间，后期表单项的频繁变更也增加了维护成本，而这些工作里面大多都是枯燥的重复工作。
             </p>
@@ -22,6 +18,7 @@
                 <img width="100%" src="./example1.jpg" alt="大量表单的示例">
                 <strong>大量表单中台的示例（多个产品线，每个产品线对应多个页面）</strong>
             </p>
+            <br>
             <p>
                 通过表单渲染工具，将所有配置维护在JSON中，可以一定程度上解决这些问题。
             </p>
@@ -55,13 +52,19 @@
                 title="一些比较有意思的实现"
                 h2
             />
-            <p>目录<strong>Example</strong>中，有一些具体的实现。展示了如何使用FormGeneratorIView高效解决一些具体场景的需求。</p>
+            <p>
+                目录<strong>Example</strong>中，有一些具体的实现。展示了如何使用FormGeneratorIView高效解决一些具体场景的需求:
+            </p>
             <ul>
-                <li><a href=""><strong>Step Form:</strong></a>分步表单是一个很常见的场景，用来完成一系列有先后顺序的表单编辑工作，而且可以保存每一步填写的内容。</li>
-                <li><a href=""><strong>CURD:</strong></a>在一个增删改查的例子中使用FormGenerator。</li>
-                <li><a href=""><strong>Editable Table:</strong></a>可编辑的表格，可以支持快速编辑表格中的内容。实例展示了如何使用<code>FieldGenerator</code>来动态生成表格中的各种表单控件。</li>
-                <li><a href=""><strong>Searchable Data Report:</strong></a>可以查询的数据报表在很多数据平台中会常常遇到。</li>
-                <li><a href=""><strong>Search Inlined Chart:</strong></a>内置查询的图表库，这个例子还展示了如何使用<code>FormGenerator</code>来开发一个新的工具。</li>
+                <li><router-link to="/group-form"><strong>分组表单:</strong></router-link>通过配置分组，展示了FormGenerator所支持的所有组件。</li>
+                <li><router-link to="/editable-table"><strong>Editable Table:</strong></router-link>可编辑的表格，可以支持快速编辑表格中的内容。实例展示了如何使用<code>FieldGenerator</code>来动态生成表格中的各种表单控件。</li>
+                <li><router-link to="/CURD-example/simple"><strong>CURD:</strong></router-link>使用FieldGenerator结合iView Table组件配置出增删改查的列表中的操作按钮，使用FormGenerator配置出增加和编辑弹框。</li>
+                <li><router-link to="/CURD-example/inline-edit"><strong>CURD-列表编辑:</strong></router-link>更复杂的列表编辑展示。</li>
+                <li><router-link to="/searchable-chart"><strong>Searchable Data Report:</strong></router-link>可以查询的数据报表在很多数据平台中会常常遇到。所使用的的DataVis组件中就使用到了FormGenerator。</li>
+                <li><router-link to="/Audit-example/detail"><strong>审核详情页:</strong></router-link>通过配置来解决大量重复的表单项的联动校验难题。</li>
+                <li><router-link to="/two-related-form"><strong>两表单联动:</strong></router-link>通过配置两个表单，来实现多表单联动。</li>
+                <!-- <li><router-link><strong>Search Inlined Chart:</strong></router-link>内置查询的图表库，这个例子还展示了如何使用<code>FormGenerator</code>来开发一个新的工具。</li> -->
+                <!-- <li><a href=""><strong>Step Form:</strong></a>分步表单是一个很常见的场景，用来完成一系列有先后顺序的表单编辑工作，而且可以保存每一步填写的内容。</li> -->
             </ul>
             <p>上面的例子，是自己对于这些具体的场景进行抽象，并将其封装成可复用的组件模板的尝试。可能并不是特别好的实现，但其展示了可配置模板的基本思想，同样的场景，仅有一套代码。</p>
             <blockquote>

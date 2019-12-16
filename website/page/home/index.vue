@@ -19,7 +19,7 @@
                         <router-link :style="{color: '#f8f8f8'}" to="/group-form">预览</router-link>
                     </Button>
                     <Button
-                        to="https://json-drived-configurable-platform.github.io/form-generator-iview"
+                        to="https://github.com/JSON-Drived-Configurable-Platform/form-generator-iview"
                         icon="logo-github"
                         target="_blank"
                         size="large"
