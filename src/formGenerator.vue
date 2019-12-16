@@ -187,7 +187,8 @@ export default {
     data () {
         return {
             isShowExtra: false,
-            selectedDefaultHideFields: []
+            selectedDefaultHideFields: [],
+            oldParamsContainer: {}
         };
     },
 
@@ -274,9 +275,13 @@ export default {
         needResetFieldsOnChangeMap() {
             let fields = this.fields || [];
             let map = {};
+            const allParams = [...Object.keys(this.paramsContainer), ...fields.map(field => field.model)];
             fields.forEach(field => {
-                let apiParams = field.apiParams || [];
-                if (apiParams.length > 0) {
+                let apiParams = field.apiParams;
+                if (apiParams === 'all') {
+                    apiParams = allParams;
+                }
+                if (Array.isArray(apiParams) && apiParams.length > 0) {
                     apiParams.forEach(param => {
                         if (!map[param]) {
                             map[param] = [];
@@ -287,6 +292,29 @@ export default {
             });
             return map;
         }
+    },
+    watch: {
+        paramsContainer: {
+            deep: true,
+            handler(newParams) {
+                const oldParams = this.oldParamsContainer;
+                const newParamsModels = Object.keys(newParams);
+                const oldParamsModels = Object.keys(oldParams);
+                const models = newParamsModels.length > oldParamsModels.length ? newParamsModels : oldParamsModels;
+                models.forEach(model => {
+                    if (newParams[model] !== oldParams[model]) {
+                        let needResetFields = this.needResetFieldsOnChangeMap[model] || [];
+                        needResetFields.forEach(field => {
+                            this.resetField(field);
+                        });
+                    }
+                });
+                this.oldParamsContainer = JSON.parse(JSON.stringify(newParams));
+            }
+        }
+    },
+    created() {
+        this.oldParamsContainer = JSON.parse(JSON.stringify(this.paramsContainer)) || {};
     },
     mounted() {
         this.form = this.$refs.form;

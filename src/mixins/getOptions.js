@@ -40,7 +40,10 @@ export default {
     },
     watch: {
         params: {
-            handler() {
+            handler(newParams, oldParams) {
+                if (JSON.stringify(newParams) === JSON.stringify(oldParams)) {
+                    return;
+                }
                 if (this.field.api || this.optionsApi) {
                     this.getRemoteOptions();
                 }
