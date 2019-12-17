@@ -87,7 +87,7 @@
                             </Poptip>
                         </div>
                         <div v-if="optionsType === 'video'">
-                            <video controls>
+                            <video width="100%">
                                 <source :src="item.url">
                             </video>
                         </div>
