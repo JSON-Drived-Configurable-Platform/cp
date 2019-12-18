@@ -71,7 +71,7 @@ export default {
         },
         requestResolve(res) {
             if (+res.status === 0 || +res.errno === 0 || +res.status === 200) {
-                this.options = res.data;
+                this.options = res.data || [];
                 this.loading = false;
             }
         },
