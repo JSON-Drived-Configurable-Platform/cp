@@ -45,6 +45,7 @@
                     @on-reset="handleReset"
                     @on-button-event="handleButtonEvent($event)"
                     @on-checkboxCard-click="handelCheckboxCardClick"
+                    @on-list-item-click="handelListItemClick"
                 />
             </div>
 
@@ -396,6 +397,10 @@ export default {
 
         handelCheckboxCardClick(value) {
             this.$emit('on-checkboxCard-click', value);
+        },
+
+        handelListItemClick(value) {
+            this.$emit('on-list-item-click', value);
         },
 
         handleExtraBtnClick() {
