@@ -4,13 +4,13 @@ let simple = {};
 const field = {
     type: 'CheckboxCard',
     model: 'card',
-    "showCheckBox": false,
-    "cardWidth": "220px",
-    "cardHeight": "150px",
-    "options": [
+    'showCheckBox': false,
+    'cardWidth': '220px',
+    'cardHeight': '150px',
+    'options': [
         {
-            "id": "11",
-            "url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574076041&di=dba60f4ce2b9330e330f13546ce963a0&imgtype=jpg&er=1&src=http%3A%2F%2Fwww.ijointoo.com%2Fdata%2Fnews%2Fimages%2F1521193045383.jpg"
+            'id': '11',
+            'url': 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574076041&di=dba60f4ce2b9330e330f13546ce963a0&imgtype=jpg&er=1&src=http%3A%2F%2Fwww.ijointoo.com%2Fdata%2Fnews%2Fimages%2F1521193045383.jpg'
         }
     ]
 };
@@ -117,11 +117,11 @@ const pageField = {
     checkAll: true,
     pageLation: true, // 是否分页
     pageSize: 3, // 分页数目
-    "headerEditable": true,
-    "footerEditable": true,
-    "cardWidth": "220px",
-    "cardHeight": "245px",
-    "options": [
+    'headerEditable': true,
+    'footerEditable': true,
+    'cardWidth': '220px',
+    'cardHeight': '245px',
+    'options': [
         {
             'id': '44',
             'url': 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574076041&di=dba60f4ce2b9330e330f13546ce963a0&imgtype=jpg&er=1&src=http%3A%2F%2Fwww.ijointoo.com%2Fdata%2Fnews%2Fimages%2F1521193045383.jpg',
@@ -198,11 +198,11 @@ const apiField = {
     checkAll: true,
     pageLation: true, // 是否分页
     pageSize: 3, // 分页数目
-    "headerEditable": true,
-    "footerEditable": true,
-    "cardWidth": "220px",
-    "cardHeight": "245px",
-    "options": "/checkboxCardApi"
+    'headerEditable': true,
+    'footerEditable': true,
+    'cardWidth': '220px',
+    'cardHeight': '245px',
+    'options': '/checkboxCardApi'
 };
 
 const apiModel = {

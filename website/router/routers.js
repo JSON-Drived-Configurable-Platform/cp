@@ -31,6 +31,7 @@ const Button = () => import(/* webpackChunkName: "Button" */ '../page/doc/Button
 const Reset = () => import(/* webpackChunkName: "Button" */ '../page/doc/Reset');
 const Divider = () => import(/* webpackChunkName: "Button" */ '../page/doc/Divider');
 const Steps = () => import(/* webpackChunkName: "Button" */ '../page/doc/Steps');
+const List = () => import(/* webpackChunkName: "Button" */ '../page/doc/List');
 // examples
 const groupForm = () => import(/* webpackChunkName: "groupForm" */ '../page/examples/group-form');
 const CURDSimpleExample = () => import(/* webpackChunkName: "CURDExample" */ '../page/examples/CURD-example/simple');
@@ -181,6 +182,11 @@ export default [
                 path: '/doc/Steps',
                 name: 'doc-Steps',
                 component: Steps
+            },
+            {
+                path: '/doc/List',
+                name: 'doc-List',
+                component: List
             },
             {
                 path: '/doc/Divider',

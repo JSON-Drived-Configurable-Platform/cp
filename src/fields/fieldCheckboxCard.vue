@@ -268,7 +268,7 @@ export default {
                     }
                 }
             });
-            this.$set(this.form.model, this.field.model, this.field.model, this.selectedData);
+            this.$set(this.form.model, this.field.model, this.selectedData);
         },
         // 添加数据
         addItem(item) {

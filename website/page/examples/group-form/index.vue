@@ -31,7 +31,12 @@ export default {
         };
     },
     mounted() {
-
+        setTimeout(() => {
+            this.$set(this.paramsContainer, 'paramsContainerTest', 'xxx-1');
+            setTimeout(() => {
+                this.$set(this.paramsContainer, 'paramsContainerTest', 'xxx-2');
+            }, 5000);
+        }, 5000);
     },
     beforeDestroy() {
 

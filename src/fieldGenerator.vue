@@ -37,6 +37,7 @@
             @on-reset-click="handleResetClick"
             @on-button-event="handleButtonClick"
             @on-checkboxCard-click="handelCheckboxCardClick"
+            @on-list-item-click="handelListItemClick"
         />
     </FormItem>
 </template>
@@ -173,6 +174,9 @@ export default {
         },
         handelCheckboxCardClick(value) {
             this.$emit('on-checkboxCard-click', value);
+        },
+        handelListItemClick(value) {
+            this.$emit('on-list-item-click', value);
         },
         getRules(field) {
             const type = field.type.toLowerCase();

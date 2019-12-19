@@ -33,7 +33,7 @@
                             :field="field"
                             @on-field-change="handleFieldChange($event, row, column.slot + row.key)"
                             @on-button-event="handleButtonEvent($event, row, index)"
-                            @on-checkboxCard-click="handleCheckboxCardClick"
+                            @on-list-item-click="handleListItemClick"
                         />
                     </Form>
                 </template>
@@ -118,7 +118,7 @@ export default {
             this.modalImgUrl = imgUrl;
         },
 
-        handleCheckboxCardClick({ url }) {
+        handleListItemClick({ url }) {
             this.modalOpen = true;
             this.modalImgUrl = url;
         }

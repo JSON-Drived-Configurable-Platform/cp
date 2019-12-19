@@ -727,16 +727,14 @@ export const fields = [
         label: '市',
         api: '/selectApi',
         apiParams: ['province'],
-        model: 'cidy',
-        defaultHide: true
+        model: 'city',
     },
     {
         type: 'Select',
         label: '县',
         api: '/selectApi',
-        apiParams: ['province', 'cidy'],
+        apiParams: ['province', 'city'],
         model: 'town',
-        defaultHide: true
     },
     {
         type: 'Submit',
