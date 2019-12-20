@@ -4,6 +4,7 @@
             <appHeader />
             <Layout class="layout-body ivu-layout-has-sider">
                 <appSlider
+                    :open-names="openNames"
                     :menu-list="menuList"
                     :active-name="pagePath"
                     @on-select="turnToPage"
@@ -25,6 +26,7 @@
 import appHeader from './components/header/appHeader';
 // import Breadcrumb from './components/breadcrumb/Breadcrumb';
 import appSlider from './components/slider/appSlider';
+import config from '../../config';
 export default {
     components: {
         appHeader,
@@ -36,6 +38,9 @@ export default {
     },
 
     computed: {
+        openNames() {
+            return config.defaultOpenNames || [];
+        },
         menuList() {
             return this.$store.state.app.menuList || [];
         },
