@@ -56,13 +56,13 @@ export default {
         },
         computedOptions() {
             const options = this.options.length > 0 ? this.options : this.field.options;
-            let value = this.form.model[this.field.model] || [];
+            let value = this.form.model[this.field.model];
             if (!Array.isArray(options)) {
                 return [];
             }
             if (this.multiple) {
                 return options.map(item => {
-                    if (value.includes(item.id)) {
+                    if (value && value.includes(item.id)) {
                         item._checked = true;
                     } else {
                         item._checked = false;
