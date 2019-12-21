@@ -225,7 +225,7 @@ export default {
     watch: {
         value: {
             handler() {
-                if (this.form.model[this.field.model].length === 0) {
+                if (this.form.model[this.field.model] && this.form.model[this.field.model].length === 0) {
                     this.selectedData = [];
                 }
             },
