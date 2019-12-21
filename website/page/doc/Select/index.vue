@@ -104,6 +104,18 @@
                             <td>false</td>
                         </tr>
                         <tr>
+                            <td>defaultValueIndex</td>
+                            <td>当remote为true时，如果该控件的值不为数组，拉取后自动设置默认值的index</td>
+                            <td>Number(Int)</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>defaultValueIndexes</td>
+                            <td>当remote为true时，如果该控件的值为数组，拉取后自动设置默认值的indexes</td>
+                            <td>Array</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
                             <td>api</td>
                             <td>由远程api接口获得数据（已废弃）</td>
                             <td>String</td>

@@ -23,10 +23,11 @@ simple.data = {
 
 simple.code = `
 <script>
+const field = ${JSON.stringify(field, null, 4)};
 export default {
     data() {
         return {
-            field: ${JSON.stringify(field)},
+            field,
             model: ${JSON.stringify(model)}
         };
     }
@@ -52,11 +53,12 @@ let api = {};
 const apiField = {
     type: 'Select',
     model: 'city',
-    options: '/selectApi'
+    options: '/selectApi',
+    defaultValueIndex: 0
 };
 
 const apiModel = {
-    city: 'Beijing'
+    city: ''
 };
 
 api.data = {
@@ -66,10 +68,11 @@ api.data = {
 
 api.code = `
 <script>
+const field = ${JSON.stringify(apiField, null, 4)};
 export default {
     data() {
         return {
-            field: ${JSON.stringify(apiField)},
+            field,
             model: ${JSON.stringify(apiModel)}
         };
     }
@@ -91,6 +94,7 @@ const multipleField = {
     model: 'city',
     multiple: true,
     options: '/selectApi',
+    defaultValueIndexes: [0, 1]
     // options: [
     //     {label: '北京', 'value': 'Beijing'},
     //     {label: '上海', 'value': 'Shanghai'},
@@ -100,7 +104,7 @@ const multipleField = {
 };
 
 const multipleModel = {
-    city: ['Beijing', 'Shanghai']
+    city: []
 };
 
 multiple.data = {
@@ -110,10 +114,11 @@ multiple.data = {
 
 multiple.code = `
 <script>
+const field = ${JSON.stringify(multipleField, null, 4)};
 export default {
     data() {
         return {
-            field: ${JSON.stringify(multipleField)},
+            field,
             model: ${JSON.stringify(multipleModel)}
         };
     }

@@ -33,7 +33,7 @@ module.exports = merge(webpackBaseConfig, {
                 app.all(`/${item}`, function(req, res) {
                     setTimeout(() => {
                         res.json(apiData[item]);
-                    }, 2000);
+                    }, 500);
                 });
             });
         },

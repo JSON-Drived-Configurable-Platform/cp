@@ -40,7 +40,10 @@ export default {
     },
     watch: {
         params: {
-            handler() {
+            handler(newParams, oldParams) {
+                if (JSON.stringify(newParams) === JSON.stringify(oldParams)) {
+                    return;
+                }
                 if (this.field.api || this.optionsApi) {
                     this.getRemoteOptions();
                 }
@@ -68,8 +71,22 @@ export default {
         },
         requestResolve(res) {
             if (+res.status === 0 || +res.errno === 0 || +res.status === 200) {
-                this.options = res.data;
+                this.options = res.data || [];
                 this.loading = false;
+                // value type is primitive
+                let defaultValueIndex = this.field.defaultValueIndex;
+                if (defaultValueIndex !== undefined) {
+                    let valueOption = this.options[defaultValueIndex];
+                    this.value = valueOption.value;
+                    valueOption && this.handleChange(valueOption.value);
+                }
+                // value type is array
+                let defaultValueIndexes = this.field.defaultValueIndexes || [];
+                if (defaultValueIndexes.length > 0) {
+                    let values = this.options.filter((option, index) => defaultValueIndexes.includes(index)).map(option => option.value);
+                    this.value = values;
+                    values.length > 0 && this.handleChange(values);
+                }
             }
         },
         requestReject(reject) {

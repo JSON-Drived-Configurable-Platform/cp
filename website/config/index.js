@@ -136,7 +136,11 @@ export default {
                 {
                     label: 'Steps',
                     name: '/doc/Steps'
-                }
+                },
+                {
+                    label: 'List',
+                    name: '/doc/List'
+                },
                 // {
                 //     label: 'ImgUpload',
                 //     name: '/doc/ImgUpload'
