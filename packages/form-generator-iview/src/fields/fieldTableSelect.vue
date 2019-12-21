@@ -56,7 +56,7 @@ export default {
         },
         computedOptions() {
             const options = this.options.length > 0 ? this.options : this.field.options;
-            let value = this.form.model[this.field.model];
+            let value = this.form.model[this.field.model] || [];
             if (!Array.isArray(options)) {
                 return [];
             }
