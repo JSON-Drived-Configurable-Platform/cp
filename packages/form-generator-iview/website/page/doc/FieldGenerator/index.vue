@@ -77,6 +77,41 @@
                             <td>Boolean</td>
                             <td>false</td>
                         </tr>
+                        <tr>
+                            <td>field.apiParams</td>
+                            <td>
+                                如果该控件有通过接口请求的事件，如动态选项（Select中的options）拉取，提交事件(Submit)等，
+                                设置该参数将会从对应的form.model和paramsContainer中获取参数，并携带在请求中。
+                                <br>
+                                例如：
+                                <br>
+                                设置apiParams为['id']，则会携带id作为请求的参数。
+                                <br>
+                                设置apiParams为 all，则会携带form.model和paramsContainer里面的所有值作为请求的参数。
+                                <br>
+                                一个完整的Submit控件配置如下(携带form.model和paramsContainer里面的所有值)：
+                                <pre>
+{
+    type: 'Submit',
+    text: '保存',
+    subtype: 'primary',
+    size: 'small',
+    action: {
+        type: 'ajax',
+        api: '/curdEdit'
+    },
+    inline: true,
+                                </pre>
+                                <pre>
+    <strong>apiParams: 'all'</strong>
+                                </pre>
+                                <pre>
+}
+                                </pre>
+                            </td>
+                            <td>Array | String</td>
+                            <td>-</td>
+                        </tr>
                     </tbody>
                 </table>
                 <inAnchor title="通用事件" h3 />
