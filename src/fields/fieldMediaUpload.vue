@@ -211,7 +211,7 @@ export default {
     },
     methods: {
         suffix(str) {
-            return str.indexOf(".") === -1 ? str : str.substring(0,str.indexOf("."));
+            return str.indexOf('.') === -1 ? str : str.substring(0,str.indexOf('.'));
         },
         onRemove(file) {
             const fileList = this.uploader.fileList;
