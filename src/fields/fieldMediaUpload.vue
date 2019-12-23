@@ -190,6 +190,7 @@ export default {
         value() {
             let value = this.form.model[this.field.model] || [];
             return value.map(item => {
+                item.name = this.suffix(item.name);
                 item.status = 'finished';
                 return item;
             });
@@ -209,6 +210,9 @@ export default {
         this.uploadFileList = this.uploader.fileList;
     },
     methods: {
+        suffix(str) {
+            return str.indexOf(".") === -1 ? str : str.substring(0,str.indexOf("."));
+        },
         onRemove(file) {
             const fileList = this.uploader.fileList;
             this.uploader.fileList.splice(fileList.indexOf(file), 1);

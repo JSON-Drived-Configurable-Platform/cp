@@ -61,7 +61,7 @@
                             v-if="optionsType === 'image'"
                             :src="item.url"
                             :alt="item.id"
-                            width="100%"
+                            :class="detailClasses"
                         >
                         <p v-if="item.footer || false" :class="footerClasses">
                             {{ item.footer }}
@@ -87,7 +87,7 @@
                             </Poptip>
                         </div>
                         <div v-if="optionsType === 'video'">
-                            <video width="100%">
+                            <video :class="detailClasses">
                                 <source :src="item.url">
                             </video>
                         </div>
@@ -161,6 +161,9 @@ export default {
         },
         footerEditClasses() {
             return `${this.classes}-group-item-footeredit`;
+        },
+        detailClasses() {
+            return `${this.classes}-group-item-detail`;
         },
         styleCard() {
             return `width: ${this.field.cardWidth || '270px'};height: ${this.field.cardHeight || '260px'}`;
