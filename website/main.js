@@ -18,7 +18,7 @@ import 'data-vis-iview/src/style/index.less';
 
 import axios from 'axios';
 
-const requestInterceptor = function(url, params) {
+const requestInterceptor = function (method = 'get', url, params) {
     return new Promise((resolve, reject) => {
         // eslint-disable-next-line no-undef
         if (process.env.NODE_ENV === 'production') {
@@ -26,7 +26,7 @@ const requestInterceptor = function(url, params) {
         }
         axios.request({
             url,
-            method: 'get',
+            method,
             params
         }).then(res => {
             resolve(res.data);
