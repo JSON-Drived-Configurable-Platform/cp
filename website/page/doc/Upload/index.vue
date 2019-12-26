@@ -120,7 +120,7 @@
                             <td>suffix</td>
                             <td>是否展示文件名后缀(上传成功后)</td>
                             <td>Boolean</td>
-                            <td>true</td>
+                            <td>false</td>
                         </tr>
                     </tbody>
                 </table>
