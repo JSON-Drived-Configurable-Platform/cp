@@ -78,6 +78,12 @@
                             <td>当 action.name 为 ajax 时，必填</td>
                         </tr>
                         <tr>
+                            <td>action.method</td>
+                            <td>当 action.type 为 ajax 时，可以指定请求方式get、post、put等</td>
+                            <td>String</td>
+                            <td>非必填，默认值为get</td>
+                        </tr>
+                        <tr>
                             <td>action.route</td>
                             <td>
                                 当 action.type 为 route 时，可以指定action.route， 触发点击后会向该接口返送请求。
