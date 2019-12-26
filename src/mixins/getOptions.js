@@ -77,8 +77,11 @@ export default {
                 let defaultValueIndex = this.field.defaultValueIndex;
                 if (defaultValueIndex !== undefined) {
                     let valueOption = this.options[defaultValueIndex];
-                    this.value = valueOption.value;
-                    valueOption && this.handleChange(valueOption.value);
+                    if (valueOption) {
+                        this.value = valueOption.value;
+                        valueOption && this.handleChange(valueOption.value);
+                    }
+
                 }
                 // value type is array
                 let defaultValueIndexes = this.field.defaultValueIndexes || [];
