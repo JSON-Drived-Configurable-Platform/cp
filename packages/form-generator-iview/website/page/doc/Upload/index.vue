@@ -116,6 +116,12 @@
                             <td>String</td>
                             <td>-</td>
                         </tr>
+                        <tr>
+                            <td>suffix</td>
+                            <td>是否展示文件名后缀(上传成功后)</td>
+                            <td>Boolean</td>
+                            <td>true</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
