@@ -274,7 +274,9 @@ export default {
                 try {
                     let apiBase = this.apiBase || '';
                     let finalApi = apiBase + field.action.api;
-                    this.requestMethod(finalApi, this.getParams(field)).then(res => {
+                    const method = field.action.method || 'get';
+
+                    this.requestMethod(method.toLowerCase(), finalApi, this.getParams(field)).then(res => {
                         if (this.requestResolve(res)) {
                             resolve();
                             this.$emit('on-button-event', {
@@ -322,16 +324,16 @@ export default {
             }
             return false;
         },
-        requestMethod(url, finalParams) {
+        requestMethod(method = 'get', url, finalParams) {
             if (this.requestInterceptor) {
-                return this.requestInterceptor(url, finalParams);
+                return this.requestInterceptor(method, url, finalParams);
             }
             else if (this.FormGeneratorInstallOptions && this.FormGeneratorInstallOptions.requestInterceptor) {
-                return this.FormGeneratorInstallOptions.requestInterceptor(url, finalParams);
+                return this.FormGeneratorInstallOptions.requestInterceptor(method, url, finalParams);
             }
             return axios.request({
                 url,
-                method: 'get',
+                method,
                 params: finalParams
             });
         },

@@ -154,7 +154,8 @@ const ajaxField = {
     subtype: 'error',
     action: {
         type: 'ajax',
-        api: '/curdDelete'
+        api: '/curdDelete',
+        method: 'get'
     },
 };
 

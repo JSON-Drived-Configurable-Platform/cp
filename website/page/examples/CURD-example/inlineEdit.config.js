@@ -455,6 +455,7 @@ export const editFormFields = [
             type: 'ajax',
             api: '/curdEdit'
         },
-        inline: true
+        inline: true,
+        apiParams: 'all'
     },
 ];
