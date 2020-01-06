@@ -48,7 +48,6 @@ export default {
         },
     },
     mounted() {
-
         this.text = this.field.text;
     },
     methods: {
