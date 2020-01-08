@@ -117,6 +117,12 @@
                             <td>-</td>
                         </tr>
                         <tr>
+                            <td>suffix</td>
+                            <td>去掉文件名后缀(上传成功后)</td>
+                            <td>Boolean</td>
+                            <td>false</td>
+                        </tr>
+                        <tr>
                             <td>needDealUploadData</td>
                             <td>是否需要处理后台返回的数据</td>
                             <td>Boolean</td>

@@ -187,6 +187,9 @@ export default {
         tip() {
             return this.field.tip || '点击或者拖拽文件即可上传';
         },
+        suffixAbled() {
+            return this.field.suffix || false;
+        },
         value() {
             let value = this.form.model[this.field.model] || [];
             return value.map(item => {
@@ -209,6 +212,11 @@ export default {
         this.uploadFileList = this.uploader.fileList;
     },
     methods: {
+        suffix(str) {
+            let arr = str.split('.');
+            arr.pop();
+            return arr.join('.');
+        },
         onRemove(file) {
             const fileList = this.uploader.fileList;
             this.uploader.fileList.splice(fileList.indexOf(file), 1);
@@ -223,6 +231,7 @@ export default {
             if (url) {
                 // this.$Message.info('上传成功!');
                 file.url = url;
+                file.name = this.suffixAbled ? this.suffix(file.name) : file.name;
                 this.uploadFileList = this.uploader.fileList;
                 this.handleChange();
             }

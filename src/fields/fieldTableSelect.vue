@@ -62,7 +62,7 @@ export default {
             }
             if (this.multiple) {
                 return options.map(item => {
-                    if (value.includes(item.id)) {
+                    if (value && value.includes(item.id)) {
                         item._checked = true;
                     } else {
                         item._checked = false;
