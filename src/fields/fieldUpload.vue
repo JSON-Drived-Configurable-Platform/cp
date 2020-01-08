@@ -50,7 +50,8 @@ export default {
             defaultFileList: [],
             uploadFileList: [],
             loading: false,
-            uploader: null
+            uploader: null,
+            keyList: []
         };
     },
     computed: {
@@ -63,6 +64,12 @@ export default {
                 item.status = 'finished';
                 return item;
             });
+        },
+        needDealUploadData() {
+            return this.field.needDealUploadData || false;
+        },
+        accessKey() {
+            return this.field.accessKey || '';
         }
     },
     watch: {
@@ -82,7 +89,9 @@ export default {
     methods: {
         handleChange() {
             this.$set(this.form.model, this.field.model, this.uploadFileList);
-            this.$emit('on-change', this.field.model, this.uploadFileList, null, this.field);
+            let ajaxData = '';
+            !!this.needDealUploadData ? ajaxData = this.keyList : ajaxData = this.uploadFileList;
+            this.$emit('on-change', this.field.model, ajaxData, null, this.field);
         },
         onSuccess({data = {}}, file) {
             const {url} = data;
@@ -90,6 +99,7 @@ export default {
                 this.$Message.info('上传成功!');
                 file.url = url;
                 this.uploadFileList = this.uploader.fileList.slice();
+                this.dealExtraParams();
                 this.handleChange();
             }
             else {
@@ -110,7 +120,16 @@ export default {
         },
         onRemove() {
             this.uploadFileList = this.uploader.fileList.slice();
+            this.dealExtraParams();
             this.handleChange();
+        },
+        dealExtraParams() {
+            if (this.needDealUploadData) {
+                this.keyList = this.uploadFileList.map(key => {
+                    key = key.response.data[this.accessKey];
+                    return key
+                });
+            }
         }
     }
 };
