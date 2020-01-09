@@ -16,6 +16,7 @@
                         :src="item.url"
                         :alt="item.id"
                         width="100%"
+                        height="100%"
                     >
                     <p v-if="item.footer || false" :class="footerClasses">
                         {{ item.footer }}
