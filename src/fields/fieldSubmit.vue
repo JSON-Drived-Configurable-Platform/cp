@@ -7,7 +7,6 @@
     >{{ field.text || '提交' }}</Button>
 </template>
 <script>
-import axios from '../utils/http';
 export default {
     props: {
         field: {
