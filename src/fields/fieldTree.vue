@@ -20,7 +20,7 @@
 <script>
 function updateNode(nodes = [], checkedList = [], multiple = false) {
     nodes.forEach(node => {
-        node.expand = true;
+        node.expand = false;
         if (multiple) {
             node.checked = checkedList.includes(node.id);
         }
