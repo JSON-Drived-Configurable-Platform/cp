@@ -9,7 +9,6 @@
 <script>
 import axios from '../utils/http';
 export default {
-    inject: ['form'],
     props: {
         field: {
             type: Object,
