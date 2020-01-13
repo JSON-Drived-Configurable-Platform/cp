@@ -120,9 +120,6 @@ export default {
         white(row, index) {
             // eslint-disable-next-line no-console
             console.log(row, index);
-        },
-        handleSubmit() {
-            alert(111);
         }
     }
 };
