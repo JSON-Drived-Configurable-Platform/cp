@@ -13,13 +13,29 @@
                     :key="column.slot"
                     :model="row"
                 >
+                    <Poptip v-if="!!column.poptip" placement="left-start">
+                        <span>{{ row[column.slot] }}</span>
+                        <Icon type="md-create" />
+                        <div slot="title"><i>{{ column.poptip.title }}</i></div>
+                        <div slot="content">
+                            <FieldGenerator
+                                v-for="(field, i) in column.poptip.formFields"
+                                :key="i"
+                                :api-base="apiBase"
+                                :field="field"
+                                @on-submit="handleSubmit(index)"
+                            />
+                        </div>
+                    </Poptip>
                     <FieldGenerator
                         v-for="(field, i) in column.formFields"
+                        v-else
                         :key="i"
                         :field="field"
                         @on-button-event="handleButtonEvent($event, row, index)"
                     />
                 </Form>
+
             </template>
         </Table>
         <Modal
@@ -47,6 +63,11 @@ export default {
             editFormFields,
             editDialogOpeon: false
         };
+    },
+    computed: {
+        apiBase() {
+            return `http://${window.location.hostname}:${window.location.port}`;
+        }
     },
     methods: {
         handleCreateButtonClick() {
@@ -99,6 +120,9 @@ export default {
         white(row, index) {
             // eslint-disable-next-line no-console
             console.log(row, index);
+        },
+        handleSubmit() {
+            alert(111);
         }
     }
 };
