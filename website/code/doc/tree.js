@@ -77,11 +77,7 @@ export default {
     data() {
         return {
             field,
-<<<<<<< HEAD
-            model, 
-=======
             model,
->>>>>>> 66282235fb839a1f994947710f2881be5e75b228
         };
     }
     methods: {
