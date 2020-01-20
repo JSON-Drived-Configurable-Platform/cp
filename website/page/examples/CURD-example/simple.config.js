@@ -6,8 +6,29 @@ export const columns = [
     },
     {
         title: '年龄',
-        key: 'age',
-        width: 90
+        slot: 'age',
+        width: 90,
+        poptip: {
+            title: '年龄',
+            'formFields': [
+                {
+                    'type': 'Input',
+                    'model': 'age'
+                }, 
+                {
+                    type: 'Submit',
+                    text: '保存',
+                    subtype: 'primary',
+                    size: 'small',
+                    action: {
+                        type: 'ajax',
+                        api: '/checkboxApi',
+                        successed: 'updateData'
+                    },
+                    inline: true
+                }
+            ]
+        }
     },
     {
         title: '性别',
@@ -26,15 +47,7 @@ export const columns = [
     {
         title: '图片',
         slot: 'city',
-        width: 150,
-        formFields: [
-            {
-                'type': 'Carousel',
-                'valueAsOptions': true,
-                'model': 'city',
-                'options': []
-            }
-        ]
+        width: 150
     },
     {
         title: '用户状态',
