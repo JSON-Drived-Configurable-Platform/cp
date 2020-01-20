@@ -19,8 +19,8 @@
 </template>
 <script>
 function updateNode(nodes = [], checkedList = [], multiple = false) {
-    nodes.forEach(node => {
-        node.expand = false;
+    nodes.forEach((node, index) => {
+        // node.expand = false;
         if (multiple) {
             node.checked = checkedList.includes(node.id);
         }
@@ -29,6 +29,11 @@ function updateNode(nodes = [], checkedList = [], multiple = false) {
         }
         if (node.children) {
             updateNode(node.children, checkedList, multiple);
+            node.children.forEach(item => {
+                if (checkedList.length !==0 && checkedList.includes(item.id)) {
+                    nodes[index].expand = true;
+                }
+            });
         }
     });
 }
