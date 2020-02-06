@@ -12,7 +12,7 @@ export default {
         field: {
             type: Object,
             required: true
-        },
+        }
     },
     data() {
         return {
