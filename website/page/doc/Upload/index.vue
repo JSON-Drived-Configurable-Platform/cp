@@ -131,7 +131,7 @@
                         <tr>
                             <td>accessKey</td>
                             <td>需要单独获取的接口返回数据的key(需要处理后端数据时，必传)</td>
-                            <td>String</td>
+                            <td>Array</td>
                             <td>-</td>
                         </tr>
                     </tbody>

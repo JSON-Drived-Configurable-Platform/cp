@@ -103,6 +103,12 @@ export default {
                 this.handleChange();
             }
             else {
+                // 上传失败的文件不在页面上展示
+                this.uploader.fileList.map((item, i) => {
+                    if (item.name === file.name) {
+                        this.uploader.fileList.splice(i, 1);
+                    }
+                })
                 this.$Message.error('上传失败!');
             }
         },
@@ -126,8 +132,15 @@ export default {
         dealExtraParams() {
             if (this.needDealUploadData) {
                 this.keyList = this.uploadFileList.map(key => {
-                    key = key.response.data[this.accessKey];
-                    return key
+                    let temp = {};
+                    this.accessKey.map(item => {
+                        if(key[item]) {
+                            this.$set(temp, item, key[item]);
+                        } else if (key.response.data[item]){
+                            this.$set(temp, item, key.response.data[item]);
+                        }
+                    })
+                    return temp
                 });
             }
         }
