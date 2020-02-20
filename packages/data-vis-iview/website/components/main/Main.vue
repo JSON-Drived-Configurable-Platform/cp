@@ -12,9 +12,7 @@
                 <Layout class="layout-body-right">
                     <!-- <Breadcrumb :cat="cat" /> -->
                     <Content class="layout-body-right-content">
-                        <keep-alive>
-                            <router-view />
-                        </keep-alive>
+                        <router-view />
                     </Content>
                 </Layout>
             </Layout>

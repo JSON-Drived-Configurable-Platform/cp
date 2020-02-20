@@ -39,8 +39,8 @@
             <i-code lang="auto" bg>{{ code.introduce.installIView }}</i-code>
             <i-code lang="auto" bg>{{ code.introduce.importIView }}</i-code>
 
-            <inAnchor title="示例" h2 />
-            <DataVis :config="config" />
+            <!-- <inAnchor title="示例" h2 />
+            <DataVis :config="config" /> -->
 
             <!-- TODO -->
             <inAnchor title="版本" h2 />
