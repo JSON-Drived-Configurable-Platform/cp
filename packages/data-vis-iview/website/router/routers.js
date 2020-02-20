@@ -13,7 +13,7 @@ const practice = () => import(/* webpackChunkName: "practice" */ '../page/practi
 const DataVis = () => import(/* webpackChunkName: "practice" */ '../page/doc/DataVis');
 const DataVisItem = () => import(/* webpackChunkName: "practice" */ '../page/doc/DataVisItem');
 // examples
-const simple = () => import(/* webpackChunkName: "simple" */ '../page/examples/simple');
+// const simple = () => import(/* webpackChunkName: "simple" */ '../page/examples/simple');
 export default [
     {
         path: '/',
@@ -56,7 +56,7 @@ export default [
             {
                 path: '/simple',
                 name: 'examples-simple',
-                component: simple
+                component: home
             }
         ]
     }
