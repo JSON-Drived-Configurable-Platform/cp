@@ -90,7 +90,7 @@ export default {
         handleChange() {
             this.$set(this.form.model, this.field.model, this.uploadFileList);
             let ajaxData = '';
-            !!this.needDealUploadData ? ajaxData = this.keyList : ajaxData = this.uploadFileList;
+            this.needDealUploadData ? ajaxData = this.keyList : ajaxData = this.uploadFileList;
             this.$emit('on-change', this.field.model, ajaxData, null, this.field);
         },
         onSuccess({data = {}}, file) {
@@ -108,7 +108,7 @@ export default {
                     if (item.name === file.name) {
                         this.uploader.fileList.splice(i, 1);
                     }
-                })
+                });
                 this.$Message.error('上传失败!');
             }
         },
@@ -139,8 +139,8 @@ export default {
                         } else if (key.response.data[item]){
                             this.$set(temp, item, key.response.data[item]);
                         }
-                    })
-                    return temp
+                    });
+                    return temp;
                 });
             }
         }
