@@ -63,7 +63,7 @@ export default {
             let apiBase = this.apiBase;
             let finalApi = apiBase + (this.field.api || this.optionsApi);
             let finalParams = Object.assign({}, this.params, newParams);
-            this.requestMethod(finalApi, finalParams, this.field.cache).then(res => {
+            this.requestMethod('get', finalApi, finalParams, this.field.cache).then(res => {
                 this.requestResolve(res);
             }, reject => {
                 this.requestReject(reject);
@@ -102,7 +102,7 @@ export default {
          * @param {Object} finalParams params for the request
          * @param {Boolean} cache If cache is true, the same request by url and will be cached, and use only one request
          */
-        requestMethod(url, finalParams, cache = false) {
+        requestMethod(method = 'get', url, finalParams, cache = false) {
             const cacheKey = `${url}${JSON.stringify(finalParams)}`;
             let requestInterceptor = null;
             if (!cachedRequestInterceptor) {
@@ -113,10 +113,10 @@ export default {
             }
 
             if (this.requestInterceptor) {
-                requestInterceptor = this.requestInterceptor(url, finalParams);
+                requestInterceptor = this.requestInterceptor(method, url, finalParams);
             }
             else if (this.FormGeneratorInstallOptions && this.FormGeneratorInstallOptions.requestInterceptor) {
-                requestInterceptor = this.FormGeneratorInstallOptions.requestInterceptor(url, finalParams);
+                requestInterceptor = this.FormGeneratorInstallOptions.requestInterceptor(method, url, finalParams);
             }
             else {
                 requestInterceptor = axios.request({
