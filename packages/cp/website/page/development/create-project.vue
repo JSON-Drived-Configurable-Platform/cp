@@ -78,16 +78,12 @@
 <script>
 import iArticle from '../../components/article';
 import inAnchor from '../../components/anchor';
-import Code from '../../code/guide';
+import iCode from '../../components/code';
 export default {
     components: {
         iArticle,
-        inAnchor
-    },
-    data() {
-        return {
-            code: Code
-        };
+        inAnchor,
+        iCode
     }
 };
 </script>

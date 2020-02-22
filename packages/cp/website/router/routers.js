@@ -12,27 +12,27 @@ const start = () => import(/* webpackChunkName: "start" */ '../page/start');
 const introduce = () => import(/* webpackChunkName: "introduce" */ '../page/introduce');
 
 const mainTheory = () => import(/* webpackChunkName: "mainTheory" */ '../page/concept/main-theory');
-const pluginSystem = () => import(/* webpackChunkName: "scaffoldPlugin" */ '../page/concept/plugin-system');
-const templateReuse = () => import(/* webpackChunkName: "templatePlugin" */ '../page/concept/template-reuse');
-const jsonDrived = () => import(/* webpackChunkName: "templatePlugin" */ '../page/concept/json-drived');
+const pluginSystem = () => import(/* webpackChunkName: "pluginSystem" */ '../page/concept/plugin-system');
+const templateReuse = () => import(/* webpackChunkName: "templateReuse" */ '../page/concept/template-reuse');
+const jsonDrived = () => import(/* webpackChunkName: "jsonDrived" */ '../page/concept/json-drived');
 
-const createProject = () => import(/* webpackChunkName: "templatePlugin" */ '../page/development/create-project');
-const directoryStructure = () => import(/* webpackChunkName: "templatePlugin" */ '../page/development/directory-structure');
-const codeQuality = () => import(/* webpackChunkName: "templatePlugin" */ '../page/development/code-quality');
-const routerConfig = () => import(/* webpackChunkName: "templatePlugin" */ '../page/development/router-config');
-const serviceRegiste = () => import(/* webpackChunkName: "templatePlugin" */ '../page/development/service-registe');
-const dataCommunication = () => import(/* webpackChunkName: "templatePlugin" */ '../page/development/data-communication');
-const apiProxy = () => import(/* webpackChunkName: "templatePlugin" */ '../page/development/api-proxy');
-const apiMock  = () => import(/* webpackChunkName: "templatePlugin" */ '../page/development/api-mock');
-const navagateManagement = () => import(/* webpackChunkName: "templatePlugin" */ '../page/development/navagate-management');
-const authorityManagement = () => import(/* webpackChunkName: "templatePlugin" */ '../page/development/authority-management');
-const layoutSwitch = () => import(/* webpackChunkName: "templatePlugin" */ '../page/development/layout-switch');
-const dynamicLoad = () => import(/* webpackChunkName: "templatePlugin" */ '../page/development/dynamic-load');
+const directoryStructure = () => import(/* webpackChunkName: "directoryStructure" */ '../page/development/directory-structure');
+const createProject = () => import(/* webpackChunkName: "createProject" */ '../page/development/create-project');
+const routerConfig = () => import(/* webpackChunkName: "routerConfig" */ '../page/development/router-config');
+const dataCommunication = () => import(/* webpackChunkName: "dataCommunication" */ '../page/development/data-communication');
+const apiProxy = () => import(/* webpackChunkName: "apiProxy" */ '../page/development/api-proxy');
+const apiMock  = () => import(/* webpackChunkName: "apiMock" */ '../page/development/api-mock');
+
+const codeQuality = () => import(/* webpackChunkName: "codeQuality" */ '../page/practice-guide/code-quality');
+const navagateManagement = () => import(/* webpackChunkName: "navagateManagement" */ '../page/practice-guide/navagate-management');
+const authorityManagement = () => import(/* webpackChunkName: "authorityManagement" */ '../page/practice-guide/authority-management');
+const layoutSwitch = () => import(/* webpackChunkName: "layoutSwitch" */ '../page/practice-guide/layout-switch');
+const dynamicLoad = () => import(/* webpackChunkName: "dynamicLoad" */ '../page/practice-guide/dynamic-load');
 
 
-const basicModules = () => import(/* webpackChunkName: "routerConfig" */ '../page/resources/basic-modules');
-const scaffordPlugin = () => import(/* webpackChunkName: "routerConfig" */ '../page/resources/scafford-plugin');
-const templatesGallery = () => import(/* webpackChunkName: "routerConfig" */ '../page/resources/templates-gallery');
+const basicModules = () => import(/* webpackChunkName: "basicModules" */ '../page/resources/basic-modules');
+const scaffordPlugin = () => import(/* webpackChunkName: "scaffordPlugin" */ '../page/resources/scafford-plugin');
+const templatesGallery = () => import(/* webpackChunkName: "templatesGallery" */ '../page/resources/templates-gallery');
 
 const contributeLayoutTemplate = () => import(/* webpackChunkName: "contributeLayoutTemplate" */ '../page/contribute/layout-template');
 const contributePageTemplate = () => import(/* webpackChunkName: "contributePageTemplate" */ '../page/contribute/page-template');
@@ -93,25 +93,16 @@ export default [
         component: Main,
         children: [
             {
-                path: '/development/create-project',
-                component: createProject
-            },
-            {
                 path: '/development/directory-structure',
                 component: directoryStructure
             },
             {
-                path: '/development/code-quality',
-                component: codeQuality
+                path: '/development/create-project',
+                component: createProject
             },
             {
                 path: '/development/router-config',
                 component: routerConfig
-            },
-            {
-                path: '/development/service-registe',
-                component: serviceRegiste
-
             },
             {
                 path: '/development/data-communication',
@@ -125,26 +116,37 @@ export default [
                 path: '/development/api-mock',
                 component: apiMock
             },
+        ]
+    },
+    {
+        path: '/practice-guide',
+        redirect: '/practice-guide/code-quality',
+        component: Main,
+        children: [
             {
-                path: '/development/navagate-management',
+                path: '/practice-guide/code-quality',
+                component: codeQuality
+            },
+            {
+                path: '/practice-guide/navagate-management',
                 component: navagateManagement
             },
             {
-                path: '/development/authority-management',
+                path: '/practice-guide/authority-management',
                 component: authorityManagement
             },
             {
-                path: '/development/layout-switch',
+                path: '/practice-guide/layout-switch',
                 component: layoutSwitch
             },
             {
-                path: '/development/dynamic-load',
+                path: '/practice-guide/dynamic-load',
                 component: dynamicLoad
             },
         ]
     },
     {
-        path: '/modules',
+        path: '/resources',
         redirect: '/resources/basic-modules',
         component: Main,
         children: [

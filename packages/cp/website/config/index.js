@@ -26,7 +26,7 @@ export default {
      */
     homeName: 'home',
 
-    defaultOpenNames: ['/doc', '/concept', '/development', '/resources', '/contribute'],
+    defaultOpenNames: ['/doc', '/concept', '/development', '/practice-guide', '/resources', '/contribute'],
 
     menuList: [
         {
@@ -63,57 +63,60 @@ export default {
             ]
         },
         {
-            label: '开发',
+            label: '基础功能',
             // label: 'Concept',
             name: '/development',
             submenu: [
-                {
-                    label: '创建项目',
-                    name: '/development/create-project',
-                },
                 {
                     label: '目录结构',
                     name: '/development/directory-structure',
                 },
                 {
-                    label: '代码质量',
-                    name: '/development/code-quality',
+                    label: '创建项目',
+                    name: '/development/create-project',
                 },
+
                 {
                     label: '路由配置',
                     name: '/development/router-config',
                 },
                 {
-                    label: '服务注册',
-                    name: '/development/service-registe',
-                },
-                {
                     label: '数据通信',
                     name: '/development/data-communication',
                 },
+                // {
+                //     label: '接口代理',
+                //     name: '/development/api-proxy',
+                // },
+                // {
+                //     label: '接口模拟',
+                //     name: '/development/api-mock',
+                // }
+            ]
+        },
+        {
+            label: '实践指南',
+            name: '/practice-guide',
+            submenu: [
                 {
-                    label: '接口代理',
-                    name: '/development/api-proxy',
-                },
-                {
-                    label: '接口模拟',
-                    name: '/development/api-mock',
+                    label: '代码质量',
+                    name: '/practice-guide/code-quality',
                 },
                 {
                     label: '导航管理',
-                    name: '/development/navagate-management',
+                    name: '/practice-guide/navagate-management',
                 },
                 {
                     label: '权限管理',
-                    name: '/development/authority-management',
+                    name: '/practice-guide/authority-management',
                 },
                 {
                     label: '主题切换',
-                    name: '/development/layout-switch',
+                    name: '/practice-guide/layout-switch',
                 },
                 {
                     label: '动态加载',
-                    name: '/development/dynamic-load',
+                    name: '/practice-guide/dynamic-load',
                 },
             ]
         },

@@ -11,7 +11,7 @@
             <br>
             <p>完整的项目代码可以直接通过如下命令下载到本地：</p>
             <i-code>git clone git@github.com:JSON-Drived-Configurable-Platform/cp-example.git</i-code>
-            <p>也可以点击<a href="https://json-drived-configurable-platform.github.io/cp-example">预览</a>，直接线上查看线上效果。</p>
+            <p>也可以点击<a target="_blank" href="https://json-drived-configurable-platform.github.io/cp-example">预览</a>，直接线上查看线上效果。</p>
 
             <inAnchor
                 title="使用vue-cli创建一个空项目"
