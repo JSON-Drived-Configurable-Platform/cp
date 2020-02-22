@@ -1,13 +1,13 @@
 <template>
     <i-article>
         <article>
-            <h1>Page Template</h1>
-            <p>本文介绍<code><strong>CP</strong></code>的<code><strong>Page Template</strong></code>。主要包含：</p>
+            <h1>代码质量</h1>
+            <p>本文介绍<code><strong>CP</strong></code>的<code><strong>Layout Template</strong></code>。主要包含：</p>
             <inAnchor
-                title="Page Template是什么"
+                title="Layout是什么"
                 h2
             />
-            <p>Page Template是什么</p>
+            <p>Layout是什么</p>
         </article>
     </i-article>
 </template>

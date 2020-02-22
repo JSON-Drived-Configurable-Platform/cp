@@ -1,0 +1,21 @@
+{
+    "status": 0,
+    "data": [
+        {
+            "label": "北京",
+            "value": "Beijing"
+        },
+        {
+            "label": "上海",
+            "value": "Shanghai"
+        },
+        {
+            "label": "广州",
+            "value": "Guangzhou"
+        },
+        {
+            "label": "深圳",
+            "value": "Shenzhen"
+        }
+    ]
+}

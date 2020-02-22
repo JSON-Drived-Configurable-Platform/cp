@@ -1,7 +1,7 @@
 <template>
     <i-article>
         <article>
-            <h1>Contribute A Layout Template</h1>
+            <h1>贡献主题模板</h1>
             <p>本文介绍如何Contribute A Layout Template</p>
             <inAnchor
                 title="Contribute A Layout Template"

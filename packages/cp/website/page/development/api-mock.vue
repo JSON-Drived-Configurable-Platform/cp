@@ -1,13 +1,13 @@
 <template>
     <i-article>
         <article>
-            <h1>Service Config</h1>
-            <p>本文介绍<code><strong>CP</strong></code>的<code><strong>Service Config</strong></code>。主要包含：</p>
+            <h1>接口模拟</h1>
+            <p>本文介绍<code><strong>CP</strong></code>的<code><strong>Layout Template</strong></code>。主要包含：</p>
             <inAnchor
-                title="Service"
+                title="Layout是什么"
                 h2
             />
-            <p>Service</p>
+            <p>Layout是什么</p>
         </article>
     </i-article>
 </template>

@@ -1,13 +1,13 @@
 <template>
     <i-article>
         <article>
-            <h1>贡献页面模板</h1>
-            <p>本文介绍如何Contribute A Page Template</p>
+            <h1>权限管理</h1>
+            <p>本文介绍<code><strong>CP</strong></code>的<code><strong>Layout Template</strong></code>。主要包含：</p>
             <inAnchor
-                title="Contribute A Page Template"
+                title="Layout是什么"
                 h2
             />
-            <p>Contribute A Page Template</p>
+            <p>Layout是什么</p>
         </article>
     </i-article>
 </template>

@@ -6,17 +6,34 @@
 import Main from '../components/main';
 
 const home = () => import(/* webpackChunkName: "home" */ '../page/home');
+
 const start = () => import(/* webpackChunkName: "start" */ '../page/start');
+
 const introduce = () => import(/* webpackChunkName: "introduce" */ '../page/introduce');
+
 const mainTheory = () => import(/* webpackChunkName: "mainTheory" */ '../page/concept/main-theory');
-const scaffoldPlugin = () => import(/* webpackChunkName: "scaffoldPlugin" */ '../page/concept/scaffold-plugin');
-const routerConfig = () => import(/* webpackChunkName: "routerConfig" */ '../page/concept/router-config');
-const serviceConfig = () => import(/* webpackChunkName: "serviceConfig" */ '../page/concept/service-config');
-const templatePlugin = () => import(/* webpackChunkName: "templatePlugin" */ '../page/concept/template-plugin');
-const layoutTemplate = () => import(/* webpackChunkName: "layoutTemplate" */ '../page/concept/layout-template');
-const pageTemplate = () => import(/* webpackChunkName: "pageTemplate" */ '../page/concept/page-template');
-const templatesGallery = () => import(/* webpackChunkName: "pageTemplate" */ '../page/templates-gallery');
-const modules = () => import(/* webpackChunkName: "modules" */ '../page/modules');
+const pluginSystem = () => import(/* webpackChunkName: "scaffoldPlugin" */ '../page/concept/plugin-system');
+const templateReuse = () => import(/* webpackChunkName: "templatePlugin" */ '../page/concept/template-reuse');
+const jsonDrived = () => import(/* webpackChunkName: "templatePlugin" */ '../page/concept/json-drived');
+
+const createProject = () => import(/* webpackChunkName: "templatePlugin" */ '../page/development/create-project');
+const directoryStructure = () => import(/* webpackChunkName: "templatePlugin" */ '../page/development/directory-structure');
+const codeQuality = () => import(/* webpackChunkName: "templatePlugin" */ '../page/development/code-quality');
+const routerConfig = () => import(/* webpackChunkName: "templatePlugin" */ '../page/development/router-config');
+const serviceRegiste = () => import(/* webpackChunkName: "templatePlugin" */ '../page/development/service-registe');
+const dataCommunication = () => import(/* webpackChunkName: "templatePlugin" */ '../page/development/data-communication');
+const apiProxy = () => import(/* webpackChunkName: "templatePlugin" */ '../page/development/api-proxy');
+const apiMock  = () => import(/* webpackChunkName: "templatePlugin" */ '../page/development/api-mock');
+const navagateManagement = () => import(/* webpackChunkName: "templatePlugin" */ '../page/development/navagate-management');
+const authorityManagement = () => import(/* webpackChunkName: "templatePlugin" */ '../page/development/authority-management');
+const layoutSwitch = () => import(/* webpackChunkName: "templatePlugin" */ '../page/development/layout-switch');
+const dynamicLoad = () => import(/* webpackChunkName: "templatePlugin" */ '../page/development/dynamic-load');
+
+
+const basicModules = () => import(/* webpackChunkName: "routerConfig" */ '../page/resources/basic-modules');
+const scaffordPlugin = () => import(/* webpackChunkName: "routerConfig" */ '../page/resources/scafford-plugin');
+const templatesGallery = () => import(/* webpackChunkName: "routerConfig" */ '../page/resources/templates-gallery');
+
 const contributeLayoutTemplate = () => import(/* webpackChunkName: "contributeLayoutTemplate" */ '../page/contribute/layout-template');
 const contributePageTemplate = () => import(/* webpackChunkName: "contributePageTemplate" */ '../page/contribute/page-template');
 
@@ -27,84 +44,121 @@ export default [
     },
     {
         path: '/home',
-        name: 'home',
         component: home
     },
     {
         path: '/doc',
-        name: 'doc',
         redirect: '/doc/introduce',
         component: Main,
         children: [
             {
                 path: '/doc/introduce',
-                name: 'introduce',
                 component: introduce
             },
             {
                 path: '/doc/start',
-                name: 'start',
                 component: start
             }
         ]
     },
     {
         path: '/concept',
-        name: 'main-theory',
         redirect: '/concept/main-theory',
         component: Main,
         children: [
             {
                 path: '/concept/main-theory',
-                name: '/concept/main-theory',
                 component: mainTheory
             },
             {
-                path: '/concept/scaffold-plugin',
-                name: 'scaffold-plugin',
-                component: scaffoldPlugin
+                path: '/concept/plugin-system',
+                component: pluginSystem
             },
             {
 
-                path: '/concept/template-plugin',
-                name: 'template-plugin',
-                component: templatePlugin
+                path: '/concept/template-reuse',
+                component: templateReuse
             },
             {
-                path: '/concept/layout-template',
-                name: 'layout-template',
-                component: layoutTemplate
-            },
-            {
-                path: '/concept/page-template',
-                name: 'page-template',
-                component: pageTemplate
-            },
-            {
-                path: '/concept/router-config',
-                name: 'router-config',
-                component: routerConfig
-            },
-            {
-                path: '/concept/service-config',
-                name: 'service-config',
-                component: serviceConfig
+
+                path: '/concept/json-drived',
+                component: jsonDrived
             }
+
         ]
     },
     {
-        path: '/templates-gallery/:tpye',
-        name: 'templates-gallery',
-        component: templatesGallery
-    },
-    {
-        path: '/modules',
+        path: '/development',
+        redirect: '/development/create-project',
         component: Main,
         children: [
             {
-                path: '/modules',
-                name: 'modules',
-                component: modules,
+                path: '/development/create-project',
+                component: createProject
+            },
+            {
+                path: '/development/directory-structure',
+                component: directoryStructure
+            },
+            {
+                path: '/development/code-quality',
+                component: codeQuality
+            },
+            {
+                path: '/development/router-config',
+                component: routerConfig
+            },
+            {
+                path: '/development/service-registe',
+                component: serviceRegiste
+
+            },
+            {
+                path: '/development/data-communication',
+                component: dataCommunication
+            },
+            {
+                path: '/development/api-proxy',
+                component: apiProxy
+            },
+            {
+                path: '/development/api-mock',
+                component: apiMock
+            },
+            {
+                path: '/development/navagate-management',
+                component: navagateManagement
+            },
+            {
+                path: '/development/authority-management',
+                component: authorityManagement
+            },
+            {
+                path: '/development/layout-switch',
+                component: layoutSwitch
+            },
+            {
+                path: '/development/dynamic-load',
+                component: dynamicLoad
+            },
+        ]
+    },
+    {
+        path: '/modules',
+        redirect: '/resources/basic-modules',
+        component: Main,
+        children: [
+            {
+                path: '/resources/basic-modules',
+                component: basicModules,
+            },
+            {
+                path: '/resources/scafford-plugin',
+                component: scaffordPlugin,
+            },
+            {
+                path: '/resources/templates-gallery',
+                component: templatesGallery,
             }
         ]
     },
@@ -115,12 +169,10 @@ export default [
         children: [
             {
                 path: '/contribute/layout-template',
-                name: 'contribute-layout-template',
                 component: contributeLayoutTemplate,
             },
             {
                 path: '/contribute/page-template',
-                name: 'contribute-page-template',
                 component: contributePageTemplate,
             }
         ]

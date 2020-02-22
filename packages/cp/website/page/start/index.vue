@@ -1,13 +1,18 @@
 <template>
     <i-article>
         <article>
-            <h1>Quick Start</h1>
+            <h1>快速开始</h1>
             <p>本文介绍如何使用CP来快速构建一个简单的数据报表平台前端项目，包含如下功能:</p>
             <ul>
                 <li>（1）、包含顶部导航、动态侧边栏导航、用户中心等平台基础功能；</li>
                 <li>（2）、包含一个可配置的支持可视化、查询功能的数据报表模板；</li>
                 <li>（3）、支持变更配置来动态更改侧边栏及导航。</li>
             </ul>
+            <br>
+            <p>完整的项目代码可以直接通过如下命令下载到本地：</p>
+            <i-code>git clone git@github.com:JSON-Drived-Configurable-Platform/cp-example.git</i-code>
+            <p>也可以点击<a href="https://json-drived-configurable-platform.github.io/cp-example">预览</a>，直接线上查看线上效果。</p>
+
             <inAnchor
                 title="使用vue-cli创建一个空项目"
                 h2

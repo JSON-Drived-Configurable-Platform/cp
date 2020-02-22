@@ -22,7 +22,7 @@ module.exports = merge(webpackBaseConfig, {
     mode: 'development',
     devServer: {
         compress: true,
-        port: 9900,
+        port: 9901,
         host: '0.0.0.0',
         historyApiFallback: true,
         hot: true,

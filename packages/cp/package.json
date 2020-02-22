@@ -17,6 +17,7 @@
   "dependencies": {
     "clipboard": "^2.0.4",
     "data-vis-iview": "^0.0.23",
+    "form-generator-iview": "^0.0.54",
     "highlightjs": "^9.12.0",
     "vue-i18n": "^8.14.0"
   },

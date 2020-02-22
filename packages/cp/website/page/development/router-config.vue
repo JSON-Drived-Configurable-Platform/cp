@@ -1,7 +1,7 @@
 <template>
     <i-article>
         <article>
-            <h1>Layout</h1>
+            <h1>路由配置</h1>
             <p>本文介绍<code><strong>CP</strong></code>的<code><strong>Layout Template</strong></code>。主要包含：</p>
             <inAnchor
                 title="Layout是什么"

@@ -1,19 +1,13 @@
 <template>
     <i-article>
         <article>
-            <h1>Moudles</h1>
-            <p>Moudles汇总</p>
+            <h1>接口代理</h1>
+            <p>本文介绍<code><strong>CP</strong></code>的<code><strong>Layout Template</strong></code>。主要包含：</p>
             <inAnchor
-                title="表单开发-FormGeneratorIView"
+                title="Layout是什么"
                 h2
             />
-            <p>表单开发-FormGeneratorIView</p>
-
-            <inAnchor
-                title="可视化报表-FormGeneratorIView"
-                h2
-            />
-            <p>可视化报表-FormGeneratorIView</p>
+            <p>Layout是什么</p>
         </article>
     </i-article>
 </template>

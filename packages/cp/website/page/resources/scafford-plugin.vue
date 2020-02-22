@@ -1,13 +1,19 @@
 <template>
     <i-article>
         <article>
-            <h1>贡献页面模板</h1>
-            <p>本文介绍如何Contribute A Page Template</p>
+            <h1>脚手架插件</h1>
+            <p>Modules汇总</p>
             <inAnchor
-                title="Contribute A Page Template"
+                title="表单开发-FormGeneratorIView"
                 h2
             />
-            <p>Contribute A Page Template</p>
+            <p>表单开发-FormGeneratorIView</p>
+
+            <inAnchor
+                title="可视化报表-FormGeneratorIView"
+                h2
+            />
+            <p>可视化报表-FormGeneratorIView</p>
         </article>
     </i-article>
 </template>
