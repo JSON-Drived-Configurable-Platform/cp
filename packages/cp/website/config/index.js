@@ -84,14 +84,6 @@ export default {
                     label: '数据通信',
                     name: '/development/data-communication',
                 },
-                // {
-                //     label: '接口代理',
-                //     name: '/development/api-proxy',
-                // },
-                // {
-                //     label: '接口模拟',
-                //     name: '/development/api-mock',
-                // }
             ]
         },
         {
@@ -101,6 +93,14 @@ export default {
                 {
                     label: '代码质量',
                     name: '/practice-guide/code-quality',
+                },
+                {
+                    label: '接口代理',
+                    name: '/development/api-proxy',
+                },
+                {
+                    label: '接口模拟',
+                    name: '/development/api-mock',
                 },
                 {
                     label: '导航管理',

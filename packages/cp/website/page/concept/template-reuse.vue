@@ -8,14 +8,40 @@
             />
             <p>增删该查、权限管理、数据报表、信息监控、信息审核这些场景作为中台开发的常见需求，在无数个平台中被一遍又一遍的实现。</p>
             <p>比如在一个平台中，有多个增删该查的页面需求，他们仅仅是内部数据和表单编辑项不一样。在页面结构上都是由列表、分页、弹框表单等元素组成。而且大多有这下图这样的结构：</p>
-            <p class="img-list">
-                <ul>
-                    <li>
-                        <img src="./assets/curd-page.jpeg" alt="常规的增删改查页面布局">
-                        <span>常规的增删改查页面布局</span>
-                    </li>
-                </ul>
-            </p>
+            <ul class="form-template-example">
+                <li>
+                    <img src="./assets/form-template/modal.jpeg" alt="modal">
+                    <span>modal</span>
+                </li>
+                <li>
+                    <img src="./assets/form-template/multi-modal.jpeg" alt="multi-modal">
+                    <span>multi-modal</span>
+                </li>
+                <li>
+                    <img src="./assets/form-template/slideout.jpeg" alt="slideout">
+                    <span>slideout</span>
+                </li>
+                <li>
+                    <img src="./assets/form-template/inline.jpeg" alt="inline">
+                    <span>inline</span>
+                </li>
+                <li>
+                    <img src="./assets/form-template/editable-table.jpeg" alt="editable-table">
+                    <span>editable-table</span>
+                </li>
+                <li>
+                    <img src="./assets/form-template/takeover.jpeg" alt="takeover">
+                    <span>takeover</span>
+                </li>
+                <li>
+                    <img src="./assets/form-template/wizard.jpeg" alt="wizard">
+                    <span>wizard</span>
+                </li>
+                <li>
+                    <img src="./assets/form-template/sectioned.jpeg" alt="sectioned">
+                    <span>sectioned</span>
+                </li>
+            </ul>
 
             <inAnchor
                 title="模板复用的问题"
@@ -86,6 +112,19 @@ export default {
                 line-height: 30px;
                 font-size: 12px;
             }
+        }
+    }
+}
+.form-template-example {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    li {
+        margin: 20px;
+        width: 200px;
+        img {
+            width: 100%;
         }
     }
 }

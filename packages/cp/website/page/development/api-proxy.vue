@@ -2,12 +2,30 @@
     <i-article>
         <article>
             <h1>接口代理</h1>
-            <p>本文介绍<code><strong>CP</strong></code>的<code><strong>Layout Template</strong></code>。主要包含：</p>
+            <p>在项目的开发过程中，经常需要对接口进行代理。比如项目的前后端联调阶段。CP提供了一些解决这些问题的方案。</p>
+            <alert>如果已经按照<router-link to="/development/api-proxy">接口模拟</router-link>章节中接入了YApi或者APIM这样的管理工具，则可以直接在管理工具中设置代理。</alert>
             <inAnchor
-                title="Layout是什么"
+                title="通过devServer.proxy设置"
                 h2
             />
-            <p>Layout是什么</p>
+            <p>在项目根目录下的vue.config.js文件的devServer中如下设置，即可实现接口的代理。</p>
+            <i-code>
+                <pre>
+
+module.exports = {
+  //...
+  devServer: {
+    proxy: {
+      '/api': 'http://localhost:3000'
+    }
+  }
+};
+                </pre>
+            </i-code>
+            <p>
+                详细的代理规则，可以参考
+                <a href="https://webpack.docschina.org/configuration/dev-server/#devserver-proxy">devServer.proxy</a>
+            </p>
         </article>
     </i-article>
 </template>
@@ -15,16 +33,12 @@
 <script>
 import iArticle from '../../components/article';
 import inAnchor from '../../components/anchor';
-import Code from '../../code/guide';
+import iCode from '../../components/code';
 export default {
     components: {
         iArticle,
-        inAnchor
-    },
-    data() {
-        return {
-            code: Code
-        };
+        inAnchor,
+        iCode
     }
 };
 </script>
