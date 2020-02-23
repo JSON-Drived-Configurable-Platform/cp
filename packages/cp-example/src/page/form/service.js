@@ -24,7 +24,7 @@ const getList = (params = {}) => {
 // takeover
 const getTakeoverFormData = (params = {}) => {
   return {
-    url: "/api/form/takeoverData",
+    url: "/api/form/takeover-data",
     method: "get",
     params
   };
@@ -32,7 +32,7 @@ const getTakeoverFormData = (params = {}) => {
 
 const getTakeoverModel = (params = {}) => {
   return {
-    url: "/api/form/takeovermodel",
+    url: "/api/form/takeover-model",
     method: "get",
     params
   };
@@ -40,7 +40,7 @@ const getTakeoverModel = (params = {}) => {
 
 const getWizardFormData = (params = {}) => {
   return {
-    url: "/api/form/wizardData",
+    url: "/api/form/wizard-data",
     method: "get",
     params
   };
@@ -48,7 +48,7 @@ const getWizardFormData = (params = {}) => {
 
 const getSenctionedFormData = (params = {}) => {
   return {
-    url: "/api/form/sectionedData",
+    url: "/api/form/sectioned-data",
     method: "get",
     params
   };
