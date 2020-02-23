@@ -1,0 +1,162 @@
+{
+    "errno": 0,
+    "data": {
+        "fields": [
+                {
+                    "type": "Divider",
+                    "label": "任务通用配置",
+                    "orientation": "left",
+                    "dashed": true,
+                    "size": "small"
+                },
+                {
+                "type": "Input",
+                "label": "任务名称",
+                "model": "taskName",
+                "placeholder": "请输入任务名称",
+                "rules": [
+                    {
+                        "type": "string",
+                        "required": true,
+                        "pattern": "^[\\u4e00-\\u9fa5]+$",
+                        "message": "请输入中文姓名"
+                    }
+                ]
+                },
+                {
+                    "label": "展示客户端",
+                    "type": "Checkbox",
+                    "model": "showClient",
+                    "options": [
+                    {
+                        "label": "好看",
+                        "value": "1"
+                    },
+                    {
+                        "label": "手百lite",
+                        "value": "2"
+                    },
+                    {
+                        "label": "百度地图",
+                        "value": "3"
+                    }
+                    ],
+                    "required": true
+                },
+                {
+                    "type": "Select",
+                    "label": "关联任务方",
+                    "model": "relationTask",
+                    "placeholder": "请输入性别",
+                    "required": true,
+                    "options": [
+                        {
+                            "label": "任务1",
+                            "value": "1"
+                        },
+                        {
+                            "label": "任务2",
+                            "value": "2"
+                        },
+                        {
+                            "label": "任务3",
+                            "value": "3"
+                        }
+                    ]
+                },
+                {
+                    "type": "Divider",
+                    "label": "任务分端配置",
+                    "orientation": "left",
+                    "dashed": true,
+                    "size": "small"
+                },
+                {
+                "type": "Input",
+                "label": "任务标题",
+                "model": "taskHead",
+                "placeholder": "请输入任务标题",
+                "required": true,
+                "max": 150,
+                "min": 0
+                },
+                {
+                    "type": "Input",
+                    "label": "任务说明",
+                    "model": "taskExplain",
+                    "placeholder": "请输入任务说明",
+                    "required": true,
+                    "max": 150,
+                    "min": 0
+                },
+                {
+                    "type": "Input",
+                    "label": "任务提示信息",
+                    "model": "taskToolTips",
+                    "placeholder": "请输入任务提示信息",
+                    "required": true,
+                    "max": 150,
+                    "min": 0
+                },
+                {
+                    "type": "Divider",
+                    "label": "任务规则配置",
+                    "orientation": "left",
+                    "dashed": true,
+                    "size": "small"
+                },
+                {
+                "type": "Input",
+                "label": "任务周期",
+                "model": "taskCycle",
+                "placeholder": "请输入任务周期",
+                "required": true,
+                "max": 150,
+                "min": 0
+                },
+                {
+                    "type": "Input",
+                    "label": "任务次数",
+                    "model": "taskNumber",
+                    "placeholder": "请输入任务次数",
+                    "required": true,
+                    "max": 150,
+                    "min": 0
+                },
+                {
+                    "type": "Select",
+                    "label": "任务排序",
+                    "api": "/selectApi",
+                    "apiParams": ["province"],
+                    "model": "taskSort",
+                    "defaultHide": true
+                },
+                {
+                    "type": "Submit",
+                    "subtype": "primary",
+                    "text": "保存",
+                    "labelWidth": 0,
+                    "width": 100,
+                    "inline": true
+                },
+                {
+                    "type": "Reset",
+                    "subtype": "primary",
+                    "text": "重置",
+                    "width": "50%",
+                    "labelWidth": 0,
+                    "inline": true
+                }
+        ],
+        "options": {
+            "labelWidth": 120,
+            "title": "分组表单",
+            "labelPosition": "left",
+            "tip": {
+                "title": "规则",
+                "content": "规则内容"
+            }
+        }
+    },
+    "msg": "ok"
+}

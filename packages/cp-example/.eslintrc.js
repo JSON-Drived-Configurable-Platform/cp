@@ -1,14 +1,14 @@
 module.exports = {
   root: true,
   env: {
-    node: true
+      node: true
   },
-  extends: ["plugin:vue/essential", "@vue/prettier"],
+  extends: ['plugin:vue/essential'],
   rules: {
-    "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off"
+    'vue/html-indent': ['error', 2],
+    indent: ['error', 2, {SwitchCase: 1}],
   },
   parserOptions: {
-    parser: "babel-eslint"
+      parser: 'babel-eslint'
   }
 };
