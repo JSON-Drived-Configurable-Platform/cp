@@ -24,11 +24,12 @@
                     <Card
                         :style="styleCard"
                     >
-                        <div :class="checkboxCardClasses" @click.stop="handleCheckboxClick($event)">
+                        <div @click.stop="handleCheckboxClick($event)">
                             <Checkbox
                                 v-if="field.showCheckBox !== false"
                                 :disabled="item.disabled || false"
                                 :value="selectedIds[item.id]"
+                                :class="checkboxCardClasses"
                                 @on-change="handleChange($event, item)"
                             >
                                 {{ '' }}
@@ -58,11 +59,34 @@
                             </Poptip>
                         </div>
                         <img
-                            v-if="optionsType === 'image'"
+                            v-if="optionsType === 'image' && openCarousel !== true"
                             :src="item.url"
                             :alt="item.id"
                             :class="detailClasses"
                         >
+                        <div v-if="openCarousel">
+                            <Carousel
+                                :value="carouselOptions.value"
+                                :loop="carouselOptions.loop"
+                                :autoplay="carouselOptions.autoplay"
+                                :autoplay-speed="carouselOptions.autoplaySpeed"
+                                :dots="carouselOptions.dots"
+                                :radius-dot="carouselOptions.radiusDot"
+                                :trigger="carouselOptions.trigger"
+                                :arrow="carouselOptions.arrow"
+                                :easing="carouselOptions.easing"
+                            >
+                                <CarouselItem
+                                    v-for="(item, index) in item.urlList"
+                                    :key="index"
+                                >
+                                    <img
+                                        :src="item"
+                                        :class="detailClasses"
+                                    >
+                                </CarouselItem>
+                            </Carousel>
+                        </div>
                         <p v-if="item.footer || false" :class="footerClasses">
                             {{ item.footer }}
                         </p>
@@ -86,7 +110,7 @@
                                 />
                             </Poptip>
                         </div>
-                        <div v-if="optionsType === 'video'">
+                        <div v-if="optionsType === 'video' && openCarousel !== true">
                             <video :class="detailClasses" :controls="field.videoControl || false">
                                 <source :src="item.url">
                             </video>
@@ -223,6 +247,14 @@ export default {
         },
         value() {
             return this.form.model[this.field.model] || [];
+        },
+        // 开启走马灯
+        openCarousel() {
+            return this.field.openCarousel || false;
+        },
+        // 走马灯配置信息
+        carouselOptions() {
+            return this.field.carouselOptions || {};
         }
     },
     watch: {
