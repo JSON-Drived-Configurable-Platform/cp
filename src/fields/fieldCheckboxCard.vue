@@ -77,7 +77,7 @@
                                 :easing="carouselOptions.easing"
                             >
                                 <CarouselItem
-                                    v-for="(item, index) in item.urlList"
+                                    v-for="(item, index) in item.urls"
                                     :key="index"
                                 >
                                     <img

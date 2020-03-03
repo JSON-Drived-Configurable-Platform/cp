@@ -125,13 +125,27 @@
                         </tr>
                         <tr>
                             <td>openCarousel</td>
-                            <td>开启跑马灯</td>
+                            <td>开启走马灯。true：开启，需要配置options.urls</td>
                             <td>Boolean</td>
                             <td>false</td>
                         </tr>
                         <tr>
                             <td>carouselOptions</td>
-                            <td>跑马灯配置信息</td>
+                            <td>走马灯配置信息，如
+                                <pre>
+{
+    value: 0,
+    loop: false,
+    autoplay: false,
+    autoplaySpeed: 2000,
+    dots: inside,
+    radiusDot: false,
+    trigger: click,
+    arrow: hover,
+    easing: ease
+}
+                                </pre>
+                            </td>
                             <td>Object</td>
                             <td>-</td>
                         </tr>
@@ -150,7 +164,7 @@
                     <tbody>
                         <tr>
                             <td>options.url</td>
-                            <td>内容地址</td>
+                            <td>内容地址（默认，不启用走马灯）</td>
                             <td>String</td>
                             <td>-</td>
                         </tr>
@@ -173,8 +187,8 @@
                             <td>false</td>
                         </tr>
                         <tr>
-                            <td>options.urlList</td>
-                            <td>跑马灯数据</td>
+                            <td>options.urls</td>
+                            <td>走马灯数据（启用走马灯）</td>
                             <td>Array</td>
                             <td>-</td>
                         </tr>
