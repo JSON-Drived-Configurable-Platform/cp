@@ -77,11 +77,11 @@
                                 :easing="carouselOptions.easing"
                             >
                                 <CarouselItem
-                                    v-for="(item, index) in item.urls"
-                                    :key="index"
+                                    v-for="(data, num) in item.urls"
+                                    :key="num"
                                 >
                                     <img
-                                        :src="item"
+                                        :src="data"
                                         :class="detailClasses"
                                     >
                                 </CarouselItem>
