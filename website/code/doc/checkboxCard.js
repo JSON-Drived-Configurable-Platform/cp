@@ -252,7 +252,6 @@ const carouselField = {
     'options': [
         {
             'id': 'carousel1',
-            'url': 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574076041&di=dba60f4ce2b9330e330f13546ce963a0&imgtype=jpg&er=1&src=http%3A%2F%2Fwww.ijointoo.com%2Fdata%2Fnews%2Fimages%2F1521193045383.jpg',
             'footer': '大北京夜上海',
             'header': '美丽中国',
             'urlList': [
