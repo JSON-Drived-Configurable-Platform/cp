@@ -153,35 +153,39 @@ export default {
             submenu: [
                 {
                     label: 'Group Form',
-                    name: '/group-form'
+                    name: '/examples/group-form'
                 },
                 {
                     label: 'CURD Simple',
-                    name: '/CURD-example/simple'
+                    name: '/examples/CURD-example/simple'
                 },
                 {
                     label: 'CURD Inlint Edit',
-                    name: '/CURD-example/inline-edit'
+                    name: '/examples/CURD-example/inline-edit'
                 },
                 {
                     label: 'Audit Detail',
-                    name: '/Audit-example/detail'
+                    name: '/examples/Audit-example/detail'
                 },
                 {
                     label: 'Editable-Table',
-                    name: '/editable-table'
+                    name: '/examples/editable-table'
                 },
                 {
                     label: 'Inline-Table',
-                    name: '/inline-table'
+                    name: '/examples/inline-table'
                 },
                 {
                     label: 'Searchable-Chart',
-                    name: '/searchable-chart'
+                    name: '/examples/searchable-chart'
                 },
                 {
                     label: 'Two-Related-Form',
-                    name: 'two-related-form'
+                    name: '/examples/two-related-form'
+                },
+                {
+                    label: 'Dynamic-Form',
+                    name: '/examples/dynamic-form'
                 },
             ]
         },
