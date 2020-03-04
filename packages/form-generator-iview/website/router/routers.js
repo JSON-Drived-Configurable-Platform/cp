@@ -41,6 +41,7 @@ const editableTable = () => import(/* webpackChunkName: "editableTable" */ '../p
 const searchableChart = () => import(/* webpackChunkName: "searchableChart" */ '../page/examples/searchable-chart');
 const twoRelatedForm = () => import(/* webpackChunkName: "twoRelatedForm" */ '../page/examples/two-related-form');
 const auditExample = () => import(/* webpackChunkName: "auditExample" */ '../page/examples/audit/detail');
+const dynamicForm = () => import(/* webpackChunkName: "dynamicForm" */ '../page/examples/dynamic-form');
 
 export default [
     {
@@ -195,49 +196,54 @@ export default [
             },
             // examples
             {
-                path: '/group-form',
-                name: 'group-form',
+                path: '/examples/group-form',
+                name: '/examples/group-form',
                 component: groupForm
             },
             {
-                path: '/CURD-example',
-                redirect: '/CURD-example/simple',
+                path: '/examples/CURD-example',
+                redirect: '/examples/CURD-example/simple',
             },
             {
-                path: '/CURD-example/simple',
+                path: '/examples/CURD-example/simple',
                 name: 'CURD-example-simple',
                 component: CURDSimpleExample
             },
             {
-                path: '/CURD-example/inline-edit',
+                path: '/examples/CURD-example/inline-edit',
                 name: 'CURD-example-simple-inline-edit',
                 component: CURDSimpleExampleInlineEdit
             },
             {
-                path: '/audit-example/detail',
+                path: '/examples/audit-example/detail',
                 name: 'audit-example-detail',
                 component: auditExample
             },
             {
-                path: '/inline-table',
+                path: '/examples/inline-table',
                 name: 'inline-table',
                 component: inlineTable
             },
             {
-                path: '/editable-table',
+                path: '/examples/editable-table',
                 name: 'editable-table',
                 component: editableTable
             },
             {
-                path: '/searchable-chart',
+                path: '/examples/searchable-chart',
                 name: 'searchable-chart',
                 component: searchableChart
             },
             {
-                path: '/two-related-form',
+                path: '/examples/two-related-form',
                 name: 'two-related-form',
                 component: twoRelatedForm
-            }
+            },
+            {
+                path: '/examples/dynamic-form',
+                name: 'dynamic-form',
+                component: dynamicForm
+            },
         ]
     }
     // {
