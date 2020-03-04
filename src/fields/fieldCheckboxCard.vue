@@ -59,12 +59,12 @@
                             </Poptip>
                         </div>
                         <img
-                            v-if="optionsType === 'image' && openCarousel !== true"
+                            v-if="optionsType === 'image' && !openCarousel"
                             :src="item.url"
                             :alt="item.id"
                             :class="detailClasses"
                         >
-                        <div v-if="openCarousel">
+                        <div v-if="openCarousel" :class="carouselClasses">
                             <Carousel
                                 :value="carouselOptions.value"
                                 :loop="carouselOptions.loop"
@@ -110,7 +110,7 @@
                                 />
                             </Poptip>
                         </div>
-                        <div v-if="optionsType === 'video' && openCarousel !== true">
+                        <div v-if="optionsType === 'video' && !openCarousel">
                             <video :class="detailClasses" :controls="field.videoControl || false">
                                 <source :src="item.url">
                             </video>
@@ -188,6 +188,9 @@ export default {
         },
         detailClasses() {
             return `${this.classes}-group-item-detail`;
+        },
+        carouselClasses() {
+            return `${this.classes}-group-item-carousel`;
         },
         styleCard() {
             return `width: ${this.field.cardWidth || '270px'};height: ${this.field.cardHeight || '260px'}`;
