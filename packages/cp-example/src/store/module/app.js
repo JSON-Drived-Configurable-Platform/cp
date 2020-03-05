@@ -17,49 +17,41 @@ export default {
             path: "/form"
           },
           {
-            label: "Simple",
-            path: "/form/simple"
+            label: "Simple Form",
+            path: "/form-simple"
           },
           {
-            label: "Modal",
-            path: "/form/modal"
+            label: "Modal Form",
+            path: "/form-modal"
           },
           {
-            label: "Multi Modal",
-            path: "/form/multi-modal"
-          },
-          {
-            label: "Slideout",
-            path: "/form/slideout"
-          },
-          {
-            label: "Popover",
-            path: "/form/popover"
-          },
-          {
-            label: "Inline Table",
-            path: "/form/inline"
+            label: "Multi Modal Form",
+            path: "/form-multi-modal"
           },
           {
             label: "Editable Table",
-            path: "/form/editable-table"
+            path: "/form-editable-table"
           },
           {
-            label: "Takeover",
-            path: "/form/takeover"
+            label: "Slideout Form",
+            path: "/form-slideout"
           },
           {
-            label: "Wizard",
-            path: "/form/wizard"
+            label: "Sectioned Form",
+            path: "/form-sectioned"
           },
           {
-            label: "Sectioned",
-            path: "/form/sectioned"
+            label: "Takeover Form",
+            path: "/form-takeover"
           },
           {
-            label: "Conversational",
-            path: "/form/conversational"
-          }
+            label: "Wizard Form",
+            path: "/form-wizard"
+          },
+          {
+            label: "Inline Table Form",
+            path: "/form-inline-table"
+          },
         ]
       },
       {

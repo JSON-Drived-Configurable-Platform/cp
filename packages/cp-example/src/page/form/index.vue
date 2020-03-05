@@ -2,61 +2,61 @@
   <div class="page-form">
     <ul class="page-form-navs">
       <li>
-        <router-link to="/form/simple">
+        <router-link to="/form-simple">
           <img src="./images/sectioned.jpeg" alt="simple" />
           <span>simple</span>
         </router-link>
       </li>
       <li>
-        <router-link to="/form/modal">
+        <router-link to="/form-modal">
           <img src="./images/modal.jpeg" alt="modal" />
           <span>modal</span>
         </router-link>
       </li>
       <li>
-        <router-link to="/form/multi-modal">
+        <router-link to="/form-multi-modal">
           <img src="./images/multi-modal.jpeg" alt="multi-modal" />
           <span>multi-modal</span>
         </router-link>
       </li>
       <li>
-        <router-link to="/form/slideout">
+        <router-link to="/form-slideout">
           <img src="./images/slideout.jpeg" alt="slideout" />
           <span>slideout</span>
         </router-link>
       </li>
       <li>
-        <router-link to="/form/inline">
-          <img src="./images/inline.jpeg" alt="inline" />
-          <span>inline</span>
+        <router-link to="/form-inline-table">
+          <img src="./images/inline.jpeg" alt="inline-table" />
+          <span>inline-table</span>
         </router-link>
       </li>
       <li>
-        <router-link to="/form/editable-table">
+        <router-link to="/form-editable-table">
           <img src="./images/editable-table.jpeg" alt="editable-table" />
           <span>editable-table</span>
         </router-link>
       </li>
       <li>
-        <router-link to="/form/takeover">
+        <router-link to="/form-takeover">
           <img src="./images/takeover.jpeg" alt="takeover" />
           <span>takeover</span>
         </router-link>
       </li>
       <li>
-        <router-link to="/form/wizard">
+        <router-link to="/form-wizard">
           <img src="./images/wizard.jpeg" alt="wizard" />
           <span>wizard</span>
         </router-link>
       </li>
       <li>
-        <router-link to="/form/sectioned">
+        <router-link to="/form-sectioned">
           <img src="./images/sectioned.jpeg" alt="sectioned" />
           <span>sectioned</span>
         </router-link>
       </li>
       <li>
-        <router-link to="/form/conversational">
+        <router-link to="/form-conversational">
           <img src="./images/conversational.jpeg" alt="conversational" />
           <span>conversational</span>
         </router-link>
@@ -83,6 +83,7 @@ export default {
       display: inline-block;
       margin: 20px;
       width: 300px;
+      height: 400px;
       height: auto;
       font-size: 16px;
       text-align: center;

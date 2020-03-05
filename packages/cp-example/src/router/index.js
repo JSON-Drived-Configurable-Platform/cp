@@ -55,13 +55,14 @@ router.beforeEach(async (to, from, next) => {
   // If there is not menuList in store, get it first.
   if (store.state.app.dynamicMenuList.length === 0) {
     await store.dispatch("getDynamicMenuList").catch(() => {
-      // 重试
-      console.log("Get getMenuList failed, please check this api request!");
+      // console.log("Get getMenuList failed, please check this api request!");
+      throw Error("Get getMenuList failed, please check this api request!");
       return;
     });
     const dynamicRoutes = generateRoutes(store.state.app.menuList);
     router.addRoutes(dynamicRoutes);
     router.push(to.fullPath);
+    next();
   } else {
     if (!store.state.user.userName) {
       store.dispatch("getUserInfo");

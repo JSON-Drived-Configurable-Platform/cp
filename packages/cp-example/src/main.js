@@ -17,8 +17,6 @@ Vue.config.debug = true;
 
 Vue.use(FormGenerator);
 Vue.use(DataVis);
-Vue.use(FormGenerator);
-Vue.use(DataVis);
 new Vue({
   el: "#app",
   router,

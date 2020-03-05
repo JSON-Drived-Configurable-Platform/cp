@@ -3295,10 +3295,10 @@ form-data@~2.3.2:
     combined-stream "^1.0.6"
     mime-types "^2.1.12"
 
-form-generator-iview@^0.0.34:
-  version "0.0.34"
-  resolved "http://registry.npm.baidu-int.com/form-generator-iview/-/form-generator-iview-0.0.34.tgz#217a92bd0df363ec9ac6db538f033ec17f817f2c"
-  integrity sha1-IXqSvQ3zY+yaxttTjwM+wX+Bfyw=
+form-generator-iview@^0.0.54:
+  version "0.0.54"
+  resolved "http://registry.npm.baidu-int.com/form-generator-iview/-/form-generator-iview-0.0.54.tgz#2da1140b626d8b2798c02e3f67a85f4700e2dcdd"
+  integrity sha1-LaEUC2JtiyeYwC4/Z6hfRwDi3N0=
   dependencies:
     axios "^0.18.0"
     v-click-outside "^2.1.3"
@@ -7122,6 +7122,11 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "http://registry.npm.baidu-int.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
+typescript@^3.8.3:
+  version "3.8.3"
+  resolved "http://registry.npm.baidu-int.com/typescript/-/typescript-3.8.3.tgz#409eb8544ea0335711205869ec458ab109ee1061"
+  integrity sha1-QJ64VE6gM1cRIFhp7EWKsQnuEGE=
+
 uglify-js@3.4.x:
   version "3.4.10"
   resolved "http://registry.npm.baidu-int.com/uglify-js/-/uglify-js-3.4.10.tgz#9ad9563d8eb3acdfb8d38597d2af1d815f6a755f"
@@ -7494,6 +7499,11 @@ webpack-merge@^4.2.1:
   resolved "http://registry.npm.baidu-int.com/webpack-merge/-/webpack-merge-4.2.2.tgz#a27c52ea783d1398afd2087f547d7b9d2f43634d"
   dependencies:
     lodash "^4.17.15"
+
+webpack-mock-server@^1.0.3:
+  version "1.0.3"
+  resolved "http://registry.npm.baidu-int.com/webpack-mock-server/-/webpack-mock-server-1.0.3.tgz#3845f7a29707c63cd9c6228899eecf44be9bf6b3"
+  integrity sha1-OEX3opcHxjzZxiKIme7PRL6b9rM=
 
 webpack-sources@^1.1.0, webpack-sources@^1.4.0, webpack-sources@^1.4.1:
   version "1.4.3"
