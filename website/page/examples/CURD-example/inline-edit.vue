@@ -49,7 +49,7 @@
             </template>
         </Table>
         <Modal
-            v-model="editDialogOpeon"
+            v-model="editDialogOpen"
             title="编辑"
             footer-hide
             width="900"
@@ -73,7 +73,7 @@ export default {
             data,
             editModel: {},
             editFormFields,
-            editDialogOpeon: false,
+            editDialogOpen: false,
             paramsContainer: {
                 test: 'xxx'
             }
@@ -86,7 +86,7 @@ export default {
                 // 初始化用户状态，通常这个值是后端初始化
                 status: '1'
             };
-            this.editDialogOpeon = true;
+            this.editDialogOpen = true;
         },
 
         handleButtonEvent($event, row, index) {
@@ -97,11 +97,11 @@ export default {
             // eslint-disable-next-line no-console
             this.editModel = row;
             this.editModel.index = index;
-            this.editDialogOpeon = true;
+            this.editDialogOpen = true;
         },
 
         ajaxSuccess() {
-            this.editDialogOpeon = false;
+            this.editDialogOpen = false;
         }
     }
 };

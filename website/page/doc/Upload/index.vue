@@ -116,6 +116,24 @@
                             <td>String</td>
                             <td>-</td>
                         </tr>
+                        <tr>
+                            <td>suffix</td>
+                            <td>去掉文件名后缀(上传成功后)</td>
+                            <td>Boolean</td>
+                            <td>false</td>
+                        </tr>
+                        <tr>
+                            <td>needDealUploadData</td>
+                            <td>是否需要处理接口返回的数据</td>
+                            <td>Boolean</td>
+                            <td>false</td>
+                        </tr>
+                        <tr>
+                            <td>accessKey</td>
+                            <td>需要单独获取的接口返回数据的key(需要处理后端数据时，必传)</td>
+                            <td>Array</td>
+                            <td>-</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
