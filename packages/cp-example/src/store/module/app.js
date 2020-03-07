@@ -52,6 +52,11 @@ export default {
             label: "Inline Table Form",
             path: "/form-inline-table"
           },
+          {
+            label: "Conversational Form",
+            path: "/form-conversational"
+          },
+
         ]
       },
       {

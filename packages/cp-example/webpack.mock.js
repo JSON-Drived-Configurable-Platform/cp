@@ -4,12 +4,12 @@ import glob from "glob";
 
 export default webpackMockServer.add((app, helper) => {
   function getMockApiPath() {
-    let mockPaths = glob.sync("**/mock/**/*.json", {
+    let mockPaths = glob.sync("**/mock/**/*.js", {
       cwd: path.resolve(__dirname, "./src")
     });
     let mockApiPath = {};
     mockPaths.forEach(mockPath => {
-      const fileIndex = /mock(.+)\.json/.exec(mockPath)[1];
+      const fileIndex = /mock(.+)\.js/.exec(mockPath)[1];
       const filepath = path.resolve(
         path.resolve(__dirname, "./src"),
         mockPath
@@ -20,10 +20,18 @@ export default webpackMockServer.add((app, helper) => {
   }
 
   const mockApiPath = getMockApiPath();
-  Object.keys(mockApiPath).forEach(item => {
-    app.all(`/api${item}`, function(req, res) {
-      res.sendFile(mockApiPath[item]); // ok, when file change, it update
-      res.json(require(mockApiPath[item])); // not ok, when file change, it not update
+
+  app.all('/api/*', function(req, res) {
+    // console.log(req);
+    const url = req.url
+    Object.keys(mockApiPath).forEach(item => {
+      const strPath = mockApiPath[item];
+      console.log(url, item, strPath);
+      if (url.indexOf(item) > 0) {
+        // removing NodeJs require-cache
+        delete require.cache[require.resolve(strPath)];
+        res.json(require(strPath));
+      }
     });
   });
 });
