@@ -3,7 +3,7 @@
         v-show="computedForms.length > 0"
         class="combined-form-item combined-form-wizard"
     >
-        <Divider dashed orientation="left">{{ title }}</Divider>
+        <Divider v-if="title" dashed orientation="left">{{ title }}</Divider>
         <div class="combined-form-wizard-forms">
             <Steps :current="current" direction="vertical">
                 <div
@@ -12,7 +12,10 @@
                     class="combined-form-wizard-title"
                     @click="handelTabChange(index)"
                 >
-                    <Step :title="item.title" />
+                    <Step
+                        :title="item.title"
+                        :content="item.content"
+                    />
                 </div>
             </Steps>
             <template v-for="(form, index) in computedForms">

@@ -3,8 +3,12 @@
         v-show="computedForms.length > 0"
         class="combined-form-item combined-form-tab"
     >
-        <Divider dashed orientation="left">{{ title }}</Divider>
-        <Tabs type="card">
+        <Divider v-if="title" dashed orientation="left">{{ title }}</Divider>
+        <Tabs
+            :type="options.type"
+            :size="options.size"
+            :animated="options.animated"
+        >
             <TabPane
                 v-for="(form, index) in computedForms"
                 :key="index"
@@ -13,7 +17,6 @@
                 <div
                     :key="index"
                     class="combined-form-tab-form"
-                    style="margin:30px auto; width:760px;"
                 >
                     <FormGenerator
                         :ref="'FormGenerator-' + index"
@@ -59,6 +62,12 @@ export default {
             type: String,
             default: ''
         },
+        options: {
+            type: Object,
+            default() {
+                return {};
+            }
+        }
     },
     data() {
         return {
@@ -107,8 +116,12 @@ export default {
 </script>
 <style lang="less">
 .page-form-takeover-form {
-  .ivu-form .ivu-form-item-label {
-    width: 100px;
-  }
+    .ivu-form .ivu-form-item-label {
+        width: 100px;
+    }
+
+    &-form {
+        margin:10px auto 0;
+    }
 }
 </style>

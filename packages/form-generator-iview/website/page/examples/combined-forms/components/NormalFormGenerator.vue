@@ -3,7 +3,7 @@
         v-show="computedForms.length > 0"
         class="combined-form-item combined-form-normal"
     >
-        <Divider dashed orientation="left">{{ title }}</Divider>
+        <Divider v-if="title" dashed orientation="left">{{ title }}</Divider>
         <template v-for="(form, index) in forms">
             <div
                 v-show="current === index"
@@ -107,7 +107,7 @@ export default {
     }
 
     &-form {
-        margin:30px auto;
+        margin: 10px auto 0;
     }
 }
 </style>
