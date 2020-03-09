@@ -164,8 +164,9 @@ export default {
         .then(res => {
           const { data, errno } = res;
           if (+errno === 0) {
+            const permissions = data.permissions;
             this.editModel = row;
-            this.$set(this.editModel, "permissions", data.map(item => item.id));
+            this.$set(this.editModel, "permissions", permissions.map(item => item.id));
             this.editModel.index = index;
             this.editPermissionDialogOpeon = true;
           }

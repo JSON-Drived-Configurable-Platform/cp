@@ -254,6 +254,8 @@ export default {
             .then(res => {
               if (+res.errno === 0) {
                 this.$Message.info("Update Success!");
+                this.editRoleDialogOpeon = false;
+
               } else {
                 this.$Message.error("Update Failed!");
               }

@@ -64,6 +64,30 @@ const getRoleList = (params = {}) => {
   };
 };
 
+const roleEdit = (params = {}) => {
+  return {
+    url: "/api/rbac/role-edit",
+    method: "get",
+    params
+  };
+};
+
+const roleAdd = (params = {}) => {
+  return {
+    url: "/api/rbac/role-add",
+    method: "get",
+    params
+  };
+};
+
+const roleDel = (params = {}) => {
+  return {
+    url: "/api/rbac/role-add",
+    method: "get",
+    params
+  };
+};
+
 // Permission
 const getPermissionPageConfig = (params = {}) => {
   return {
@@ -149,6 +173,9 @@ export default {
   userDel,
   getRolePageConfig,
   getRoleList,
+  roleEdit,
+  roleAdd,
+  roleDel,
   getPermissionPageConfig,
   getPermissionList,
   getUserRolePermission,
