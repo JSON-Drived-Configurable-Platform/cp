@@ -10,6 +10,7 @@
                 :forms="item.forms"
                 :model="model"
                 :title="item.title"
+                :options="item.typeOptions"
                 :params-container="paramsContainer"
                 @on-form-submit="handleFormSubmit"
                 @on-field-change="handleFieldChange"
@@ -18,15 +19,7 @@
     </div>
 </template>
 <script>
-import {NomalFormsConfig, TakeOverFromsConfig, WizardFromsConfig, TabFromsConfig} from './config';
-
-const config = [
-    NomalFormsConfig,
-    TabFromsConfig,
-    TakeOverFromsConfig,
-    WizardFromsConfig,
-];
-
+import config from './config';
 import NormalFormGenerator from './components/NormalFormGenerator.vue';
 import TakeOverFormGenerator from './components/TakeOverFormGenerator.vue';
 import WizardFormGenerator from './components/WizardFormGenerator.vue';
@@ -41,7 +34,11 @@ export default {
     data() {
         return {
             config,
-            model: {},
+            model: {
+                tabShowItems: ['1'],
+                takeoverShowItems: ['1'],
+                wizardShowItems: ['1']
+            },
             paramsContainer: {}
         };
     },
@@ -62,7 +59,7 @@ export default {
     width: 60%;
 
     &-item {
-        margin: 30px auto;
+        margin: 0px auto;
     }
 }
 </style>

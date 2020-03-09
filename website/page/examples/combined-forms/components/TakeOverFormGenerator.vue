@@ -3,7 +3,7 @@
         v-show="computedForms.length > 0"
         class="combined-form-item combined-form-takeover"
     >
-        <Divider dashed orientation="left">{{ title }}</Divider>
+        <Divider v-if="title" dashed orientation="left">{{ title }}</Divider>
         <Steps
             :current="current"
             class="combined-form-takeover-step"
@@ -12,6 +12,7 @@
                 v-for="(item, index) in computedForms"
                 :key="index"
                 :title="item.title"
+                :content="item.content"
             />
         </Steps>
         <template v-for="(form, index) in computedForms">
@@ -117,7 +118,7 @@ export default {
     }
 
     &-form {
-        margin:30px auto;
+        margin:10px auto 0;
     }
 }
 </style>
