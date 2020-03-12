@@ -3,6 +3,7 @@
     <Spin class="page-rbac-role-loading-spin" size="large" />
   </div>
   <div v-else class="page-rbac-role">
+    <h2 v-if="pageTitle" class="page-rbac-role-page-title">{{ pageTitle }}</h2>
     <h3 class="page-rbac-role-header">
       <Button type="primary" @click="handleCreateButtonClick">创建角色</Button>
     </h3>
@@ -84,6 +85,9 @@ export default {
     };
   },
   computed: {
+    pageTitle() {
+      return this.pageConfig.title || "";
+    },
     columns() {
       return this.pageConfig.columns;
     },
@@ -267,6 +271,7 @@ export default {
 </script>
 <style lang="less">
 .page-rbac-role {
+
   &-loading {
     text-align: center;
     padding: 140px;
@@ -274,6 +279,12 @@ export default {
       display: inline-block;
     }
   }
+
+  &-page-title {
+    font-size: 20px;
+    margin: 10px auto 20px;
+  }
+
   &-header {
     margin-bottom: 10px;
     text-align: right;

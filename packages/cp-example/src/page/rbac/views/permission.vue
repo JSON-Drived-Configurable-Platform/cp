@@ -3,6 +3,7 @@
     <Spin class="page-rbac-permission-loading-spin" size="large" />
   </div>
   <div v-else class="page-rbac-permission">
+    <h2 v-if="pageTitle" class="page-rbac-permission-page-title">{{ pageTitle }}</h2>
     <h3 class="page-rbac-permission-header">
       <Button type="primary" @click="handleCreateButtonClick">新增权限</Button>
     </h3>
@@ -72,6 +73,9 @@ export default {
     };
   },
   computed: {
+    pageTitle() {
+      return this.pageConfig.title || "";
+    },
     columns() {
       return this.pageConfig.columns;
     },
@@ -215,6 +219,12 @@ export default {
       display: inline-block;
     }
   }
+
+  &-page-title {
+    font-size: 20px;
+    margin: 10px auto 20px;
+  }
+
   &-header {
     margin-bottom: 10px;
     text-align: right;

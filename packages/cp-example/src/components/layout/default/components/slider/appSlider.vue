@@ -1,6 +1,10 @@
 <template>
-  <Sider hide-trigger :style="{ background: '#fff', width: '240px' }">
+  <Sider
+    class="layout-default-slider"
+    hide-trigger
+  >
     <Menu
+      class="layout-default-slider-menu"
       :active-name="activeName"
       :open-names="openNames"
       theme="light"
@@ -58,4 +62,13 @@ export default {
   }
 };
 </script>
-<style lang="less" scoped></style>
+<style lang="less">
+.layout-default-slider {
+  background: #fff;
+  width: 240px;
+
+  &-menu {
+    height: 100%;
+  }
+}
+</style>

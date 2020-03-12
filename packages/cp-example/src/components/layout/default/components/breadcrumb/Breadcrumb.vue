@@ -1,7 +1,9 @@
 <template>
-  <Breadcrumb :style="{ margin: '24px 0' }">
-    <BreadcrumbItem v-for="(item, index) in data" :key="index">
-      {{ item.label }}
+  <Breadcrumb class="layout-default-breadcrumb">
+    <BreadcrumbItem
+      v-for="(item, index) in data"
+      :key="index">
+      {{ item }}
     </BreadcrumbItem>
   </Breadcrumb>
 </template>
@@ -22,4 +24,8 @@ export default {
   computed: {}
 };
 </script>
-<style lang="less" scoped></style>
+<style lang="less">
+.layout-default-breadcrumb {
+  margin: 24px 32px
+}
+</style>

@@ -13,10 +13,6 @@ export default {
         path: "/form",
         submenu: [
           {
-            label: "Index",
-            path: "/form"
-          },
-          {
             label: "Simple Form",
             path: "/form-simple"
           },

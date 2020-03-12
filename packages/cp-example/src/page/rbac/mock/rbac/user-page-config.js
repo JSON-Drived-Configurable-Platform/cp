@@ -1,6 +1,7 @@
 module.exports = {
   "errno": 0,
   "data": {
+    "title": "用户管理",
     "columns": [
       {
         "title": "用户名",

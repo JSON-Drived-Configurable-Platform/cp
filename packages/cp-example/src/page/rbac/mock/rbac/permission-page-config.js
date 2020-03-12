@@ -1,6 +1,7 @@
 module.exports = {
   "errno": 0,
   "data": {
+    "title": "权限管理",
     "columns": [
       {
         "title": "ID",

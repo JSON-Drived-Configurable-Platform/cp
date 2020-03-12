@@ -1,6 +1,6 @@
 export default [
   {
-    path: "/form-slideout",
+    path: "/form-popover",
     component: () =>
       import(/* webpackChunkName: "form-simple" */ "./index.vue")
   }

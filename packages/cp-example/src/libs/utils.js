@@ -4,12 +4,12 @@ export function computeBreadCrumbList(currentPath = "", menuList = []) {
     if (item.submenu) {
       item.submenu.forEach(subItem => {
         if (currentPath === subItem.path) {
-          breadCrumbList.push(subItem);
+          breadCrumbList.push(item.label, subItem.label);
         }
       });
     } else {
       if (currentPath === item.path) {
-        breadCrumbList.push(item);
+        breadCrumbList.push(item.label);
       }
     }
   });
