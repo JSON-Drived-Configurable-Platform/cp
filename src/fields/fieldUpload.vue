@@ -90,7 +90,7 @@ export default {
         handleChange() {
             this.$set(this.form.model, this.field.model, this.uploadFileList);
             let ajaxData = '';
-            !!this.needDealUploadData ? ajaxData = this.keyList : ajaxData = this.uploadFileList;
+            this.needDealUploadData ? ajaxData = this.keyList : ajaxData = this.uploadFileList;
             this.$emit('on-change', this.field.model, ajaxData, null, this.field);
         },
         onSuccess({data = {}}, file) {
@@ -127,7 +127,7 @@ export default {
             if (this.needDealUploadData) {
                 this.keyList = this.uploadFileList.map(key => {
                     key = key.response.data[this.accessKey];
-                    return key
+                    return key;
                 });
             }
         }
