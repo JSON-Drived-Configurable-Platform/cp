@@ -10,7 +10,7 @@ export const columns = [
                 {
                     type: 'string',
                     required: true,
-                    pattern:  '/^[\u4e00-\u9fa5]+$/',
+                    pattern:  /^[\u4e00-\u9fa5]+$/,
                     message: '请输入中文姓名'
                 }
             ]
