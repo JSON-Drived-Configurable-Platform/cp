@@ -12,7 +12,7 @@ const practice = () => import(/* webpackChunkName: "practice" */ '../page/practi
 // doc-com
 const DataVis = () => import(/* webpackChunkName: "practice" */ '../page/doc/DataVis');
 const DataVisItem = () => import(/* webpackChunkName: "practice" */ '../page/doc/DataVisItem');
-const ChartLine = () => import(/* webpackChunkName: "practice" */ '../page/doc/chart-line');
+const ChartLine = () => import(/* webpackChunkName: "practice" */ '../page/doc/chartLine');
 // examples
 // const simple = () => import(/* webpackChunkName: "simple" */ '../page/examples/simple');
 export default [
@@ -53,8 +53,8 @@ export default [
                 component: DataVisItem
             },
             {
-                path: '/doc/chart-line',
-                name: '/doc/chart-line',
+                path: '/doc/chartLine',
+                name: '/doc/chartLine',
                 component: ChartLine
             },
 

@@ -1,7 +1,7 @@
 <template>
     <i-article>
         <article>
-            <h1>chart-line 折线图</h1>
+            <h1>chartLine 折线图</h1>
             <inAnchor title="概述" h2 />
             <p>折线图是用折线将各个数据点标志连接起来的图表，用于展现数据的变化趋势。</p>
             <div class="api">

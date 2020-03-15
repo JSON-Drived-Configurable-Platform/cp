@@ -61,32 +61,32 @@ export default {
             submenu: [
                 {
                     label: 'Chart Line',
-                    name: '/doc/chart-line'
-                },
-                {
-                    label: 'Chart Bar',
-                    name: '/doc/char-bar'
-                },
-                {
-                    label: 'Chart Pie',
-                    name: '/doc/char-pie'
-                },
-                {
-                    label: 'Chart Funnel',
-                    name: '/doc/char-funnel'
-                },
-                {
-                    label: 'Table Data',
-                    name: '/doc/table-data'
-                },
-                {
-                    label: 'Table Retain',
-                    name: '/doc/table-retain'
-                },
-                {
-                    label: 'Card',
-                    name: '/doc/Card'
+                    name: '/doc/chartLine'
                 }
+                // {
+                //     label: 'Chart Bar',
+                //     name: '/doc/charBar'
+                // },
+                // {
+                //     label: 'Chart Pie',
+                //     name: '/doc/charPie'
+                // },
+                // {
+                //     label: 'Chart Funnel',
+                //     name: '/doc/charFunnel'
+                // },
+                // {
+                //     label: 'Table Data',
+                //     name: '/doc/tableData'
+                // },
+                // {
+                //     label: 'Table Retain',
+                //     name: '/doc/tableRetain'
+                // },
+                // {
+                //     label: 'Card',
+                //     name: '/doc/Card'
+                // }
             ]
         },
         {

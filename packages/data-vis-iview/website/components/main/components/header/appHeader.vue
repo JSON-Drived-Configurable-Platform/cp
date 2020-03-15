@@ -6,7 +6,7 @@
             active-name="1"
         >
             <div class="layout-logo">
-                dataVisIView
+                DataVisIView
             </div>
         </Menu>
     </Header>

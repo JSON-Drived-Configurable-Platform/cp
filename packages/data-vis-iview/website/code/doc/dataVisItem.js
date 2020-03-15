@@ -4,14 +4,14 @@ const charts = [
     {
         label: '饼图',
         dataset: {
-            'source': [
-                {date: 'Mon', data: 120},
-                {date: 'Tue', data: 200},
-                {date: 'Wed', data: 150},
-                {date: 'Thu', data: 80},
-                {date: 'Fri', data: 70},
-                {date: 'Sat', data: 110},
-                {date: 'Sun', data: 130},
+            source: [
+                {sells: 'Mon', value: 120},
+                {sells: 'Tue', value: 200},
+                {sells: 'Wed', value: 150},
+                {sells: 'Thu', value: 80},
+                {sells: 'Fri', value: 70},
+                {sells: 'Sat', value: 110},
+                {sells: 'Sun', value: 130},
             ]
         },
         series: [
@@ -26,13 +26,13 @@ const charts = [
         yAxis: {},
         dataset: {
             source: [
-                {date: 'Mon', data: 120},
-                {date: 'Tue', data: 200},
-                {date: 'Wed', data: 150},
-                {date: 'Thu', data: 80},
-                {date: 'Fri', data: 70},
-                {date: 'Sat', data: 110},
-                {date: 'Sun', data: 130},
+                {'date': 'Tue', 'data': 200},
+                {'date': 'Wed', 'data': 150},
+                {'date': 'Mon', 'data': 120},
+                {'date': 'Thu', 'data': 80},
+                {'date': 'Fri', 'data': 70},
+                {'date': 'Sat', 'data': 110},
+                {'date': 'Sun', 'data': 130}
             ]
         },
         series: [

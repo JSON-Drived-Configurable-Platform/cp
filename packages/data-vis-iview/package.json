@@ -24,9 +24,6 @@
   "deprecated": false,
   "description": "A charts generator with json schema based on iview ui",
   "devDependencies": {
-    "highlightjs": "^9.16.2",
-    "vue-i18n": "^8.15.0",
-    "clipboard": "^2.0.4",
     "@babel/cli": "^7.4.3",
     "@babel/core": "^7.4.3",
     "@babel/plugin-proposal-class-properties": "^7.4.0",
@@ -37,12 +34,14 @@
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
     "clean-webpack-plugin": "^2.0.1",
+    "clipboard": "^2.0.4",
     "core-js": "2",
     "css-loader": "^2.1.1",
     "eslint": "^5.16.0",
     "eslint-plugin-json": "^1.4.0",
     "eslint-plugin-vue": "^5.2.2",
     "file-loader": "^3.0.1",
+    "highlightjs": "^9.16.2",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "iview": "^3.4.0",
@@ -55,6 +54,7 @@
     "style-loader": "^0.23.1",
     "url-loader": "^1.1.2",
     "vue": "^2.6.10",
+    "vue-i18n": "^8.15.0",
     "vue-loader": "^15.7.0",
     "vue-router": "^3.0.6",
     "vue-template-compiler": "^2.6.10",
@@ -109,5 +109,5 @@
     "lint": "eslint --fix --ext .js,.vue,.json src --fix --ext .js,.vue,.json website --fix --ext .json docs/website-data-api"
   },
   "title": "dataVisIView",
-  "version": "0.0.24"
+  "version": "0.0.25"
 }
