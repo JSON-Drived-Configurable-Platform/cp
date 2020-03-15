@@ -62,6 +62,7 @@ export default {
         getData(params = {}) {
             this.loading = true;
             this.chartData = [];
+            this.data = [];
             this.chartColumns = [];
             this.remoteTotal = 0;
             this.dom && this.dom.clear();
@@ -76,6 +77,7 @@ export default {
         },
         requestResolve(res) {
             if (+res.status === 0 || +res.errno === 0 || +res.status === 200) {
+                this.data = res.data || [];
                 this.chartData = res.data || [];
                 this.chartColumns = res.columns || [];
                 this.remoteTotal = res.total || 0;

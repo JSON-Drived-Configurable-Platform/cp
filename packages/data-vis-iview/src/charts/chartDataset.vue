@@ -59,6 +59,10 @@ export default {
         }
     },
     mounted () {
+        if (typeof this.chart.dataset === 'string') {
+            this.chart['api'] = this.chart.dataset;
+            this.getData();
+        }
         this.render();
         this.$watch('chart', () => {
             this.render();
@@ -75,7 +79,7 @@ export default {
             this.render();
         },
         render() {
-            const dataset = this.dataset;
+            const dataset = this.dataset || [];
             const chart = this.chart;
             this.dom && this.dom.clear();
             this.dom = this.$refs.dom && echarts.init(this.$refs.dom, 'chartTheme');

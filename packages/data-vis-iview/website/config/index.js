@@ -55,40 +55,40 @@ export default {
                 }
             ]
         },
-        // {
-        //     label: 'Config Guide',
-        //     name: '/config-guide',
-        //     submenu: [
-        //         {
-        //             label: 'Chart Line',
-        //             name: '/doc/chart-line'
-        //         },
-        //         {
-        //             label: 'Chart Bar',
-        //             name: '/doc/char-bar'
-        //         },
-        //         {
-        //             label: 'Chart Pie',
-        //             name: '/doc/char-pie'
-        //         },
-        //         {
-        //             label: 'Chart Funnel',
-        //             name: '/doc/char-funnel'
-        //         },
-        //         {
-        //             label: 'Table Data',
-        //             name: '/doc/table-data'
-        //         },
-        //         {
-        //             label: 'Table Retain',
-        //             name: '/doc/table-retain'
-        //         },
-        //         {
-        //             label: 'Card',
-        //             name: '/doc/Card'
-        //         }
-        //     ]
-        // },
+        {
+            label: 'Config Guide',
+            name: '/config-guide',
+            submenu: [
+                {
+                    label: 'Chart Line',
+                    name: '/doc/chart-line'
+                },
+                {
+                    label: 'Chart Bar',
+                    name: '/doc/char-bar'
+                },
+                {
+                    label: 'Chart Pie',
+                    name: '/doc/char-pie'
+                },
+                {
+                    label: 'Chart Funnel',
+                    name: '/doc/char-funnel'
+                },
+                {
+                    label: 'Table Data',
+                    name: '/doc/table-data'
+                },
+                {
+                    label: 'Table Retain',
+                    name: '/doc/table-retain'
+                },
+                {
+                    label: 'Card',
+                    name: '/doc/Card'
+                }
+            ]
+        },
         {
             label: 'Websites',
             name: '/examples',
