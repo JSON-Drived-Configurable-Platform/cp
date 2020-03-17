@@ -42,6 +42,8 @@ const searchableChart = () => import(/* webpackChunkName: "searchableChart" */ '
 const twoRelatedForm = () => import(/* webpackChunkName: "twoRelatedForm" */ '../page/examples/two-related-form');
 const auditExample = () => import(/* webpackChunkName: "auditExample" */ '../page/examples/audit/detail');
 const dynamicForm = () => import(/* webpackChunkName: "dynamicForm" */ '../page/examples/dynamic-form');
+const combinedForms = () => import(/* webpackChunkName: "combinedForms" */ '../page/examples/combined-forms');
+
 
 export default [
     {
@@ -244,6 +246,12 @@ export default [
                 name: 'dynamic-form',
                 component: dynamicForm
             },
+            {
+                path: '/examples/combined-forms',
+                name: 'combined-forms',
+                component: combinedForms
+            },
+
         ]
     }
     // {
