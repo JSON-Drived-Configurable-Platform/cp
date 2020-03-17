@@ -1,5 +1,5 @@
 <template>
-    <Table :columns="columns" :data="data"/>
+    <Table :columns="columns" :data="data" />
 </template>
 <script>
 import { fields, datas, columns } from './config';
@@ -19,7 +19,7 @@ export default {
                     return h(tableExpand, {
                         props: {
                             fields: fields,
-                            model: Object.assign({}, params.row),
+                            editModel: Object.assign({}, params.row),
                             index: params.index
                         },
                         on: {

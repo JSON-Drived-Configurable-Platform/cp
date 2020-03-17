@@ -1,11 +1,16 @@
 <template>
     <div>
-        <FormGenerator
-            :fields="fields"
+        <Form
+            ref="form"
             :model="model"
-            :options="model"
-            @on-button-event="handleButtonEvent"
-        />
+        >
+            <FieldGenerator
+                v-for="(field, i) in fields"
+                :key="i"
+                :field="field"
+                @on-button-event="handleButtonEvent($event)"
+            />
+        </Form>
     </div>
 </template>
 <script>
@@ -21,19 +26,35 @@ export default {
                 return {};
             }
         },
-        model: {
+        editModel: {
             type: Object,
             default() {
                 return {};
             }
         },
-        index: Number
+        index: {
+            type: Number,
+            default: 0
+        }
+    },
+    data() {
+        return {
+            model: {}
+        };
+    },
+    created() {
+        this.model = this.editModel;
     },
     methods: {
         handleButtonEvent($event) {
             switch ($event.name) {
                 case 'save':
-                    this.$emit('on-save-event', $event, this.index, this.model);
+                    this.$refs.form.validate(valid => {
+                        console.log(valid);
+                        if (valid) {
+                            this.$emit('on-save-event', $event, this.index, this.model);
+                        }
+                    });
                     break;
                 case 'cancel':
                     this.$emit('on-cancel-event', $event, this.index);

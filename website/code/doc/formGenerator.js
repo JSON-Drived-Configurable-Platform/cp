@@ -469,7 +469,8 @@ const dividerModel = {
 };
 
 const dividerOptions = {
-    labelWidth: 100
+    // labelWidth: 100,
+    labelPosition: 'top'
 };
 
 divider.data = {
@@ -656,6 +657,8 @@ export default {
     />
 </template>
 `;
+
+// 标签位置
 
 // 联动-选项
 

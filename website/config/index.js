@@ -187,6 +187,11 @@ export default {
                     label: 'Dynamic-Form',
                     name: '/examples/dynamic-form'
                 },
+                {
+                    label: 'Combined-Forms',
+                    name: '/examples/combined-forms'
+                },
+
             ]
         },
     ]
