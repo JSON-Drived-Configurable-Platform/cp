@@ -340,27 +340,6 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
-.img-list {
-    margin: 20px auto;
-    ul {
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        li {
-            margin: 0 50px;
-            text-align: center;
-            img {
-                margin: 0 auto;
-                display: block;
-                width: 100%;
-            }
-            span {
-                display: inline-block;
-                line-height: 30px;
-                font-size: 12px;
-            }
-        }
-    }
-}
+<style lang="less">
+
 </style>>

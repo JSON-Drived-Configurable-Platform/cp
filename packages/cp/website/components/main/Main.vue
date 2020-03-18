@@ -65,7 +65,7 @@ export default {
     }
 };
 </script>
-<style lang="less" scoped>
+<style lang="less">
 .layout{
     border: 1px solid #d7dde4;
     background: #f5f7f9;

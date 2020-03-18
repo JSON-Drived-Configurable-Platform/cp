@@ -91,6 +91,10 @@ export default {
             name: '/practice-guide',
             submenu: [
                 {
+                    label: '代码规范',
+                    name: '/practice-guide/code-conventions',
+                },
+                {
                     label: '代码质量',
                     name: '/practice-guide/code-quality',
                 },

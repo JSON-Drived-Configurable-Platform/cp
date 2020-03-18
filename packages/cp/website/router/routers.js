@@ -23,6 +23,7 @@ const dataCommunication = () => import(/* webpackChunkName: "dataCommunication" 
 const apiProxy = () => import(/* webpackChunkName: "apiProxy" */ '../page/development/api-proxy');
 const apiMock  = () => import(/* webpackChunkName: "apiMock" */ '../page/development/api-mock');
 
+const codeConventions = () => import(/* webpackChunkName: "codeConventions" */ '../page/practice-guide/code-conventions');
 const codeQuality = () => import(/* webpackChunkName: "codeQuality" */ '../page/practice-guide/code-quality');
 const navagateManagement = () => import(/* webpackChunkName: "navagateManagement" */ '../page/practice-guide/navagate-management');
 const authorityManagement = () => import(/* webpackChunkName: "authorityManagement" */ '../page/practice-guide/authority-management');
@@ -123,6 +124,10 @@ export default [
         redirect: '/practice-guide/code-quality',
         component: Main,
         children: [
+            {
+                path: '/practice-guide/code-conventions',
+                component: codeConventions
+            },
             {
                 path: '/practice-guide/code-quality',
                 component: codeQuality
