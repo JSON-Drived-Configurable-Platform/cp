@@ -10,14 +10,14 @@ const basicFormsConfig = [
         type: 'Input',
         label: '加密token',
         model: 'token',
-        placeholder: '请联系RD获取加密token，测试环境为:xxxx',
+        placeholder: 'token请联系RD获取加密token，测试环境为:xxxx',
         required: true
     },
     {
         type: 'Input',
         label: '二维码回流url',
         model: 'url',
-        placeholder: '请输入二维码回流url',
+        placeholder: 'url请输入二维码回流url',
         required: true,
         defaultHide: false
     },
@@ -124,14 +124,14 @@ const basicFormsConfig = [
         type: 'Input',
         label: '二维码深色',
         model: 'qrOpts.color.dark',
-        placeholder: '二维码深色RGBA 默认”#000000ff”',
+        placeholder: 'qrOpts.color.dark二维码深色RGBA 默认”#000000ff”',
         required: true
     },
     {
         type: 'Input',
         label: '二维码浅色',
         model: 'qrOpts.color.light',
-        placeholder: '二维码浅色RGBA 默认”#ffffffff”',
+        placeholder: 'qrOpts.color.light二维码浅色RGBA 默认”#ffffffff”',
         required: true
     },
 ];
