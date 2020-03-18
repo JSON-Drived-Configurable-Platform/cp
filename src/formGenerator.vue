@@ -135,6 +135,7 @@ import FieldGenerator from './fieldGenerator';
 import {classPrefix} from './utils/const';
 import vClickOutside from 'v-click-outside';
 import {getValidType} from './utils/getValidType';
+import setMultistageValue from './mixins/setMultistageValue';
 export default {
     name: 'FormGenerator',
     components: {
@@ -143,6 +144,7 @@ export default {
     directives: {
         clickOutside: vClickOutside.directive
     },
+    mixins: [setMultistageValue],
     filters: {
         labelWidth(options) {
             if (options.inline) {
@@ -316,12 +318,25 @@ export default {
     },
     created() {
         this.oldParamsContainer = JSON.parse(JSON.stringify(this.paramsContainer)) || {};
+        this.setOriginModel();
     },
     mounted() {
         this.form = this.$refs.form;
         this.form.model = this.model;
     },
     methods: {
+        setOriginModel() {
+            // 多级级联初始值设置
+            this.fields.map(field => {
+                if (field.model) {
+                    this.setMultistageValue({
+                        originModel: this.model,
+                        model: field.model,
+                        value: ''
+                    });
+                }
+            });
+        },
         handleFieldChange({model, value}){
             // 关联项需要清空
             let needResetFields = this.needResetFieldsOnChangeMap[model] || [];
@@ -329,7 +344,11 @@ export default {
                 this.resetField(field);
             });
             // 由于有自定义的组件，所以不能依赖form自己的赋值
-            this.$set(this.form.model, model, value);
+            this.setMultistageValue({
+                originModel: this.form.model,
+                model,
+                value
+            });
             this.$refs.form.validateField(model);
             this.$emit('on-field-change', model, value);
         },
