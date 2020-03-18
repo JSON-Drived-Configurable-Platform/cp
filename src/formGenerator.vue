@@ -144,7 +144,6 @@ export default {
     directives: {
         clickOutside: vClickOutside.directive
     },
-    mixins: [setMultistageValue],
     filters: {
         labelWidth(options) {
             if (options.inline) {
@@ -155,6 +154,7 @@ export default {
             }
         }
     },
+    mixins: [setMultistageValue],
     props: {
         requestInterceptor: {
             type: [Function, null],
