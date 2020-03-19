@@ -32,6 +32,22 @@ module.exports = {
           "template": "template-curd"
         }
       ]
+    },
+    {
+      "label": "Audit",
+      "path": "/audit",
+      "submenu": [
+        {
+          "label": "Total Config",
+          "path": "/audit/total",
+          "template": "template-audit"
+        },
+        {
+          "label": "Audit Edit",
+          "path": "/audit/edit",
+          "template": "template-audit"
+        }
+      ]
     }
   ]
 }

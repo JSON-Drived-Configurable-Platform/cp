@@ -16,7 +16,9 @@ const templateToComponent = {
   "template-curd": () =>
     import(/* webpackChunkName: "data-report" */ "../template/curd"),
   "template-data-report": () =>
-    import(/* webpackChunkName: "curd" */ "../template/data-report")
+    import(/* webpackChunkName: "curd" */ "../template/data-report"),
+  "template-audit": () =>
+    import(/* webpackChunkName: "audit" */ "../template/audit")
 };
 
 /**
