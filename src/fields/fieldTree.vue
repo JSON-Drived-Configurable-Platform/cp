@@ -12,6 +12,7 @@
         :data="computedOptions"
         :show-checkbox="field.showCheckbox"
         :check-directly="field.checkDirectly"
+        :check-strictly="field.checkStrictly"
         :multiple="field.multiple"
         @on-select-change="handleSelectChange"
         @on-check-change="handleCheckChange"
