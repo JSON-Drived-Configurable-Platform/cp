@@ -48,8 +48,7 @@ const baseKeyToLabel = {
   }
 }
 
-const keyToLabel = {
+export const keyToLabelMap = {
   '/audit/total': baseKeyToLabel,
   '/audit/edit': baseKeyToLabel
 }
-export {keyToLabel}

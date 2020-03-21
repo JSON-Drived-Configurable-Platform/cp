@@ -13,6 +13,7 @@ module.exports = {
     before: app => webpackMockServer.use(app, {
       port: 8079,
       entry: ["webpack.mock.js"],
+      tsConfigFileName: "jsconfig.json"
     })
   }
 };

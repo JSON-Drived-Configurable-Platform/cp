@@ -56,6 +56,9 @@ export default {
     return {};
   },
   methods: {
+    /**
+     * @param {String} name select item name
+     */
     handleSelect(name) {
       this.$emit("on-select", name);
     }

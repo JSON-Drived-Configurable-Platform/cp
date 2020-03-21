@@ -6,9 +6,13 @@
     "esModuleInterop": true,
     "strict": true,
     "module": "commonJs",
-    "allowJs": true,
-    "checkJs": true
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    }
   },
   "include": ["src/*"],
-  "exclude": ["node_modules", "lib"]
+  "exclude": ["node_modules", "lib"],
 }

@@ -81,8 +81,10 @@
 </template>
 <script>
 /* eslint-disable no-console */
+import {keyToLabelMap} from './keyToLabelMap';
+import {keyListMap} from './keyListMap';
 import {mapState} from 'vuex';
-import axios from '../../libs/api.request';
+import axios from '@/libs/api.request';
 
 export default {
   data() {
@@ -106,24 +108,57 @@ export default {
         isCheck: true
       },
       downLoadUrl: '',
-      pageConfig: {}
+      pageConfig: {
+        request: {},
+        dialogs: {},
+        needDealUploadData: false,
+        submitApi: {}
+      }
     };
   },
   computed: {
     pageRequestInfo() {
       return this.pageConfig && this.pageConfig.request;
     },
+
     ...mapState({
-      keyToLabel: state => state.page.keyToLabel,
-      pagePath: state => state.page.pagePath,
-      keyList: state => state.page.keyList
+      /**
+       * @return {String} pagePath
+       */
+      pagePath: state => state.page.pagePath
     }),
+
+    /**
+     * @return {Object} keyList
+     */
+    keyList() {
+      return keyListMap[this.pagePath];
+    },
+
+    /**
+     * @return {Object} keyToLabel
+     */
+    keyToLabel() {
+      return keyToLabelMap[this.pagePath];
+    },
+
+    /**
+     * @return {Object} submitApi
+     */
     submitApi() {
       return this.pageConfig.submitApi && this.pageConfig.submitApi;
     },
+
+    /**
+     * @return {Object} dialogsConfig
+     */
     dialogsConfig() {
       return this.pageConfig.dialogs || {};
     },
+
+    /**
+     * @return {Boolean} needDealUploadData
+     */
     needDealUploadData() {
       return this.pageConfig.needDealUploadData || false;
     }

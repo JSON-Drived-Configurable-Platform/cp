@@ -21,7 +21,6 @@ export default webpackMockServer.add((app, helper) => {
     }
 
     const mockApiPath = getMockApiPath();
-    // console.log(req);
     const url = req.url
     Object.keys(mockApiPath).forEach(item => {
       const strPath = mockApiPath[item];

@@ -17,8 +17,8 @@ const keyListBase = {
   application: '互助申请书',
   other: '其他辅助资料'
 };
-const keyList = {
+
+export const keyListMap = {
   '/audit/total': keyListBase,
   '/audit/edit': keyListBase
 }
-export {keyList}
