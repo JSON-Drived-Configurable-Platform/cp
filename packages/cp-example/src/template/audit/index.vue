@@ -1,10 +1,5 @@
 <template>
   <div class="audit-detail-example-demo">
-    <!-- <div class="go-back" v-if="pageConfig.pageGoBackUrl">
-      <Button type="primary" @click="$router.push(pageConfig.pageGoBackUrl)">返回</Button>
-    </div> -->
-    <!-- <DetailSteps class="ivu-steps">
-        </DetailSteps> -->
     <div
       v-for="config in pageConfig.tableList"
       :key="config.title"
@@ -32,7 +27,11 @@
         >
           <div v-if="column.htmlKey" :key="column.slot">
             <div v-if="row.key===config.htmlKey">
-              <a class="download-wrapper" :href="item.url" v-for="(item, key) in row.value" :key="key">
+              <a class="download-wrapper"
+                 :key="key"
+                 :href="item.url"
+                 v-for="(item, key) in row.value"
+              >
                 {{item.name}}</a>
             </div>
             <div v-else>{{row.value}}</div>
@@ -122,55 +121,40 @@ export default {
     },
 
     ...mapState({
-      /**
-       * @return {String} pagePath
-       */
       pagePath: state => state.page.pagePath
     }),
 
-    /**
-     * @return {Object} keyList
-     */
     keyList() {
       return keyListMap[this.pagePath];
     },
 
-    /**
-     * @return {Object} keyToLabel
-     */
     keyToLabel() {
       return keyToLabelMap[this.pagePath];
     },
 
-    /**
-     * @return {Object} submitApi
-     */
     submitApi() {
       return this.pageConfig.submitApi && this.pageConfig.submitApi;
     },
 
-    /**
-     * @return {Object} dialogsConfig
-     */
     dialogsConfig() {
       return this.pageConfig.dialogs || {};
     },
 
-    /**
-     * @return {Boolean} needDealUploadData
-     */
     needDealUploadData() {
       return this.pageConfig.needDealUploadData || false;
     }
   },
+
   watch: {
     pagePath() {
       this.getPageConfig();
     }
   },
+
   mounted() {
     this.getPageConfig();
   },
+
   methods: {
     getPageConfig() {
       axios
@@ -199,7 +183,7 @@ export default {
          * When the field value changed, sync the value to this.formModel
          * Notice there may be more than form in the per line in the table.
          *
-         * @param ($event, row, refKey)
+         * @param {Object} $event event data
          * @param {String} $event.model the changed field's model, eg: auditStatus
          * @param {String} $event.value the change field's value, eg: 1 (one value of auditStatus's options)
          * @param {String} row.key the changed field' identifier, eg: name
@@ -353,20 +337,16 @@ export default {
         .ivu-table, .ivu-table-wrapper, .ivu-table-cell {
             overflow: visible;
         }
-        .download-wrapper {
-            padding: 0 20px;
-        }
-        &-form {
-           .ivu-form-item {
-                margin-top: 0px;
-                margin-bottom: 0px
-            }
-        }
-    }
-    .go-back {
-        width: 100%;
-        padding-bottom: 20px;
-        text-align: right
+        // .download-wrapper {
+        //     padding: 0 20px;
+        // }
+
+        // &-form {
+        //    .ivu-form-item {
+        //         margin-top: 0px;
+        //         margin-bottom: 0px
+        //     }
+        // }
     }
 
 </style>
