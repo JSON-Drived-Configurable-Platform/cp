@@ -40,8 +40,9 @@ const baseKeyToLabel = {
   offlineComment: {
     undeilineProcess: '调查过程',
     undeilineSurvey: '调查概况',
-    underlineDoc: '调查材料',
-    status: ''
+  },
+  offlineCommentLink: {
+    underlineDocUrl: '调查材料'
   },
   checkConsolusion: {
     checkConsolusion: '材料终审建议'

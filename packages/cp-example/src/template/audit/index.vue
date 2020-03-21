@@ -25,20 +25,8 @@
           :ref="column.slot"
           slot-scope="{ row, index }"
         >
-          <div v-if="column.htmlKey" :key="column.slot">
-            <div v-if="row.key===config.htmlKey">
-              <a class="download-wrapper"
-                 :key="key"
-                 :href="item.url"
-                 v-for="(item, key) in row.value"
-              >
-                {{item.name}}</a>
-            </div>
-            <div v-else>{{row.value}}</div>
-          </div>
           <Form
-            v-if="!row.hideForm && column.formFields
-              ? (config.hideFormKey ? config.hideFormKey === row.key : true) : false"
+            v-if="column.formFields"
             :key="column.slot"
             :ref="column.slot + row.key"
             :model="row"
@@ -53,6 +41,7 @@
               @on-list-item-click="handleListItemClick"
             />
           </Form>
+          <div v-else :key="column.key">{{row.value}}</div>
         </template>
       </Table>
     </div>
@@ -81,7 +70,6 @@
 <script>
 /* eslint-disable no-console */
 import {keyToLabelMap} from './keyToLabelMap';
-import {keyListMap} from './keyListMap';
 import {mapState} from 'vuex';
 import axios from '@/libs/api.request';
 
@@ -123,10 +111,6 @@ export default {
     ...mapState({
       pagePath: state => state.page.pagePath
     }),
-
-    keyList() {
-      return keyListMap[this.pagePath];
-    },
 
     keyToLabel() {
       return keyToLabelMap[this.pagePath];
@@ -202,7 +186,7 @@ export default {
       let validCount = 0;
       const refKeys = Object.keys(this.$refs);
       refKeys.forEach(form => {
-        this.$refs[form][0].validate().then(valid => {
+        this.$refs[form][0] && this.$refs[form][0].validate().then(valid => {
           if (valid) {
             validCount++;
           }
@@ -272,9 +256,11 @@ export default {
         return sectionConfig;
       });
     },
+
     cancel() {
       this.dialogShow = false;
     },
+
     confirm(requestApi) {
       const {api, method} = requestApi;
       const data = {...this.formModel, ...{applyNo: this.$route.query.applyNo}};
@@ -299,6 +285,7 @@ export default {
         });
       this.dialogShow = false;
     },
+
     resetPageData() {
       this.pageConfig.tableList = this.pageConfig.tableList.map(item => {
         if (item.needClearData) {

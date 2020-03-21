@@ -98,13 +98,10 @@ module.exports = {
       },
       offlineComment: {
         undeilineProcess: "线下调查过程是的福克斯开发机上",
-        undeilineSurvey: "线下调查概况随机发开始就的傅雷家书",
-        underlineDoc: [
-          {
-            name: "sdfs",
-            url: "http://www.baidu.com"
-          }
-        ]
+        undeilineSurvey: "线下调查概况随机发开始就的傅雷家书"
+      },
+      offlineCommentLink: {
+        underlineDocUrl: "http://www.baidu.com"
       },
       checkConsolusion: {
         checkConsolusion: "123"
@@ -117,4 +114,3 @@ module.exports = {
   },
   msg: "ok"
 }
-    

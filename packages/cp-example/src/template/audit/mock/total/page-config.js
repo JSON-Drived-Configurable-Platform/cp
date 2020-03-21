@@ -92,7 +92,7 @@ module.exports = {
             },
             {
               "title": '图片列表',
-              "slot": 'value1',
+              "slot": 'value',
               "width": 'auto',
               "formFields": [
                 {
@@ -156,9 +156,6 @@ module.exports = {
         "needShowDownLoadButton": false,
         "needClearData": true,
         "sectionKey": 'offlineComment',
-        "hideFormKey": 'status',
-        // 需要渲染成html的key 在页面中单独处理样式
-        "htmlKey": 'underlineDoc',
         "showTableHeader": false,
         "table": {
           "columns": [
@@ -170,8 +167,40 @@ module.exports = {
             {
               "title": '值',
               "width": 'auto',
-              "slot": 'html',
-              "htmlKey": '调查材料'
+              "key": 'value',
+            }
+          ]
+        }
+      },
+      {
+        "title": '线下调查链接',
+        "type": 'table',
+        "needShowDownLoadButton": false,
+        "needClearData": true,
+        "sectionKey": 'offlineCommentLink',
+        "showTableHeader": false,
+        "table": {
+          "columns": [
+            {
+              "title": '项',
+              "key": 'label',
+              "width": 150
+            },
+            {
+              "title": '值',
+              "width": 'auto',
+              "slot": 'value',
+              formFields: [
+                {
+                  type: 'Button',
+                  model: 'value',
+                  textModel: 'value',
+                  subtype: 'text',
+                  action: {
+                    type: 'url',
+                  }
+                }
+              ]
             }
           ]
         }

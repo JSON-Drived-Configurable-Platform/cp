@@ -3295,10 +3295,10 @@ form-data@~2.3.2:
     combined-stream "^1.0.6"
     mime-types "^2.1.12"
 
-form-generator-iview@^0.0.54:
-  version "0.0.54"
-  resolved "http://registry.npm.baidu-int.com/form-generator-iview/-/form-generator-iview-0.0.54.tgz#2da1140b626d8b2798c02e3f67a85f4700e2dcdd"
-  integrity sha1-LaEUC2JtiyeYwC4/Z6hfRwDi3N0=
+form-generator-iview@^0.0.56:
+  version "0.0.56"
+  resolved "https://registry.npmjs.org/form-generator-iview/-/form-generator-iview-0.0.56.tgz#e6a8118a61bdc0a97738e5ae2efd21c90d16bf69"
+  integrity sha512-WKRFjQzOrw61TK8tlm2MH1ea1BYGAHFCm7zmaaLr+niUTZ6Wws7WeOGVAihc6n549gBCGZdnC7dMnDiaGLRFBg==
   dependencies:
     axios "^0.18.0"
     v-click-outside "^2.1.3"

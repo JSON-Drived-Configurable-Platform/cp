@@ -11,7 +11,7 @@
     "axios": "^0.18.0",
     "core-js": "^2.6.5",
     "data-vis-iview": "^0.0.24",
-    "form-generator-iview": "^0.0.54",
+    "form-generator-iview": "^0.0.56",
     "iview": "^3.4.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.6",
