@@ -26,7 +26,7 @@ export default {
      */
     homeName: 'home',
 
-    defaultOpenNames: ['/doc', '/examples'],
+    defaultOpenNames: ['/doc'],
 
     menuList: [
         // {
@@ -145,6 +145,36 @@ export default {
                 //     label: 'ImgUpload',
                 //     name: '/doc/ImgUpload'
                 // },
+            ]
+        },
+        {
+            label: 'Development',
+            name: '/development',
+            submenu: [
+                {
+                    label: 'Components Choosen',
+                    name: '/development/components-choosen'
+                },
+                {
+                    label: 'Union Request',
+                    name: '/development/union-request'
+                },
+                {
+                    label: 'Request Interceptor',
+                    name: '/development/request-interceptor'
+                },
+                {
+                    label: 'ShowOn HiddenOn',
+                    name: '/development/showOn-hiddenOn'
+                },
+                {
+                    label: 'Form Validate',
+                    name: '/development/form-validate'
+                },
+                {
+                    label: 'Powerful FieldGenerator',
+                    name: '/development/powerful-fieldGenerator'
+                },
             ]
         },
         {
