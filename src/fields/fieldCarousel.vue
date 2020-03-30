@@ -3,12 +3,12 @@
         <Carousel
             :value="currentIndex"
             :loop="field.loop"
+            @on-change="handleChange"
         >
             <CarouselItem
                 v-for="(item, index) in computedOptions"
                 :key="index"
                 :class="carouselItemClasses"
-                @on-change="handleChange"
             >
                 <img v-if="subtype === 'img'" width="100%" :src="item.url" :alt="item.label">
                 <div v-if="subtype === 'video'">
@@ -24,6 +24,7 @@
 <script>
 import {classPrefix} from '../utils/const';
 import getOptions from '../mixins/getOptions';
+
 export default {
     inject: ['form'],
     mixins: [getOptions],
@@ -83,7 +84,6 @@ export default {
             this.getRemoteOptions();
         },
         handleChange(oldValue, value) {
-            this.$set(this.form.model, this.field.model, value);
             this.$emit('on-change', this.field.model, value, null, this.field);
         }
     }

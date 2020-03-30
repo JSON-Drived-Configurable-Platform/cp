@@ -2,7 +2,7 @@
     <div>
         <Select
             v-if="remote"
-            :value="form.model[field.model]"
+            :value="value"
             :multiple="field.multiple || false"
             :disabled="field.disabled || false"
             :clearable="clearable"
@@ -37,7 +37,7 @@
         </Select>
         <Select
             v-else
-            :value="form.model[field.model]"
+            :value="value"
             :multiple="field.multiple || false"
             :disabled="field.disabled || false"
             :clearable="clearable"
@@ -72,6 +72,8 @@
 </template>
 <script>
 import getOptions from '../mixins/getOptions';
+import {getMultistageValue} from '../utils/multistageValue';
+
 export default {
     inject: ['form'],
     mixins: [getOptions],
@@ -90,7 +92,7 @@ export default {
     data() {
         return {
             loading: false,
-            options: []
+            options: [],
         };
     },
     computed: {
@@ -108,6 +110,12 @@ export default {
         },
         optionsApi() {
             return this.field.api || !Array.isArray(this.field.options) ? this.field.options : '';
+        },
+        value() {
+            return getMultistageValue({
+                originModel: this.form.model,
+                model: this.field.model
+            }) || '';
         }
     },
     methods: {
@@ -115,7 +123,7 @@ export default {
             if (value === undefined || value === null) {
                 value = '';
             }
-            this.$set(this.form.model, this.field.model, value);
+
             this.$emit('on-change', this.field.model, value, null, this.field);
         },
         remoteMethod(query) {

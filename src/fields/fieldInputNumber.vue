@@ -1,6 +1,6 @@
 <template>
     <InputNumber
-        :value="form.model[field.model]"
+        :value="value"
         :type="field.subtype"
         :step="field.step"
         :precision="field.precision"
@@ -17,6 +17,8 @@
 </template>
 <script>
 import {classPrefix} from '../utils/const';
+import {getMultistageValue} from '../utils/multistageValue';
+
 export default {
     inject: ['form'],
     props: {
@@ -35,6 +37,14 @@ export default {
             default: false
         }
     },
+    data() {
+        return {
+            value: getMultistageValue({
+                originModel: this.form.model,
+                model: this.field.model
+            })
+        };
+    },
     computed: {
         classes() {
             return `${classPrefix}-${this.field.type.toLowerCase()}`;
@@ -49,7 +59,6 @@ export default {
             if (value === null) {
                 value = 0;
             }
-            this.$set(this.form.model, this.field.model, value);
             this.$emit('on-change', this.field.model, value, null, this.field);
         }
     }

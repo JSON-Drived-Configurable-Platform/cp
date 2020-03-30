@@ -20,6 +20,8 @@
 
 <script>
 import {classPrefix} from '../utils/const';
+import {getMultistageValue} from '../utils/multistageValue';
+
 export default {
     inject: ['form'],
     props: {
@@ -33,7 +35,10 @@ export default {
             return `${classPrefix}-${this.field.type.toLowerCase()}`;
         },
         multiple() {
-            let value = this.form.model[this.field.model];
+            let value = getMultistageValue({
+                originModel: this.form.model,
+                model: this.field.model
+            });
             return Array.isArray(value);
         },
         computedField() {
@@ -42,7 +47,10 @@ export default {
             }
             const options = this.field.options || [];
             if (options.length > 0) {
-                let value = this.form.model[this.field.model];
+                let value = getMultistageValue({
+                    originModel: this.form.model,
+                    model: this.field.model
+                });
                 return options.find(item => item.value === value);
             }
             return {};
@@ -52,7 +60,10 @@ export default {
                 return [];
             }
             const options = this.field.options || [];
-            let value = this.form.model[this.field.model];
+            let value = getMultistageValue({
+                originModel: this.form.model,
+                model: this.field.model
+            });
             return options.filter(item => value.includes(item.value));
         },
         name() {

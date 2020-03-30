@@ -74,7 +74,7 @@ export default {
         };
     },
     methods: {
-        handleFieldChange(model, value) {
+        handleFieldChange({model, value}) {
             // eslint-disable-next-line no-console
             console.log(model, value);
         }

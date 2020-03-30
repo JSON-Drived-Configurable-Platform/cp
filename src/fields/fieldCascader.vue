@@ -1,6 +1,6 @@
 <template>
     <Cascader
-        :value="form.model[field.model]"
+        :value="value"
         :data="computedOptions"
         :disabled="field.disabled"
         :clearable="field.clearable"
@@ -13,6 +13,8 @@
 </template>
 <script>
 import getOptions from '../mixins/getOptions';
+import {getMultistageValue} from '../utils/multistageValue';
+
 export default {
     inject: ['form'],
     mixins: [getOptions],
@@ -49,12 +51,17 @@ export default {
                 return false;
             }
             return this.field.changeType !== 'all';
+        },
+        value() {
+            return getMultistageValue({
+                originModel: this.form.model,
+                model: this.field.model
+            }) || '';
         }
     },
 
     methods: {
         handleChange(value) {
-            this.$set(this.form.model, this.field.model, value);
             this.$emit('on-change', this.field.model, value, null, this.field);
         }
     }

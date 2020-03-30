@@ -132,6 +132,8 @@
 <script>
 import {classPrefix} from '../utils/const';
 import getOptions from '../mixins/getOptions';
+import {getMultistageValue} from '../utils/multistageValue';
+
 export default {
     inject: ['form'],
     mixins: [getOptions],
@@ -248,9 +250,6 @@ export default {
         optionsApi() {
             return !Array.isArray(this.field.options) ? this.field.options : '';
         },
-        value() {
-            return this.form.model[this.field.model] || [];
-        },
         // 开启走马灯
         openCarousel() {
             return this.field.openCarousel || false;
@@ -258,12 +257,18 @@ export default {
         // 走马灯配置信息
         carouselOptions() {
             return this.field.carouselOptions || {};
+        },
+        value() {
+            return getMultistageValue({
+                originModel: this.form.model,
+                model: this.field.model
+            }) || [];
         }
     },
     watch: {
         value: {
-            handler() {
-                if (this.form.model[this.field.model] && this.form.model[this.field.model].length === 0) {
+            handler(value) {
+                if (value && value.length === 0) {
                     this.selectedData = [];
                 }
             },
@@ -292,7 +297,7 @@ export default {
             else {
                 this.removeItem(value);
             }
-            this.$set(this.form.model, this.field.model, this.selectedData);
+            this.$emit('on-change', this.field.model, this.selectedData, null, this.field);
         },
         // 全选
         handleCheckAll(checked) {
@@ -306,7 +311,7 @@ export default {
                     }
                 }
             });
-            this.$set(this.form.model, this.field.model, this.selectedData);
+            this.$emit('on-change', this.field.model, this.selectedData, null, this.field);
         },
         // 添加数据
         addItem(item) {

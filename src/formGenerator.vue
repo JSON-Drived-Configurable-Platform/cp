@@ -135,7 +135,8 @@ import FieldGenerator from './fieldGenerator';
 import {classPrefix} from './utils/const';
 import vClickOutside from 'v-click-outside';
 import {getValidType} from './utils/getValidType';
-import setMultistageValue from './mixins/setMultistageValue';
+import {setMultistageValue} from './utils/multistageValue';
+
 export default {
     name: 'FormGenerator',
     components: {
@@ -154,7 +155,6 @@ export default {
             }
         }
     },
-    mixins: [setMultistageValue],
     props: {
         requestInterceptor: {
             type: [Function, null],
@@ -318,25 +318,12 @@ export default {
     },
     created() {
         this.oldParamsContainer = JSON.parse(JSON.stringify(this.paramsContainer)) || {};
-        this.setOriginModel();
     },
     mounted() {
         this.form = this.$refs.form;
         this.form.model = this.model;
     },
     methods: {
-        setOriginModel() {
-            // 多级级联初始值设置
-            this.fields.map(field => {
-                if (field.model) {
-                    this.setMultistageValue({
-                        originModel: this.model,
-                        model: field.model,
-                        value: ''
-                    });
-                }
-            });
-        },
         handleFieldChange({model, value}){
             // 关联项需要清空
             let needResetFields = this.needResetFieldsOnChangeMap[model] || [];
@@ -344,11 +331,12 @@ export default {
                 this.resetField(field);
             });
             // 由于有自定义的组件，所以不能依赖form自己的赋值
-            this.setMultistageValue({
+            setMultistageValue.call(this, {
                 originModel: this.form.model,
                 model,
                 value
             });
+            
             this.$refs.form.validateField(model);
             this.$emit('on-field-change', model, value);
         },
@@ -405,7 +393,11 @@ export default {
             let type = getValidType(field);
             let fieldComponent = this.$refs.form.fields.find(item => item.prop === field.model);
             if (fieldComponent) {
-                this.$set(this.form.model, field.model, typeToResetValues[type]);
+                setMultistageValue.call(this, {
+                    originModel: this.form.model,
+                    model: field.model,
+                    value: typeToResetValues[type]
+                });
                 fieldComponent.resetField();
             }
         },

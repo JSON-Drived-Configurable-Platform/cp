@@ -1,6 +1,6 @@
 <template>
     <i-input
-        :value="form.model[field.model]"
+        :value="value"
         :type="field.subtype"
         :placeholder="field.placeholder"
         :clearable="field.clearable"
@@ -18,7 +18,7 @@
         :number="field.number"
         :enter-button="field.enterButton"
         :size="size"
-        @on-change="handleChangeExecuteSequence"
+        @on-change="handleChange"
     >
         <span v-if="field.prepend" slot="prepend">{{ field.prepend }}</span>
         <span v-if="field.append" slot="append">{{ field.append }}</span>
@@ -26,14 +26,13 @@
 </template>
 <script>
 import {Input} from 'iview';
-import setMultistageValue from '../mixins/setMultistageValue';
+import {getMultistageValue} from '../utils/multistageValue';
 
 export default {
     inject: ['form'],
     components: {
         iInput: Input
     },
-    mixins: [setMultistageValue],
     props: {
         field: {
             type: Object,
@@ -50,17 +49,20 @@ export default {
         return {
             prependSelectModel: '',
             appendSelectModel: '',
-            localModel: {}
+            localModel: {},
+            value: getMultistageValue({
+                originModel: this.form.model,
+                model: this.field.model
+            }) || ''
         };
     },
-    created() {
+    computed: {
     },
     methods: {
-        // handleChange(e) {
-        //     let value = e.target.value;
-        //     this.$set(this.form.model, this.field.model, value);
-        //     this.$emit('on-change', this.field.model, value, e, this.field);
-        // }
+        handleChange(e) {
+            let value = e.target.value;
+            this.$emit('on-change', this.field.model, value, e, this.field);
+        }
     }
 };
 </script>

@@ -4,7 +4,7 @@
     </div>
     <RadioGroup
         v-else
-        :value="form.model[field.model]"
+        :value="value"
         :type="field.subtype"
         :vertical="field.vertical"
         :size="size"
@@ -23,6 +23,8 @@
 <script>
 import {classPrefix} from '../utils/const';
 import getOptions from '../mixins/getOptions';
+import {getMultistageValue} from '../utils/multistageValue';
+
 export default {
     inject: ['form'],
     mixins: [getOptions],
@@ -41,7 +43,7 @@ export default {
     data() {
         return {
             loading: false,
-            options: []
+            options: [],
         };
     },
     computed: {
@@ -59,6 +61,12 @@ export default {
         },
         optionsApi() {
             return !Array.isArray(this.field.options) ? this.field.options : '';
+        },
+        value() {
+            return getMultistageValue({
+                originModel: this.form.model,
+                model: this.field.model
+            }) || [];
         }
     },
     methods: {
@@ -69,7 +77,6 @@ export default {
             this.getRemoteOptions();
         },
         handleChange(value) {
-            this.$set(this.form.model, this.field.model, value);
             this.$emit('on-change', this.field.model, value, null, this.field);
         }
     }
