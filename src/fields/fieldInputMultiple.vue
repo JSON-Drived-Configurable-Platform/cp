@@ -1,28 +1,37 @@
 <!-- 按照标签展示多行元素的input组件 -->
 <template>
     <div>
-        <i-input
-            :value="value"
-            :type="field.subtype"
-            :placeholder="field.placeholder"
-            :clearable="field.clearable"
-            :disabled="field.disabled"
-            :readonly="field.readonly"
-            :icon="field.icon"
-            :prefix="field.prefix"
-            :suffix="field.suffix"
-            :autofocus="field.autofocus"
-            :autocomplete="field.autocomplete"
-            :autosize="field.autosize"
-            :search="field.search"
-            :spellcheck="field.spellcheck"
-            :rows="field.rows"
-            :number="field.number"
-            :enter-button="field.enterButton"
-            :size="size"
-            @on-keydown="handelMemberKeydown"
-            @on-change="handleChange"
-        />
+        <div class="fg-ivu-inputmultiple-inputwp">
+            <i-input
+                :value="value"
+                :type="field.subtype"
+                :placeholder="field.placeholder"
+                :clearable="field.clearable"
+                :disabled="field.disabled"
+                :readonly="field.readonly"
+                :icon="field.icon"
+                :prefix="field.prefix"
+                :suffix="field.suffix"
+                :autofocus="field.autofocus"
+                :autocomplete="field.autocomplete"
+                :autosize="field.autosize"
+                :search="field.search"
+                :spellcheck="field.spellcheck"
+                :rows="field.rows"
+                :number="field.number"
+                :enter-button="field.enterButton"
+                :size="size"
+                @on-keydown="handelMemberKeydown"
+                @on-change="handleChange"
+            />
+            <Button
+                class="fg-ivu-inputmultiple-addbtn"
+                icon="md-add"
+                type="primary"
+                ghost
+                @click="handleAdd"
+            />
+        </div>
         <div class="member-list">
             <Tag
                 v-for="item in defaultList"
@@ -78,17 +87,20 @@ export default {
     methods: {
         handelMemberKeydown(e) {
             if (e.keyCode === 13) {
-                if (!this.value) {
-                    this.$Message.warning('请输入数据后添加');
-                    return;
-                }
-                if (this.list.indexOf(this.value) === -1) {
-                    this.field.succMessage && this.$Message.success(this.field.succMessage);
-                    this.list.push(this.value);
-                    this.value = '';
-                    this.$set(this.form.model, this.field.model, this.list);
-                    this.$emit('on-change', this.field.model, this.list, e, this.field);
-                }
+                this.handleAdd(e);
+            }
+        },
+        handleAdd(e) {
+            if (!this.value) {
+                this.$Message.warning('请输入数据后添加');
+                return;
+            }
+            if (this.list.indexOf(this.value) === -1) {
+                this.field.succMessage && this.$Message.success(this.field.succMessage);
+                this.list.push(this.value);
+                this.value = '';
+                this.$set(this.form.model, this.field.model, this.list);
+                this.$emit('on-change', this.field.model, this.list, e, this.field);
             }
         },
         handelMemberDelete(i, e) {
@@ -106,6 +118,12 @@ export default {
 
 <style lang="less">
     .fg-ivu-inputmultiple {
+        &-inputwp {
+            display: flex;
+        }
+        &-addbtn {
+            margin-left: 8px;
+        }
         .member-list {
             display: flex;
             flex-wrap: wrap;
