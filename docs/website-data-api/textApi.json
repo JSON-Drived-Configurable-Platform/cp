@@ -1,0 +1,13 @@
+{
+    "status": 0,
+    "data": [
+        {
+            "label": "张三",
+            "value": "zhangsan"
+        },
+        {
+            "label": "王五",
+            "value": "wangwu"
+        }
+    ]
+}
