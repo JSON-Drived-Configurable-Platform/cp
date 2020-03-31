@@ -41,6 +41,26 @@ export const fields = [
         //defaultHide: true
     },
     {
+        type: 'InputMultiple',
+        label: '多条记录输入框',
+        model: 'inputMultiple',
+        placeholder: '',
+        required: true,
+        defaultList: ['默认用户'],
+        succMessage: '添加成功',
+        delMessage: '删除成功'
+    },
+    {
+        type: 'TimePickerMultiple',
+        label: '多条记录时间输入框',
+        model: 'timePickerMultiple',
+        placeholder: '',
+        required: true,
+        tips: '多时间段：5:00~6:00',
+        format: 'hh:mm',
+        timeSplit: ' - '
+    },
+    {
         type: 'Divider',
         label: '下拉选择',
         orientation: 'left',
@@ -832,6 +852,8 @@ export const model = {
     input: '',
     inputForbidden: '',
     textarea: '',
+    inputMultiple: ['成员1', '成员2'],
+    timePickerMultiple: ['05:00 - 08:00'],
     singleSelect: '',
     radioButton: '',
     singleSelectApi: '',
@@ -864,7 +886,7 @@ export const model = {
 };
 
 export const options = {
-    labelWidth: 120,
+    labelWidth: 130,
 
     title: ' 分组表单',
     labelPosition: 'left',

@@ -1,0 +1,120 @@
+<!-- 按照标签展示多行元素的input组件 -->
+<template>
+    <div>
+        <i-input
+            v-model="value"
+            :type="field.subtype"
+            :placeholder="field.placeholder"
+            :clearable="field.clearable"
+            :disabled="field.disabled"
+            :readonly="field.readonly"
+            :icon="field.icon"
+            :prefix="field.prefix"
+            :suffix="field.suffix"
+            :autofocus="field.autofocus"
+            :autocomplete="field.autocomplete"
+            :autosize="field.autosize"
+            :search="field.search"
+            :spellcheck="field.spellcheck"
+            :rows="field.rows"
+            :number="field.number"
+            :enter-button="field.enterButton"
+            :size="size"
+            @on-keydown="handelMemberKeydown"
+        />
+        <div class="member-list">
+            <Tag
+                v-for="item in defaultList"
+                :key="item"
+                disabled
+                type="border"
+                size="large"
+            >{{ item }}</Tag>
+            <Tag
+                v-for="(member, index) in list"
+                :key="member"
+                type="border"
+                size="large"
+                :closable="typeof field.closable === 'undefined' ? true : field.closable"
+                @on-close="handelMemberDelete(index, $event)"
+            >{{ member }}</Tag>
+        </div>
+    </div>
+</template>
+
+<script>
+import {Input, Tag} from 'iview';
+
+export default {
+    inject: ['form'],
+    components: {
+        iInput: Input,
+        Tag
+    },
+    props: {
+        field: {
+            type: Object,
+            required: true
+        },
+        size: {
+            type: String,
+            default() {
+                return 'default';
+            }
+        }
+    },
+    data() {
+        return {
+            value: '',
+            list: this.form.model[this.field.model] || [],
+            defaultList: this.field.defaultList || [],
+        };
+    },
+    computed: {
+    },
+    mounted() {},
+    created() {},
+    methods: {
+        handelMemberKeydown(e) {
+            if (e.keyCode === 13) {
+                if (this.list.indexOf(this.value) === -1) {
+                    this.field.succMessage && this.$Message.success(this.field.succMessage);
+                    this.list.push(this.value);
+                    this.value = '';
+                    this.$set(this.form.model, this.field.model, this.list);
+                    this.$emit('on-change', this.field.model, this.list, e, this.field);
+                }
+            }
+        },
+        handelMemberDelete(i, e) {
+            this.list.splice(i, 1);
+            this.field.delMessage && this.$Message.success(this.field.delMessage);
+            this.$set(this.form.model, this.field.model, this.list);
+            this.$emit('on-change', this.field.model, this.list, e, this.field);
+        },
+    }
+};
+</script>
+
+<style lang="less">
+    .fg-ivu-inputmultiple {
+        .member-list {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 5px;
+            line-height: 28px;
+            .ivu-tag-border {
+                margin: 10px 10px 0 0;
+            }
+            .ivu-tag[disabled] {
+                cursor: not-allowed;
+                &, &:hover {
+                    color: #aaa;
+                }
+                .ivu-tag-text {
+                    color: #aaa;
+                }
+            }
+        }
+    }
+</style>

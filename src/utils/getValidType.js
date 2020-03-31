@@ -19,7 +19,7 @@ export const getValidType = function(field) {
     if (type === 'radio') {
         return 'string';
     }
-    if (type === 'checkbox') {
+    if (type === 'checkbox' || type === 'inputmultiple' || type === 'timepickermultiple') {
         return 'array';
     }
     if (type === 'datepicker') {
