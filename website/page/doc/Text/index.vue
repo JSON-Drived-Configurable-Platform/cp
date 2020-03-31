@@ -23,36 +23,18 @@
                             <td>String</td>
                             <td>不可为空</td>
                         </tr>
-<!--                        <tr>-->
-<!--                            <td>subtype</td>-->
-<!--                            <td>输入框类型，可选值为 <code>text</code>、<code>password</code>、<code>textarea</code>、<code>url</code>、<code>email</code>、<code>date</code></td>-->
-<!--                            <td>String</td>-->
-<!--                            <td>text</td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>size</td>-->
-<!--                            <td>输入框尺寸，可选值为<code>large</code>、<code>small</code>、<code>default</code>或者不设置</td>-->
-<!--                            <td>String</td>-->
-<!--                            <td>-</td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>placeholder</td>-->
-<!--                            <td>占位文本</td>-->
-<!--                            <td>String</td>-->
-<!--                            <td>-</td>-->
-<!--                        </tr>-->
                         <tr>
                             <td>options</td>
                             <td>映射列表，如[{label: '西瓜', 'value': '1'},{label: '苹果', 'value': '2'}, {label: '梨', 'value': '3', disabled: true}]</td>
                             <td>Array(option)</td>
                             <td>[]</td>
                         </tr>
-<!--                        <tr>-->
-<!--                            <td>disabled</td>-->
-<!--                            <td>设置输入框为禁用状态</td>-->
-<!--                            <td>Boolean</td>-->
-<!--                            <td>false</td>-->
-<!--                        </tr>-->
+                        <tr>
+                            <td>nullValue</td>
+                            <td>当value值不存在于options列表时，text项显示的值<br/>当nullValue为null时，展示原始value值</td>
+                            <td>String|null</td>
+                            <td>-</td>
+                        </tr>
                     </tbody>
                 </table>
                 <inAnchor title="option配置" h3 />
@@ -140,7 +122,48 @@
                 </div>
                 <i-code slot="code" lang="html">{{ code.arrayExample.code }}</i-code>
             </Demo>
-
+            <Demo title="model值在option中不存在的情况">
+                <div slot="demo">
+                    <Form :model="code.nullExample.data.model">
+                        <FieldGenerator
+                            :field="code.nullExample.data.field"
+                            @on-field-change="handleFieldChange"
+                        />
+                    </Form>
+                </div>
+                <div slot="desc">
+                    <p>通过设置<code>field</code>, <code>model</code>即可生成一个Text。</p>
+                </div>
+                <i-code slot="code" lang="html">{{ code.nullExample.code }}</i-code>
+            </Demo>
+            <Demo title="自定义空值">
+                <div slot="demo">
+                    <Form :model="code.myNullExample.data.model">
+                        <FieldGenerator
+                            :field="code.myNullExample.data.field"
+                            @on-field-change="handleFieldChange"
+                        />
+                    </Form>
+                </div>
+                <div slot="desc">
+                    <p>通过设置<code>field</code>, <code>model</code>即可生成一个Text。</p>
+                </div>
+                <i-code slot="code" lang="html">{{ code.myNullExample.code }}</i-code>
+            </Demo>
+            <Demo title="自定义空值为null">
+                <div slot="demo">
+                    <Form :model="code.originalNullExample.data.model">
+                        <FieldGenerator
+                            :field="code.originalNullExample.data.field"
+                            @on-field-change="handleFieldChange"
+                        />
+                    </Form>
+                </div>
+                <div slot="desc">
+                    <p>当空值为null时，显示本来的value值</p>
+                </div>
+                <i-code slot="code" lang="html">{{ code.originalNullExample.code }}</i-code>
+            </Demo>
         </article>
     </i-article>
 </template>

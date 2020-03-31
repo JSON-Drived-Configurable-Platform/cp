@@ -94,7 +94,166 @@ export default {
 </template>
 `;
 
+// null option示例
+let nullExample = {};
 
+const nullExampleField = {
+    type: 'Text',
+    model: 'username',
+    options: [
+        {
+            label: '张三',
+            value: 'zhangsan'
+        },
+        {
+            label: '王五',
+            value: 'wangwu'
+        }
+    ]
+};
+
+const nullExampleModel = {
+    username: 'zhangsan1'
+};
+
+nullExample.data = {
+    field: nullExampleField,
+    model: nullExampleModel
+};
+
+nullExample.code = `
+<script>
+export default {
+    data() {
+        return {
+            field: ${JSON.stringify(nullExampleField)},
+            model: ${JSON.stringify(nullExampleModel)}
+        };
+    }
+    methods: {
+        handleFieldChange(model, value) {
+            console.log(model, value);
+        }
+    }
+};
+<script>
+<template>
+    <Form :model="model">
+        <FieldGenerator
+            :field="field"
+            @on-field-change="handleFieldChange"
+        />
+    </Form>
+</template>
+`;
+
+// null option示例
+let myNullExample = {};
+
+const myNullExampleField = {
+    type: 'Text',
+    model: 'username',
+    nullValue: '空',
+    options: [
+        {
+            label: '张三',
+            value: 'zhangsan'
+        },
+        {
+            label: '王五',
+            value: 'wangwu'
+        }
+    ]
+};
+
+const myNullExampleModel = {
+    username: 'zhangsan1'
+};
+
+myNullExample.data = {
+    field: myNullExampleField,
+    model: myNullExampleModel
+};
+
+myNullExample.code = `
+<script>
+export default {
+    data() {
+        return {
+            field: ${JSON.stringify(myNullExampleField)},
+            model: ${JSON.stringify(myNullExampleModel)}
+        };
+    }
+    methods: {
+        handleFieldChange(model, value) {
+            console.log(model, value);
+        }
+    }
+};
+<script>
+<template>
+    <Form :model="model">
+        <FieldGenerator
+            :field="field"
+            @on-field-change="handleFieldChange"
+        />
+    </Form>
+</template>
+`;
+
+// null option示例
+let originalNullExample = {};
+
+const originalNullExampleField = {
+    type: 'Text',
+    model: 'username',
+    nullValue: null,
+    options: [
+        {
+            label: '张三',
+            value: 'zhangsan'
+        },
+        {
+            label: '王五',
+            value: 'wangwu'
+        }
+    ]
+};
+
+const originalNullExampleModel = {
+    username: 'zhangsan1'
+};
+
+originalNullExample.data = {
+    field: originalNullExampleField,
+    model: originalNullExampleModel
+};
+
+originalNullExample.code = `
+<script>
+export default {
+    data() {
+        return {
+            field: ${JSON.stringify(originalNullExampleField)},
+            model: ${JSON.stringify(originalNullExampleModel)}
+        };
+    }
+    methods: {
+        handleFieldChange(model, value) {
+            console.log(model, value);
+        }
+    }
+};
+<script>
+<template>
+    <Form :model="model">
+        <FieldGenerator
+            :field="field"
+            @on-field-change="handleFieldChange"
+        />
+    </Form>
+</template>
+`;
 
 // 简单示例
 let arrayExample = {};
@@ -197,5 +356,8 @@ export default {
     simple,
     optionExample,
     arrayExample,
-    remote
+    remote,
+    nullExample,
+    myNullExample,
+    originalNullExample
 };
