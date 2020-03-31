@@ -66,7 +66,7 @@ export default {
             return getMultistageValue({
                 originModel: this.form.model,
                 model: this.field.model
-            }) || [];
+            }) || '';
         }
     },
     methods: {

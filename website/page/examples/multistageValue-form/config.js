@@ -802,6 +802,18 @@ export const fields = [
         ]
     },
     {
+        type: 'Divider',
+        label: '属性显示',
+        orientation: 'left',
+        dashed: true,
+        size: 'small'
+    },
+    {
+        type: 'Text',
+        model: 'date',
+        showAll: true
+    },
+    {
         type: 'Submit',
         subtype: 'primary',
         text: '提交',

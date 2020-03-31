@@ -30,6 +30,12 @@
                             <td>-</td>
                         </tr>
                         <tr>
+                            <td>textModel</td>
+                            <td>按钮文案对应的model属性，指定后将从<code>form.model</code>里面获取按钮的文案</td>
+                            <td>String</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
                             <td>confirmPoptip</td>
                             <td>配置后，点击按钮，会触发确认提示</td>
                             <td>Object</td>
@@ -168,6 +174,21 @@
                 <i-code slot="code" lang="html">{{ code.simple.code }}</i-code>
             </Demo>
 
+            <Demo title="从数据中获取按钮文案">
+                <div slot="demo">
+                    <Form :model="code.textModel.data.model">
+                        <FieldGenerator
+                            :field="code.textModel.data.field"
+                            @on-button-event="handleButtonEvent"
+                        />
+                    </Form>
+                </div>
+                <div slot="desc">
+                    <p>通过设置<code>field.textModel</code>可以指定按钮的文案对应model的值。</p>
+                </div>
+                <i-code slot="code" lang="html">{{ code.textModel.code }}</i-code>
+            </Demo>
+
             <Demo title="route">
                 <div slot="demo">
                     <Form :model="code.route.data.model">
@@ -178,10 +199,11 @@
                     </Form>
                 </div>
                 <div slot="desc">
-                    <p>通过设置<code>field</code>即可生成一个Button按钮</p>
+                    <p>通过设置<code>field.action.type</code>为<code>route</code>可以跳转到指定的route</p>
                 </div>
                 <i-code slot="code" lang="html">{{ code.route.code }}</i-code>
             </Demo>
+
 
             <Demo title="链接">
                 <div slot="demo">
@@ -193,7 +215,7 @@
                     </Form>
                 </div>
                 <div slot="desc">
-                    <p>通过设置<code>field</code>即可生成一个Button按钮</p>
+                    <p>通过设置<code>field.action.type</code>为<code>url</code>即可生成一个Button按钮</p>
                 </div>
                 <i-code slot="code" lang="html">{{ code.url.code }}</i-code>
             </Demo>
@@ -209,7 +231,7 @@
                 </div>
                 <div slot="desc">
                     <p>
-                        通过设置<code>field.type</code>为<code>ajax</code>，并设置<code>field.api</code>，即可通过点击按钮发送请求。
+                        通过设置<code>field.action.type</code>为<code>ajax</code>，并设置<code>field.api</code>，即可通过点击按钮发送请求。
                         <br>
                         发送请求默认会携带form.model作为参数，可以通过paramsContainer传入外部参数，并可通过apiParams选择所需的参数。
                     </p>

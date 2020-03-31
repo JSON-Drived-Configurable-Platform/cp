@@ -11,7 +11,7 @@
             :type="field.subtype || 'default'"
             :size="field.size || 'default'"
             :loading="loading"
-        >{{ field.text }}</Button>
+        >{{ text }}</Button>
     </Poptip>
     <Button
         v-else
@@ -50,6 +50,9 @@ export default {
     },
     mounted() {
         this.text = this.field.text;
+        if (this.field.textModel) {
+            this.text = this.form.model[this.field.textModel];
+        }
     },
     methods: {
         handleClick() {
@@ -74,7 +77,7 @@ export default {
                 // url
                 case 'url':
                     // If use model, get url from the form.model
-                    action.url && window.open(value || action.url);
+                    window.open(value || action.url);
                     break;
             }
         },
