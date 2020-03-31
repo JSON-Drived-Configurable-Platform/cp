@@ -25,6 +25,7 @@ const Cascader = () => import(/* webpackChunkName: "Cascader" */ '../page/doc/Ca
 const InputNumber = () => import(/* webpackChunkName: "InputNumber" */ '../page/doc/InputNumber');
 const Upload = () => import(/* webpackChunkName: "Upload" */ '../page/doc/Upload');
 const Tag = () => import(/* webpackChunkName: "Tag" */ '../page/doc/Tag');
+const Text = () => import(/* webpackChunkName: "Tag" */ '../page/doc/Text');
 const Tree = () => import(/* webpackChunkName: "Tag" */ '../page/doc/Tree');
 const TableSelect = () => import(/* webpackChunkName: "Tag" */ '../page/doc/TableSelect');
 const Carousel = () => import(/* webpackChunkName: "Carousel" */ '../page/doc/Carousel');
@@ -199,6 +200,11 @@ export default [
                 path: '/doc/Tag',
                 name: 'doc-Tag',
                 component: Tag
+            },
+            {
+                path: '/doc/Text',
+                name: 'doc-Text',
+                component: Text
             },
             {
                 path: '/doc/Tree',
