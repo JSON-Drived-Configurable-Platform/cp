@@ -14,7 +14,7 @@ export const columns = [
                 {
                     'type': 'Input',
                     'model': 'age'
-                }, 
+                },
                 {
                     type: 'Submit',
                     text: '保存',
@@ -47,7 +47,14 @@ export const columns = [
     {
         title: '图片',
         slot: 'city',
-        width: 150
+        width: 150,
+        formFields: [
+            {
+                type: 'Carousel',
+                model: 'city',
+                valueAsOptions: true,
+            }
+        ]
     },
     {
         title: '用户状态',

@@ -32,6 +32,39 @@ const Reset = () => import(/* webpackChunkName: "Button" */ '../page/doc/Reset')
 const Divider = () => import(/* webpackChunkName: "Button" */ '../page/doc/Divider');
 const Steps = () => import(/* webpackChunkName: "Button" */ '../page/doc/Steps');
 const List = () => import(/* webpackChunkName: "Button" */ '../page/doc/List');
+
+// {
+//     label: 'Components Choosen',
+//     name: '/examples/components-choosen'
+// },
+// {
+//     label: 'Union Request',
+//     name: '/examples/union-request'
+// },
+// {
+//     label: 'Request Interceptor',
+//     name: '/examples/request-interceptor'
+// },
+// {
+//     label: 'ShowOn HiddenOn',
+//     name: '/examples/showOn-hiddenOn'
+// },
+// {
+//     label: 'Form Validate',
+//     name: '/examples/form-validate'
+// },
+// {
+//     label: 'Powerful FieldGenerator',
+//     name: '/examples/powerful-fieldGenerator'
+// },
+// development
+const componentsChoosen = () => import(/* webpackChunkName: "componentsChoosen" */ '../page/development/components-choosen');
+const unionRequest = () => import(/* webpackChunkName: "unionRequest" */ '../page/development/union-request');
+const requestInterceptor = () => import(/* webpackChunkName: "componentsChoosen" */ '../page/development/request-interceptor');
+const showOnHiddenOn = () => import(/* webpackChunkName: "componentsChoosen" */ '../page/development/showOn-hiddenOn');
+const formValidate = () => import(/* webpackChunkName: "componentsChoosen" */ '../page/development/form-validate');
+const powerfulFieldGenerator = () => import(/* webpackChunkName: "componentsChoosen" */ '../page/development/powerful-fieldGenerator');
+
 // examples
 const groupForm = () => import(/* webpackChunkName: "groupForm" */ '../page/examples/group-form');
 const CURDSimpleExample = () => import(/* webpackChunkName: "CURDExample" */ '../page/examples/CURD-example/simple');
@@ -41,6 +74,9 @@ const editableTable = () => import(/* webpackChunkName: "editableTable" */ '../p
 const searchableChart = () => import(/* webpackChunkName: "searchableChart" */ '../page/examples/searchable-chart');
 const twoRelatedForm = () => import(/* webpackChunkName: "twoRelatedForm" */ '../page/examples/two-related-form');
 const auditExample = () => import(/* webpackChunkName: "auditExample" */ '../page/examples/audit/detail');
+const dynamicForm = () => import(/* webpackChunkName: "dynamicForm" */ '../page/examples/dynamic-form');
+const combinedForms = () => import(/* webpackChunkName: "combinedForms" */ '../page/examples/combined-forms');
+
 
 export default [
     {
@@ -193,50 +229,101 @@ export default [
                 name: 'doc-Divider',
                 component: Divider
             },
+
+        ],
+    },
+    {
+
+        path: '/development',
+        redirect: '/development/components-choosen',
+        component: Main,
+        children: [
+            {
+                path: '/development/components-choosen',
+                component: componentsChoosen
+            },
+            {
+                path: '/development/union-request',
+                component: unionRequest
+            },
+            {
+                path: '/development/request-interceptor',
+                component: requestInterceptor
+            },
+            {
+                path: '/development/showOn-hiddenOn',
+                component: showOnHiddenOn
+            },
+            {
+                path: '/development/form-validate',
+                component: formValidate
+            },
+            {
+                path: '/development/powerful-fieldGenerator',
+                component: powerfulFieldGenerator
+            },
+        ]
+    },
+    {
+
+        path: '/examples',
+        redirect: '/examples/group-form',
+        component: Main,
+        children: [
             // examples
             {
-                path: '/group-form',
-                name: 'group-form',
+                path: '/examples/group-form',
+                name: '/examples/group-form',
                 component: groupForm
             },
             {
-                path: '/CURD-example',
-                redirect: '/CURD-example/simple',
+                path: '/examples/CURD-example',
+                redirect: '/examples/CURD-example/simple',
             },
             {
-                path: '/CURD-example/simple',
+                path: '/examples/CURD-example/simple',
                 name: 'CURD-example-simple',
                 component: CURDSimpleExample
             },
             {
-                path: '/CURD-example/inline-edit',
+                path: '/examples/CURD-example/inline-edit',
                 name: 'CURD-example-simple-inline-edit',
                 component: CURDSimpleExampleInlineEdit
             },
             {
-                path: '/audit-example/detail',
+                path: '/examples/audit-example/detail',
                 name: 'audit-example-detail',
                 component: auditExample
             },
             {
-                path: '/inline-table',
+                path: '/examples/inline-table',
                 name: 'inline-table',
                 component: inlineTable
             },
             {
-                path: '/editable-table',
+                path: '/examples/editable-table',
                 name: 'editable-table',
                 component: editableTable
             },
             {
-                path: '/searchable-chart',
+                path: '/examples/searchable-chart',
                 name: 'searchable-chart',
                 component: searchableChart
             },
             {
-                path: '/two-related-form',
+                path: '/examples/two-related-form',
                 name: 'two-related-form',
                 component: twoRelatedForm
+            },
+            {
+                path: '/examples/dynamic-form',
+                name: 'dynamic-form',
+                component: dynamicForm
+            },
+            {
+                path: '/examples/combined-forms',
+                name: 'combined-forms',
+                component: combinedForms
             }
         ]
     }

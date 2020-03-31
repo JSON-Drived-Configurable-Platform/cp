@@ -225,7 +225,6 @@ export default {
 </template>
 `;
 
-
 export default {
     simple,
     remote,

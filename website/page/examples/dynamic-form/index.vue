@@ -1,34 +1,61 @@
 <template>
-    <div class="two-related-form-demo">
-        <FormGenerator
-            ref="businessForm"
-            :fields="businessFormFields"
-            :model="businessFormModel"
-            :options="businessFormOptions"
-            @on-field-change="hanldeFieldChange"
-        />
+    <div class="dynamic-form-demo">
+        <Row>
+            <i-col :span="12">
+                <FormGenerator
+                    :fields="basicFormsConfig"
+                    :model="basicFormModel"
+                    :options="basicFormOptions"
+                    @on-field-change="hanldeFieldChange"
+                />
+                <h1>动态元素</h1>
+                <FormGenerator
+                    :fields="dynamicFormConfig"
+                    :model="dynamicFormModel"
+                    :options="basicFormOptions"
+                    @on-field-change="hanldeFieldChange"
+                />
+            </i-col>
+            <i-col :span="12">
+                <div class="dynamic-form-demo-preview">
+                    预览
+                </div>
+            </i-col>
+        </Row>
     </div>
 </template>
 <script>
 import config from './config';
-let {businessFormFields, businessFormModel} = config;
+let {basicFormsConfig, dynamicFormConfig} = config;
 export default {
     data() {
         return {
-            businessFormFields,
-            businessFormModel,
-            businessFormOptions: {
+            basicFormsConfig,
+            basicFormOptions: {
                 labelWidth: 120
             },
-            conditions: [],
-            conditionsModel: {},
+            dynamicFormConfig,
+            basicFormModel: {},
+            dynamicFormModel: {}
         };
+    },
+    methods: {
+        hanldeFieldChange(model, value) {
+            console.log(model, value);
+        }
     }
 };
 </script>
 <style lang="less">
-.two-related-form-demo {
-    width: 50%;
+.dynamic-form-demo {
     margin: 20px;
+
+    &-preview {
+        margin: 30px;
+        width: 300px;
+        height: auto;
+        min-height: 500px;
+        background: #e4e4e4;
+    }
 }
 </style>

@@ -26,7 +26,7 @@ export default {
      */
     homeName: 'home',
 
-    defaultOpenNames: ['/doc', '/examples'],
+    defaultOpenNames: ['/doc'],
 
     menuList: [
         // {
@@ -148,41 +148,80 @@ export default {
             ]
         },
         {
+            label: 'Development',
+            name: '/development',
+            submenu: [
+                {
+                    label: 'Components Choosen',
+                    name: '/development/components-choosen'
+                },
+                {
+                    label: 'Union Request',
+                    name: '/development/union-request'
+                },
+                {
+                    label: 'Request Interceptor',
+                    name: '/development/request-interceptor'
+                },
+                {
+                    label: 'ShowOn HiddenOn',
+                    name: '/development/showOn-hiddenOn'
+                },
+                {
+                    label: 'Form Validate',
+                    name: '/development/form-validate'
+                },
+                {
+                    label: 'Powerful FieldGenerator',
+                    name: '/development/powerful-fieldGenerator'
+                },
+            ]
+        },
+        {
             label: 'Examples',
             name: '/examples',
             submenu: [
                 {
                     label: 'Group Form',
-                    name: '/group-form'
+                    name: '/examples/group-form'
                 },
                 {
                     label: 'CURD Simple',
-                    name: '/CURD-example/simple'
+                    name: '/examples/CURD-example/simple'
                 },
                 {
                     label: 'CURD Inlint Edit',
-                    name: '/CURD-example/inline-edit'
+                    name: '/examples/CURD-example/inline-edit'
                 },
                 {
                     label: 'Audit Detail',
-                    name: '/Audit-example/detail'
+                    name: '/examples/Audit-example/detail'
                 },
                 {
                     label: 'Editable-Table',
-                    name: '/editable-table'
+                    name: '/examples/editable-table'
                 },
                 {
                     label: 'Inline-Table',
-                    name: '/inline-table'
+                    name: '/examples/inline-table'
                 },
                 {
                     label: 'Searchable-Chart',
-                    name: '/searchable-chart'
+                    name: '/examples/searchable-chart'
                 },
                 {
                     label: 'Two-Related-Form',
-                    name: 'two-related-form'
+                    name: '/examples/two-related-form'
                 },
+                {
+                    label: 'Dynamic-Form',
+                    name: '/examples/dynamic-form'
+                },
+                {
+                    label: 'Combined-Forms',
+                    name: '/examples/combined-forms'
+                },
+
             ]
         },
     ]

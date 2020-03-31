@@ -46,6 +46,12 @@
                             <td>Boolean</td>
                             <td>false</td>
                         </tr>
+                        <tr>
+                            <td>check-strictly</td>
+                            <td>在显示复选框的情况下，是否严格的遵循父子不互相关联的做法</td>
+                            <td>Boolean</td>
+                            <td>false</td>
+                        </tr>
                     </tbody>
                 </table>
                 <inAnchor title="Tree events" h2 />

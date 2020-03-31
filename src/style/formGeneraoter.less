@@ -107,4 +107,19 @@
         margin: 0 auto;
         width: 96%;
     }
+
+    // hack for labelPosition: top
+    .ivu-form-label-top {
+        .ivu-form-item {
+            .ivu-form-item-label {
+                width: 100% !important;
+                float: left;
+                text-align: left;
+            }
+
+            .ivu-form-item-content {
+                margin-left: auto !important;
+            }
+        }
+    }
 }

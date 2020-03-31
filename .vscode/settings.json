@@ -1,7 +1,9 @@
 {
-    "eslint.validate": [
-      "javascript",
-      "javascriptreact",
-      { "language": "vue", "autoFix": true }
-    ]
+    "editor.tabSize": 4,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "eslint.alwaysShowStatus": true,
+    "eslint.debug": true,
+    "eslint.lintTask.enable": true
 }
