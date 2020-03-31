@@ -2,7 +2,7 @@
 <template>
     <div>
         <i-input
-            v-model="value"
+            :value="value"
             :type="field.subtype"
             :placeholder="field.placeholder"
             :clearable="field.clearable"
@@ -21,6 +21,7 @@
             :enter-button="field.enterButton"
             :size="size"
             @on-keydown="handelMemberKeydown"
+            @on-change="handleChange"
         />
         <div class="member-list">
             <Tag
@@ -77,6 +78,10 @@ export default {
     methods: {
         handelMemberKeydown(e) {
             if (e.keyCode === 13) {
+                if (!this.value) {
+                    this.$Message.warning('请输入数据后添加');
+                    return;
+                }
                 if (this.list.indexOf(this.value) === -1) {
                     this.field.succMessage && this.$Message.success(this.field.succMessage);
                     this.list.push(this.value);
@@ -92,6 +97,9 @@ export default {
             this.$set(this.form.model, this.field.model, this.list);
             this.$emit('on-change', this.field.model, this.list, e, this.field);
         },
+        handleChange(e) {
+            this.value = e.target.value;
+        }
     }
 };
 </script>

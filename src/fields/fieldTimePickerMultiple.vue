@@ -3,15 +3,16 @@
     <div :class="classes">
         <div class="fg-ivu-timepickermultiple-timewp">
             <TimePicker
-                v-model="value"
                 class="fg-ivu-timepickermultiple-time"
                 type="timerange"
                 :placeholder="field.placeholder"
+                :value="value"
                 :disabled="field.disabled"
                 :editable="field.editable"
                 :clearable="field.clearable"
                 :size="size"
                 :format="field.format || 'HH:mm:ss'"
+                @on-change="handleChange"
             />
             <Button
                 class="fg-ivu-timepickermultiple-addbtn"
@@ -125,6 +126,9 @@ export default {
             this.list.splice(index, 1);
             this.$set(this.form.model, this.field.model, this.list);
             this.$emit('on-change', this.field.model, this.list, null, this.field);
+        },
+        handleChange(value) {
+            this.value = value;
         }
     }
 };

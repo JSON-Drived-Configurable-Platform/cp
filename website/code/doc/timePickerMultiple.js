@@ -4,8 +4,8 @@ let simple = {
         field: {
             type: 'TimePickerMultiple',
             model: 'time',
-            tips: '多时间段：5:00~6:00',
-            format: 'hh:mm',
+            tips: '支持多时间段：05:00 - 06:00',
+            format: 'HH:mm',
             timeSplit: ' - '
         },
         model: {
