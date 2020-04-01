@@ -11,6 +11,7 @@ const practice = () => import(/* webpackChunkName: "practice" */ '../page/practi
 const FormGenerator = () => import(/* webpackChunkName: "FormGenerator" */ '../page/doc/FormGenerator');
 const FieldGenerator = () => import(/* webpackChunkName: "FieldGenerator" */ '../page/doc/FieldGenerator');
 const Input = () => import(/* webpackChunkName: "Input" */ '../page/doc/Input');
+const InputMultiple = () => import(/* webpackChunkName: "InputMultiple" */ '../page/doc/InputMultiple');
 const Radio = () => import(/* webpackChunkName: "Radio" */ '../page/doc/Radio');
 const RadioCard = () => import(/* webpackChunkName: "Radio" */ '../page/doc/RadioCard');
 const Checkbox = () => import(/* webpackChunkName: "Checkbox" */ '../page/doc/Checkbox');
@@ -20,6 +21,7 @@ const Select = () => import(/* webpackChunkName: "Select" */ '../page/doc/Select
 const LogicSelect = () => import(/* webpackChunkName: "LogicSelect" */ '../page/doc/LogicSelect');
 const DatePicker = () => import(/* webpackChunkName: "DatePicker" */ '../page/doc/DatePicker');
 const TimePicker = () => import(/* webpackChunkName: "TimePicker" */ '../page/doc/TimePicker');
+const TimePickerMultiple = () => import(/* webpackChunkName: "TimePickerMultiple" */ '../page/doc/TimePickerMultiple');
 const Cascader = () => import(/* webpackChunkName: "Cascader" */ '../page/doc/Cascader');
 const InputNumber = () => import(/* webpackChunkName: "InputNumber" */ '../page/doc/InputNumber');
 const Upload = () => import(/* webpackChunkName: "Upload" */ '../page/doc/Upload');
@@ -91,6 +93,10 @@ export default [
         component: home
     },
     {
+        path: 'test',
+        component: TimePickerMultiple
+    },
+    {
 
         path: '/doc',
         redirect: '/doc/FormGenerator',
@@ -120,6 +126,11 @@ export default [
                 path: '/doc/Input',
                 name: 'doc-Input',
                 component: Input
+            },
+            {
+                path: '/doc/InputMultiple',
+                name: 'doc-InputMultiple',
+                component: InputMultiple
             },
             {
                 path: '/doc/Radio',
@@ -165,6 +176,11 @@ export default [
                 path: '/doc/TimePicker',
                 name: 'doc-TimePicker',
                 component: TimePicker
+            },
+            {
+                path: '/doc/TimePickerMultiple',
+                name: 'doc-TimePickerMultiple',
+                component: TimePickerMultiple
             },
             {
                 path: '/doc/Cascader',
