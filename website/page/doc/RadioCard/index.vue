@@ -233,12 +233,11 @@
                     <Form :model="code.simple.data.model">
                         <FieldGenerator
                             :field="code.simple.data.field"
-                            @on-checkboxCard-click="handleClick"
                         />
                     </Form>
                 </div>
                 <div slot="desc">
-                    <p>通过设置<code>field</code>, <code>model</code>即可生成一个checkboxCard。</p>
+                    <p>通过设置<code>field</code>, <code>model</code>即可生成一个RadioCard。</p>
                 </div>
                 <i-code slot="code" lang="html">{{ code.simple.code }}</i-code>
             </Demo>
@@ -247,7 +246,6 @@
                     <Form :model="code.page.data.model">
                         <FieldGenerator
                             :field="code.page.data.field"
-                            @on-checkboxCard-click="handleClick"
                         />
                     </Form>
                 </div>
@@ -261,7 +259,6 @@
                     <Form :model="code.api.data.model">
                         <FieldGenerator
                             :field="code.api.data.field"
-                            @on-checkboxCard-click="handleClick"
                         />
                     </Form>
                 </div>
@@ -275,7 +272,6 @@
                     <Form :model="code.carousel.data.model">
                         <FieldGenerator
                             :field="code.carousel.data.field"
-                            @on-checkboxCard-click="handleClick"
                         />
                     </Form>
                 </div>

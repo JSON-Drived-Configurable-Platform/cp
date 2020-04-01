@@ -49,7 +49,6 @@ let page = {};
 const pageField = {
     type: 'RadioCard',
     model: 'card',
-    checkAll: true,
     pageLation: true, // 是否分页
     pageSize: 2, // 分页数目
     'cardWidth': '220px',
