@@ -33,18 +33,12 @@ export default {
             model: ${JSON.stringify(model)}
         };
     }
-    methods: {
-        handleClick(value) {
-            console.log(value);
-        }
-    }
 };
 <script>
 <template>
     <Form :model='model'>
         <FieldGenerator
             :field='field'
-            @on-checkboxCard-click='handleClick'
         />
     </Form>
 </template>
@@ -223,18 +217,12 @@ export default {
             model: ${JSON.stringify(carouselModel)}
         };
     }
-    methods: {
-        handleClick(value) {
-            console.log(value);
-        }
-    }
 };
 <script>
 <template>
     <Form :model='model'>
         <FieldGenerator
             :field='field'
-            @on-checkboxCard-click='handleClick'
         />
     </Form>
 </template>
