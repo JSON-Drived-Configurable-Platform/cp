@@ -40,7 +40,14 @@ export default {
                         return acc;
                     }, {});
                 } else {
-                    return options.find(item => item.value === value);
+                    let option = options.find(item => item.value === value);
+                    if (option !== undefined) {
+                        return option;
+                    } else {
+                        return {
+                            label: this.computedNullValue
+                        };
+                    }
                 }
             }
             return {
@@ -52,6 +59,16 @@ export default {
         },
         computedOptions() {
             return this.options.length > 0 ? this.options : (Array.isArray(this.field.options) ? this.field.options : []);
+        },
+        computedNullValue() {
+            let nullValue = this.field.nullValue;
+            if (typeof nullValue === 'string') {
+                return nullValue;
+            } else if (typeof nullValue === 'object' && !nullValue) {
+                return this.form.model[this.field.model];
+            } else {
+                return '-';
+            }
         },
         value() {
             return this.computedField.label;
