@@ -114,6 +114,10 @@ export default {
                     name: '/doc/Tree'
                 },
                 {
+                    label: 'Text',
+                    name: '/doc/Text'
+                },
+                {
                     label: 'TableSelect',
                     name: '/doc/TableSelect'
                 },
