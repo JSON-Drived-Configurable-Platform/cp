@@ -74,6 +74,10 @@ export default {
                     name: '/doc/CheckboxCard'
                 },
                 {
+                    label: 'RadioCard',
+                    name: '/doc/RadioCard'
+                },
+                {
                     label: 'Switch',
                     name: '/doc/Switch'
                 },

@@ -33,10 +33,10 @@ export const getValidType = function(field) {
     if (type === 'cascader') {
         return 'array';
     }
-    if (['logicinput', 'logicselect'].includes(type)) {
+    if (['logicinput', 'logicselect', 'radiocard'].includes(type)) {
         return 'object';
     }
-    if (['mediaupload', 'imgupload', 'upload', 'checkboxcard'].includes(type)) {
+    if (['mediaupload', 'imgupload', 'upload', 'checkboxcard',].includes(type)) {
         return 'array';
     }
 };
