@@ -130,10 +130,6 @@ export default {
         optionsType() {
             return this.field.optionsType || 'image';
         },
-        // 已选数据数
-        selectedNum() {
-            return this.selectedData.length;
-        },
         // 数据总数
         total() {
             return this.dataOptions.length || 0;
@@ -173,12 +169,7 @@ export default {
     methods: {
         // 单选
         handleChange(value) {
-            const selectedData = [];
-            this.computedOptions.forEach(item => {
-                if (item.id === value) {
-                    selectedData.push(item);
-                }
-            });
+            const selectedData = this.computedOptions.find(item => item.id === value) || {};
             this.$set(this.form.model, this.field.model, selectedData);
         },
         // 改变页码
