@@ -43,6 +43,7 @@ export default {
     },
     methods: {
         submit() {
+            console.log('sss', this.$refs.FormGenerator)
             this.$refs.FormGenerator
                 .submit().then(data => {
                     // eslint-disable-next-line no-console
