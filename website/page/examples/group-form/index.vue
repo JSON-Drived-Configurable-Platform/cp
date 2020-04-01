@@ -8,6 +8,7 @@
                     :model="model"
                     :options="options"
                     :params-container="paramsContainer"
+                    @on-field-change="handleChange"
                 />
             </div>
         </Row>
@@ -60,6 +61,9 @@ export default {
         },
         reset() {
             this.$refs.FormGenerator.reset();
+        },
+        handleChange(model, value) {
+            console.log(model, value);
         }
     }
 };
