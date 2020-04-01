@@ -101,7 +101,7 @@ export default {
             return this.field.filterable || this.remote;
         },
         clearable() {
-            return !this.field.multiple ? this.field.clearable: false;
+            return !this.field.multiple ? this.field.clearable : false;
         },
         computedOptions() {
             const options = this.options.length > 0 ? this.options : (Array.isArray(this.field.options) ? this.field.options : []);
