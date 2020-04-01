@@ -9,6 +9,7 @@
                     :options="options"
                     :params-container="paramsContainer"
                     @on-field-change="handleChange"
+                    @on-button-event="handleButtonEvent"
                 />
             </div>
         </Row>
@@ -64,6 +65,9 @@ export default {
         },
         handleChange(model, value) {
             console.log(model, value);
+        },
+        handleButtonEvent(e) {
+            console.log(e);
         }
     }
 };

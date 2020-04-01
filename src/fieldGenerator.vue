@@ -281,7 +281,8 @@ export default {
                             resolve();
                             this.$emit('on-button-event', {
                                 name: 'ajaxSuccess',
-                                field
+                                field,
+                                res
                             });
                         }
                         else {

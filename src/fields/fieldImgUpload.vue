@@ -7,7 +7,6 @@
         :accept="computedAccept"
         :format="computedFormat"
         @on-change="handleChange"
-
     />
 </template>
 

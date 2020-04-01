@@ -19,7 +19,7 @@ export const getValidType = function(field) {
     if (type === 'radio') {
         return 'string';
     }
-    if (type === 'checkbox') {
+    if (type === 'checkbox' || type === 'inputmultiple' || type === 'timepickermultiple') {
         return 'array';
     }
     if (type === 'datepicker') {
@@ -33,10 +33,10 @@ export const getValidType = function(field) {
     if (type === 'cascader') {
         return 'array';
     }
-    if (['logicinput', 'logicselect'].includes(type)) {
+    if (['logicinput', 'logicselect', 'radiocard'].includes(type)) {
         return 'object';
     }
-    if (['mediaupload', 'imgupload', 'upload', 'checkboxcard'].includes(type)) {
+    if (['mediaupload', 'imgupload', 'upload', 'checkboxcard', 'videoupload'].includes(type)) {
         return 'array';
     }
 };

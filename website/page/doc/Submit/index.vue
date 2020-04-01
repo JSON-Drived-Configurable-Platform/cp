@@ -69,6 +69,7 @@
                         <FieldGenerator
                             :field="code.simple.data.field"
                             @on-field-change="handleFieldChange"
+                            @on-button-event="handButtonEvent"
                         />
                     </Form>
                 </div>
@@ -103,6 +104,9 @@ export default {
         handleFieldChange(model, value) {
             // eslint-disable-next-line no-console
             console.log(model, value);
+        },
+        handButtonEvent(e) {
+            console.log(e);
         }
     }
 };

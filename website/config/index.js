@@ -58,6 +58,10 @@ export default {
                     name: '/doc/Input'
                 },
                 {
+                    label: 'InputMultiple',
+                    name: '/doc/InputMultiple'
+                },
+                {
                     label: 'Radio',
                     name: '/doc/Radio'
                 },
@@ -68,6 +72,10 @@ export default {
                 {
                     label: 'CheckboxCard',
                     name: '/doc/CheckboxCard'
+                },
+                {
+                    label: 'RadioCard',
+                    name: '/doc/RadioCard'
                 },
                 {
                     label: 'Switch',
@@ -88,6 +96,10 @@ export default {
                 {
                     label: 'TimePicker',
                     name: '/doc/TimePicker'
+                },
+                {
+                    label: 'TimePickerMultiple',
+                    name: '/doc/TimePickerMultiple'
                 },
                 {
                     label: 'Cascader',
