@@ -95,8 +95,8 @@ export default {
         return {
             loading: false,
             options: [],
-            pageNum: 1, // 页码
-            selectedData: [] // 存放选择的数据
+            pageNum: 1,
+            selectedData: []
         };
     },
     computed: {
