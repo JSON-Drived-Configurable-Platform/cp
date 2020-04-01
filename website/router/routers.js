@@ -12,6 +12,7 @@ const FormGenerator = () => import(/* webpackChunkName: "FormGenerator" */ '../p
 const FieldGenerator = () => import(/* webpackChunkName: "FieldGenerator" */ '../page/doc/FieldGenerator');
 const Input = () => import(/* webpackChunkName: "Input" */ '../page/doc/Input');
 const Radio = () => import(/* webpackChunkName: "Radio" */ '../page/doc/Radio');
+const RadioCard = () => import(/* webpackChunkName: "Radio" */ '../page/doc/RadioCard');
 const Checkbox = () => import(/* webpackChunkName: "Checkbox" */ '../page/doc/Checkbox');
 const CheckboxCard = () => import(/* webpackChunkName: "CheckboxCard" */ '../page/doc/CheckboxCard');
 const Switch = () => import(/* webpackChunkName: "Switch" */ '../page/doc/Switch');
@@ -32,6 +33,39 @@ const Reset = () => import(/* webpackChunkName: "Button" */ '../page/doc/Reset')
 const Divider = () => import(/* webpackChunkName: "Button" */ '../page/doc/Divider');
 const Steps = () => import(/* webpackChunkName: "Button" */ '../page/doc/Steps');
 const List = () => import(/* webpackChunkName: "Button" */ '../page/doc/List');
+
+// {
+//     label: 'Components Choosen',
+//     name: '/examples/components-choosen'
+// },
+// {
+//     label: 'Union Request',
+//     name: '/examples/union-request'
+// },
+// {
+//     label: 'Request Interceptor',
+//     name: '/examples/request-interceptor'
+// },
+// {
+//     label: 'ShowOn HiddenOn',
+//     name: '/examples/showOn-hiddenOn'
+// },
+// {
+//     label: 'Form Validate',
+//     name: '/examples/form-validate'
+// },
+// {
+//     label: 'Powerful FieldGenerator',
+//     name: '/examples/powerful-fieldGenerator'
+// },
+// development
+const componentsChoosen = () => import(/* webpackChunkName: "componentsChoosen" */ '../page/development/components-choosen');
+const unionRequest = () => import(/* webpackChunkName: "unionRequest" */ '../page/development/union-request');
+const requestInterceptor = () => import(/* webpackChunkName: "componentsChoosen" */ '../page/development/request-interceptor');
+const showOnHiddenOn = () => import(/* webpackChunkName: "componentsChoosen" */ '../page/development/showOn-hiddenOn');
+const formValidate = () => import(/* webpackChunkName: "componentsChoosen" */ '../page/development/form-validate');
+const powerfulFieldGenerator = () => import(/* webpackChunkName: "componentsChoosen" */ '../page/development/powerful-fieldGenerator');
+
 // examples
 const groupForm = () => import(/* webpackChunkName: "groupForm" */ '../page/examples/group-form');
 const CURDSimpleExample = () => import(/* webpackChunkName: "CURDExample" */ '../page/examples/CURD-example/simple');
@@ -90,6 +124,11 @@ export default [
                 path: '/doc/Radio',
                 name: 'doc-Radio',
                 component: Radio
+            },
+            {
+                path: '/doc/RadioCard',
+                name: 'doc-RadioCard',
+                component: RadioCard
             },
             {
                 path: '/doc/Checkbox',
@@ -196,6 +235,47 @@ export default [
                 name: 'doc-Divider',
                 component: Divider
             },
+
+        ],
+    },
+    {
+
+        path: '/development',
+        redirect: '/development/components-choosen',
+        component: Main,
+        children: [
+            {
+                path: '/development/components-choosen',
+                component: componentsChoosen
+            },
+            {
+                path: '/development/union-request',
+                component: unionRequest
+            },
+            {
+                path: '/development/request-interceptor',
+                component: requestInterceptor
+            },
+            {
+                path: '/development/showOn-hiddenOn',
+                component: showOnHiddenOn
+            },
+            {
+                path: '/development/form-validate',
+                component: formValidate
+            },
+            {
+                path: '/development/powerful-fieldGenerator',
+                component: powerfulFieldGenerator
+            },
+        ]
+    },
+    {
+
+        path: '/examples',
+        redirect: '/examples/group-form',
+        component: Main,
+        children: [
             // examples
             {
                 path: '/examples/group-form',
@@ -250,8 +330,7 @@ export default [
                 path: '/examples/combined-forms',
                 name: 'combined-forms',
                 component: combinedForms
-            },
-
+            }
         ]
     }
     // {

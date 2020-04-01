@@ -1,5 +1,6 @@
 const model = {
     id: 'test-id000001',
+    name: '张三的明细',
     detailUrl: 'https://www.baidu.com/s?wd=%E7%99%BE%E5%BA%A6',
     detailRoute: {
         path: '/home',
@@ -99,6 +100,51 @@ export default {
 </template>
 `;
 
+// textModel
+const textModel = {};
+
+const textModelField = {
+    type: 'Button',
+    model: 'detailUrl',
+    textModel: 'name',
+    subtype: 'text',
+    action: {
+        type: 'url',
+    },
+};
+
+textModel.data = {
+    field: textModelField,
+    model
+};
+
+
+textModel.code = `
+<script>
+const field = ${JSON.stringify(textModelField, null, 4)};
+export default {
+    data() {
+        return {
+            field,
+            model: ${JSON.stringify(model)}
+        };
+    }
+    methods: {
+        handleFieldChange(model, value) {
+            console.log(model, value);
+        }
+    }
+};
+<script>
+<template>
+    <Form :model="model">
+        <FieldGenerator
+            :field="field"
+            @on-field-change="handleFieldChange"
+        />
+    </Form>
+</template>
+`;
 
 // url
 const url = {};
@@ -243,6 +289,7 @@ export default {
 export default {
     simple,
     route,
+    textModel,
     url,
     ajax,
     confirm

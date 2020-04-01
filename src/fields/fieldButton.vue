@@ -11,16 +11,8 @@
             :type="field.subtype || 'default'"
             :size="field.size || 'default'"
             :loading="loading"
-        >{{ field.text }}</Button>
+        >{{ text }}</Button>
     </Poptip>
-    <a
-        v-else-if="field.action.type === 'route'"
-        :type="field.subtype || 'default'"
-        :size="field.size || 'default'"
-        :class="classes"
-        :loading="loading"
-        @click="handleClick"
-    >{{ text }}</a>
     <Button
         v-else
         :type="field.subtype || 'default'"
@@ -56,10 +48,9 @@ export default {
         },
     },
     mounted() {
-        if (this.field.action.type === 'route' && this.form.model[this.field.model][this.field.model]) {
-            this.text = this.form.model[this.field.model][this.field.model];
-        } else {
-            this.text = this.field.text;
+        this.text = this.field.text;
+        if (this.field.textModel) {
+            this.text = this.form.model[this.field.textModel];
         }
     },
     methods: {
@@ -85,7 +76,7 @@ export default {
                 // url
                 case 'url':
                     // If use model, get url from the form.model
-                    action.url && window.open(value || action.url);
+                    window.open(value || action.url);
                     break;
             }
         },

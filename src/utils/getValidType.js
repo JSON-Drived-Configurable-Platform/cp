@@ -36,7 +36,7 @@ export const getValidType = function(field) {
     if (['logicinput', 'logicselect'].includes(type)) {
         return 'object';
     }
-    if (['imgupload', 'upload', 'checkboxcard'].includes(type)) {
+    if (['mediaupload', 'imgupload', 'upload', 'checkboxcard', 'radiocard'].includes(type)) {
         return 'array';
     }
 };
