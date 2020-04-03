@@ -32,7 +32,6 @@
             :request-interceptor="requestInterceptor"
             :params-container="paramsContainer"
             @on-change="handleFieldChange"
-            @on-input="handleFieldInput"
             @on-submit-click="handleSubmitClick($event)"
             @on-http-request="handleHttpRequest($event)"
             @on-reset-click="handleResetClick"
@@ -153,12 +152,6 @@ export default {
     methods: {
         handleFieldChange(model, value) {
             this.$emit('on-field-change', {
-                model,
-                value
-            });
-        },
-        handleFieldInput(model, value) {
-            this.$emit('on-field-input', {
                 model,
                 value
             });
