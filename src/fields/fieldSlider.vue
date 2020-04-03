@@ -48,10 +48,6 @@ export default {
             this.$set(this.form.model, this.field.model, value);
             this.$emit('on-change', this.field.model, value, null, this.field);
         },
-        handleInput(value) {
-            this.$set(this.form.model, this.field.model, value);
-            this.$emit('on-change', this.field.model, value, null, this.field);
-        },
         defaultFormat(val) {
             return val;
         }

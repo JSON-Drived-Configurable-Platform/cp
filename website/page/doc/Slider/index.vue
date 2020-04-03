@@ -14,6 +14,10 @@
                         />
                     </Form>
                 </div>
+                <div slot="desc">
+                    <p>通过设置<code>field</code>, <code>model</code>即可生成一个Slider。</p>
+                </div>
+                <i-code slot="code" lang="html">{{ code.simple.code }}</i-code>
             </Demo>
         </article>
     </i-article>
