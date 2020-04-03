@@ -36,6 +36,7 @@ const Reset = () => import(/* webpackChunkName: "Button" */ '../page/doc/Reset')
 const Divider = () => import(/* webpackChunkName: "Button" */ '../page/doc/Divider');
 const Steps = () => import(/* webpackChunkName: "Button" */ '../page/doc/Steps');
 const List = () => import(/* webpackChunkName: "Button" */ '../page/doc/List');
+const Slider = () => import(/* webpackChunkName: "Button" */ '../page/doc/Slider');
 
 // {
 //     label: 'Components Choosen',
@@ -251,6 +252,11 @@ export default [
                 path: '/doc/List',
                 name: 'doc-List',
                 component: List
+            },
+            {
+                path: '/doc/Slider',
+                name: 'doc-Slider',
+                component: Slider
             },
             {
                 path: '/doc/Divider',

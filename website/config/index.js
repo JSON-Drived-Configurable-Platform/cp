@@ -58,6 +58,10 @@ export default {
                     name: '/doc/Input'
                 },
                 {
+                    label: 'Slider',
+                    name: '/doc/Slider'
+                },
+                {
                     label: 'InputMultiple',
                     name: '/doc/InputMultiple'
                 },

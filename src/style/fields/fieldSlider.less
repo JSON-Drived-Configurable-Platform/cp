@@ -1,0 +1,18 @@
+@radio-prefix-cls: ~"@{css-prefix}-slider";
+
+.@{radio-prefix-cls} {
+    &-left {
+      &.ivu-slider-input {
+        display: flex;
+        align-items: center;
+        .ivu-input-number {
+            margin-top: 0;
+        }
+        .ivu-slider-wrap {
+            width: auto;
+            flex: 1;
+            margin: 0 0 0 20px;
+        }
+      }
+    }
+}

@@ -333,7 +333,6 @@ export default {
             this.$refs.form.validateField(model);
             this.$emit('on-field-change', model, value);
         },
-
         handleSubmit($event) {
             this.$emit('on-submit', $event);
         },
