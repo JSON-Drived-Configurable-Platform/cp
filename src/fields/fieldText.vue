@@ -1,5 +1,5 @@
 <template>
-    <span class="one-line">{{ value }}</span>
+    <pre>{{ value }}</pre>
 </template>
 
 <script>
@@ -78,7 +78,4 @@ export default {
 </script>
 
 <style>
-    .one-line {
-        white-space: nowrap;
-    }
 </style>

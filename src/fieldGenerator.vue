@@ -249,17 +249,41 @@ export default {
                     this.form.validate(
                         valid => {
                             if (valid) {
-                                this.$emit('on-submit', this.form.model);
+                                this.$emit('on-submit', {
+                                    status: 'start',
+                                    model: this.form.model,
+                                    field
+                                });
                                 // 如果有api则需要在此处理请求
                                 if (field.action && field.action.api) {
                                     component.loading = true;
-                                    this.doAjaxAction(field).then(() => {
+                                    this.doAjaxAction(field).then(res => {
                                         resolve(this.form.model);
                                         component.loading = false;
-                                        this.$Message.info(`${field.text}成功!`);
-                                    }).catch(() => {
+                                        if (field.action.onSuccess) {
+                                            this.$emit('on-submit', {
+                                                status: 'success',
+                                                model: this.form.model,
+                                                field,
+                                                info: res
+                                            });
+                                        } else {
+                                            this.$Message.info(`${field.text}成功!`);
+
+                                        }
+                                    }).catch(e => {
                                         component.loading = false;
-                                        this.$Message.info(`${field.text}失败!`);
+                                        if (field.action.onFail) {
+                                            this.$emit('on-submit', {
+                                                status: 'fail',
+                                                model: this.form.model,
+                                                field,
+                                                info: e
+                                            });
+                                        } else {
+                                            this.$Message.info(`${field.text}失败!`);
+
+                                        }
                                         reject();
                                     });
                                 }
@@ -298,17 +322,18 @@ export default {
 
                     this.requestMethod(method.toLowerCase(), finalApi, this.getParams(field)).then(res => {
                         if (this.requestResolve(res)) {
-                            resolve();
+                            resolve(res);
                             this.$emit('on-button-event', {
                                 name: 'ajaxSuccess',
-                                field
+                                field,
+                                res
                             });
                         }
                         else {
-                            reject();
+                            reject(res);
                         }
-                    }).catch(() => {
-                        reject();
+                    }).catch(e => {
+                        reject(e);
                     });
                 }
                 catch(err) {

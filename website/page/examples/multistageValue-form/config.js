@@ -33,6 +33,20 @@ export const fields = [
         defaultHide: false
     },
     {
+        type: 'InputMultiple',
+        label: '多行输入框',
+        model: 'inputMultiple.abc',
+        placeholder: '请输入',
+        required: true,
+        defaultHide: false,
+        succMessage: '添加成功',
+        delMessage: '删除成功',
+        defaultList: [
+            '默认包含的成员1',
+            '默认包含的成员2'
+        ]
+    },
+    {
         type: 'InputNumber',
         label: '数值多行输入框',
         model: 'inputNumber.abc',
@@ -155,6 +169,24 @@ export const fields = [
             {
                 label: '选项二',
                 value: '2'
+            }
+        ],
+        //defaultHide: true
+    },
+    {
+        type: 'RadioCard',
+        subtype: 'button',
+        label: '选择框卡片',
+        model: 'radioCard.abc',
+        required: true,
+        options: [
+            {
+                url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574076041&di=dba60f4ce2b9330e330f13546ce963a0&imgtype=jpg&er=1&src=http%3A%2F%2Fwww.ijointoo.com%2Fdata%2Fnews%2Fimages%2F1521193045383.jpg',
+                id: '1'
+            },
+            {
+                url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574076041&di=dba60f4ce2b9330e330f13546ce963a0&imgtype=jpg&er=1&src=http%3A%2F%2Fwww.ijointoo.com%2Fdata%2Fnews%2Fimages%2F1521193045383.jpg',
+                id: '2'
             }
         ],
         //defaultHide: true
@@ -589,6 +621,14 @@ export const fields = [
         //defaultHide: true
     },
     {
+        type: 'TimePickerMultiple',
+        label: '多行时间选择',
+        model: 'timeMultiple.abc',
+        placeholder: '',
+        required: true,
+        //defaultHide: true
+    },
+    {
         type: 'Divider',
         label: '逻辑输入',
         orientation: 'left',
@@ -784,6 +824,11 @@ export const fields = [
         model: 'town',
     },
     {
+        type: 'Slider',
+        label: '滑动条',
+        model: 'slider.abc',
+    },
+    {
         type: 'Steps',
         model: 'step.abc',
         options: [
@@ -907,10 +952,19 @@ export const fields = [
 
 export const model = {
     input: {abc: 'dsf'},
+    inputMultiple: {
+        abc: [
+            'a',
+            'b'
+        ]
+    },
     inputForbidden: '',
     textarea: '',
     singleSelect: {abc: ''},
     radioButton: '',
+    radioCard: {
+        abc: ''
+    },
     singleSelectApi: {abc: ''},
     multiSelect: {abc: []},
     multiSelectApi: {abc: []},
@@ -924,6 +978,9 @@ export const model = {
     datetimerange: {abc: []},
     time: '',
     timerange: {abc: []},
+    timeMultiple: {abc: [
+        '00:00:03~00:00:03'
+    ]},
     cascader: {abc: []},
     cascaderApi: {abc: []},
     tableSelect: {abc: 1},
@@ -949,7 +1006,10 @@ export const model = {
     province: '',
     city: '',
     town: '',
-    step: {abc: 0}
+    step: {abc: 0},
+    slider: {
+        abc: 80
+    },
 };
 
 export const options = {

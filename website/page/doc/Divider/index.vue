@@ -17,12 +17,29 @@
                         </tr>
                     </thead>
                     <tbody>
-
                         <tr>
                             <td>type</td>
-                            <td>标签的类型，不可改</td>
+                            <td>水平还是垂直类型，可选值为 horizontal 或 vertical</td>
                             <td>String</td>
-                            <td>Reset</td>
+                            <td>horizontal</td>
+                        </tr>
+                        <tr>
+                            <td>orientation</td>
+                            <td>分割线标题的位置，可选值为 left、right 或 center</td>
+                            <td>String</td>
+                            <td>center</td>
+                        </tr>
+                        <tr>
+                            <td>dashed</td>
+                            <td>是否虚线</td>
+                            <td>Boolean</td>
+                            <td>false</td>
+                        </tr>
+                        <tr>
+                            <td>size</td>
+                            <td>尺寸，可选值为 small 或 default</td>
+                            <td>String</td>
+                            <td>default</td>
                         </tr>
                     </tbody>
                 </table>

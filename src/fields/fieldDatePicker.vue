@@ -6,6 +6,7 @@
         :disabled="field.disabled"
         :split-panels="field.splitPanels"
         :multiple="field.multiple"
+        :format="field.format"
         :options="options"
         :editable="field.editable"
         :clearable="field.clearable"
