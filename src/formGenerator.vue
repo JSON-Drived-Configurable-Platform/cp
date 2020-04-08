@@ -330,12 +330,7 @@ export default {
             needResetFields.forEach(field => {
                 this.resetField(field);
             });
-            // 由于有自定义的组件，所以不能依赖form自己的赋值
-            setValue.call(this, {
-                originModel: this.form.model,
-                model,
-                value
-            });
+
             this.$refs.form.validateField(model);
             this.$emit('on-field-change', model, value);
         },
