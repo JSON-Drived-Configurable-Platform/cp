@@ -26,7 +26,7 @@
 </template>
 <script>
 import {Input} from 'iview';
-import {getMultistageValue} from '../utils/multistageValue';
+import {getValue} from '../utils/processValue';
 
 export default {
     inject: ['form'],
@@ -50,7 +50,7 @@ export default {
             prependSelectModel: '',
             appendSelectModel: '',
             localModel: {},
-            value: getMultistageValue({
+            value: getValue({
                 originModel: this.form.model,
                 model: this.field.model
             }) || ''

@@ -146,7 +146,7 @@
 import {logicInputMap} from '../utils/const';
 import {classPrefix} from '../utils/const';
 import getOptions from '../mixins/getOptions';
-import {getMultistageValue} from '../utils/multistageValue';
+import {getValue} from '../utils/processValue';
 
 export default {
     inject: ['form'],
@@ -171,7 +171,7 @@ export default {
         return {
             start: '',
             end: '',
-            value: getMultistageValue({
+            value: getValue({
                 originModel: this.form.model,
                 model: this.field.model
             }) || {logic: '=', value: ''},

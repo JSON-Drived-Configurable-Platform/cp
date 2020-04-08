@@ -54,7 +54,7 @@
 
 <script>
 import {Input, Tag} from 'iview';
-import {getMultistageValue} from '../utils/multistageValue';
+import {getValue} from '../utils/processValue';
 
 export default {
     inject: ['form'],
@@ -77,7 +77,7 @@ export default {
     data() {
         return {
             value: '',
-            list: getMultistageValue({
+            list: getValue({
                 originModel: this.form.model,
                 model: this.field.model
             }) || [],

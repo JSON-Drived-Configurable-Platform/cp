@@ -18,7 +18,7 @@
 </template>
 <script>
 import {classPrefix} from '../utils/const';
-import {getMultistageValue} from '../utils/multistageValue';
+import {getValue} from '../utils/processValue';
 
 const getDate = function (days = 0) {
     const date = new Date();
@@ -211,7 +211,7 @@ export default {
             }
         },
         value() {
-            return getMultistageValue({
+            return getValue({
                 originModel: this.form.model,
                 model: this.field.model
             }) || '';

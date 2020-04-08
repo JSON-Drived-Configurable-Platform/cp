@@ -47,7 +47,7 @@ import {classPrefix} from './utils/const';
 import {getValidType} from './utils/getValidType';
 import schema from 'async-validator';
 import axios from './utils/http';
-import {setMultistageValue} from './utils/multistageValue';
+import {setValue} from './utils/processValue';
 
 const notFormfields = ['Divider'];
 export default {
@@ -120,12 +120,13 @@ export default {
         show() {
             const field = this.field;
             const model = this.form.model;
+            const validateValue = Object.assign({}, model || {}, this.paramsContainer || {});
             let show = true;
             if (field.hiddenOn) {
                 let descriptor = field.hiddenOn;
                 let validator = new schema(descriptor);
-                validator.validate(model, (errors) => {
-                    if(!errors) {
+                validator.validate(validateValue, errors => {
+                    if (!errors) {
                         show = false;
                     }
                 });
@@ -133,8 +134,8 @@ export default {
             if (field.showOn) {
                 let descriptor = field.showOn;
                 let validator = new schema(descriptor);
-                validator.validate(model, (errors) => {
-                    if(errors) {
+                validator.validate(validateValue, errors => {
+                    if (errors) {
                         show = false;
                     }
                 });
@@ -153,7 +154,7 @@ export default {
     },
     methods: {
         handleFieldChange(model, value) {
-            setMultistageValue.call(this, {
+            setValue.call(this, {
                 originModel: this.form.model,
                 model: model,
                 value

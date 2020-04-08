@@ -19,7 +19,7 @@
 import {Switch as iSwitch} from 'iview';
 import getOptions from '../mixins/getOptions';
 import {classPrefix} from '../utils/const';
-import {getMultistageValue} from '../utils/multistageValue';
+import {getValue} from '../utils/processValue';
 
 export default {
     inject: ['form'],
@@ -67,7 +67,7 @@ export default {
             return `${classPrefix}-${this.field.type.toLowerCase()}`;
         },
         value() {
-            return getMultistageValue({
+            return getValue({
                 originModel: this.form.model,
                 model: this.field.model
             }) || 0;

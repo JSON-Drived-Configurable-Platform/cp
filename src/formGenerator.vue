@@ -135,7 +135,7 @@ import FieldGenerator from './fieldGenerator';
 import {classPrefix} from './utils/const';
 import vClickOutside from 'v-click-outside';
 import {getValidType} from './utils/getValidType';
-import {setMultistageValue} from './utils/multistageValue';
+import {setValue} from './utils/processValue';
 
 export default {
     name: 'FormGenerator',
@@ -331,7 +331,7 @@ export default {
                 this.resetField(field);
             });
             // 由于有自定义的组件，所以不能依赖form自己的赋值
-            setMultistageValue.call(this, {
+            setValue.call(this, {
                 originModel: this.form.model,
                 model,
                 value
@@ -391,7 +391,7 @@ export default {
             let type = getValidType(field);
             let fieldComponent = this.$refs.form.fields.find(item => item.prop === field.model);
             if (fieldComponent) {
-                setMultistageValue.call(this, {
+                setValue.call(this, {
                     originModel: this.form.model,
                     model: field.model,
                     value: typeToResetValues[type]

@@ -26,7 +26,9 @@ export default {
             fields,
             options,
             paramsContainer: {
-                paramsContainerTest: 'xxx'
+                paramsContainerTest: 'xxx',
+                isShow: 0,
+                isHidden: '12'
             }
         };
     },

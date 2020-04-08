@@ -34,7 +34,7 @@
 <script>
 import getOptions from '../mixins/getOptions';
 import {classPrefix} from '../utils/const';
-import {getMultistageValue} from '../utils/multistageValue';
+import {getValue} from '../utils/processValue';
 
 export default {
     inject: ['form'],
@@ -79,7 +79,7 @@ export default {
             return !Array.isArray(this.field.options) ? this.field.options : '';
         },
         value() {
-            return getMultistageValue({
+            return getValue({
                 originModel: this.form.model,
                 model: this.field.model
             }) || [];

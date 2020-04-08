@@ -14,7 +14,7 @@
 
 <script>
 import {classPrefix} from '../utils/const';
-import {getMultistageValue} from '../utils/multistageValue';
+import {getValue} from '../utils/processValue';
 
 export default {
     inject: ['form'],
@@ -36,7 +36,7 @@ export default {
     },
     data() {
         return {
-            value: getMultistageValue({
+            value: getValue({
                 originModel: this.form.model,
                 model: this.field.model
             }) || ''

@@ -30,7 +30,7 @@
     </Upload>
 </template>
 <script>
-import {getMultistageValue} from '../utils/multistageValue';
+import {getValue} from '../utils/processValue';
 
 export default {
     inject: ['form'],
@@ -60,7 +60,7 @@ export default {
             return this.field.tip || '点击或者拖拽文件即可上传';
         },
         value() {
-            let value = getMultistageValue({
+            let value = getValue({
                 originModel: this.form.model,
                 model: this.field.model
             }) || [];

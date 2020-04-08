@@ -3,11 +3,10 @@
  * @author: zhw(zhenghaiwang@baidu.com)
  * @Date: 2020-03-19 17:21:14
  * @Last Modified by: zhw
- * @Last Modified time: 2020-03-31 00:55:26
+ * @Last Modified time: 2020-04-08 22:25:35
  */
-// import {isObject} from './utils';
 
-export const setMultistageValue = function setMultistageValue({originModel, model, value, isInit = false}) {
+export const setValue = function setValue({originModel, model, value, isInit = false}) {
 
     let path = model.split('.');
     let formModel = originModel;
@@ -27,7 +26,7 @@ export const setMultistageValue = function setMultistageValue({originModel, mode
     }
 };
 
-export const getMultistageValue = function getMultistageValue({originModel, model}) {
+export const getValue = function getValue({originModel, model}) {
     let path = model.split('.');
     return path.reduce((value, model) => {
         return value[model];

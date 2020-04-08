@@ -12,7 +12,13 @@ export const fields = [
         model: 'input.abc',
         placeholder: '请输入用户名',
         required: true,
-        defaultHide: false
+        defaultHide: false,
+        showOn: {
+            isShow: [{
+                type: 'enum',
+                enum: [0]
+            }]
+        }
     },
     {
         type: 'Input',
@@ -21,7 +27,12 @@ export const fields = [
         readonly: true,
         disabled: true,
         placeholder: '请输入用户名',
-        defaultHide: false
+        defaultHide: false,
+        hiddenOn: {
+            isHidden: [{
+                type: 'string'
+            }]
+        }
     },
     {
         type: 'Input',

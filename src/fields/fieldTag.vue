@@ -20,7 +20,7 @@
 
 <script>
 import {classPrefix} from '../utils/const';
-import {getMultistageValue} from '../utils/multistageValue';
+import {getValue} from '../utils/processValue';
 
 export default {
     inject: ['form'],
@@ -35,7 +35,7 @@ export default {
             return `${classPrefix}-${this.field.type.toLowerCase()}`;
         },
         multiple() {
-            let value = getMultistageValue({
+            let value = getValue({
                 originModel: this.form.model,
                 model: this.field.model
             });
@@ -47,7 +47,7 @@ export default {
             }
             const options = this.field.options || [];
             if (options.length > 0) {
-                let value = getMultistageValue({
+                let value = getValue({
                     originModel: this.form.model,
                     model: this.field.model
                 });
@@ -60,7 +60,7 @@ export default {
                 return [];
             }
             const options = this.field.options || [];
-            let value = getMultistageValue({
+            let value = getValue({
                 originModel: this.form.model,
                 model: this.field.model
             });

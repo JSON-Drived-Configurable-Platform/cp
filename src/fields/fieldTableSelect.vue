@@ -16,7 +16,7 @@
 <script>
 import {classPrefix} from '../utils/const';
 import getOptions from '../mixins/getOptions';
-import {getMultistageValue} from '../utils/multistageValue';
+import {getValue} from '../utils/processValue';
 
 export default {
     inject: ['form'],
@@ -57,7 +57,7 @@ export default {
         },
         computedOptions() {
             const options = this.options.length > 0 ? this.options : this.field.options;
-            let value = getMultistageValue({
+            let value = getValue({
                 originModel: this.form.model,
                 model: this.field.model
             }) || 1;
