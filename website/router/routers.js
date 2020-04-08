@@ -11,7 +11,9 @@ const practice = () => import(/* webpackChunkName: "practice" */ '../page/practi
 const FormGenerator = () => import(/* webpackChunkName: "FormGenerator" */ '../page/doc/FormGenerator');
 const FieldGenerator = () => import(/* webpackChunkName: "FieldGenerator" */ '../page/doc/FieldGenerator');
 const Input = () => import(/* webpackChunkName: "Input" */ '../page/doc/Input');
+const InputMultiple = () => import(/* webpackChunkName: "InputMultiple" */ '../page/doc/InputMultiple');
 const Radio = () => import(/* webpackChunkName: "Radio" */ '../page/doc/Radio');
+const RadioCard = () => import(/* webpackChunkName: "Radio" */ '../page/doc/RadioCard');
 const Checkbox = () => import(/* webpackChunkName: "Checkbox" */ '../page/doc/Checkbox');
 const CheckboxCard = () => import(/* webpackChunkName: "CheckboxCard" */ '../page/doc/CheckboxCard');
 const Switch = () => import(/* webpackChunkName: "Switch" */ '../page/doc/Switch');
@@ -19,10 +21,12 @@ const Select = () => import(/* webpackChunkName: "Select" */ '../page/doc/Select
 const LogicSelect = () => import(/* webpackChunkName: "LogicSelect" */ '../page/doc/LogicSelect');
 const DatePicker = () => import(/* webpackChunkName: "DatePicker" */ '../page/doc/DatePicker');
 const TimePicker = () => import(/* webpackChunkName: "TimePicker" */ '../page/doc/TimePicker');
+const TimePickerMultiple = () => import(/* webpackChunkName: "TimePickerMultiple" */ '../page/doc/TimePickerMultiple');
 const Cascader = () => import(/* webpackChunkName: "Cascader" */ '../page/doc/Cascader');
 const InputNumber = () => import(/* webpackChunkName: "InputNumber" */ '../page/doc/InputNumber');
 const Upload = () => import(/* webpackChunkName: "Upload" */ '../page/doc/Upload');
 const Tag = () => import(/* webpackChunkName: "Tag" */ '../page/doc/Tag');
+const Text = () => import(/* webpackChunkName: "Tag" */ '../page/doc/Text');
 const Tree = () => import(/* webpackChunkName: "Tag" */ '../page/doc/Tree');
 const TableSelect = () => import(/* webpackChunkName: "Tag" */ '../page/doc/TableSelect');
 const Carousel = () => import(/* webpackChunkName: "Carousel" */ '../page/doc/Carousel');
@@ -32,6 +36,7 @@ const Reset = () => import(/* webpackChunkName: "Button" */ '../page/doc/Reset')
 const Divider = () => import(/* webpackChunkName: "Button" */ '../page/doc/Divider');
 const Steps = () => import(/* webpackChunkName: "Button" */ '../page/doc/Steps');
 const List = () => import(/* webpackChunkName: "Button" */ '../page/doc/List');
+const Slider = () => import(/* webpackChunkName: "Button" */ '../page/doc/Slider');
 
 // {
 //     label: 'Components Choosen',
@@ -89,6 +94,10 @@ export default [
         component: home
     },
     {
+        path: 'test',
+        component: TimePickerMultiple
+    },
+    {
 
         path: '/doc',
         redirect: '/doc/FormGenerator',
@@ -120,9 +129,19 @@ export default [
                 component: Input
             },
             {
+                path: '/doc/InputMultiple',
+                name: 'doc-InputMultiple',
+                component: InputMultiple
+            },
+            {
                 path: '/doc/Radio',
                 name: 'doc-Radio',
                 component: Radio
+            },
+            {
+                path: '/doc/RadioCard',
+                name: 'doc-RadioCard',
+                component: RadioCard
             },
             {
                 path: '/doc/Checkbox',
@@ -160,6 +179,11 @@ export default [
                 component: TimePicker
             },
             {
+                path: '/doc/TimePickerMultiple',
+                name: 'doc-TimePickerMultiple',
+                component: TimePickerMultiple
+            },
+            {
                 path: '/doc/Cascader',
                 name: 'doc-Cascader',
                 component: Cascader
@@ -183,6 +207,11 @@ export default [
                 path: '/doc/Tag',
                 name: 'doc-Tag',
                 component: Tag
+            },
+            {
+                path: '/doc/Text',
+                name: 'doc-Text',
+                component: Text
             },
             {
                 path: '/doc/Tree',
@@ -223,6 +252,11 @@ export default [
                 path: '/doc/List',
                 name: 'doc-List',
                 component: List
+            },
+            {
+                path: '/doc/Slider',
+                name: 'doc-Slider',
+                component: Slider
             },
             {
                 path: '/doc/Divider',

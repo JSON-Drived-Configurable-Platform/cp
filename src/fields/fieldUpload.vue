@@ -30,7 +30,6 @@
     </Upload>
 </template>
 <script>
-
 export default {
     inject: ['form'],
     props: {

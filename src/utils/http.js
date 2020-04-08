@@ -40,7 +40,7 @@ class HttpRequest {
             if (+data.status === 0 || +data.status === 200 || +data.errno === 0 || +data.code === 0) {
                 return data;
             }
-            return Promise.reject();
+            return Promise.reject(data);
         }, error => {
             this.destroy(url);
             let errorInfo = error.response;

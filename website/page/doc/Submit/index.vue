@@ -29,6 +29,36 @@
                             <td>String</td>
                             <td>-</td>
                         </tr>
+                        <tr>
+                            <td>action</td>
+                            <td>提交的行为配置</td>
+                            <td>Object</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>action.api</td>
+                            <td>提交的url</td>
+                            <td>String</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>action.method</td>
+                            <td>请求的方法，可以指定请求方式get、post、put等</td>
+                            <td>String</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>action.onSucess</td>
+                            <td>监听请求成功时的回调开关，一旦开启需自行监听on-submit事件</td>
+                            <td>Boolean</td>
+                            <td>false</td>
+                        </tr>
+                        <tr>
+                            <td>action.onFail</td>
+                            <td>监听请求失败时的回调开关（包括请求超时和返回非0错误码），一旦开启需自行监听on-submit事件</td>
+                            <td>Boolean</td>
+                            <td>false</td>
+                        </tr>
                     </tbody>
                 </table>
 
@@ -51,7 +81,16 @@
                                 action.type 为 ajax 时，请求成功会 emit 一个 on-button-event 事件， name 为 ajaxSuccess。
                             </td>
                             <td>
-                                model， 所在 form 的 model
+                                $event
+                                <pre>
+
+{
+    status: 'start', // 提交请求状态 start开始前 success请求成功（只有开启onSuccess监听才会返回） fail请求失败（只有开启onFail监听才会返回
+    model: {}, // 按钮所在form的model
+    field: , // field信息
+    info: {}, // 请求返回信息
+}
+                                </pre>
                             </td>
                             <td>-</td>
                         </tr>
@@ -69,6 +108,7 @@
                         <FieldGenerator
                             :field="code.simple.data.field"
                             @on-field-change="handleFieldChange"
+                            @on-submit="handleSubmit($event)"
                         />
                     </Form>
                 </div>
@@ -103,6 +143,9 @@ export default {
         handleFieldChange(model, value) {
             // eslint-disable-next-line no-console
             console.log(model, value);
+        },
+        handleSubmit(e) {
+            console.log(e);
         }
     }
 };

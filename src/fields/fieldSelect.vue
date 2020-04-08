@@ -101,10 +101,20 @@ export default {
             return this.field.filterable || this.remote;
         },
         clearable() {
-            return !this.field.multiple ? this.field.clearable: false;
+            return !this.field.multiple ? this.field.clearable : false;
         },
         computedOptions() {
-            return this.options.length > 0 ? this.options : (Array.isArray(this.field.options) ? this.field.options : []);
+            const options = this.options.length > 0 ? this.options : (Array.isArray(this.field.options) ? this.field.options : []);
+            const uniqeOptions = [];
+            const uniqeOptionsMap = {};
+            for (let i = 0; i < options.length; i++) {
+                const currentOption = options[i];
+                if (!uniqeOptionsMap[currentOption.value]) {
+                    uniqeOptions.push(currentOption);
+                    uniqeOptionsMap[currentOption.value] = true;
+                }
+            }
+            return uniqeOptions;
         },
         optionsApi() {
             return this.field.api || !Array.isArray(this.field.options) ? this.field.options : '';
