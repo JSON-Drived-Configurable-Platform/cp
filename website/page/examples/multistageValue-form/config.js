@@ -9,7 +9,7 @@ export const fields = [
     {
         type: 'Input',
         label: '输入框',
-        model: 'input.abc',
+        model: 'input.abc.bcd.cde',
         placeholder: '请输入用户名',
         required: true,
         defaultHide: false,
@@ -962,7 +962,11 @@ export const fields = [
 // };
 
 export const model = {
-    input: {abc: 'dsf'},
+    input: {abc: {
+        bcd: {
+            cde: '123'
+        }
+    }},
     inputMultiple: {
         abc: [
             'a',
