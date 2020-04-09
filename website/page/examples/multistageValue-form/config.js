@@ -17,6 +17,10 @@ export const fields = [
             isShow: [{
                 type: 'enum',
                 enum: [0]
+            }],
+            isShowTwo: [{
+                type: 'enum',
+                enum: [1]
             }]
         }
     },
@@ -30,7 +34,12 @@ export const fields = [
         defaultHide: false,
         hiddenOn: {
             isHidden: [{
-                type: 'string'
+                type: 'enum',
+                enum: [2]
+            }],
+            isHiddenTwo: [{
+                type: 'enum',
+                enum: [1]
             }]
         }
     },
