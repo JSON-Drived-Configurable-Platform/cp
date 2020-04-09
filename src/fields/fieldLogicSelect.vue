@@ -146,6 +146,8 @@
 import {logicInputMap} from '../utils/const';
 import {classPrefix} from '../utils/const';
 import getOptions from '../mixins/getOptions';
+import {getValue} from '../utils/processValue';
+
 export default {
     inject: ['form'],
     mixins: [getOptions],
@@ -169,7 +171,10 @@ export default {
         return {
             start: '',
             end: '',
-            value: this.form.model[this.field.model] || {logic: '=', value: ''},
+            value: getValue({
+                originModel: this.form.model,
+                model: this.field.model
+            }) || {logic: '=', value: ''},
             options: []
         };
     },
@@ -238,6 +243,7 @@ export default {
     },
     created() {
         this.$watch(`formModel.${this.field.model}`, ({logic, value = ''}) => {
+            // ???设置成空是不是更合适？但是设置为空有bug
             if (!logic) {
                 logic = this.enables[0].value;
             }
@@ -268,7 +274,6 @@ export default {
             this.handleChange();
         },
         handleChange() {
-            this.$set(this.form.model, this.field.model, this.value);
             this.$emit('on-change', this.field.model, this.value, null, this.field);
         },
         handleStartChange(value) {

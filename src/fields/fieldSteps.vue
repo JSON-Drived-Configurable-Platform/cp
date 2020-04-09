@@ -4,7 +4,7 @@
     </div>
     <Steps
         v-else
-        :current="form.model[field.model]"
+        :current="value"
         :status="field.status"
         :size="field.size"
         :direction="field.direction"
@@ -22,6 +22,8 @@
 <script>
 import {classPrefix} from '../utils/const';
 import getOptions from '../mixins/getOptions';
+import {getValue} from '../utils/processValue';
+
 export default {
     inject: ['form'],
     mixins: [getOptions],
@@ -40,7 +42,7 @@ export default {
     data() {
         return {
             loading: false,
-            options: []
+            options: [],
         };
     },
     computed: {
@@ -58,6 +60,12 @@ export default {
         },
         optionsApi() {
             return !Array.isArray(this.field.options) ? this.field.options : '';
+        },
+        value() {
+            return getValue({
+                originModel: this.form.model,
+                model: this.field.model
+            }) || 0;
         }
     },
     methods: {
@@ -66,10 +74,6 @@ export default {
                 return;
             }
             this.getRemoteOptions();
-        },
-        handleChange(value) {
-            this.$set(this.form.model, this.field.model, value);
-            this.$emit('on-change', this.field.model, value, null, this.field);
         }
     }
 };

@@ -24,6 +24,7 @@
 </template>
 <script>
 import {classPrefix} from '../utils/const';
+
 export default {
     inject: ['form'],
     props: {

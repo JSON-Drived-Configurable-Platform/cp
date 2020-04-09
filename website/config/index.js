@@ -206,6 +206,10 @@ export default {
                     name: '/examples/group-form'
                 },
                 {
+                    label: 'MultiStageValue Form',
+                    name: '/examples/MultiStageValue-form'
+                },
+                {
                     label: 'CURD Simple',
                     name: '/examples/CURD-example/simple'
                 },

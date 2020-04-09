@@ -30,6 +30,14 @@ export const getValidType = function(field) {
             return 'string';
         }
     }
+    if (type === 'timepicker') {
+        if (['timerange'].includes(subtype)){
+            return 'array';
+        }
+        else {
+            return 'string';
+        }
+    }
     if (type === 'cascader') {
         return 'array';
     }
