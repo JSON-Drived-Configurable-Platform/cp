@@ -1,9 +1,8 @@
 <template>
-    <span class="one-line">{{ value }}</span>
+    <pre>{{ value }}</pre>
 </template>
 
 <script>
-import {classPrefix} from '../utils/const';
 import getOptions from '../mixins/getOptions';
 
 export default {
@@ -21,12 +20,13 @@ export default {
         };
     },
     computed: {
-        classes() {
-            return `${classPrefix}-${this.field.type.toLowerCase()}`;
-        },
-
         computedField() {
             const options = this.computedOptions;
+            if (this.field.showAll) {
+                return {
+                    label: this.form.model
+                };
+            }
             if (options.length > 0) {
                 let value = this.form.model[this.field.model];
 
@@ -78,7 +78,4 @@ export default {
 </script>
 
 <style>
-    .one-line {
-        white-space: nowrap;
-    }
 </style>

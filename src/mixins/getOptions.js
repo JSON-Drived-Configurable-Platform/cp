@@ -92,9 +92,9 @@ export default {
                 }
             }
         },
-        requestReject() {
+        requestReject(reject) {
             // eslint-disable-next-line no-console
-            // console.log(reject);
+            console.log(reject);
         },
         /**
          *

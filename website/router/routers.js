@@ -72,6 +72,7 @@ const powerfulFieldGenerator = () => import(/* webpackChunkName: "componentsChoo
 
 // examples
 const groupForm = () => import(/* webpackChunkName: "groupForm" */ '../page/examples/group-form');
+const multistageValueForm = () => import(/* webpackChunkName: "multis" */ '../page/examples/multistageValue-form');
 const CURDSimpleExample = () => import(/* webpackChunkName: "CURDExample" */ '../page/examples/CURD-example/simple');
 const CURDSimpleExampleInlineEdit = () => import(/* webpackChunkName: "CURDExample" */ '../page/examples/CURD-example/inline-edit');
 const inlineTable = () => import(/* webpackChunkName: "inlineTable" */ '../page/examples/inline-table');
@@ -309,6 +310,12 @@ export default [
                 path: '/examples/group-form',
                 name: '/examples/group-form',
                 component: groupForm
+            },
+            // mutilValue examples
+            {
+                path: '/examples/multistageValue-form',
+                name: '/examples/multistageValue-form',
+                component: multistageValueForm
             },
             {
                 path: '/examples/CURD-example',

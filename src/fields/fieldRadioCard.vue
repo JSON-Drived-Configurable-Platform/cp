@@ -154,9 +154,6 @@ export default {
         optionsApi() {
             return !Array.isArray(this.field.options) ? this.field.options : '';
         },
-        value() {
-            return this.form.model[this.field.model] || [];
-        },
         // 开启走马灯
         openCarousel() {
             return this.field.openCarousel || false;
@@ -170,7 +167,8 @@ export default {
         // 单选
         handleChange(value) {
             const selectedData = this.computedOptions.find(item => item.id === value) || {};
-            this.$set(this.form.model, this.field.model, selectedData);
+            this.$emit('on-change', this.field.model, selectedData, null, this.field);
+
         },
         // 改变页码
         changePage(val) {

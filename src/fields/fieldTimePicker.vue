@@ -2,7 +2,7 @@
     <TimePicker
         :type="field.subtype || 'time'"
         :placeholder="field.placeholder"
-        :value="form.model[field.model]"
+        :value="value"
         :disabled="field.disabled"
         :editable="field.editable"
         :clearable="field.clearable"
@@ -14,6 +14,8 @@
 
 <script>
 import {classPrefix} from '../utils/const';
+import {getValue} from '../utils/processValue';
+
 export default {
     inject: ['form'],
     props: {
@@ -32,6 +34,14 @@ export default {
             default: false
         }
     },
+    data() {
+        return {
+            value: getValue({
+                originModel: this.form.model,
+                model: this.field.model
+            }) || ''
+        };
+    },
     computed: {
         classes() {
             return `${classPrefix}-${this.field.type.toLowerCase()}`;
@@ -39,7 +49,6 @@ export default {
     },
     methods: {
         handleChange(value) {
-            this.$set(this.form.model, this.field.model, value);
             this.$emit('on-change', this.field.model, value, null, this.field);
         }
     }

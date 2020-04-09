@@ -54,6 +54,7 @@
 
 <script>
 import {Input, Tag} from 'iview';
+import {getValue} from '../utils/processValue';
 
 export default {
     inject: ['form'],
@@ -76,7 +77,10 @@ export default {
     data() {
         return {
             value: '',
-            list: this.form.model[this.field.model] || [],
+            list: getValue({
+                originModel: this.form.model,
+                model: this.field.model
+            }) || [],
             defaultList: this.field.defaultList || [],
         };
     },
@@ -99,14 +103,14 @@ export default {
                 this.field.succMessage && this.$Message.success(this.field.succMessage);
                 this.list.push(this.value);
                 this.value = '';
-                this.$set(this.form.model, this.field.model, this.list);
+                // this.$set(this.form.model, this.field.model, this.list);
                 this.$emit('on-change', this.field.model, this.list, e, this.field);
             }
         },
         handelMemberDelete(i, e) {
             this.list.splice(i, 1);
             this.field.delMessage && this.$Message.success(this.field.delMessage);
-            this.$set(this.form.model, this.field.model, this.list);
+            // this.$set(this.form.model, this.field.model, this.list);
             this.$emit('on-change', this.field.model, this.list, e, this.field);
         },
         handleChange(e) {

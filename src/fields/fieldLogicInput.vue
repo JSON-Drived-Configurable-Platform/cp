@@ -77,6 +77,8 @@
 <script>
 import {logicInputMap} from '../utils/const';
 import {classPrefix} from '../utils/const';
+import {getValue} from '../utils/processValue';
+
 export default {
     inject: ['form'],
     props: {
@@ -95,7 +97,10 @@ export default {
         return {
             start: '',
             end: '',
-            value: this.form.model[this.field.model] || {logic: '=', value: ''}
+            value: getValue({
+                originModel: this.form.model,
+                model: this.field.model
+            }) || {logic: '=', value: ''}
         };
     },
     computed: {
@@ -134,7 +139,7 @@ export default {
         },
         formModel() {
             return this.form.model;
-        },
+        }
     },
     watch: {
         value: {
@@ -184,7 +189,6 @@ export default {
             this.handleChange();
         },
         handleChange() {
-            this.$set(this.form.model, this.field.model, this.value);
             this.$emit('on-change', this.field.model, this.value, null, this.field);
         },
         handleStartChange(e) {

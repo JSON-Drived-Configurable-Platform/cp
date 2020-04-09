@@ -10,14 +10,14 @@ const basicFormsConfig = [
         type: 'Input',
         label: '加密token',
         model: 'token',
-        placeholder: '请联系RD获取加密token，测试环境为:xxxx',
+        placeholder: 'token请联系RD获取加密token，测试环境为:xxxx',
         required: true
     },
     {
         type: 'Input',
         label: '二维码回流url',
         model: 'url',
-        placeholder: '请输入二维码回流url',
+        placeholder: 'url请输入二维码回流url',
         required: true,
         defaultHide: false
     },
@@ -38,7 +38,7 @@ const basicFormsConfig = [
     {
         type: 'Select',
         label: '添加位置',
-        model: 'imgWmOpts-g',
+        model: 'imgWmOpts.g',
         options: [
             {
                 label: '1',
@@ -81,14 +81,14 @@ const basicFormsConfig = [
     {
         type: 'InputNumber',
         label: '距左边距距离',
-        model: 'imgWmOpts-x',
+        model: 'imgWmOpts.x',
         placeholder: '指定格内,距左边距距离（默认10）',
         required: true,
     },
     {
         type: 'InputNumber',
         label: '距左边距距离',
-        model: 'imgWmOpts-y',
+        model: 'imgWmOpts.y',
         placeholder: '指定格内,距下边距距离（默认10）',
         required: true,
     },
@@ -102,36 +102,36 @@ const basicFormsConfig = [
     {
         type: 'InputNumber',
         label: '二维码宽度',
-        model: 'qrOpts-width',
+        model: 'qrOpts.width',
         placeholder: '二维码宽度（单位px）默认240',
         required: true,
     },
     {
         type: 'InputNumber',
         label: '二维码白边宽度',
-        model: 'qrOpts-margin',
+        model: 'qrOpts.margin',
         placeholder: '指定格内,距左边距距离（默认10）',
         required: true,
     },
     {
         type: 'InputNumber',
         label: '距左边距距离',
-        model: 'qrOpts-y',
+        model: 'qrOpts.y',
         placeholder: '指定格内,距下边距距离（默认10）',
         required: true,
     },
     {
         type: 'Input',
         label: '二维码深色',
-        model: 'qrOpts-color-dark',
-        placeholder: '二维码深色RGBA 默认”#000000ff”',
+        model: 'qrOpts.color.dark',
+        placeholder: 'qrOpts.color.dark二维码深色RGBA 默认”#000000ff”',
         required: true
     },
     {
         type: 'Input',
         label: '二维码浅色',
-        model: 'qrOpts-color-light',
-        placeholder: '二维码浅色RGBA 默认”#ffffffff”',
+        model: 'qrOpts.color.light',
+        placeholder: 'qrOpts.color.light二维码浅色RGBA 默认”#ffffffff”',
         required: true
     },
 ];
@@ -163,7 +163,7 @@ const dynamicFormConfig = [
     {
         type: 'Select',
         label: 'g',
-        model: 'imgWmOpts-g',
+        model: 'imgWmOpts.g',
         options: [
             {
                 label: '1',
