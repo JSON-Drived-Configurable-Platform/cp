@@ -9,7 +9,11 @@ const fields = [
         hiddenOn: {
             hasAuth: {
                 type: 'enum',
-                enum: [false]
+                enum: [0]
+            },
+            isCheck: {
+                type: 'enum',
+                enum: [1]
             }
         }
     },
@@ -17,19 +21,20 @@ const fields = [
         type: 'Input',
         label: '年龄',
         model: 'age',
-        showOn: {
-            hasAuth: {
-                type: 'enum',
-                enum: [false]
-            }
-        }
+        // showOn: {
+        //     hasAuth: {
+        //         type: 'enum',
+        //         enum: [false]
+        //     }
+        // }
     }
 ];
 
 const model = {
     name: '张三',
     age: 18,
-    hasAuth: false
+    hasAuth: 0,
+    isCheck: 0
 };
 
 simple.data = {
@@ -44,6 +49,70 @@ export default {
         return {
             fields: ${JSON.stringify(fields)},
             model: ${JSON.stringify(model)}
+        };
+    }
+    methods: {
+        handleFieldChange(model, value) {
+            console.log(model, value);
+        }
+    }
+};
+<script>
+<template>
+    <FormGenerator
+            :fields="fields"
+            :model="model"
+        />
+</template>
+`;
+
+let params = {};
+const paramsFields = [
+    {
+        type: 'Input',
+        label: '姓名',
+        model: 'name',
+        hiddenOn: {
+            isShow: {
+                type: 'enum',
+                enum: [false]
+            }
+        }
+    },
+    {
+        type: 'Input',
+        label: '年龄',
+        model: 'age',
+        showOn: {
+            isShow: {
+                type: 'enum',
+                enum: [false]
+            }
+        }
+    }
+];
+
+const paramsModel = {
+    name: '张三',
+    age: 12
+};
+const paramsContainer = {
+    isShow: false
+};
+
+params.data = {
+    paramsContainer,
+    paramsFields,
+    paramsModel
+};
+params.code = `
+<script>
+export default {
+    data() {
+        return {
+            fields: ${JSON.stringify(paramsFields)},
+            model: ${JSON.stringify(paramsModel)},
+            paramsContainer: ${JSON.stringify(paramsContainer)}
         };
     }
     methods: {
@@ -121,5 +190,6 @@ export default {
 // value
 export default {
     simple,
-    bothConfig
+    bothConfig,
+    params
 };
