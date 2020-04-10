@@ -16,6 +16,7 @@
 <script>
 import {classPrefix} from '../utils/const';
 import getOptions from '../mixins/getOptions';
+import {getValue} from '../utils/processValue';
 
 export default {
     inject: ['form'],
@@ -56,7 +57,10 @@ export default {
         },
         computedOptions() {
             const options = this.options.length > 0 ? this.options : this.field.options;
-            let value = this.form.model[this.field.model];
+            let value = getValue({
+                originModel: this.form.model,
+                model: this.field.model
+            }) || 1;
             if (!Array.isArray(options)) {
                 return [];
             }
@@ -91,7 +95,6 @@ export default {
             this.getRemoteData();
         },
         handleChange(value) {
-            this.$set(this.form.model, this.field.model, value);
             this.$emit('on-change', this.field.model, value, null, this.field);
         },
         handleCurrentChange(currentRow) {

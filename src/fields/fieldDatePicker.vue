@@ -2,10 +2,11 @@
     <DatePicker
         :type="subtype"
         :placeholder="field.placeholder"
-        :value="form.model[field.model]"
+        :value="value"
         :disabled="field.disabled"
         :split-panels="field.splitPanels"
         :multiple="field.multiple"
+        :format="field.format"
         :options="options"
         :editable="field.editable"
         :clearable="field.clearable"
@@ -17,7 +18,9 @@
 </template>
 <script>
 import {classPrefix} from '../utils/const';
-const getDate = function(days = 0) {
+import {getValue} from '../utils/processValue';
+
+const getDate = function (days = 0) {
     const date = new Date();
     date.setTime(date.getTime() + 3600 * 1000 * 24 * days);
     return date;
@@ -206,11 +209,16 @@ export default {
             else {
                 return `${this.classes}-${inlineClasses}`;
             }
+        },
+        value() {
+            return getValue({
+                originModel: this.form.model,
+                model: this.field.model
+            }) || '';
         }
     },
     methods: {
         handleChange(value) {
-            this.$set(this.form.model, this.field.model, value);
             this.$emit('on-change', this.field.model, value, null, this.field);
         }
     }

@@ -135,6 +135,8 @@ import FieldGenerator from './fieldGenerator';
 import {classPrefix} from './utils/const';
 import vClickOutside from 'v-click-outside';
 import {getValidType} from './utils/getValidType';
+import {setValue} from './utils/processValue';
+
 export default {
     name: 'FormGenerator',
     components: {
@@ -328,14 +330,12 @@ export default {
             needResetFields.forEach(field => {
                 this.resetField(field);
             });
-            // 由于有自定义的组件，所以不能依赖form自己的赋值
-            this.$set(this.form.model, model, value);
+
             this.$refs.form.validateField(model);
             this.$emit('on-field-change', model, value);
         },
-
-        handleSubmit() {
-            this.$emit('on-submit');
+        handleSubmit($event) {
+            this.$emit('on-submit', $event);
         },
 
         handleReset() {
@@ -386,7 +386,11 @@ export default {
             let type = getValidType(field);
             let fieldComponent = this.$refs.form.fields.find(item => item.prop === field.model);
             if (fieldComponent) {
-                this.$set(this.form.model, field.model, typeToResetValues[type]);
+                setValue.call(this, {
+                    originModel: this.form.model,
+                    model: field.model,
+                    value: typeToResetValues[type]
+                });
                 fieldComponent.resetField();
             }
         },

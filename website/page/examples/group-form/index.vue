@@ -8,6 +8,8 @@
                     :model="model"
                     :options="options"
                     :params-container="paramsContainer"
+                    @on-field-change="handleChange"
+                    @on-button-event="handleButtonEvent"
                 />
             </div>
         </Row>
@@ -43,7 +45,6 @@ export default {
     },
     methods: {
         submit() {
-            console.log('sss', this.$refs.FormGenerator)
             this.$refs.FormGenerator
                 .submit().then(data => {
                     // eslint-disable-next-line no-console
@@ -61,6 +62,12 @@ export default {
         },
         reset() {
             this.$refs.FormGenerator.reset();
+        },
+        handleChange(model, value) {
+            console.log(model, value);
+        },
+        handleButtonEvent(e) {
+            console.log(e);
         }
     }
 };

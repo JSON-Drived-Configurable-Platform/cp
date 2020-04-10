@@ -19,6 +19,8 @@
 import {Switch as iSwitch} from 'iview';
 import getOptions from '../mixins/getOptions';
 import {classPrefix} from '../utils/const';
+import {getValue} from '../utils/processValue';
+
 export default {
     inject: ['form'],
     components: {
@@ -39,7 +41,7 @@ export default {
     },
     data() {
         return {
-            loading: false
+            loading: false,
         };
     },
     computed: {
@@ -63,11 +65,16 @@ export default {
         },
         classes() {
             return `${classPrefix}-${this.field.type.toLowerCase()}`;
+        },
+        value() {
+            return getValue({
+                originModel: this.form.model,
+                model: this.field.model
+            }) || 0;
         }
     },
     methods: {
         handleChange(value) {
-            this.$set(this.form.model, this.field.model, value);
             this.$emit('on-change', this.field.model, value, null, this.field);
         }
     }

@@ -111,6 +111,7 @@
 <script>
 
 import {classPrefix} from '../utils/const';
+
 const defaultImgExtensions = ['gif', 'jpg', 'jpeg', 'png'];
 const defaultVideoExtensions = ['mp4', '.webm'];
 export default {
@@ -253,7 +254,6 @@ export default {
             });
         },
         handleChange() {
-            this.$set(this.form.model, this.field.model, this.uploadFileList);
             this.$emit('on-change', this.field.model, this.uploadFileList, null, this.field);
         },
         handleRemove(e, file) {

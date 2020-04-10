@@ -2,7 +2,7 @@
     <div>
         <Select
             v-if="remote"
-            :value="form.model[field.model]"
+            :value="value"
             :multiple="field.multiple || false"
             :disabled="field.disabled || false"
             :clearable="clearable"
@@ -37,7 +37,7 @@
         </Select>
         <Select
             v-else
-            :value="form.model[field.model]"
+            :value="value"
             :multiple="field.multiple || false"
             :disabled="field.disabled || false"
             :clearable="clearable"
@@ -72,6 +72,8 @@
 </template>
 <script>
 import getOptions from '../mixins/getOptions';
+import {getValue} from '../utils/processValue';
+
 export default {
     inject: ['form'],
     mixins: [getOptions],
@@ -90,7 +92,7 @@ export default {
     data() {
         return {
             loading: false,
-            options: []
+            options: [],
         };
     },
     computed: {
@@ -101,13 +103,29 @@ export default {
             return this.field.filterable || this.remote;
         },
         clearable() {
-            return !this.field.multiple ? this.field.clearable: false;
+            return !this.field.multiple ? this.field.clearable : false;
         },
         computedOptions() {
-            return this.options.length > 0 ? this.options : (Array.isArray(this.field.options) ? this.field.options : []);
+            const options = this.options.length > 0 ? this.options : (Array.isArray(this.field.options) ? this.field.options : []);
+            const uniqeOptions = [];
+            const uniqeOptionsMap = {};
+            for (let i = 0; i < options.length; i++) {
+                const currentOption = options[i];
+                if (!uniqeOptionsMap[currentOption.value]) {
+                    uniqeOptions.push(currentOption);
+                    uniqeOptionsMap[currentOption.value] = true;
+                }
+            }
+            return uniqeOptions;
         },
         optionsApi() {
             return this.field.api || !Array.isArray(this.field.options) ? this.field.options : '';
+        },
+        value() {
+            return getValue({
+                originModel: this.form.model,
+                model: this.field.model
+            }) || '';
         }
     },
     methods: {
@@ -115,7 +133,7 @@ export default {
             if (value === undefined || value === null) {
                 value = '';
             }
-            this.$set(this.form.model, this.field.model, value);
+
             this.$emit('on-change', this.field.model, value, null, this.field);
         },
         remoteMethod(query) {
