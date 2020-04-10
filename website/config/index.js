@@ -210,6 +210,10 @@ export default {
                     name: '/examples/Audit-example/detail'
                 },
                 {
+                    label: 'Search Form',
+                    name: '/examples/search-form'
+                },
+                {
                     label: 'Editable-Table',
                     name: '/examples/editable-table'
                 },

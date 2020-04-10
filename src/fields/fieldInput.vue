@@ -6,6 +6,7 @@
         :clearable="field.clearable"
         :disabled="field.disabled"
         :readonly="field.readonly"
+        :maxlength="field.maxlength"
         :icon="field.icon"
         :prefix="field.prefix"
         :suffix="field.suffix"

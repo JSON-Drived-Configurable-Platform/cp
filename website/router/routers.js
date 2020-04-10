@@ -72,6 +72,8 @@ const powerfulFieldGenerator = () => import(/* webpackChunkName: "componentsChoo
 const groupForm = () => import(/* webpackChunkName: "groupForm" */ '../page/examples/group-form');
 const CURDSimpleExample = () => import(/* webpackChunkName: "CURDExample" */ '../page/examples/CURD-example/simple');
 const CURDSimpleExampleInlineEdit = () => import(/* webpackChunkName: "CURDExample" */ '../page/examples/CURD-example/inline-edit');
+
+const searchForm = () => import(/* webpackChunkName: "CURDExample" */ '../page/examples/search-form');
 const inlineTable = () => import(/* webpackChunkName: "inlineTable" */ '../page/examples/inline-table');
 const editableTable = () => import(/* webpackChunkName: "editableTable" */ '../page/examples/editable-table');
 const searchableChart = () => import(/* webpackChunkName: "searchableChart" */ '../page/examples/searchable-chart');
@@ -79,7 +81,6 @@ const twoRelatedForm = () => import(/* webpackChunkName: "twoRelatedForm" */ '..
 const auditExample = () => import(/* webpackChunkName: "auditExample" */ '../page/examples/audit/detail');
 const dynamicForm = () => import(/* webpackChunkName: "dynamicForm" */ '../page/examples/dynamic-form');
 const combinedForms = () => import(/* webpackChunkName: "combinedForms" */ '../page/examples/combined-forms');
-
 
 export default [
     {
@@ -306,6 +307,11 @@ export default [
                 path: '/examples/CURD-example/simple',
                 name: 'CURD-example-simple',
                 component: CURDSimpleExample
+            },
+            {
+                path: '/examples/search-form',
+                name: '/examples/search-form',
+                component: searchForm
             },
             {
                 path: '/examples/CURD-example/inline-edit',

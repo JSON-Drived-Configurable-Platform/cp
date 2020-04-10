@@ -32,6 +32,7 @@
             :request-interceptor="requestInterceptor"
             :params-container="paramsContainer"
             @on-change="handleFieldChange"
+            @on-preview="handleFieldPreview"
             @on-submit-click="handleSubmitClick($event)"
             @on-http-request="handleHttpRequest($event)"
             @on-reset-click="handleResetClick"
@@ -153,7 +154,15 @@ export default {
         handleFieldChange(model, value) {
             this.$emit('on-field-change', {
                 model,
-                value
+                value,
+                field: this.field
+            });
+        },
+        handleFieldPreview(model, value) {
+            this.$emit('on-field-preview', {
+                model,
+                value,
+                field: this.field
             });
         },
         handleSubmitClick(component) {

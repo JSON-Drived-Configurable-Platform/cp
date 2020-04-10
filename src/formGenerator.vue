@@ -41,6 +41,7 @@
                     :request-interceptor="requestInterceptor"
                     :params-container="paramsContainer"
                     @on-field-change="handleFieldChange"
+                    @on-field-preview="handleFieldPreview"
                     @on-submit="handleSubmit($event)"
                     @on-reset="handleReset"
                     @on-button-event="handleButtonEvent($event)"
@@ -322,16 +323,19 @@ export default {
         this.form.model = this.model;
     },
     methods: {
-        handleFieldChange({model, value}){
+        handleFieldChange({model, value, field}) {
             // 关联项需要清空
             let needResetFields = this.needResetFieldsOnChangeMap[model] || [];
-            needResetFields.forEach(field => {
-                this.resetField(field);
+            needResetFields.forEach(fieldItem => {
+                this.resetField(fieldItem);
             });
             // 由于有自定义的组件，所以不能依赖form自己的赋值
             this.$set(this.form.model, model, value);
             this.$refs.form.validateField(model);
-            this.$emit('on-field-change', model, value);
+            this.$emit('on-field-change', model, value, field);
+        },
+        handleFieldPreview({model, value, field}) {
+            this.$emit('on-field-preview', model, value, field);
         },
 
         handleSubmit() {
