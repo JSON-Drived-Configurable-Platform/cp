@@ -10,10 +10,6 @@ const fields = [
             hasAuth: {
                 type: 'enum',
                 enum: [0]
-            },
-            isCheck: {
-                type: 'enum',
-                enum: [1]
             }
         }
     },
@@ -21,12 +17,12 @@ const fields = [
         type: 'Input',
         label: '年龄',
         model: 'age',
-        // showOn: {
-        //     hasAuth: {
-        //         type: 'enum',
-        //         enum: [false]
-        //     }
-        // }
+        showOn: {
+            hasAuth: {
+                type: 'enum',
+                enum: [0]
+            }
+        }
     }
 ];
 
@@ -34,7 +30,7 @@ const model = {
     name: '张三',
     age: 18,
     hasAuth: 0,
-    isCheck: 0
+    isCheck: 1
 };
 
 simple.data = {
@@ -187,9 +183,110 @@ export default {
         />
 </template>
 `;
+
+// rules为alidator
+let validatorConfig = {};
+
+const validatorModels = {
+    name: '张三',
+    age: 20,
+    hasAuth: true,
+    gender: 1
+};
+
+const validateCheck = (rule, value, callback) => {
+    if (validatorModels.hasAuth) {
+        if (validatorModels.gender === 1 && value > 18) {
+            callback();
+        } else {
+            callback(new Error());
+        }
+    } else {
+        callback(new Error());
+    }
+};
+
+const validatorFileds = [
+    {
+        type: 'Input',
+        label: '姓名',
+        model: 'name'
+    },
+    {
+        type: 'Input',
+        label: '年龄',
+        model: 'age',
+        showOn: {
+            age: {
+                type: 'number',
+                validator: validateCheck
+            }
+        }
+    }
+];
+
+
+validatorConfig.data = {
+    validatorFileds,
+    validatorModels
+};
+
+validatorConfig.code = `
+<script>
+export default {
+    data() {
+        return {
+            fields: [
+                {
+                    type: 'Input',
+                    label: '姓名',
+                    model: 'name'
+                },
+                {
+                    type: 'Input',
+                    label: '年龄',
+                    model: 'age',
+                    showOn: {
+                        age: {
+                            type: 'number',
+                            validator: validateCheck
+                        }
+                    }
+                }
+            ],
+            model: ${JSON.stringify(validatorModels)},
+            validateCheck: (rule, value, callback) => {
+                if (model.hasAuth) {
+                    if (model.gender === 1 && value > 18) {
+                        callback();
+                    } else {
+                        callback(new Error());
+                    }
+                } else {
+                    callback(new Error());
+                }
+            };
+        };
+    }
+    methods: {
+        handleFieldChange(model, value) {
+            console.log(model, value);
+        }
+    }
+};
+<script>
+<template>
+    <FormGenerator
+            :fields="fields"
+            :model="model"
+        />
+</template>
+`;
+
 // value
 export default {
     simple,
     bothConfig,
-    params
+    params,
+    validatorConfig
 };

@@ -28,14 +28,7 @@ export default {
             paramsContainer: {
                 paramsContainerTest: 'xxx',
                 isShow: 0,
-<<<<<<< HEAD
-                isShowTwo: 1,
-                isHidden: 2,
-                isHiddenTwo: 1
-
-=======
                 isHidden: '12'
->>>>>>> 0cef79afd3335892d1d8d844d6ec69eee244cfc3
             }
         };
     },
