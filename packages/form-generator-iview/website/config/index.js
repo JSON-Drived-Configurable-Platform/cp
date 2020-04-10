@@ -58,6 +58,10 @@ export default {
                     name: '/doc/Input'
                 },
                 {
+                    label: 'Slider',
+                    name: '/doc/Slider'
+                },
+                {
                     label: 'InputMultiple',
                     name: '/doc/InputMultiple'
                 },
@@ -72,6 +76,10 @@ export default {
                 {
                     label: 'CheckboxCard',
                     name: '/doc/CheckboxCard'
+                },
+                {
+                    label: 'RadioCard',
+                    name: '/doc/RadioCard'
                 },
                 {
                     label: 'Switch',
@@ -196,6 +204,10 @@ export default {
                 {
                     label: 'Group Form',
                     name: '/examples/group-form'
+                },
+                {
+                    label: 'MultiStageValue Form',
+                    name: '/examples/MultiStageValue-form'
                 },
                 {
                     label: 'CURD Simple',

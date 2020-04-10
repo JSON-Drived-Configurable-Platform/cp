@@ -1,6 +1,6 @@
 <template>
     <i-input
-        :value="form.model[field.model]"
+        :value="value"
         :type="field.subtype"
         :placeholder="field.placeholder"
         :clearable="field.clearable"
@@ -26,6 +26,8 @@
 </template>
 <script>
 import {Input} from 'iview';
+import {getValue} from '../utils/processValue';
+
 export default {
     inject: ['form'],
     components: {
@@ -46,13 +48,19 @@ export default {
     data() {
         return {
             prependSelectModel: '',
-            appendSelectModel: ''
+            appendSelectModel: '',
+            localModel: {},
+            value: getValue({
+                originModel: this.form.model,
+                model: this.field.model
+            }) || ''
         };
+    },
+    computed: {
     },
     methods: {
         handleChange(e) {
             let value = e.target.value;
-            this.$set(this.form.model, this.field.model, value);
             this.$emit('on-change', this.field.model, value, e, this.field);
         }
     }

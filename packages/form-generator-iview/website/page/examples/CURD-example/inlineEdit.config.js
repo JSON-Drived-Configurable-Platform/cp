@@ -1,8 +1,18 @@
 export const columns = [
     {
         title: '姓名',
-        key: 'name',
-        width: 100
+        slot: 'name',
+        width: 100,
+        formFields: [{
+            type: 'Button',
+            autoButton: false,
+            model: 'name',
+            subtype: 'primary',
+            size: 'small',
+            action: {
+                type: 'route'
+            }
+        }]
     },
     {
         title: '年龄',
@@ -242,7 +252,13 @@ export const columns = [
 
 export const data = [
     {
-        name: '王小明',
+        name: {
+            name: '王小明',
+            path: '/home',
+            query: {
+                test: 10001
+            }
+        },
         age: 18,
         gender: '男',
         birthday: '1999-2-21',
@@ -258,7 +274,13 @@ export const data = [
         }
     },
     {
-        name: '张小刚',
+        name: {
+            name: '张小刚',
+            path: '/home',
+            query: {
+                test: 10002
+            }
+        },
         age: 25,
         gender: '男',
         birthday: '1992-1-23',
@@ -274,7 +296,13 @@ export const data = [
         }
     },
     {
-        name: '李小红',
+        name: {
+            name: '李晓红',
+            path: '/home',
+            query: {
+                test: 10003
+            }
+        },
         age: 30,
         gender: '女',
         birthday: '1987-11-10',
@@ -290,7 +318,13 @@ export const data = [
         }
     },
     {
-        name: '周小伟',
+        name: {
+            name: '周小伟',
+            path: '/home',
+            query: {
+                test: 10004
+            }
+        },
         age: 26,
         gender: '男',
         birthday: '1991-10-10',
@@ -306,7 +340,13 @@ export const data = [
         }
     },
     {
-        name: '王小明',
+        name: {
+            name: '王小明',
+            path: '/home',
+            query: {
+                test: 10005
+            }
+        },
         age: 18,
         gender: '男',
         birthday: '1999-2-21',
@@ -322,7 +362,13 @@ export const data = [
         }
     },
     {
-        name: '张小刚',
+        name: {
+            name: '张小刚',
+            path: '/home',
+            query: {
+                test: 10005
+            }
+        },
         age: 25,
         gender: '男',
         birthday: '1992-1-23',
@@ -338,7 +384,13 @@ export const data = [
         }
     },
     {
-        name: '李小红',
+        name: {
+            name: '李小红',
+            path: '/home',
+            query: {
+                test: 10005
+            }
+        },
         age: 30,
         gender: '女',
         birthday: '1987-11-10',
@@ -354,7 +406,13 @@ export const data = [
         }
     },
     {
-        name: '周小伟',
+        name: {
+            name: '周晓伟',
+            path: '/home',
+            query: {
+                test: 10005
+            }
+        },
         age: 26,
         gender: '男',
         birthday: '1991-10-10',

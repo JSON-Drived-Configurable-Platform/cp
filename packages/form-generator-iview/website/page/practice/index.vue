@@ -57,6 +57,7 @@
             </p>
             <ul>
                 <li><router-link to="/group-form"><strong>分组表单:</strong></router-link>通过配置分组，展示了FormGenerator所支持的所有组件。</li>
+                <li><router-link to="/multistageValue-form"><strong>多级分组表单:</strong></router-link>多级分组表单，展示了FormGenerator所支持的所有组件。</li>
                 <li><router-link to="/editable-table"><strong>Editable Table:</strong></router-link>可编辑的表格，可以支持快速编辑表格中的内容。实例展示了如何使用<code>FieldGenerator</code>来动态生成表格中的各种表单控件。</li>
                 <li><router-link to="/CURD-example/simple"><strong>CURD:</strong></router-link>使用FieldGenerator结合iView Table组件配置出增删改查的列表中的操作按钮，使用FormGenerator配置出增加和编辑弹框。</li>
                 <li><router-link to="/CURD-example/inline-edit"><strong>CURD-列表编辑:</strong></router-link>更复杂的列表编辑展示。</li>

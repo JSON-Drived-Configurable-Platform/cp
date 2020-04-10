@@ -6,6 +6,7 @@
         :class="classes"
         :accept="computedAccept"
         :format="computedFormat"
+        @on-change="handleChange"
     />
 </template>
 
@@ -46,6 +47,11 @@ export default {
         },
         computedFormat() {
             return this.field.format || this.format;
+        }
+    },
+    methods: {
+        handleChange(model, value) {
+            this.$emit('on-change', model, value, null, this.field);
         }
     }
 };
