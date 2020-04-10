@@ -98,6 +98,7 @@
         "Android >= 6"
     ],
     "dependencies": {
+        "async-validator": "^3.2.4",
         "axios": "^0.18.0",
         "v-click-outside": "^2.1.3"
     },
