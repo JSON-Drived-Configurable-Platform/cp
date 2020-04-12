@@ -215,7 +215,7 @@
                     </div>
                 </div>
                 <div slot="desc">
-                    <p type="primary">通过</p>
+                    <p type="primary">使用FieldGenerator处理动态添加子项，批量校验和提交也很简单。</p>
                 </div>
                 <i-code slot="code" lang="html">{{ code.dynamicForm.code }}</i-code>
             </Demo>
