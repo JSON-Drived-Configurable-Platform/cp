@@ -38,30 +38,6 @@ const Steps = () => import(/* webpackChunkName: "Button" */ '../page/doc/Steps')
 const List = () => import(/* webpackChunkName: "Button" */ '../page/doc/List');
 const Slider = () => import(/* webpackChunkName: "Button" */ '../page/doc/Slider');
 
-// {
-//     label: 'Components Choosen',
-//     name: '/examples/components-choosen'
-// },
-// {
-//     label: 'Union Request',
-//     name: '/examples/union-request'
-// },
-// {
-//     label: 'Request Interceptor',
-//     name: '/examples/request-interceptor'
-// },
-// {
-//     label: 'ShowOn HiddenOn',
-//     name: '/examples/showOn-hiddenOn'
-// },
-// {
-//     label: 'Form Validate',
-//     name: '/examples/form-validate'
-// },
-// {
-//     label: 'Powerful FieldGenerator',
-//     name: '/examples/powerful-fieldGenerator'
-// },
 // development
 const componentsChoosen = () => import(/* webpackChunkName: "componentsChoosen" */ '../page/development/components-choosen');
 const unionRequest = () => import(/* webpackChunkName: "unionRequest" */ '../page/development/union-request');

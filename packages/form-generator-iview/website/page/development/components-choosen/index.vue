@@ -2,9 +2,9 @@
     <i-article>
         <article>
             <h1>选择合适的组件类型</h1>
-            <p>提供各种相似场景组件选择的建议。</p>
+            <p>提供各种相似场景组件的速查表和场景建议。</p>
             <div class="api">
-                <inAnchor title="选择类" h2 />
+                <inAnchor title="选项选择类" h2 />
                 <table>
                     <thead>
                         <tr>
