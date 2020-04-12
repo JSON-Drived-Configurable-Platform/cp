@@ -1,7 +1,7 @@
 export const fields = [
     {
         type: 'Divider',
-        label: '输入框',
+        // label: '输入框',
         orientation: 'left',
         dashed: true,
         size: 'small'
