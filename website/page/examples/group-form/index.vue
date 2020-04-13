@@ -10,7 +10,6 @@
                     @on-field-change="handleChange"
                     @on-field-preview="handlePreview"
                     :params-container="paramsContainer"
-                    @on-field-change="handleChange"
                     @on-button-event="handleButtonEvent"
                 />
             </div>
@@ -70,6 +69,9 @@ export default {
         },
         handlePreview(model, value, field) {
             window.open(value.url, '_blank');
+        },
+        handleButtonEvent(e) {
+            console.log('handleButtonEvent', e);
         }
     }
 };
