@@ -40,6 +40,8 @@ function updateNode(nodes = [], checkedList = [], multiple = false) {
 }
 import {classPrefix} from '../utils/const';
 import getOptions from '../mixins/getOptions';
+import {getValue} from '../utils/processValue';
+
 export default {
     inject: ['form'],
     mixins: [getOptions],
@@ -66,7 +68,10 @@ export default {
             return `${classPrefix}-${this.field.type.toLowerCase()}`;
         },
         computedOptions() {
-            const values = this.form.model[this.field.model];
+            const values = getValue({
+                originModel: this.form.model,
+                model: this.field.model
+            });
             const options = this.options.length > 0 ? this.options : this.field.options;
             const multiple = this.field.multiple;
             if (Array.isArray(options)) {
@@ -90,7 +95,6 @@ export default {
             this.getRemoteOptions();
         },
         handleChange(value) {
-            this.$set(this.form.model, this.field.model, value);
             this.$emit('on-change', this.field.model, value, null, this.field);
         },
         handleSelectChange(selection) {

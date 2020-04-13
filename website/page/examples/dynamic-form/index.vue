@@ -35,13 +35,33 @@ export default {
                 labelWidth: 120
             },
             dynamicFormConfig,
-            basicFormModel: {},
-            dynamicFormModel: {}
+            basicFormModel: {
+                // imgWmOpts: {
+                //     g: '',
+                //     x: '',
+                //     y: ''
+                // },
+                // qrOpts: {
+                //     width: '',
+                //     margin: '',
+                //     y: '',
+                //     color: {
+                //         dark: '',
+                //         light: ''
+                //     }
+                // }
+            },
+            dynamicFormModel: {
+                // imgWmOpts: {
+                //     g: ''
+                // }
+            }
         };
     },
     methods: {
         hanldeFieldChange(model, value) {
             console.log(model, value);
+            console.log(this.basicFormModel);
         }
     }
 };

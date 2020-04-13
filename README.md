@@ -7,14 +7,20 @@ A form generator with json schema based on iview ui.
 
 ## design
 
-![project mind mapping](./form-generator.png)
+![project mind mapping](./form-generator.svg)
 
 ## developer
 
+[zhengxkq](https://github.com/zhengxkq),
 [BingBlog](https://github.com/BingBlog),
+[longkele](https://github.com/longkele/)
+[xiaomiCat](https://github.com/xiaomiCat),
 [changyuqing](https://github.com/changyuqing),
 [Tobin1990](https://github.com/Tobin1990),
-[longkele](https://github.com/longkele/)
+[glsnb](https://github.com/glsnb)
+
+
+
 
 ## development
 

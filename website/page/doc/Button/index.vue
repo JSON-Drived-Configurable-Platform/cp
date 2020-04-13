@@ -94,7 +94,7 @@
                             <td>
                                 当 action.type 为 route 时，可以指定action.route， 触发点击后会向该接口返送请求。
                                 <br>
-                                <strong>另外一种常用的指定action.route方法是，申明field.model，然后会从form.model中获取对应的route值，参考下面的示例:</strong>
+                                <strong>另外一种常用的指定action.route方法是，申明field.model（不支持foo.bar这种形式），然后会从form.model中获取对应的route值，参考下面的示例:</strong>
                                 <br>
                                 <span>form.model</span>
                                 <pre>
@@ -113,7 +113,7 @@
                             <td>
                                 当 action.type 为 url 时，可以指定action.url， 触发点击后会向该接口返送请求。
                                 <br>
-                                <strong>另外一种常用的指定action.url方法是，申明field.model，然后会从form.model中获取对应的route值，参考下面的示例:</strong>
+                                <strong>另外一种常用的指定action.url方法是，申明field.model（不支持foo.bar这种形式），然后会从form.model中获取对应的route值，参考下面的示例:</strong>
                                 <br>
                                 <span>form.model</span>
                                 <pre>

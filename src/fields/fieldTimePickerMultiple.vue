@@ -80,6 +80,8 @@
 
 <script>
 import {classPrefix} from '../utils/const';
+import {getValue} from '../utils/processValue';
+
 export default {
     inject: ['form'],
     props: {
@@ -101,7 +103,10 @@ export default {
     data() {
         return {
             value: '',
-            list: this.form.model[this.field.model] || []
+            list: getValue({
+                originModel: this.form.model,
+                model: this.field.model
+            }) || []
         };
     },
     computed: {
@@ -119,12 +124,10 @@ export default {
             }
             this.list.push(val.join(this.field.timeSplit || '~'));
             this.value = '';
-            this.$set(this.form.model, this.field.model, this.list);
             this.$emit('on-change', this.field.model, this.list, null, this.field);
         },
         handleDelete(index) {
             this.list.splice(index, 1);
-            this.$set(this.form.model, this.field.model, this.list);
             this.$emit('on-change', this.field.model, this.list, null, this.field);
         },
         handleChange(value) {

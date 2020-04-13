@@ -15,7 +15,7 @@
                 >全选</Checkbox>
             </div>
             <CheckboxGroup
-                :value="form.model[field.model]"
+                :value="value"
                 :size="size"
                 @on-change="handleChange"
             >
@@ -34,6 +34,8 @@
 <script>
 import getOptions from '../mixins/getOptions';
 import {classPrefix} from '../utils/const';
+import {getValue} from '../utils/processValue';
+
 export default {
     inject: ['form'],
     mixins: [getOptions],
@@ -77,7 +79,10 @@ export default {
             return !Array.isArray(this.field.options) ? this.field.options : '';
         },
         value() {
-            return this.form.model[this.field.model] || [];
+            return getValue({
+                originModel: this.form.model,
+                model: this.field.model
+            }) || [];
         }
     },
     watch: {
@@ -96,7 +101,6 @@ export default {
             if (this.field.checkAll) {
                 this.checkAllGroupChange(value);
             }
-            this.$set(this.form.model, this.field.model, value);
             this.$emit('on-change', this.field.model, value, null, this.field);
         },
         handleCheckAll() {
@@ -126,7 +130,7 @@ export default {
                 this.indeterminate = false;
                 this.checkAll = false;
             }
-        }
+        },
     }
 };
 </script>

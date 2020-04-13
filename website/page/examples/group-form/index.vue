@@ -10,6 +10,8 @@
                     @on-field-change="handleChange"
                     @on-field-preview="handlePreview"
                     :params-container="paramsContainer"
+                    @on-field-change="handleChange"
+                    @on-button-event="handleButtonEvent"
                 />
             </div>
         </Row>
@@ -45,7 +47,6 @@ export default {
     },
     methods: {
         submit() {
-            console.log('sss', this.$refs.FormGenerator)
             this.$refs.FormGenerator
                 .submit().then(data => {
                     // eslint-disable-next-line no-console

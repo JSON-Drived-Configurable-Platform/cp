@@ -48,6 +48,8 @@ import {classPrefix} from './utils/const';
 import {getValidType} from './utils/getValidType';
 import schema from 'async-validator';
 import axios from './utils/http';
+import {setValue} from './utils/processValue';
+
 const notFormfields = ['Divider'];
 export default {
     inject: ['form'],
@@ -119,12 +121,13 @@ export default {
         show() {
             const field = this.field;
             const model = this.form.model;
+            const validateValue = Object.assign({}, model || {}, this.paramsContainer || {});
             let show = true;
             if (field.hiddenOn) {
                 let descriptor = field.hiddenOn;
                 let validator = new schema(descriptor);
-                validator.validate(model, (errors) => {
-                    if(!errors) {
+                validator.validate(validateValue, errors => {
+                    if (!errors) {
                         show = false;
                     }
                 });
@@ -132,8 +135,8 @@ export default {
             if (field.showOn) {
                 let descriptor = field.showOn;
                 let validator = new schema(descriptor);
-                validator.validate(model, (errors) => {
-                    if(errors) {
+                validator.validate(validateValue, errors => {
+                    if (errors) {
                         show = false;
                     }
                 });
@@ -152,6 +155,11 @@ export default {
     },
     methods: {
         handleFieldChange(model, value) {
+            setValue.call(this, {
+                originModel: this.form.model,
+                model: model,
+                value
+            });
             this.$emit('on-field-change', {
                 model,
                 value,
@@ -205,6 +213,19 @@ export default {
                         trigger: 'change'
                     });
                 }
+                if (type === 'timepicker' && ['timerange'].includes(subtype)) {
+                    rules.push({
+                        validator(rule, value, callback) {
+                            if (value.length === 2 && value[0] && value[1]) {
+                                callback();
+                            }
+                            else {
+                                callback(new Error(field.label + '不可为空'));
+                            }
+                        },
+                        trigger: 'change'
+                    });
+                }
                 if (['logicinput', 'logicselect'].includes(type)) {
                     rules.push({
                         validator(rule, value, callback) {
@@ -238,17 +259,41 @@ export default {
                     this.form.validate(
                         valid => {
                             if (valid) {
-                                this.$emit('on-submit', this.form.model);
+                                this.$emit('on-submit', {
+                                    status: 'start',
+                                    model: this.form.model,
+                                    field
+                                });
                                 // 如果有api则需要在此处理请求
                                 if (field.action && field.action.api) {
                                     component.loading = true;
-                                    this.doAjaxAction(field).then(() => {
+                                    this.doAjaxAction(field).then(res => {
                                         resolve(this.form.model);
                                         component.loading = false;
-                                        this.$Message.info(`${field.text}成功!`);
-                                    }).catch(() => {
+                                        if (field.action.onSuccess) {
+                                            this.$emit('on-submit', {
+                                                status: 'success',
+                                                model: this.form.model,
+                                                field,
+                                                info: res
+                                            });
+                                        } else {
+                                            this.$Message.info(`${field.text}成功!`);
+
+                                        }
+                                    }).catch(e => {
                                         component.loading = false;
-                                        this.$Message.info(`${field.text}失败!`);
+                                        if (field.action.onFail) {
+                                            this.$emit('on-submit', {
+                                                status: 'fail',
+                                                model: this.form.model,
+                                                field,
+                                                info: e
+                                            });
+                                        } else {
+                                            this.$Message.info(`${field.text}失败!`);
+
+                                        }
                                         reject();
                                     });
                                 }
@@ -287,17 +332,18 @@ export default {
 
                     this.requestMethod(method.toLowerCase(), finalApi, this.getParams(field)).then(res => {
                         if (this.requestResolve(res)) {
-                            resolve();
+                            resolve(res);
                             this.$emit('on-button-event', {
                                 name: 'ajaxSuccess',
-                                field
+                                field,
+                                res
                             });
                         }
                         else {
-                            reject();
+                            reject(res);
                         }
-                    }).catch(() => {
-                        reject();
+                    }).catch(e => {
+                        reject(e);
                     });
                 }
                 catch(err) {

@@ -31,6 +31,7 @@
     </Upload>
 </template>
 <script>
+import {getValue} from '../utils/processValue';
 
 export default {
     inject: ['form'],
@@ -60,7 +61,10 @@ export default {
             return this.field.tip || '点击或者拖拽文件即可上传';
         },
         value() {
-            let value = this.form.model[this.field.model] || [];
+            let value = getValue({
+                originModel: this.form.model,
+                model: this.field.model
+            }) || [];
             return value.map(item => {
                 item.status = 'finished';
                 return item;
@@ -89,7 +93,6 @@ export default {
     },
     methods: {
         handleChange() {
-            this.$set(this.form.model, this.field.model, this.uploadFileList);
             let ajaxData = '';
             this.needDealUploadData ? ajaxData = this.keyList : ajaxData = this.uploadFileList;
             this.$emit('on-change', this.field.model, ajaxData, null, this.field);

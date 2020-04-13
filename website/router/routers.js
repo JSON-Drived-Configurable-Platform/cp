@@ -13,6 +13,7 @@ const FieldGenerator = () => import(/* webpackChunkName: "FieldGenerator" */ '..
 const Input = () => import(/* webpackChunkName: "Input" */ '../page/doc/Input');
 const InputMultiple = () => import(/* webpackChunkName: "InputMultiple" */ '../page/doc/InputMultiple');
 const Radio = () => import(/* webpackChunkName: "Radio" */ '../page/doc/Radio');
+const RadioCard = () => import(/* webpackChunkName: "Radio" */ '../page/doc/RadioCard');
 const Checkbox = () => import(/* webpackChunkName: "Checkbox" */ '../page/doc/Checkbox');
 const CheckboxCard = () => import(/* webpackChunkName: "CheckboxCard" */ '../page/doc/CheckboxCard');
 const Switch = () => import(/* webpackChunkName: "Switch" */ '../page/doc/Switch');
@@ -35,31 +36,8 @@ const Reset = () => import(/* webpackChunkName: "Button" */ '../page/doc/Reset')
 const Divider = () => import(/* webpackChunkName: "Button" */ '../page/doc/Divider');
 const Steps = () => import(/* webpackChunkName: "Button" */ '../page/doc/Steps');
 const List = () => import(/* webpackChunkName: "Button" */ '../page/doc/List');
+const Slider = () => import(/* webpackChunkName: "Button" */ '../page/doc/Slider');
 
-// {
-//     label: 'Components Choosen',
-//     name: '/examples/components-choosen'
-// },
-// {
-//     label: 'Union Request',
-//     name: '/examples/union-request'
-// },
-// {
-//     label: 'Request Interceptor',
-//     name: '/examples/request-interceptor'
-// },
-// {
-//     label: 'ShowOn HiddenOn',
-//     name: '/examples/showOn-hiddenOn'
-// },
-// {
-//     label: 'Form Validate',
-//     name: '/examples/form-validate'
-// },
-// {
-//     label: 'Powerful FieldGenerator',
-//     name: '/examples/powerful-fieldGenerator'
-// },
 // development
 const componentsChoosen = () => import(/* webpackChunkName: "componentsChoosen" */ '../page/development/components-choosen');
 const unionRequest = () => import(/* webpackChunkName: "unionRequest" */ '../page/development/union-request');
@@ -70,6 +48,7 @@ const powerfulFieldGenerator = () => import(/* webpackChunkName: "componentsChoo
 
 // examples
 const groupForm = () => import(/* webpackChunkName: "groupForm" */ '../page/examples/group-form');
+const multistageValueForm = () => import(/* webpackChunkName: "multis" */ '../page/examples/multistageValue-form');
 const CURDSimpleExample = () => import(/* webpackChunkName: "CURDExample" */ '../page/examples/CURD-example/simple');
 const CURDSimpleExampleInlineEdit = () => import(/* webpackChunkName: "CURDExample" */ '../page/examples/CURD-example/inline-edit');
 
@@ -136,6 +115,11 @@ export default [
                 path: '/doc/Radio',
                 name: 'doc-Radio',
                 component: Radio
+            },
+            {
+                path: '/doc/RadioCard',
+                name: 'doc-RadioCard',
+                component: RadioCard
             },
             {
                 path: '/doc/Checkbox',
@@ -248,6 +232,11 @@ export default [
                 component: List
             },
             {
+                path: '/doc/Slider',
+                name: 'doc-Slider',
+                component: Slider
+            },
+            {
                 path: '/doc/Divider',
                 name: 'doc-Divider',
                 component: Divider
@@ -298,6 +287,12 @@ export default [
                 path: '/examples/group-form',
                 name: '/examples/group-form',
                 component: groupForm
+            },
+            // mutilValue examples
+            {
+                path: '/examples/multistageValue-form',
+                name: '/examples/multistageValue-form',
+                component: multistageValueForm
             },
             {
                 path: '/examples/CURD-example',
