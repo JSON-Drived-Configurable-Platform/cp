@@ -284,7 +284,9 @@ export default {
         },
 
         handleDynamicFormAdd() {
-            this.dynamicFormData.push({});
+            const data = this.getDynamicFormData();
+            data.push({});
+            this.dynamicFormData = data;
         },
 
         handleDynamicFormDel(index) {
@@ -292,13 +294,18 @@ export default {
         },
 
         handleDynamicFormSubmit() {
+
+            this.$Message.info(JSON.stringify({
+                data: this.getDynamicFormData()
+            }));
+        },
+
+        getDynamicFormData() {
             const data = [];
             this.$refs.dynamicForm.forEach(form => {
                 data[form.model._index] = form.model;
             });
-            this.$Message.info(JSON.stringify({
-                data
-            }));
+            return data;
         }
     }
 };
