@@ -51,7 +51,7 @@ export const fields = [
         required: true,
         labelTips: {
             icon: {
-                name: 'ios-help-circle-outline',
+                name: 'ios-alert-outline',
                 size: 24
             },
             content: {
