@@ -31,7 +31,7 @@
             @mouseenter.native="handleIconMouseEnter"
             @mouseleave.native="handleIconMouseLeave"
         />
-        <div v-if="contentShow" v-html="labelTips.content.body"></div>
+        <div v-if="contentShow" v-html="labelTips.content.body" />
         <component
             :is="getFieldCom(field.type)"
             :class="classes"
