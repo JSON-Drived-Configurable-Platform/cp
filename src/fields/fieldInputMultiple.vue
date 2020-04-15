@@ -9,6 +9,7 @@
                 :clearable="field.clearable"
                 :disabled="field.disabled"
                 :readonly="field.readonly"
+                :maxlength="field.maxlength"
                 :icon="field.icon"
                 :prefix="field.prefix"
                 :suffix="field.suffix"
@@ -77,14 +78,16 @@ export default {
     data() {
         return {
             value: '',
-            list: getValue({
-                originModel: this.form.model,
-                model: this.field.model
-            }) || [],
             defaultList: this.field.defaultList || [],
         };
     },
     computed: {
+        list() {
+            return getValue({
+                originModel: this.form.model,
+                model: this.field.model
+            }) || [];
+        }
     },
     mounted() {},
     created() {},

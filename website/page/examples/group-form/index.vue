@@ -7,8 +7,9 @@
                     :fields="fields"
                     :model="model"
                     :options="options"
-                    :params-container="paramsContainer"
                     @on-field-change="handleChange"
+                    @on-field-preview="handlePreview"
+                    :params-container="paramsContainer"
                     @on-button-event="handleButtonEvent"
                 />
             </div>
@@ -63,11 +64,14 @@ export default {
         reset() {
             this.$refs.FormGenerator.reset();
         },
-        handleChange(model, value) {
-            console.log(model, value);
+        handleChange(model, value, field) {
+            console.log('handleChange', model, value, field);
+        },
+        handlePreview(model, value, field) {
+            window.open(value.url, '_blank');
         },
         handleButtonEvent(e) {
-            console.log(e);
+            console.log('handleButtonEvent', e);
         }
     }
 };

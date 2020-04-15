@@ -666,10 +666,12 @@ export const fields = [
     {
         type: 'Upload',
         subtype: 'drag',
-        accept: 'image/gif, image/jpeg, image/png',
-        format: ['jpg','jpeg','png'],
+        accept: 'application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        format: ['doc', 'docx'],
         maxSize: 20000,
         action: '/uploadApi',
+        apiKey: 'url',
+
         multiple: false,
         paste: true,
         disabled: false,

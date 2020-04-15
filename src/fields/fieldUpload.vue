@@ -19,6 +19,7 @@
         :on-exceeded-size="onExceededSize"
         :on-success="onSuccess"
         :on-remove="onRemove"
+        :on-preview="onPreview"
         :size="size"
     >
         <Icon
@@ -97,7 +98,7 @@ export default {
             this.$emit('on-change', this.field.model, ajaxData, null, this.field);
         },
         onSuccess({data = {}}, file) {
-            const {url} = data;
+            const url = data[this.field.apiKey || 'url'];
             if (url) {
                 this.$Message.info('上传成功!');
                 file.url = url;
@@ -131,6 +132,9 @@ export default {
             this.uploadFileList = this.uploader.fileList.slice();
             this.dealExtraParams();
             this.handleChange();
+        },
+        onPreview(file) {
+            this.$emit('on-preview', this.field.model, file);
         },
         dealExtraParams() {
             if (this.needDealUploadData) {
