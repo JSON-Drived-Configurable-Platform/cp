@@ -8,9 +8,15 @@
                     :model="model"
                     :options="options"
                     @on-field-change="handleChange"
+<<<<<<< Updated upstream
                     @on-field-preview="handlePreview"
                     :params-container="paramsContainer"
                     @on-button-event="handleButtonEvent"
+=======
+                    @on-label-tip-click="handleLabelEvent"
+                    @on-label-tip-hoverIn="handleMouseEnterEvent"
+                    @on-label-tip-hoverOut="handleMouseLeaveEvent"
+>>>>>>> Stashed changes
                 />
             </div>
         </Row>
@@ -70,8 +76,20 @@ export default {
         handlePreview(model, value, field) {
             window.open(value.url, '_blank');
         },
+<<<<<<< Updated upstream
         handleButtonEvent(e) {
             console.log('handleButtonEvent', e);
+=======
+        handleLabelEvent(field) {
+            this.fields[1].labelTips.content.ifShow = true;
+        },
+        handleMouseEnterEvent(field) {
+            this.fields[4].labelTips.content.ifShow = true;
+        },
+        handleMouseLeaveEvent(field) {
+            console.log(field);
+            this.fields[4].labelTips.content.ifShow = false;
+>>>>>>> Stashed changes
         }
     }
 };
@@ -80,5 +98,8 @@ export default {
     .container {
         margin: 10px 40px;
         width: 90%;
+        .example {
+            pointer-events: none;
+        }
     }
 </style>

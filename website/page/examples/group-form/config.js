@@ -12,7 +12,18 @@ export const fields = [
         model: 'input',
         placeholder: '请输入用户名',
         required: true,
-        defaultHide: false
+        defaultHide: false,
+        labelTips: {
+            icon: {
+                name: 'ios-help-circle-outline',
+                size: 24,
+                color: '#00f'
+            },
+            content: {
+                body: "<div class='example'><span>活动示意图</span></div>",
+                ifShow: false
+            }
+        }
     },
     {
         type: 'Input',
@@ -38,6 +49,16 @@ export const fields = [
         model: 'inputNumber',
         placeholder: '',
         required: true,
+        labelTips: {
+            icon: {
+                name: 'ios-help-circle-outline',
+                size: 24
+            },
+            content: {
+                body: "<div class='example'><span>数值多行输入框</span></div>",
+                ifShow: false
+            }
+        }
         //defaultHide: true
     },
     {

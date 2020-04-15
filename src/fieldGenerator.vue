@@ -22,6 +22,16 @@
         :class="itemClasses"
         :style="itemStyle"
     >
+        <Icon
+            v-if="labelTips.icon"
+            :type="labelTips.icon.name"
+            :size="labelTips.icon.size"
+            :color="labelTips.icon.color"
+            @click="handleIconClick"
+            @mouseenter.native="handleIconMouseEnter"
+            @mouseleave.native="handleIconMouseLeave"
+        />
+        <div v-if="contentShow" v-html="labelTips.content.body"></div>
         <component
             :is="getFieldCom(field.type)"
             :class="classes"
@@ -143,10 +153,18 @@ export default {
             }
             // console.log(field.model, valid, model);
             return show;
+        },
+        labelTips() {
+            let labelTips = this.field.labelTips || {};
+            return labelTips;
+        },
+        contentShow() {
+            let content = this.field.labelTips && this.field.labelTips.content || {};
+            return content.ifShow;
         }
     },
     created() {
-        let field = this.field;
+        let field  = this.field;
         // 老版本兼容
         if (field.subType) {
             field.subtype = field.subType;
@@ -185,6 +203,21 @@ export default {
         },
         handleButtonClick($event) {
             this.$emit('on-button-event', $event);
+        },
+        handleIconClick() {
+            this.$emit('on-label-tip-click',{
+                field: this.field
+            });
+        },
+        handleIconMouseEnter() {
+            this.$emit('on-label-tip-hoverIn', {
+                field: this.field
+            });
+        },
+        handleIconMouseLeave() {
+            this.$emit('on-label-tip-hoverOut', {
+                field: this.field
+            });
         },
         getFieldCom(comType = '') {
             return `field${comType}`;
