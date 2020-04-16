@@ -23,15 +23,15 @@
         :style="itemStyle"
     >
         <Icon
-            v-if="labelTips.icon"
-            :type="labelTips.icon.name"
-            :size="labelTips.icon.size"
-            :color="labelTips.icon.color"
+            v-if="labelTip.icon"
+            :type="labelTip.icon.name"
+            :size="labelTip.icon.size"
+            :color="labelTip.icon.color"
             @click="handleIconClick"
             @mouseenter.native="handleIconMouseEnter"
             @mouseleave.native="handleIconMouseLeave"
         />
-        <div v-if="contentShow" v-html="labelTips.content.body" />
+        <div v-if="contentShow" v-html="labelTip.content.body" />
         <component
             :is="getFieldCom(field.type)"
             :class="classes"
@@ -154,17 +154,17 @@ export default {
             // console.log(field.model, valid, model);
             return show;
         },
-        labelTips() {
-            let labelTips = this.field.labelTips || {};
-            return labelTips;
+        labelTip() {
+            let labelTip = this.field.labelTip || {};
+            return labelTip;
         },
         contentShow() {
-            let content = this.field.labelTips && this.field.labelTips.content || {};
+            let content = this.field.labelTip && this.field.labelTip.content || {};
             return content.ifShow;
         }
     },
     created() {
-        let field  = this.field;
+        let field = this.field;
         // 老版本兼容
         if (field.subType) {
             field.subtype = field.subType;

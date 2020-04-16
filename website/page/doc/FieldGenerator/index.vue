@@ -125,7 +125,7 @@
                             <td>-</td>
                         </tr>
                         <tr>
-                            <td>field.labelTips</td>
+                            <td>field.labelTip</td>
                             <td>
                                 提示icon 并且进行点击、hover等操作，额外内容展示 （不需要不配置就好）
                                 <br>
@@ -150,7 +150,7 @@
 }
                                 </pre>
                             </td>
-                            <td>Array</td>
+                            <td>Object</td>
                             <td>-</td>
                         </tr>
                     </tbody>

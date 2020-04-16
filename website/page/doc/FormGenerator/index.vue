@@ -285,6 +285,23 @@
                 </div>
                 <i-code slot="code" lang="html">{{ code.hiddenOn.code }}</i-code>
             </Demo>
+            <Demo title="label添加icon,并可点击 可移入、移出">
+                <div slot="demo">
+                    <FormGenerator
+                        :fields="code.labelIcon.data.fields"
+                        :model="code.labelIcon.data.model"
+                        :options="code.labelIcon.data.options"
+                        @on-label-tip-click="handleLabelEvent"
+                        @on-label-tip-hoverIn="handleMouseEnterEvent"
+                        @on-label-tip-hoverOut="handleMouseLeaveEvent"
+                    />
+                </div>
+                <div slot="desc">
+                    <!-- <p>validateGenerator组件依赖三个属性: <code>fields</code>, <code>model</code>, <code>options</code>。</p> -->
+                    <!-- <p>通过设置<code>fields</code>, <code>model</code>, <code>options</code>即可生成一个表单UI。</p> -->
+                </div>
+                <i-code slot="code" lang="html">{{ code.labelIcon.code }}</i-code>
+            </Demo>
         </article>
     </i-article>
 </template>
@@ -311,11 +328,71 @@ export default {
         handleSubmit(formName) {
             // eslint-disable-next-line no-console
             console.log(this.$refs[formName].model);
+        },
+        handleMouseEnterEvent({field}) {
+            if (field.labelTip && field.labelTip.content) {
+                field.labelTip.content.ifShow = true;
+            }
+        },
+        handleMouseLeaveEvent({field}) {
+            if (field.labelTip && field.labelTip.content) {
+                field.labelTip.content.ifShow = false;
+            }
+        },
+        handleLabelEvent() {
+            window.open('https://www.baidu.com');
         }
     }
 };
 </script>
 
-<style>
-
+<style lang="less">
+.ivu-icon-ios-help-circle-outline, .ivu-icon-ios-alert-outline {
+    position: absolute;
+    top: 7px;
+    left: -23px;
+}
+.wrap {
+    width: 30px;
+    height: 40px;
+    pointer-events: none;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    z-index: 2;
+    img {
+        width: 41.4px;
+        height: 38.7px;
+    }
+}
+.ruleWrap {
+    width: 180px;
+    padding: 5px;
+    box-sizing: border-box;
+    height: auto;
+    line-height: 1;
+    font-size: 12px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    pointer-events: none;
+    position: absolute;
+    top: -35px;
+    left: -104px;
+    z-index: 2;
+    word-wrap: break-word; 
+    border-radius: 4px;
+    border: 1px solid #333;
+    span {
+        display: block; 
+        width: 0; 
+        height: 0; 
+        border-width: 5px 5px 0; 
+        border-style: solid; 
+        border-color: rgba(0, 0, 0, 0.7) transparent transparent; 
+        position: absolute; 
+        top: 34px; 
+        left: 50%;/* 三角形居中显示 */
+        margin-left: -5px;/* 三角形居中显示 */
+    }
+}
 </style>

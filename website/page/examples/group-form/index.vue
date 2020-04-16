@@ -76,15 +76,20 @@ export default {
         handleButtonEvent(e) {
             console.log('handleButtonEvent', e);
         },
-        handleLabelEvent(field) {
-            this.fields[1].labelTips.content.ifShow = true;
+        handleLabelEvent({field}) {
+            if (field.labelTip && field.labelTip.content) {
+                field.labelTip.content.ifShow = true;
+            }
         },
-        handleMouseEnterEvent(field) {
-            this.fields[4].labelTips.content.ifShow = true;
+        handleMouseEnterEvent({field}) {
+            if (field.labelTip && field.labelTip.content) {
+                field.labelTip.content.ifShow = true;
+            }
         },
-        handleMouseLeaveEvent(field) {
-            console.log(field);
-            this.fields[4].labelTips.content.ifShow = false;
+        handleMouseLeaveEvent({field}) {
+            if (field.labelTip && field.labelTip.content) {
+                field.labelTip.content.ifShow = false;
+            }
         }
     }
 };
@@ -98,13 +103,35 @@ export default {
             top: 4px;
             left: -80px;
         }
-        .ivu-icon-ios-alert-outline {
-            position: absolute;
-            top: 5px;
-            left: -30px;
-        }
         .example {
+            width: 180px;
+            padding: 5px;
+            box-sizing: border-box;
+            height: auto;
+            line-height: 1;
+            font-size: 12px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
             pointer-events: none;
+            position: absolute;
+            top: -38px;
+            left: -157px;
+            z-index: 2;
+            word-wrap: break-word; 
+            border-radius: 4px;
+            border: 1px solid #333;
+            span {
+                display: block; 
+                width: 0; 
+                height: 0; 
+                border-width: 5px 5px 0; 
+                border-style: solid; 
+                border-color: rgba(0, 0, 0, 0.7) transparent transparent; 
+                position: absolute; 
+                top: 34px; 
+                left: 50%;/* 三角形居中显示 */
+                margin-left: -5px;/* 三角形居中显示 */
+            }
         }
     }
 </style>

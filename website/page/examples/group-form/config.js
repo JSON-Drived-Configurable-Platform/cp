@@ -13,14 +13,13 @@ export const fields = [
         placeholder: '请输入用户名',
         required: true,
         defaultHide: false,
-        labelTips: {
+        labelTip: {
             icon: {
                 name: 'ios-help-circle-outline',
-                size: 24,
-                color: '#00f'
+                size: 24
             },
             content: {
-                body: "<div class='example'><span>活动示意图</span></div>",
+                body: "<div class='example'><span></span>What do you want others to call you?</div>",
                 ifShow: false
             }
         }
@@ -48,17 +47,7 @@ export const fields = [
         label: '数值多行输入框',
         model: 'inputNumber',
         placeholder: '',
-        required: true,
-        labelTips: {
-            icon: {
-                name: 'ios-alert-outline',
-                size: 24
-            },
-            content: {
-                body: "<div class='example'><span>数值多行输入框</span></div>",
-                ifShow: false
-            }
-        }
+        required: true
         //defaultHide: true
     },
     {
