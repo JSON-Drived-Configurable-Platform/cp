@@ -2,6 +2,7 @@ const simple = {};
 
 const charts = [
     {
+        type: 'dataset',
         label: '饼图',
         dataset: {
             source: [
@@ -21,6 +22,7 @@ const charts = [
         ]
     },
     {
+        type: 'dataset',
         label: '折线图',
         xAxis: {type: 'category'},
         yAxis: {},
@@ -40,6 +42,7 @@ const charts = [
         ]
     },
     {
+        type: 'dataset',
         label: '折线图-多条',
         dataset: [
             {
@@ -62,6 +65,7 @@ const charts = [
         yAxis: {},
     },
     {
+        type: 'dataset',
         label: '折线图-多轴',
         dataset: [
             {
@@ -98,6 +102,7 @@ const charts = [
         yAxis: {},
     },
     {
+        type: 'dataset',
         label:'柱状图-水平',
         xAxis: {},
         yAxis: {type: 'category'},
@@ -117,6 +122,7 @@ const charts = [
         ]
     },
     {
+        type: 'dataset',
         label:'柱状图-垂直',
         xAxis: {type: 'category'},
         yAxis: {},
@@ -136,6 +142,7 @@ const charts = [
         ]
     },
     {
+        type: 'dataset',
         label:'漏斗',
         dataset: {
             source: [
@@ -163,7 +170,7 @@ simple.code = `
 const charts = ${JSON.stringify(charts, null, 4)};
 
 <template>
-    <DataVisItem
+    <DataVisGroup
         :charts='charts'
     />
 </template>
@@ -554,7 +561,7 @@ table.code = `
 const charts = ${JSON.stringify(tableCharts, null, 4)};
 
 <template>
-    <DataVisItem
+    <DataVisGroup
         :charts='charts'
     />
 </template>
@@ -656,7 +663,7 @@ card.code = `
 const charts = ${JSON.stringify(cardCharts, null, 4)};
 
 <template>
-    <DataVisItem
+    <DataVisGroup
         :charts='charts'
     />
 </template>

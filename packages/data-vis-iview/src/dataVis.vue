@@ -30,7 +30,7 @@
             :class="rowClasses"
         >
             <div :class="itemBoxClasses">
-                <DataVisItem
+                <DataVisGroup
                     v-for="(item, index) in row"
                     :key="index"
                     :style="getItemBoxStyle(row)"
@@ -46,12 +46,12 @@
     </div>
 </template>
 <script>
-import DataVisItem from './dataVisItem';
+import DataVisGroup from './dataVisGroup';
 import {classPrifix} from './utils/const';
 export default {
     name: 'DataVis',
     components: {
-        DataVisItem
+        DataVisGroup
     },
     props: {
         requestInterceptor: {

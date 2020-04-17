@@ -1,113 +1,123 @@
 <template>
-    <div>
-        <Row class="container">
-            <div class="container">
-                <Select v-model="paramsContainer.test1">
-                    <Option value="1">
-                        选项1
-                    </Option>
-                    <Option value="2">
-                        选项2
-                    </Option>
-                </Select>
-                <DataVis
-                    v-for="(item, index) in config"
-                    :key="index"
-                    ref="DataVis"
-                    :style="{marginTop: '40px'}"
-                    :config="item"
-                    :params-container="paramsContainer"
-                    :request-interceptor="requestInterceptor"
-                    :api-base="apiBase"
-                />
+    <div class="page-home">
+        <app-header />
+        <div class="page-home-container">
+            <div class="page-home-container-content">
+                <div class="page-home-container-content-title">Data Vis</div>
+                <!-- <div class="page-home-container-content-slogon">同样的场景，我们只写一次</div> -->
+                <div class="page-home-container-content-desc">
+                    <p>
+                        <!-- JSON Drived Configurable Form Generator based on iView -->
+                        基于iView和Echart的JSON驱动的可配置图表生成工具
+                    </p>
+                </div>
+                <div class="page-home-container-content-actions">
+                    <Button type="primary" size="large" shape="circle">
+                        <router-link :style="{color: '#f8f8f8'}" to="/main-components">快速开始</router-link>
+                    </Button>
+                    <Button type="primary" size="large" shape="circle">
+                        <router-link :style="{color: '#f8f8f8'}" to="/group-form">预览</router-link>
+                    </Button>
+                    <Button
+                        to="https://github.com/JSON-Drived-Configurable-Platform/data-vis-iview"
+                        icon="logo-github"
+                        target="_blank"
+                        size="large"
+                        shape="circle"
+                    >
+                        GitHub
+                    </Button>
+                    <!-- <Button type="primary">模板</Button> -->
+                </div>
             </div>
-        </Row>
-        <Row class="container">
-            <Form :model="form">
-                <FormItem>
-                    <Input
-                        :value="form.config"
-                        type="textarea"
-                        :rows="50"
-                        placeholder="请输入表单配置项"
-                        :style="{fontSize: '12px'}"
-                        @on-change="handleConfigChange"
-                    />
-                </FormItem>
-            </Form>
-            <!-- <iCol
-                span="3"
-                :style="{padding: '10px'}"
-            >
-                <h3 :style="{textAlign: 'center', margin: '30px'}">
-                    选项
-                </h3>
-                <Input
-                    type="textarea"
-                    :rows="50"
-                    placeholder="请输入表单配置项"
-                    :style="{fontSize: '12px'}"
-                    disabled
-                />
-            </iCol> -->
-        </Row>
+            <!-- <div class="page-home-carousel-content">For the same scenario, we only write it once.</div> -->
+        </div>
     </div>
 </template>
-
 <script>
-import {config} from './config';
-import axios from 'axios';
+import appHeader from '../../components/main/components/header/appHeader';
 export default {
-    data() {
-        return {
-            form: {
-                config: JSON.stringify(config, null, 8)
-            },
-            config,
-            paramsContainer: {
-                test1: '1',
-                test2: '2'
-            },
-            apiBase: '',
-            requestInterceptor: function(url, params) {
-                return new Promise((resolve, reject) => {
-                    // eslint-disable-next-line no-undef
-                    if (process.env.NODE_ENV === 'production') {
-                        url = `website-data-api/${url}.json`;
-                    }
-                    axios.get(url, {
-                        query: params
-                    }).then(res => {
-                        resolve(res.data);
-                    }).catch(error => {
-                        reject(error);
-                    });
-                });
-            }
-        };
-    },
-    mounted: function() {
-
-    },
-    beforeDestroy: function() {
-
-    },
-    methods: {
-        handleConfigChange(e) {
-            let config;
-            try {
-                config = JSON.parse(e.target.value || '') || [];
-            } catch (error) {
-                this.$Message('配置信息不是一个合法的json数据');
-            }
-            this.config = config;
-        }
+    components: {
+        appHeader
     }
 };
 </script>
-<style lang="less" scoped>
-    .container {
-        padding: 10px;
-        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+<style lang="less">
+.page-home {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: url('./assets/cool-background.svg') no-repeat;
+    background-size: cover;
+    font-family: Avenir,-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei','Helvetica Neue',Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol',sans-serif;
+
+    .ivu-layout-header {
+        background: none;
     }
+    .ivu-menu-dark {
+        background: none;
+    }
+
+    .layout-nav {
+        a {
+            color: #f8f8f8;
+        }
+        .ivu-menu-item {
+            color: #f7dada;
+        }
+        .ivu-menu-submenu-title {
+            color: #f8f8f8;
+        }
+        .ivu-select-dropdown {
+            background-color: blue
+        }
+
+        .ivu-menu-submenu .ivu-select-dropdown .ivu-menu-item:hover {
+            background-color: blue;
+            a {
+                color: rgb(65, 140, 255);
+            }
+        }
+
+    }
+
+
+    &-container {
+        position: relative;
+        height: 100%;
+        &-content {
+            position: absolute;
+            top: 10%;
+            left: 10%;
+
+            &-title {
+                color: #314659;
+                margin: 8px 0 58px;
+                font-weight: 500;
+                font-size: 68px;
+            }
+
+            &-desc {
+                margin: 8px 0 58px;
+                color: #314659;
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 40px;
+            }
+
+            &-actions {
+                margin-top: 20px;
+
+                .ivu-btn {
+                    margin-right: 20px;
+                    width: 100px;
+                }
+            }
+        }
+    }
+}
 </style>

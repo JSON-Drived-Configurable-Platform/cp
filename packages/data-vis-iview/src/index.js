@@ -1,5 +1,6 @@
 import DataVis from './dataVis';
-import DataVisItem from './dataVisItem';
+import DataVisGroup from './dataVisGroup';
+import DataVisItem from './DataVisItem';
 
 const install = function(Vue, installOptions = null) {
     if (install.installed) return;
@@ -7,6 +8,7 @@ const install = function(Vue, installOptions = null) {
         Vue.prototype.DataVisInstallOptions = installOptions;
     }
     Vue.component('DataVis', DataVis);
+    Vue.component('DataVisGroup', DataVisGroup);
     Vue.component('DataVisItem', DataVisItem);
 };
 

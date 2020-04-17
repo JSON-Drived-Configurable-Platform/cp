@@ -59,10 +59,6 @@ export default {
         }
     },
     mounted () {
-        if (typeof this.chart.dataset === 'string') {
-            this.chart['api'] = this.chart.dataset;
-            this.getData();
-        }
         this.render();
         this.$watch('chart', () => {
             this.render();
@@ -109,6 +105,10 @@ export default {
                             item.tooltip = {
                                 trigger: 'item'
                             };
+                            item.label = {
+                                position: 'inner',
+                                formatter: '{b}\n {d}'
+                            };
                         }
                         return item;
                     }
@@ -124,6 +124,7 @@ export default {
             if (chart.yAxis) {
                 option.yAxis = chart.yAxis || {};
             }
+
             this.dom && this.dom.setOption(option);
             on(window, 'resize', this.resize);
         }

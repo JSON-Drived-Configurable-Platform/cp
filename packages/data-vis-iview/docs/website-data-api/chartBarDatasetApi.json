@@ -1,0 +1,35 @@
+{
+    "status": 0,
+    "data": {
+        "source": [
+            {
+                "date": "Mon",
+                "data": 120
+            },
+            {
+                "date": "Tue",
+                "data": 200
+            },
+            {
+                "date": "Wed",
+                "data": 150
+            },
+            {
+                "date": "Thu",
+                "data": 80
+            },
+            {
+                "date": "Fri",
+                "data": 70
+            },
+            {
+                "date": "Sat",
+                "data": 110
+            },
+            {
+                "date": "Sun",
+                "data": 130
+            }
+        ]
+    }
+}

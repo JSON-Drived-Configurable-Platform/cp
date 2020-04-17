@@ -1,7 +1,7 @@
 <template>
     <div class="layout-container">
         <Layout>
-            <appHeader />
+            <appHeader :title="title" />
             <Layout class="layout-body ivu-layout-has-sider">
                 <appSlider
                     :open-names="openNames"
@@ -36,6 +36,9 @@ export default {
     },
 
     computed: {
+        title() {
+            return config.title || [];
+        },
         openNames() {
             return config.defaultOpenNames || [];
         },

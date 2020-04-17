@@ -26,7 +26,7 @@ export default {
      */
     homeName: 'home',
 
-    defaultOpenNames: ['/doc', '/examples', '/config-guide'],
+    defaultOpenNames: ['/components', '/examples', '/main-components', '/config-guide', '/config-guide/chart', '/config-guide/table'],
 
     menuList: [
         // {
@@ -34,68 +34,112 @@ export default {
         //     name: '/home'
         // },
         {
-            label: 'Intro',
+            label: '简介',
             name: '/intro'
         },
-        // {
-        //     label: 'Practice && Thoughts',
-        //     name: '/practice'
-        // },
         {
-            label: 'Main Component',
-            name: '/doc',
+            label: 'Practice && Thoughts',
+            name: '/practice'
+        },
+        {
+            label: '主要组件',
+            name: '/main-components',
             submenu: [
                 {
-                    label: 'DataVis',
-                    name: '/doc/DataVis'
+                    label: 'DataVisItem',
+                    name: '/main-components/DataVisItem'
                 },
                 {
-                    label: 'DataVisItem',
-                    name: '/doc/DataVisItem'
+                    label: 'DataVisGroup',
+                    name: '/main-components/DataVisGroup'
+                },
+                {
+                    label: 'DataVis',
+                    name: '/main-components/DataVis'
                 }
             ]
         },
         {
-            label: 'Config Guide',
+            label: '配置文档',
             name: '/config-guide',
             submenu: [
                 {
-                    label: 'Chart Line',
-                    name: '/doc/chartLine'
+                    label: '图表',
+                    name: '/config-guide/chart',
+                    submenu: [
+                        {
+                            label: '总述',
+                            name: '/config-guide/chart'
+                        },
+                        {
+                            label: '折线图',
+                            name: '/config-guide/chart/chartLine'
+                        },
+                        {
+                            label: '柱状图',
+                            name: '/config-guide/chart/chartBar'
+                        },
+                        {
+                            label: '饼图',
+                            name: '/config-guide/chart/chartPie'
+                        },
+                        {
+                            label: '漏斗图',
+                            name: '/config-guide/chart/chartFunnel'
+                        },
+                        // {
+                        //     label: '液体球',
+                        //     name: '/config-guide/chart/chartLiquidFill'
+                        // }
+                        // {
+                        //     label: 'Dataset',
+                        //     name: '/config-guide/chart/chartDataset'
+                        // },
+                        // {
+                        //     label: 'Custom',
+                        //     name: '/config-guide/chart/chartCustom'
+                        // }
+                    ],
+                },
+                {
+                    label: '表格',
+                    name: '/config-guide/table',
+                    submenu: [
+                        {
+                            label: '总述',
+                            name: '/config-guide/table'
+                        },
+                        {
+                            label: '数据表',
+                            name: '/config-guide/table/tableData'
+                        },
+                        {
+                            label: '留存表',
+                            name: '/config-guide/table/tableRetain'
+                        },
+                    ]
+                },
+                {
+                    label: '卡片',
+                    name: '/config-guide/card'
                 }
-                // {
-                //     label: 'Chart Bar',
-                //     name: '/doc/charBar'
-                // },
-                // {
-                //     label: 'Chart Pie',
-                //     name: '/doc/charPie'
-                // },
-                // {
-                //     label: 'Chart Funnel',
-                //     name: '/doc/charFunnel'
-                // },
-                // {
-                //     label: 'Table Data',
-                //     name: '/doc/tableData'
-                // },
-                // {
-                //     label: 'Table Retain',
-                //     name: '/doc/tableRetain'
-                // },
-                // {
-                //     label: 'Card',
-                //     name: '/doc/Card'
-                // }
             ]
         },
         {
-            label: 'Websites',
+            label: '用例',
             name: '/examples',
             submenu: [
                 {
-                    label: 'Simple',
-                    name: '/simple'
+                    label: '数据报表',
+                    name: '/examples/data-report'
+                },
+                {
+                    label: '数据监控',
+                    name: '/examples/monitor'
+                },
+                {
+                    label: '大屏数据',
+                    name: '/examples/big-screen-data'
                 }
             ]
         },

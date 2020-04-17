@@ -8,7 +8,7 @@
         <div :class="firstSecondBoxClasses">
             <div :class="[firstContentClasses, getColorClasses(first)]">
                 <h4 :class="firstLabelClasses">
-                    {{ first.label }}
+                    {{ first.label }}:
                 </h4>
                 <span :class="firstValueClasses">
                     {{ first.value | dataFormat }}
@@ -30,7 +30,7 @@
                 :key="index"
                 :class="othersItemClasses"
             >
-                <span :class="othersItemLabelClasses">{{ item.label }}&nbsp;</span>
+                <span :class="othersItemLabelClasses">{{ item.label }}:&nbsp;</span>
                 <span :class="othersItemContentClasses">
                     {{ item.value | dataFormat }}
                     <i

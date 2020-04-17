@@ -20,7 +20,7 @@ export default {
     watch: {
         params: {
             handler: function (val) {
-                if (this.chart.api) {
+                if (this.api) {
                     this.getData(Object.assign({}, val));
                 }
             },
@@ -29,8 +29,11 @@ export default {
         }
     },
     computed: {
+        api() {
+            return this.chart.api || (typeof this.chart.dataset === 'string' && this.chart.dataset);
+        },
         params() {
-            if (!this.chart.api) {
+            if (!this.api) {
                 return {};
             }
             let params = {};
@@ -68,7 +71,7 @@ export default {
             this.dom && this.dom.clear();
             let finalParams = Object.assign({}, params);
             let apiBase = this.apiBase || '';
-            let url = apiBase + this.chart.api;
+            let url = apiBase + this.api;
             this.requestMethod(url, finalParams).then(res => {
                 this.requestResolve(res);
             }, reject => {

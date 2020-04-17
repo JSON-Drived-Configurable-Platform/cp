@@ -19,13 +19,34 @@
                     <template slot="title">
                         {{ menu.label }}
                     </template>
-                    <MenuItem
+                    <template
                         v-for="(item, j) in menu.submenu"
-                        :key="j"
                         :name="item.name"
                     >
-                        {{ item.label }}
-                    </MenuItem>
+                        <Submenu
+                            v-if="item.submenu"
+                            :key="j"
+                            :name="item.name"
+                        >
+                            <template slot="title">
+                                {{ item.label }}
+                            </template>
+                            <MenuItem
+                                v-for="(subItem, k) in item.submenu"
+                                :key="k"
+                                :name="subItem.name"
+                            >
+                                {{ subItem.label }}
+                            </MenuItem>
+                        </Submenu>
+                        <MenuItem
+                            v-else
+                            :key="j"
+                            :name="item.name"
+                        >
+                            {{ item.label }}
+                        </MenuItem>
+                    </template>
                 </Submenu>
                 <MenuItem
                     v-else

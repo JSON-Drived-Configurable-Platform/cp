@@ -2,6 +2,7 @@ const simple = {};
 
 const charts = [
     {
+        type: 'dataset',
         label: '折线图',
         xAxis: {type: 'category'},
         yAxis: {},
@@ -14,6 +15,7 @@ const charts = [
 
 const multipleCharts = [
     {
+        type: 'dataset',
         label: '折线图-多条',
         dataset: [
             {
@@ -83,7 +85,7 @@ simple.chartsCode = `
 const charts = ${JSON.stringify(charts, null, 4)};
 
 <template>
-    <DataVisItem
+    <DataVisGroup
         :charts='charts'
     />
 </template>
@@ -102,7 +104,7 @@ simple.multipleChartsCode = `
 const charts = ${JSON.stringify(multipleCharts, null, 4)};
 
 <template>
-    <DataVisItem
+    <DataVisGroup
         :charts='multipleCharts'
     />
 </template>
@@ -121,7 +123,7 @@ simple.MultiaxialCode = `
 const charts = ${JSON.stringify(Multiaxial, null, 4)};
 
 <template>
-    <DataVisItem
+    <DataVisGroup
         :charts='Multiaxial'
     />
 </template>
