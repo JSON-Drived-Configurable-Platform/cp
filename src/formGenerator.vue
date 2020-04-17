@@ -48,8 +48,8 @@
                     @on-checkboxCard-click="handelCheckboxCardClick"
                     @on-list-item-click="handelListItemClick"
                     @on-label-tip-click="handelLabelTipClick"
-                    @on-label-tip-hoverIn="handelHoverInClick"
-                    @on-label-tip-hoverOut="handelHoverOutClick"
+                    @on-label-tip-mouseIn="handelMouseInClick"
+                    @on-label-tip-mouseOut="handelMouseOutClick"
                 />
             </div>
 
@@ -414,16 +414,16 @@ export default {
             this.$emit('on-list-item-click', value);
         },
 
-        handelLabelTipClick(field) {
-            this.$emit('on-label-tip-click', field);
+        handelLabelTipClick({field}) {
+            this.$emit('on-label-tip-click', {field});
         },
 
-        handelHoverInClick(field) {
-            this.$emit('on-label-tip-hoverIn', field);
+        handelMouseInClick({field}) {
+            this.$emit('on-label-tip-mouseIn', {field});
         },
 
-        handelHoverOutClick(field) {
-            this.$emit('on-label-tip-hoverOut', field);
+        handelMouseOutClick({field}) {
+            this.$emit('on-label-tip-mouseOut', {field});
         },
 
         handleExtraBtnClick() {

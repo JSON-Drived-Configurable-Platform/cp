@@ -210,12 +210,12 @@ export default {
             });
         },
         handleIconMouseEnter() {
-            this.$emit('on-label-tip-hoverIn', {
+            this.$emit('on-label-tip-mouseIn', {
                 field: this.field
             });
         },
         handleIconMouseLeave() {
-            this.$emit('on-label-tip-hoverOut', {
+            this.$emit('on-label-tip-mouseOut', {
                 field: this.field
             });
         },

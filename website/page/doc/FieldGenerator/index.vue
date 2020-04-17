@@ -176,12 +176,12 @@
                             <td>($event) $event.field（表单配置项）</td>
                         </tr>
                         <tr>
-                            <td>on-label-tip-hoverIn</td>
+                            <td>on-label-tip-mouseIn</td>
                             <td>icon移入触发</td>
                             <td>($event) $event.field（表单配置项）</td>
                         </tr>
                         <tr>
-                            <td>on-label-tip-hoverOut</td>
+                            <td>on-label-tip-mouseOut</td>
                             <td>icon移出触发</td>
                             <td>($event) $event.field（表单配置项）</td>
                         </tr>

@@ -292,8 +292,8 @@
                         :model="code.labelIcon.data.model"
                         :options="code.labelIcon.data.options"
                         @on-label-tip-click="handleLabelEvent"
-                        @on-label-tip-hoverIn="handleMouseEnterEvent"
-                        @on-label-tip-hoverOut="handleMouseLeaveEvent"
+                        @on-label-tip-mouseIn="handleMouseEnterEvent"
+                        @on-label-tip-mouseOut="handleMouseLeaveEvent"
                     />
                 </div>
                 <div slot="desc">
@@ -339,8 +339,10 @@ export default {
                 field.labelTip.content.ifShow = false;
             }
         },
-        handleLabelEvent() {
-            window.open('https://www.baidu.com');
+        handleLabelEvent({field}) {
+            if (field.model === 'link') {
+                window.open('https://www.baidu.com');
+            }
         }
     }
 };

@@ -12,8 +12,8 @@
                     :params-container="paramsContainer"
                     @on-button-event="handleButtonEvent"
                     @on-label-tip-click="handleLabelEvent"
-                    @on-label-tip-hoverIn="handleMouseEnterEvent"
-                    @on-label-tip-hoverOut="handleMouseLeaveEvent"
+                    @on-label-tip-mouseIn="handleMouseEnterEvent"
+                    @on-label-tip-mouseOut="handleMouseLeaveEvent"
                 />
             </div>
         </Row>

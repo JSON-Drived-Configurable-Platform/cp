@@ -764,8 +764,10 @@ export default {
                 field.labelTip.content.ifShow = false;
             }
         },
-        handleLabelEvent() {
-            window.open('https://www.baidu.com');
+        handleLabelEvent({field}) {
+            if (field.model === 'link') {
+                window.open('https://www.baidu.com');
+            }
         }
     }
 };
@@ -775,8 +777,8 @@ export default {
         :fields="fields"
         :model="model"
         :options="options",
-        @on-label-tip-hoverIn="handleMouseEnterEvent"
-        @on-label-tip-hoverOut="handleMouseLeaveEvent"
+        @on-label-tip-mouseIn="handleMouseEnterEvent"
+        @on-label-tip-mouseOut="handleMouseLeaveEvent"
         @on-label-tip-click="handleLabelEvent"
     />
 </template>
