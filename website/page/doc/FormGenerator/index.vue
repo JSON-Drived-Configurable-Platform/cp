@@ -363,8 +363,8 @@ export default {
     left: 0;
     z-index: 2;
     img {
-        width: 41.4px;
-        height: 38.7px;
+        width: 138px;
+        height: 129px;
     }
 }
 .ruleWrap {
