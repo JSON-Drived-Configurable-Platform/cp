@@ -148,6 +148,7 @@
         ifShow: false
     }
 }
+<router-link to="/doc/FormGenerator">查看示例>></router-link>
                                 </pre>
                             </td>
                             <td>Object</td>
