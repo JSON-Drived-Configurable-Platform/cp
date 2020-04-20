@@ -846,7 +846,7 @@ export const fields = [
     {
         type: 'Slider',
         label: '滑动条',
-        model: 'slider.abc',
+        model: 'slider.abc'
     },
     {
         type: 'Steps',
@@ -875,8 +875,10 @@ export const fields = [
     },
     {
         type: 'Text',
-        model: 'date',
-        showAll: true
+        model: 'inputMultiple.abc',
+        options: [{'label':'张三','value':'zhangsan'},{'label':'王五','value':'wangwu'}],
+        nullValue: '空'
+        // showAll: true
     },
     {
         type: 'Submit',
@@ -977,10 +979,7 @@ export const model = {
         }
     }},
     inputMultiple: {
-        abc: [
-            'a',
-            'b'
-        ]
+        abc: 'wangwu1'
     },
     inputForbidden: '',
     textarea: '',
