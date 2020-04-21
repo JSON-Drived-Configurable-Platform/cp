@@ -25,6 +25,18 @@
                     </tbody>
                 </table>
             </div>
+            <Demo title="核心数据展示" vertical>
+                <div slot="demo">
+                    <DataVisGroup
+                        display="inline"
+                        :charts="code.simple.data.charts"
+                    />
+                </div>
+                <div slot="desc">
+                    <p>通过设置<code>charts</code>即可生成一个一系列可视化图表。</p>
+                </div>
+                <i-code slot="code" lang="html">{{ code.simple.code }}</i-code>
+            </Demo>
         </article>
     </i-article>
 </template>
@@ -34,7 +46,7 @@ import iArticle from 'website/components/article';
 import inAnchor from 'website/components/anchor';
 import iCode from 'website/components/code';
 import Demo from 'website/components/Demo';
-import Code from 'website/code/doc/chart-line';
+import Code from 'website/code/config-guide/card/index';
 
 export default {
     components: {

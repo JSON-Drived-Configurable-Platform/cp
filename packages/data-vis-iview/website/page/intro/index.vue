@@ -2,7 +2,7 @@
     <i-article>
         <article>
             <h1>关于 DataVisIView</h1>
-            <p>DataVisIView 是一套基于 iView UI 和Echarts的开源的图表生成工具，可以很方便的基于Json配置生成可视化图表，主要服务于 PC 界面的中后台产品。</p>
+            <p>DataVisIView 是一套基于 iView UI 和Echarts的开源的图表生成工具，可以很方便的基于Json配置生成可视化图表，主要服务于 PC 界面的中后台产品，例如可视化报表、数据监控页面的开发。</p>
             <inAnchor
                 title="特性"
                 h2

@@ -3,7 +3,7 @@
         <article>
             <h1>表格总述</h1>
             <inAnchor title="概述" h2 />
-            <inAnchor title="类型二：基于iView table组件的表格和留存图" h3 />
+            <inAnchor title="基于iView table组件的表格和留存图" h3 />
             <div class="api">
                 <table>
                     <thead>
@@ -60,6 +60,30 @@
                     </tbody>
                 </table>
             </div>
+            <Demo title="数据表格基本用法" vertical>
+                <div slot="demo">
+                    <DataVisItem
+                        :chart="code.simple.data.chart"
+                        @on-field-change="handleFieldChange"
+                    />
+                </div>
+                <div slot="desc">
+                    <p>通过设置<code>chart</code>，即可渲染一个图表。</p>
+                </div>
+                <i-code slot="code">{{ code.simple.code }}</i-code>
+            </Demo>
+            <Demo title="留存表格基本用法" vertical>
+                <div slot="demo">
+                    <DataVisItem
+                        :chart="code.simpleRetain.data.chart"
+                        @on-field-change="handleFieldChange"
+                    />
+                </div>
+                <div slot="desc">
+                    <p>通过设置<code>chart</code>，即可渲染一个图表。</p>
+                </div>
+                <i-code slot="code">{{ code.simpleRetain.code }}</i-code>
+            </Demo>
         </article>
     </i-article>
 </template>
@@ -69,7 +93,7 @@ import iArticle from 'website/components/article';
 import inAnchor from 'website/components/anchor';
 import iCode from 'website/components/code';
 import Demo from 'website/components/Demo';
-import Code from 'website/code/doc/chart-line';
+import Code from 'website/code/config-guide/table/index';
 
 export default {
     components: {

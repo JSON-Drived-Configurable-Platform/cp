@@ -82,9 +82,9 @@ export default {
         display: flex;
         flex-direction: row;
         &-right {
-            padding: 10px;
+            // padding: 10px;
             &-content {
-                padding: 10px;
+                // padding: 10px;
                 min-height: 700px;
                 background: #fff;
             }

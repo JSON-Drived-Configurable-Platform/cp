@@ -69,6 +69,30 @@ const config = {
                                 'showChange': true
                             }
                         ],
+                    },
+                    {
+                        'type': 'card',
+                        'label':  '年活跃',
+                        'data':  [
+                            {
+                                'label': '活跃用户数',
+                                'value': 22246150,
+                                'unit': '人',
+                                'showChange': false
+                            },
+                            {
+                                'label': '日环比',
+                                'value': -4.88,
+                                'unit': '%',
+                                'showChange': true
+                            },
+                            {
+                                'label': '周同比',
+                                'value': -1.36,
+                                'unit': '%',
+                                'showChange': true
+                            }
+                        ],
                     }
                 ]
             }
@@ -77,93 +101,96 @@ const config = {
             {
                 charts: [
                     {
-                        'tip': {
-                            title: '标题1',
-                            content: '内容1'
-                        },
-                        'label':'地域分布',
-                        'type':'pie',
-                        'data': [
-                            {value:335, name:'直接访问'},
-                            {value:310, name:'邮件营销'},
-                            {value:274, name:'联盟广告'},
-                            {value:235, name:'视频广告'},
-                            {value:400, name:'搜索引擎'}
-                        ]
+                        type: 'dataset',
+                        label: '折线图-多条',
+                        dataset: [
+                            {
+                                source: [
+                                    {date: 'Mon', sells: 120, score: 60},
+                                    {date: 'Tue', sells: 200, score: 70},
+                                    {date: 'Wed', sells: 150, score: 80},
+                                    {date: 'Thu', sells: 80, score: 90},
+                                    {date: 'Fri', sells: 70, score: 100},
+                                    {date: 'Sat', sells: 110, score: 110},
+                                    {date: 'Sun', sells: 130, score: 120},
+                                ]
+                            }
+                        ],
+                        series: [
+                            {name: '销量', type: 'line'},
+                            {name: '得分', type: 'line'}
+                        ],
+                        xAxis: {type: 'category'},
+                        yAxis: {},
                     },
                     {
-                        'label':'新增用户',
-                        'type':'bar',
-                        'columns': ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-                        'data': [120, 200, 150, 80, 70, 110, 130]
-                    },
-                    {
-                        'label':'新增用户-水平',
-                        'type':'bar',
-                        'direction': 'horizontal',
-                        'columns': ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-                        'data': [120, 200, 150, 80, 70, 110, 130]
+                        type: 'dataset',
+                        label: '折线图-多条',
+                        dataset: [
+                            {
+                                source: [
+                                    {date: 'Mon', sells: 120, score: 60},
+                                    {date: 'Tue', sells: 200, score: 70},
+                                    {date: 'Wed', sells: 150, score: 80},
+                                    {date: 'Thu', sells: 80, score: 90},
+                                    {date: 'Fri', sells: 70, score: 100},
+                                    {date: 'Sat', sells: 110, score: 110},
+                                    {date: 'Sun', sells: 130, score: 120},
+                                ]
+                            }
+                        ],
+                        series: [
+                            {name: '销量', type: 'line'},
+                            {name: '得分', type: 'line'}
+                        ],
+                        xAxis: {type: 'category'},
+                        yAxis: {},
                     }
                 ]
             },
             {
                 charts: [
                     {
-                        'label': '趋势图',
-                        'type': 'line',
-                        'dataZoom': true,
-                        'columns': [
-                            ['2015-1', '2015-2', '2015-3', '2015-4', '2015-5', '2015-6', '2015-7', '2015-8', '2015-9', '2015-10', '2015-11'],
-                            ['2016-1', '2016-2', '2016-3', '2016-4', '2016-5', '2016-6', '2016-7', '2016-8', '2016-9', '2016-10', '2016-11', '2016-12']
-                        ],
-                        'data': [
-                            {
-                                name:'2015 邮件营销',
-                                groupName: '邮件营销',
-                                xAxisIndex: 0,
-                                data:[120, 132, 101, 134, 90, 230, 210, 101, 134]
-                            },
-                            {
-                                name:'2016 邮件营销',
-                                groupName: '邮件营销',
-                                xAxisIndex: 1,
-                                data:[150, 122, 121, 164, 100, 200, 200, 141, 134, 90, 230, 210]
-                            },
-                            {
-                                name:'2015 联盟广告',
-                                groupName: '联盟广告',
-                                xAxisIndex: 0,
-                                data:[220, 182, 191, 234, 290, 330, 310, 101, 134, 90, 230]
-                            },
-                            {
-                                name:'2016 联盟广告',
-                                groupName: '联盟广告',
-                                xAxisIndex: 1,
-                                data:[20, 82, 91, 34, 90, 30, 10, 1, 34, 90, 30, 10]
-                            }
-                        ]
-                    },
-                    {
-                        'tip': {
-                            title: '标题2',
-                            content: '内容2'
+                        type: 'dataset',
+                        label:'柱状图',
+                        xAxis: {type: 'category'},
+                        yAxis: {},
+                        dataset: {
+                            source: [
+                                {date: 'Mon', data: 120},
+                                {date: 'Tue', data: 200},
+                                {date: 'Wed', data: 150},
+                                {date: 'Thu', data: 80},
+                                {date: 'Fri', data: 70},
+                                {date: 'Sat', data: 110},
+                                {date: 'Sun', data: 130},
+                            ]
                         },
-                        'label':'柱状图api2',
-                        'type':'bar',
-                        'api': '/chartBarApi'
+                        series: [
+                            {type: 'bar'}
+                        ]
                     },
                     {
-                        'label':'用户转化',
-                        'type':'funnel',
-                        'columns':  ['展现','点击','访问','咨询','订单'],
-                        'data': [
-                            {value: 54, name: '访问'},
-                            {value: 12, name: '咨询'},
-                            {value: 5, name: '订单'},
-                            {value: 83, name: '点击'},
-                            {value: 100, name: '展现'}
-                        ]
-                    }
+                        type: 'dataset',
+                        label:'同一组数据多条线',
+                        xAxis: {type: 'category'},
+                        yAxis: {},
+                        dataset: {
+                            source: [
+                                {date: 'Mon', sells: 120, score: 60},
+                                {date: 'Tue', sells: 200, score: 70},
+                                {date: 'Wed', sells: 150, score: 80},
+                                {date: 'Thu', sells: 80, score: 90},
+                                {date: 'Fri', sells: 70, score: 100},
+                                {date: 'Sat', sells: 110, score: 110},
+                                {date: 'Sun', sells: 130, score: 120},
+                            ]
+                        },
+                        series: [
+                            {name: '销量', type: 'bar'},
+                            {name: '得分', type: 'bar'}
+                        ],
+                    },
                 ]
             }
         ],

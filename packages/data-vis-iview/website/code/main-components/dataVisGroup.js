@@ -536,6 +536,30 @@ const inlineCharts = [
         ],
     },
     {
+        'type': 'card',
+        'label':  '年活跃',
+        'data':  [
+            {
+                'label': '活跃用户数',
+                'value': 22246150,
+                'unit': '人',
+                'showChange': false
+            },
+            {
+                'label': '日环比',
+                'value': -4.88,
+                'unit': '%',
+                'showChange': true
+            },
+            {
+                'label': '周同比',
+                'value': -1.36,
+                'unit': '%',
+                'showChange': true
+            }
+        ],
+    },
+    {
         type: 'dataset',
         label:'柱状图-水平',
         xAxis: {},
@@ -569,6 +593,27 @@ const inlineCharts = [
         series: [
             {type: 'funnel'}
         ]
+    },
+    {
+        type: 'dataset',
+        label:'画多条线',
+        xAxis: {type: 'category'},
+        yAxis: {},
+        dataset: {
+            source: [
+                {date: 'Mon', sells: 120, score: 60},
+                {date: 'Tue', sells: 200, score: 70},
+                {date: 'Wed', sells: 150, score: 80},
+                {date: 'Thu', sells: 80, score: 90},
+                {date: 'Fri', sells: 70, score: 100},
+                {date: 'Sat', sells: 110, score: 110},
+                {date: 'Sun', sells: 130, score: 120},
+            ]
+        },
+        series: [
+            {name: '销量', type: 'line'},
+            {name: '得分', type: 'line'}
+        ],
     }
 ];
 

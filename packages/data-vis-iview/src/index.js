@@ -1,6 +1,6 @@
 import DataVis from './dataVis';
 import DataVisGroup from './dataVisGroup';
-import DataVisItem from './DataVisItem';
+import DataVisItem from './dataVisItem';
 
 const install = function(Vue, installOptions = null) {
     if (install.installed) return;

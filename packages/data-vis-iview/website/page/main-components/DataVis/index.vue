@@ -6,7 +6,7 @@
             <p>
                 通过 json 配置，快速生成一个数据报表页面，可以支持<strong>数据概览卡片</strong>、<strong>可视化图表</strong>、<strong>数据表格和留存表格</strong>。
             </p>
-            <alert><strong>如果你希望自己控制布局，可以直接使用 DataVisGroup。</strong></alert>
+            <alert><strong>如果你希望更灵活的控制图表的布局，可以直接使用<code>DataVisGroup</code>和<code>DataVisItem</code></strong></alert>
             <div class="api">
                 <inAnchor title="配置快速查询" h2 />
                 <inAnchor title="核心配置" h3 />
@@ -81,7 +81,7 @@ import iArticle from '../../../components/article';
 import inAnchor from '../../../components/anchor';
 import iCode from '../../../components/code';
 import Demo from '../../../components/Demo';
-import Code from '../../../code/doc/dataVis';
+import Code from '../../../code/main-components/dataVis';
 
 export default {
     components: {

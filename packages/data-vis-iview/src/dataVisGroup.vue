@@ -83,7 +83,7 @@
 import {classPrifix} from './utils/const';
 import DataVisItem from './dataVisItem.vue';
 export default {
-    name: 'ChartItem',
+    name: 'DataVisGroup',
     components: {
         DataVisItem
     },

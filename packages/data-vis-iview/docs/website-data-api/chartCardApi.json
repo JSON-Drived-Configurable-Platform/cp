@@ -30,12 +30,6 @@
             "value": "8888888",
             "unit": "人",
             "showChange": false
-        },
-        {
-            "label": "日环比",
-            "value": "3.95%",
-            "unit": "%",
-            "showChange": true
         }
     ]
 }

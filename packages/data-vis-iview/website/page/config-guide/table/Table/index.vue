@@ -72,7 +72,7 @@
                 </div>
                 <i-code slot="code">{{ code.simple.code }}</i-code>
             </Demo>
-            <!-- <Demo title="通过API获取表格数据" vertical>
+            <Demo title="通过API获取表格数据" vertical>
                 <div slot="demo">
                     <DataVisItem
                         :chart="code.api.data.chart"
@@ -83,7 +83,7 @@
                     <p>通过设置<code>chart</code>，即可渲染一个图表。</p>
                 </div>
                 <i-code slot="code">{{ code.api.code }}</i-code>
-            </Demo> -->
+            </Demo>
         </article>
     </i-article>
 </template>
@@ -93,7 +93,7 @@ import iArticle from 'website/components/article';
 import inAnchor from 'website/components/anchor';
 import iCode from 'website/components/code';
 import Demo from 'website/components/Demo';
-import Code from 'website/code/config-guide/table/retain';
+import Code from 'website/code/config-guide/table/table';
 
 export default {
     components: {

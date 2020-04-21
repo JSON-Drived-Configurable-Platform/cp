@@ -3,7 +3,11 @@
         <article>
             <h1>DataVisGroup</h1>
             <inAnchor title="概述" h2 />
-            <p>用于生成一组图表，可以包含多个图，这些图默认以Tab的形式组合起来，也可以设置display: 'inline'使其平铺开来。</p>
+            <p>用于生成一组图表，可以包含多个图，主要有两个功能：</p>
+            <ul>
+                <li>(1)、控制一组图的展现形式，该组件默认以Tab的形式将多个图组合起来，也可以设置<code>display:'inline'</code>使其平铺开来。</li>
+                <li>(2)、配置查询条件，可以通过设置<code>conditions</code>，来为改组图设置查询条件；</li>
+            </ul>
             <div class="api">
                 <inAnchor title="通用配置" h2 />
                 <table>
@@ -23,7 +27,7 @@
                             <td>不可为空，charts是一些列图的配置的集合。</td>
                         </tr>
                         <tr>
-                            <td>dispaly</td>
+                            <td>display</td>
                             <td>展示方式,可以为tab或者inline</td>
                             <td>string</td>
                             <td>tab</td>

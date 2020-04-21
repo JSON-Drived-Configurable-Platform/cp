@@ -22,10 +22,12 @@
 
 import echarts from 'echarts';
 import chartTheme from './theme.json';
+import chinaJson from 'echarts/map/json/china.json';
 import { on, off } from '../utils/utils';
 import dataGetter from '../mixins/dataGetter';
 import {classPrifix} from '../utils/const';
 echarts.registerTheme('chartTheme', chartTheme);
+echarts.registerMap('china', chinaJson);
 
 export default {
     name: 'ChartDataset',
@@ -91,7 +93,7 @@ export default {
                         saveAsImage: {}
                     }
                 },
-                legend: {},
+                legend: chart.legend !== undefined ? chart.legend : {},
                 tooltip : {
                     trigger: 'axis',
                 },
@@ -123,6 +125,11 @@ export default {
             // yAxis
             if (chart.yAxis) {
                 option.yAxis = chart.yAxis || {};
+            }
+
+            // visualMap
+            if (chart.visualMap) {
+                option.visualMap = chart.visualMap || {};
             }
 
             this.dom && this.dom.setOption(option);

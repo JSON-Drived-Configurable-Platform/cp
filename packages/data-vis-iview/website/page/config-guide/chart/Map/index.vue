@@ -1,10 +1,9 @@
 <template>
     <i-article>
         <article>
-            <h1>图表总述</h1>
-            <p>可视化基本图形，包含折线图、柱状图、饼图、漏斗图、液体球都是基于echart的dataset特性来实现的。</p>
-            <alert>本文仅列出了部分基础配置，详情参考echart官网：<a href="https://www.echartsjs.com/zh/tutorial.html#%E4%BD%BF%E7%94%A8%20dataset%20%E7%AE%A1%E7%90%86%E6%95%B0%E6%8D%AE">使用 dataset 管理数据</a></alert>
-            <!-- <p>由于echart仅对部分组件做了dataset支持，不支持dataset特性的图，可以使用custom来实现。</p> -->
+            <h1>饼图</h1>
+            <inAnchor title="概述" h2 />
+            <p>折线图是用折线将各个数据点标志连接起来的图表，用于展现数据的变化趋势。</p>
             <div class="api">
                 <table>
                     <thead>
@@ -67,15 +66,15 @@
 
 <script>
 import iArticle from 'website/components/article';
-// import inAnchor from 'website/components/anchor';
+import inAnchor from 'website/components/anchor';
 import iCode from 'website/components/code';
 import Demo from 'website/components/Demo';
-import Code from 'website/code/config-guide/chart/index';
+import Code from 'website/code/config-guide/chart/map';
 
 export default {
     components: {
         iArticle,
-        // inAnchor,
+        inAnchor,
         iCode,
         Demo
     },

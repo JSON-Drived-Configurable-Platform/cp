@@ -3,7 +3,7 @@ const simple = {};
 
 const chart = {
     type: 'dataset',
-    label:'dataset实现同一组数据多图绘制',
+    label:'折线图',
     xAxis: {type: 'category'},
     yAxis: {},
     dataset: {

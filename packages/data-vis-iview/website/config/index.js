@@ -87,6 +87,10 @@ export default {
                             label: '漏斗图',
                             name: '/config-guide/chart/chartFunnel'
                         },
+                        {
+                            label: '地图',
+                            name: '/config-guide/chart/chartMap'
+                        },
                         // {
                         //     label: '液体球',
                         //     name: '/config-guide/chart/chartLiquidFill'

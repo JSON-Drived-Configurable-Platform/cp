@@ -11,20 +11,19 @@
 <script>
 import iArticle from 'website/components/article';
 import inAnchor from 'website/components/anchor';
-import iCode from 'website/components/code';
-import Demo from 'website/components/Demo';
-import Code from 'website/code/doc/chart-line';
+// import iCode from 'website/components/code';
+// import Demo from 'website/components/Demo';
 
 export default {
     components: {
         iArticle,
         inAnchor,
-        iCode,
-        Demo
+        // iCode,
+        // Demo
     },
     data() {
         return {
-            code: Code
+            code: {}
         };
     },
     methods: {

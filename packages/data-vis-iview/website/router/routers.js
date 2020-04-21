@@ -7,7 +7,7 @@ import Main from '../components/main';
 
 import home from '../page/home';
 
-const intro = () => import(/* webpackChunkName: "start" */ '../page/intro');
+const intro = () => import(/* webpackChunkName: "intro" */ '../page/intro');
 const practice = () => import(/* webpackChunkName: "practice" */ '../page/practice');
 
 // main-components
@@ -24,19 +24,22 @@ const ChartBar = () => import(/* webpackChunkName: "ChartBar" */ '../page/config
 const ChartPie = () => import(/* webpackChunkName: "ChartPie" */ '../page/config-guide/chart/Pie');
 const ChartFunnel = () => import(/* webpackChunkName: "ChartFunnel" */ '../page/config-guide/chart/Funnel');
 const ChartLiquidFill = () => import(/* webpackChunkName: "ChartLiquidFill" */ '../page/config-guide/chart/LiquidFill');
-const ChartDataset = () => import(/* webpackChunkName: "ChartDataset" */ '../page/config-guide/chart/Dataset');
-const ChartCustom = () => import(/* webpackChunkName: "ChartCustom" */ '../page/config-guide/chart/Custom');
+const ChartMap = () => import(/* webpackChunkName: "ChartMap" */ '../page/config-guide/chart/Map');
+// const ChartDataset = () => import(/* webpackChunkName: "ChartDataset" */ '../page/config-guide/chart/Dataset');
+// const ChartCustom = () => import(/* webpackChunkName: "ChartCustom" */ '../page/config-guide/chart/Custom');
 
 // table
-const Table = () => import(/* webpackChunkName: "Chart" */ '../page/config-guide/table');
-const TableData = () => import(/* webpackChunkName: "ChartLine" */ '../page/config-guide/table/Data');
-const TableRetain = () => import(/* webpackChunkName: "ChartBar" */ '../page/config-guide/table/Retain');
+const Table = () => import(/* webpackChunkName: "Table" */ '../page/config-guide/table');
+const TableData = () => import(/* webpackChunkName: "TableData" */ '../page/config-guide/table/Table');
+const TableRetain = () => import(/* webpackChunkName: "TableRetain" */ '../page/config-guide/table/Retain');
 
 // card
 const Card = () => import(/* webpackChunkName: "Card" */ '../page/config-guide/card');
 
 // examples
-// const simple = () => import(/* webpackChunkName: "simple" */ '../page/examples/simple');
+const dataReport = () => import(/* webpackChunkName: "dataReport" */ '../page/examples/data-report');
+const monitor = () => import(/* webpackChunkName: "monitor" */ '../page/examples/monitor');
+const bigScreen = () => import(/* webpackChunkName: "monitor" */ '../page/examples/big-screen');
 export default [
     {
         path: '/',
@@ -114,13 +117,21 @@ export default [
                 component: ChartLiquidFill
             },
             {
-                path: '/config-guide/chart/chartDataset',
-                component: ChartDataset
+                path: '/config-guide/chart/chartLiquidFill',
+                component: ChartLiquidFill
             },
             {
-                path: '/config-guide/chart/chartCustom',
-                component: ChartCustom
+                path: '/config-guide/chart/chartMap',
+                component: ChartMap
             },
+            // {
+            //     path: '/config-guide/chart/chartDataset',
+            //     component: ChartDataset
+            // },
+            // {
+            //     path: '/config-guide/chart/chartCustom',
+            //     component: ChartCustom
+            // },
             // table
             {
                 path: '/config-guide/table',
@@ -143,15 +154,21 @@ export default [
     },
     // example
     {
-        path: '/',
-        name: 'home',
-        redirect: '/home',
+        path: '/examples',
+        redirect: '/examples/data-report',
         component: Main,
         children: [
             {
-                path: '/simple',
-                name: 'examples-simple',
-                component: home
+                path: '/examples/data-report',
+                component: dataReport
+            },
+            {
+                path: '/examples/monitor',
+                component: monitor
+            },
+            {
+                path: '/examples/big-screen',
+                component: bigScreen
             }
         ]
     }

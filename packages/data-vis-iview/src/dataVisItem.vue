@@ -14,7 +14,7 @@
 import chartComponents from './utils/fieldsLoader.js';
 import {classPrifix} from './utils/const';
 export default {
-    name: 'ChartItem',
+    name: 'DataVisItem',
     components: {
         ...chartComponents
     },
