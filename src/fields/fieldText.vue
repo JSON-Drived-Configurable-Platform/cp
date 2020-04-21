@@ -4,6 +4,7 @@
 
 <script>
 import getOptions from '../mixins/getOptions';
+import {getValue} from '../utils/processValue';
 
 export default {
     inject: ['form'],
@@ -28,7 +29,10 @@ export default {
                 };
             }
             if (options.length > 0) {
-                let value = this.form.model[this.field.model];
+                let value = getValue({
+                    originModel: this.form.model,
+                    model: this.field.model
+                });
 
                 if (Array.isArray(value)) {
                     return options.filter(item => value.includes(item.value)).reduce((acc, cur, idx) => {
@@ -51,11 +55,11 @@ export default {
                 }
             }
             return {
-                label: this.form.model[this.field.model]
+                label: getValue({
+                    originModel: this.form.model,
+                    model: this.field.model
+                })
             };
-        },
-        optionsApi() {
-            return !Array.isArray(this.field.options) ? this.field.options : '';
         },
         computedOptions() {
             return this.options.length > 0 ? this.options : (Array.isArray(this.field.options) ? this.field.options : []);
@@ -65,7 +69,10 @@ export default {
             if (typeof nullValue === 'string') {
                 return nullValue;
             } else if (typeof nullValue === 'object' && !nullValue) {
-                return this.form.model[this.field.model];
+                return getValue({
+                    originModel: this.form.model,
+                    model: this.field.model
+                });
             } else {
                 return '-';
             }

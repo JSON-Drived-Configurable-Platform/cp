@@ -41,11 +41,15 @@
                     :request-interceptor="requestInterceptor"
                     :params-container="paramsContainer"
                     @on-field-change="handleFieldChange"
+                    @on-field-preview="handleFieldPreview"
                     @on-submit="handleSubmit($event)"
                     @on-reset="handleReset"
                     @on-button-event="handleButtonEvent($event)"
                     @on-checkboxCard-click="handelCheckboxCardClick"
                     @on-list-item-click="handelListItemClick"
+                    @on-label-tip-click="handelLabelTipClick"
+                    @on-label-tip-mouseIn="handelMouseInClick"
+                    @on-label-tip-mouseOut="handelMouseOutClick"
                 />
             </div>
 
@@ -324,11 +328,11 @@ export default {
         this.form.model = this.model;
     },
     methods: {
-        handleFieldChange({model, value}){
+        handleFieldChange({model, value, field}) {
             // 关联项需要清空
             let needResetFields = this.needResetFieldsOnChangeMap[model] || [];
-            needResetFields.forEach(field => {
-                this.resetField(field);
+            needResetFields.forEach(fieldItem => {
+                this.resetField(fieldItem);
             });
             setValue.call(this, {
                 originModel: this.form.model,
@@ -336,7 +340,10 @@ export default {
                 value
             });
             this.$refs.form.validateField(model);
-            this.$emit('on-field-change', model, value);
+            this.$emit('on-field-change', model, value, field);
+        },
+        handleFieldPreview({model, value, field}) {
+            this.$emit('on-field-preview', model, value, field);
         },
         handleSubmit($event) {
             this.$emit('on-submit', $event);
@@ -409,6 +416,18 @@ export default {
 
         handelListItemClick(value) {
             this.$emit('on-list-item-click', value);
+        },
+
+        handelLabelTipClick({field}) {
+            this.$emit('on-label-tip-click', {field});
+        },
+
+        handelMouseInClick({field}) {
+            this.$emit('on-label-tip-mouseIn', {field});
+        },
+
+        handelMouseOutClick({field}) {
+            this.$emit('on-label-tip-mouseOut', {field});
         },
 
         handleExtraBtnClick() {

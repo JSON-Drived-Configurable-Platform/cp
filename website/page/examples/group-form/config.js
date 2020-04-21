@@ -1,7 +1,7 @@
 export const fields = [
     {
         type: 'Divider',
-        label: '输入框',
+        // label: '输入框',
         orientation: 'left',
         dashed: true,
         size: 'small'
@@ -12,7 +12,17 @@ export const fields = [
         model: 'input',
         placeholder: '请输入用户名',
         required: true,
-        defaultHide: false
+        defaultHide: false,
+        labelTip: {
+            icon: {
+                name: 'ios-help-circle-outline',
+                size: 24
+            },
+            content: {
+                body: '<div class=\'example\'><span></span>What do you want others to call you?</div>',
+                ifShow: false
+            }
+        }
     },
     {
         type: 'Input',
@@ -37,7 +47,7 @@ export const fields = [
         label: '数值多行输入框',
         model: 'inputNumber',
         placeholder: '',
-        required: true,
+        required: true
         //defaultHide: true
     },
     {
@@ -666,10 +676,12 @@ export const fields = [
     {
         type: 'Upload',
         subtype: 'drag',
-        accept: 'image/gif, image/jpeg, image/png',
-        format: ['jpg','jpeg','png'],
+        accept: 'application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        format: ['doc', 'docx'],
         maxSize: 20000,
         action: '/uploadApi',
+        apiKey: 'url',
+
         multiple: false,
         paste: true,
         disabled: false,
@@ -793,6 +805,10 @@ export const model = {
     datetimerange: ['2019-04-22 00:00:00', '2019-05-30 00:00:00'],
     cascader: ['jiangsu', 'suzhou', 'shizilin', '1'],
     cascaderApi: ['jiangsu', 'suzhou', 'shizilin', '2'],
+    tableSelect: 1,
+    multipleTableSelect: [1, 2],
+    tree: ['2'],
+    multipleTree: ['1', '2', '10'],
     inputNumber: 7,
     logicInput: {
         logic: 'betweenIn',
@@ -806,7 +822,7 @@ export const model = {
         logic: 'betweenIn',
         value: ['1', '2']
     },
-    switch: false,
+    switch: true,
     upload: [
         {
             id: '13414214123412421341234',
