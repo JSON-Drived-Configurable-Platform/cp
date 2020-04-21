@@ -56,7 +56,7 @@ export default {
             return getValue({
                 originModel: this.form.model,
                 model: this.field.model
-            }) || '';
+            }) || [];
         }
     },
 
