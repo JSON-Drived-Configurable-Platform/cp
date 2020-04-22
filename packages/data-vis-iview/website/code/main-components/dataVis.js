@@ -101,7 +101,7 @@ const config = {
             {
                 charts: [
                     {
-                        type: 'dataset',
+                        type: 'echart',
                         label: '折线图-多条',
                         dataset: [
                             {
@@ -124,7 +124,7 @@ const config = {
                         yAxis: {},
                     },
                     {
-                        type: 'dataset',
+                        type: 'echart',
                         label: '折线图-多条',
                         dataset: [
                             {
@@ -151,7 +151,7 @@ const config = {
             {
                 charts: [
                     {
-                        type: 'dataset',
+                        type: 'echart',
                         label:'柱状图',
                         xAxis: {type: 'category'},
                         yAxis: {},
@@ -171,7 +171,7 @@ const config = {
                         ]
                     },
                     {
-                        type: 'dataset',
+                        type: 'echart',
                         label:'同一组数据多条线',
                         xAxis: {type: 'category'},
                         yAxis: {},

@@ -2,7 +2,7 @@
 const simple = {};
 
 const chart = {
-    type: 'dataset',
+    type: 'echart',
     label:'地图',
     dataset: {
         source: [

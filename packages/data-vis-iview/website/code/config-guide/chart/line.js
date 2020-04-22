@@ -2,8 +2,8 @@
 const simple = {};
 
 const chart = {
-    type: 'dataset',
-    label:'dataset实现同一组数据多图绘制',
+    type: 'echart',
+    label:'echart实现同一组数据多图绘制',
     xAxis: {type: 'category'},
     yAxis: {},
     dataset: {
@@ -49,7 +49,7 @@ export default {
 // multiple
 const multiple = {};
 const multipleChart = {
-    type: 'dataset',
+    type: 'echart',
     label:'画多条线',
     xAxis: {type: 'category'},
     yAxis: {},
@@ -97,7 +97,7 @@ export default {
 const multipleAxis = {};
 const multipleAxisChart = {
     label: '折线图-多轴',
-    type: 'dataset',
+    type: 'echart',
     dataset: [
         {
             source: [
@@ -123,8 +123,8 @@ const multipleAxisChart = {
         }
     ],
     series: [
-        {name: '第一周', type: 'line', datasetIndex: 0},
-        {name: '第二周', type: 'line', datasetIndex: 1, xAxisIndex:1,}
+        {name: '第一周', type: 'line', echartIndex: 0},
+        {name: '第二周', type: 'line', echartIndex: 1, xAxisIndex:1,}
     ],
     xAxis: [
         {type: 'category'},

@@ -2,8 +2,8 @@
 const simple = {};
 
 const chart = {
-    type: 'dataset',
-    label:'dataset实现同一组数据多图绘制',
+    type: 'echart',
+    label:'echart实现同一组数据多图绘制',
     dataset: {
         source: [
             {step: 'visit', 'per': 96},

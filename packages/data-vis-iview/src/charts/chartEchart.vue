@@ -53,7 +53,7 @@ export default {
         classes() {
             return [
                 `${classPrifix}-chart`,
-                `${classPrifix}-chart-dataset`
+                `${classPrifix}-chart-echart`
             ];
         },
         dataset() {

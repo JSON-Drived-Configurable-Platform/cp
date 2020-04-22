@@ -2,7 +2,7 @@ const simple = {};
 
 const charts = [
     {
-        type: 'dataset',
+        type: 'echart',
         label: '折线图-多轴',
         dataset: [
             {
@@ -39,7 +39,7 @@ const charts = [
         yAxis: {},
     },
     {
-        type: 'dataset',
+        type: 'echart',
         label:'柱状图-水平',
         xAxis: {},
         yAxis: {type: 'category'},
@@ -59,7 +59,7 @@ const charts = [
         ]
     },
     {
-        type: 'dataset',
+        type: 'echart',
         label:'漏斗',
         dataset: {
             source: [
@@ -77,7 +77,7 @@ const charts = [
         ]
     },
     {
-        type: 'dataset',
+        type: 'echart',
         label: '饼图',
         dataset: {
             source: [
@@ -560,7 +560,7 @@ const inlineCharts = [
         ],
     },
     {
-        type: 'dataset',
+        type: 'echart',
         label:'柱状图-水平',
         xAxis: {},
         yAxis: {type: 'category'},
@@ -580,7 +580,7 @@ const inlineCharts = [
         ]
     },
     {
-        type: 'dataset',
+        type: 'echart',
         label:'漏斗',
         dataset: {
             source: [
@@ -595,7 +595,7 @@ const inlineCharts = [
         ]
     },
     {
-        type: 'dataset',
+        type: 'echart',
         label:'画多条线',
         xAxis: {type: 'category'},
         yAxis: {},
@@ -647,7 +647,7 @@ export default {
 const search = {};
 const searchCharts = [
     {
-        type: 'dataset',
+        type: 'echart',
         label:'柱状图',
         xAxis: {},
         yAxis: {type: 'category'},
@@ -657,7 +657,7 @@ const searchCharts = [
         ]
     },
     {
-        type: 'dataset',
+        type: 'echart',
         label:'漏斗',
         dataset: '/chartFunnelDatasetApi',
         series: [
@@ -665,7 +665,7 @@ const searchCharts = [
         ]
     },
     {
-        type: 'dataset',
+        type: 'echart',
         label: '折线图',
         dataset: '/chartLineDatasetApi',
         series: [

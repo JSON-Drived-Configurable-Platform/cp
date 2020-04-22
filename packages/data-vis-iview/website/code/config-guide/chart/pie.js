@@ -2,8 +2,8 @@
 const simple = {};
 
 const chart = {
-    type: 'dataset',
-    label:'dataset实现同一组数据多图绘制',
+    type: 'echart',
+    label:'echart实现同一组数据多图绘制',
     dataset: {
         source: [
             {product: 'Latte', 'sells': 43.3},
@@ -44,7 +44,7 @@ export default {
 // multiple
 const multiple = {};
 const multipleChart = {
-    type: 'dataset',
+    type: 'echart',
     label:'画多条线',
     dataset: {
         dimensions: ['product', '2014', '2015', '2016', '2017'],

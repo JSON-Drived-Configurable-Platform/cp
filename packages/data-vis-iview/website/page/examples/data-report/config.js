@@ -48,7 +48,7 @@ export const config = [
                     ],
                     charts: [
                         {
-                            type: 'dataset',
+                            type: 'echart',
                             label:'折线图',
                             xAxis: {type: 'category'},
                             yAxis: {},
@@ -58,7 +58,7 @@ export const config = [
                             ]
                         },
                         {
-                            type: 'dataset',
+                            type: 'echart',
                             label:'柱状图',
                             xAxis: {type: 'category'},
                             yAxis: {},
@@ -68,7 +68,7 @@ export const config = [
                             ]
                         },
                         {
-                            type: 'dataset',
+                            type: 'echart',
                             label:'混合图',
                             xAxis: {type: 'category'},
                             yAxis: {},
@@ -94,7 +94,7 @@ export const config = [
                     ],
                     charts: [
                         {
-                            type: 'dataset',
+                            type: 'echart',
                             label:'柱状图',
                             xAxis: {type: 'category'},
                             yAxis: {},
@@ -104,7 +104,7 @@ export const config = [
                             ]
                         },
                         {
-                            type: 'dataset',
+                            type: 'echart',
                             label:'混合图',
                             xAxis: {type: 'category'},
                             yAxis: {},
@@ -115,7 +115,7 @@ export const config = [
                             ]
                         },
                         {
-                            type: 'dataset',
+                            type: 'echart',
                             label:'折线图',
                             xAxis: {type: 'category'},
                             yAxis: {},

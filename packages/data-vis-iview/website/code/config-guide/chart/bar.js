@@ -2,7 +2,7 @@
 const simple = {};
 
 const chart = {
-    type: 'dataset',
+    type: 'echart',
     label:'柱状图',
     xAxis: {type: 'category'},
     yAxis: {},
@@ -49,7 +49,7 @@ export default {
 // multiple
 const multiple = {};
 const multipleChart = {
-    type: 'dataset',
+    type: 'echart',
     label:'同一组数据多条线',
     xAxis: {type: 'category'},
     yAxis: {},
@@ -97,7 +97,7 @@ export default {
 const multipleAxis = {};
 const multipleAxisChart = {
     label: '维度',
-    type: 'dataset',
+    type: 'echart',
     dataset: {
         dimensions: ['product', '2015', '2016', '2017'],
         source: [

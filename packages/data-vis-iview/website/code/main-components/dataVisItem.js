@@ -2,7 +2,7 @@
 const simpleEchart = {};
 
 const chart = {
-    type: 'dataset',
+    type: 'echart',
     label:'柱状图-垂直',
     xAxis: {type: 'category'},
     yAxis: {},
