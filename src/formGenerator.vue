@@ -47,6 +47,9 @@
                     @on-button-event="handleButtonEvent($event)"
                     @on-checkboxCard-click="handelCheckboxCardClick"
                     @on-list-item-click="handelListItemClick"
+                    @on-label-tip-click="handelLabelTipClick"
+                    @on-label-tip-mouseIn="handelMouseInClick"
+                    @on-label-tip-mouseOut="handelMouseOutClick"
                 />
             </div>
 
@@ -331,7 +334,11 @@ export default {
             needResetFields.forEach(fieldItem => {
                 this.resetField(fieldItem);
             });
-
+            setValue.call(this, {
+                originModel: this.form.model,
+                model: model,
+                value
+            });
             this.$refs.form.validateField(model);
             this.$emit('on-field-change', model, value, field);
         },
@@ -409,6 +416,18 @@ export default {
 
         handelListItemClick(value) {
             this.$emit('on-list-item-click', value);
+        },
+
+        handelLabelTipClick({field}) {
+            this.$emit('on-label-tip-click', {field});
+        },
+
+        handelMouseInClick({field}) {
+            this.$emit('on-label-tip-mouseIn', {field});
+        },
+
+        handelMouseOutClick({field}) {
+            this.$emit('on-label-tip-mouseOut', {field});
         },
 
         handleExtraBtnClick() {

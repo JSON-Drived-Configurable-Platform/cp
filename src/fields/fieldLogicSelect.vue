@@ -171,6 +171,7 @@ export default {
         return {
             start: '',
             end: '',
+            // 有watch，所以只取一次赋值
             value: getValue({
                 originModel: this.form.model,
                 model: this.field.model
