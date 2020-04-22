@@ -111,6 +111,7 @@
 <script>
 
 import {classPrefix} from '../utils/const';
+import {getValue} from '../utils/processValue';
 
 const defaultImgExtensions = ['gif', 'jpg', 'jpeg', 'png'];
 const defaultVideoExtensions = ['mp4', '.webm'];
@@ -192,7 +193,10 @@ export default {
             return this.field.suffix || false;
         },
         value() {
-            let value = this.form.model[this.field.model] || [];
+            let value = getValue({
+                originModel: this.form.model,
+                model: this.field.model
+            }) || [];
             return value.map(item => {
                 item.status = 'finished';
                 return item;

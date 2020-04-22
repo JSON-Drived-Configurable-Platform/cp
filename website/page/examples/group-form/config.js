@@ -19,7 +19,7 @@ export const fields = [
                 size: 24
             },
             content: {
-                body: "<div class='example'><span></span>What do you want others to call you?</div>",
+                body: '<div class=\'example\'><span></span>What do you want others to call you?</div>',
                 ifShow: false
             }
         }
@@ -786,116 +786,122 @@ export const fields = [
 ];
 
 
-// export const model = {
-//     input: 'wangbing',
-//     'inputForbidden': 'wangbing',
-//     'textarea': '啊啊啊啊啊',
-//     singleSelect: '1',
-//     radioButton: '1',
-//     singleSelectApi: '1',
-//     multiSelect: ['1', '2'],
-//     multiSelectApi: ['1', '2'],
-//     checkbox: ['1', '2'],
-//     radio: '1',
-//     date: '2016-01-01',
-//     daterange: ['2016-01-01', '2016-02-15'],
-//     datetime: '2019-04-22 00:00:00',
-//     datetimerange: ['2019-04-22 00:00:00', '2019-05-30 00:00:00'],
-//     cascader: ['jiangsu', 'suzhou', 'shizilin', '1'],
-//     cascaderApi: ['jiangsu', 'suzhou', 'shizilin', '2'],
-//     inputNumber: 7,
-//     logicInput: {
-//         logic: 'betweenIn',
-//         value: ['1', '2']
-//     },
-//     logicSelect: {
-//         logic: 'betweenIn',
-//         value: ['1', '2']
-//     },
-//     logicSelectApi: {
-//         logic: 'betweenIn',
-//         value: ['1', '2']
-//     },
-//     switch: false,
-//     upload: [
-//         {
-//             id: '13414214123412421341234',
-//             name: 'img1img1img1img1img1.jpg',
-//             url: 'https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3276523708,1156514398&fm=173&app=49&f=JPEG?w=218&h=146&s=DAB210C768C5AA471C5DFBA403007081'
-//         },
-//         {
-//             id: '13414214123412421341234',
-//             name: 'img2img2img2img2img2.jpg',
-//             url: 'https://pics1.baidu.com/feed/500fd9f9d72a6059c36c75cfc82edd9f023bba83.jpeg?token=e779a49797d7d1ed7ea5bf253dccd408&s=6151AB6415402EEE28D4C09B03009082'
-//         }
-//     ],
-//     imgUpload: [
-//         {
-//             id: '13414214123412421341234',
-//             name: 'img1img1img1img1img1.jpg',
-//             url: 'https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3276523708,1156514398&fm=173&app=49&f=JPEG?w=218&h=146&s=DAB210C768C5AA471C5DFBA403007081'
-//         },
-//     ],
-//     videoUpload: [
-//         {
-//             id: '134142141234121421341234',
-//             name: '08a237bc1a51794c8e3ff2d410045066.mp4',
-//             url: 'http://sc2.hao123img.com/materials/xz.upload/08/08a237bc1a51794c8e3ff2d410045066.mp4'
-//         },
-//         {
-//             id: '134142141234124213421234',
-//             name: 'b6aafe3af127fd2ef47a1afb54fcd4bd.mp4',
-//             url: 'http://sc4.hao123img.com/materials/xz.upload/b6/b6aafe3af127fd2ef47a1afb54fcd4bd.mp4'
-//         }
-//     ],
-//     mediaUpload: [
-//         {
-//             id: '134142141234121421341234',
-//             name: '08a237bc1a51794c8e3ff2d410045066.mp4',
-//             url: 'http://sc2.hao123img.com/materials/xz.upload/08/08a237bc1a51794c8e3ff2d410045066.mp4'
-//         },
-//     ],
-//     province: '',
-//     city: '',
-//     town: ''
-// };
-
 export const model = {
-    input: '',
-    inputForbidden: '',
-    textarea: '',
+    input: 'wangbing',
+    'inputForbidden': 'wangbing',
+    'textarea': '啊啊啊啊啊',
     inputMultiple: ['成员1', '成员2'],
     timePickerMultiple: ['05:00 - 08:00'],
-    singleSelect: '',
-    radioButton: '',
-    singleSelectApi: '',
-    multiSelect: [],
-    multiSelectApi: [],
-    checkbox: [],
+    singleSelect: '1',
+    radioButton: '1',
+    singleSelectApi: '1',
+    multiSelect: ['1', '2'],
+    multiSelectApi: ['1', '2'],
+    checkbox: ['1', '2'],
     radio: '1',
-    date: '',
-    daterange: [],
-    datetime: '',
-    datetimerange: [],
-    cascader: [],
-    cascaderApi: [],
+    date: '2016-01-01',
+    daterange: ['2016-01-01', '2016-02-15'],
+    datetime: '2019-04-22 00:00:00',
+    datetimerange: ['2019-04-22 00:00:00', '2019-05-30 00:00:00'],
+    cascader: ['jiangsu', 'suzhou', 'shizilin', '1'],
+    cascaderApi: ['jiangsu', 'suzhou', 'shizilin', '2'],
     tableSelect: 1,
     multipleTableSelect: [1, 2],
     tree: ['2'],
     multipleTree: ['1', '2', '10'],
-    inputNumber: 0,
-    logicInput: {},
-    logicSelect: {},
-    logicSelectApi: {},
-    switch: false,
-    upload: [],
-    imgUpload: [],
-    videoUpload: [],
-    mediaUpload: [],
+    inputNumber: 7,
+    logicInput: {
+        logic: 'betweenIn',
+        value: ['1', '2']
+    },
+    logicSelect: {
+        logic: 'betweenIn',
+        value: ['1', '2']
+    },
+    logicSelectApi: {
+        logic: 'betweenIn',
+        value: ['1', '2']
+    },
+    switch: true,
+    upload: [
+        {
+            id: '13414214123412421341234',
+            name: 'img1img1img1img1img1.jpg',
+            url: 'https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3276523708,1156514398&fm=173&app=49&f=JPEG?w=218&h=146&s=DAB210C768C5AA471C5DFBA403007081'
+        },
+        {
+            id: '13414214123412421341234',
+            name: 'img2img2img2img2img2.jpg',
+            url: 'https://pics1.baidu.com/feed/500fd9f9d72a6059c36c75cfc82edd9f023bba83.jpeg?token=e779a49797d7d1ed7ea5bf253dccd408&s=6151AB6415402EEE28D4C09B03009082'
+        }
+    ],
+    imgUpload: [
+        {
+            id: '13414214123412421341234',
+            name: 'img1img1img1img1img1.jpg',
+            url: 'https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3276523708,1156514398&fm=173&app=49&f=JPEG?w=218&h=146&s=DAB210C768C5AA471C5DFBA403007081'
+        },
+    ],
+    videoUpload: [
+        {
+            id: '134142141234121421341234',
+            name: '08a237bc1a51794c8e3ff2d410045066.mp4',
+            url: 'http://sc2.hao123img.com/materials/xz.upload/08/08a237bc1a51794c8e3ff2d410045066.mp4'
+        },
+        {
+            id: '134142141234124213421234',
+            name: 'b6aafe3af127fd2ef47a1afb54fcd4bd.mp4',
+            url: 'http://sc4.hao123img.com/materials/xz.upload/b6/b6aafe3af127fd2ef47a1afb54fcd4bd.mp4'
+        }
+    ],
+    mediaUpload: [
+        {
+            id: '134142141234121421341234',
+            name: '08a237bc1a51794c8e3ff2d410045066.mp4',
+            url: 'http://sc2.hao123img.com/materials/xz.upload/08/08a237bc1a51794c8e3ff2d410045066.mp4'
+        },
+    ],
     province: '',
     city: '',
     town: ''
 };
+
+// export const model = {
+//     input: 'df',
+//     inputForbidden: '',
+//     textarea: '',
+//     inputMultiple: ['成员1', '成员2'],
+//     timePickerMultiple: ['05:00 - 08:00'],
+//     singleSelect: '',
+//     radioButton: '',
+//     singleSelectApi: '',
+//     multiSelect: [],
+//     multiSelectApi: [],
+//     checkbox: [],
+//     radio: '1',
+//     date: '',
+//     daterange: [],
+//     datetime: '',
+//     datetimerange: [],
+//     cascader: [],
+//     cascaderApi: [],
+//     tableSelect: 1,
+//     multipleTableSelect: [1, 2],
+//     tree: ['2'],
+//     multipleTree: ['1', '2', '10'],
+//     inputNumber: 0,
+//     logicInput: {},
+//     logicSelect: {},
+//     logicSelectApi: {},
+//     switch: false,
+//     upload: [],
+//     imgUpload: [],
+//     videoUpload: [],
+//     mediaUpload: [],
+//     province: '',
+//     city: '',
+//     town: ''
+// };
 
 export const options = {
     labelWidth: 130,

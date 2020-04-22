@@ -7,9 +7,9 @@
                     :fields="fields"
                     :model="model"
                     :options="options"
+                    :params-container="paramsContainer"
                     @on-field-change="handleChange"
                     @on-field-preview="handlePreview"
-                    :params-container="paramsContainer"
                     @on-button-event="handleButtonEvent"
                     @on-label-tip-click="handleLabelEvent"
                     @on-label-tip-mouseIn="handleMouseEnterEvent"
@@ -28,7 +28,7 @@ export default {
             form: {
                 config: JSON.stringify(config, null, 8)
             },
-            model,
+            model: {},
             fields,
             options,
             paramsContainer: {
@@ -39,6 +39,7 @@ export default {
     mounted() {
         setTimeout(() => {
             this.$set(this.paramsContainer, 'paramsContainerTest', 'xxx-1');
+            this.model = model;
             setTimeout(() => {
                 this.$set(this.paramsContainer, 'paramsContainerTest', 'xxx-2');
             }, 5000);

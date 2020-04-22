@@ -334,7 +334,11 @@ export default {
             needResetFields.forEach(fieldItem => {
                 this.resetField(fieldItem);
             });
-
+            setValue.call(this, {
+                originModel: this.form.model,
+                model: model,
+                value
+            });
             this.$refs.form.validateField(model);
             this.$emit('on-field-change', model, value, field);
         },

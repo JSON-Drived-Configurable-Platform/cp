@@ -34,17 +34,15 @@ export default {
             default: false
         }
     },
-    data() {
-        return {
-            value: getValue({
-                originModel: this.form.model,
-                model: this.field.model
-            }) || ''
-        };
-    },
     computed: {
         classes() {
             return `${classPrefix}-${this.field.type.toLowerCase()}`;
+        },
+        value() {
+            return getValue({
+                originModel: this.form.model,
+                model: this.field.model
+            }) || '';
         }
     },
     methods: {

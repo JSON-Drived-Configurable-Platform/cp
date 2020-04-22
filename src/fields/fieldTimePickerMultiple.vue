@@ -37,6 +37,67 @@
     </div>
 </template>
 
+<script>
+import {classPrefix} from '../utils/const';
+import {getValue} from '../utils/processValue';
+
+export default {
+    inject: ['form'],
+    props: {
+        field: {
+            type: Object,
+            required: true
+        },
+        size: {
+            type: String,
+            default() {
+                return 'default';
+            }
+        },
+        inline: {
+            type: Boolean,
+            default: false
+        }
+    },
+    data() {
+        return {
+            value: ''
+        };
+    },
+    computed: {
+        classes() {
+            return `${classPrefix}-${this.field.type.toLowerCase()}`;
+        },
+        list() {
+            return getValue({
+                originModel: this.form.model,
+                model: this.field.model
+            }) || [];
+        }
+    },
+    methods: {
+        handleAdd() {
+            let val = this.value;
+
+            if (!val || val.length === 0 || !val[0]) {
+                this.$Message.warning('时间不能为空');
+                return;
+            }
+            this.list.push(val.join(this.field.timeSplit || '~'));
+            this.value = '';
+            this.$emit('on-change', this.field.model, this.list, null, this.field);
+        },
+        handleDelete(index) {
+            this.list.splice(index, 1);
+            this.$emit('on-change', this.field.model, this.list, null, this.field);
+        },
+        handleChange(value) {
+            this.value = value;
+        }
+    }
+};
+</script>
+
 <style lang="less">
     @itemWidth: 155px;
     .fg-ivu-timepickermultiple {
@@ -77,62 +138,3 @@
         }
     }
 </style>
-
-<script>
-import {classPrefix} from '../utils/const';
-import {getValue} from '../utils/processValue';
-
-export default {
-    inject: ['form'],
-    props: {
-        field: {
-            type: Object,
-            required: true
-        },
-        size: {
-            type: String,
-            default() {
-                return 'default';
-            }
-        },
-        inline: {
-            type: Boolean,
-            default: false
-        }
-    },
-    data() {
-        return {
-            value: '',
-            list: getValue({
-                originModel: this.form.model,
-                model: this.field.model
-            }) || []
-        };
-    },
-    computed: {
-        classes() {
-            return `${classPrefix}-${this.field.type.toLowerCase()}`;
-        }
-    },
-    methods: {
-        handleAdd() {
-            let val = this.value;
-
-            if (!val || val.length === 0 || !val[0]) {
-                this.$Message.warning('时间不能为空');
-                return;
-            }
-            this.list.push(val.join(this.field.timeSplit || '~'));
-            this.value = '';
-            this.$emit('on-change', this.field.model, this.list, null, this.field);
-        },
-        handleDelete(index) {
-            this.list.splice(index, 1);
-            this.$emit('on-change', this.field.model, this.list, null, this.field);
-        },
-        handleChange(value) {
-            this.value = value;
-        }
-    }
-};
-</script>

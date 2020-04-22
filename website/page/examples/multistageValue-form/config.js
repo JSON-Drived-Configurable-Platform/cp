@@ -875,7 +875,7 @@ export const fields = [
     },
     {
         type: 'Text',
-        model: 'inputMultiple.abc',
+        model: 'text.abc',
         options: [{'label':'张三','value':'zhangsan'},{'label':'王五','value':'wangwu'}],
         nullValue: '空'
         // showAll: true
@@ -973,14 +973,18 @@ export const fields = [
 // };
 
 export const model = {
-    input: {abc: {
-        bcd: {
-            cde: '123'
+    input: {
+        abc: {
+            bcd: {
+                cde: '123'
+            }
         }
-    }},
-    inputMultiple: {
-        abc: 'wangwu1'
     },
+    inputMultiple: {
+        abc: ['wangwu1'],
+        
+    },
+    text: {abc: 'wangwu2'},
     inputForbidden: '',
     textarea: '',
     singleSelect: {abc: ''},
