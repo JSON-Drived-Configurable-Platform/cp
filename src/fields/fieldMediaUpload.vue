@@ -53,6 +53,7 @@
                             :title="file.name"
                         >{{ file.name }}</span>
                         <Poptip
+                            v-if="!field.disabled"
                             :class="fileListItemEditClass"
                             title="编辑文件名称"
                             @click.native="handlePoptipClick"
@@ -73,6 +74,7 @@
                             />
                         </Poptip>
                         <Icon
+                            v-if="!field.disabled"
                             :class="fileListItemRemoveClass"
                             :size="24"
                             style="color: #FFF"
