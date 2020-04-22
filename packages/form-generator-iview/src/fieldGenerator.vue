@@ -22,6 +22,16 @@
         :class="itemClasses"
         :style="itemStyle"
     >
+        <Icon
+            v-if="labelTip.icon"
+            :type="labelTip.icon.name"
+            :size="labelTip.icon.size"
+            :color="labelTip.icon.color"
+            @click="handleIconClick"
+            @mouseenter.native="handleIconMouseEnter"
+            @mouseleave.native="handleIconMouseLeave"
+        />
+        <div v-if="contentShow" v-html="labelTip.content.body" />
         <component
             :is="getFieldCom(field.type)"
             :class="classes"
@@ -143,6 +153,14 @@ export default {
             }
             // console.log(field.model, valid, model);
             return show;
+        },
+        labelTip() {
+            let labelTip = this.field.labelTip || {};
+            return labelTip;
+        },
+        contentShow() {
+            let content = this.field.labelTip && this.field.labelTip.content || {};
+            return content.ifShow;
         }
     },
     created() {
@@ -185,6 +203,21 @@ export default {
         },
         handleButtonClick($event) {
             this.$emit('on-button-event', $event);
+        },
+        handleIconClick() {
+            this.$emit('on-label-tip-click',{
+                field: this.field
+            });
+        },
+        handleIconMouseEnter() {
+            this.$emit('on-label-tip-mouseIn', {
+                field: this.field
+            });
+        },
+        handleIconMouseLeave() {
+            this.$emit('on-label-tip-mouseOut', {
+                field: this.field
+            });
         },
         getFieldCom(comType = '') {
             return `field${comType}`;

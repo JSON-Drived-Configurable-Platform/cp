@@ -658,6 +658,132 @@ export default {
 </template>
 `;
 
+// label + icon 并且可点击 可移入 移出
+let labelIcon = {};
+
+const labelFields = [
+    {
+        type: 'Divider',
+        label: 'icon移入 移出',
+        orientation: 'left',
+        dashed: true
+    },
+    {
+        type: 'Input',
+        label: '活动名称',
+        model: 'input',
+        placeholder: '请输入用户名',
+        required: true,
+        labelTip: {
+            icon: {
+                name: 'ios-help-circle-outline',
+                size: 18,
+                color: '#00f'
+            },
+            content: {
+                body: "<div class='wrap'><img src='https://efe-h2.cdn.bcebos.com/ceug/resource/res/2019-06/1561358481371/iishnxu1f1fv.png'/></div>",
+                ifShow: false
+            }
+        }
+    },
+    {
+        type: 'Input',
+        label: '你的姓名',
+        model: 'name',
+        placeholder: '请输入姓名',
+        required: true,
+        labelTip: {
+            icon: {
+                name: 'ios-help-circle-outline',
+                size: 18
+            },
+            content: {
+                body: "<div class='ruleWrap'><span></span>What do you want others to call you?</div>",
+                ifShow: false
+            }
+        }
+    },
+    {
+        type: 'Divider',
+        label: 'icon点击',
+        orientation: 'left',
+        dashed: true
+    },
+    {
+        type: 'Input',
+        label: '活动链接',
+        model: 'link',
+        required: true,
+        labelTip: {
+            icon: {
+                name: 'ios-alert-outline',
+                size: 18
+            }
+        }
+    }
+];
+
+const labelModel = {
+    input: '',
+    name: '',
+    link: ''
+};
+
+const labelOptions= {
+    labelWidth: 85,
+    labelPosition: 'left'
+  }
+
+labelIcon.data = {
+    fields: labelFields,
+    model: labelModel,
+    options: labelOptions
+};
+
+labelIcon.code = `
+<script>
+const fields = ${JSON.stringify(labelFields, null, 4)};
+const model = ${JSON.stringify(labelModel, null, 4)};
+const options = ${JSON.stringify(labelOptions, null, 4)};
+export default {
+    data() {
+        return {
+            fields,
+            model,
+            options
+        };
+    },
+    methods: {
+        handleMouseEnterEvent({field}) {
+            if (field.labelTip && field.labelTip.content) {
+                field.labelTip.content.ifShow = true;
+            }
+        },
+        handleMouseLeaveEvent({field}) {
+            if (field.labelTip && field.labelTip.content) {
+                field.labelTip.content.ifShow = false;
+            }
+        },
+        handleLabelEvent({field}) {
+            if (field.model === 'link') {
+                window.open('https://www.baidu.com');
+            }
+        }
+    }
+};
+<script>
+<template>
+    <FormGenerator
+        :fields="fields"
+        :model="model"
+        :options="options",
+        @on-label-tip-mouseIn="handleMouseEnterEvent"
+        @on-label-tip-mouseOut="handleMouseLeaveEvent"
+        @on-label-tip-click="handleLabelEvent"
+    />
+</template>
+`;
+
 // 标签位置
 
 // 联动-选项
@@ -671,5 +797,6 @@ export default {
     form,
     validate,
     divider,
-    hiddenOn
+    hiddenOn,
+    labelIcon
 };
