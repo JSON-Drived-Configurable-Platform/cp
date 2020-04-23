@@ -272,6 +272,7 @@
                     <Form :model="code.carousel.data.model">
                         <FieldGenerator
                             :field="code.carousel.data.field"
+                            @on-radioCard-click='handleClick'
                         />
                     </Form>
                 </div>
@@ -316,9 +317,9 @@ export default {
         }
     },
     methods: {
-        handleClick() {
+        handleClick(value) {
             // eslint-disable-next-line no-console
-            // console.log();
+            console.log(value);
         }
     }
 };

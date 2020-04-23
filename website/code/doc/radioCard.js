@@ -215,6 +215,11 @@ export default {
             field: ${JSON.stringify(carouselField)},
             model: ${JSON.stringify(carouselModel)}
         };
+    },
+    methods: {
+        handleClick(value) {
+            console.log(value);
+        }
     }
 };
 <script>
@@ -222,6 +227,7 @@ export default {
     <Form :model='model'>
         <FieldGenerator
             :field='field'
+            @on-radioCard-click='handleClick'
         />
     </Form>
 </template>

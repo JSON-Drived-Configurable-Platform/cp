@@ -67,7 +67,6 @@ export default {
         handleButtonEvent($event, row, index) {
             this[$event.name](row, index);
         },
-
         /**
          * When the field value changed, sync the value to this.formModel
          * Notice there may be more than form in the per line in the table.
@@ -86,14 +85,15 @@ export default {
             }
             this.$set(this.formModel[key], model, value);
         },
-
         handleSave() {
             let validCount = 0;
             const refKeys = Object.keys(this.$refs);
             refKeys.forEach(form => {
                 console.log(form, this.$refs[form][0].model);
                 this.$refs[form][0].validate().then(valid => {
-                    
+                    if (valid) {
+                        validCount++;
+                    }
                     else {
                         console.log('Valid Failed');
                     }
@@ -107,17 +107,13 @@ export default {
                     }
                 }).catch(err => {
                     console.log(err);
-                });if (valid) {
-                        validCount++;
-                    }
+                });
             });
         },
-
         handleImgClick(imgUrl) {
             this.modalOpen = true;
             this.modalImgUrl = imgUrl;
         },
-
         handleListItemClick({ url }) {
             this.modalOpen = true;
             this.modalImgUrl = url;

@@ -224,7 +224,6 @@
 </template>
 
 <script>
-
 import iArticle from '../../../components/article';
 import inAnchor from '../../../components/anchor';
 import Code from '../../../code/powerful-fieldGenerator';
@@ -253,25 +252,21 @@ export default {
         };
     },
     methods: {
-
         handleDelete(index) {
             this.$Message.info(JSON.stringify({
                 index
             }));
         },
-
         handleSave(index, data) {
             this.$Message.info(JSON.stringify({
                 index,
                 data
             }));
         },
-
         handleButtonEvent({name}, index, data) {
             // eslint-disable-next-line no-console
             switch (name) {
                 case 'save':
-                    console.log(data)
                     this.$Message.info(JSON.stringify({
                         index,
                         data
@@ -281,31 +276,20 @@ export default {
                     this.handleDynamicFormDel(index);
                     break;
             }
-
         },
-
         handleDynamicFormAdd() {
-<<<<<<< HEAD
-            this.dynamicFormData.push({});
-            console.log(this.dynamicFormData);
-=======
             const data = this.getDynamicFormData();
             data.push({});
             this.dynamicFormData = data;
->>>>>>> ce94a48337843012d10fcb04b5e8cf3338408cf5
         },
-
         handleDynamicFormDel(index) {
             this.dynamicFormData.splice(index, 1);
         },
-
         handleDynamicFormSubmit() {
-
             this.$Message.info(JSON.stringify({
                 data: this.getDynamicFormData()
             }));
         },
-
         getDynamicFormData() {
             const data = [];
             this.$refs.dynamicForm.forEach(form => {
@@ -326,16 +310,13 @@ export default {
         justify-content: space-evenly;
         flex-wrap: wrap;
         margin: 32px 0;
-
         &-card {
             margin-bottom: 32px;
             width: 766px;
             overflow: hidden;
-
             .ivu-card-body {
                 padding: 0;
             }
-
             &-img {
                 display: block;
                 width: 764px;
@@ -347,10 +328,8 @@ export default {
                     width: 100%;
                 }
             }
-
             &-content {
                 padding: 20px;
-
                 h3 {
                 font-size: 16px;
                 color: rgba(0,0,0,0.85);
@@ -367,7 +346,6 @@ export default {
             }
         }
     }
-
     .ivu-form-item {
         margin-top: 20px;
     }
@@ -380,7 +358,6 @@ export default {
         align-items: center;
         justify-content: flex-start;
     }
-
     .demo-actions{
         margin: 20px;
         display: flex;
@@ -388,5 +365,4 @@ export default {
         justify-content: center;
     }
 }
-
 </style>
