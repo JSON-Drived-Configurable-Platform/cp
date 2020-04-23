@@ -737,6 +737,7 @@ export const fields = [
         action: '/uploadVideoApi',
         multiple: true,
         paste: true,
+        // disabled: true,
         data: {
             userName: 'bingblog'
         },
