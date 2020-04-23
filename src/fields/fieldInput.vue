@@ -44,20 +44,22 @@ export default {
             default() {
                 return 'default';
             }
-        },
+        }
     },
     data() {
         return {
             prependSelectModel: '',
             appendSelectModel: '',
-            localModel: {},
-            value: getValue({
-                originModel: this.form.model,
-                model: this.field.model
-            }) || ''
+            localModel: {}
         };
     },
     computed: {
+        value() {
+            return getValue({
+                originModel: this.form.model,
+                model: this.field.model
+            }) || '';
+        }
     },
     methods: {
         handleChange(e) {

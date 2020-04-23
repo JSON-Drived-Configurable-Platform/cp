@@ -12,6 +12,7 @@
                         v-for="(item, index) in computedOptions"
                         :key="index"
                         :class="radioCardItemClasses"
+                        @click="handleClick(item)"
                     >
                         <Card
                             :style="styleCard"
@@ -173,7 +174,11 @@ export default {
         // 改变页码
         changePage(val) {
             this.pageNum = val;
-        }
+        },
+        // 点击整个卡片触发事件
+        handleClick(value) {
+            this.$emit('on-radioCard-click', value);
+        },
     }
 };
 </script>

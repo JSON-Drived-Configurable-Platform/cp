@@ -759,8 +759,8 @@ const dynamicFormColumns = [
         title: '地址',
         slot: 'address',
         formFields: [{
-            type: 'Input',
-            model: 'address',
+            type: 'Text',
+            model: 'gender',
             placeholder: '请输入地址',
             required: true
         }]

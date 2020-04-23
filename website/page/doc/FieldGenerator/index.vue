@@ -124,6 +124,36 @@
                             <td>Array | String</td>
                             <td>-</td>
                         </tr>
+                        <tr>
+                            <td>field.labelTip</td>
+                            <td>
+                                提示icon 并且进行点击、hover等操作，额外内容展示 （不需要不配置就好）
+                                <br>
+                                例如：
+                                <br>
+                                icon可从iview中查询name
+                                <br>
+                                ifShow控制额外内容是否展示
+                                <br>
+                                一个完整的提示icon控件配置如下：
+                                <pre>
+{
+    icon: {
+        name: 'ios-help-circle-outline',
+        size: 24,
+        color: '#00f'
+    },
+    content: {
+        body: <textarea><div class='example'><span>活动示意图</span></div></textarea>,
+        ifShow: false
+    }
+}
+<router-link to="/doc/FormGenerator">查看示例>></router-link>
+                                </pre>
+                            </td>
+                            <td>Object</td>
+                            <td>-</td>
+                        </tr>
                     </tbody>
                 </table>
                 <inAnchor title="通用事件" h3 />
@@ -140,6 +170,21 @@
                             <td>on-field-change</td>
                             <td>表单项数据变更时</td>
                             <td>($event) $event.model；表单项的标识；$event.value：表单项的值；</td>
+                        </tr>
+                        <tr>
+                            <td>on-label-tip-click</td>
+                            <td>icon点击触发</td>
+                            <td>($event) $event.field（表单配置项）</td>
+                        </tr>
+                        <tr>
+                            <td>on-label-tip-mouseIn</td>
+                            <td>icon移入触发</td>
+                            <td>($event) $event.field（表单配置项）</td>
+                        </tr>
+                        <tr>
+                            <td>on-label-tip-mouseOut</td>
+                            <td>icon移出触发</td>
+                            <td>($event) $event.field（表单配置项）</td>
                         </tr>
                     </tbody>
                 </table>

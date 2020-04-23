@@ -285,8 +285,14 @@ export default {
         },
 
         handleDynamicFormAdd() {
+<<<<<<< HEAD
             this.dynamicFormData.push({});
             console.log(this.dynamicFormData);
+=======
+            const data = this.getDynamicFormData();
+            data.push({});
+            this.dynamicFormData = data;
+>>>>>>> ce94a48337843012d10fcb04b5e8cf3338408cf5
         },
 
         handleDynamicFormDel(index) {
@@ -294,13 +300,18 @@ export default {
         },
 
         handleDynamicFormSubmit() {
+
+            this.$Message.info(JSON.stringify({
+                data: this.getDynamicFormData()
+            }));
+        },
+
+        getDynamicFormData() {
             const data = [];
             this.$refs.dynamicForm.forEach(form => {
                 data[form.model._index] = form.model;
             });
-            this.$Message.info(JSON.stringify({
-                data
-            }));
+            return data;
         }
     }
 };

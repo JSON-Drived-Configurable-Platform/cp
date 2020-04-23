@@ -37,14 +37,6 @@ export default {
             default: false
         }
     },
-    data() {
-        return {
-            value: getValue({
-                originModel: this.form.model,
-                model: this.field.model
-            })
-        };
-    },
     computed: {
         classes() {
             return `${classPrefix}-${this.field.type.toLowerCase()}`;
@@ -52,6 +44,12 @@ export default {
         itemClasses() {
             const inlineClasses = this.inline ? '' : 'full-width';
             return `${this.classes}-${inlineClasses}`;
+        },
+        value() {
+            return getValue({
+                originModel: this.form.model,
+                model: this.field.model
+            });
         }
     },
     methods: {

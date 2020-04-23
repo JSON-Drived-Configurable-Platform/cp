@@ -28,7 +28,6 @@
 <script>
 import SearchForm from './SearchForm';
 import config from './config';
-import {data} from '../CURD-example/inlineEdit.config';
 
 export default {
     components: {
@@ -48,7 +47,6 @@ export default {
     },
     methods: {
         handelSearchDataChange(field) {
-            console.log('handelSearchDataChange1', field)
             if (this.isAjax) {
                 return;
             }
@@ -57,11 +55,10 @@ export default {
             this.list = [];
             // 模拟异步请求数据
             setTimeout(() => {
-                let list = data.filter(v => {
+                let list = config.data.filter(v => {
                     return (!field.name || v.name.indexOf(field.name) !== -1)
                         && (!field.gender || field.gender === v.gender)
                 });
-                console.log('handelSearchDataChange2', data, list)
 
                 let res = {
                     totalNum: list.length,
@@ -73,7 +70,7 @@ export default {
 
                 this.firstLoad = true;
                 this.isAjax = false;
-            }, 600)
+            }, 300)
         },
         handelRefresh() {
             // 可以用来刷新页面

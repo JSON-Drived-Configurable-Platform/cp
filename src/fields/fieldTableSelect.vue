@@ -57,14 +57,15 @@ export default {
         },
         computedOptions() {
             const options = this.options.length > 0 ? this.options : this.field.options;
-            let value = getValue({
-                originModel: this.form.model,
-                model: this.field.model
-            }) || 1;
             if (!Array.isArray(options)) {
                 return [];
             }
+            let value = null;
             if (this.multiple) {
+                value = getValue({
+                    originModel: this.form.model,
+                    model: this.field.model
+                }) || [];
                 return options.map(item => {
                     if (value && value.includes(item.id)) {
                         item._checked = true;
@@ -74,6 +75,10 @@ export default {
                     return item;
                 });
             } else {
+                value = getValue({
+                    originModel: this.form.model,
+                    model: this.field.model
+                }) || '';
                 if (Array.isArray(value)) {
                     value = value[0];
                 }

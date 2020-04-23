@@ -53,6 +53,7 @@
                             :title="file.name"
                         >{{ file.name }}</span>
                         <Poptip
+                            v-if="!field.disabled"
                             :class="fileListItemEditClass"
                             title="编辑文件名称"
                             @click.native="handlePoptipClick"
@@ -73,6 +74,7 @@
                             />
                         </Poptip>
                         <Icon
+                            v-if="!field.disabled"
                             :class="fileListItemRemoveClass"
                             :size="24"
                             style="color: #FFF"
@@ -111,6 +113,7 @@
 <script>
 
 import {classPrefix} from '../utils/const';
+import {getValue} from '../utils/processValue';
 
 const defaultImgExtensions = ['gif', 'jpg', 'jpeg', 'png'];
 const defaultVideoExtensions = ['mp4', '.webm'];
@@ -192,7 +195,10 @@ export default {
             return this.field.suffix || false;
         },
         value() {
-            let value = this.form.model[this.field.model] || [];
+            let value = getValue({
+                originModel: this.form.model,
+                model: this.field.model
+            }) || [];
             return value.map(item => {
                 item.status = 'finished';
                 return item;
