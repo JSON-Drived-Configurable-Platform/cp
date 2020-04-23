@@ -93,9 +93,7 @@ export default {
             refKeys.forEach(form => {
                 console.log(form, this.$refs[form][0].model);
                 this.$refs[form][0].validate().then(valid => {
-                    if (valid) {
-                        validCount++;
-                    }
+                    
                     else {
                         console.log('Valid Failed');
                     }
@@ -109,7 +107,9 @@ export default {
                     }
                 }).catch(err => {
                     console.log(err);
-                });
+                });if (valid) {
+                        validCount++;
+                    }
             });
         },
 

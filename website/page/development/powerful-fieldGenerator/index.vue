@@ -271,6 +271,7 @@ export default {
             // eslint-disable-next-line no-console
             switch (name) {
                 case 'save':
+                    console.log(data)
                     this.$Message.info(JSON.stringify({
                         index,
                         data
@@ -285,6 +286,7 @@ export default {
 
         handleDynamicFormAdd() {
             this.dynamicFormData.push({});
+            console.log(this.dynamicFormData);
         },
 
         handleDynamicFormDel(index) {

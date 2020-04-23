@@ -60,7 +60,8 @@ export const columns = [
             subtype: 'date',
             model: 'birthday',
             placeholder: '请输入出生日期',
-            required: true
+            required: true,
+            hiddenOn: {gender: [{type: 'enum', enum: ['女']}]}
         }
     },
     {

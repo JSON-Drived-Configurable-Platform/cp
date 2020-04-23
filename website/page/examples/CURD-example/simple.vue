@@ -98,6 +98,7 @@ export default {
         handleSave() {
             this.$refs.FormGenerator
                 .submit().then(() => {
+                    alert(111);
                     if (this.editModel.type === 'add') {
                         this.editModel.type = '';
                         this.data.unshift(this.editModel);
