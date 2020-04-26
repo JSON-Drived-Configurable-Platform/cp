@@ -294,11 +294,88 @@ export default {
 </template>
 `;
 
+// 简单示例
+let quick = {};
+
+const quickField = {
+    type: 'DatePicker',
+    model: 'date',
+    options:[
+        {
+            label: '昨天',
+            value: -1
+        },
+        {
+            label: '明天',
+            value: 1
+        }
+    ]
+};
+
+const quickDaterangeField = {
+    type: 'DatePicker',
+    subtype: 'daterange',
+    model: 'daterange',
+    options:[
+        {
+            label: '前后三天',
+            value: [-3, 3]
+        },
+        {
+            label: '后面七天',
+            value: [1, 7]
+        }
+    ]
+};
+
+const quickModel = {
+    date: '2019-03-07',
+    daterange: ['2019-03-07', '2019-12-14']
+};
+
+quick.data = {
+    field: quickField,
+    daterangeField: quickDaterangeField,
+    model: quickModel
+};
+
+quick.code = `
+<script>
+export default {
+    data() {
+        return {
+            field: ${JSON.stringify(quick.data.field)},
+            daterangefield: ${JSON.stringify(quick.data.daterangeField)},
+            model: ${JSON.stringify(quick.data.model)}
+        };
+    }
+    methods: {
+        handleFieldChange(model, value) {
+            console.log(model, value);
+        }
+    }
+};
+<script>
+<template>
+    <Form :model="model">
+        <FieldGenerator
+            :field="field"
+            @on-field-change="handleFieldChange"
+        />
+        <FieldGenerator
+            :field="daterangeField"
+            @on-field-change="handleFieldChange"
+        />
+    </Form>
+</template>
+`;
+
 export default {
     simple,
     splitPanels,
     multiple,
     format,
     disabledDates,
-    yearAndMonth
+    yearAndMonth,
+    quick
 };
