@@ -169,9 +169,32 @@ export default {
             ]
         };
         const disabledDates = this.field.disabledDates || [];
+        let shortcuts = subtypeToShortcuts[this.field.subtype || 'date'];
+        if (this.field.options) {
+            if (['daterange', 'datetimerange'].includes(this.field.subtype)) {
+                shortcuts = this.field.options.map(option => {
+                    return {
+                        text: option.label,
+                        value() {
+                            return [getDate(+option.value[0]), getDate(+option.value[1])];
+                        }
+                    };
+                });
+            } else if (['date', 'datetime'].includes(this.field.subtype || 'date')) {
+                shortcuts = this.field.options.map(option => {
+                    return {
+                        text: option.label,
+                        value() {
+                            return getDate(+option.value);
+                        }
+                    };
+                });
+            }
+
+        }
         return {
             options: {
-                shortcuts: subtypeToShortcuts[this.field.subtype || 'date'],
+                shortcuts: shortcuts,
                 disabledDate(date) {
                     // disabledDates 的格式为 [[, 2018-12-30], [2019-1-30, 2019-2-30], [2019-3-30,]]
                     if (disabledDates.length === 0) {
@@ -205,8 +228,7 @@ export default {
             const inlineClasses = this.inline ? 'inline' : 'full-width';
             if (this.inline) {
                 return `${this.classes}-${inlineClasses}-${this.field.subtype.toLowerCase()}`;
-            }
-            else {
+            } else {
                 return `${this.classes}-${inlineClasses}`;
             }
         },

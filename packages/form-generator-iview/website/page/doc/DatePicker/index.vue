@@ -113,6 +113,13 @@
                             <td>Array</td>
                             <td>[]</td>
                         </tr>
+                        <tr>
+                            <td>options</td>
+                            <td>设置左侧的快捷方式。当subtype为date或datetime时，二维数组形如[{label:'昨天',value: -1},{label:'七天后',value: 7}]；当subtype为daterange或datetimerange时，二维数组形如[{label:'前后三天',value: [-3, 3]}],如果不需要快捷方式，传递空数组即可。
+                            </td>
+                            <td>Array</td>
+                            <td>-</td>
+                        </tr>
 
 
                     </tbody>
@@ -215,6 +222,24 @@
                     <p>设置属性 subtype 为 year 或 month 可以使用选择年或月的功能。</p>
                 </div>
                 <i-code slot="code" lang="html">{{ code.yearAndMonth.code }}</i-code>
+            </Demo>
+            <Demo title="快捷方式">
+                <div slot="demo">
+                    <Form :model="code.quick.data.model">
+                        <FieldGenerator
+                            :field="code.quick.data.field"
+                            @on-field-change="handleFieldChange"
+                        />
+                        <FieldGenerator
+                            :field="code.quick.data.daterangeField"
+                            @on-field-change="handleFieldChange"
+                        />
+                    </Form>
+                </div>
+                <div slot="desc">
+                    <p>设置快捷方式</p>
+                </div>
+                <i-code slot="code" lang="html">{{ code.quick.code }}</i-code>
             </Demo>
         </article>
     </i-article>
