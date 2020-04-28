@@ -1,0 +1,21 @@
+{
+    "status": 0,
+    "data": [
+        {
+            "label": "石家庄",
+            "value": "Shijiazhuang"
+        },
+        {
+            "label": "唐山",
+            "value": "Tangshan"
+        },
+        {
+            "label": "承德",
+            "value": "Chengde"
+        },
+        {
+            "label": "秦皇岛",
+            "value": "Qinhuangdao"
+        }
+    ]
+}
