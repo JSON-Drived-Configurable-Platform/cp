@@ -4,11 +4,9 @@ let simple = {};
 const field = {
     type: 'Slider',
     model: 'percent',
-    // range: true,
     showInput: true,
     left: true,
-    step: 20,
-    inputSize: 'default'
+    step: 5
 };
 
 const model = {
@@ -49,22 +47,17 @@ export default {
 
 
 
-// range示例
+// 双滑range示例
 let range = {};
 
 const field_range = {
     type: 'Slider',
     model: 'percent',
-    range: true,
-    // showInput: true,
-    // left: true,
-    step: 10,
-    inputSize: 'default'
+    range: true
 };
 
 const model_range = {
     percent: [30, 80]
-    // percent: 30
 };
 
 range.data = {
