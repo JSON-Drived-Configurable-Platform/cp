@@ -370,6 +370,52 @@ export default {
 </template>
 `;
 
+// 简单示例
+let maxLength = {};
+
+const maxLengthDateField = {
+    type: 'DatePicker',
+    subtype: 'date',
+    multiple: true,
+    maxLength: 7,
+    model: 'maxDate'
+};
+
+const maxLenghtModel = {
+    maxDate: '2019-03-07'
+};
+
+maxLength.data = {
+    field: maxLengthDateField,
+    model: maxLenghtModel
+};
+
+maxLength.code = `
+<script>
+export default {
+    data() {
+        return {
+            field: ${JSON.stringify(maxLength.data.field)},
+            model: ${JSON.stringify(maxLength.data.model)}
+        };
+    }
+    methods: {
+        handleFieldChange(model, value) {
+            console.log(model, value);
+        }
+    }
+};
+<script>
+<template>
+    <Form :model="model">
+        <FieldGenerator
+            :field="field"
+            @on-field-change="handleFieldChange"
+        />
+    </Form>
+</template>
+`;
+
 export default {
     simple,
     splitPanels,
@@ -377,5 +423,6 @@ export default {
     format,
     disabledDates,
     yearAndMonth,
-    quick
+    quick,
+    maxLength
 };
