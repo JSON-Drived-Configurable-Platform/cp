@@ -192,19 +192,18 @@ export default {
             }
 
         }
-        const _this = this;
         return {
-            disabledDates: [],
+            dates: [],
             options: {
                 shortcuts: shortcuts,
-                disabledDate(date) {
-                    if (_this.disabledDates.length === 0) {
+                disabledDate: date => {
+                    if (this.dates.length === 0) {
                         return false;
                     }
-                    if (_this.disabledDates.length === _this.field.maxLength
-                        && _this.field.subtype === 'date'
-                        && _this.field.multiple) {
-                        return !_this.disabledDates.some(ret => {
+                    if (this.dates.length === this.field.maxLength
+                        && this.field.subtype === 'date'
+                        && this.field.multiple) {
+                        return !this.dates.some(ret => {
                             var initdate = new Date(ret.split(/\D+/));
                             return date && date.valueOf() === initdate.valueOf() ;
                         });
@@ -252,7 +251,7 @@ export default {
     methods: {
         handleChange(value) {
             this.$emit('on-change', this.field.model, value, null, this.field);
-            this.disabledDates = value.split(',');
+            this.dates = value.split(',');
         }
     }
 };
