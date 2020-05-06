@@ -97,7 +97,9 @@ export default {
                 tooltip : {
                     trigger: 'axis',
                 },
-                grid: chart.grid !== undefined ? chart.grid : {containLabel: true},
+                grid: {
+                    containLabel: true
+                },
                 dataset,
                 series: chart.series.map(
                     item => {
