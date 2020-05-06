@@ -97,9 +97,8 @@ export default {
                 tooltip : {
                     trigger: 'axis',
                 },
-                grid: {
-                    containLabel: true
-                },
+                // 更改组件离容器的距离
+                grid: chart.grid !== undefined ? chart.grid : {containLabel: true},
                 dataset,
                 series: chart.series.map(
                     item => {
