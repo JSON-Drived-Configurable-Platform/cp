@@ -93,6 +93,7 @@ export default {
         return {
             loading: false,
             options: [],
+            extraOptions: []
         };
     },
     computed: {
@@ -106,7 +107,11 @@ export default {
             return !this.field.multiple ? this.field.clearable : false;
         },
         computedOptions() {
-            const options = this.options.length > 0 ? this.options : (Array.isArray(this.field.options) ? this.field.options : []);
+            let options = this.options.length > 0 ? this.options : (Array.isArray(this.field.options) ? this.field.options : []);
+            if (this.extraOptions) {
+                options = this.extraOptions.concat(options);
+            }
+
             const uniqeOptions = [];
             const uniqeOptionsMap = {};
             for (let i = 0; i < options.length; i++) {
@@ -121,11 +126,29 @@ export default {
         optionsApi() {
             return this.field.api || !Array.isArray(this.field.options) ? this.field.options : '';
         },
+        extraOptionsApi() {
+            return !Array.isArray(this.field.extraOptions) ? this.field.extraOptions : '';
+        },
         value() {
             return getValue({
                 originModel: this.form.model,
                 model: this.field.model
             }) || '';
+        }
+    },
+    created() {
+        // local
+        if(Array.isArray(this.field.extraOptions)) {
+            this.extraOptions = this.field.extraOptions;
+        }
+        // remote
+        if (this.extraOptionsApi) {
+            const params = {
+                values: this.value
+            };
+            this.requestMethod('get', this.extraOptionsApi, params).then(res => {
+                this.extraOptions = res.data;
+            });
         }
     },
     methods: {
