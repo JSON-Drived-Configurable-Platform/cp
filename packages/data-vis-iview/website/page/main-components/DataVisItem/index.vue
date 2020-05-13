@@ -10,8 +10,8 @@
                 <li>(3)、基于IView Card组件的数据卡片，主要用于重要数据的展示；</li>
             </ul>
             <alert>下面的demo展示了三个分类的具体用例，更多图形配置及功能请见配置文档。</alert>
-            <!-- <div class="api">
-                <inAnchor title="图分类" h2 />
+            <div class="api">
+                <inAnchor title="通用参数" h2 />
                 <table>
                     <thead>
                         <tr>
@@ -23,20 +23,48 @@
                     </thead>
                     <tbody>
                         <tr>
+                            <td>requestInterceptor</td>
+                            <td>表单请求的拦截器，下拉选择的列表等需要动态获取数据的组件中传入该属性后，将使用该属性声明的方法进行数据请求。</td>
+                            <td>Function</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>paramsContainer</td>
+                            <td>表单控件中的请求（如Select的option动态获取，Button的Ajax请求等）的额外参数的传入，通常配合表单控件的 field.apiParams 一起使用。</td>
+                            <td>Object</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
                             <td>chart.type</td>
-                            <td>图的类型，目前支持TODO</td>
+                            <td>图的类型，目前支持echart、table、retain、card</td>
                             <td>String</td>
                             <td>必填</td>
                         </tr>
                         <tr>
-                            <td>label</td>
+                            <td>chart.label</td>
                             <td>图的标题</td>
                             <td>String</td>
                             <td>-</td>
                         </tr>
+                        <tr>
+                            <td>chart.apiParams</td>
+                            <td>
+                                如过该图表需要动态获取图表数据，
+                                设置该参数将会从对应的condition.model和paramsContainer中获取参数，并携带在请求中。
+                                <br>
+                                例如：
+                                <br>
+                                设置apiParams为['id']，则会携带id作为请求的参数。
+                                <br>
+                                设置apiParams为 all，则会携带form.model和paramsContainer里面的所有值作为请求的参数。
+                                <br>
+                            </td>
+                            <td>Array | String</td>
+                            <td>-</td>
+                        </tr>
                     </tbody>
                 </table>
-            </div> -->
+            </div>
             <inAnchor title="一、基于Echart的可视化图表" h2 />
             <p>基于echart dataset用法可以渲染柱状图(bar)、折线图(line)、饼图(pie)、漏斗图(funnel)。</p>
             <Demo title="echart柱状图" vertical>

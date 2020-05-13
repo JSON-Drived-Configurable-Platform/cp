@@ -78,12 +78,15 @@
             <Demo title="查询条件" vertical>
                 <div slot="demo">
                     <DataVisGroup
+                        :params-container="code.search.data.paramsContainer"
                         :conditions="code.search.data.conditions"
                         :charts="code.search.data.charts"
                     />
                 </div>
                 <div slot="desc">
-                    <p>通过设置<code>charts</code>即可生成一个一系列可视化图表。</p>
+                    <p>通过设置<code>conditions</code>来配置DataVisGroup的局部查询条件。</p>
+                    <p>还可以通过<code>paramsContainer</code>来传入外部的查询参数</p>
+                    <p>可以通过<code>chart.apimParams</code>来指定传入哪些字段作为查询参数</p>
                 </div>
                 <i-code slot="code" lang="html">{{ code.search.code }}</i-code>
             </Demo>
