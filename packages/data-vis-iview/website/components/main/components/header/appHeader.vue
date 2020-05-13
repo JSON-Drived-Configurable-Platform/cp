@@ -27,11 +27,11 @@
                         <a target="_blank" href="https://json-drived-configurable-platform.github.io/cp">Configurable Plaform</a>
                     </MenuItem>
                     <MenuItem name="3-2">
-                        <a target="_blank" href="https://json-drived-configurable-platform.github.io/data-vis-iview">Data Vis IView</a>
+                        <a target="_blank" href="https://json-drived-configurable-platform.github.io/form-generator-iview">Data Vis IView</a>
                     </MenuItem>
                 </Submenu>
                 <MenuItem name="GitHub">
-                    <a target="_blank" href="https://github.com/JSON-Drived-Configurable-Platform/form-generator-iview">
+                    <a target="_blank" href="https://github.com/JSON-Drived-Configurable-Platform/data-vis-iview">
                         <Icon type="logo-github" />
                         GitHub
                     </a>
