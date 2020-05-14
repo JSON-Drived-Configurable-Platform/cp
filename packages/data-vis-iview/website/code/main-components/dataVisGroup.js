@@ -696,7 +696,8 @@ search.data = {
     charts: searchCharts,
     conditions,
     paramsContainer: {
-        username: 'bingblog'
+        username: 'bingblog',
+        date: '2019-01-01'
     }
 };
 

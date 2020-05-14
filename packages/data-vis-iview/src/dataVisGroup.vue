@@ -171,7 +171,7 @@ export default {
         mergedParamsContainer() {
             const model = this.model;
             const paramsContainer = this.paramsContainer;
-            return Object.assign({}, model, paramsContainer);
+            return Object.assign({}, paramsContainer, model);
         },
         tip() {
             return {
