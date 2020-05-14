@@ -416,6 +416,51 @@ export default {
 </template>
 `;
 
+// 简单示例
+let timedateRange = {};
+
+const timedateRangeField = {
+    type: 'DatePicker',
+    subtype: 'datetimerange',
+    model: 'datetimerange',
+    format: 'yyyy-MM-dd HH:mm:ss'
+};
+
+const timedateRangeModel = {
+    datetimerange: ['2022-02-10 11:11:11', '2022-02-22 22:22:22']
+};
+
+timedateRange.data = {
+    field: timedateRangeField,
+    model: timedateRangeModel
+};
+
+timedateRange.code = `
+<script>
+export default {
+    data() {
+        return {
+            field: ${JSON.stringify(timedateRange.data.field)},
+            model: ${JSON.stringify(timedateRange.data.model)}
+        };
+    }
+    methods: {
+        handleFieldChange(model, value) {
+            console.log(model, value);
+        }
+    }
+};
+<script>
+<template>
+    <Form :model="model">
+        <FieldGenerator
+            :field="field"
+            @on-field-change="handleFieldChange"
+        />
+    </Form>
+</template>
+`;
+
 export default {
     simple,
     splitPanels,
@@ -424,5 +469,6 @@ export default {
     disabledDates,
     yearAndMonth,
     quick,
-    maxLength
+    maxLength,
+    timedateRange
 };
