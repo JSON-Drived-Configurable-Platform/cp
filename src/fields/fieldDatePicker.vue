@@ -197,6 +197,7 @@ export default {
             options: {
                 shortcuts: shortcuts,
                 disabledDate: date => {
+                    let initdate = '';
                     if (this.dates.length === 0) {
                         return false;
                     }
@@ -204,7 +205,11 @@ export default {
                         && this.field.subtype === 'date'
                         && this.field.multiple) {
                         return !this.dates.some(ret => {
-                            var initdate = new Date(ret.split(/\D+/));
+                            if (this.field.format === 'yyyyMMdd') {
+                                initdate = new Date(ret.split(/(\d{4})(\d{2})(\d{2})/));
+                            } else {
+                                initdate = new Date(ret.split(/\D+/));
+                            }
                             return date && date.valueOf() === initdate.valueOf() ;
                         });
                     }

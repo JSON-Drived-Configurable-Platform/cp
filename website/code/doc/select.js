@@ -148,12 +148,23 @@ const filterableAndMultipleField = {
     model: 'cities',
     filterable: true,
     multiple: true,
-    options: '/selectApi'
+    options: '/selectApi',
+    extraOptions: '/selectExtraOptionsApi'
+    // extraOptions: [
+    //     {
+    //         label: '张三',
+    //         value: 'zhangsan'
+    //     },
+    //     {
+    //         label: '李四',
+    //         value: 'lisi'
+    //     }
+    // ]
 };
 
 const filterableModel = {
     city: 'Beijing',
-    cities: ['Beijing', 'Shanghai']
+    cities: ['zhangsan', 'lisi']
 };
 
 filterable.data = {
