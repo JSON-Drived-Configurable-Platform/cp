@@ -261,6 +261,19 @@
                 </div>
                 <i-code slot="code" lang="html">{{ code.maxLength.code }}</i-code>
             </Demo>
+            <Demo title="日期时间区间选择">
+                <div slot="demo">
+                    <Form :model="code.timedateRange.data.model">
+                        <FieldGenerator
+                            :field="code.timedateRange.data.field"
+                        />
+                    </Form>
+                </div>
+                <div slot="desc">
+                    <p>设置属性subtype为datetimerange,可选择具体的日期时间，也可结合format定制范围</p>
+                </div>
+                <i-code slot="code" lang="html">{{ code.timedateRange.code }}</i-code>
+            </Demo>
         </article>
     </i-article>
 </template>

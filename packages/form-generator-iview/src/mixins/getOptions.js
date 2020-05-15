@@ -78,7 +78,7 @@ export default {
                 if (defaultValueIndex !== undefined) {
                     let valueOption = this.options[defaultValueIndex];
                     if (valueOption) {
-                        this.value = valueOption.value;
+                        // this.value = valueOption.value;
                         valueOption && this.handleChange(valueOption.value);
                     }
 
@@ -87,7 +87,7 @@ export default {
                 let defaultValueIndexes = this.field.defaultValueIndexes || [];
                 if (defaultValueIndexes.length > 0) {
                     let values = this.options.filter((option, index) => defaultValueIndexes.includes(index)).map(option => option.value);
-                    this.value = values;
+                    // this.value = values;
                     values.length > 0 && this.handleChange(values);
                 }
             }
