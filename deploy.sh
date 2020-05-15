@@ -7,7 +7,7 @@ set -e
 yarn run build-website
 
 # 进入生成的文件夹
-cd docs/
+cd gh-pages/
 
 git init
 git add -A
