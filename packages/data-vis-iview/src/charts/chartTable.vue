@@ -253,7 +253,9 @@ export default {
                 else {
                     item.sortType = 'normal';
                 }
-                item.render = (h, params) => {
+                // 如果配置文件设置了render，则不能覆盖
+                // 支持通过item.renderDisabled, 设置该字段不需要转换
+                !item.render && !item.renderDisabled && (item.render = (h, params) => {
                     const key = params.column.key;
                     let value = params.row[key];
                     let text = value;
@@ -272,7 +274,7 @@ export default {
                         text = '-';
                     }
                     return h('span', {}, text);
-                };
+                });
                 return item;
             });
 

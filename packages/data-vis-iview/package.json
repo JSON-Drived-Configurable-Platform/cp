@@ -19,6 +19,7 @@
     "echarts": "^4.2.1",
     "file-saver": "^2.0.1",
     "form-generator-iview": "^0.0.6",
+    "mockjs": "^1.1.0",
     "xlsx": "^0.14.3"
   },
   "deprecated": false,
@@ -109,5 +110,5 @@
     "lint": "eslint --fix --ext .js,.vue,.json src --fix --ext .js,.vue,.json website --fix --ext .json docs/website-data-api"
   },
   "title": "dataVisIView",
-  "version": "0.0.28-beta"
+  "version": "0.0.32-beta"
 }
