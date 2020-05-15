@@ -123,23 +123,3 @@ export function roundNumber(number) {
     let tail = Math.pow(10, length - 1);
     return Math.floor(number / tail) * tail;
 }
-
-/**
- * 获取object的类型
- *
- * @param {obj} object
- * @return {string} 当前obj的数据类型，如果：Array String Boolean Object Number
- */
-export function getType(obj) {
-    return Object.prototype.toString.call(obj).slice(8, -1);
-}
-
-/**
- * 是否为数组类型
- *
- * @param {obj} object
- * @return {boolean}
- */
-export function isArray(obj) {
-    return getType(obj) === 'Array';
-}

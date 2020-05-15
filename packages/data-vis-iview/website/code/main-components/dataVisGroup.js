@@ -651,7 +651,7 @@ const searchCharts = [
         label:'柱状图',
         xAxis: {},
         yAxis: {type: 'category'},
-        api: '/chartBarDatasetApi',
+        dataset: '/chartBarDatasetApi',
         series: [
             {type: 'bar'}
         ]
@@ -659,7 +659,7 @@ const searchCharts = [
     {
         type: 'echart',
         label:'漏斗',
-        api: '/chartFunnelDatasetApi',
+        dataset: '/chartFunnelDatasetApi',
         series: [
             {type: 'funnel'}
         ]
@@ -667,7 +667,7 @@ const searchCharts = [
     {
         type: 'echart',
         label: '折线图',
-        api: '/chartLineDatasetApi',
+        dataset: '/chartLineDatasetApi',
         apiParams: ['date'],
         series: [
             {name: '第一周', type: 'line'},

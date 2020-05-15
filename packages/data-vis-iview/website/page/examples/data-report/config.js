@@ -52,7 +52,7 @@ export const config = [
                             label:'折线图',
                             xAxis: {type: 'category'},
                             yAxis: {},
-                            api: '/chartLineDatasetApi',
+                            dataset: '/chartLineDatasetApi',
                             series: [
                                 {type: 'line'}
                             ]
@@ -62,7 +62,7 @@ export const config = [
                             label:'柱状图',
                             xAxis: {type: 'category'},
                             yAxis: {},
-                            api: '/chartLineDatasetApi',
+                            dataset: '/chartLineDatasetApi',
                             series: [
                                 {type: 'bar'}
                             ]
@@ -72,7 +72,7 @@ export const config = [
                             label:'混合图',
                             xAxis: {type: 'category'},
                             yAxis: {},
-                            api: '/chartLineDatasetApi',
+                            dataset: '/chartLineDatasetApi',
                             series: [
                                 {type: 'bar'},
                                 {type: 'line'}
@@ -98,7 +98,7 @@ export const config = [
                             label:'柱状图',
                             xAxis: {type: 'category'},
                             yAxis: {},
-                            api: '/chartLineDatasetApi',
+                            dataset: '/chartLineDatasetApi',
                             series: [
                                 {type: 'bar'}
                             ]
@@ -108,7 +108,7 @@ export const config = [
                             label:'混合图',
                             xAxis: {type: 'category'},
                             yAxis: {},
-                            api: '/chartLineDatasetApi',
+                            dataset: '/chartLineDatasetApi',
                             series: [
                                 {type: 'bar'},
                                 {type: 'line'}
@@ -119,7 +119,7 @@ export const config = [
                             label:'折线图',
                             xAxis: {type: 'category'},
                             yAxis: {},
-                            api: '/chartLineDatasetApi',
+                            dataset: '/chartLineDatasetApi',
                             series: [
                                 {type: 'line'}
                             ]
