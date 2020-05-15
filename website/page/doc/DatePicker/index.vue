@@ -247,7 +247,7 @@
                 </div>
                 <i-code slot="code" lang="html">{{ code.quick.code }}</i-code>
             </Demo>
-            <Demo title="快捷方式">
+            <Demo title="选择多天及天数限制">
                 <div slot="demo">
                     <Form :model="code.maxLength.data.model">
                         <FieldGenerator
