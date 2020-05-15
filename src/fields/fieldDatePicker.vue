@@ -193,28 +193,30 @@ export default {
 
         }
         return {
-            dates: [],
             options: {
                 shortcuts: shortcuts,
                 disabledDate: date => {
                     let initdate = '';
-                    if (this.dates.length === 0) {
-                        return false;
-                    }
-                    if (this.dates.length === this.field.maxLength
-                        && this.field.subtype === 'date'
-                        && this.field.multiple) {
-                        return !this.dates.some(ret => {
+                    if (this.field.subtype === 'date' && this.field.multiple) {
+                        if (!this.value) {
+                            return false;
+                        }
+                        const selectedDates = this.value.split(',') || [];
+                        if (selectedDates.length !== this.field.maxLength) {
+                            return false;
+                        }
+
+                        return !selectedDates.some(item => {
                             if (this.field.format === 'yyyyMMdd') {
-                                initdate = new Date(ret.split(/(\d{4})(\d{2})(\d{2})/));
+                                initdate = new Date(item.split(/(\d{4})(\d{2})(\d{2})/));
                             } else {
-                                initdate = new Date(ret.split(/\D+/));
+                                initdate = new Date(item.split(/\D+/));
                             }
                             return date && date.valueOf() === initdate.valueOf() ;
                         });
                     }
-                    // disabledDates 的格式为 [[, 2018-12-30], [2019-1-30, 2019-2-30], [2019-3-30,]]
-                    // 只要满足 disabledDates 中任意一个区间，则禁用。
+                    // disabledselectedDates 的格式为 [[, 2018-12-30], [2019-1-30, 2019-2-30], [2019-3-30,]]
+                    // 只要满足 disabledselectedDates 中任意一个区间，则禁用。
                     return disabledDates.some(daterange => {
                         const startTime = daterange[0] ? (new Date(daterange[0])).getTime() : -Infinity;
                         const endTime = daterange[1] ? new Date(daterange[1]).getTime() : Infinity;
@@ -256,7 +258,6 @@ export default {
     methods: {
         handleChange(value) {
             this.$emit('on-change', this.field.model, value, null, this.field);
-            this.dates = value.split(',');
         }
     }
 };
