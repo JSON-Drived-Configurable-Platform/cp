@@ -1,28 +1,32 @@
 <template>
-<div class="fg-searchform-demo">
-    <div class="content">
-        <p class="nav-right">共{{totalNum}}个记录，共{{Math.ceil(totalNum/config.options.pageSize)}}页</p>
-        <SearchForm
-            :model="config.model"
-            :options="config.options"
-            :fields="config.fields"
-            :totalNum="totalNum"
-            ref="searchForm"
-            @on-search-field-change="handelSearchDataChange">
-            <slot>
-                <Table v-if="list.length > 0" class="tablewp"
-                    :columns="columns" :data="list"
-                ></Table>
-                <div class="nocontent" v-else>
-                    <p class="title" v-if="!isAjax && firstLoad">
-                        还没有记录
-                    </p>
-                    <p class="title" v-else>加载中...</p>
-                </div>
-            </slot>
-        </SearchForm>
+    <div class="fg-searchform-demo">
+        <div class="content">
+            <p class="nav-right">共{{ totalNum }}个记录，共{{ Math.ceil(totalNum/config.options.pageSize) }}页</p>
+            <SearchForm
+                ref="searchForm"
+                :model="config.model"
+                :options="config.options"
+                :fields="config.fields"
+                :total-num="totalNum"
+                @on-search-field-change="handelSearchDataChange"
+            >
+                <slot>
+                    <Table
+                        v-if="list.length > 0"
+                        class="tablewp"
+                        :columns="columns"
+                        :data="list"
+                    />
+                    <div v-else class="nocontent">
+                        <p v-if="!isAjax && firstLoad" class="title">
+                            还没有记录
+                        </p>
+                        <p v-else class="title">加载中...</p>
+                    </div>
+                </slot>
+            </SearchForm>
+        </div>
     </div>
-</div>
 </template>
 
 <script>
@@ -43,7 +47,10 @@ export default {
             isAjax: false,
             detailType: '',  // info review
             showDetail: false
-        }
+        };
+    },
+    mounted() {
+        this.$refs.searchForm.fetchData();
     },
     methods: {
         handelSearchDataChange(field) {
@@ -57,30 +64,27 @@ export default {
             setTimeout(() => {
                 let list = config.data.filter(v => {
                     return (!field.name || v.name.indexOf(field.name) !== -1)
-                        && (!field.gender || field.gender === v.gender)
+                        && (!field.gender || field.gender === v.gender);
                 });
 
                 let res = {
                     totalNum: list.length,
                     list: list
-                }
+                };
 
                 this.totalNum = res.totalNum;
                 this.list = res.list;
 
                 this.firstLoad = true;
                 this.isAjax = false;
-            }, 300)
+            }, 300);
         },
         handelRefresh() {
             // 可以用来刷新页面
             this.$refs.searchForm.fetchData();
         }
-    },
-    mounted() {
-        this.$refs.searchForm.fetchData();
     }
-}
+};
 </script>
 
 <style lang="less">

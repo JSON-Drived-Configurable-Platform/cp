@@ -8,14 +8,16 @@
             @on-field-change="handelFieldChange"
             @on-button-event="handelButtonClick"
         />
-        <slot></slot>
-        <Page class="fg-filter-form-page"
+        <slot />
+        <Page
             v-if="options.showPage"
+            class="fg-filter-form-page"
             :current="model.page"
             :page-size="options.pageSize"
             :total="totalNum"
             :show-total="options.showPageTotal"
-            @on-change="fetchData" />
+            @on-change="fetchData"
+        />
     </div>
 </template>
 
@@ -40,15 +42,14 @@ export default {
                 return {};
             }
         },
-        totalNum: 0
+        totalNum: {
+            type: Number,
+            default: 0
+        }
     },
     data() {
         return {
-        }
-    },
-    created() {
-    },
-    mounted() {
+        };
     },
     methods: {
         // 筛选
@@ -82,7 +83,7 @@ export default {
             this.$emit('on-search-field-change', filterObj);
         }
     },
-}
+};
 </script>
 
 <style lang="less">

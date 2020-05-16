@@ -3,24 +3,28 @@ let simple = {};
 
 const fields = [
     {
+        label: '年龄',
+        type: 'Radio',
+        model: 'isShow',
+        subtype: 'button',
+        options: [
+            {label: '显示', value: 1},
+            {label: '隐藏', value: 0},
+        ]
+    },
+    {
         type: 'Input',
         label: '姓名',
-        model: 'name',
-        hiddenOn: {
-            hasAuth: {
-                type: 'enum',
-                enum: [0]
-            }
-        }
+        model: 'name'
     },
     {
         type: 'Input',
         label: '年龄',
         model: 'age',
         showOn: {
-            hasAuth: {
+            isShow: {
                 type: 'enum',
-                enum: [0]
+                enum: [1]
             }
         }
     }
@@ -29,8 +33,7 @@ const fields = [
 const model = {
     name: '张三',
     age: 18,
-    hasAuth: 0,
-    isCheck: 1
+    isShow: 0
 };
 
 simple.data = {
@@ -67,13 +70,7 @@ const paramsFields = [
     {
         type: 'Input',
         label: '姓名',
-        model: 'name',
-        hiddenOn: {
-            isShow: {
-                type: 'enum',
-                enum: [false]
-            }
-        }
+        model: 'name'
     },
     {
         type: 'Input',
@@ -82,18 +79,19 @@ const paramsFields = [
         showOn: {
             isShow: {
                 type: 'enum',
-                enum: [false]
+                enum: [1]
             }
         }
     }
 ];
 
+// 外部变量控制
 const paramsModel = {
     name: '张三',
     age: 12
 };
 const paramsContainer = {
-    isShow: false
+    isShow: 0
 };
 
 params.data = {
@@ -119,10 +117,21 @@ export default {
 };
 <script>
 <template>
-    <FormGenerator
-            :fields="fields"
-            :model="model"
+    <div>
+        <RadioGroup v-model="code.params.data.paramsContainer.isShow" size="small">
+            <Radio :label="0"> 隐藏 </Radio>
+            <Radio :label="1"> 展示 </Radio>
+        </RadioGroup>
+        <FormGenerator
+            :fields="code.params.data.paramsFields"
+            :model="code.params.data.paramsModel"
+            :params-container="code.params.data.paramsContainer"
         />
+        <div slot="desc">
+            <p>在某些场景下，控制元素显示（隐藏）的字段可能不在表单中返回，这时，我们就可以使用paramContainer来实现元素的显示（隐藏）这一功能，只需要把变量放到paramContainer中就可以了。</p>
+        </div>
+        <i-code slot="code" lang="html">{{ code.params.code }}</i-code>
+    </div>
 </template>
 `;
 

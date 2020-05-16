@@ -227,9 +227,9 @@
 
 import iArticle from '../../../components/article';
 import inAnchor from '../../../components/anchor';
-import Code from '../../../code/powerful-fieldGenerator';
 import Demo from '../../../components/Demo';
 import iCode from '../../../components/code';
+import Code from '../../../code/development/powerful-fieldGenerator';
 const templates = [
     {
         path: '/form-editable-table',
