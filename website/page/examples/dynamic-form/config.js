@@ -1,233 +1,127 @@
-const basicFormsConfig = [
+
+const columns = [
     {
-        type: 'Divider',
-        label: '基本信息',
-        orientation: 'left',
-        dashed: true,
-        size: 'small'
+        title: '姓名',
+        slot: 'name',
+        formFields: [{
+            type: 'Input',
+            model: 'name',
+            placeholder: '请输入用户名',
+            rules: [
+                {
+                    type: 'string',
+                    required: true,
+                    pattern:  /^[\u4e00-\u9fa5]+$/,
+                    message: '请输入中文姓名'
+                }
+            ]
+        }]
     },
     {
-        type: 'Input',
-        label: '加密token',
-        model: 'token',
-        placeholder: 'token请联系RD获取加密token，测试环境为:xxxx',
-        required: true
+        title: '年龄',
+        slot: 'age',
+        formFields: [{
+            type: 'InputNumber',
+            model: 'age',
+            placeholder: '请输入年龄',
+            required: true,
+            max: 150,
+            min: 0
+        }]
     },
     {
-        type: 'Input',
-        label: '二维码回流url',
-        model: 'url',
-        placeholder: 'url请输入二维码回流url',
-        required: true,
-        defaultHide: false
+        title: '性别',
+        slot: 'gender',
+        formFields: [{
+            type: 'Select',
+            model: 'gender',
+            placeholder: '请输入性别',
+            required: true,
+            options: [
+                {
+                    label: '男',
+                    value: '男'
+                },
+                {
+                    label: '女',
+                    value: '女'
+                },
+                {
+                    label: '保密',
+                    value: '保密'
+                }
+            ]
+        }]
     },
     {
-        type: 'Input',
-        label: '背景图片的key',
-        model: 'key',
-        placeholder: '请输入背景图片的key',
-        required: true
+        title: '出生日期',
+        slot: 'birthday',
+        formFields: [{
+            type: 'DatePicker',
+            subtype: 'date',
+            model: 'birthday',
+            placeholder: '请输入出生日期',
+            required: true
+        }]
     },
     {
-        type: 'Divider',
-        label: '二维码水印配置',
-        orientation: 'left',
-        dashed: true,
-        size: 'small'
+        title: '地址',
+        slot: 'address',
+        formFields: [{
+            type: 'Text',
+            model: 'gender',
+            placeholder: '请输入地址',
+            required: true
+        }]
     },
     {
-        type: 'Select',
-        label: '添加位置',
-        model: 'imgWmOpts.g',
-        options: [
-            {
-                label: '1',
-                value: '1'
-            },
-            {
-                label: '2',
-                value: '2',
-            },
-            {
-                label: '3',
-                value: '3'
-            },
-            {
-                label: '4',
-                value: '4',
-            },
-            {
-                label: '5',
-                value: '5'
-            },
-            {
-                label: '6',
-                value: '6',
-            },
-            {
-                label: '7',
-                value: '7',
-            },
-            {
-                label: '8',
-                value: '8',
-            },
-            {
-                label: '9',
-                value: '9',
+        title: '操作',
+        slot: 'action',
+        formFields: [{
+            type: 'Button',
+            subtype: 'primary',
+            text: '删除',
+            action: {
+                type: 'event',
+                name: 'delete'
             }
-        ]
-    },
-    {
-        type: 'InputNumber',
-        label: '距左边距距离',
-        model: 'imgWmOpts.x',
-        placeholder: '指定格内,距左边距距离（默认10）',
-        required: true,
-    },
-    {
-        type: 'InputNumber',
-        label: '距左边距距离',
-        model: 'imgWmOpts.y',
-        placeholder: '指定格内,距下边距距离（默认10）',
-        required: true,
-    },
-    {
-        type: 'Divider',
-        label: '二维码生成配置',
-        orientation: 'left',
-        dashed: true,
-        size: 'small'
-    },
-    {
-        type: 'InputNumber',
-        label: '二维码宽度',
-        model: 'qrOpts.width',
-        placeholder: '二维码宽度（单位px）默认240',
-        required: true,
-    },
-    {
-        type: 'InputNumber',
-        label: '二维码白边宽度',
-        model: 'qrOpts.margin',
-        placeholder: '指定格内,距左边距距离（默认10）',
-        required: true,
-    },
-    {
-        type: 'InputNumber',
-        label: '距左边距距离',
-        model: 'qrOpts.y',
-        placeholder: '指定格内,距下边距距离（默认10）',
-        required: true,
-    },
-    {
-        type: 'Input',
-        label: '二维码深色',
-        model: 'qrOpts.color.dark',
-        placeholder: 'qrOpts.color.dark二维码深色RGBA 默认”#000000ff”',
-        required: true
-    },
-    {
-        type: 'Input',
-        label: '二维码浅色',
-        model: 'qrOpts.color.light',
-        placeholder: 'qrOpts.color.light二维码浅色RGBA 默认”#ffffffff”',
-        required: true
-    },
+        }]
+    }
 ];
 
-// 动态配置
-const dynamicFormConfig = [
+
+const data = [
     {
-        type: 'Select',
-        label: '添加位置',
-        model: 'wm',
-        options: [
-            {
-                label: '图片',
-                value: '1'
-            },
-            {
-                label: '文字',
-                value: '2',
-            }
-        ]
+        name: '王小明',
+        age: 18,
+        gender: '男',
+        birthday: '1999-2-21',
+        address: '北京市朝阳区芍药居'
     },
     {
-        type: 'Input',
-        label: '文字内容',
-        model: 't',
-        placeholder: '二维码深色RGBA 默认”#000000ff”',
-        required: true
+        name: '张小刚',
+        age: 25,
+        gender: '男',
+        birthday: '1992-1-23',
+        address: '北京市海淀区西二旗'
     },
     {
-        type: 'Select',
-        label: 'g',
-        model: 'imgWmOpts.g',
-        options: [
-            {
-                label: '1',
-                value: '1'
-            },
-            {
-                label: '2',
-                value: '2',
-            },
-            {
-                label: '3',
-                value: '3'
-            },
-            {
-                label: '4',
-                value: '4',
-            },
-            {
-                label: '5',
-                value: '5'
-            },
-            {
-                label: '6',
-                value: '6',
-            },
-            {
-                label: '7',
-                value: '7',
-            },
-            {
-                label: '8',
-                value: '8',
-            },
-            {
-                label: '9',
-                value: '9',
-            }
-        ]
+        name: '李小红',
+        age: 30,
+        gender: '女',
+        birthday: '1987-11-10',
+        address: '上海市浦东新区世纪大道'
     },
     {
-        type: 'Button',
-        text: '删除该组',
-        subtype: 'primary',
-        size: 'small',
-        action: {
-            type: 'event',
-            name: 'delete'
-        },
-        inline: true
-    },
-    {
-        type: 'Button',
-        text: '添加一组',
-        subtype: 'primary',
-        size: 'small',
-        action: {
-            type: 'event',
-            name: 'add'
-        },
-        inline: true
-    },
+        name: '周小伟',
+        age: 26,
+        gender: '男',
+        birthday: '1991-10-10',
+        address: '深圳市南山区深南大道'
+    }
 ];
 
-export default {
-    basicFormsConfig,
-    dynamicFormConfig
+export {
+    data,
+    columns
 };

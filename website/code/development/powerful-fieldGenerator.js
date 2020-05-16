@@ -783,6 +783,9 @@ const dynamicFormColumns = [
 
 dynamicForm.code = `
 <template>
+    <div class="demo-header">
+        <Button type="primary" @click="handleDynamicFormAdd">添加</Button>
+    </div>
     <Table :columns="columns" :data="data">
         <template
             v-for="column in code.dynamicForm.data.columns"
@@ -803,6 +806,9 @@ dynamicForm.code = `
             </Form>
         </template>
     </Table>
+    <div class="demo-actions">
+        <Button type="primary" @click="handleDynamicFormSubmit">提交</Button>
+    </div>
 </template>
 <script>
 export default {
