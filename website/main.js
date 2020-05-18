@@ -5,7 +5,7 @@ import VueRouter from 'vue-router';
 import FormGenerator from '../src/index';
 import dataVis from 'data-vis-iview';
 
-import App from './app.vue';
+import App from './App.vue';
 import router from './router';
 import store from './store';
 
