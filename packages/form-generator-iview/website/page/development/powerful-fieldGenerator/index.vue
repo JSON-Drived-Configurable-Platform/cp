@@ -227,7 +227,7 @@
 
 import iArticle from '../../../components/article';
 import inAnchor from '../../../components/anchor';
-import Demo from '../../../components/Demo';
+import Demo from '../../../components/demo';
 import iCode from '../../../components/code';
 import Code from '../../../code/development/powerful-fieldGenerator';
 const templates = [

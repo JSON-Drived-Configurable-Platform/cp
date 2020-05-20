@@ -114,8 +114,8 @@
 import iArticle from '../../../components/article';
 import inAnchor from '../../../components/anchor';
 import iCode from '../../../components/code';
-import Demo from '../../../components/Demo';
-import Code from '../../../code/doc/Tree';
+import Demo from '../../../components/demo';
+import Code from '../../../code/doc/tree';
 
 export default {
     components: {
