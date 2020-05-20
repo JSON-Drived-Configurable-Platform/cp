@@ -91,7 +91,7 @@ import iArticle from '../../../components/article';
 import inAnchor from '../../../components/anchor';
 import iCode from '../../../components/code';
 import Demo from '../../../components/demo';
-import Code from '../../../code/doc/formValidate';
+import Code from '../../../code/development/formValidate';
 export default {
     components: {
         iArticle,

@@ -58,6 +58,12 @@ const fields = [
             }
         ]
     },
+    {
+        type: 'Submit',
+        subtype: 'primary',
+        text: '提交',
+        inline: true
+    },
 ];
 
 const options = {
@@ -75,9 +81,11 @@ const model = {
 introduce.demo = `
 <template>
     <FormGenerator
+        ref="FormGenerator"
         :fields="code.introduce.data.fields"
         :model="code.introduce.data.model"
         :options="code.introduce.data.options"
+        @on-submit="handleSubmit()"
     />
 </template>
 <script>

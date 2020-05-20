@@ -1,81 +1,121 @@
 <template>
-    <div class="dynamic-form-demo">
-        <Row>
-            <i-col :span="12">
-                <FormGenerator
-                    :fields="basicFormsConfig"
-                    :model="basicFormModel"
-                    :options="basicFormOptions"
-                    @on-field-change="hanldeFieldChange"
-                />
-                <h1>动态元素</h1>
-                <FormGenerator
-                    :fields="dynamicFormConfig"
-                    :model="dynamicFormModel"
-                    :options="basicFormOptions"
-                    @on-field-change="hanldeFieldChange"
-                />
-            </i-col>
-            <i-col :span="12">
-                <div class="dynamic-form-demo-preview">
-                    预览
-                </div>
-            </i-col>
-        </Row>
+    <div class="dynamic-form-example">
+        <div class="demo-header">
+            <Button type="primary" @click="handleDynamicFormAdd">添加</Button>
+        </div>
+        <Table :columns="columns" :data="dynamicFormData">
+            <template
+                v-for="column in columns"
+                :slot="column.slot"
+                slot-scope="{ row, index }"
+            >
+                <Form
+                    :key="column.slot"
+                    ref="dynamicForm"
+                    :model="row"
+                >
+                    <FieldGenerator
+                        v-for="field in column.formFields"
+                        :key="field.name"
+                        :field="field"
+                        @on-button-event="handleButtonEvent($event, index, row)"
+                    />
+                </Form>
+            </template>
+        </Table>
+        <div class="demo-actions">
+            <Button type="primary" @click="handleDynamicFormSubmit">提交</Button>
+        </div>
     </div>
 </template>
 <script>
-import config from './config';
-let {basicFormsConfig, dynamicFormConfig} = config;
+import {columns, data} from './config';
 export default {
     data() {
         return {
-            basicFormsConfig,
-            basicFormOptions: {
-                labelWidth: 120
-            },
-            dynamicFormConfig,
-            basicFormModel: {
-                // imgWmOpts: {
-                //     g: '',
-                //     x: '',
-                //     y: ''
-                // },
-                // qrOpts: {
-                //     width: '',
-                //     margin: '',
-                //     y: '',
-                //     color: {
-                //         dark: '',
-                //         light: ''
-                //     }
-                // }
-            },
-            dynamicFormModel: {
-                // imgWmOpts: {
-                //     g: ''
-                // }
-            }
+            dynamicFormData: data,
+            columns
         };
     },
     methods: {
-        hanldeFieldChange(model, value) {
-            console.log(model, value);
-            console.log(this.basicFormModel);
+        handleDelete(index) {
+            this.$Message.info(JSON.stringify({
+                index
+            }));
+        },
+
+        handleSave(index, data) {
+            this.$Message.info(JSON.stringify({
+                index,
+                data
+            }));
+        },
+
+        handleButtonEvent({name}, index, data) {
+            // eslint-disable-next-line no-console
+            switch (name) {
+                case 'save':
+                    this.$Message.info(JSON.stringify({
+                        index,
+                        data
+                    }));
+                    break;
+                case 'delete':
+                    this.handleDynamicFormDel(index);
+                    break;
+            }
+
+        },
+
+        handleDynamicFormAdd() {
+            const data = this.getDynamicFormData();
+            data.push({});
+            this.dynamicFormData = data;
+        },
+
+        handleDynamicFormDel(index) {
+            this.dynamicFormData.splice(index, 1);
+        },
+
+        handleDynamicFormSubmit() {
+
+            this.$Message.info(JSON.stringify({
+                data: this.getDynamicFormData()
+            }));
+        },
+
+        getDynamicFormData() {
+            const data = [];
+            this.$refs.dynamicForm.forEach(form => {
+                data[form.model._index] = form.model;
+            });
+            return data;
         }
     }
 };
 </script>
-<style lang="less">
-.dynamic-form-demo {
-    margin: 20px;
 
-    &-preview {
-        margin: 30px;
-        width: 300px;
-        height: auto;
-        min-height: 500px;
-        background: #e4e4e4;
+<style lang="less">
+.dynamic-form-example {
+    .ivu-form-item {
+        margin-top: 20px;
+    }
+    .ivu-table, .ivu-table-wrapper, .ivu-table-cell {
+        overflow: visible;
+    }
+    .demo-header{
+        margin: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .demo-actions{
+        margin: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
+
 </style>

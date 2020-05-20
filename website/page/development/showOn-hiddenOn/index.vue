@@ -8,6 +8,7 @@
                 <inAnchor title="配置快速查询" h2 />
                 <p>showOn&hiddenOn基于async-validator实现的数据验证，具体规则形式请参考<a href="https://github.com/yiminghe/async-validator" target="_blank"><i class="ivu-icon ivu-icon-social-github" /> async-validator</a>。</p>
                 <inAnchor title="代码示例" h2 />
+
                 <Demo title="基础用法（表单控制）">
                     <div slot="demo">
                         <FormGenerator
@@ -20,8 +21,13 @@
                     </div>
                     <i-code slot="code" lang="html">{{ code.simple.code }}</i-code>
                 </Demo>
-                <Demo title="全局变量控制">
+
+                <Demo title="外部变量控制">
                     <div slot="demo">
+                        <RadioGroup v-model="code.params.data.paramsContainer.isShow" size="small">
+                            <Radio :label="0"> 隐藏 </Radio>
+                            <Radio :label="1"> 展示 </Radio>
+                        </RadioGroup>
                         <FormGenerator
                             :fields="code.params.data.paramsFields"
                             :model="code.params.data.paramsModel"
@@ -33,6 +39,7 @@
                     </div>
                     <i-code slot="code" lang="html">{{ code.params.code }}</i-code>
                 </Demo>
+
                 <Demo title="两者共存">
                     <div slot="demo">
                         <FormGenerator
@@ -67,7 +74,7 @@ import iArticle from '../../../components/article';
 import inAnchor from '../../../components/anchor';
 import iCode from '../../../components/code';
 import Demo from '../../../components/demo';
-import Code from '../../../code/doc/showOnhiddenOn';
+import Code from '../../../code/development/showOnhiddenOn';
 export default {
     components: {
         iArticle,

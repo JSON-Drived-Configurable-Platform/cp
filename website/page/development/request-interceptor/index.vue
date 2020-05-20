@@ -15,9 +15,9 @@
                     <div slot="demo">
                         <Form :model="code.api.data.model">
                             <FieldGenerator
-                                    :field="code.api.data.field"
-                                    :form-model="code.api.data.model"
-                                    :request-interceptor="requestInterceptor"
+                                :field="code.api.data.field"
+                                :form-model="code.api.data.model"
+                                :request-interceptor="requestInterceptor"
                             />
                         </Form>
                     </div>
@@ -27,12 +27,12 @@
                         <div>
                             <p>原始远程数据格式为：</p>
                             <i-code>
-                                {{JSON.parse('{"status":0,"data":[{"label":"北京","value":"Beijing"},{"label":"上海","value":"Shanghai"},{"label":"广州","value":"Guangzhou"},{"label":"深圳","value":"Shenzhen"}]}')}}
+                                {{ JSON.parse('{"status":0,"data":[{"label":"北京","value":"Beijing"},{"label":"上海","value":"Shanghai"},{"label":"广州","value":"Guangzhou"},{"label":"深圳","value":"Shenzhen"}]}') }}
                             </i-code>
 
                             <p>通过requestInterceptor拦截数据，进一步处理后变为：</p>
                             <i-code>
-                                {{JSON.parse('{"status":0,"data":[{"label":"我爱北京","value":"Beijing"},{"label":"我爱上海","value":"Shanghai"},{"label":"我爱广州","value":"Guangzhou"},{"label":"我爱深圳","value":"Shenzhen"}]}')}}
+                                {{ JSON.parse('{"status":0,"data":[{"label":"我爱北京","value":"Beijing"},{"label":"我爱上海","value":"Shanghai"},{"label":"我爱广州","value":"Guangzhou"},{"label":"我爱深圳","value":"Shenzhen"}]}') }}
                             </i-code>
                         </div>
                     </div>
@@ -48,7 +48,7 @@ import iArticle from '../../../components/article';
 import inAnchor from '../../../components/anchor';
 import iCode from '../../../components/code';
 import Demo from '../../../components/demo';
-import Code from '../../../code/doc/requestInterceptor';
+import Code from '../../../code/development/requestInterceptor';
 import axios from 'axios';
 
 export default {
@@ -92,13 +92,13 @@ export default {
                             resData.push({
                                 label: '我爱' + item.label,
                                 value: item.value
-                            })
+                            });
                         });
                     }
                     return {
                         status: 0,
                         data: resData
-                    }
+                    };
                 }
             };
             return new Promise((resolve, reject) => {
@@ -111,7 +111,7 @@ export default {
                     resolve(data);
                 }).catch(e => {
                     reject(e);
-                })
+                });
             });
         },
     },

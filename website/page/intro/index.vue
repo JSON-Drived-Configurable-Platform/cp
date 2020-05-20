@@ -52,9 +52,11 @@
             <Demo title="简单示例">
                 <div slot="demo">
                     <FormGenerator
+                        ref="FormGenerator"
                         :fields="code.introduce.data.fields"
                         :model="code.introduce.data.model"
                         :options="code.introduce.data.options"
+                        @on-submit="handleSubmit()"
                     />
                 </div>
                 <div slot="desc">
@@ -71,7 +73,7 @@
                     <img src="https://img.shields.io/npm/v/form-generator-iview.svg?style=flat-square">
                 </a>
                 <br>
-                <i>目前仍为开发中，不建议生产环境使用。</i>
+                <!-- <i>目前仍为开发中，不建议生产环境使用。</i> -->
             </p>
 
             <inAnchor title="兼容" h2 />
@@ -141,7 +143,7 @@ import iArticle from '../../components/article';
 import inAnchor from '../../components/anchor';
 import iCode from '../../components/code';
 import Demo from '../../components/demo';
-import Code from '../../code/guide';
+import Code from '../../code/intro';
 export default {
     components: {
         iArticle,
@@ -153,6 +155,12 @@ export default {
         return {
             code: Code
         };
+    },
+    methods: {
+        handleSubmit() {
+            // eslint-disable-next-line no-console
+            this.$Message.info(JSON.stringify(this.$refs.FormGenerator.model));
+        },
     }
 };
 </script>
