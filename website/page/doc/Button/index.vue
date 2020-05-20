@@ -30,6 +30,12 @@
                             <td>-</td>
                         </tr>
                         <tr>
+                            <td>disabled</td>
+                            <td>设置按钮为禁用状态</td>
+                            <td>Boolean</td>
+                            <td>false</td>
+                        </tr>
+                        <tr>
                             <td>textModel</td>
                             <td>按钮文案对应的model属性，指定后将从<code>form.model</code>里面获取按钮的文案</td>
                             <td>String</td>
@@ -261,7 +267,7 @@
 import iArticle from '../../../components/article';
 import inAnchor from '../../../components/anchor';
 import iCode from '../../../components/code';
-import Demo from '../../../components/Demo';
+import Demo from '../../../components/demo';
 import Code from '../../../code/doc/button';
 export default {
     components: {

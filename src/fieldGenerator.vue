@@ -17,7 +17,7 @@
         :label="field.label"
         :prop="field.model"
         :required="field.required"
-        :rules="getRules(field)"
+        :rules="getRules"
         :label-width="field.labelWidth"
         :class="itemClasses"
         :style="itemStyle"
@@ -161,6 +161,77 @@ export default {
         contentShow() {
             let content = this.field.labelTip && this.field.labelTip.content || {};
             return content.ifShow;
+        },
+        getRules() {
+            const field = this.field;
+            const type = field.type.toLowerCase();
+            const subtype = field.subtype;
+
+            let rules = [];
+            if (field.required) {
+                if (type === 'datepicker' && ['daterange', 'datetimerange'].includes(subtype)) {
+                    rules.push({
+                        validator(rule, value, callback) {
+                            if (value.length === 2 && value[0] && value[1]) {
+                                callback();
+                            }
+                            else {
+                                callback(new Error(field.label + '不可为空'));
+                            }
+                        },
+                        trigger: 'change'
+                    });
+                }
+                if (type === 'timepicker' && ['timerange'].includes(subtype)) {
+                    rules.push({
+                        validator(rule, value, callback) {
+                            if (value.length === 2 && value[0] && value[1]) {
+                                callback();
+                            }
+                            else {
+                                callback(new Error(field.label + '不可为空'));
+                            }
+                        },
+                        trigger: 'change'
+                    });
+                }
+                if (['logicinput', 'logicselect'].includes(type)) {
+                    rules.push({
+                        validator(rule, value, callback) {
+                            if (value.logic && value.value) {
+                                callback();
+                            }
+                            else {
+                                callback(new Error(field.label + '不可为空'));
+                            }
+                        },
+                        trigger: 'change'
+                    });
+                }
+                rules.push({
+                    required: true,
+                    type: getValidType(field),
+                    message: (field.label || field.model) + '不可为空',
+                    trigger: 'change'
+                });
+            }
+            if (field.rules) {
+                const model = this.form.model;
+                const validateValue = Object.assign({}, model || {}, this.paramsContainer || {});
+                if (Object.prototype.toString.call(field.rules) === '[object Array]') {
+                    rules = rules.concat(field.rules);
+                } else {
+                    Object.keys(field.rules).map(model => {
+                        field.rules[model].map(field => {
+                            if (validateValue[model] === field.value) {
+                                rules = rules.concat(field.rules);
+
+                            }
+                        });
+                    });
+                }
+            }
+            return rules;
         }
     },
     created() {
@@ -228,62 +299,7 @@ export default {
         handelListItemClick(value) {
             this.$emit('on-list-item-click', value);
         },
-        getRules(field) {
-            const type = field.type.toLowerCase();
-            const subtype = field.subtype;
-            let rules = [];
-            if (field.required) {
-                if (type === 'datepicker' && ['daterange', 'datetimerange'].includes(subtype)) {
-                    rules.push({
-                        validator(rule, value, callback) {
-                            if (value.length === 2 && value[0] && value[1]) {
-                                callback();
-                            }
-                            else {
-                                callback(new Error(field.label + '不可为空'));
-                            }
-                        },
-                        trigger: 'change'
-                    });
-                }
-                if (type === 'timepicker' && ['timerange'].includes(subtype)) {
-                    rules.push({
-                        validator(rule, value, callback) {
-                            if (value.length === 2 && value[0] && value[1]) {
-                                callback();
-                            }
-                            else {
-                                callback(new Error(field.label + '不可为空'));
-                            }
-                        },
-                        trigger: 'change'
-                    });
-                }
-                if (['logicinput', 'logicselect'].includes(type)) {
-                    rules.push({
-                        validator(rule, value, callback) {
-                            if (value.logic && value.value) {
-                                callback();
-                            }
-                            else {
-                                callback(new Error(field.label + '不可为空'));
-                            }
-                        },
-                        trigger: 'change'
-                    });
-                }
-                rules.push({
-                    required: true,
-                    type: getValidType(field),
-                    message: (field.label || field.model) + '不可为空',
-                    trigger: 'change'
-                });
-            }
-            if (field.rules) {
-                rules = rules.concat(field.rules);
-            }
-            return rules;
-        },
+        
 
         submit(component) {
             let field = component.field;

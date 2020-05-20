@@ -151,8 +151,8 @@
 import iArticle from '../../../components/article';
 import inAnchor from '../../../components/anchor';
 import iCode from '../../../components/code';
-import Demo from '../../../components/Demo';
-import Code from '../../../code/doc/TableSelect';
+import Demo from '../../../components/demo';
+import Code from '../../../code/doc/tableSelect';
 
 export default {
     components: {

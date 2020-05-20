@@ -23,4 +23,5 @@ test/coverage
 /dist
 /deploy-baidu
 /coverage
+gh-pages/
 .vscode/

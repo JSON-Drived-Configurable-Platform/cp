@@ -10,6 +10,7 @@
         <Button
             :type="field.subtype || 'default'"
             :size="field.size || 'default'"
+            :disabled="field.disabled || false"
             :loading="loading"
         >{{ text }}</Button>
     </Poptip>
@@ -17,6 +18,7 @@
         v-else
         :type="field.subtype || 'default'"
         :size="field.size || 'default'"
+        :disabled="field.disabled || false"
         :class="classes"
         :loading="loading"
         @click="handleClick"

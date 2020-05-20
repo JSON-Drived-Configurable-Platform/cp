@@ -166,7 +166,7 @@
 import iArticle from '../../../components/article';
 import inAnchor from '../../../components/anchor';
 import iCode from '../../../components/code';
-import Demo from '../../../components/Demo';
+import Demo from '../../../components/demo';
 import Code from '../../../code/doc/inputNumber';
 
 export default {
