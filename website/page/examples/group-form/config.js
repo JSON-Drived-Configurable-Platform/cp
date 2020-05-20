@@ -763,6 +763,53 @@ export const fields = [
         model: 'city',
     },
     {
+        type: 'Input',
+        label: '根据model值变换规则',
+        model: 'inputRule',
+        rules: {
+            // input: [{
+            //     value: 'wang',
+            //     rules: [
+            //         {
+            //             type: 'enum',
+            //             enum: ['haha'],
+            //             message: '请填入正确的值'
+            //         }
+            //     ]
+            // },
+            // {
+            //     value: 'xxx-1',
+            //     rules: [
+            //         {
+            //             type: 'string',
+            //             // required: true,
+            //             message: '请填写表单信息'
+            //         }
+            //     ]
+            // }],
+            paramsContainerTest: [{
+                value: 'xxx',
+                rules: [
+                    {
+                        type: 'string',
+                        required: true,
+                        message: '请填写表单信息'
+                    }
+                ]
+            },
+            {
+                value: 'xxx-1',
+                rules: [
+                    {
+                        type: 'string',
+                        // required: true,
+                        message: '请填写表单信息'
+                    }
+                ]
+            }]
+        }
+    },
+    {
         type: 'Select',
         label: '县',
         api: '/selectApi',
@@ -788,7 +835,7 @@ export const fields = [
 
 
 export const model = {
-    input: 'wangbing',
+    input: 'wang',
     'inputForbidden': 'wangbing',
     'textarea': '啊啊啊啊啊',
     inputMultiple: ['成员1', '成员2'],
