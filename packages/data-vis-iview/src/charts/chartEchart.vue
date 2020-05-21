@@ -56,8 +56,10 @@ export default {
                 `${classPrifix}-chart-echart`
             ];
         },
-        dataset() {
-            return typeof this.chart.dataset === 'string' ? this.chartDataset || null : this.chart.dataset || null;
+        data() {
+            return (typeof this.chart.api === 'string' || typeof this.chart.dataset === 'string')
+                ? this.chartDataset || null
+                : this.chart.dataset || null;
         }
     },
     mounted () {
@@ -79,12 +81,24 @@ export default {
         render() {
             const dataset = this.dataset || null;
             const chart = this.chart;
-            this.dom && this.dom.clear();
-            this.dom = this.$refs.dom && echarts.init(this.$refs.dom, 'chartTheme');
+
             // Notice dataset can be Objct or Array
             if (!dataset) {
                 return;
             }
+
+            // 数据为空时，不加载并且提示数据为空
+            if (
+                Object.keys(dataset).length === 0
+                || (Array.isArray(dataset.source) && dataset.source.length === 0)
+            ) {
+                this.errmsg = '暂无数据';
+                return;
+            }
+
+            this.dom && this.dom.clear();
+            this.dom = this.$refs.dom && echarts.init(this.$refs.dom, 'chartTheme');
+
             let option = {
                 toolbox: {
                     top: '-1%',

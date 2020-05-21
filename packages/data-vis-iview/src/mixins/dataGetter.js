@@ -17,6 +17,11 @@ export default {
             default: ''
         },
     },
+    data() {
+        return {
+            errmsg: ''
+        };
+    },
     watch: {
         params: {
             handler: function (val) {
