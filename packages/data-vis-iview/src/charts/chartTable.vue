@@ -207,11 +207,11 @@ export default {
             let widths = this.headerColumnsWidth || {};
             this.displayData.forEach((item = {}) => {
                 Object.keys(item).forEach(fieldName => {
-                    if (!widths[fieldName]) {
-                        widths[fieldName] = 80;
+                    // header中没有的不计算
+                    if (widths[fieldName]) {
+                        const width = calculateTableCellWidth(item[fieldName]);
+                        widths[fieldName] = Math.max(widths[fieldName], width);
                     }
-                    const width = calculateTableCellWidth(item[fieldName]);
-                    widths[fieldName] = Math.max(widths[fieldName], width);
                 });
             });
             return widths;
