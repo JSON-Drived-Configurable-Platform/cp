@@ -56,7 +56,7 @@ export default {
                 `${classPrifix}-chart-echart`
             ];
         },
-        data() {
+        dataset() {
             return (typeof this.chart.api === 'string' || typeof this.chart.dataset === 'string')
                 ? this.chartDataset || null
                 : this.chart.dataset || null;
