@@ -30,11 +30,9 @@ A form generator with json schema based on iview ui.
 
 提交PR之前需要提供demo以供验证，需要部署到github page上
 github page需要设置为gh-pages分支
-使用下列命令将文档推送到gh-pages分支
+目前使用了github action来自动部署，需要fork后开启actions
 
-`yarn run deployDoc`
 
-如果对应的远程仓库名不是origin，需要在加上远程仓库名
 `yarn run deployDoc remoteName`
 
 ## production
