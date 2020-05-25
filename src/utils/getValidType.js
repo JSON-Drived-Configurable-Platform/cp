@@ -1,3 +1,4 @@
+
 export const getValidType = function(field) {
     const type = field.type.toLowerCase();
     const subtype = field.subtype;
@@ -30,7 +31,7 @@ export const getValidType = function(field) {
             return 'string';
         }
     }
-    if (type === 'timepicker') {
+    if (type === 'timepicker' || type === 'timecycleselect') {
         if (['timerange'].includes(subtype)){
             return 'array';
         }
