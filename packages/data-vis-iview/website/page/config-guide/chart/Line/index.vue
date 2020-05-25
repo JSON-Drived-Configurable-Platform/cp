@@ -94,7 +94,7 @@
 import iArticle from 'website/components/article';
 import inAnchor from 'website/components/anchor';
 import iCode from 'website/components/code';
-import Demo from 'website/components/Demo';
+import Demo from 'website/components/demo';
 import Code from 'website/code/config-guide/chart/line';
 
 export default {

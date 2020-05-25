@@ -303,6 +303,11 @@ export default {
                 return;
             }
             this.selectedCustomColumns = this.columns.filter(item => item.defaultShow !== false).map(item => item.key);
+        },
+        total(val) {
+            if (val === 0) {
+                this.pageNum = 1;
+            }
         }
     },
 

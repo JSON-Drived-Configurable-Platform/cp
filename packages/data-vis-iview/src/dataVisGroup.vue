@@ -118,7 +118,7 @@ export default {
         apiBase: {
             type: String,
             default: ''
-        },
+        }
     },
     data() {
         return {
@@ -178,6 +178,12 @@ export default {
                 title: this.chart.tip && this.chart.tip.title,
                 content: this.chart.tip && this.chart.tip.content,
             };
+        }
+    },
+
+    watch: {
+        charts() {
+            this.index = 0;
         }
     },
 

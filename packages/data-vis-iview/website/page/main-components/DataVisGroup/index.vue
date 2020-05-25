@@ -99,8 +99,8 @@
 import iArticle from '../../../components/article';
 import inAnchor from '../../../components/anchor';
 import iCode from '../../../components/code';
-import Demo from '../../../components/Demo';
-import Code from '../../../code/main-components/DataVisGroup';
+import Demo from '../../../components/demo';
+import Code from '../../../code/main-components/dataVisGroup';
 
 export default {
     components: {
