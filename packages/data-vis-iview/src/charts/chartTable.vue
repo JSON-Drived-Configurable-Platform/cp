@@ -251,7 +251,7 @@ export default {
                     item.sortType = sort.order || 'normal';
                 }
                 else {
-                    item.sortType = 'normal';
+                    item.sortType = item.sortType || 'normal';
                 }
                 item.render = (h, params) => {
                     const key = params.column.key;

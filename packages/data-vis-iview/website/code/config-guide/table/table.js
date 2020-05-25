@@ -28,7 +28,9 @@ const chart = {
         {
             title: 'Date-api',
             key: 'date',
-            defaultShow: true
+            defaultShow: true,
+            sortable: true,
+            sortType: 'desc'
         },
         {
             title: 'Money',
@@ -67,36 +69,36 @@ const chart = {
             name: 'John Brown-api',
             age: 18,
             address: '啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊',
-            date: '2016-10-03',
+            date: '2016-10-09',
             money: 121212122112.22223,
             'name-1': 'John Brown-api',
             'age-1': 18,
             'address-1': 'New York No. 1 Lake Park-api',
-            'date-1': '2016-10-03',
+            'date-1': '2016-10-09',
             'money-1': 121212122112
         },
         {
             name: 'John Brown-api',
             age: 18,
             address: '啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊',
-            date: '2016-10-03',
+            date: '2016-10-08',
             money: 121212122112,
             'name-1': 'John Brown-api',
             'age-1': 18,
             'address-1': 'New York No. 1 Lake Park-api',
-            'date-1': '2016-10-03',
+            'date-1': '2016-10-08',
             'money-1': 121212122112
         },
         {
             name: 'John Brown-api',
             age: 18,
             address: '啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊',
-            date: '2016-10-03',
+            date: '2016-10-02',
             money: 121212122112,
             'name-1': 'John Brown-api',
             'age-1': 18,
             'address-1': 'New York No. 1 Lake Park-api',
-            'date-1': '2016-10-03',
+            'date-1': '2016-10-02',
             'money-1': 121212122112
         },
         {
