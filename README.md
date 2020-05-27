@@ -26,6 +26,15 @@ A form generator with json schema based on iview ui.
 
 `yarn run dev`
 
+## deploy github page
+
+提交PR之前需要提供demo以供验证，需要部署到github page上
+github page需要设置为gh-pages分支
+目前使用了github action来自动部署，需要fork后开启actions
+
+
+`yarn run deployDoc remoteName`
+
 ## production
 
 `yarn run build`
