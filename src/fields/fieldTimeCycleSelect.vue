@@ -3,7 +3,7 @@
         <div id="timecontainer" class="timecontainer" @mousedown="mousedownfn">
             <div class="swrap">
                 <div class="leftweek">
-                    <div v-for="(item,index) in computedWeekName" :key="index" class="weekname">{{ item }}</div>
+                    <div v-for="(item,index) in computedyAxisName" :key="index" class="weekname">{{ item }}</div>
                 </div>
                 <div class="mainbox">
                     <div class="selectall">
@@ -16,7 +16,7 @@
                         </div>
                     </div>
                     <div class="bottomtime">
-                        <div v-for="(item,index) in computedTimeName" :key="index" class="timeList">{{ item }}</div>
+                        <div v-for="(item,index) in computedxAxisName" :key="index" class="timeList">{{ item }}</div>
                     </div>
                     <div class="boxlist" :style="itemStyleWidth">
                         <div
@@ -80,8 +80,11 @@ export default {
         computedTipName() {
             return this.field.tipsName || [];
         },
-        computedWeekName() {
-            return this.field.weekName || [];
+        computedyAxisName() {
+            return this.field.yAxisName || [];
+        },
+        computedxAxisName() {
+            return this.field.xAxisName || [];
         },
         computedTimeArray() {
             let timeArray = [];
@@ -89,13 +92,6 @@ export default {
                 timeArray.push('0');
             }
             return timeArray.join('');
-        },
-        computedTimeName() {
-            let timeName = [];
-            for (let i = 0; i < this.timexAxisNum; i++) {
-                timeName.push(i);
-            }
-            return timeName;
         },
         computedValue () {
             return getValue({
@@ -290,6 +286,7 @@ export default {
     top: 3px;
     width: 17px;
     height: 17px;
+    background: #fff;
     border: 1px solid #999;
     margin-right: 3px;
 }

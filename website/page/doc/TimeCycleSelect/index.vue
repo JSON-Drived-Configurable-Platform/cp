@@ -28,8 +28,14 @@
                             <td>-</td>
                         </tr>
                         <tr>
-                            <td>weekName</td>
+                            <td>yAxisName</td>
                             <td>左侧y轴名称</td>
+                            <td>Array</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>xAxisName</td>
+                            <td>x轴名称</td>
                             <td>Array</td>
                             <td>-</td>
                         </tr>
@@ -51,12 +57,6 @@
                             <td>string</td>
                             <td>-</td>
                         </tr>
-                        <tr>
-                            <td>type</td>
-                            <td>TimeCycleSelect</td>
-                            <td>String</td>
-                            <td>无</td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -69,9 +69,6 @@
                             @on-field-change="handleFieldChange"
                         />
                     </Form>
-                </div>
-                <div slot="desc">
-                    <p>设置属性 type 为 timerange 显示选择单个时间和选择范围时间类型。</p>
                 </div>
                 <i-code slot="code" lang="html">{{ code.simple.code }}</i-code>
             </Demo>
