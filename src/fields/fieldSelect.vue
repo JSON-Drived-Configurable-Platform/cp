@@ -13,6 +13,8 @@
             :loading="loading"
             :remote-method="remoteMethod"
             :prefix="field.prefix"
+            :max-tag-count="field.maxTagCount"
+            :max-tag-placeholder="field.maxTagPlaceholder"
             @on-change="handleChange"
         >
             <template v-for="item in computedOptions">
@@ -46,6 +48,8 @@
             :filterable="filterable || false"
             :loading="loading"
             :prefix="field.prefix"
+            :max-tag-count="field.maxTagCount"
+            :max-tag-placeholder="field.maxTagPlaceholder"
             @on-change="handleChange"
         >
             <template v-for="item in computedOptions">

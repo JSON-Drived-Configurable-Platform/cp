@@ -94,7 +94,11 @@ const multipleField = {
     model: 'city',
     multiple: true,
     options: '/selectApi',
-    defaultValueIndexes: [0, 1]
+    defaultValueIndexes: [0, 1],
+    maxTagCount: 2,
+    maxTagPlaceholder(number) {
+        return `+${number}...`;
+    }
     // options: [
     //     {label: '北京', 'value': 'Beijing'},
     //     {label: '上海', 'value': 'Shanghai'},
@@ -149,7 +153,11 @@ const filterableAndMultipleField = {
     filterable: true,
     multiple: true,
     options: '/selectApi',
-    extraOptions: '/selectExtraOptionsApi'
+    extraOptions: '/selectExtraOptionsApi',
+    maxTagCount: 2,
+    maxTagPlaceholder(number) {
+        return `+${number}...`;
+    }
     // extraOptions: [
     //     {
     //         label: '张三',
