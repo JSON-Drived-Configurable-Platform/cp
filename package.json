@@ -25,8 +25,7 @@
         "build-prod": "webpack --color --progress --config build/webpack.dist.prod.config.js",
         "build": "npm run build-dev && npm run build-prod",
         "lint": "eslint --fix --ext .js,.vue,.json src --fix --ext .json docs/website-data-api",
-        "deploy": "fis3 release --root=./website/dist/ --file=./deploy-baidu/config.js",
-        "deployDoc": "bash ./manualDeploy.sh"
+        "deploy": "fis3 release --root=./website/dist/ --file=./deploy-baidu/config.js"
     },
     "repository": {
         "type": "git",
