@@ -121,6 +121,18 @@
                             <td>String</td>
                             <td>-</td>
                         </tr>
+                        <tr>
+                            <td>max-tag-count</td>
+                            <td>最大展示标签数量</td>
+                            <td>Number</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>max-tag-placeholder</td>
+                            <td>超出展示数量后的占位符，参数是超出的个数</td>
+                            <td>Function</td>
+                            <td>-</td>
+                        </tr>
                     </tbody>
                 </table>
                 <inAnchor title="Option配置" h3 />
