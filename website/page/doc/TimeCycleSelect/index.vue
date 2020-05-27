@@ -1,9 +1,8 @@
 <template>
     <i-article>
         <article>
-            <h1>TimePickerMultiple 多行时间选择器</h1>
+            <h1>timeCycleSelect 时间段选择</h1>
             <inAnchor title="概述" h2 />
-            <p>选择或输入标准时间，支持选择范围。</p>
             <div class="api">
                 <inAnchor title="配置快速查询" h2 />
                 <table>
@@ -23,65 +22,40 @@
                             <td>time</td>
                         </tr>
                         <tr>
-                            <td>size</td>
-                            <td>尺寸，可选值为large、small、default或者不设置</td>
-                            <td>String</td>
+                            <td>tipsName</td>
+                            <td>['投放', '不投放']置</td>
+                            <td>Array</td>
                             <td>-</td>
                         </tr>
                         <tr>
-                            <td>disabled</td>
-                            <td>是否禁用选择器</td>
-                            <td>Boolean</td>
-                            <td>false</td>
-                        </tr>
-                        <tr>
-                            <td>placeholder</td>
-                            <td>占位文本</td>
-                            <td>String</td>
+                            <td>weekName</td>
+                            <td>左侧y轴名称</td>
+                            <td>Array</td>
                             <td>-</td>
                         </tr>
                         <tr>
-                            <td>editable</td>
-                            <td>文本框是否可以输入，只在没有使用 slot 时有效</td>
-                            <td>Boolean</td>
-                            <td>true</td>
+                            <td>xAxisNum</td>
+                            <td>x轴需要展现的小方格数量</td>
+                            <td>Number</td>
+                            <td>-</td>
                         </tr>
                         <tr>
-                            <td>clearable</td>
-                            <td>是否显示清除按钮</td>
-                            <td>Boolean</td>
-                            <td>true</td>
+                            <td>yAxisNum</td>
+                            <td>y轴需要展现的小方格数量</td>
+                            <td>Number</td>
+                            <td>-</td>
                         </tr>
                         <tr>
-                            <td>tips</td>
-                            <td>输入框后面的提示文案</td>
+                            <td>width</td>
+                            <td>宽度</td>
+                            <td>string</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>type</td>
+                            <td>TimeCycleSelect</td>
                             <td>String</td>
                             <td>无</td>
-                        </tr>
-                        <tr>
-                            <td>timeSplit</td>
-                            <td>添加后的记录，时间段之间的分隔符</td>
-                            <td>String</td>
-                            <td> - </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <inAnchor title="TimePickerMultiple events" h2 />
-                <table >
-                    <thead>
-                        <tr>
-                            <th>事件名</th>
-                            <th>说明</th>
-                            <th>类型</th>
-                            <th>返回值</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>on-change</td>
-                            <td>添加或者删除记录时触发</td>
-                            <td>Array</td>
-                            <td>已经格式化后的时间，比如 ['00:10:00 - 12:00:00', '13:00:00 - 16:00:00']</td>
                         </tr>
                     </tbody>
                 </table>
