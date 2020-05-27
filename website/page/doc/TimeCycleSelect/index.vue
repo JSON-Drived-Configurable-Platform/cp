@@ -23,7 +23,7 @@
                         </tr>
                         <tr>
                             <td>tipsName</td>
-                            <td>['投放', '不投放']置</td>
+                            <td>['投放', '不投放']</td>
                             <td>Array</td>
                             <td>-</td>
                         </tr>
