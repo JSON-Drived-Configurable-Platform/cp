@@ -169,8 +169,10 @@ export default {
             this.clearBubble(e);
         },
         mouseUpfn(e) {
-            document.getElementById('timecontainer').removeEventListener('mousemove', this.mousemovefn);
-            let selectDom = document.getElementsByClassName('temp-selected');
+            let timecontainer = document.getElementById('timecontainer');
+            if (timecontainer !== null) {
+                timecontainer.removeEventListener('mousemove', this.mousemovefn);
+            }            let selectDom = document.getElementsByClassName('temp-selected');
             [].slice.call(selectDom).forEach(item => {
                 if (item.classList.contains('selected')) {
                     item.classList.remove('selected');
