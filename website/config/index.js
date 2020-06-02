@@ -106,6 +106,10 @@ export default {
                     name: '/doc/TimePickerMultiple'
                 },
                 {
+                    label: 'TimeCycleSelect',
+                    name: '/doc/TimeCycleSelect'
+                },
+                {
                     label: 'Cascader',
                     name: '/doc/Cascader'
                 },
