@@ -196,7 +196,7 @@ export default {
                     this.timeList[i] = '0';
                 }
             }
-            this.$emit('triggertime', this.timeList.join(''));
+            this.$emit('on-change', this.field.model, this.timeList.join(''), null, this.field);
             this.clearBubble(e);
         },
         setcurrent(item, index) {
