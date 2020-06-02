@@ -1,6 +1,6 @@
 {
     "name": "form-generator-iview",
-    "version": "0.1.1-beta",
+    "version": "0.1.2-beta",
     "title": "formGeneratorIView",
     "description": "A form generator with json schema based on iview ui",
     "keywords": [
@@ -100,7 +100,6 @@
     "dependencies": {
         "async-validator": "^3.2.4",
         "axios": "^0.18.1",
-        "timedivselect": "^0.1.4",
         "v-click-outside": "^2.1.3"
     },
     "pre-commit": [
