@@ -6,6 +6,9 @@
         :placement="field.confirmPoptip.placement"
         :class="classes"
         @on-ok="handleClick"
+        @on-cancel="handelCancel"
+        :ok-text="field.confirmPoptip.okText"
+        :cancel-text="field.confirmPoptip.cancelText"
     >
         <Button
             :type="field.subtype || 'default'"
@@ -83,6 +86,9 @@ export default {
                     break;
             }
         },
+        handelCancel() {
+            this.$emit('on-button-cancel', this);
+        }
     },
 };
 </script>

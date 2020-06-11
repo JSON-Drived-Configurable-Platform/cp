@@ -45,6 +45,7 @@
                     @on-submit="handleSubmit($event)"
                     @on-reset="handleReset"
                     @on-button-event="handleButtonEvent($event)"
+                    @on-button-cancel="handleButtonCancel"
                     @on-checkboxCard-click="handelCheckboxCardClick"
                     @on-list-item-click="handelListItemClick"
                     @on-label-tip-click="handelLabelTipClick"
@@ -410,6 +411,10 @@ export default {
             this.$emit('on-button-event', $event);
         },
 
+        handleButtonCancel($event) {
+            this.$emit('on-button-cancel', $event);
+        },
+        
         handelCheckboxCardClick(value) {
             this.$emit('on-checkboxCard-click', value);
         },

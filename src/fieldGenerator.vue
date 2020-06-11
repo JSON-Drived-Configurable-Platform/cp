@@ -47,6 +47,7 @@
             @on-http-request="handleHttpRequest($event)"
             @on-reset-click="handleResetClick"
             @on-button-event="handleButtonClick"
+            @on-button-cancel="handleButtonCancel"
             @on-checkboxCard-click="handelCheckboxCardClick"
             @on-list-item-click="handelListItemClick"
         />
@@ -274,6 +275,9 @@ export default {
         },
         handleButtonClick($event) {
             this.$emit('on-button-event', $event);
+        },
+        handleButtonCancel($event) {
+            this.$emit('on-button-cancel', $event);
         },
         handleIconClick() {
             this.$emit('on-label-tip-click',{
