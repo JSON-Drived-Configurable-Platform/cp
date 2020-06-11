@@ -47,7 +47,7 @@
 import iArticle from '../../../components/article';
 import inAnchor from '../../../components/anchor';
 import iCode from '../../../components/code';
-import Demo from '../../../components/demo';
+import Demo from '../../../components/Demo';
 import Code from '../../../code/development/requestInterceptor';
 import axios from 'axios';
 
@@ -68,6 +68,7 @@ export default {
             const interceptor = {
                 reqHandle(conf) {
                     let {url, params, method} = conf;
+                    // eslint-disable-next-line no-undef
                     if (process.env.NODE_ENV === 'production') {
                         url = `website-data-api${url}.json`;
                     }
@@ -80,6 +81,7 @@ export default {
                             // product: 'your params',
                         }
                     };
+                    // eslint-disable-next-line no-console
                     console.log('postData', postData);
                     return postData;
                 },
