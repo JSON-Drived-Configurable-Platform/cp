@@ -276,7 +276,7 @@ export default {
             console.log(model, value);
         },
         handleButtonCancel(val) {
-            alert(1);
+            console.log(val);
         }
     }
 };

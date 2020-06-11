@@ -5,10 +5,10 @@
         :title="field.confirmPoptip.title"
         :placement="field.confirmPoptip.placement"
         :class="classes"
-        @on-ok="handleClick"
-        @on-cancel="handelCancel"
         :ok-text="field.confirmPoptip.okText"
         :cancel-text="field.confirmPoptip.cancelText"
+        @on-ok="handleClick"
+        @on-cancel="handelCancel"
     >
         <Button
             :type="field.subtype || 'default'"
