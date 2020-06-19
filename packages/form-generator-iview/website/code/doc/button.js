@@ -243,7 +243,9 @@ const confirm = {};
 const confirmField = {
     confirmPoptip: {
         title: '确定删除?',
-        placement: 'right'
+        placement: 'right',
+        cancelText: '你好',
+        okText: '不好'
     },
     type: 'Button',
     text: '删除',
@@ -272,6 +274,9 @@ export default {
     methods: {
         handleFieldChange(model, value) {
             console.log(model, value);
+        },
+        handleButtonCancel(val) {
+            console.log(val);
         }
     }
 };
@@ -280,7 +285,8 @@ export default {
     <Form :model="model">
         <FieldGenerator
             :field="field"
-            @on-field-change="handleFieldChange"
+            @on-field-change="handleFieldChange",
+            @on-button-cancel="handleButtonCancel"
         />
     </Form>
 </template>

@@ -1,6 +1,6 @@
 {
     "name": "form-generator-iview",
-    "version": "0.1.1-beta",
+    "version": "0.1.4-beta",
     "title": "formGeneratorIView",
     "description": "A form generator with json schema based on iview ui",
     "keywords": [
@@ -25,8 +25,7 @@
         "build-prod": "webpack --color --progress --config build/webpack.dist.prod.config.js",
         "build": "npm run build-dev && npm run build-prod",
         "lint": "eslint --fix --ext .js,.vue,.json src --fix --ext .json docs/website-data-api",
-        "deploy": "fis3 release --root=./website/dist/ --file=./deploy-baidu/config.js",
-        "deployDoc": "bash ./manualDeploy.sh"
+        "deploy": "fis3 release --root=./website/dist/ --file=./deploy-baidu/config.js"
     },
     "repository": {
         "type": "git",

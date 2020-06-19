@@ -3,6 +3,7 @@
         <Carousel
             :value="currentIndex"
             :loop="field.loop"
+            :arrow="computedArrow"
             @on-change="handleChange"
         >
             <CarouselItem
@@ -62,6 +63,12 @@ export default {
                 fieldOptions = this.field.options;
             }
             return this.options.length > 0 ? this.options : fieldOptions;
+        },
+        computedArrow() {
+            if (this.computedOptions.length > 1) {
+                return this.field.arrow || 'hover';
+            }
+            return 'never';
         },
         optionsApi() {
             return !Array.isArray(this.field.options) ? this.field.options : '';

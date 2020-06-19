@@ -54,6 +54,18 @@
                             <td>-</td>
                         </tr>
                         <tr>
+                            <td>confirmPoptip.okText</td>
+                            <td>确定按钮的文字，只在 confirm 模式下有效</td>
+                            <td>String</td>
+                            <td>确定</td>
+                        </tr>
+                        <tr>
+                            <td>confirmPoptip.cancelText</td>
+                            <td>取消按钮的文字，只在 confirm 模式下有效</td>
+                            <td>String</td>
+                            <td>取消</td>
+                        </tr>
+                        <tr>
                             <td>confirmPoptip.placement</td>
                             <td>确认提示弹框的的位置</td>
                             <td>Object</td>
@@ -161,6 +173,14 @@
                             </td>
                             <td>-</td>
                         </tr>
+                        <tr>
+                            <td>on-button-cancel</td>
+                            <td>
+                                点击取消的回调，只在 confirm 模式下有效
+                            </td>
+                            <td>--</td>
+                            <td>-</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -251,6 +271,7 @@
                         <FieldGenerator
                             :field="code.confirm.data.field"
                             @on-button-event="handleButtonEvent"
+                            @on-button-cancel="handleButtonCancel"
                         />
                     </Form>
                 </div>
@@ -286,6 +307,11 @@ export default {
             // eslint-disable-next-line no-console
             console.log($event);
             this.$Message.info(`event: ${$event.name} has been triggered`);
+        },
+        handleButtonCancel($event) {
+            // eslint-disable-next-line no-console
+            console.log($event);
+            // this.$Message.info(`event: ${$event.name} has been triggered`);
         }
     }
 };
