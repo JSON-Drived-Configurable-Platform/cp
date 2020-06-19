@@ -22,6 +22,6 @@ test/coverage
 /website/dist
 /dist
 /deploy-baidu
-/coverage
+/test/unit/coverage
 gh-pages/
 .vscode/
