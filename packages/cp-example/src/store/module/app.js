@@ -25,6 +25,11 @@ export default {
             path: "/form-multi-modal"
           },
           {
+            label: "Popover Form",
+            path: "/form-popover"
+
+          },
+          {
             label: "Editable Table",
             path: "/form-editable-table"
           },

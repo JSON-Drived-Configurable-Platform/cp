@@ -74,6 +74,7 @@ export default {
       });
     },
     handleSaveEvent($event, index, row) {
+      this.$Message.info(`update success!${JSON.stringify(row)}`);
       this.data.splice(
         index,
         1,

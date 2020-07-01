@@ -11,56 +11,30 @@
         >
       </template>
     </Table>
-    <div class="page-form-modal-pagenation">
-      <Page :total="total" show-total />
-    </div>
-    <div id="multi-modal-container"></div>
+    <MultipleModalForm
+      ref="MultipleModalForm"
+      :form-fields="editFormFields"
+      @on-submit="handleSubmit($event)"
+    />
   </div>
 </template>
 
 <script>
+import MultipleModalForm from "@/components/block/form-multiple-modal";
 import services from "@/service";
 import pageConfig from "./page-config.js";
 const { getList } = services["form"];
-import Vue from "vue";
-import modalCom from "./modal-com.vue";
-function generateModal(fields, model, title) {
-  Vue.component("dynimicModal", {
-    render(h) {
-      return h(modalCom, {
-        props: {
-          fields,
-          model,
-          title
-        }
-      });
-    }
-  });
 
-  const modalGenerator = (fields = [], model = {}, title = "") => {
-    const dynimicModal = Vue.component("dynimicModal");
-    const component = new dynimicModal({
-      props: {
-        fields,
-        model,
-        title
-      }
-    }).$mount();
-    document.getElementById("multi-modal-container").appendChild(component.$el);
-  };
-  modalGenerator(fields);
-}
 export default {
+  components: {
+    MultipleModalForm
+  },
   data() {
     return {
       loading: true,
       tableLoading: true,
       data: [],
-      editModel: {},
       pageConfig,
-      pageSize: 10,
-      pageNumber: 1,
-      total: 0,
       model: {}
     };
   },
@@ -96,30 +70,11 @@ export default {
         this.tableLoading = false;
       });
     },
-    handleEditButtonClick(row, index) {
-      // eslint-disable-next-line no-console
-      this.editModel = row;
-      this.editModel.index = index;
-      generateModal(
-        this.editFormFields,
-        this.editModel,
-        `编辑-${this.editModel.name}`
-      );
+    handleEditButtonClick(row) {
+      this.$refs.MultipleModalForm.open(row, '编辑');
     },
-    handleSave() {
-      this.$refs.FormGenerator.submit()
-        .then(data => {
-          // eslint-disable-next-line no-console
-          console.log("update model", data);
-          this.$Message.info("update success!");
-        })
-        .catch(valid => {
-          // eslint-disable-next-line no-console
-          console.log("valid", valid);
-        });
-    },
-    handleEditClick() {
-      generateModal(this.fields, {}, "编辑");
+    handleSubmit(row) {
+      this.$Message.info(`update success!${JSON.stringify(row)}`);
     }
   }
 };

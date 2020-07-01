@@ -1,16 +1,18 @@
 <template>
   <Modal
+    class="cp-block-multiple-form-modal"
     ref="modal"
     :value="value"
     :styles="styles"
-    :title="title"
+    :title="formTitle"
     footer-hide
     draggable
   >
     <FormGenerator
       ref="FormGenerator"
-      :fields="fields"
+      :fields="formFields"
       :model="model"
+      :options="formOptions"
       @on-submit="handleSave"
       @on-reset="handelReset"
     />
@@ -25,29 +27,44 @@ function getRandomInt(min, max) {
 }
 export default {
   props: {
-    title: {
+    formTitle: {
       type: String,
       default: ""
     },
-    fields: {
+    formFields: {
       type: Array,
       default() {
         return [];
-      },
-      required: true
+      }
     },
-    model: {
+    formModel: {
       type: Object,
       default() {
         return {};
+      }
+    },
+    formOptions: {
+      type: Object,
+      default() {
+        return {}
       }
     }
   },
   data() {
     return {
       styles: {},
-      value: true
+      value: true,
+      model: {}
     };
+  },
+  watch: {
+    formModel: {
+      immediate: true,
+      deep: true,
+      handler(model) {
+        this.model = JSON.parse(JSON.stringify(model));
+      }
+    }
   },
   mounted() {
     this.$refs.modal.dragData = {
@@ -66,9 +83,8 @@ export default {
       this.$refs.FormGenerator.submit()
         .then(data => {
           // eslint-disable-next-line no-console
-          console.log("update model", data);
+          this.$emit("on-submit", data);
           this.value = false;
-          this.$Message.info("update success!");
         })
         .catch(valid => {
           // eslint-disable-next-line no-console
@@ -80,4 +96,11 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="less">
+.cp-block-multiple-form-modal {
+    .ivu-modal-body {
+      padding: 16px 32px;
+    }
+}
+
+</style>

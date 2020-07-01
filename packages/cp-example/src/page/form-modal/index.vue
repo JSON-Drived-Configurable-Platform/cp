@@ -17,38 +17,34 @@
         >
       </template>
     </Table>
-    <div class="page-form-modal-pagenation">
-      <Page :total="total" show-total />
-    </div>
-    <Modal v-model="editDialogOpeon" title="编辑" footer-hide>
-      <FormGenerator
-        ref="FormGenerator"
-        :fields="editFormFields"
-        :model="editModel"
-        @on-submit="handleSave"
-      />
-    </Modal>
+    <ModalForm
+      ref="ModalForm"
+      formTitle="编辑"
+      :default-open-status="false"
+      :form-fields="editFormFields"
+      :form-model="editModel"
+      :form-options="editFormOptions"
+      @on-submit="handleSubmit"
+    />
   </div>
 </template>
 
 <script>
+import ModalForm from "@/components/block/form-modal";
 import pageConfig from "./page-config.js";
 import services from "@/service";
 const { getList } = services["form"];
 export default {
+  components: {
+    ModalForm
+  },
   data() {
     return {
       loading: true,
       tableLoading: true,
       data: [],
       editModel: {},
-      pageConfig,
-      editDialogOpeon: false,
-      pageSize: 10,
-      pageNumber: 1,
-      total: 0,
-      model: {},
-      open: false
+      pageConfig
     };
   },
   computed: {
@@ -60,6 +56,9 @@ export default {
     },
     editFormFields() {
       return this.pageConfig.editFormFields;
+    },
+    editFormOptions() {
+      return this.pageConfig.editFormOptions;
     }
   },
   mounted() {
@@ -68,18 +67,9 @@ export default {
   methods: {
     getTableData() {
       this.tableLoading = true;
-      const { pageId } = this.$route.params;
-      const params = {
-        pageSize: this.pageSize,
-        pageNumber: this.pageNumber,
-        pageId
-      };
-      getList(params).then(res => {
+      getList().then(res => {
         const { list, pageSize, pageNumber, total } = res.data;
         this.data = list || [];
-        this.pageSize = pageSize || this.pageSize;
-        this.pageNumber = pageNumber || this.pageNumber;
-        this.total = total || this.total;
         this.tableLoading = false;
       });
     },
@@ -87,20 +77,10 @@ export default {
       // eslint-disable-next-line no-console
       this.editModel = row;
       this.editModel.index = index;
-      this.editDialogOpeon = true;
+      this.$refs.ModalForm.open();
     },
-    handleSave() {
-      this.$refs.FormGenerator.submit()
-        .then(data => {
-          // eslint-disable-next-line no-console
-          console.log("update model", data);
-          this.open = false;
-          this.$Message.info("update success!");
-        })
-        .catch(valid => {
-          // eslint-disable-next-line no-console
-          console.log("valid", valid);
-        });
+    handleSubmit(row) {
+      this.$Message.info(`update success!${JSON.stringify(row)}`);
     }
   }
 };
@@ -119,14 +99,6 @@ export default {
       font-size: 14px;
       line-height: 22px;
     }
-  }
-  &-form {
-    margin: 30px 10px;
-    width: 760px;
-  }
-  &-pagenation {
-    margin-top: 20px;
-    text-align: right;
   }
 }
 </style>

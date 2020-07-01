@@ -98,5 +98,8 @@ export default {
       "subtype": "primary",
       "text": "保存"
     }
-  ]
+  ],
+  "editFormOptions": {
+    labelPosition: "left"
+  }
 };
