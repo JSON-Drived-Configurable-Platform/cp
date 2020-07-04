@@ -56,6 +56,7 @@
 <script>
 import {Input, Tag} from 'iview';
 import {getValue} from '../utils/processValue';
+import schema from 'async-validator';
 
 export default {
     inject: ['form'],
@@ -97,17 +98,63 @@ export default {
                 this.handleAdd(e);
             }
         },
+        // 通过field.inputRules校验
+        validator() {
+            let formItem = this.$parent;
+
+            if (typeof this.field.inputRules === 'object') {
+                let descriptor = {};
+                descriptor[this.field.model] = this.field.inputRules;
+
+                let validator = new schema(descriptor);
+                let model = {};
+
+                model[this.field.model] = this.value;
+
+                validator.validate(model, errors => {
+                    if (errors) {
+                        this.validateMessage = errors ? errors[0].message : '';
+
+                        formItem.validateState = 'error';
+                        formItem.validateMessage = this.validateMessage;
+                        return;
+                    } else {
+                        formItem.validateState = 'success';
+                        this.validateMessage = '';
+                    }
+                });
+            } else {
+                formItem.validateState = 'success';
+                this.validateMessage = '';
+            }
+        },
         handleAdd(e) {
             if (!this.value) {
                 this.$Message.warning('请输入数据后添加');
                 return;
             }
-            if (this.list.indexOf(this.value) === -1) {
-                this.field.succMessage && this.$Message.success(this.field.succMessage);
-                this.list.push(this.value);
-                this.value = '';
-                this.$emit('on-change', this.field.model, this.list, e, this.field);
+            if (this.list.indexOf(this.value) !== -1) {
+                this.$Message.warning(`${this.value}已存在`);
+                return;
             }
+            if (this.defaultList.indexOf(this.value) !== -1) {
+                this.$Message.warning(`${this.value}已存在`);
+                return;
+            }
+
+            if (!this.validateMessage) {
+                this.addMember(e);
+            }
+        },
+        addMember(e) {
+            let formItem = this.$parent;
+            formItem.validateState = 'success';
+
+            this.field.succMessage && this.$Message.success(this.field.succMessage);
+            this.list.push(this.value);
+            this.value = '';
+            // this.$set(this.form.model, this.field.model, this.list);
+            this.$emit('on-change', this.field.model, this.list, e, this.field);
         },
         handelMemberDelete(i, e) {
             this.list.splice(i, 1);
@@ -116,6 +163,7 @@ export default {
         },
         handleChange(e) {
             this.value = e.target.value;
+            this.validator();
         }
     }
 };

@@ -99,6 +99,10 @@ export default {
     .container {
         margin: 10px 40px;
         width: 90%;
+
+        .inputForbidden .ivu-icon-ios-help-circle-outline {
+            left: -60px;
+        }
         .ivu-icon-ios-help-circle-outline {
             position: absolute;
             top: 4px;
@@ -115,21 +119,21 @@ export default {
             color: #fff;
             pointer-events: none;
             position: absolute;
-            top: -38px;
-            left: -157px;
+            top: -28px;
+            left: -120px;
             z-index: 2;
-            word-wrap: break-word; 
+            word-wrap: break-word;
             border-radius: 4px;
             border: 1px solid #333;
             span {
-                display: block; 
-                width: 0; 
-                height: 0; 
-                border-width: 5px 5px 0; 
-                border-style: solid; 
-                border-color: rgba(0, 0, 0, 0.7) transparent transparent; 
-                position: absolute; 
-                top: 34px; 
+                display: block;
+                width: 0;
+                height: 0;
+                border-width: 5px 5px 0;
+                border-style: solid;
+                border-color: rgba(0, 0, 0, 0.7) transparent transparent;
+                position: absolute;
+                bottom: -5px;
                 left: 50%;/* 三角形居中显示 */
                 margin-left: -5px;/* 三角形居中显示 */
             }

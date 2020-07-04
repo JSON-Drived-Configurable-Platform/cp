@@ -144,6 +144,7 @@
         color: '#00f'
     },
     content: {
+        class: 'customclass'
         body: <textarea><div class='example'><span>活动示意图</span></div></textarea>,
         ifShow: false
     }

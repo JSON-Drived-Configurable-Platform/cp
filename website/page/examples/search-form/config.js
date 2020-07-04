@@ -5,7 +5,7 @@ export default {
     },
     options: {
         labelWidth: 70,
-        apiBase: '/checkboxCardApi',
+        // apiBase: '/checkboxCardApi',
         pageSize: 5,
         showPage: true,
         showPageTotal: true,
@@ -80,6 +80,16 @@ export default {
         }
     ],
     fields: [
+        {
+            type: 'DatePicker',
+            model: 'createDate',
+            subType: 'daterange',
+            label: '创建日期',
+            labelWidth: 60,
+            inline: true,
+            width: 290,
+            clearable: true
+        },
         {
             type: 'Input',
             model: 'name',
