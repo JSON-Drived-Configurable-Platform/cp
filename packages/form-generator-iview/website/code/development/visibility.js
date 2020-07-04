@@ -56,7 +56,7 @@ export default {
         }
     }
 };
-<script>
+</script>
 <template>
     <FormGenerator
             :fields="fields"
@@ -115,7 +115,7 @@ export default {
         }
     }
 };
-<script>
+</script>
 <template>
     <div>
         <RadioGroup v-model="code.params.data.paramsContainer.isShow" size="small">
@@ -184,7 +184,7 @@ export default {
         }
     }
 };
-<script>
+</script>
 <template>
     <FormGenerator
             :fields="fields"
@@ -283,7 +283,7 @@ export default {
         }
     }
 };
-<script>
+</script>
 <template>
     <FormGenerator
             :fields="fields"

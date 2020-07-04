@@ -1,11 +1,10 @@
 let introduce = {};
 
 
-introduce.install = `
-$ npm install form-generator-iview --save
-# or
-$ yarn add form-generator-iview
-`;
+introduce.install = {
+    npm: 'npm install form-generator-iview --save',
+    yarn: '$ yarn add form-generator-iview'
+};
 
 introduce.import = `
 import "form-generator-iview/src/style/index.less";
@@ -17,7 +16,7 @@ Vue.use(FormGenerator);
 introduce.installIView = `
 $ npm install iview --save
 # or
-$ npm add iview
+$ yarn add iview
 `;
 
 introduce.importIView = `
@@ -36,7 +35,7 @@ const fields = [
     {
         label: '出生日期',
         type: 'DatePicker',
-        subtype: 'datetimerange',
+        subtype: 'date',
         model: 'birthday'
     },
     {
@@ -73,9 +72,9 @@ const options = {
 };
 
 const model = {
-    name: '',
-    gender: '',
-    birthday: '',
+    name: 'FormGenerator',
+    gender: 'Screct',
+    birthday: '2019-04-19',
 };
 
 introduce.demo = `

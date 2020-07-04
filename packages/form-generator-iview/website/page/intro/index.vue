@@ -35,37 +35,6 @@
                 如果你的公司和产品使用了FormGeneratorIView，欢迎到 <a href="https://github.com/BingBlog/form-generator-iview/issues/8" target="_blank">这里</a> 留言。
             </blockquote>
 
-            <inAnchor title="安装" h2 />
-            <p>使用 npm</p>
-            <i-code lang="auto" bg>{{ code.introduce.install }}</i-code>
-
-            <inAnchor title="引入" h2 />
-            <p>在项目的主文件中添加如下代码：</p>
-            <i-code lang="auto" bg>{{ code.introduce.import }}</i-code>
-
-            <alert>FormGeneratorIView依赖iview，可以通过如下代码安装和引入iview</alert>
-            <strong>安装和引入iview</strong>
-            <i-code lang="auto" bg>{{ code.introduce.installIView }}</i-code>
-            <i-code lang="auto" bg>{{ code.introduce.importIView }}</i-code>
-
-            <inAnchor title="示例" h2 />
-            <Demo title="简单示例">
-                <div slot="demo">
-                    <FormGenerator
-                        ref="FormGenerator"
-                        :fields="code.introduce.data.fields"
-                        :model="code.introduce.data.model"
-                        :options="code.introduce.data.options"
-                        @on-submit="handleSubmit()"
-                    />
-                </div>
-                <div slot="desc">
-                    <p>FormGenerator组件依赖三个属性: <code>fields</code>, <code>model</code>, <code>options</code>。</p>
-                    <p>通过设置<code>fields</code>, <code>model</code>, <code>options</code>即可生成一个表单UI。</p>
-                </div>
-                <i-code slot="code" lang="html">{{ code.introduce.demo }}</i-code>
-            </Demo>
-
             <!-- TODO -->
             <inAnchor title="版本" h2 />
             <p>

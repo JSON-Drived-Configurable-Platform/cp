@@ -28,7 +28,7 @@ export default {
         };
     }
 };
-<script>
+</script>
 <template>
     <FormGenerator
             :fields="fields"
@@ -68,7 +68,7 @@ export default {
         };
     }
 };
-<script>
+</script>
 <template>
     <FormGenerator
             :fields="fields"
@@ -118,7 +118,7 @@ export default {
         };
     }
 };
-<script>
+</script>
 <template>
     <FormGenerator
             :fields="fields"
@@ -162,7 +162,7 @@ export default {
         };
     }
 };
-<script>
+</script>
 <template>
     <FormGenerator
             :fields="fields"

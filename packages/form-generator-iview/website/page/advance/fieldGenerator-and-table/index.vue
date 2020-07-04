@@ -1,7 +1,7 @@
 <template>
     <i-article class="doc-powerful-f">
         <article>
-            <h1>强大的fieldGenerator</h1>
+            <h1>配置表格内的表单控件</h1>
             <p>在开发中，输入并不总是以一个完整的表单形式出现，在复杂场景下，输入控件会内嵌至表格中，形成更复杂的如表格行内编辑。</p>
             <div class="doc-powerful-f-templates">
                 <Card
@@ -229,7 +229,7 @@ import iArticle from '../../../components/article';
 import inAnchor from '../../../components/anchor';
 import Demo from '../../../components/demo';
 import iCode from '../../../components/code';
-import Code from '../../../code/development/powerful-fieldGenerator';
+import Code from '../../../code/development/fieldGenerator-and-table';
 const templates = [
     {
         path: '/form-editable-table',

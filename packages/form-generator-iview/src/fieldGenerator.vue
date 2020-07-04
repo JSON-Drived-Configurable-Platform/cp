@@ -47,7 +47,7 @@
             :inline="inline"
             :api-base="apiBase"
             :size="field.size || size"
-            :request-interceptor="requestInterceptor"
+            :dynamic-config-data="requestInterceptor"
             :params-container="paramsContainer"
             @on-change="handleFieldChange"
             @on-preview="handleFieldPreview"
