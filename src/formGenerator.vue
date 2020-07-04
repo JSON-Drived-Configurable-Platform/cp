@@ -38,7 +38,7 @@
                     :size="options.size"
                     :item-width="options.itemWidth"
                     :inline="options.inline"
-                    :request-interceptor="requestInterceptor"
+                    :dynamic-config-data="requestInterceptor"
                     :params-container="paramsContainer"
                     @on-field-change="handleFieldChange"
                     @on-field-preview="handleFieldPreview"
@@ -414,7 +414,7 @@ export default {
         handleButtonCancel($event) {
             this.$emit('on-button-cancel', $event);
         },
-        
+
         handelCheckboxCardClick(value) {
             this.$emit('on-checkboxCard-click', value);
         },

@@ -27,14 +27,14 @@ export default {
             field: ${JSON.stringify(field)},
             model: ${JSON.stringify(model)}
         };
-    }
+    },
     methods: {
         handleFieldChange(model, value) {
             console.log(model, value);
         }
     }
 };
-<script>
+</script>
 <template>
     <Form :model="model">
         <FieldGenerator
@@ -73,14 +73,14 @@ export default {
             field: ${JSON.stringify(field_range)},
             model: ${JSON.stringify(model_range)}
         };
-    }
+    },
     methods: {
         handleFieldChange(model, value) {
             console.log(model, value);
         }
     }
 };
-<script>
+</script>
 <template>
     <Form :model="model">
         <FieldGenerator

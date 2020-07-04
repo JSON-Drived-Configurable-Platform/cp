@@ -1,13 +1,12 @@
 <template>
     <i-article>
         <article>
-            <h1>请求拦截</h1>
-            <p>请求拦截</p>
+            <h1>动态更新配置</h1>
             <p>
                 在实际应用的业务中使用Radio、Select等类型的配置时，我们常通过在配置项options为一个远程请求接口，以实现便捷得与服务端完成数据交互。
                 我们仅提供在field中配置远程请求接口路径，未提供其他请求参数配置方式。在一些复杂的数据交互场景中，后端返回的数据格式常常不是恰好适配页面渲染所需格式。
                 这时，前端需要对后端返回数据进行拦截，处理为所需格式后再进行数据渲染。
-                通过为组件配置request-interceptor属性,可实现对返回数据进行拦截与处理。
+                通过为组件配置dynamic-config-data属性,可实现对返回数据进行拦截与处理。
             </p>
             <div class="api">
                 <inAnchor title="代码示例" h2 />
@@ -17,12 +16,12 @@
                             <FieldGenerator
                                 :field="code.api.data.field"
                                 :form-model="code.api.data.model"
-                                :request-interceptor="requestInterceptor"
+                                :dynamic-config-data="requestInterceptor"
                             />
                         </Form>
                     </div>
                     <div slot="desc">
-                        将<code>filed.options</code>的值设置为获取数据的接口时，通过为FormGenerator组件的"request-interceptor"属性绑定处理函数，
+                        将<code>filed.options</code>的值设置为获取数据的接口时，通过为FormGenerator组件的"dynamic-config-data"属性绑定处理函数，
                         来实现数据请求的拦截。 用户通过fields配置的远程数据请求的request和responce均会被拦截
                         <div>
                             <p>原始远程数据格式为：</p>
@@ -48,7 +47,7 @@ import iArticle from '../../../components/article';
 import inAnchor from '../../../components/anchor';
 import iCode from '../../../components/code';
 import Demo from '../../../components/demo';
-import Code from '../../../code/development/requestInterceptor';
+import Code from '../../../code/development/dynamic-update-config';
 import axios from 'axios';
 
 export default {

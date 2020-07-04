@@ -26,7 +26,7 @@ export default {
      */
     homeName: 'home',
 
-    defaultOpenNames: ['/development', '/doc'],
+    defaultOpenNames: ['/development', '/advance', '/core-components'],
 
     menuList: [
         // {
@@ -38,11 +38,15 @@ export default {
             name: '/intro'
         },
         {
+            label: '安装',
+            name: '/install'
+        },
+        {
             label: '实践与思考',
             name: '/practice'
         },
         {
-            label: '开发进阶',
+            label: '开发',
             name: '/development',
             submenu: [
                 {
@@ -50,11 +54,7 @@ export default {
                     name: '/development/components-choosen'
                 },
                 {
-                    label: '请求拦截',
-                    name: '/development/request-interceptor'
-                },
-                {
-                    label: '可见性',
+                    label: '控件的可见性',
                     name: '/development/visibility'
                 },
                 {
@@ -62,42 +62,57 @@ export default {
                     name: '/development/form-validate'
                 },
                 {
+                    label: '动态获取配置数据',
+                    name: '/development/dynamic-config-data'
+                },
+
+                {
+                    label: '动态更新配置',
+                    name: '/development/dynamic-update-config'
+                },
+            ]
+        },
+        {
+            label: '进阶',
+            name: '/advance',
+            submenu: [
+                {
                     label: '表单联动-选项联动',
-                    name: '/development/union-request'
+                    name: '/advance/union-request'
                 },
                 {
                     label: '表单联动-展示联动',
-                    name: '/development/showOn-hiddenOn'
+                    name: '/advance/union-visibility'
                 },
                 {
                     label: '表单联动-校验联动',
-                    name: '/development/showOn-hiddenOn'
+                    name: '/advance/union-validate'
                 },
                 {
                     label: '表单联动-配置联动',
-                    name: '/development/showOn-hiddenOn'
+                    name: '/advance/union-config'
                 },
                 {
                     label: '表单联动-总结',
-                    name: '/development/showOn-hiddenOn'
+                    name: '/advance/union-summary'
                 },
                 {
-                    label: '组合布局',
-                    name: '/development/powerful-fieldGenerator'
+                    label: '配置表格内表单控件',
+                    name: '/advance/fieldGenerator-and-table'
                 },
             ]
         },
         {
             label: '核心组件',
-            name: '/doc',
+            name: '/core-components',
             submenu: [
                 {
                     label: 'FormGenerator',
-                    name: '/doc/FormGenerator'
+                    name: '/core-components/FormGenerator'
                 },
                 {
                     label: 'FieldGenerator',
-                    name: '/doc/FieldGenerator'
+                    name: '/core-components/FieldGenerator'
                 },
             ]
         },

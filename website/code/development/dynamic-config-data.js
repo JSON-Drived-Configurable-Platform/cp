@@ -72,17 +72,17 @@ export default {
                     reject(e);
                 })
             });
-            
+
         }
     }
-    
+
 };
-<script>
+</script>
 <template>
     <Form :model="model">
         <FieldGenerator
             :field="field"
-            :request-interceptor="requestInterceptor"
+            :dynamic-config-data="requestInterceptor"
         />
     </Form>
 </template>
