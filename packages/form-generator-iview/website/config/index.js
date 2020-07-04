@@ -26,7 +26,7 @@ export default {
      */
     homeName: 'home',
 
-    defaultOpenNames: ['/doc'],
+    defaultOpenNames: ['/development', '/doc'],
 
     menuList: [
         // {
@@ -34,15 +34,61 @@ export default {
         //     name: '/home'
         // },
         {
-            label: 'Intro',
+            label: '简介',
             name: '/intro'
         },
         {
-            label: 'Practice && Thoughts',
+            label: '实践与思考',
             name: '/practice'
         },
         {
-            label: 'Config Document',
+            label: '开发进阶',
+            name: '/development',
+            submenu: [
+                {
+                    label: '组件速查',
+                    name: '/development/components-choosen'
+                },
+                {
+                    label: '请求拦截',
+                    name: '/development/request-interceptor'
+                },
+                {
+                    label: '可见性',
+                    name: '/development/visibility'
+                },
+                {
+                    label: '表单校验',
+                    name: '/development/form-validate'
+                },
+                {
+                    label: '表单联动-选项联动',
+                    name: '/development/union-request'
+                },
+                {
+                    label: '表单联动-展示联动',
+                    name: '/development/showOn-hiddenOn'
+                },
+                {
+                    label: '表单联动-校验联动',
+                    name: '/development/showOn-hiddenOn'
+                },
+                {
+                    label: '表单联动-配置联动',
+                    name: '/development/showOn-hiddenOn'
+                },
+                {
+                    label: '表单联动-总结',
+                    name: '/development/showOn-hiddenOn'
+                },
+                {
+                    label: '组合布局',
+                    name: '/development/powerful-fieldGenerator'
+                },
+            ]
+        },
+        {
+            label: '核心组件',
             name: '/doc',
             submenu: [
                 {
@@ -53,6 +99,12 @@ export default {
                     label: 'FieldGenerator',
                     name: '/doc/FieldGenerator'
                 },
+            ]
+        },
+        {
+            label: '内置组件',
+            name: '/doc',
+            submenu: [
                 {
                     label: 'Input',
                     name: '/doc/Input'
@@ -92,6 +144,10 @@ export default {
                 {
                     label: 'LogicSelect',
                     name: '/doc/LogicSelect'
+                },
+                {
+                    label: 'MatrixSelect',
+                    name: '/doc/MatrixSelect'
                 },
                 {
                     label: 'DatePicker',
@@ -172,37 +228,7 @@ export default {
             ]
         },
         {
-            label: 'Development',
-            name: '/development',
-            submenu: [
-                {
-                    label: 'Components Choosen',
-                    name: '/development/components-choosen'
-                },
-                {
-                    label: 'Union Request',
-                    name: '/development/union-request'
-                },
-                {
-                    label: 'Request Interceptor',
-                    name: '/development/request-interceptor'
-                },
-                {
-                    label: 'ShowOn HiddenOn',
-                    name: '/development/showOn-hiddenOn'
-                },
-                {
-                    label: 'Form Validate',
-                    name: '/development/form-validate'
-                },
-                {
-                    label: 'Powerful FieldGenerator',
-                    name: '/development/powerful-fieldGenerator'
-                },
-            ]
-        },
-        {
-            label: 'Examples',
+            label: '示例',
             name: '/examples',
             submenu: [
                 {

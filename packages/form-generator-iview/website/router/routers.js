@@ -19,6 +19,7 @@ const CheckboxCard = () => import(/* webpackChunkName: "CheckboxCard" */ '../pag
 const Switch = () => import(/* webpackChunkName: "Switch" */ '../page/doc/Switch');
 const Select = () => import(/* webpackChunkName: "Select" */ '../page/doc/Select');
 const LogicSelect = () => import(/* webpackChunkName: "LogicSelect" */ '../page/doc/LogicSelect');
+const MatrixSelect = () => import(/* webpackChunkName: "MatrixSelect" */ '../page/doc/MatrixSelect');
 const DatePicker = () => import(/* webpackChunkName: "DatePicker" */ '../page/doc/DatePicker');
 const TimePicker = () => import(/* webpackChunkName: "TimePicker" */ '../page/doc/TimePicker');
 const TimePickerMultiple = () => import(/* webpackChunkName: "TimePickerMultiple" */ '../page/doc/TimePickerMultiple');
@@ -43,7 +44,7 @@ const Slider = () => import(/* webpackChunkName: "Button" */ '../page/doc/Slider
 const componentsChoosen = () => import(/* webpackChunkName: "componentsChoosen" */ '../page/development/components-choosen');
 const unionRequest = () => import(/* webpackChunkName: "unionRequest" */ '../page/development/union-request');
 const requestInterceptor = () => import(/* webpackChunkName: "componentsChoosen" */ '../page/development/request-interceptor');
-const showOnHiddenOn = () => import(/* webpackChunkName: "componentsChoosen" */ '../page/development/showOn-hiddenOn');
+const visibility = () => import(/* webpackChunkName: "componentsChoosen" */ '../page/development/visibility');
 const formValidate = () => import(/* webpackChunkName: "componentsChoosen" */ '../page/development/form-validate');
 const powerfulFieldGenerator = () => import(/* webpackChunkName: "componentsChoosen" */ '../page/development/powerful-fieldGenerator');
 
@@ -148,6 +149,11 @@ export default [
                 component: LogicSelect
             },
             {
+                path: '/doc/MatrixSelect',
+                name: 'doc-MatrixSelect',
+                component: MatrixSelect
+            },
+            {
                 path: '/doc/DatePicker',
                 name: 'doc-DatePicker',
                 component: DatePicker
@@ -247,7 +253,6 @@ export default [
                 name: 'doc-Divider',
                 component: Divider
             },
-
         ],
     },
     {
@@ -269,8 +274,8 @@ export default [
                 component: requestInterceptor
             },
             {
-                path: '/development/showOn-hiddenOn',
-                component: showOnHiddenOn
+                path: '/development/visibility',
+                component: visibility
             },
             {
                 path: '/development/form-validate',
