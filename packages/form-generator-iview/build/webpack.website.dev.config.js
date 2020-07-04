@@ -41,6 +41,11 @@ module.exports = merge(webpackBaseConfig, {
 
     devtool: 'eval-source-map',
 
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, '../website'),
+        }
+    },
     // 入口
     entry: {
         main: path.resolve(__dirname, '../website/main'),
