@@ -77,6 +77,7 @@ export const columns = [
             {
                 type: 'Select',
                 api: '/selectApi',
+                transfer: true,
                 model: 'city',
                 inline: true,
                 cache: true,

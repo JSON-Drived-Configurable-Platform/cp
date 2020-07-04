@@ -3,6 +3,7 @@ let simple = {};
 
 const field = {
     type: 'Select',
+    transfer: true,
     model: 'city',
     options: [
         {label: '北京', 'value': 'Beijing'},
@@ -387,7 +388,271 @@ export default {
 </template>
 `;
 
+export const columns = [
+    {
+        title: '姓名',
+        key: 'name',
+        width: 100
+    },
+    {
+        title: '年龄',
+        key: 'age',
+        width: 90
+    },
+    {
+        title: '性别',
+        key: 'gender',
+        width: 90
+    },
+    {
+        title: '出生日期',
+        key: 'birthday',
+        width: 150
+    },
+    {
+        title: '省',
+        slot: 'province',
+        width: 230,
+        poptip: {
+            title: '编辑地址',
+            displayField: {
+                type: 'Select',
+                api: '/selectApi',
+                model: 'province',
+                inline: true,
+                cache: true,
+                disabled: true,
+                width: 100,
+                size: 'small'
+            },
+            formFields: [
+                {
+                    type: 'Select',
+                    api: '/selectApi',
+                    model: 'province',
+                    inline: true,
+                    cache: true,
+                    width: 100
+                },
+                {
+                    type: 'Button',
+                    text: '保存',
+                    subtype: 'primary',
+                    size: 'small',
+                    action: {
+                        type: 'ajax',
+                        api: '/curdEdit'
+                    },
+                    apiParams: ['name', 'province'],
+                    inline: true
+                },
+            ]
+        }
+    },
+    {
+        title: '城市',
+        slot: 'city',
+        width: 230,
+        formFields: [
+            {
+                type: 'Select',
+                api: '/selectApi',
+                transfer: true,
+                model: 'city',
+                inline: true,
+                cache: true,
+                width: 100
+            },
+            {
+                type: 'Button',
+                text: '保存',
+                subtype: 'primary',
+                size: 'small',
+                action: {
+                    type: 'ajax',
+                    api: '/curdEdit'
+                },
+                apiParams: ['name', 'province', 'city'],
+                inline: true
+            },
+        ]
+    },
+    {
+        title: '地址',
+        slot: 'address',
+        width: 200,
+        poptip: {
+            title: '编辑地址',
+            formFields: [
+                {
+                    type: 'Input',
+                    model: 'address',
+                    placeholder: '请输入地址',
+                    rules: [
+                        {
+                            type: 'string',
+                            required: true,
+                        }
+                    ],
+                    width: 250,
+                    inline: true
+                },
+                {
+                    type: 'Button',
+                    text: '保存',
+                    subtype: 'primary',
+                    size: 'small',
+                    action: {
+                        type: 'ajax',
+                        api: '/curdEdit'
+                    },
+                    apiParams: ['name', 'address', 'test'],
+                    inline: true
+                },
+            ]
+        }
+    },
+    {
+        title: '用户状态',
+        width: 100,
+        slot: 'status',
+        formFields: [
+            {
+                type: 'Tag',
+                model: 'status',
+                options: [
+                    {
+                        name: '正常',
+                        value: '1',
+                        color: 'primary'
+                    },
+                    {
+                        name: '黑用户',
+                        value: '2',
+                        color: 'error'
+                    }
+                ]
+            },
+        ]
+    },
+    {
+        title: '操作',
+        slot: 'action',
+        width: 300,
+        formFields: [
+            {
+                type: 'Button',
+                text: '编辑',
+                subtype: 'primary',
+                size: 'small',
+                action: {
+                    type: 'event',
+                    name: 'editDialog'
+                },
+                inline: true
+            },
+            {
+                type: 'Button',
+                text: '判黑',
+                subtype: 'primary',
+                size: 'small',
+                confirmPoptip: {
+                    title: '确认判黑?',
+                    placement: 'left'
+                },
+                action: {
+                    type: 'ajax',
+                    api: '/curdToBlack'
+                },
+                apiParams: ['name', 'status'],
+                inline: true,
+                hiddenOn: {
+                    status: [
+                        {
+                            type: 'enum',
+                            enum: ['2']
+                        }
+                    ]
+                }
+            },
+            {
+                type: 'Button',
+                text: '洗白',
+                subtype: 'primary',
+                size: 'small',
+                confirmPoptip: {
+                    title: '确定洗白?',
+                    placement: 'left'
+                },
+                action: {
+                    type: 'ajax',
+                    api: '/curdToWhite'
+                },
+                apiParams: ['name', 'status'],
+                inline: true,
+                hiddenOn: {
+                    status: [
+                        {
+                            type: 'enum',
+                            enum: ['1']
+                        }
+                    ]
+                }
+            },
+            {
+                type: 'Button',
+                text: '删除',
+                subtype: 'error',
+                size: 'small',
+                confirmPoptip: {
+                    title: '确定删除?',
+                    placement: 'left'
+                },
+                action: {
+                    type: 'ajax',
+                    api: '/curdDelete'
+                },
+                apiParams: ['name'],
+                inline: true
+            },
+            {
+                type: 'Button',
+                model: 'detailRoute',
+                text: '详情',
+                subtype: 'primary',
+                size: 'small',
+                action: {
+                    type: 'route'
+                },
+                apiParams: ['name'],
+                inline: true
+            },
+        ]
+    }
+];
+
+export const data = [
+    {
+        name: '王小明',
+        age: 18,
+        gender: '男',
+        birthday: '1999-2-21',
+        province: 'Beijing',
+        city: 'Beijing',
+        address: '北京市朝阳区芍药居',
+        status: '1',
+        detailRoute: {
+            path: '/home',
+            query: {
+                name: '王小明',
+            }
+        }
+    }
+];
+
 export default {
+    columns,
+    data,
     simple,
     api,
     multiple,

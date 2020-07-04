@@ -44,6 +44,7 @@
             :disabled="field.disabled || false"
             :clearable="clearable"
             :size="size"
+            :transfer="field.transfer || false"
             :placeholder="field.placeholder"
             :filterable="filterable || false"
             :loading="loading"
