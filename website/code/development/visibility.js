@@ -61,9 +61,9 @@ export default {
 </script>
 <template>
     <FormGenerator
-            :fields="fields"
-            :model="model"
-        />
+        :fields="fields"
+        :model="model"
+    />
 </template>
 `;
 

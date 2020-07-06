@@ -67,8 +67,8 @@ export default {
                 },
 
                 {
-                    label: '动态更新配置',
-                    name: '/development/dynamic-update-config'
+                    label: '函数类型的配置项',
+                    name: '/development/function-field'
                 },
             ]
         },
@@ -85,17 +85,17 @@ export default {
                     name: '/advance/union-visibility'
                 },
                 {
-                    label: '表单联动-校验联动',
-                    name: '/advance/union-validate'
-                },
-                {
                     label: '表单联动-配置联动',
                     name: '/advance/union-config'
                 },
                 {
-                    label: '表单联动-总结',
-                    name: '/advance/union-summary'
+                    label: '表单联动-校验联动',
+                    name: '/advance/union-validate'
                 },
+                // {
+                //     label: '表单联动-总结',
+                //     name: '/advance/union-summary'
+                // },
                 {
                     label: '配置表格内表单控件',
                     name: '/advance/fieldGenerator-and-table'

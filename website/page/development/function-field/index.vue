@@ -1,23 +1,19 @@
 <template>
     <i-article>
         <article>
-            <h1>展现联动</h1>
-            <inAnchor title="概述" h2 />
-            <p>展现联动，是指表单内部某一个控件的展示依赖其它的值。基于showOn&hiddenOn配置项可以很容易实现控件展现的联动。</p>
+            <h1>函数类型的配置项</h1>
+            <p>在实际项目中，可能需要动态的更新某些控件的状态，比如动态禁用某个控件，变更Radio的选择项。</p>
             <div class="api">
-                <inAnchor title="配置快速查询" h2 />
-                <p>showOn&hiddenOn基于async-validator实现的数据验证，具体规则形式请参考<a href="https://github.com/yiminghe/async-validator" target="_blank"><i class="ivu-icon ivu-icon-social-github" /> async-validator</a>。</p>
                 <inAnchor title="代码示例" h2 />
-
-                <Demo title="基础用法（表单控制）">
+                <Demo title="控件的field为函数">
                     <div slot="demo">
                         <FormGenerator
-                            :fields="code.simple.data.fields"
+                            :fields="code.simple.data.field"
                             :model="code.simple.data.model"
                         />
                     </div>
                     <div slot="desc">
-                        <p>通过设置hiddenOn和showOn来控制表单子组件的显示和隐藏。</p>
+                        支持配置项设置为函数，paramsContainer中包含当前表单的model的值和外部传入的参数的集合。
                     </div>
                     <i-code slot="code" lang="html">{{ code.simple.code }}</i-code>
                 </Demo>
@@ -31,7 +27,8 @@ import iArticle from '../../../components/article';
 import inAnchor from '../../../components/anchor';
 import iCode from '../../../components/code';
 import Demo from '../../../components/demo';
-import Code from '../../../code/development/visibility';
+import Code from '../../../code/development/function-field';
+
 export default {
     components: {
         iArticle,
@@ -44,9 +41,6 @@ export default {
             code: Code
         };
     },
-    methods: {
-        handleFieldChange() {}
-    }
 };
 </script>
 
