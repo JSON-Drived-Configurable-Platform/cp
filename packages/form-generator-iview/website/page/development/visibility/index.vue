@@ -48,7 +48,7 @@
                         />
                     </div>
                     <div slot="desc">
-                        <p>同一个表单元素同时设置showOn,hiddenOn时，满足其中一项验证规则即当项生效，同时都满足时，hiddenOn优先。我们可以利用这一点来完成业务中某些复杂的逻辑判断。</p>
+                        <p>同一个表单元素同时设置showOn,hiddenOn时，同时满足展示的时候才会展示。</p>
                     </div>
                     <i-code slot="code" lang="html">{{ code.bothConfig.code }}</i-code>
                 </Demo>
@@ -60,7 +60,7 @@
                         />
                     </div>
                     <div slot="desc">
-                        <p>如果表单里某个元素的展示需要依赖表单中的其他值，我们可以自定义验证规则来实现。本例为有权限并且年龄大于20岁的男性展示年龄这一项。通过自定义validateCheck方法，将对应的验证规则放到validateCheck方法中，实现验证。</p>
+                        <p>性别为女性，并且年龄小于14岁的，需要输入姓名。</p>
                     </div>
                     <i-code slot="code" lang="html">{{ code.validatorConfig.code }}</i-code>
                 </Demo>

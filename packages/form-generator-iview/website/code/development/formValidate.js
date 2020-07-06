@@ -1,5 +1,113 @@
-// 简单示例
-let simple = {};
+// validateForm
+let validateForm = {};
+
+let validateFormFields = [
+    {
+        label: '姓名',
+        type: 'Input',
+        model: 'name',
+        placehold: '请输入姓名',
+        rules: [
+            {
+                type: 'string',
+                required: true,
+                pattern:  /^[\u4e00-\u9fa5]+$/,
+                message: '请输入中文姓名'
+            }
+        ]
+    },
+    {
+        label: '城市',
+        type: 'Select',
+        model: 'city',
+        placehold: '请选择',
+        options: [
+            {label: '北京', 'value': 'Beijing'},
+            {label: '上海', 'value': 'Shanghai'},
+            {label: '广州', 'value': 'Guangzhou'},
+            {label: '深圳', 'value': 'Shenzhen'}
+        ],
+        required: true
+    },
+    {
+        label: '生日',
+        type: 'DatePicker',
+        model: 'birthday',
+        required: true
+    },
+    {
+        label: '性别',
+        type: 'Radio',
+        model: 'gender',
+        options: [
+            {label: '男', 'value': 'M'},
+            {label: '女', 'value': 'F'}
+        ],
+        required: true
+    },
+    {
+        label: '水果',
+        type: 'Checkbox',
+        model: 'fruit',
+        options: [
+            {label: '西瓜', 'value': '1'},
+            {label: '苹果', 'value': '2'},
+            {label: '梨子', 'value': '3'}
+        ],
+        required: true
+    },
+    {
+        type: 'Submit',
+        subtype: 'primary',
+        text: '提交',
+        inline: true
+    },
+    {
+        type: 'Reset',
+        text: '重置',
+        labelWidth: 0,
+        inline: true
+    }
+];
+
+let validateFormModel = {
+    name: '',
+    city: '',
+    birthday: '',
+    gender: '',
+    fruit: [],
+};
+
+
+validateForm.data = {
+    fields: validateFormFields,
+    model: validateFormModel
+};
+
+validateForm.code = `
+<script>
+const fields = ${JSON.stringify(validateFormFields, null, 4)};
+const model = ${JSON.stringify(validateFormModel, null, 4)};
+export default {
+    data() {
+        return {
+            fields,
+            model
+        };
+    }
+};
+</script>
+<template>
+    <FormGenerator
+        :fields="fields"
+        :model="model"
+    />
+</template>
+`;
+
+
+// required
+let required = {};
 
 const fields = [
     {
@@ -15,18 +123,20 @@ const model = {
     age: 18,
 };
 
-simple.data = {
+required.data = {
     fields,
     model
 };
 
-simple.code = `
+required.code = `
 <script>
+const fields = ${JSON.stringify(fields, null, 4)};
+const model = ${JSON.stringify(model, null, 4)};
 export default {
     data() {
         return {
-            fields: ${JSON.stringify(fields)},
-            model: ${JSON.stringify(model)}
+            fields,
+            model
         };
     }
     methods: {
@@ -38,14 +148,16 @@ export default {
 </script>
 <template>
     <FormGenerator
-            :fields="fields"
-            :model="model"
-        />
+        :fields="fields"
+        :model="model"
+    />
 </template>
 `;
 
-let params = {};
-const paramsRules = [
+
+// rules
+let rules = {};
+const rulesRules = [
     {
         type: 'Input',
         label: '姓名',
@@ -60,21 +172,23 @@ const paramsRules = [
     }
 ];
 
-const paramsModel = {
+const rulesModel = {
     name: '张三',
     age: 12
 };
-params.data = {
-    paramsRules,
-    paramsModel
+rules.data = {
+    rulesRules,
+    rulesModel
 };
-params.code = `
+rules.code = `
 <script>
+const fields = ${JSON.stringify(rulesRules, null, 4)};
+const model = ${JSON.stringify(rulesModel, null, 4)};
 export default {
     data() {
         return {
-            fields: ${JSON.stringify(paramsRules)},
-            model: ${JSON.stringify(paramsModel)}
+            fields,
+            model
         };
     }
     methods: {
@@ -92,25 +206,32 @@ export default {
 </template>
 `;
 
-// 包含某个值
+
+// enumConfig
 let enumConfig = {};
 const enumFileds = [
     {
-        type: 'Input',
-        label: '姓名',
-        model: 'name',
+        type: 'Radio',
+        subtype: 'button',
+        label: '是否确认',
+        model: 'asure',
+        options: [
+            {label: '确认', value: '1'},
+            {label: '放弃', value: '0'},
+        ],
         rules: [
             {
                 type: 'enum',
-                enum: ['张三'],
-                message: '姓名必须包含张三'
+                enum: ['1'],
+                required: true,
+                message: '必须选择确认'
             }
         ]
     }
 ];
 
 const enumModels = {
-    name: '张三',
+    asure: '1',
 };
 
 
@@ -121,11 +242,13 @@ enumConfig.data = {
 
 enumConfig.code = `
 <script>
+const fields = ${JSON.stringify(enumFileds, null, 4)};
+const model = ${JSON.stringify(enumModels, null, 4)};
 export default {
     data() {
         return {
-            fields: ${JSON.stringify(enumFileds)},
-            model: ${JSON.stringify(enumModels)}
+            fields,
+            model
         };
     }
     methods: {
@@ -142,6 +265,7 @@ export default {
         />
 </template>
 `;
+
 
 // rules为alidator
 let validatorConfig = {};
@@ -154,7 +278,7 @@ const validatorModels = {
 
 const validatorFileds = [
     {
-        type: 'Input',
+        type: 'InputNumber',
         label: '年龄',
         model: 'age',
         rules: [{
@@ -180,13 +304,15 @@ export default {
         return {
             fields: [
                 {
-                    type: 'Input',
+                    type: 'InputNumber',
                     label: '年龄',
                     model: 'age',
                     rules: [{
                         type: 'number',
                         validator(rule, value) {
-                            return value > 20;
+                            validator(rule, value) {
+                                return value > 20;
+                            },
                         },
                         message: '年龄大于20岁'
                     }]
@@ -210,7 +336,7 @@ export default {
 </template>
 `;
 
-// rules为alidator
+// rules 为 async validator
 let asyncValidatorConfig = {};
 
 const asyncValidatorModels = {
@@ -221,7 +347,7 @@ const asyncValidatorModels = {
 
 const asyncValidatorFileds = [
     {
-        type: 'Input',
+        type: 'InputNumber',
         label: '年龄',
         model: 'age',
         rules: [{
@@ -234,8 +360,8 @@ const asyncValidatorFileds = [
                         reject('年龄大于20岁~');
                     }
                 });
-            }
-            // message: '年龄大于20岁！'
+            },
+            message: '年龄大于20岁！'
         }]
     }
 ];
@@ -253,7 +379,7 @@ export default {
         return {
             fields: [
                 {
-                    type: 'Input',
+                    type: 'InputNumber',
                     label: '年龄',
                     model: 'age',
                     rules: [{
@@ -288,7 +414,7 @@ export default {
 </template>
 `;
 
-// rules为alidator
+// submit button
 let submitConfig = {};
 
 const submitModels = {
@@ -299,7 +425,7 @@ const submitModels = {
 
 const submitFileds = [
     {
-        type: 'Input',
+        type: 'InputNumber',
         label: '年龄',
         model: 'age',
         rules: [{
@@ -337,12 +463,12 @@ export default {
         return {
             fields: [
                 {
-                    type: 'Input',
+                    type: 'InputNumber',
                     label: '年龄',
                     model: 'age',
                     rules: [{
                         type: 'number',
-                        submit(rule, value) {
+                        asyncValidator(rule, value) {
                             return new Promise((resolve, reject) => {
                                 if (value > 20) {
                                     resolve();
@@ -379,11 +505,11 @@ export default {
 </template>
 `;
 
-// value
 export default {
-    simple,
+    validateForm,
+    required,
     enumConfig,
-    params,
+    rules,
     validatorConfig,
     asyncValidatorConfig,
     submitConfig
