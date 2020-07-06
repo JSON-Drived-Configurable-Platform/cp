@@ -138,6 +138,7 @@
 <script>
 import FieldGenerator from './fieldGenerator';
 import {classPrefix} from './utils/const';
+import {isFunction} from './utils/func';
 import vClickOutside from 'v-click-outside';
 import {getValidType} from './utils/getValidType';
 import {setValue} from './utils/processValue';
@@ -384,6 +385,10 @@ export default {
         },
 
         resetField(field) {
+            if (field && isFunction(field)) {
+                const params = Object.assign({}, this.form.model, this.paramsContainer);
+                field = field(params);
+            }
             let typeToResetValues = {
                 string: '',
                 array: [],

@@ -618,14 +618,6 @@ export const fields = [
         //defaultHide: true
     },
     {
-        type: 'TimeCycleSelect',
-        label: '日期时间区间选择',
-        model: 'time',
-        placeholder: '',
-        required: true,
-        //defaultHide: true
-    },
-    {
         type: 'Divider',
         label: '逻辑输入',
         orientation: 'left',

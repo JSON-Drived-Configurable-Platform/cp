@@ -47,7 +47,7 @@ const Slider = () => import(/* webpackChunkName: "Button" */ '../page/doc/Slider
 // development
 const componentsChoosen = () => import(/* webpackChunkName: "componentsChoosen" */ '../page/development/components-choosen');
 const dynamicConfigData = () => import(/* webpackChunkName: "componentsChoosen" */ '../page/development/dynamic-config-data');
-const dynamicUpdateConfig = () => import(/* webpackChunkName: "dynamicUpdateConfig" */ '../page/development/dynamic-update-config');
+const functionProps = () => import(/* webpackChunkName: "dynamicUpdateConfig" */ '../page/development/function-field');
 const visibility = () => import(/* webpackChunkName: "componentsChoosen" */ '../page/development/visibility');
 const formValidate = () => import(/* webpackChunkName: "componentsChoosen" */ '../page/development/form-validate');
 
@@ -119,8 +119,8 @@ export default [
                 component: dynamicConfigData
             },
             {
-                path: '/development/dynamic-update-config',
-                component: dynamicUpdateConfig
+                path: '/development/function-field',
+                component: functionProps
             },
             {
                 path: '/development/visibility',
