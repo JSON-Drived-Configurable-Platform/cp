@@ -21,49 +21,6 @@
                     </div>
                     <i-code slot="code" lang="html">{{ code.simple.code }}</i-code>
                 </Demo>
-
-                <Demo title="外部变量控制">
-                    <div slot="demo">
-                        <RadioGroup v-model="code.params.data.paramsContainer.isShow" size="small">
-                            <Radio :label="0"> 隐藏 </Radio>
-                            <Radio :label="1"> 展示 </Radio>
-                        </RadioGroup>
-                        <FormGenerator
-                            :fields="code.params.data.paramsFields"
-                            :model="code.params.data.paramsModel"
-                            :params-container="code.params.data.paramsContainer"
-                        />
-                    </div>
-                    <div slot="desc">
-                        <p>在某些场景下，控制元素显示（隐藏）的字段可能不在表单中返回，这时，我们就可以使用paramContainer来实现元素的显示（隐藏）这一功能，只需要把变量放到paramContainer中就可以了。</p>
-                    </div>
-                    <i-code slot="code" lang="html">{{ code.params.code }}</i-code>
-                </Demo>
-
-                <Demo title="两者共存">
-                    <div slot="demo">
-                        <FormGenerator
-                            :fields="code.bothConfig.data.bothFileds"
-                            :model="code.bothConfig.data.bothModels"
-                        />
-                    </div>
-                    <div slot="desc">
-                        <p>同一个表单元素同时设置showOn,hiddenOn时，满足其中一项验证规则即当项生效，同时都满足时，hiddenOn优先。我们可以利用这一点来完成业务中某些复杂的逻辑判断。</p>
-                    </div>
-                    <i-code slot="code" lang="html">{{ code.bothConfig.code }}</i-code>
-                </Demo>
-                <Demo title="复杂规则">
-                    <div slot="demo">
-                        <FormGenerator
-                            :fields="code.validatorConfig.data.validatorFileds"
-                            :model="code.validatorConfig.data.validatorModels"
-                        />
-                    </div>
-                    <div slot="desc">
-                        <p>如果表单里某个元素的展示需要依赖表单中的其他值，我们可以自定义验证规则来实现。本例为有权限并且年龄大于20岁的男性展示年龄这一项。通过自定义validateCheck方法，将对应的验证规则放到validateCheck方法中，实现验证。</p>
-                    </div>
-                    <i-code slot="code" lang="html">{{ code.validatorConfig.code }}</i-code>
-                </Demo>
             </div>
         </article>
     </i-article>

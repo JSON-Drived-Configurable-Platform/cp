@@ -28,7 +28,6 @@ const MatrixSelect = () => import(/* webpackChunkName: "MatrixSelect" */ '../pag
 const DatePicker = () => import(/* webpackChunkName: "DatePicker" */ '../page/doc/DatePicker');
 const TimePicker = () => import(/* webpackChunkName: "TimePicker" */ '../page/doc/TimePicker');
 const TimePickerMultiple = () => import(/* webpackChunkName: "TimePickerMultiple" */ '../page/doc/TimePickerMultiple');
-const TimeCycleSelect = () => import(/* webpackChunkName: "TimeCycleSelect" */ '../page/doc/TimeCycleSelect');
 const Cascader = () => import(/* webpackChunkName: "Cascader" */ '../page/doc/Cascader');
 const InputNumber = () => import(/* webpackChunkName: "InputNumber" */ '../page/doc/InputNumber');
 const Upload = () => import(/* webpackChunkName: "Upload" */ '../page/doc/Upload');
@@ -267,11 +266,6 @@ export default [
                 path: '/doc/TimePickerMultiple',
                 name: 'doc-TimePickerMultiple',
                 component: TimePickerMultiple
-            },
-            {
-                path: '/doc/TimeCycleSelect',
-                name: 'doc-TimeCycleSelect',
-                component: TimeCycleSelect
             },
             {
                 path: '/doc/Cascader',

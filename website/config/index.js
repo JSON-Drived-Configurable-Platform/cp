@@ -76,10 +76,10 @@ export default {
             label: '进阶',
             name: '/advance',
             submenu: [
-                {
-                    label: '表单联动-选项联动',
-                    name: '/advance/union-request'
-                },
+                // {
+                //     label: '表单联动-选项联动',
+                //     name: '/advance/union-request'
+                // },
                 {
                     label: '表单联动-展示联动',
                     name: '/advance/union-visibility'
@@ -175,10 +175,6 @@ export default {
                 {
                     label: 'TimePickerMultiple',
                     name: '/doc/TimePickerMultiple'
-                },
-                {
-                    label: 'TimeCycleSelect',
-                    name: '/doc/TimeCycleSelect'
                 },
                 {
                     label: 'Cascader',
