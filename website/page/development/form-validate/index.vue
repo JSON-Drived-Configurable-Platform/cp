@@ -7,32 +7,44 @@
             <div class="api">
                 <inAnchor title="配置快速查询" h2 />
                 <p>基于async-validator实现的数据验证，具体规则形式请参考<a href="https://github.com/yiminghe/async-validator" target="_blank"><i class="ivu-icon ivu-icon-social-github" /> async-validator</a>。</p>
+                <alert>如果发现 async-validator 的行为不符合预期，请检查你的iview及其中引入的 async-validator 的版本。</alert>
                 <inAnchor title="代码示例" h2 />
                 <Demo title="基础用法">
                     <div slot="demo">
                         <FormGenerator
-                            :fields="code.simple.data.fields"
-                            :model="code.simple.data.model"
+                            :fields="code.validateForm.data.fields"
+                            :model="code.validateForm.data.model"
+                            :options="code.validateForm.data.options"
+                        />
+                    </div>
+                    <div slot="desc" />
+                    <i-code slot="code" lang="html">{{ code.validateForm.code }}</i-code>
+                </Demo>
+                <Demo title="required">
+                    <div slot="demo">
+                        <FormGenerator
+                            :fields="code.required.data.fields"
+                            :model="code.required.data.model"
                         />
                     </div>
                     <div slot="desc">
                         <p>通过设置required属性增加表单必填验证。提示消息为label标签值+不可为空</p>
                     </div>
-                    <i-code slot="code" lang="html">{{ code.simple.code }}</i-code>
+                    <i-code slot="code" lang="html">{{ code.required.code }}</i-code>
                 </Demo>
-                <Demo title="更加多样的表单验证">
+                <Demo title="rules">
                     <div slot="demo">
                         <FormGenerator
-                            :fields="code.params.data.paramsRules"
-                            :model="code.params.data.paramsModel"
+                            :fields="code.rules.data.paramsRules"
+                            :model="code.rules.data.paramsModel"
                         />
                     </div>
                     <div slot="desc">
                         <p>在某些场景下，需要更明确的告知用户填入什么样的信息，这时可以自定义验证规则，通过type定义输入类型，通过message定义提示用户信息。</p>
                     </div>
-                    <i-code slot="code" lang="html">{{ code.params.code }}</i-code>
+                    <i-code slot="code" lang="html">{{ code.rules.code }}</i-code>
                 </Demo>
-                <Demo title="包含某一个值">
+                <Demo title="enum">
                     <div slot="demo">
                         <FormGenerator
                             :fields="code.enumConfig.data.enumFileds"
@@ -41,6 +53,7 @@
                     </div>
                     <div slot="desc">
                         <p>type为enum时可以定义用户输入值中要包含的信息</p>
+                        <alert>iview内置的 <code>async-validator</code> 的低版本中，enum值为number类型时存在bug</alert>
                     </div>
                     <i-code slot="code" lang="html">{{ code.enumConfig.code }}</i-code>
                 </Demo>

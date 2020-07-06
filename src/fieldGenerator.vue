@@ -166,7 +166,6 @@ export default {
                     }
                 });
             }
-            // console.log(field.model, valid, model);
             return show;
         },
         labelTip() {

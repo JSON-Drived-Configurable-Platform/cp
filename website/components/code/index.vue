@@ -110,9 +110,11 @@
             </Tooltip>
         </span>
         <Modal v-model="openScale" class-name="code-scale-modal" :title="title" width="65">
-            <pre :class="{bg: bg}">
-                <code ref="code2" :class="language" />
-            </pre>
+            <div class="doc-code">
+                <pre :class="{bg: bg}">
+                    <code ref="code2" :class="language" />
+                </pre>
+            </div>
         </Modal>
     </div>
 </template>

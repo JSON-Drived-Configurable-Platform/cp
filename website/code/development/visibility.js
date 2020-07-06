@@ -3,7 +3,7 @@ let simple = {};
 
 const fields = [
     {
-        label: '年龄',
+        label: '展示年龄',
         type: 'Radio',
         model: 'isShow',
         subtype: 'button',
@@ -43,13 +43,15 @@ simple.data = {
 
 simple.code = `
 <script>
+const fields = ${JSON.stringify(fields, null, 4)};
+const model = ${JSON.stringify(model, null, 4)};
 export default {
     data() {
         return {
-            fields: ${JSON.stringify(fields)},
-            model: ${JSON.stringify(model)}
+            fields,
+            model
         };
-    }
+    },
     methods: {
         handleFieldChange(model, value) {
             console.log(model, value);
@@ -101,14 +103,17 @@ params.data = {
 };
 params.code = `
 <script>
+const fields = ${JSON.stringify(paramsFields, null, 4)};
+const model = ${JSON.stringify(paramsModel, null, 4)};
+const paramsContainer = ${JSON.stringify(paramsContainer, null, 4)};
 export default {
     data() {
         return {
-            fields: ${JSON.stringify(paramsFields)},
-            model: ${JSON.stringify(paramsModel)},
-            paramsContainer: ${JSON.stringify(paramsContainer)}
+            fields,
+            model,
+            paramsContainer
         };
-    }
+    },
     methods: {
         handleFieldChange(model, value) {
             console.log(model, value);
@@ -139,28 +144,47 @@ export default {
 let bothConfig = {};
 const bothFileds = [
     {
+        label: '展示',
+        type: 'Radio',
+        model: 'isShow',
+        subtype: 'button',
+        options: [
+            {label: '显示', value: 1},
+            {label: '隐藏', value: 0},
+        ]
+    },
+    {
+        label: '隐藏',
+        type: 'Radio',
+        model: 'isHide',
+        subtype: 'button',
+        options: [
+            {label: '显示', value: 0},
+            {label: '隐藏', value: 1},
+        ]
+    },
+    {
         type: 'Input',
         label: '姓名',
         model: 'name',
         hiddenOn: {
-            hasAuth: {
+            isHide: {
                 type: 'enum',
-                enum: [false]
+                enum: [1]
             }
         },
         showOn: {
-            isCheck: {
+            isShow: {
                 type: 'enum',
-                enum: [false]
+                enum: [1]
             }
-        }
+        },
     }
 ];
 
 const bothModels = {
     name: '张三',
-    hasAuth: true,
-    isCheck: false
+    isShow: 1
 };
 
 
@@ -171,13 +195,15 @@ bothConfig.data = {
 
 bothConfig.code = `
 <script>
+const fields = ${JSON.stringify(bothFileds, null, 4)};
+const model = ${JSON.stringify(bothModels, null, 4)};
 export default {
     data() {
         return {
-            fields: ${JSON.stringify(bothFileds)},
-            model: ${JSON.stringify(bothModels)}
+            fields,
+            model
         };
-    }
+    },
     methods: {
         handleFieldChange(model, value) {
             console.log(model, value);
@@ -187,9 +213,9 @@ export default {
 </script>
 <template>
     <FormGenerator
-            :fields="fields"
-            :model="model"
-        />
+        :fields="fields"
+        :model="model"
+    />
 </template>
 `;
 
@@ -197,41 +223,46 @@ export default {
 let validatorConfig = {};
 
 const validatorModels = {
-    name: '张三',
-    age: 20,
-    hasAuth: true,
-    gender: 1
+    name: '小红',
+    age: 10,
+    gender: 0
 };
 
-const validateCheck = (rule, value, callback) => {
-    if (validatorModels.hasAuth) {
-        if (validatorModels.gender === 1 && value > 18) {
-            callback();
-        } else {
-            callback(new Error());
-        }
-    } else {
-        callback(new Error());
-    }
+const validateCheck = (rule, value) => {
+    return value < 14;
 };
 
 const validatorFileds = [
     {
-        type: 'Input',
-        label: '姓名',
-        model: 'name'
+        label: '性别',
+        type: 'Radio',
+        model: 'gender',
+        subtype: 'button',
+        options: [
+            {label: '男', value: 1},
+            {label: '女', value: 0},
+        ]
+    },
+    {
+        type: 'InputNumber',
+        label: '年龄',
+        model: 'age'
     },
     {
         type: 'Input',
-        label: '年龄',
-        model: 'age',
+        label: '姓名',
+        model: 'name',
         showOn: {
             age: {
                 type: 'number',
                 validator: validateCheck
+            },
+            gender: {
+                type: 'enum',
+                enum: [0]
             }
         }
-    }
+    },
 ];
 
 
@@ -242,41 +273,47 @@ validatorConfig.data = {
 
 validatorConfig.code = `
 <script>
+const validateCheck = (rule, value) => {
+    return value < 14;
+};
 export default {
     data() {
         return {
             fields: [
                 {
-                    type: 'Input',
-                    label: '姓名',
-                    model: 'name'
+                    label: '性别',
+                    type: 'Radio',
+                    model: 'gender',
+                    subtype: 'button',
+                    options: [
+                        {label: '男', value: 1},
+                        {label: '女', value: 0},
+                    ]
+                },
+                {
+                    type: 'InputNumber',
+                    label: '年龄',
+                    model: 'age'
                 },
                 {
                     type: 'Input',
-                    label: '年龄',
-                    model: 'age',
+                    label: '姓名',
+                    model: 'name',
                     showOn: {
                         age: {
                             type: 'number',
                             validator: validateCheck
+                        },
+                        gender: {
+                            type: 'enum',
+                            enum: [0]
                         }
                     }
-                }
+                },
             ],
             model: ${JSON.stringify(validatorModels)},
-            validateCheck: (rule, value, callback) => {
-                if (model.hasAuth) {
-                    if (model.gender === 1 && value > 18) {
-                        callback();
-                    } else {
-                        callback(new Error());
-                    }
-                } else {
-                    callback(new Error());
-                }
-            };
         };
-    }
+    },
     methods: {
         handleFieldChange(model, value) {
             console.log(model, value);
@@ -286,9 +323,9 @@ export default {
 </script>
 <template>
     <FormGenerator
-            :fields="fields"
-            :model="model"
-        />
+        :fields="fields"
+        :model="model"
+    />
 </template>
 `;
 
