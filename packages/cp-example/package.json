@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build && rm -rf docs/static index.html && mv dist/* docs/",
+    "build": "vue-cli-service build && rm -rf gh-pages index.html && mv dist/* gh-pages",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
