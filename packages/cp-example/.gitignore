@@ -13,6 +13,7 @@ yarn-error.log*
 
 doc/static
 doc/index.html
+gh-pages/
 # Editor directories and files
 .idea
 .vscode
