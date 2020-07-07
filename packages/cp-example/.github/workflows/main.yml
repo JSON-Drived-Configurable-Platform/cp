@@ -26,7 +26,7 @@ jobs:
             - name: Run a multi-line script
               run: |
                   npm install --dev
-                  npm run build-website
+                  npm run build
 
             # The project is then uploaded as an artifact named 'site'.
             - name: Upload Artifacts
