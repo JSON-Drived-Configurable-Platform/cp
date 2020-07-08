@@ -83,6 +83,19 @@
                             <td>Object</td>
                             <td>必填，且内置type不可为空</td>
                         </tr>
+                    </tbody>
+                </table>
+                <inAnchor title="action配置" h3 />
+                <table>
+                    <thead>
+                        <tr>
+                            <th>属性</th>
+                            <th>说明</th>
+                            <th>类型</th>
+                            <th>默认值</th>
+                        </tr>
+                    </thead>
+                    <tbody>
                         <tr>
                             <td>action.type</td>
                             <td>行为类型，目前支持事件、ajax请求、Route、Url四中形态，分别通过event、ajax、route、url来标识</td>
@@ -112,7 +125,7 @@
                             <td>
                                 当 action.type 为 route 时，可以指定action.route， 触发点击后会向该接口返送请求。
                                 <br>
-                                <strong>另外一种常用的指定action.route方法是，申明field.model（不支持foo.bar这种形式），然后会从form.model中获取对应的route值，参考下面的示例:</strong>
+                                <strong>另外一种常用的指定action.route方法是，申明field.model，然后会从form.model中获取对应的route值，参考下面的示例:</strong>
                                 <br>
                                 <span>form.model</span>
                                 <pre>
@@ -131,7 +144,7 @@
                             <td>
                                 当 action.type 为 url 时，可以指定action.url， 触发点击后会向该接口返送请求。
                                 <br>
-                                <strong>另外一种常用的指定action.url方法是，申明field.model（不支持foo.bar这种形式），然后会从form.model中获取对应的route值，参考下面的示例:</strong>
+                                <strong>另外一种常用的指定action.url方法是，申明field.model，然后会从form.model中获取对应的route值，参考下面的示例:</strong>
                                 <br>
                                 <span>form.model</span>
                                 <pre>
@@ -147,7 +160,6 @@
                         </tr>
                     </tbody>
                 </table>
-
                 <inAnchor title="事件" h3 />
                 <table>
                     <thead>
@@ -155,31 +167,20 @@
                             <th width="160">方法名</th>
                             <th>说明</th>
                             <th>参数</th>
-                            <th>返回值</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>on-button-event</td>
-                            <td>
-                                action.type 为 event 时，点击按钮触发；
-                                <br>
-                                action.type 为 ajax 时，请求成功会 emit 一个 on-button-event 事件， name 为 ajaxSuccess。
-                            </td>
-                            <td>
-                                $event, 内部解构为({name, field})，其中name为事件名称，field为完整配置项。
-                                <br>
-                                如果
-                            </td>
-                            <td>-</td>
+                            <td>action.type 为 event 或 ajax 时，点击按钮触发</td>
+                            <td>$event, ({name, field, res})，其中name为事件名称，field为完整配置项，res为请求的结果或者error信息。</td>
                         </tr>
                         <tr>
                             <td>on-button-cancel</td>
                             <td>
                                 点击取消的回调，只在 confirm 模式下有效
                             </td>
-                            <td>--</td>
-                            <td>-</td>
+                            <td>$event: 组件示例</td>
                         </tr>
                     </tbody>
                 </table>
@@ -195,24 +196,9 @@
                     </Form>
                 </div>
                 <div slot="desc">
-                    <p>通过设置<code>field</code>即可生成一个Button按钮</p>
+                    <p>通过设置<code>field</code>即可生成一个Button按钮，点击触发一个事件</p>
                 </div>
                 <i-code slot="code" lang="html">{{ code.simple.code }}</i-code>
-            </Demo>
-
-            <Demo title="从数据中获取按钮文案">
-                <div slot="demo">
-                    <Form :model="code.textModel.data.model">
-                        <FieldGenerator
-                            :field="code.textModel.data.field"
-                            @on-button-event="handleButtonEvent"
-                        />
-                    </Form>
-                </div>
-                <div slot="desc">
-                    <p>通过设置<code>field.textModel</code>可以指定按钮的文案对应model的值。</p>
-                </div>
-                <i-code slot="code" lang="html">{{ code.textModel.code }}</i-code>
             </Demo>
 
             <Demo title="route">
@@ -265,6 +251,21 @@
                 <i-code slot="code" lang="html">{{ code.ajax.code }}</i-code>
             </Demo>
 
+            <Demo title="从数据中获取按钮文案">
+                <div slot="demo">
+                    <Form :model="code.textModel.data.model">
+                        <FieldGenerator
+                            :field="code.textModel.data.field"
+                            @on-button-event="handleButtonEvent"
+                        />
+                    </Form>
+                </div>
+                <div slot="desc">
+                    <p>通过设置<code>field.textModel</code>可以指定按钮的文案对应model的值。</p>
+                </div>
+                <i-code slot="code" lang="html">{{ code.textModel.code }}</i-code>
+            </Demo>
+
             <Demo title="结合toolTip">
                 <div slot="demo">
                     <Form :model="code.ajax.data.model">
@@ -306,7 +307,8 @@ export default {
         handleButtonEvent($event) {
             // eslint-disable-next-line no-console
             console.log($event);
-            this.$Message.info(`event: ${$event.name} has been triggered`);
+            const res = JSON.stringify($event.res) ? `res: ${JSON.stringify($event.res)}` : '';
+            this.$Message.info(`event: ${$event.name} has been triggered!${res}`);
         },
         handleButtonCancel($event) {
             // eslint-disable-next-line no-console

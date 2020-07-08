@@ -91,21 +91,14 @@ export default {
             let validCount = 0;
             const refKeys = Object.keys(this.$refs);
             refKeys.forEach(form => {
-                console.log(form, this.$refs[form][0].model);
                 this.$refs[form][0].validate().then(valid => {
                     if (valid) {
                         validCount++;
                     }
-                    else {
-                        console.log('Valid Failed');
-                    }
+
                     // All validate success
                     if (validCount === refKeys.length) {
-                        console.log('All Valid!');
-                        console.log('formModel', this.formModel);
-                    }
-                    else {
-                        console.log('Valid Failed');
+                        this.$Message.success(`All Valid!formModel:${JSON.stringify(this.formModel)}`);
                     }
                 }).catch(err => {
                     console.log(err);

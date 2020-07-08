@@ -54,7 +54,7 @@ export default {
     data() {
         return {
             isAjax: false
-        }
+        };
     },
     created() {
     },
@@ -107,7 +107,7 @@ export default {
                 }).catch(err => {
                     this.$emit('on-search-data-error', err);
                     this.isAjax = false;
-                })
+                });
             }
         }
     },

@@ -209,16 +209,16 @@ export default {
                     name: '/doc/Carousel'
                 },
                 {
+                    label: 'Button',
+                    name: '/doc/Button'
+                },
+                {
                     label: 'Submit',
                     name: '/doc/Submit'
                 },
                 {
                     label: 'Reset',
                     name: '/doc/Reset'
-                },
-                {
-                    label: 'Button',
-                    name: '/doc/Button'
                 },
                 {
                     label: 'Divider',
@@ -246,10 +246,10 @@ export default {
                     label: 'Group Form',
                     name: '/examples/group-form'
                 },
-                {
-                    label: 'MultiStageValue Form',
-                    name: '/examples/MultiStageValue-form'
-                },
+                // {
+                //     label: 'MultiStageValue Form',
+                //     name: '/examples/MultiStageValue-form'
+                // },
                 {
                     label: 'CURD Simple',
                     name: '/examples/CURD-example/simple'

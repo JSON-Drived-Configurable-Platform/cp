@@ -1,28 +1,32 @@
 <template>
-<div class="fg-searchform-demo">
-    <div class="content">
-        <p class="nav-right">共{{totalNum}}个记录，共{{Math.ceil(totalNum/config.options.pageSize)}}页</p>
-        <SearchForm
-            :model="config.model"
-            :options="config.options"
-            :fields="config.fields"
-            :totalNum="totalNum"
-            ref="searchForm"
-            @on-search-field-change="handelSearchFieldChange">
-            <slot>
-                <Table v-if="list.length > 0" class="tablewp"
-                    :columns="config.columns" :data="list"
-                ></Table>
-                <div class="nocontent" v-else>
-                    <p class="title" v-if="!isAjax && firstLoad">
-                        还没有记录
-                    </p>
-                    <p class="title" v-else>加载中...</p>
-                </div>
-            </slot>
-        </SearchForm>
+    <div class="fg-searchform-demo">
+        <div class="content">
+            <p class="nav-right">共{{ totalNum }}个记录，共{{ Math.ceil(totalNum/config.options.pageSize) }}页</p>
+            <SearchForm
+                ref="searchForm"
+                :model="config.model"
+                :options="config.options"
+                :fields="config.fields"
+                :total-num="totalNum"
+                @on-search-field-change="handelSearchFieldChange"
+            >
+                <slot>
+                    <Table
+                        v-if="list.length > 0"
+                        class="tablewp"
+                        :columns="config.columns"
+                        :data="list"
+                    />
+                    <div v-else class="nocontent">
+                        <p v-if="!isAjax && firstLoad" class="title">
+                            还没有记录
+                        </p>
+                        <p v-else class="title">加载中...</p>
+                    </div>
+                </slot>
+            </SearchForm>
+        </div>
     </div>
-</div>
 </template>
 
 <script>
@@ -40,14 +44,13 @@ export default {
             list: [],
             firstLoad: false,
             isAjax: false
-        }
+        };
     },
     mounted() {
         this.$refs.searchForm.fetchData();
     },
     methods: {
         handelSearchFieldChange(field) {
-            console.log('handelSearchFieldChange', field)
             if (this.isAjax) {
                 return;
             }

@@ -57,13 +57,14 @@ export const columns = [
                     width: 100
                 },
                 {
-                    type: 'Button',
+                    type: 'Submit',
                     text: '保存',
                     subtype: 'primary',
                     size: 'small',
                     action: {
                         type: 'ajax',
-                        api: '/curdEdit'
+                        api: '/curdEdit',
+                        desc: '编辑地址'
                     },
                     apiParams: ['name', 'province'],
                     inline: true
@@ -86,13 +87,14 @@ export const columns = [
                 width: 100
             },
             {
-                type: 'Button',
+                type: 'Submit',
                 text: '保存',
                 subtype: 'primary',
                 size: 'small',
                 action: {
                     type: 'ajax',
-                    api: '/curdEdit'
+                    api: '/curdEdit',
+                    desc: '编辑城市'
                 },
                 apiParams: ['name', 'province', 'city'],
                 inline: true
@@ -120,13 +122,14 @@ export const columns = [
                     inline: true
                 },
                 {
-                    type: 'Button',
+                    type: 'Submit',
                     text: '保存',
                     subtype: 'primary',
                     size: 'small',
                     action: {
                         type: 'ajax',
-                        api: '/curdEdit'
+                        api: '/curdEdit',
+                        desc: '编辑地址'
                     },
                     apiParams: ['name', 'address', 'test'],
                     inline: true
@@ -174,7 +177,7 @@ export const columns = [
                 inline: true
             },
             {
-                type: 'Button',
+                type: 'Submit',
                 text: '判黑',
                 subtype: 'primary',
                 size: 'small',
@@ -184,7 +187,8 @@ export const columns = [
                 },
                 action: {
                     type: 'ajax',
-                    api: '/curdToBlack'
+                    api: '/curdToBlack',
+                    desc: '判黑'
                 },
                 apiParams: ['name', 'status'],
                 inline: true,
@@ -198,7 +202,7 @@ export const columns = [
                 }
             },
             {
-                type: 'Button',
+                type: 'Submit',
                 text: '洗白',
                 subtype: 'primary',
                 size: 'small',
@@ -208,7 +212,8 @@ export const columns = [
                 },
                 action: {
                     type: 'ajax',
-                    api: '/curdToWhite'
+                    api: '/curdToWhite',
+                    desc: '洗白'
                 },
                 apiParams: ['name', 'status'],
                 inline: true,
@@ -222,7 +227,7 @@ export const columns = [
                 }
             },
             {
-                type: 'Button',
+                type: 'Submit',
                 text: '删除',
                 subtype: 'error',
                 size: 'small',
@@ -232,7 +237,8 @@ export const columns = [
                 },
                 action: {
                     type: 'ajax',
-                    api: '/curdDelete'
+                    api: '/curdDelete',
+                    desc: '删除'
                 },
                 apiParams: ['name'],
                 inline: true

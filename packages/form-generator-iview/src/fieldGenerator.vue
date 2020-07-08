@@ -267,6 +267,9 @@ export default {
         return field;
     },
     methods: {
+        /**
+         * 子组件value变更时触发
+         */
         handleFieldChange(model, value) {
             setValue.call(this, {
                 originModel: this.form.model,
@@ -279,20 +282,17 @@ export default {
                 field: this.computedField
             });
         },
-        handleFieldPreview(model, value) {
+        /**
+         * Upload组件预览时触发
+         */
+        handleFieldPreview(model, file) {
             this.$emit('on-field-preview', {
                 model,
-                value,
+                file,
                 field: this.computedField
             });
         },
-        handleSubmitClick(component) {
-            this.submit(component).then(() => {
 
-            }).catch(() => {
-
-            });
-        },
         handleResetClick() {
             this.$emit('on-reset');
         },
@@ -327,110 +327,93 @@ export default {
             this.$emit('on-list-item-click', value);
         },
 
-
-        submit(component) {
-            let field = component.computedField;
-            return new Promise((resolve, reject) => {
-                try {
-                    this.form.validate(
-                        valid => {
-                            if (valid) {
-                                this.$emit('on-submit', {
-                                    status: 'start',
-                                    model: this.form.model,
-                                    field
-                                });
-                                // 如果有api则需要在此处理请求
-                                if (field.action && field.action.api) {
-                                    component.loading = true;
-                                    this.doAjaxAction(field).then(res => {
-                                        resolve(this.form.model);
-                                        component.loading = false;
-                                        if (field.action.onSuccess) {
-                                            this.$emit('on-submit', {
-                                                status: 'success',
-                                                model: this.form.model,
-                                                field,
-                                                info: res
-                                            });
-                                        } else {
-                                            this.$Message.info(`${field.text}成功!`);
-
-                                        }
-                                    }).catch(e => {
-                                        component.loading = false;
-                                        if (field.action.onFail) {
-                                            this.$emit('on-submit', {
-                                                status: 'fail',
-                                                model: this.form.model,
-                                                field,
-                                                info: e
-                                            });
-                                        } else {
-                                            this.$Message.info(`${field.text}失败!`);
-
-                                        }
-                                        reject();
-                                    });
-                                }
-                            }
-                            else {
-                                reject(valid);
-                            }
-                        }
-                    );
-                }
-                catch(err) {
-                    // eslint-disable-next-line no-console
-                    console.log(err);
-                    reject(err);
-                }
+        /**
+         * 处理子组件的提交行为，涉及到的子组件包含 Submit
+         * 提交行为最终会emit到父组件
+         *
+         * @param {Object} component 触发提交事件的组件
+         */
+        handleSubmitClick(component) {
+            component.loading = true;
+            let field = component.field;
+            this.submit(field).then(({valid, model, res}) => {
+                this.$emit('on-submit', {valid, model, field, res});
+                component.loading = false;
+            }).catch(({valid, model, error}) => {
+                component.loading = false;
+                this.$emit('on-submit', {valid, model, field, error});
             });
         },
+
+        /**
+         * 处理子组件触发请求的行为，涉及到的子组件包含 Button
+         * 请求行为最终会emit到父组件
+         *
+         * @param {Object} component 触发提交事件的组件
+         */
         handleHttpRequest(component) {
             component.loading = true;
-            let field = component.computedField;
-            this.doAjaxAction(component.field).then(() => {
+            const field = component.field;
+            const name = (field.action && field.action.name) || null;
+            this.doAjaxAction(field).then(res => {
                 component.loading = false;
-                this.$Message.info(`${field.text}成功!`);
-            }).catch(() => {
+                this.$emit('on-button-event', {name, field, res});
+            }).catch(res => {
                 component.loading = false;
-                this.$Message.info(`${field.text}失败!`);
+                this.$emit('on-button-event', {name, field, res});
             });
         },
+
+        /**
+         * 提交处理，需要对表单进行校验，如果有请求行为，则触发请求，返回Promise
+         *
+         * @param {Object} field 触发提交事件的组件field配置
+         * @return {Promise} 承诺提交的结果
+         */
+        submit(field) {
+            return new Promise((resolve, reject) => {
+                this.form.validate().then(valid => {
+                    const model = this.form.model;
+                    if (valid) {
+                        // 如果提交配置了请求行为
+                        if (field.action && field.action.api) {
+                            this.doAjaxAction(field).then(res => {
+                                resolve({valid, model, res});
+                            }).catch(e => {
+                                reject({valid, model, res: e});
+                            });
+                            return;
+                        }
+                        resolve({valid, model, res: null});
+                    }
+                    else {
+                        reject({valid, model: null, res: null});
+                    }
+                });
+            });
+        },
+
 
         doAjaxAction(field) {
             return new Promise((resolve, reject) => {
-                try {
-                    let apiBase = this.apiBase || '';
-                    let finalApi = apiBase + field.action.api;
-                    const method = field.action.method || 'get';
-
-                    this.requestMethod(method.toLowerCase(), finalApi, this.getParams(field)).then(res => {
-                        if (this.requestResolve(res)) {
-                            resolve(res);
-                            this.$emit('on-button-event', {
-                                name: 'ajaxSuccess',
-                                field,
-                                res
-                            });
-                        }
-                        else {
-                            reject(res);
-                        }
-                    }).catch(e => {
-                        reject(e);
-                    });
-                }
-                catch(err) {
-                    // eslint-disable-next-line no-console
-                    console.log(err);
-                    reject(err);
-                }
+                let apiBase = this.apiBase || '';
+                let finalApi = apiBase + field.action.api;
+                const method = field.action.method || 'get';
+                const params = this.getParams(field.apiParams || 'all');
+                this.requestMethod(method.toLowerCase(), finalApi, params).then(res => {
+                    if (this.requestResolve(res)) {
+                        resolve(res);
+                    }
+                    else {
+                        reject(res);
+                    }
+                }).catch(e => {
+                    reject(e);
+                });
             });
         },
 
-        getParams({apiParams}) {
+        getParams(apiParams) {
             let formModel = this.form.model || {};
             // put current formModel and outside param into paramsContainer
             let paramsContainer = Object.assign({}, formModel, this.paramsContainer || {});
