@@ -12,7 +12,7 @@ export const columns = [
             title: '年龄',
             'formFields': [
                 {
-                    'type': 'Input',
+                    'type': 'InputNumber',
                     'model': 'age'
                 },
                 {
@@ -22,9 +22,10 @@ export const columns = [
                     size: 'small',
                     action: {
                         type: 'ajax',
-                        api: '/checkboxApi',
-                        successed: 'updateData'
+                        api: '/submit',
+                        desc: '编辑年龄'
                     },
+                    apiParams: ['age', 'name'],
                     inline: true
                 }
             ]

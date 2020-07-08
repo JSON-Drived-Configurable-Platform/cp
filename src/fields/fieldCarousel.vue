@@ -65,7 +65,7 @@ export default {
             return this.options.length > 0 ? this.options : fieldOptions;
         },
         computedArrow() {
-            if (this.computedOptions.length > 1) {
+            if (this.computedOptions && this.computedOptions.length > 1) {
                 return this.field.arrow || 'hover';
             }
             return 'never';

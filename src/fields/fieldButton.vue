@@ -36,10 +36,6 @@ export default {
         field: {
             type: Object,
             required: true
-        },
-        apiBase: {
-            type: String,
-            default: ''
         }
     },
     data() {

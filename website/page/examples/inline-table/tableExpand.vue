@@ -50,7 +50,6 @@ export default {
             switch ($event.name) {
                 case 'save':
                     this.$refs.form.validate(valid => {
-                        console.log(valid);
                         if (valid) {
                             this.$emit('on-save-event', $event, this.index, this.model);
                         }

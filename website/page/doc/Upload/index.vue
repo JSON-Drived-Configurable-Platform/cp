@@ -136,6 +136,24 @@
                         </tr>
                     </tbody>
                 </table>
+
+                <inAnchor title="事件" h3 />
+                <table>
+                    <thead>
+                        <tr>
+                            <th>事件名</th>
+                            <th>说明</th>
+                            <th>返回值</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>on-field-preview</td>
+                            <td>文件预览</td>
+                            <td>($event) $event.model；表单项的标识；$event.file：文件；</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <inAnchor title="代码示例" h2 />
             <Demo title="基础用法">

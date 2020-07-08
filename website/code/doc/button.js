@@ -10,6 +10,21 @@ const model = {
     }
 };
 
+const routeModel = {
+    name: '张三的明细',
+    detailRoute: {
+        path: '/home',
+        query: {
+            test: 'aaa'
+        }
+    }
+};
+
+const urlModel = {
+    name: '张三的明细',
+    detailUrl: 'https://www.baidu.com/s?wd=%E7%99%BE%E5%BA%A6',
+};
+
 // 简单示例
 const simple = {};
 
@@ -70,7 +85,7 @@ const routeField = {
 
 route.data = {
     field: routeField,
-    model
+    model: routeModel
 };
 
 route.code = `
@@ -99,6 +114,101 @@ export default {
     </Form>
 </template>
 `;
+
+
+// url
+const url = {};
+
+const urlField = {
+    type: 'Button',
+    model: 'detailUrl',
+    subtype: 'primary',
+    text: '详情',
+    action: {
+        type: 'url',
+    },
+};
+
+url.data = {
+    field: urlField,
+    model: urlModel
+};
+
+url.code = `
+<script>
+const field = ${JSON.stringify(urlField, null, 4)};
+export default {
+    data() {
+        return {
+            field,
+            model: ${JSON.stringify(model)}
+        };
+    }
+    methods: {
+        handleFieldChange(model, value) {
+            console.log(model, value);
+        }
+    }
+};
+</script>
+<template>
+    <Form :model="model">
+        <FieldGenerator
+            :field="field"
+            @on-field-change="handleFieldChange"
+        />
+    </Form>
+</template>
+`;
+
+// ajax示例
+let ajax = {};
+
+const ajaxField = {
+    type: 'Button',
+    text: '删除',
+    subtype: 'error',
+    action: {
+        type: 'ajax',
+        api: '/curdDelete',
+        method: 'get',
+        name: 'curdDelete'
+    },
+};
+
+
+ajax.data = {
+    field: ajaxField,
+    model
+};
+
+ajax.code = `
+<script>
+const field = ${JSON.stringify(ajaxField, null, 4)};
+export default {
+    data() {
+        return {
+            field,
+            model: ${JSON.stringify(model)}
+        };
+    }
+    methods: {
+        handleFieldChange(model, value) {
+            console.log(model, value);
+        }
+    }
+};
+</script>
+<template>
+    <Form :model="model">
+        <FieldGenerator
+            :field="field"
+            @on-field-change="handleFieldChange"
+        />
+    </Form>
+</template>
+`;
+
 
 // textModel
 const textModel = {};
@@ -146,98 +256,6 @@ export default {
 </template>
 `;
 
-// url
-const url = {};
-
-const urlField = {
-    type: 'Button',
-    model: 'detailUrl',
-    subtype: 'primary',
-    text: '详情',
-    action: {
-        type: 'url',
-    },
-};
-
-url.data = {
-    field: urlField,
-    model
-};
-
-url.code = `
-<script>
-const field = ${JSON.stringify(urlField, null, 4)};
-export default {
-    data() {
-        return {
-            field,
-            model: ${JSON.stringify(model)}
-        };
-    }
-    methods: {
-        handleFieldChange(model, value) {
-            console.log(model, value);
-        }
-    }
-};
-</script>
-<template>
-    <Form :model="model">
-        <FieldGenerator
-            :field="field"
-            @on-field-change="handleFieldChange"
-        />
-    </Form>
-</template>
-`;
-
-// ajax示例
-let ajax = {};
-
-const ajaxField = {
-    type: 'Button',
-    text: '删除',
-    subtype: 'error',
-    action: {
-        type: 'ajax',
-        api: '/curdDelete',
-        method: 'get'
-    },
-};
-
-
-ajax.data = {
-    field: ajaxField,
-    model
-};
-
-ajax.code = `
-<script>
-const field = ${JSON.stringify(ajaxField, null, 4)};
-export default {
-    data() {
-        return {
-            field,
-            model: ${JSON.stringify(model)}
-        };
-    }
-    methods: {
-        handleFieldChange(model, value) {
-            console.log(model, value);
-        }
-    }
-};
-</script>
-<template>
-    <Form :model="model">
-        <FieldGenerator
-            :field="field"
-            @on-field-change="handleFieldChange"
-        />
-    </Form>
-</template>
-`;
-
 // confirm
 const confirm = {};
 const confirmField = {
@@ -252,7 +270,8 @@ const confirmField = {
     subtype: 'error',
     action: {
         type: 'ajax',
-        api: '/curdDelete'
+        api: '/curdDelete',
+        name: 'curdDelete'
     }
 };
 
@@ -295,8 +314,8 @@ export default {
 export default {
     simple,
     route,
-    textModel,
     url,
     ajax,
+    textModel,
     confirm
 };

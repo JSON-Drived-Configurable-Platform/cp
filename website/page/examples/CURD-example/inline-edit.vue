@@ -13,35 +13,47 @@
                     :key="column.slot"
                     :model="JSON.parse(JSON.stringify(row))"
                 >
+                    <!-- 气泡框 -->
                     <Poptip
                         v-if="column.poptip"
                         :key="column.slot"
                         placement="left-start"
                     >
+                        <!-- 单元格内展示的控件 -->
                         <template v-if="column.poptip.displayField">
                             <FieldGenerator
                                 :params-container="paramsContainer"
                                 :field="column.poptip.displayField"
+                                @on-button-event="handleButtonEvent($event, row, index)"
+                                @on-submit="handleSubmit"
                             />
                         </template>
+                        <!-- 单元格内展示的值 -->
                         <template v-else>
                             <span>{{ row[column.slot] }}</span>
                         </template>
+
+                        <!-- 编辑图标 -->
                         <Icon type="ios-create-outline" size="20" />
+                        <!-- poptip 内容 -->
                         <div slot="content">
                             <FieldGenerator
                                 v-for="(field, i) in column.poptip.formFields"
                                 :key="i"
                                 :params-container="paramsContainer"
                                 :field="field"
+                                @on-button-event="handleButtonEvent($event, row, index)"
+                                @on-submit="handleSubmit"
                             />
                         </div>
                     </Poptip>
+
                     <div v-if="column.formFields">
                         <FieldGenerator
                             v-for="(field, i) in column.formFields"
                             :key="i"
                             :field="field"
+                            @on-submit="handleSubmit"
                             @on-button-event="handleButtonEvent($event, row, index)"
                         />
                     </div>
@@ -93,16 +105,38 @@ export default {
             this[$event.name](row, index, $event.type);
         },
 
+        handleSubmit({valid, model, field, res}) {
+            if (valid && +res.status === 0) {
+                this.$Message.success(`${field.action.desc}成功<br/>${JSON.stringify(model)}`);
+                return;
+            }
+            this.$Message.success(`${field.action.desc}失败!`);
+        },
+
+        handleSave() {
+            this.$refs.FormGenerator
+                .submit().then(() => {
+                    if (this.editModel.type === 'add') {
+                        this.editModel.type = '';
+                        this.data.unshift(this.editModel);
+                        this.editDialogOpeon = false;
+                        return;
+                    }
+                    this.data.splice(this.editModel.index, 1, this.editModel);
+                    this.editModel.index = -1;
+                    this.editDialogOpeon = false;
+                }).catch(err => {
+                    // eslint-disable-next-line no-console
+                    console.log(err);
+                });
+        },
+
         editDialog(row, index) {
             // eslint-disable-next-line no-console
             this.editModel = row;
             this.editModel.index = index;
             this.editDialogOpen = true;
         },
-
-        ajaxSuccess() {
-            this.editDialogOpen = false;
-        }
     }
 };
 </script>

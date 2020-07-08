@@ -1,6 +1,7 @@
 <template>
     <i-article>
         <article>
+            <h1>安装</h1>
             <inAnchor title="npm" h2 />
             <i-code lang="bash" bg>{{ code.introduce.install.npm }}</i-code>
 

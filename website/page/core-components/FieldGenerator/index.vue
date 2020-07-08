@@ -85,7 +85,7 @@
                         </tr>
                         <tr>
                             <td>field.rules</td>
-                            <td>表单验证规则，具体配置查看 <a href="https://github.com/yiminghe/async-validator" target="_blank"><i class="ivu-icon ivu-icon-social-github"></i> async-validator</a></td>
+                            <td>表单验证规则，具体配置查看 <a href="https://github.com/yiminghe/async-validator" target="_blank"><i class="ivu-icon ivu-icon-social-github" /> async-validator</a></td>
                             <td>Array</td>
                             <td>-</td>
                         </tr>
@@ -157,7 +157,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <inAnchor title="通用事件" h3 />
+                <inAnchor title="核心事件" h3 />
                 <table>
                     <thead>
                         <tr>
@@ -169,9 +169,22 @@
                     <tbody>
                         <tr>
                             <td>on-field-change</td>
-                            <td>表单项数据变更时</td>
+                            <td>控件的value变更时触发</td>
                             <td>($event) $event.model；表单项的标识；$event.value：表单项的值；</td>
                         </tr>
+                    </tbody>
+                </table>
+
+                <inAnchor title="tips事件" h3 />
+                <table>
+                    <thead>
+                        <tr>
+                            <th>事件名</th>
+                            <th>说明</th>
+                            <th>返回值</th>
+                        </tr>
+                    </thead>
+                    <tbody>
                         <tr>
                             <td>on-label-tip-click</td>
                             <td>icon点击触发</td>
@@ -187,6 +200,51 @@
                             <td>icon移出触发</td>
                             <td>($event) $event.field（表单配置项）</td>
                         </tr>
+                    </tbody>
+                </table>
+
+
+                <inAnchor title="内置组件特有事件" h3 />
+                <table>
+                    <thead>
+                        <tr>
+                            <th>事件名</th>
+                            <th>组件</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>on-submit</td>
+                            <td>Submit</td>
+                            <td>见 <router-link to="/doc/Submit">Submit组件</router-link></td>
+                        </tr>
+                        <tr>
+                            <td>on-reset</td>
+                            <td>Reset</td>
+                            <td>见 <router-link to="/doc/Reset">Reset组件</router-link></td>
+                        </tr>
+                        <tr>
+                            <td>on-button-event</td>
+                            <td>Button</td>
+                            <td>见 <router-link to="/doc/Button">Button组件</router-link></td>
+                        </tr>
+                        <tr>
+                            <td>on-field-preview</td>
+                            <td>Upload</td>
+                            <td>见 <router-link to="/doc/Upload">Upload组件</router-link></td>
+                        </tr>
+                        <tr>
+                            <td>on-checkboxCard-click</td>
+                            <td>CheckboxCard</td>
+                            <td>见 <router-link to="/doc/CheckboxCard">CheckboxCard组件</router-link></td>
+                        </tr>
+                        <tr>
+                            <td>on-list-item-click</td>
+                            <td>List</td>
+                            <td>见 <router-link to="/doc/List">List</router-link></td>
+                        </tr>
+
                     </tbody>
                 </table>
             </div>

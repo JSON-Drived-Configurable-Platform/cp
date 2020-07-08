@@ -6,7 +6,7 @@ const fieldInput = {
 };
 
 const model = {
-    name: ''
+    name: 'formGenerator'
 };
 
 // 简单示例

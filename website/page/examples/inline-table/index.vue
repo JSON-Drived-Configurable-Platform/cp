@@ -42,6 +42,7 @@ export default {
                 1,
                 Object.assign({}, this.data[index], row, { _expanded: false })
             );
+            this.$Message.success(JSON.stringify(row));
         },
         handleCancelEvent($event, index){
             this.data[index]._expanded = false;

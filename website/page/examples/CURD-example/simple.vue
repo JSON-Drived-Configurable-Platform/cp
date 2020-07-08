@@ -13,7 +13,7 @@
                     :key="column.slot"
                     :model="row"
                 >
-                    <Poptip v-if="!!column.poptip" placement="left-start">
+                    <Poptip v-if="!!column.poptip" placement="right-start">
                         <span>{{ row[column.slot] }}</span>
                         <Icon type="md-create" />
                         <div slot="title"><i>{{ column.poptip.title }}</i></div>
@@ -23,7 +23,8 @@
                                 :key="i"
                                 :api-base="apiBase"
                                 :field="field"
-                                @on-submit="handleSubmit(index)"
+                                @on-button-event="handleButtonEvent($event, row, index)"
+                                @on-submit="handleSubmit"
                             />
                         </div>
                     </Poptip>
@@ -33,9 +34,9 @@
                         :key="i"
                         :field="field"
                         @on-button-event="handleButtonEvent($event, row, index)"
+                        @on-submit="handleSubmit"
                     />
                 </Form>
-
             </template>
         </Table>
         <Modal
@@ -79,20 +80,12 @@ export default {
             this.editDialogOpeon = true;
         },
 
-        handleButtonEvent($event, row, index) {
-            this[$event.name](row, index);
-        },
-
-        edit(row, index) {
-            // eslint-disable-next-line no-console
-            this.editModel = row;
-            this.editModel.index = index;
-            this.editDialogOpeon = true;
-        },
-
-        delete(row, index) {
-            // eslint-disable-next-line no-console
-            this.data.splice(index, 1);
+        handleSubmit({valid, model, field, res}) {
+            if (valid && +res.status === 0) {
+                this.$Message.success(`${field.action.desc}成功<br/>${JSON.stringify(model)}`);
+                return;
+            }
+            this.$Message.success(`${field.action.desc}失败!`);
         },
 
         handleSave() {
@@ -101,6 +94,7 @@ export default {
                     if (this.editModel.type === 'add') {
                         this.editModel.type = '';
                         this.data.unshift(this.editModel);
+                        this.editDialogOpeon = false;
                         return;
                     }
                     this.data.splice(this.editModel.index, 1, this.editModel);
@@ -112,15 +106,33 @@ export default {
                 });
         },
 
-        black(row, index) {
-            // eslint-disable-next-line no-console
-            console.log(row, index);
+        handleButtonEvent($event, row, index) {
+            this[$event.name](row, index);
         },
 
-        white(row, index) {
+        // button-event: edit
+        edit(row, index) {
             // eslint-disable-next-line no-console
-            console.log(row, index);
-        }
+            this.editModel = row;
+            this.editModel.index = index;
+            this.editDialogOpeon = true;
+        },
+
+        // button-event: delete
+        delete(row, index) {
+            this.$Message.success(`删除${index}:${JSON.stringify(row)}!`);
+            this.data.splice(index, 1);
+        },
+
+        // button-event: black
+        black(row, index) {
+            this.$Message.success(`拉黑${index}:${JSON.stringify(row)}!`);
+        },
+
+        // button-event: white
+        white(row, index) {
+            this.$Message.success(`洗白${index}:${JSON.stringify(row)}!`);
+        },
     }
 };
 </script>
