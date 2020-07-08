@@ -31,7 +31,7 @@ export default {
         }
     }
 };
-<script>
+</script>
 <template>
     <Form :model="model">
         <FieldGenerator

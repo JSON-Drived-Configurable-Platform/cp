@@ -82,7 +82,7 @@ export default {
         }
     }
 };
-<script>
+</script>
 <template>
     <FormGenerator
         :fields="fields"
@@ -206,7 +206,7 @@ export default {
         };
     }
 };
-<script>
+</script>
 <template>
     <FormGenerator
         :fields="fields"
@@ -315,7 +315,7 @@ export default {
         };
     }
 };
-<script>
+</script>
 <template>
     <FormGenerator
         :fields="fields"
@@ -493,7 +493,7 @@ export default {
         };
     }
 };
-<script>
+</script>
 <template>
     <FormGenerator
         :fields="fields"
@@ -648,7 +648,7 @@ export default {
         };
     }
 };
-<script>
+</script>
 <template>
     <FormGenerator
         :fields="fields"
@@ -681,7 +681,7 @@ const labelFields = [
                 color: '#00f'
             },
             content: {
-                body: "<div class='wrap'><img src='https://efe-h2.cdn.bcebos.com/ceug/resource/res/2019-06/1561358481371/iishnxu1f1fv.png'/></div>",
+                body: '<div class=\'wrap\'><img src=\'https://efe-h2.cdn.bcebos.com/ceug/resource/res/2019-06/1561358481371/iishnxu1f1fv.png\'/></div>',
                 ifShow: false
             }
         }
@@ -698,7 +698,7 @@ const labelFields = [
                 size: 18
             },
             content: {
-                body: "<div class='ruleWrap'><span></span>What do you want others to call you?</div>",
+                body: '<div class=\'ruleWrap\'><span></span>What do you want others to call you?</div>',
                 ifShow: false
             }
         }
@@ -732,7 +732,7 @@ const labelModel = {
 const labelOptions= {
     labelWidth: 85,
     labelPosition: 'left'
-  }
+};
 
 labelIcon.data = {
     fields: labelFields,
@@ -771,7 +771,7 @@ export default {
         }
     }
 };
-<script>
+</script>
 <template>
     <FormGenerator
         :fields="fields"

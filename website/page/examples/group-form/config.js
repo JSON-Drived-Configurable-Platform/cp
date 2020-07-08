@@ -19,7 +19,7 @@ export const fields = [
                 size: 24
             },
             content: {
-                body: '<div class=\'example\'><span></span>What do you want others to call you?</div>',
+                body: '<div class="example"><span></span>输入框：自定义提示</div>',
                 ifShow: false
             }
         }
@@ -31,7 +31,18 @@ export const fields = [
         readonly: true,
         disabled: true,
         placeholder: '请输入用户名',
-        defaultHide: false
+        defaultHide: false,
+        labelTip: {
+            class: 'inputForbidden',
+            icon: {
+                name: 'ios-help-circle-outline',
+                size: 24
+            },
+            content: {
+                body: '<div class="example"><span></span>用户名：自定义提示</div>',
+                ifShow: false
+            }
+        }
     },
     {
         type: 'Input',
@@ -54,11 +65,17 @@ export const fields = [
         type: 'InputMultiple',
         label: '多条记录输入框',
         model: 'inputMultiple',
-        placeholder: '',
+        placeholder: '输入内容必须是英文字母和数字，并且英文字母开头',
         required: true,
         defaultList: ['默认用户'],
         succMessage: '添加成功',
-        delMessage: '删除成功'
+        delMessage: '删除成功',
+        inputRules: {
+            type: 'string',
+            required: true,
+            pattern: /^[A-z]+\d*$/g,
+            message: '输入内容必须是英文字母和数字，并且英文字母开头'
+        },
     },
     {
         type: 'TimePickerMultiple',
@@ -596,14 +613,6 @@ export const fields = [
         subtype: 'datetimerange',
         label: '日期时间区间选择',
         model: 'datetimerange',
-        placeholder: '',
-        required: true,
-        //defaultHide: true
-    },
-    {
-        type: 'TimeCycleSelect',
-        label: '日期时间区间选择',
-        model: 'time',
         placeholder: '',
         required: true,
         //defaultHide: true

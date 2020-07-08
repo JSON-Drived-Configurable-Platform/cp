@@ -7,9 +7,14 @@ import Main from '../components/main';
 
 const home = () => import(/* webpackChunkName: "home" */ '../page/home');
 const intro = () => import(/* webpackChunkName: "start" */ '../page/intro');
+const install = () => import(/* webpackChunkName: "start" */ '../page/install');
 const practice = () => import(/* webpackChunkName: "practice" */ '../page/practice');
-const FormGenerator = () => import(/* webpackChunkName: "FormGenerator" */ '../page/doc/FormGenerator');
-const FieldGenerator = () => import(/* webpackChunkName: "FieldGenerator" */ '../page/doc/FieldGenerator');
+
+// 核心组件
+const FormGenerator = () => import(/* webpackChunkName: "FormGenerator" */ '../page/core-components/FormGenerator');
+const FieldGenerator = () => import(/* webpackChunkName: "FieldGenerator" */ '../page/core-components/FieldGenerator');
+
+// 内置组件
 const Input = () => import(/* webpackChunkName: "Input" */ '../page/doc/Input');
 const InputMultiple = () => import(/* webpackChunkName: "InputMultiple" */ '../page/doc/InputMultiple');
 const Radio = () => import(/* webpackChunkName: "Radio" */ '../page/doc/Radio');
@@ -19,10 +24,10 @@ const CheckboxCard = () => import(/* webpackChunkName: "CheckboxCard" */ '../pag
 const Switch = () => import(/* webpackChunkName: "Switch" */ '../page/doc/Switch');
 const Select = () => import(/* webpackChunkName: "Select" */ '../page/doc/Select');
 const LogicSelect = () => import(/* webpackChunkName: "LogicSelect" */ '../page/doc/LogicSelect');
+const MatrixSelect = () => import(/* webpackChunkName: "MatrixSelect" */ '../page/doc/MatrixSelect');
 const DatePicker = () => import(/* webpackChunkName: "DatePicker" */ '../page/doc/DatePicker');
 const TimePicker = () => import(/* webpackChunkName: "TimePicker" */ '../page/doc/TimePicker');
 const TimePickerMultiple = () => import(/* webpackChunkName: "TimePickerMultiple" */ '../page/doc/TimePickerMultiple');
-const TimeCycleSelect = () => import(/* webpackChunkName: "TimeCycleSelect" */ '../page/doc/TimeCycleSelect');
 const Cascader = () => import(/* webpackChunkName: "Cascader" */ '../page/doc/Cascader');
 const InputNumber = () => import(/* webpackChunkName: "InputNumber" */ '../page/doc/InputNumber');
 const Upload = () => import(/* webpackChunkName: "Upload" */ '../page/doc/Upload');
@@ -41,11 +46,18 @@ const Slider = () => import(/* webpackChunkName: "Button" */ '../page/doc/Slider
 
 // development
 const componentsChoosen = () => import(/* webpackChunkName: "componentsChoosen" */ '../page/development/components-choosen');
-const unionRequest = () => import(/* webpackChunkName: "unionRequest" */ '../page/development/union-request');
-const requestInterceptor = () => import(/* webpackChunkName: "componentsChoosen" */ '../page/development/request-interceptor');
-const showOnHiddenOn = () => import(/* webpackChunkName: "componentsChoosen" */ '../page/development/showOn-hiddenOn');
+const dynamicConfigData = () => import(/* webpackChunkName: "componentsChoosen" */ '../page/development/dynamic-config-data');
+const functionProps = () => import(/* webpackChunkName: "dynamicUpdateConfig" */ '../page/development/function-field');
+const visibility = () => import(/* webpackChunkName: "componentsChoosen" */ '../page/development/visibility');
 const formValidate = () => import(/* webpackChunkName: "componentsChoosen" */ '../page/development/form-validate');
-const powerfulFieldGenerator = () => import(/* webpackChunkName: "componentsChoosen" */ '../page/development/powerful-fieldGenerator');
+
+// advance
+const unionRequest = () => import(/* webpackChunkName: "unionRequest" */ '../page/advance/union-request');
+const unionVisibility = () => import(/* webpackChunkName: "unionRequest" */ '../page/advance/union-visibility');
+const uniondValidate = () => import(/* webpackChunkName: "uniondValidate" */ '../page/advance/union-validate');
+const unionConfig = () => import(/* webpackChunkName: "unionConfig" */ '../page/advance/union-config');
+const unionSummary = () => import(/* webpackChunkName: "unionSummary" */ '../page/advance/union-summary');
+const fieldGeneratorAndTable = () => import(/* webpackChunkName: "componentsChoosen" */ '../page/advance/fieldGenerator-and-table');
 
 // examples
 const groupForm = () => import(/* webpackChunkName: "groupForm" */ '../page/examples/group-form');
@@ -74,13 +86,7 @@ export default [
         component: home
     },
     {
-        path: 'test',
-        component: TimePickerMultiple
-    },
-    {
-
-        path: '/doc',
-        redirect: '/doc/FormGenerator',
+        path: '/intro',
         component: Main,
         children: [
             {
@@ -88,6 +94,100 @@ export default [
                 name: 'intro',
                 component: intro
             },
+            {
+                path: '/install',
+                name: 'install',
+                component: install
+            },
+            {
+                path: '/practice',
+                component: practice
+            },
+        ]
+    },
+    {
+
+        path: '/development',
+        redirect: '/development/components-choosen',
+        component: Main,
+        children: [
+            {
+                path: '/development/components-choosen',
+                component: componentsChoosen
+            },
+            {
+                path: '/development/dynamic-config-data',
+                component: dynamicConfigData
+            },
+            {
+                path: '/development/function-field',
+                component: functionProps
+            },
+            {
+                path: '/development/visibility',
+                component: visibility
+            },
+            {
+                path: '/development/form-validate',
+                component: formValidate
+            },
+
+        ]
+    },
+    {
+
+        path: '/advance',
+        redirect: '/advance/union-request',
+        component: Main,
+        children: [
+            {
+                path: '/advance/union-request',
+                component: unionRequest
+            },
+            {
+                path: '/advance/union-visibility',
+                component: unionVisibility
+            },
+            {
+                path: '/advance/union-validate',
+                component: uniondValidate
+            },
+            {
+                path: '/advance/union-config',
+                component: unionConfig
+            },
+            {
+                path: '/advance/union-summary',
+                component: unionSummary
+            },
+            {
+                path: '/advance/fieldGenerator-and-table',
+                component: fieldGeneratorAndTable
+            },
+        ]
+    },
+    {
+
+        path: '/core-components',
+        redirect: '/core-components/FormGenerator',
+        component: Main,
+        children: [
+            {
+                path: '/core-components/FormGenerator',
+                component: FormGenerator
+            },
+            {
+                path: '/core-components/FieldGenerator',
+                component: FieldGenerator
+            }
+        ]
+    },
+    {
+
+        path: '/doc',
+        redirect: '/doc/FormGenerator',
+        component: Main,
+        children: [
             {
                 path: '/practice',
                 name: 'practice',
@@ -149,6 +249,11 @@ export default [
                 component: LogicSelect
             },
             {
+                path: '/doc/MatrixSelect',
+                name: 'doc-MatrixSelect',
+                component: MatrixSelect
+            },
+            {
                 path: '/doc/DatePicker',
                 name: 'doc-DatePicker',
                 component: DatePicker
@@ -162,11 +267,6 @@ export default [
                 path: '/doc/TimePickerMultiple',
                 name: 'doc-TimePickerMultiple',
                 component: TimePickerMultiple
-            },
-            {
-                path: '/doc/TimeCycleSelect',
-                name: 'doc-TimeCycleSelect',
-                component: TimeCycleSelect
             },
             {
                 path: '/doc/Cascader',
@@ -248,40 +348,7 @@ export default [
                 name: 'doc-Divider',
                 component: Divider
             },
-
         ],
-    },
-    {
-
-        path: '/development',
-        redirect: '/development/components-choosen',
-        component: Main,
-        children: [
-            {
-                path: '/development/components-choosen',
-                component: componentsChoosen
-            },
-            {
-                path: '/development/union-request',
-                component: unionRequest
-            },
-            {
-                path: '/development/request-interceptor',
-                component: requestInterceptor
-            },
-            {
-                path: '/development/showOn-hiddenOn',
-                component: showOnHiddenOn
-            },
-            {
-                path: '/development/form-validate',
-                component: formValidate
-            },
-            {
-                path: '/development/powerful-fieldGenerator',
-                component: powerfulFieldGenerator
-            },
-        ]
     },
     {
 

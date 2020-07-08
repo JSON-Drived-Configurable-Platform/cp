@@ -38,7 +38,7 @@
                     :size="options.size"
                     :item-width="options.itemWidth"
                     :inline="options.inline"
-                    :request-interceptor="requestInterceptor"
+                    :dynamic-config-data="requestInterceptor"
                     :params-container="paramsContainer"
                     @on-field-change="handleFieldChange"
                     @on-field-preview="handleFieldPreview"
@@ -138,6 +138,7 @@
 <script>
 import FieldGenerator from './fieldGenerator';
 import {classPrefix} from './utils/const';
+import {isFunction} from './utils/func';
 import vClickOutside from 'v-click-outside';
 import {getValidType} from './utils/getValidType';
 import {setValue} from './utils/processValue';
@@ -384,6 +385,10 @@ export default {
         },
 
         resetField(field) {
+            if (field && isFunction(field)) {
+                const params = Object.assign({}, this.form.model, this.paramsContainer);
+                field = field(params);
+            }
             let typeToResetValues = {
                 string: '',
                 array: [],
@@ -414,7 +419,7 @@ export default {
         handleButtonCancel($event) {
             this.$emit('on-button-cancel', $event);
         },
-        
+
         handelCheckboxCardClick(value) {
             this.$emit('on-checkboxCard-click', value);
         },

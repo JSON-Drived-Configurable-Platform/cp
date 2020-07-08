@@ -71,7 +71,7 @@ export default {
         }
     }
 };
-<script>
+</script>
 <template>
     <Form :model="model">
         <FieldGenerator
@@ -120,7 +120,7 @@ export default {
         }
     }
 };
-<script>
+</script>
 <template>
     <Form :model="model">
         <FieldGenerator
@@ -171,7 +171,7 @@ export default {
         }
     }
 };
-<script>
+</script>
 <template>
     <Form :model="model">
         <FieldGenerator

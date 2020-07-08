@@ -37,7 +37,7 @@
         "url": "https://github.com/JSON-Drived-Configurable-Platform/form-generator-iview"
     },
     "peerDependencies": {
-        "iview": "^3.4.0",
+        "iview": "^3.5.4",
         "vue": "^2.6.10"
     },
     "devDependencies": {

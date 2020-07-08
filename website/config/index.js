@@ -26,7 +26,7 @@ export default {
      */
     homeName: 'home',
 
-    defaultOpenNames: ['/doc'],
+    defaultOpenNames: ['/development', '/advance', '/core-components'],
 
     menuList: [
         // {
@@ -34,25 +34,92 @@ export default {
         //     name: '/home'
         // },
         {
-            label: 'Intro',
+            label: '简介',
             name: '/intro'
         },
         {
-            label: 'Practice && Thoughts',
+            label: '安装',
+            name: '/install'
+        },
+        {
+            label: '实践与思考',
             name: '/practice'
         },
         {
-            label: 'Config Document',
-            name: '/doc',
+            label: '开发',
+            name: '/development',
+            submenu: [
+                {
+                    label: '组件速查',
+                    name: '/development/components-choosen'
+                },
+                {
+                    label: '控件的可见性',
+                    name: '/development/visibility'
+                },
+                {
+                    label: '表单校验',
+                    name: '/development/form-validate'
+                },
+                {
+                    label: '动态获取配置数据',
+                    name: '/development/dynamic-config-data'
+                },
+
+                {
+                    label: '函数类型的配置项',
+                    name: '/development/function-field'
+                },
+            ]
+        },
+        {
+            label: '进阶',
+            name: '/advance',
+            submenu: [
+                // {
+                //     label: '表单联动-选项联动',
+                //     name: '/advance/union-request'
+                // },
+                {
+                    label: '表单联动-展示联动',
+                    name: '/advance/union-visibility'
+                },
+                {
+                    label: '表单联动-配置联动',
+                    name: '/advance/union-config'
+                },
+                {
+                    label: '表单联动-校验联动',
+                    name: '/advance/union-validate'
+                },
+                // {
+                //     label: '表单联动-总结',
+                //     name: '/advance/union-summary'
+                // },
+                {
+                    label: '配置表格内表单控件',
+                    name: '/advance/fieldGenerator-and-table'
+                },
+            ]
+        },
+        {
+            label: '核心组件',
+            name: '/core-components',
             submenu: [
                 {
                     label: 'FormGenerator',
-                    name: '/doc/FormGenerator'
+                    name: '/core-components/FormGenerator'
                 },
                 {
                     label: 'FieldGenerator',
-                    name: '/doc/FieldGenerator'
+                    name: '/core-components/FieldGenerator'
                 },
+            ]
+        },
+        {
+            label: '内置组件',
+            name: '/doc',
+            submenu: [
                 {
                     label: 'Input',
                     name: '/doc/Input'
@@ -94,6 +161,10 @@ export default {
                     name: '/doc/LogicSelect'
                 },
                 {
+                    label: 'MatrixSelect',
+                    name: '/doc/MatrixSelect'
+                },
+                {
                     label: 'DatePicker',
                     name: '/doc/DatePicker'
                 },
@@ -104,10 +175,6 @@ export default {
                 {
                     label: 'TimePickerMultiple',
                     name: '/doc/TimePickerMultiple'
-                },
-                {
-                    label: 'TimeCycleSelect',
-                    name: '/doc/TimeCycleSelect'
                 },
                 {
                     label: 'Cascader',
@@ -172,37 +239,7 @@ export default {
             ]
         },
         {
-            label: 'Development',
-            name: '/development',
-            submenu: [
-                {
-                    label: 'Components Choosen',
-                    name: '/development/components-choosen'
-                },
-                {
-                    label: 'Union Request',
-                    name: '/development/union-request'
-                },
-                {
-                    label: 'Request Interceptor',
-                    name: '/development/request-interceptor'
-                },
-                {
-                    label: 'ShowOn HiddenOn',
-                    name: '/development/showOn-hiddenOn'
-                },
-                {
-                    label: 'Form Validate',
-                    name: '/development/form-validate'
-                },
-                {
-                    label: 'Powerful FieldGenerator',
-                    name: '/development/powerful-fieldGenerator'
-                },
-            ]
-        },
-        {
-            label: 'Examples',
+            label: '示例',
             name: '/examples',
             submenu: [
                 {

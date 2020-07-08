@@ -23,7 +23,7 @@ module.exports = merge(webpackBaseConfig, {
     devServer: {
         compress: true,
         port: 9000,
-        host: 'localhost',
+        host: '0.0.0.0',
         historyApiFallback: true,
         hot: true,
         inline: true,
@@ -41,6 +41,11 @@ module.exports = merge(webpackBaseConfig, {
 
     devtool: 'eval-source-map',
 
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, '../website'),
+        }
+    },
     // 入口
     entry: {
         main: path.resolve(__dirname, '../website/main'),

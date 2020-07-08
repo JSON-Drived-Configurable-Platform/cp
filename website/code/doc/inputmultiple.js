@@ -30,7 +30,7 @@ export default {
         }
     }
 };
-<script>
+</script>
 <template>
     <Form :model="model">
         <FieldGenerator
@@ -74,7 +74,7 @@ export default {
         }
     }
 };
-<script>
+</script>
 <template>
     <Form :model="model">
         <FieldGenerator
@@ -99,7 +99,7 @@ let closableData = {
 
 let closable = {
     data: closableData
-}
+};
 
 closable.code = `
 <script>
@@ -118,7 +118,7 @@ export default {
         }
     }
 };
-<script>
+</script>
 <template>
     <Form :model="model">
         <FieldGenerator

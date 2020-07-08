@@ -20,17 +20,17 @@ simple.code = `
 export default {
     data() {
         return {
-            field: ${JSON.stringify(field)},
-            model: ${JSON.stringify(model)}
+            field,
+            model
         };
-    }
+    },
     methods: {
         handleFieldChange(model, value) {
             console.log(model, value);
         }
-    }
+    },
 };
-<script>
+</script>
 <template>
     <Form :model="model">
         <FieldGenerator
@@ -78,7 +78,7 @@ export default {
         };
     }
 };
-<script>
+</script>
 <template>
     <Form :model="model">
         <FieldGenerator
@@ -124,7 +124,7 @@ export default {
         };
     }
 };
-<script>
+</script>
 <template>
     <Form :model="model">
         <FieldGenerator
@@ -162,7 +162,7 @@ export default {
         };
     }
 };
-<script>
+</script>
 <template>
     <Form :model="model">
         <FieldGenerator
@@ -209,7 +209,7 @@ export default {
         };
     }
 };
-<script>
+</script>
 <template>
     <Form :model="model">
         <FieldGenerator
@@ -267,7 +267,7 @@ export default {
         };
     }
 };
-<script>
+</script>
 <template>
     <Form :model="model">
         <FieldGenerator
@@ -314,7 +314,7 @@ export default {
         };
     }
 };
-<script>
+</script>
 <template>
     <Form :model="model">
         <FieldGenerator
@@ -353,7 +353,7 @@ export default {
         };
     }
 };
-<script>
+</script>
 <template>
     <Form :model="model">
         <FieldGenerator
@@ -400,7 +400,7 @@ export default {
         };
     }
 };
-<script>
+</script>
 <template>
     <Form :model="model">
         <FieldGenerator
@@ -456,7 +456,7 @@ export default {
         };
     }
 };
-<script>
+</script>
 <template>
     <Form :model="model">
         <FieldGenerator

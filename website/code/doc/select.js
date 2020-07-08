@@ -3,6 +3,7 @@ let simple = {};
 
 const field = {
     type: 'Select',
+    transfer: true,
     model: 'city',
     options: [
         {label: '北京', 'value': 'Beijing'},
@@ -37,7 +38,7 @@ export default {
         }
     }
 };
-<script>
+</script>
 <template>
     <Form :model="model">
         <FieldGenerator
@@ -77,7 +78,7 @@ export default {
         };
     }
 };
-<script>
+</script>
 <template>
     <Form :model="model">
         <FieldGenerator
@@ -127,7 +128,7 @@ export default {
         };
     }
 };
-<script>
+</script>
 <template>
     <Form :model="model">
         <FieldGenerator
@@ -192,7 +193,7 @@ export default {
         };
     }
 };
-<script>
+</script>
 <template>
     <Form :model="model">
         <FieldGenerator
@@ -244,7 +245,7 @@ export default {
         };
     }
 };
-<script>
+</script>
 <template>
     <Form :model="model">
         <FieldGenerator
@@ -296,7 +297,7 @@ export default {
         };
     }
 };
-<script>
+</script>
 <template>
     <Form :model="model">
         <FieldGenerator
@@ -339,7 +340,7 @@ export default {
         };
     }
 };
-<script>
+</script>
 <template>
     <FieldGenerator
         :field="field"
@@ -376,7 +377,7 @@ export default {
         };
     }
 };
-<script>
+</script>
 <template>
     <Form :model="model">
         <FieldGenerator
@@ -386,6 +387,7 @@ export default {
     </Form>
 </template>
 `;
+
 
 export default {
     simple,

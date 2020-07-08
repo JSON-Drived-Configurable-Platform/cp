@@ -1,4 +1,56 @@
-<style scoped>
+<style lang="less">
+.doc-code {
+    .hljs {
+        display: block;
+        overflow-x: auto;
+        color: #525252;
+        padding: 15px;
+        -webkit-text-size-adjust: none
+    }
+
+    .hljs-doctype {
+        color: #999
+    }
+
+    .hljs-tag {
+        color: #3e76f6
+    }
+
+    .hljs-attribute {
+        color: #e96900
+    }
+
+    .hljs-value {
+        color: #42b983
+    }
+    .hljs-name {
+        color: #63a35c;
+        font-weight: bold;
+    }
+
+    .hljs-keyword {
+        color: #e96900
+    }
+
+    .hljs-string {
+        color: #42b983
+    }
+
+    .hljs-comment {
+        color: #b3b3b3
+    }
+
+    .hljs-operator .hljs-comment {
+        color: #525252
+    }
+
+    .hljs-regexp {
+        color: #af7dff
+    }
+
+    .hljs-built_in {
+        color: #2db7f5
+    }
     div{
         position: relative;
         font-size: 14px;
@@ -27,6 +79,7 @@
     span.copy:hover, span.scale:hover, span.open-fiddle:hover{
         color: #5c6b77;
     }
+}
 
 </style>
 <style>
@@ -38,7 +91,7 @@
     }
 </style>
 <template>
-    <div>
+    <div class="doc-code">
         <pre :class="{bg: bg}"><code ref="code" :class="language"><slot /></code></pre>
         <!-- <span v-if="title !== 'Code'" class="open-fiddle" @click="openFiddle">
             <Tooltip :content="$t('index.code_jsfiddle')" placement="top" transfer>
@@ -57,15 +110,17 @@
             </Tooltip>
         </span>
         <Modal v-model="openScale" class-name="code-scale-modal" :title="title" width="65">
-            <pre :class="{bg: bg}">
-                <code ref="code2" :class="language" />
-            </pre>
+            <div class="doc-code">
+                <pre :class="{bg: bg}">
+                    <code ref="code2" :class="language" />
+                </pre>
+            </div>
         </Modal>
     </div>
 </template>
 <script>
 import hljs from 'highlightjs';
-import 'highlightjs/styles/github.css';
+// import 'highlightjs/styles/monokai.css';
 import Clipboard from 'clipboard';
 // import tag_map from './tag-map';
 

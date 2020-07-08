@@ -5,41 +5,49 @@
         :style="itemStyle"
     >
         <component
-            :is="getFieldCom(field.type)"
+            :is="getFieldCom(computedField.type)"
             :class="classes"
-            :field="field"
+            :field="computedField"
             :inline="inline"
-            :size="field.size || size"
+            :size="computedField.size || size"
         />
     </div>
     <FormItem
         v-else-if="show"
-        :label="field.label"
-        :prop="field.model"
-        :required="field.required"
+        :label="computedField.label"
+        :prop="computedField.model"
+        :required="computedField.required"
         :rules="getRules"
-        :label-width="field.labelWidth"
+        :label-width="computedField.labelWidth"
         :class="itemClasses"
         :style="itemStyle"
     >
-        <Icon
-            v-if="labelTip.icon"
-            :type="labelTip.icon.name"
-            :size="labelTip.icon.size"
-            :color="labelTip.icon.color"
-            @click="handleIconClick"
-            @mouseenter.native="handleIconMouseEnter"
-            @mouseleave.native="handleIconMouseLeave"
-        />
-        <div v-if="contentShow" v-html="labelTip.content.body" />
+        <div
+            :class="[labelTipClasses, labelTip.class]"
+            @mouseenter="handleIconMouseEnter"
+            @mouseleave="handleIconMouseLeave"
+        >
+            <Icon
+                v-if="labelTip.icon"
+                :type="labelTip.icon.name"
+                :size="labelTip.icon.size"
+                :color="labelTip.icon.color"
+                @click="handleIconClick"
+            />
+            <div
+                v-if="contentShow"
+                :class="labelTipContentClasses"
+                v-html="labelTip.content.body"
+            />
+        </div>
         <component
-            :is="getFieldCom(field.type)"
+            :is="getFieldCom(computedField.type)"
             :class="classes"
-            :field="field"
+            :field="computedField"
             :inline="inline"
             :api-base="apiBase"
-            :size="field.size || size"
-            :request-interceptor="requestInterceptor"
+            :size="computedField.size || size"
+            :dynamic-config-data="requestInterceptor"
             :params-container="paramsContainer"
             @on-change="handleFieldChange"
             @on-preview="handleFieldPreview"
@@ -59,6 +67,7 @@ import {classPrefix} from './utils/const';
 import {getValidType} from './utils/getValidType';
 import schema from 'async-validator';
 import axios from './utils/http';
+import {isFunction} from './utils/func';
 import {setValue} from './utils/processValue';
 
 const notFormfields = ['Divider'];
@@ -80,7 +89,7 @@ export default {
             }
         },
         field: {
-            type: [Object, Array],
+            type: [Object, Array, Function],
             required: true,
             default() {
                 return {};
@@ -107,18 +116,24 @@ export default {
     },
     computed: {
         classes() {
-            return `${classPrefix}-${this.field.type.toLowerCase()}`;
+            return `${classPrefix}-${this.computedField.type.toLowerCase()}`;
         },
         itemClasses() {
             return `${classPrefix}-form-item`;
         },
+        labelTipClasses() {
+            return `${classPrefix}-labelTip-wp`;
+        },
+        labelTipContentClasses() {
+            return `${classPrefix}-labelTip-content`;
+        },
         notFormfield() {
-            return notFormfields.includes(this.field.type);
+            return notFormfields.includes(this.computedField.type);
         },
         itemStyle() {
-            const inline = this.field.inline || this.inline;
+            const inline = this.computedField.inline || this.inline;
             const itemWidth = inline ? this.itemWidth : (this.itemWidth || '100%');
-            let width = this.field.width || itemWidth;
+            let width = this.computedField.width || itemWidth;
             // 兼容老版本的字符串数值，如果是数值字符串，则转为int
             if (typeof width === 'string' && /^\d+$/.test(width)) {
                 width = parseInt(width);
@@ -129,8 +144,17 @@ export default {
                 // width: typeof width !== 'number' ? width + 'px' : width
             };
         },
-        show() {
+        computedField() {
             const field = this.field;
+            if (field && isFunction(field)) {
+                const params = Object.assign({}, this.form.model, this.paramsContainer);
+                const newField = Object.assign({}, field(params));
+                return newField;
+            }
+            return field;
+        },
+        show() {
+            const field = this.computedField;
             const model = this.form.model;
             const validateValue = Object.assign({}, model || {}, this.paramsContainer || {});
             let show = true;
@@ -152,19 +176,18 @@ export default {
                     }
                 });
             }
-            // console.log(field.model, valid, model);
             return show;
         },
         labelTip() {
-            let labelTip = this.field.labelTip || {};
+            let labelTip = this.computedField.labelTip || {};
             return labelTip;
         },
         contentShow() {
-            let content = this.field.labelTip && this.field.labelTip.content || {};
+            let content = this.computedField.labelTip && this.computedField.labelTip.content || {};
             return content.ifShow;
         },
         getRules() {
-            const field = this.field;
+            const field = this.computedField;
             const type = field.type.toLowerCase();
             const subtype = field.subtype;
 
@@ -236,7 +259,7 @@ export default {
         }
     },
     created() {
-        let field = this.field;
+        let field = this.computedField;
         // 老版本兼容
         if (field.subType) {
             field.subtype = field.subType;
@@ -253,14 +276,14 @@ export default {
             this.$emit('on-field-change', {
                 model,
                 value,
-                field: this.field
+                field: this.computedField
             });
         },
         handleFieldPreview(model, value) {
             this.$emit('on-field-preview', {
                 model,
                 value,
-                field: this.field
+                field: this.computedField
             });
         },
         handleSubmitClick(component) {
@@ -281,17 +304,17 @@ export default {
         },
         handleIconClick() {
             this.$emit('on-label-tip-click',{
-                field: this.field
+                field: this.computedField
             });
         },
         handleIconMouseEnter() {
             this.$emit('on-label-tip-mouseIn', {
-                field: this.field
+                field: this.computedField
             });
         },
         handleIconMouseLeave() {
             this.$emit('on-label-tip-mouseOut', {
-                field: this.field
+                field: this.computedField
             });
         },
         getFieldCom(comType = '') {
@@ -303,10 +326,10 @@ export default {
         handelListItemClick(value) {
             this.$emit('on-list-item-click', value);
         },
-        
+
 
         submit(component) {
-            let field = component.field;
+            let field = component.computedField;
             return new Promise((resolve, reject) => {
                 try {
                     this.form.validate(
@@ -366,7 +389,7 @@ export default {
         },
         handleHttpRequest(component) {
             component.loading = true;
-            let field = component.field;
+            let field = component.computedField;
             this.doAjaxAction(component.field).then(() => {
                 component.loading = false;
                 this.$Message.info(`${field.text}成功!`);
