@@ -289,12 +289,7 @@ export default {
                 {
                     label: 'Combined-Forms',
                     name: '/examples/combined-forms'
-                },
-                {
-                    label: 'Message-List',
-                    name: '/examples/message-list'
                 }
-
             ]
         },
     ]

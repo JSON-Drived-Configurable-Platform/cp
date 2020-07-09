@@ -73,7 +73,6 @@ const twoRelatedForm = () => import(/* webpackChunkName: "twoRelatedForm" */ '..
 const auditExample = () => import(/* webpackChunkName: "auditExample" */ '../page/examples/audit/detail');
 const dynamicForm = () => import(/* webpackChunkName: "dynamicForm" */ '../page/examples/dynamic-form');
 const combinedForms = () => import(/* webpackChunkName: "combinedForms" */ '../page/examples/combined-forms');
-const messageList = () => import(/* webpackChunkName: "messageList" */ '../page/examples/message-list');
 
 export default [
     {
@@ -421,11 +420,6 @@ export default [
                 path: '/examples/combined-forms',
                 name: 'combined-forms',
                 component: combinedForms
-            },
-            {
-                path: '/examples/message-list',
-                name: 'message-list',
-                component: messageList
             }
         ]
     }
