@@ -1,5 +1,5 @@
 <template>
-    <div class="fg-message-list">
+    <div class="fg-message-list-demo">
         <List
             item-layout="vertical"
         >
@@ -9,7 +9,7 @@
             </ListItem>
         </List>
         <Page
-            class="fg-message-list-page"
+            class="fg-message-list-demo-page"
             v-if="showPage"
             :show-total="showPageTotal"
             :current="data.page"
@@ -64,4 +64,10 @@ export default {
 </script>
 
 <style lang="less">
+.fg-message-list-demo {
+    padding: 20px;
+    &-page {
+        float: right;
+    }
+}
 </style>
