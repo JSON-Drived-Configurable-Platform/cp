@@ -1,7 +1,7 @@
 <!-- 按照标签展示多行元素的input组件 -->
 <template>
-    <div>
-        <div class="fg-ivu-inputmultiple-inputwp">
+    <div :class="classes">
+        <div :class="inputBoxClasses">
             <i-input
                 :value="value"
                 :type="field.subtype"
@@ -26,14 +26,14 @@
                 @on-change="handleChange"
             />
             <Button
-                class="fg-ivu-inputmultiple-addbtn"
+                :class="addBtnClasses"
                 icon="md-add"
                 type="primary"
                 ghost
                 @click="handleAdd"
             />
         </div>
-        <div class="member-list">
+        <div :class="listWrapperClasses">
             <Tag
                 v-for="item in defaultList"
                 :key="item"
@@ -57,6 +57,7 @@
 import {Input, Tag} from 'iview';
 import {getValue} from '../utils/processValue';
 import schema from 'async-validator';
+import {classPrefix} from '../utils/const';
 
 export default {
     inject: ['form'],
@@ -83,6 +84,18 @@ export default {
         };
     },
     computed: {
+        classes() {
+            return `${classPrefix}-${this.field.type.toLowerCase()}`;
+        },
+        inputBoxClasses() {
+            return `${this.classes}-box`;
+        },
+        addBtnClasses() {
+            return `${this.classes}-add-btn`;
+        },
+        listWrapperClasses() {
+            return `${this.classes}-list-wrapper`;
+        },
         list() {
             return getValue({
                 originModel: this.form.model,
@@ -168,32 +181,3 @@ export default {
     }
 };
 </script>
-
-<style lang="less">
-    .fg-ivu-inputmultiple {
-        &-inputwp {
-            display: flex;
-        }
-        &-addbtn {
-            margin-left: 8px;
-        }
-        .member-list {
-            display: flex;
-            flex-wrap: wrap;
-            margin-top: 5px;
-            line-height: 28px;
-            .ivu-tag-border {
-                margin: 10px 10px 0 0;
-            }
-            .ivu-tag[disabled] {
-                cursor: not-allowed;
-                &, &:hover {
-                    color: #aaa;
-                }
-                .ivu-tag-text {
-                    color: #aaa;
-                }
-            }
-        }
-    }
-</style>

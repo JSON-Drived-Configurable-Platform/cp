@@ -1,0 +1,30 @@
+@inputmultiple-prefix-cls: ~"@{css-prefix}-inputmultiple";
+
+.@{inputmultiple-prefix-cls} {
+    &-box {
+        display: flex;
+    }
+
+    &-add-btn {
+        margin-left: 8px;
+    }
+
+    &-list-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 5px;
+        line-height: 28px;
+        .ivu-tag-border {
+            margin: 10px 10px 0 0;
+        }
+        .ivu-tag[disabled] {
+            cursor: not-allowed;
+            &, &:hover {
+                color: #aaa;
+            }
+            .ivu-tag-text {
+                color: #aaa;
+            }
+        }
+    }
+}

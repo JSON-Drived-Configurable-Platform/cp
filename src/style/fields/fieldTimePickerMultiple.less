@@ -1,0 +1,55 @@
+@timepickermultiple-prefix-cls: ~"@{css-prefix}-timepickermultiple";
+
+@itemWidth: 155px;
+
+.@{timepickermultiple-prefix-cls} {
+    &-input-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+
+        &-time {
+            position: relative;
+            width: @itemWidth;
+            margin-right: -1px;
+            z-index: 10;
+            input {
+                border-radius: 0;
+            }
+        }
+        &-add-btn {
+            border: 1px solid #dcdee2;
+            border-radius: 0;
+            &:hover {
+                border: 1px solid #dcdee2;
+            }
+        }
+
+        &-tips {
+            margin-left: 5px;
+        }
+    }
+
+    &-list-wrapper {
+        &-item {
+            display: flex;
+            margin-top: -1px;
+
+            &-date {
+                display: inline-block;
+                width: @itemWidth;
+                margin-right: -1px;
+                text-align: left;
+                padding: 0 7px;
+                border: 1px solid #dcdee2;
+            }
+
+            &-close {
+                border: 1px solid #dcdee2;
+                border-radius: 0;
+                &:hover {
+                    border: 1px solid #dcdee2;
+                }
+            }
+        }
+    }
+}
