@@ -1,9 +1,9 @@
 <!-- 多行时间的记录类型 -->
 <template>
     <div :class="classes">
-        <div class="fg-ivu-timepickermultiple-timewp">
+        <div :class="inputWrapperClasses">
             <TimePicker
-                class="fg-ivu-timepickermultiple-time"
+                :class="inputClasses"
                 type="timerange"
                 :placeholder="field.placeholder"
                 :value="value"
@@ -15,24 +15,30 @@
                 @on-change="handleChange"
             />
             <Button
-                class="fg-ivu-timepickermultiple-addbtn"
+                :class="addBtnClasses"
                 icon="md-add"
                 type="primary"
                 ghost
                 @click="handleAdd"
             />
-            <span class="fg-ivu-timepickermultiple-tips">{{ field.tips }}</span>
+            <span :class="tipsClasses">{{ field.tips }}</span>
         </div>
 
-        <div v-for="(item, index) in list" :key="index" class="fg-ivu-timepickermultiple-item">
-            <span class="fg-ivu-timepickermultiple-date">{{ item }}</span>
-            <Button
-                class="fg-ivu-timepickermultiple-closebtn"
-                icon="md-close"
-                type="error"
-                ghost
-                @click="handleDelete(index)"
-            />
+        <div :classes="listWrapperClasses">
+            <div
+                v-for="(item, index) in list"
+                :key="index"
+                :class="listItemClasses"
+            >
+                <span :class="listItemDateClasses">{{ item }}</span>
+                <Button
+                    :class="listItemCloseClasses"
+                    icon="md-close"
+                    type="error"
+                    ghost
+                    @click="handleDelete(index)"
+                />
+            </div>
         </div>
     </div>
 </template>
@@ -68,6 +74,30 @@ export default {
         classes() {
             return `${classPrefix}-${this.field.type.toLowerCase()}`;
         },
+        inputWrapperClasses() {
+            return `${this.classes}-input-wrapper`;
+        },
+        inputClasses() {
+            return `${this.classes}-input-wrapper-time`;
+        },
+        addBtnClasses() {
+            return `${this.classes}-input-wrapper-add-btn`;
+        },
+        tipsClasses() {
+            return `${this.classes}-input-wrapper-tips`;
+        },
+        listWrapperClasses() {
+            return `${this.classes}-list-wrapper`;
+        },
+        listItemClasses() {
+            return `${this.classes}-list-wrapper-item`;
+        },
+        listItemDateClasses() {
+            return `${this.classes}-list-wrapper-item-date`;
+        },
+        listItemCloseClasses() {
+            return `${this.classes}-list-wrapper-item-close`;
+        },
         list() {
             return getValue({
                 originModel: this.form.model,
@@ -97,44 +127,3 @@ export default {
     }
 };
 </script>
-
-<style lang="less">
-    @itemWidth: 155px;
-    .fg-ivu-timepickermultiple {
-        &-timewp {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        &-time {
-            position: relative;
-            width: @itemWidth;
-            margin-right: -1px;
-            z-index: 10;
-            input {
-                border-radius: 0;
-            }
-        }
-        &-tips {
-            margin-left: 5px;
-        }
-        &-item {
-            display: flex;
-            margin-top: -1px;
-        }
-        button&-addbtn, button&-closebtn {
-            border: 1px solid #dcdee2;
-            border-radius: 0;
-            &:hover {
-                border: 1px solid #dcdee2;
-            }
-        }
-        &-date {
-            display: inline-block;
-            width: @itemWidth;
-            margin-right: -1px;
-            text-align: left;
-            padding: 0 7px;
-            border: 1px solid #dcdee2;
-        }
-    }
-</style>

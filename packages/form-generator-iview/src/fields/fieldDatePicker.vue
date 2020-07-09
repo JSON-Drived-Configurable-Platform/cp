@@ -20,6 +20,47 @@
 import {classPrefix} from '../utils/const';
 import {getValue} from '../utils/processValue';
 
+const shortcutsMapList = [
+    {
+        type: 'date',
+        range: false,
+        list: [0, -1, -2, -7, -30, 1, 2, 7, 30],
+    },
+    {
+        type: 'daterange',
+        range: true,
+        list: [-7, -30, -90, -182, -365, 7, 30, 90, 182, 365],
+    },
+    {
+        type: 'datetime',
+        range: false,
+        list: [0, -1, -2, -7, -30, 1, 2, 7, 30],
+    },
+    {
+        type: 'ddatetimerangeate',
+        range: true,
+        list: [-7, -30, -90, -182, -365, 7, 30, 90, 182, 365],
+    }
+];
+
+const shortcutsLabel = {
+    '0': '今天',
+    '-1': '昨天',
+    '-2': '前天',
+    '-7': '一周前',
+    '-30': '一月前',
+    '-90': '三月前',
+    '-182': '最近半年',
+    '-365': '最近一年',
+    '1': '明天',
+    '2': '后天',
+    '7': '一周后',
+    '30': '一月后',
+    '90': '三月后',
+    '182': '半年后',
+    '365': '一年后'
+};
+
 const getDate = function (days = 0) {
     const date = new Date();
     date.setTime(date.getTime() + 3600 * 1000 * 24 * days);
@@ -44,130 +85,18 @@ export default {
         }
     },
     data() {
-        let subtypeToShortcuts = {
-            'date': [
-                {
-                    text: '今天',
+        let subtypeToShortcuts = {};
+        shortcutsMapList.forEach(({type, range, list}) => {
+            subtypeToShortcuts[type] = list.map(item => {
+                return {
+                    text: shortcutsLabel[item.toString()],
                     value() {
-                        return getDate(0);
+                        return range ? [getDate(item), getDate(0)] : getDate(item);
                     }
-                },
-                {
-                    text: '昨天',
-                    value() {
-                        return getDate(-1);
-                    }
-                },
-                {
-                    text: '前天',
-                    value() {
-                        return getDate(-2);
-                    }
-                },
-                {
-                    text: '7天前',
-                    value() {
-                        return getDate(-7);
-                    }
-                },
-                {
-                    text: '30天前',
-                    value() {
-                        return getDate(-30);
-                    }
-                },
-            ],
-            'daterange': [
-                {
-                    text: '最近7天',
-                    value() {
-                        return [getDate(-7), getDate(0)];
-                    }
-                },
-                {
-                    text: '最近30天',
-                    value() {
-                        return [getDate(-30), getDate(0)];
-                    }
-                },
-                {
-                    text: '最近90天',
-                    value() {
-                        return [getDate(-90), getDate(0)];
-                    }
-                },
-                {
-                    text: '最近182天',
-                    value() {
-                        return [getDate(-180), getDate(0)];
-                    }
-                },
-                {
-                    text: '最近365天',
-                    value() {
-                        return [getDate(-365), getDate(0)];
-                    }
-                }
-            ],
-            'datetime': [
-                {
-                    text: '昨天',
-                    value() {
-                        return getDate(-1);
-                    }
-                },
-                {
-                    text: '前天',
-                    value() {
-                        return getDate(-2);
-                    }
-                },
-                {
-                    text: '7天前',
-                    value() {
-                        return getDate(-7);
-                    }
-                },
-                {
-                    text: '30天前',
-                    value() {
-                        return getDate(-30);
-                    }
-                },
-            ],
-            'datetimerange': [
-                {
-                    text: '最近7天',
-                    value() {
-                        return [getDate(-7), getDate(0)];
-                    }
-                },
-                {
-                    text: '最近30天',
-                    value() {
-                        return [getDate(-30), getDate(0)];
-                    }
-                },
-                {
-                    text: '最近90天',
-                    value() {
-                        return [getDate(-90), getDate(0)];
-                    }
-                },
-                {
-                    text: '最近182天',
-                    value() {
-                        return [getDate(-182), getDate(0)];
-                    }
-                },
-                {
-                    text: '最近365',
-                    value() {
-                        return [getDate(-365), getDate(0)];
-                    }
-                }
-            ]
-        };
+                };
+            });
+        });
+
         const disabledDates = this.field.disabledDates || [];
         let shortcuts = subtypeToShortcuts[this.field.subtype || 'date'];
         if (this.field.options) {
@@ -207,6 +136,7 @@ export default {
                         }
 
                         return !selectedDates.some(item => {
+                            // TODO there should use an dateTime tools solve these transform
                             if (this.field.format === 'yyyyMMdd') {
                                 initdate = new Date(item.split(/(\d{4})(\d{2})(\d{2})/));
                             } else {
