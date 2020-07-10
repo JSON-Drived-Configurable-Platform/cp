@@ -14,7 +14,6 @@
     </div>
     <FormItem
         v-else-if="show"
-        :label="computedField.label"
         :prop="computedField.model"
         :required="computedField.required"
         :rules="getRules"
@@ -22,24 +21,27 @@
         :class="itemClasses"
         :style="itemStyle"
     >
-        <div
-            :class="[labelTipClasses, labelTip.class]"
-            @mouseenter="handleIconMouseEnter"
-            @mouseleave="handleIconMouseLeave"
-        >
-            <Icon
-                v-if="labelTip.icon"
-                :type="labelTip.icon.name"
-                :size="labelTip.icon.size"
-                :color="labelTip.icon.color"
-                @click="handleIconClick"
-            />
-            <div
-                v-if="contentShow"
-                :class="labelTipContentClasses"
-                v-html="labelTip.content.body"
-            />
-        </div>
+        <span v-if="computedField.label" slot="label">
+            <span>{{ computedField.label }}</span>
+            <Tooltip
+                v-if="labelTip.content"
+                :placement="labelTip.placement"
+                :disabled="labelTip.disabled"
+                :delay="labelTip.delay"
+                :always="labelTip.always"
+                :theme="labelTip.theme"
+                :max-width="labelTip.maxWidth"
+                :offset="labelTip.offset"
+                :transfer="labelTip.transfer"
+                :options="labelTip.options"
+            >
+                <Icon type="md-help-circle" />
+                <div slot="content">
+                    <p v-html="labelTip.content" />
+                </div>
+            </Tooltip>
+        </span>
+
         <component
             :is="getFieldCom(computedField.type)"
             :class="classes"
@@ -64,7 +66,7 @@
 <script>
 import fieldComponents from './utils/fieldsLoader.js';
 import {classPrefix} from './utils/const';
-import {getValidType} from './utils/getValidType';
+import {getRequiredRules} from './utils/getRequiredRules';
 import schema from 'async-validator';
 import axios from './utils/http';
 import {isFunction} from './utils/func';
@@ -72,7 +74,7 @@ import {setValue} from './utils/processValue';
 
 const notFormfields = ['Divider'];
 export default {
-    inject: ['form'],
+    inject: ['FormInstance'],
     name: 'FieldGenerator',
     components: {
         ...fieldComponents
@@ -122,10 +124,10 @@ export default {
             return `${classPrefix}-form-item`;
         },
         labelTipClasses() {
-            return `${classPrefix}-labelTip-wp`;
+            return `${classPrefix}-form-item-label-tip`;
         },
         labelTipContentClasses() {
-            return `${classPrefix}-labelTip-content`;
+            return `${classPrefix}-form-item-label-tip-content`;
         },
         notFormfield() {
             return notFormfields.includes(this.computedField.type);
@@ -147,7 +149,7 @@ export default {
         computedField() {
             const field = this.field;
             if (field && isFunction(field)) {
-                const params = Object.assign({}, this.form.model, this.paramsContainer);
+                const params = Object.assign({}, this.FormInstance.model, this.paramsContainer);
                 const newField = Object.assign({}, field(params));
                 return newField;
             }
@@ -155,7 +157,7 @@ export default {
         },
         show() {
             const field = this.computedField;
-            const model = this.form.model;
+            const model = this.FormInstance.model;
             const validateValue = Object.assign({}, model || {}, this.paramsContainer || {});
             let show = true;
             if (field.hiddenOn) {
@@ -179,83 +181,15 @@ export default {
             return show;
         },
         labelTip() {
-            let labelTip = this.computedField.labelTip || {};
-            return labelTip;
-        },
-        contentShow() {
-            let content = this.computedField.labelTip && this.computedField.labelTip.content || {};
-            return content.ifShow;
+            return this.computedField.labelTip || {};
         },
         getRules() {
             const field = this.computedField;
-            const type = field.type.toLowerCase();
-            const subtype = field.subtype;
-
-            let rules = [];
-            if (field.required) {
-                if (type === 'datepicker' && ['daterange', 'datetimerange'].includes(subtype)) {
-                    rules.push({
-                        validator(rule, value, callback) {
-                            if (value.length === 2 && value[0] && value[1]) {
-                                callback();
-                            }
-                            else {
-                                callback(new Error(field.label + '不可为空'));
-                            }
-                        },
-                        trigger: 'change'
-                    });
-                }
-                if (type === 'timepicker' && ['timerange'].includes(subtype)) {
-                    rules.push({
-                        validator(rule, value, callback) {
-                            if (value.length === 2 && value[0] && value[1]) {
-                                callback();
-                            }
-                            else {
-                                callback(new Error(field.label + '不可为空'));
-                            }
-                        },
-                        trigger: 'change'
-                    });
-                }
-                if (['logicinput', 'logicselect'].includes(type)) {
-                    rules.push({
-                        validator(rule, value, callback) {
-                            if (value.logic && value.value) {
-                                callback();
-                            }
-                            else {
-                                callback(new Error(field.label + '不可为空'));
-                            }
-                        },
-                        trigger: 'change'
-                    });
-                }
-                rules.push({
-                    required: true,
-                    type: getValidType(field),
-                    message: (field.label || field.model) + '不可为空',
-                    trigger: 'change'
-                });
+            const requiredRules = field.required ? getRequiredRules(field) : [];
+            if (Array.isArray(field.rules) && field.rules.length > 0) {
+                return requiredRules.concat(field.rules);
             }
-            if (field.rules) {
-                const model = this.form.model;
-                const validateValue = Object.assign({}, model || {}, this.paramsContainer || {});
-                if (Object.prototype.toString.call(field.rules) === '[object Array]') {
-                    rules = rules.concat(field.rules);
-                } else {
-                    Object.keys(field.rules).map(model => {
-                        field.rules[model].map(field => {
-                            if (validateValue[model] === field.value) {
-                                rules = rules.concat(field.rules);
-
-                            }
-                        });
-                    });
-                }
-            }
-            return rules;
+            return requiredRules;
         }
     },
     created() {
@@ -272,7 +206,7 @@ export default {
          */
         handleFieldChange(model, value) {
             setValue.call(this, {
-                originModel: this.form.model,
+                originModel: this.FormInstance.model,
                 model: model,
                 value
             });
@@ -302,18 +236,8 @@ export default {
         handleButtonCancel($event) {
             this.$emit('on-button-cancel', $event);
         },
-        handleIconClick() {
+        handleLabelTipClick() {
             this.$emit('on-label-tip-click',{
-                field: this.computedField
-            });
-        },
-        handleIconMouseEnter() {
-            this.$emit('on-label-tip-mouseIn', {
-                field: this.computedField
-            });
-        },
-        handleIconMouseLeave() {
-            this.$emit('on-label-tip-mouseOut', {
                 field: this.computedField
             });
         },
@@ -372,8 +296,8 @@ export default {
          */
         submit(field) {
             return new Promise((resolve, reject) => {
-                this.form.validate().then(valid => {
-                    const model = this.form.model;
+                this.FormInstance.validate(valid => {
+                    const model = this.FormInstance.model;
                     if (valid) {
                         // 如果提交配置了请求行为
                         if (field.action && field.action.api) {
@@ -386,9 +310,7 @@ export default {
                         }
                         resolve({valid, model, res: null});
                     }
-                    else {
-                        reject({valid, model: null, res: null});
-                    }
+                    reject({valid, model, res: null});
                 });
             });
         },
@@ -414,7 +336,7 @@ export default {
         },
 
         getParams(apiParams) {
-            let formModel = this.form.model || {};
+            let formModel = this.FormInstance.model || {};
             // put current formModel and outside param into paramsContainer
             let paramsContainer = Object.assign({}, formModel, this.paramsContainer || {});
             let params = {};

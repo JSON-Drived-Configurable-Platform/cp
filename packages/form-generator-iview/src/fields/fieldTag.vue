@@ -23,7 +23,7 @@ import {classPrefix} from '../utils/const';
 import {getValue} from '../utils/processValue';
 
 export default {
-    inject: ['form'],
+    inject: ['FormInstance'],
     props: {
         field: {
             type: Object,
@@ -36,7 +36,7 @@ export default {
         },
         multiple() {
             let value = getValue({
-                originModel: this.form.model,
+                originModel: this.FormInstance.model,
                 model: this.field.model
             });
             return Array.isArray(value);
@@ -48,7 +48,7 @@ export default {
             const options = this.field.options || [];
             if (options.length > 0) {
                 let value = getValue({
-                    originModel: this.form.model,
+                    originModel: this.FormInstance.model,
                     model: this.field.model
                 });
                 return options.find(item => item.value === value);
@@ -61,7 +61,7 @@ export default {
             }
             const options = this.field.options || [];
             let value = getValue({
-                originModel: this.form.model,
+                originModel: this.FormInstance.model,
                 model: this.field.model
             });
             return options.filter(item => value.includes(item.value));

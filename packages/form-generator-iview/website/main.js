@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
-import iView from 'iview';
+import iView from 'view-design';
 import VueRouter from 'vue-router';
 import FormGenerator from '../src/index';
 import dataVis from 'data-vis-iview';
@@ -11,7 +11,7 @@ import store from './store';
 
 import Locales from './locale';
 
-import 'iview/dist/styles/iview.css';
+import 'view-design/dist/styles/iview.css';
 import '../src/style/index.less';
 import 'data-vis-iview/src/style/index.less';
 

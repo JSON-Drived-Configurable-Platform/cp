@@ -31,7 +31,7 @@
 import {classPrefix} from '../utils/const';
 
 export default {
-    inject: ['form'],
+    inject: ['FormInstance'],
     props: {
         field: {
             type: Object,
@@ -52,14 +52,14 @@ export default {
     mounted() {
         this.text = this.field.text;
         if (this.field.textModel) {
-            this.text = this.form.model[this.field.textModel];
+            this.text = this.FormInstance.model[this.field.textModel];
         }
     },
     methods: {
         handleClick() {
             const action = this.field.action;
             const model = this.field.model;
-            const value = this.form.model[model];
+            const value = this.FormInstance.model[model];
             switch (action.type) {
                 case 'ajax':
                     this.$emit('on-http-request', this);

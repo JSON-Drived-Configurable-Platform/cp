@@ -19,7 +19,7 @@ import getOptions from '../mixins/getOptions';
 import {getValue} from '../utils/processValue';
 
 export default {
-    inject: ['form'],
+    inject: ['FormInstance'],
     mixins: [getOptions],
     props: {
         field: {
@@ -63,7 +63,7 @@ export default {
             let value = null;
             if (this.multiple) {
                 value = getValue({
-                    originModel: this.form.model,
+                    originModel: this.FormInstance.model,
                     model: this.field.model
                 }) || [];
                 return options.map(item => {
@@ -76,7 +76,7 @@ export default {
                 });
             } else {
                 value = getValue({
-                    originModel: this.form.model,
+                    originModel: this.FormInstance.model,
                     model: this.field.model
                 }) || '';
                 if (Array.isArray(value)) {

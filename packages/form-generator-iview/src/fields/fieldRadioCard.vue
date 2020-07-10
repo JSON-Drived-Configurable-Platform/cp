@@ -80,7 +80,7 @@
 import {classPrefix} from '../utils/const';
 import getOptions from '../mixins/getOptions';
 export default {
-    inject: ['form'],
+    inject: ['FormInstance'],
     mixins: [getOptions],
     props: {
         field: {

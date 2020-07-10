@@ -14,14 +14,14 @@ Vue.use(FormGenerator);
 `;
 
 introduce.installIView = `
-$ npm install iview --save
+$ npm install view-design --save
 # or
-$ yarn add iview
+$ yarn add view-design
 `;
 
 introduce.importIView = `
-import iView from "iview";
-import "iview/dist/styles/iview.css";
+import iView from "view-design";
+import "view-design/dist/styles/iview.css";
 
 Vue.use(iView);
 `;

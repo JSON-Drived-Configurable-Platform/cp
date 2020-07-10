@@ -54,13 +54,13 @@
 </template>
 
 <script>
-import {Input, Tag} from 'iview';
+import {Input, Tag} from 'view-design';
 import {getValue} from '../utils/processValue';
 import schema from 'async-validator';
 import {classPrefix} from '../utils/const';
 
 export default {
-    inject: ['form'],
+    inject: ['FormInstance'],
     components: {
         iInput: Input,
         Tag
@@ -98,7 +98,7 @@ export default {
         },
         list() {
             return getValue({
-                originModel: this.form.model,
+                originModel: this.FormInstance.model,
                 model: this.field.model
             }) || [];
         }
@@ -166,7 +166,7 @@ export default {
             this.field.succMessage && this.$Message.success(this.field.succMessage);
             this.list.push(this.value);
             this.value = '';
-            // this.$set(this.form.model, this.field.model, this.list);
+            // this.$set(this.FormInstance.model, this.field.model, this.list);
             this.$emit('on-change', this.field.model, this.list, e, this.field);
         },
         handelMemberDelete(i, e) {

@@ -19,7 +19,7 @@ export default {
     },
     computed: {
         params() {
-            let formModel = this.form.model || {};
+            let formModel = this.FormInstance.model || {};
             // put current formModel and outside param into paramsContainer
             let paramsContainer = Object.assign({}, formModel, this.paramsContainer || {});
             let apiParams = this.field.apiParams;

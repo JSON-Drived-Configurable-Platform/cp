@@ -285,22 +285,19 @@
                 </div>
                 <i-code slot="code" lang="html">{{ code.hiddenOn.code }}</i-code>
             </Demo>
-            <Demo title="label添加icon,并可点击 可移入、移出">
+            <Demo title="label添加tip信息">
                 <div slot="demo">
                     <FormGenerator
-                        :fields="code.labelIcon.data.fields"
-                        :model="code.labelIcon.data.model"
-                        :options="code.labelIcon.data.options"
-                        @on-label-tip-click="handleLabelEvent"
-                        @on-label-tip-mouseIn="handleMouseEnterEvent"
-                        @on-label-tip-mouseOut="handleMouseLeaveEvent"
+                        :fields="code.labelTip.data.fields"
+                        :model="code.labelTip.data.model"
+                        :options="code.labelTip.data.options"
                     />
                 </div>
                 <div slot="desc">
                     <!-- <p>validateGenerator组件依赖三个属性: <code>fields</code>, <code>model</code>, <code>options</code>。</p> -->
                     <!-- <p>通过设置<code>fields</code>, <code>model</code>, <code>options</code>即可生成一个表单UI。</p> -->
                 </div>
-                <i-code slot="code" lang="html">{{ code.labelIcon.code }}</i-code>
+                <i-code slot="code" lang="html">{{ code.labelTip.code }}</i-code>
             </Demo>
         </article>
     </i-article>
@@ -328,21 +325,7 @@ export default {
         handleSubmit(formName) {
             // eslint-disable-next-line no-console
             console.log(this.$refs[formName].model);
-        },
-        handleMouseEnterEvent({field}) {
-            if (field.labelTip && field.labelTip.content) {
-                field.labelTip.content.ifShow = true;
-            }
-        },
-        handleMouseLeaveEvent({field}) {
-            if (field.labelTip && field.labelTip.content) {
-                field.labelTip.content.ifShow = false;
-            }
-        },
-        handleLabelEvent({field}) {
-            if (field.model === 'link') {
-                window.open('https://www.baidu.com');
-            }
+            this.$Message.success(JSON.stringify(this.$refs[formName].model));
         }
     }
 };

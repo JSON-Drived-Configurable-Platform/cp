@@ -7,7 +7,7 @@ import getOptions from '../mixins/getOptions';
 import {getValue} from '../utils/processValue';
 
 export default {
-    inject: ['form'],
+    inject: ['FormInstance'],
     mixins: [getOptions],
     props: {
         field: {
@@ -25,12 +25,12 @@ export default {
             const options = this.computedOptions;
             if (this.field.showAll) {
                 return {
-                    label: this.form.model
+                    label: this.FormInstance.model
                 };
             }
             if (options.length > 0) {
                 let value = getValue({
-                    originModel: this.form.model,
+                    originModel: this.FormInstance.model,
                     model: this.field.model
                 });
 
@@ -56,7 +56,7 @@ export default {
             }
             return {
                 label: getValue({
-                    originModel: this.form.model,
+                    originModel: this.FormInstance.model,
                     model: this.field.model
                 })
             };
@@ -70,7 +70,7 @@ export default {
                 return nullValue;
             } else if (typeof nullValue === 'object' && !nullValue) {
                 return getValue({
-                    originModel: this.form.model,
+                    originModel: this.FormInstance.model,
                     model: this.field.model
                 });
             } else {

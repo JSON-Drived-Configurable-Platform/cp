@@ -17,7 +17,7 @@ export default {
     components: {
         mediaUpload
     },
-    inject: ['form'],
+    inject: ['FormInstance'],
     props: {
         field: {
             type: Object,

@@ -67,7 +67,7 @@ const getDate = function (days = 0) {
     return date;
 };
 export default {
-    inject: ['form'],
+    inject: ['FormInstance'],
     props: {
         field: {
             type: Object,
@@ -180,7 +180,7 @@ export default {
         },
         value() {
             return getValue({
-                originModel: this.form.model,
+                originModel: this.FormInstance.model,
                 model: this.field.model
             }) || '';
         }

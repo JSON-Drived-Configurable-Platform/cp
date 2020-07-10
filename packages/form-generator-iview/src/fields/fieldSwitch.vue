@@ -1,6 +1,6 @@
 <template>
     <i-switch
-        :value="form.model[field.model]"
+        :value="value"
         :true-value="trueValue"
         :false-value="falseValue"
         :disabled="field.disabled"
@@ -16,13 +16,13 @@
     </i-switch>
 </template>
 <script>
-import {Switch as iSwitch} from 'iview';
+import {Switch as iSwitch} from 'view-design';
 import getOptions from '../mixins/getOptions';
 import {classPrefix} from '../utils/const';
 import {getValue} from '../utils/processValue';
 
 export default {
-    inject: ['form'],
+    inject: ['FormInstance'],
     components: {
         iSwitch
     },
@@ -68,7 +68,7 @@ export default {
         },
         value() {
             return getValue({
-                originModel: this.form.model,
+                originModel: this.FormInstance.model,
                 model: this.field.model
             });
         }

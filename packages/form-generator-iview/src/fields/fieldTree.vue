@@ -43,7 +43,7 @@ import getOptions from '../mixins/getOptions';
 import {getValue} from '../utils/processValue';
 
 export default {
-    inject: ['form'],
+    inject: ['FormInstance'],
     mixins: [getOptions],
     props: {
         field: {
@@ -69,7 +69,7 @@ export default {
         },
         computedOptions() {
             const values = getValue({
-                originModel: this.form.model,
+                originModel: this.FormInstance.model,
                 model: this.field.model
             });
             const options = this.options.length > 0 ? this.options : this.field.options;

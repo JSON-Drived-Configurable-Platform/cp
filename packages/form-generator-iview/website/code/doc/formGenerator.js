@@ -216,8 +216,6 @@ export default {
 `;
 
 // 表单校验
-
-// formFields
 let validate = {};
 
 let validateFields = [
@@ -251,6 +249,7 @@ let validateFields = [
     {
         label: '生日',
         type: 'DatePicker',
+        subtype: 'daterange',
         model: 'birthday',
         required: true
     },
@@ -658,13 +657,13 @@ export default {
 </template>
 `;
 
-// label + icon 并且可点击 可移入 移出
-let labelIcon = {};
+// labelTip
+let labelTip = {};
 
-const labelFields = [
+const labelTipFields = [
     {
         type: 'Divider',
-        label: 'icon移入 移出',
+        label: 'label添加tip信息',
         orientation: 'left',
         dashed: true
     },
@@ -675,15 +674,7 @@ const labelFields = [
         placeholder: '请输入用户名',
         required: true,
         labelTip: {
-            icon: {
-                name: 'ios-help-circle-outline',
-                size: 18,
-                color: '#00f'
-            },
-            content: {
-                body: '<div class=\'wrap\'><img src=\'https://efe-h2.cdn.bcebos.com/ceug/resource/res/2019-06/1561358481371/iishnxu1f1fv.png\'/></div>',
-                ifShow: false
-            }
+            content: '<p>可参考下图进行配置<br/><img style="width:100px;margin:0 auto;" src="https://efe-h2.cdn.bcebos.com/ceug/resource/res/2019-06/1561358481371/iishnxu1f1fv.png"/></p>'
         }
     },
     {
@@ -693,32 +684,8 @@ const labelFields = [
         placeholder: '请输入姓名',
         required: true,
         labelTip: {
-            icon: {
-                name: 'ios-help-circle-outline',
-                size: 18
-            },
-            content: {
-                body: '<div class=\'ruleWrap\'><span></span>What do you want others to call you?</div>',
-                ifShow: false
-            }
-        }
-    },
-    {
-        type: 'Divider',
-        label: 'icon点击',
-        orientation: 'left',
-        dashed: true
-    },
-    {
-        type: 'Input',
-        label: '活动链接',
-        model: 'link',
-        required: true,
-        labelTip: {
-            icon: {
-                name: 'ios-alert-outline',
-                size: 18
-            }
+            placement: 'right-start',
+            content: '<p>Display multiple lines of information</p><p><i>Can customize the style</i><a href="www.baidu.com">百度一下</a></p>'
         }
     }
 ];
@@ -729,22 +696,22 @@ const labelModel = {
     link: ''
 };
 
-const labelOptions= {
-    labelWidth: 85,
+const labelFormOptions= {
+    labelWidth: 120,
     labelPosition: 'left'
 };
 
-labelIcon.data = {
-    fields: labelFields,
+labelTip.data = {
+    fields: labelTipFields,
     model: labelModel,
-    options: labelOptions
+    options: labelFormOptions
 };
 
-labelIcon.code = `
+labelTip.code = `
 <script>
-const fields = ${JSON.stringify(labelFields, null, 4)};
+const fields = ${JSON.stringify(labelTipFields, null, 4)};
 const model = ${JSON.stringify(labelModel, null, 4)};
-const options = ${JSON.stringify(labelOptions, null, 4)};
+const options = ${JSON.stringify(labelFormOptions, null, 4)};
 export default {
     data() {
         return {
@@ -752,23 +719,6 @@ export default {
             model,
             options
         };
-    },
-    methods: {
-        handleMouseEnterEvent({field}) {
-            if (field.labelTip && field.labelTip.content) {
-                field.labelTip.content.ifShow = true;
-            }
-        },
-        handleMouseLeaveEvent({field}) {
-            if (field.labelTip && field.labelTip.content) {
-                field.labelTip.content.ifShow = false;
-            }
-        },
-        handleLabelEvent({field}) {
-            if (field.model === 'link') {
-                window.open('https://www.baidu.com');
-            }
-        }
     }
 };
 </script>
@@ -777,9 +727,6 @@ export default {
         :fields="fields"
         :model="model"
         :options="options",
-        @on-label-tip-mouseIn="handleMouseEnterEvent"
-        @on-label-tip-mouseOut="handleMouseLeaveEvent"
-        @on-label-tip-click="handleLabelEvent"
     />
 </template>
 `;
@@ -798,5 +745,5 @@ export default {
     validate,
     divider,
     hiddenOn,
-    labelIcon
+    labelTip
 };

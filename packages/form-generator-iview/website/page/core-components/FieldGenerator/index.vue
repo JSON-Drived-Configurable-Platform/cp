@@ -126,34 +126,9 @@
                         </tr>
                         <tr>
                             <td>field.labelTip</td>
-                            <td>
-                                提示icon 并且进行点击、hover等操作，额外内容展示 （不需要不配置就好）
-                                <br>
-                                例如：
-                                <br>
-                                icon可从iview中查询name
-                                <br>
-                                ifShow控制额外内容是否展示
-                                <br>
-                                一个完整的提示icon控件配置如下：
-                                <pre>
-{
-    icon: {
-        name: 'ios-help-circle-outline',
-        size: 24,
-        color: '#00f'
-    },
-    content: {
-        class: 'customclass'
-        body: <textarea><div class='example'><span>活动示意图</span></div></textarea>,
-        ifShow: false
-    }
-}
-<router-link to="/doc/FormGenerator">查看示例>></router-link>
-                                </pre>
-                            </td>
+                            <td>展示额外提示信息，{content: '展示信息', placement: '气泡方向'}, labelTip.content 为展示信息，<strong>如果Content内容为html，可能会导致XSS攻击</strong>，完整配置可参：<a href="https://www.iviewui.com/components/tooltip">Tooltip 文字提示</a></td>
                             <td>Object</td>
-                            <td>-</td>
+                            <td>{}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -174,35 +149,6 @@
                         </tr>
                     </tbody>
                 </table>
-
-                <inAnchor title="tips事件" h3 />
-                <table>
-                    <thead>
-                        <tr>
-                            <th>事件名</th>
-                            <th>说明</th>
-                            <th>返回值</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>on-label-tip-click</td>
-                            <td>icon点击触发</td>
-                            <td>($event) $event.field（表单配置项）</td>
-                        </tr>
-                        <tr>
-                            <td>on-label-tip-mouseIn</td>
-                            <td>icon移入触发</td>
-                            <td>($event) $event.field（表单配置项）</td>
-                        </tr>
-                        <tr>
-                            <td>on-label-tip-mouseOut</td>
-                            <td>icon移出触发</td>
-                            <td>($event) $event.field（表单配置项）</td>
-                        </tr>
-                    </tbody>
-                </table>
-
 
                 <inAnchor title="内置组件特有事件" h3 />
                 <table>

@@ -118,7 +118,7 @@ import {getValue} from '../utils/processValue';
 const defaultImgExtensions = ['gif', 'jpg', 'jpeg', 'png'];
 const defaultVideoExtensions = ['mp4', '.webm'];
 export default {
-    inject: ['form'],
+    inject: ['FormInstance'],
     // props may from imgUpload or videoUpload
     props: {
         field: {
@@ -196,7 +196,7 @@ export default {
         },
         value() {
             let value = getValue({
-                originModel: this.form.model,
+                originModel: this.FormInstance.model,
                 model: this.field.model
             }) || [];
             return value.map(item => {

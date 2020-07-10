@@ -149,7 +149,7 @@ import getOptions from '../mixins/getOptions';
 import {getValue} from '../utils/processValue';
 
 export default {
-    inject: ['form'],
+    inject: ['FormInstance'],
     mixins: [getOptions],
     props: {
         field: {
@@ -173,7 +173,7 @@ export default {
             end: '',
             // 有watch，所以只取一次赋值
             value: getValue({
-                originModel: this.form.model,
+                originModel: this.FormInstance.model,
                 model: this.field.model
             }) || {logic: '=', value: ''},
             options: []
@@ -223,7 +223,7 @@ export default {
             return this.options.length > 0 ? this.options : this.field.options;
         },
         formModel() {
-            return this.form.model;
+            return this.FormInstance.model;
         },
     },
     watch: {

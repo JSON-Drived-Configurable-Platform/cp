@@ -34,7 +34,7 @@
 <script>
 import {classPrefix} from '../utils/const';
 export default {
-    inject: ['form'],
+    inject: ['FormInstance'],
     props: {
         field: {
             type: Object,
@@ -84,7 +84,7 @@ export default {
             return this.field.optionsType || 'image';
         },
         value() {
-            return this.form.model[this.field.model] || [];
+            return this.FormInstance.model[this.field.model] || [];
         }
     },
     methods: {

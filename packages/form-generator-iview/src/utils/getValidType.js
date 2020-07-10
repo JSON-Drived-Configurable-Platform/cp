@@ -1,5 +1,5 @@
 
-export const getValidType = function(field) {
+export const getValidType = function getValidTypeFunc(field) {
     const type = field.type.toLowerCase();
     const subtype = field.subtype;
     const multiple = field.multiple;

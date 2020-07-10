@@ -48,7 +48,7 @@ import {classPrefix} from '../utils/const';
 import {getValue} from '../utils/processValue';
 
 export default {
-    inject: ['form'],
+    inject: ['FormInstance'],
     props: {
         field: {
             type: Object,
@@ -100,7 +100,7 @@ export default {
         },
         list() {
             return getValue({
-                originModel: this.form.model,
+                originModel: this.FormInstance.model,
                 model: this.field.model
             }) || [];
         }

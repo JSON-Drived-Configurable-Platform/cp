@@ -49,7 +49,7 @@ module.exports = merge(webpackBaseConfig, {
     // 入口
     entry: {
         main: path.resolve(__dirname, '../website/main'),
-        vendors: ['vue', 'iview']
+        vendors: ['vue', 'view-design']
     },
     // 输出
     output: {

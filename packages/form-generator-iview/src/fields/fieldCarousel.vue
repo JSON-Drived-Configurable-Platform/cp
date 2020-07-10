@@ -27,7 +27,7 @@ import {classPrefix} from '../utils/const';
 import getOptions from '../mixins/getOptions';
 
 export default {
-    inject: ['form'],
+    inject: ['FormInstance'],
     mixins: [getOptions],
     props: {
         field: {
@@ -56,7 +56,7 @@ export default {
         },
         computedOptions() {
             if (this.field.valueAsOptions) {
-                return this.form.model[this.field.model];
+                return this.FormInstance.model[this.field.model];
             }
             let fieldOptions = [];
             if (Array.isArray(this.field.options)) {
@@ -78,7 +78,7 @@ export default {
         },
         currentIndex() {
             let computedOptions = this.computedOptions || [];
-            let value = this.form.model[this.field.model];
+            let value = this.FormInstance.model[this.field.model];
             let index = computedOptions.findIndex(item => item.value === value);
             return index >= 0 ? index : 0;
         }

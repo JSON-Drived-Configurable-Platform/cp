@@ -80,7 +80,7 @@ import {classPrefix} from '../utils/const';
 import {getValue} from '../utils/processValue';
 
 export default {
-    inject: ['form'],
+    inject: ['FormInstance'],
     props: {
         field: {
             type: Object,
@@ -99,7 +99,7 @@ export default {
             end: '',
             // 有watch，所以只取一次赋值
             value: getValue({
-                originModel: this.form.model,
+                originModel: this.FormInstance.model,
                 model: this.field.model
             }) || {logic: '=', value: ''}
         };
@@ -139,7 +139,7 @@ export default {
             return logicInputMap[this.value.logic].valueType || 'text';
         },
         formModel() {
-            return this.form.model;
+            return this.FormInstance.model;
         }
     },
     watch: {

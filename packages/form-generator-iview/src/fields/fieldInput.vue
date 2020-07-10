@@ -26,11 +26,11 @@
     </i-input>
 </template>
 <script>
-import {Input} from 'iview';
+import {Input} from 'view-design';
 import {getValue} from '../utils/processValue';
 
 export default {
-    inject: ['form'],
+    inject: ['FormInstance'],
     components: {
         iInput: Input
     },
@@ -56,7 +56,7 @@ export default {
     computed: {
         value() {
             return getValue({
-                originModel: this.form.model,
+                originModel: this.FormInstance.model,
                 model: this.field.model
             }) || '';
         }
