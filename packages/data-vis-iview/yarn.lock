@@ -1219,10 +1219,10 @@ async-limiter@~1.0.0:
   resolved "https://registry.yarnpkg.com/async-limiter/-/async-limiter-1.0.1.tgz#dd379e94f0db8310b08291f9d64c3209766617fd"
   integrity sha512-csOlWGAcRFJaI6m+F2WKdnMKr4HhdhFVBk0H/QbJFMCr+uO2kwohwXQPxw/9OCxp05r5ghVBFSyioixx3gfkNQ==
 
-async-validator@^1.12.2:
-  version "1.12.2"
-  resolved "https://registry.yarnpkg.com/async-validator/-/async-validator-1.12.2.tgz#beae671e7174d2938b7b4b69d2fb7e722b7fd72c"
-  integrity sha512-57EETfCPFiB7M4QscvQzWSGNsmtkjjzZv318SK1CBlstk+hycV72ocjriMOOM48HjvmoAoJGpJNjC7Z76RlnZA==
+async-validator@^3.2.4, async-validator@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.npmjs.org/async-validator/-/async-validator-3.3.0.tgz#1d92193bbe60d6d6c8b246692c7005e9ed14a8ee"
+  integrity sha512-cAHGD9EL8aCqWXjnb44q94MWiDFzUo1tMhvLb2WzcpWqGiKugsjWG9cvl+jPgkPca7asNbsBU3fa0cwkI/P+Xg==
 
 async@^2.6.2:
   version "2.6.3"
@@ -1251,7 +1251,7 @@ aws4@^1.8.0:
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.9.1.tgz#7e33d8f7d449b3f673cd72deb9abdc552dbe528e"
   integrity sha512-wMHVg2EOHaMRxbzgFJ9gtjOOCrI80OHLG14rxi28XwOW8ux6IiEbRCGGGqCtdAIg4FQCbW20k9RsT4y3gJlFug==
 
-axios@^0.18.0, axios@^0.18.1:
+axios@^0.18.1:
   version "0.18.1"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.18.1.tgz#ff3f0de2e7b5d180e757ad98000f1081b87bcea3"
   integrity sha512-0BfJq4NSfQXd+SkFdrvFbG7addhYSBA2mQwISr46pD6E5iqkWg02RAs8vyTT/j0RTnoYmeXauBuSv1qKwR179g==
@@ -3063,13 +3063,13 @@ form-data@~2.3.2:
     combined-stream "^1.0.6"
     mime-types "^2.1.12"
 
-form-generator-iview@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/form-generator-iview/-/form-generator-iview-0.0.6.tgz#f7c40228905103dcb8c3c36c106cbd17b97e1ccc"
-  integrity sha512-kylfYPdPFzLxmnnHhD9jnQTnmoErI4T55jybt9vOC7G+MESa0yj78leYi0DMhvNg9ghtdal3htp+W1vTd1FOpg==
+form-generator-iview@^1.0.0-beta:
+  version "1.0.0-beta"
+  resolved "https://registry.npmjs.org/form-generator-iview/-/form-generator-iview-1.0.0-beta.tgz#501ca191fb9286f3a668225566504fbe24fbf779"
+  integrity sha512-owZVc9qIEE+fn+KDTCLDudsGPCSSABB56ebiRxUMGfFT6Vev1lh0I+M7KUbqtsTkYAHp7R3g7UukQnUFz2uMOQ==
   dependencies:
-    axios "^0.18.0"
-    core-js "2"
+    async-validator "^3.2.4"
+    axios "^0.18.1"
     v-click-outside "^2.1.3"
 
 forwarded@~0.1.2:
@@ -4022,20 +4022,6 @@ isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
-
-iview@^3.4.0:
-  version "3.5.4"
-  resolved "https://registry.yarnpkg.com/iview/-/iview-3.5.4.tgz#d516b92e73b617f2dc7f45831f99059d69932f82"
-  integrity sha512-CEDHdAXxpGciMV+m1jdMDs0UVqzk/AaFhCDtSGcKDLidXRMOG2TgCZhtEHhI4mf3lchKEUFO/BcXtHAfBNuy7Q==
-  dependencies:
-    async-validator "^1.12.2"
-    deepmerge "^2.2.1"
-    element-resize-detector "^1.2.0"
-    js-calendar "^1.2.3"
-    lodash.throttle "^4.1.1"
-    popper.js "^1.14.6"
-    tinycolor2 "^1.4.1"
-    v-click-outside-x "^4.0.19"
 
 js-base64@^2.1.8:
   version "2.5.2"
@@ -6796,10 +6782,10 @@ uuid@^3.3.2, uuid@^3.4.0:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
 
-v-click-outside-x@^4.0.19:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/v-click-outside-x/-/v-click-outside-x-4.1.0.tgz#be826680e2d25666a8a185332929d46244aa2447"
-  integrity sha512-jhFTHKSMJU031QbVRZxEB57DFCGrY77LPCm8hRXqX/ECXkVWIOvh3V+WAPP4zvn7GVKuSOSwTdXhIzgXf19qwg==
+v-click-outside-x@^3.7.1:
+  version "3.7.1"
+  resolved "https://registry.npmjs.org/v-click-outside-x/-/v-click-outside-x-3.7.1.tgz#aa03eaa0e41e44cb5207dcf86c2d9f0dd64084c1"
+  integrity sha512-WmUgmcIXr9clVpm1AYS/FgHtcDicfnfoxgQCNg4O6vfk9GVnxA0vSqO321ogUo0b7czYTidj7fQENvWFMWOkUg==
 
 v-click-outside@^2.1.3:
   version "2.1.5"
@@ -6832,6 +6818,20 @@ verror@1.10.0:
     assert-plus "^1.0.0"
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
+
+view-design@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.npmjs.org/view-design/-/view-design-4.3.1.tgz#b0f9df9da1aa37f446e5a0f6241e5e94530de460"
+  integrity sha512-Tkp8r2kuep8wKaabKXfSPebcfoPgOKEIn0nkIU4KLfxBK/9dXii/mCGps0YXD/bUhFXYt3aP/bMNXfUGEYGAdQ==
+  dependencies:
+    async-validator "^3.3.0"
+    deepmerge "^2.2.1"
+    element-resize-detector "^1.2.0"
+    js-calendar "^1.2.3"
+    lodash.throttle "^4.1.1"
+    popper.js "^1.14.6"
+    tinycolor2 "^1.4.1"
+    v-click-outside-x "^3.7.1"
 
 vm-browserify@^1.0.1:
   version "1.1.2"

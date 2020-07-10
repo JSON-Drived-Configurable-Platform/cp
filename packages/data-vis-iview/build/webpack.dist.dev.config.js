@@ -18,7 +18,7 @@ module.exports = merge(webpackBaseConfig, {
     output: {
         path: path.resolve(__dirname, '../dist'),
         publicPath: '/dist/',
-        filename: 'form-generator-iview.js',
+        filename: 'data-vis-iview.js',
         library: 'FormGeneratorIView',
         libraryTarget: 'umd',
         umdNamedDefine: true

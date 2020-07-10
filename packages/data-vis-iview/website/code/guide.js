@@ -15,14 +15,14 @@ Vue.use(DataVis);
 `;
 
 introduce.installIView = `
-$ npm install iview --save
+$ npm install view-design --save
 # or
-$ npm add iview
+$ npm add view-design
 `;
 
 introduce.importIView = `
-import iView from "iview";
-import "iview/dist/styles/iview.css";
+import iView from "view-design";
+import "view-design/dist/styles/iview.css";
 
 Vue.use(iView);
 `;

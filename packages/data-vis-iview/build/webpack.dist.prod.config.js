@@ -18,7 +18,7 @@ module.exports = merge(webpackBaseConfig, {
     output: {
         path: path.resolve(__dirname, '../dist'),
         publicPath: '/dist/',
-        filename: 'form-generator-iview.min.js',
+        filename: 'data-vis-iview.min.js',
         library: 'FormGeneratorIView',
         libraryTarget: 'umd',
         umdNamedDefine: true
@@ -30,7 +30,7 @@ module.exports = merge(webpackBaseConfig, {
             commonjs2: 'vue',
             amd: 'vue'
         },
-        iview: {
+        'view-design': {
             root: 'iView',
             commonjs: 'iview',
             commonjs2: 'iview',
