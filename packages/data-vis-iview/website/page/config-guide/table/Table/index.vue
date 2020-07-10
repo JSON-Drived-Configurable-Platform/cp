@@ -60,6 +60,31 @@
                     </tbody>
                 </table>
             </div>
+
+            <inAnchor title="扩展数据" h2 />
+            <p>数据表组件，对chart.columns做了一些扩展</p>
+            <p>扩展内容：chart.data对应列的数值为整型时，会通过render函数对数据进行格式化，如10688 格式化后为10,688</p>
+            <div class="api">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>属性</th>
+                            <th>说明</th>
+                            <th>类型</th>
+                            <th>默认值</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>column.renderDisabled</td>
+                            <td>是否禁止格式化整型数据（组件会对整型的数据自动格式化，如果某个字段不想格式化，可以设置这个字段为true）</td>
+                            <td>boolean</td>
+                            <td>false</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
             <Demo title="数据表格基本用法" vertical>
                 <div slot="demo">
                     <DataVisItem
