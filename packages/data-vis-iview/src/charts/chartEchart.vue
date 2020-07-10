@@ -79,7 +79,7 @@ export default {
             this.render();
         },
         render() {
-            const dataset = this.data || null;
+            const dataset = this.dataset || null;
             const chart = this.chart;
 
             // Notice dataset can be Objct or Array
