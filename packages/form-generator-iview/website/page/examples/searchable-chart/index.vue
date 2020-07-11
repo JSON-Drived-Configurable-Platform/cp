@@ -7,7 +7,7 @@
             :style="{marginTop: '40px'}"
             :config="item"
             :params-container="paramsContainer"
-            request-interceptor="requestInterceptor"
+            :request-interceptor="requestInterceptor"
             :api-base="apiBase"
         />
     </div>

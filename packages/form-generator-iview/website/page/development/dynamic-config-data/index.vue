@@ -17,7 +17,7 @@
                             <FieldGenerator
                                 :field="code.api.data.field"
                                 :form-model="code.api.data.model"
-                                request-interceptor="requestInterceptor"
+                                :request-interceptor="requestInterceptor"
                             />
                         </Form>
                     </div>

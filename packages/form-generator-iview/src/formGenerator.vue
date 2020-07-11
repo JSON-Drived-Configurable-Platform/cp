@@ -38,7 +38,7 @@
                     :size="options.size"
                     :item-width="options.itemWidth"
                     :inline="options.inline"
-                    request-interceptor="requestInterceptor"
+                    :request-interceptor="requestInterceptor"
                     :params-container="paramsContainer"
                     @on-field-change="handleFieldChange"
                     @on-field-preview="handleFieldPreview"
