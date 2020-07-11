@@ -83,7 +83,7 @@ export default {
 <template>
     <FormGenerator
         :fields="fields"
-        :dynamic-config-data="requestInterceptor"
+        requestInterceptor="requestInterceptor"
     />
 </template>
 `;

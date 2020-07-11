@@ -49,7 +49,7 @@
             :inline="inline"
             :api-base="apiBase"
             :size="computedField.size || size"
-            :dynamic-config-data="requestInterceptor"
+            :request-interceptor="requestInterceptor"
             :params-container="paramsContainer"
             @on-change="handleFieldChange"
             @on-preview="handleFieldPreview"

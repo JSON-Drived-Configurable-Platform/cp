@@ -82,7 +82,7 @@ export default {
     <Form :model="model">
         <FieldGenerator
             :field="field"
-            :dynamic-config-data="requestInterceptor"
+            requestInterceptor="requestInterceptor"
         />
     </Form>
 </template>
