@@ -210,6 +210,7 @@ export default {
                 model: model,
                 value
             });
+            this.FormInstance.validateField(model);
             this.$emit('on-field-change', {
                 model,
                 value,

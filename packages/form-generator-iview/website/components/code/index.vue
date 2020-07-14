@@ -79,6 +79,14 @@
     span.copy:hover, span.scale:hover, span.open-fiddle:hover{
         color: #5c6b77;
     }
+
+    code {
+        margin: 0;
+        background: none;
+        border-radius: 0;
+        font-size: 1em;
+        border: none;
+    }
 }
 
 </style>
