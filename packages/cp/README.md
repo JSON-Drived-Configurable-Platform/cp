@@ -1,33 +1,36 @@
-# cp
+# CP(json-drived-configurable-platform)
 
-A configurable platform frontend ui development solution. Quickly build platform ui with provided templates.
+[English README.md](./README-en.md)
+
+中台前端UI可配置开发解决方案，通过可配置的模板来快速开发中台前端页面。
 
 
-## Main Concept
+## 主要概念
 
-![Atomic Design](./website/assets/atomic-design.png)
+![Atomic Design](./website/page/concept/assets/atomic-design.jpg)
 
-`Atomic Design` is well known in frontend developent, especially in platform UI delelopment. Projects like [Element](https://element.eleme.io)、[iView](https://iviewui.com) based on [Vue.js](https://cn.vuejs.org) and [Ant Design](https://ant.design) based on [React.js](https://reactjs.org) are the best practices of atomic design concept.
+前端组件化是对Atomic Design的实践，基于vue.js的[ant-design-vue](https://antdv.com)、[Element](https://element.eleme.io)、[iView](https://iviewui.com)和基于React的[Ant Design](https://ant.design)都是组件化的最佳实践。
 
-But theses projects are more focus on components, which at my opinions, more about atoms or molecules. How about the organisms? How about the templates and pages? `CP`(configurable-plaform) is going to provide a solution of how to pratice the concept of these two parts.
+这些项目更多的是解决了`组件`的复用问题，也就是`原子`和`分子`，并没有解决`组织`、`模板`这些个层面的复用的问题。`CP`打算提供一种实践方案，尝试解决上面的这两个问题。
 
-You can follow `Quick Start` tutorial to understand the concepts with the pratice of you own.
+`CP`主要基于可配置的基础模块，针对特定场景，开发出可复用的模板，来提升开发效率和代码复用程度，并使项目代码更易于维护。还可以将模板包装成插件，来跨项目复用。
 
-### Template Reuse
+你可以通过<a href="https://json-drived-configurable-platform.github.io/cp/#/doc/start">快速开始</a>中的说明，通过自己的实践理解这个方案。
 
-If you have known about [ICE](https://ice.work/). We are doing somethings like that, but we find a easier way to do that by using [vue-cli](https://cli.vuejs.org/).
+### 模板复用
 
-You can follow `Quick Start` tutorial to learn how to build a data report platform using provided templates in nearly 10 minutes.
+考虑一个场景：你需要开发一个包含了很多表单功能的项目：分步表单、增删该查列表、表格内编辑表单等。即使你使用上述哪些非常成熟的组件库，开发的工作量仍然非常巨大，而且大多都是重复工作。
+
+CP提倡将通用场景封装成模板。你可以通过<a href="https://json-drived-configurable-platform.github.io/cp/#/doc/start">快速开始</a>这篇文档，在十分钟内就开发出一个数据报表平台。
 
 > CP is only support for vue.js projects, beacause the `templates` supported are built on top of vue.js.
 
-### Powerful Modules
-Modules are fundement tools provide within the templates. You can also use this tools to build a new template.
+CP本身也提供了很多模板，我们也在持续丰富模板类型。<i><a href="https://json-drived-configurable-platform.github.io/cp-example">cp-example</a></i>展示了一个用CP构建的真实项目，里面包含了很多已经沉淀下来的非常成熟的模板。
 
-Consider a situation like this: you are asked to develop a project which contains lot of forms: steps forms, form within CURD, form fields in editale tables and many other situations. Even if you delelop theses page one by one using this components mentioned above, there will be lots of repeating works and will be hard to maintain in the future.
+### 强大的模块
 
-CP-modules is a collection of modules solving problems in particular areas in platform UI developemnt, like form, data visualization, tables and etc. Here is a list of these modules:
+模块是一些用于解决特定场景问题的可配置工具，大多数模板都基于这些工具开发，你也可以使用这些模块开发自己的模板。更多针对不同场景的模块也在设计和开发中，下面是两个已经较为完善的模块工具：
 
- - 1. FormGenerator
- - 2. DataVis
- - 3. SchemaTable(coming soon)
+ - 1. <a href="https://json-drived-configurable-platform.github.io/form-generator-iview">FormGenerator</a> 可以帮助你通过JSON配置快速开发出表单应用，特别是像表格内置表单那样复杂的场景；
+
+ - 2. <a href="https://json-drived-configurable-platform.github.io/data-vis-iview">DataVis</a>可以帮助你通过JSON配置快速实现数据报表相关的页面；

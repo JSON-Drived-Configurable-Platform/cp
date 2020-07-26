@@ -4,12 +4,92 @@
             <h1>接口模拟</h1>
             <p>在项目的开发过程中，经常需要对接口进行模拟。CP提供了一些解决这些问题的方案。</p>
 
-            <inAnchor
+            <!-- <inAnchor
                 title="YApi"
                 h2
             />
             <p>YApi旨在为开发、产品、测试人员提供更优雅的接口管理服务。可以帮助开发者轻松创建、发布、维护 API</p>
-            <p>接入方式待补充</p>
+            <p>接入方式待补充</p> -->
+            <inAnchor
+                title="本地模拟"
+                h2
+            />
+            <p>我们使用了<a href="https://github.com/Yegorich555/webpack-mock-server">webpackMockServer</a>来实现本地代理。接入CP的开发模式，需要注意以下几点：</p>
+            <ul>
+                <li>（1）、页面、页面模板的mock文件放到页面、模板各自的目录维护；</li>
+                <li>（2）、Layout相关的mock文件放到对应的layout目录下；</li>
+            </ul>
+            <p>可参考<a href="https://github.com/JSON-Drived-Configurable-Platform/cp-example">CP-Example</a></p>
+            <p><strong>webpackMockServer的接入:</strong></p>
+            <i-code>
+                <pre>
+// 引入webpackMockServer
+const webpackMockServer = require("webpack-mock-server");
+
+
+module.exports = {
+  publicPath: "./",
+  assetsDir: "static",
+  devServer: {
+    compress: true,
+    port: 9000,
+    host: "0.0.0.0",
+    historyApiFallback: true,
+    hot: true,
+    inline: true,
+    open: true,
+    // webpackMockServer初始化参数
+    before: app => webpackMockServer.use(app, {
+      port: 8079,
+      entry: ["webpack.mock.js"],
+      tsConfigFileName: "jsconfig.json"
+    })
+  }
+};
+
+                </pre>
+            </i-code>
+            <strong>webpack.mock.js(匹配所有放在**/mock/**/*.js下的mock文件，仅供参考)</strong>
+            <i-code>
+                <pre>
+import webpackMockServer from "webpack-mock-server";
+import path from "path";
+import glob from "glob";
+
+export default webpackMockServer.add((app, helper) => {
+  app.all('/api/*', function(req, res) {
+    function getMockApiPath() {
+      let mockPaths = glob.sync("**/mock/**/*.js", {
+        cwd: path.resolve(__dirname, "./src")
+      });
+      let mockApiPath = {};
+      mockPaths.forEach(mockPath => {
+        const fileIndex = /mock(.+)\.js/.exec(mockPath)[1];
+        const filepath = path.resolve(
+          path.resolve(__dirname, "./src"),
+          mockPath
+        );
+        mockApiPath[fileIndex] = filepath;
+      });
+      return mockApiPath;
+    }
+
+    const mockApiPath = getMockApiPath();
+    const url = req.url
+    Object.keys(mockApiPath).forEach(item => {
+      const strPath = mockApiPath[item];
+      if (url.indexOf(item) > 0) {
+        // removing NodeJs require-cache
+        delete require.cache[require.resolve(strPath)];
+        res.json(require(strPath));
+      }
+    });
+  });
+});
+
+                </pre>
+            </i-code>
+
 
             <inAnchor
                 title="apim-tools(推荐百度内部使用)"

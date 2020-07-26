@@ -86,44 +86,44 @@ export default {
                 },
             ]
         },
-        {
-            label: '实践指南',
-            name: '/practice-guide',
-            submenu: [
-                {
-                    label: '代码规范',
-                    name: '/practice-guide/code-conventions',
-                },
-                {
-                    label: '代码质量',
-                    name: '/practice-guide/code-quality',
-                },
-                {
-                    label: '接口代理',
-                    name: '/development/api-proxy',
-                },
-                {
-                    label: '接口模拟',
-                    name: '/development/api-mock',
-                },
-                {
-                    label: '导航管理',
-                    name: '/practice-guide/navagate-management',
-                },
-                {
-                    label: '权限管理',
-                    name: '/practice-guide/authority-management',
-                },
-                {
-                    label: '主题切换',
-                    name: '/practice-guide/layout-switch',
-                },
-                {
-                    label: '动态加载',
-                    name: '/practice-guide/dynamic-load',
-                },
-            ]
-        },
+        // {
+        //     label: '实践指南',
+        //     name: '/practice-guide',
+        //     submenu: [
+        //         {
+        //             label: '代码规范',
+        //             name: '/practice-guide/code-conventions',
+        //         },
+        //         {
+        //             label: '代码质量',
+        //             name: '/practice-guide/code-quality',
+        //         },
+        //         {
+        //             label: '接口代理',
+        //             name: '/development/api-proxy',
+        //         },
+        //         {
+        //             label: '接口模拟',
+        //             name: '/development/api-mock',
+        //         },
+        //         {
+        //             label: '导航管理',
+        //             name: '/practice-guide/navagate-management',
+        //         },
+        //         {
+        //             label: '权限管理',
+        //             name: '/practice-guide/authority-management',
+        //         },
+        //         {
+        //             label: '主题切换',
+        //             name: '/practice-guide/layout-switch',
+        //         },
+        //         {
+        //             label: '动态加载',
+        //             name: '/practice-guide/dynamic-load',
+        //         },
+        //     ]
+        // },
         {
             label: '资源',
             name: '/resources',
