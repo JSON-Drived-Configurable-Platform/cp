@@ -4,7 +4,11 @@ export default [
     redirect: "/curd/user"
   },
   {
-    path: "/curd/:pageId",
-    component: () => import(/* webpackChunkName: "curd" */ "./index")
+    path:  "/curd/user",
+    component: () => import(/* webpackChunkName: "curd-user" */ "./index")
+  },
+  {
+    path: "/curd/post",
+    component: () => import(/* webpackChunkName: "curd-post" */ "./index")
   }
 ];
