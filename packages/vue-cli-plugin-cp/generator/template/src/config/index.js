@@ -7,7 +7,7 @@
 const baseUrlMap = {
   development: "",
   test: "",
-  production: ""
+  production: "/cp-example"
 };
 
 export default {
@@ -26,16 +26,5 @@ export default {
    */
   homeName: "home",
 
-  defaultOpenNames: "/doc",
-
-  menuList: [
-    {
-      label: "Home",
-      path: "/home"
-    },
-    {
-      label: "Data Report",
-      path: "/data-report"
-    }
-  ]
+  defaultOpenNames: "/doc"
 };

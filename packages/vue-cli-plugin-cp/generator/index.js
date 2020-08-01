@@ -3,10 +3,17 @@ module.exports = api => {
   // 添加新的依赖
   api.extendPackage({
     dependencies: {
-      axios: "^0.18.0",
-      iview: "^3.4.0",
-      vuex: "^3.1.1",
-      "vue-router": "^3.0.6"
+      "axios": "^0.18.0",
+      "data-vis-iview": "^1.0.0-beta",
+      "form-generator-iview": "1.0.0-beta",
+      "view-design": "^4.3.1",
+      "vue": "^2.6.10",
+      "vue-router": "^3.0.6",
+      "vuex": "^3.1.1"
+    },
+    devDependencies: {
+      "webpack-mock-server": "^1.0.3",
+      "typescript": "^3.8.3"
     }
   });
 

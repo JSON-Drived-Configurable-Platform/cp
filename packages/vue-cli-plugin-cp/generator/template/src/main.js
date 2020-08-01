@@ -1,19 +1,19 @@
 import Vue from "vue";
-import iView from "iview";
-import VueRouter from "vue-router";
-
+import iView from "view-design";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
-import "iview/dist/styles/iview.css";
+import "view-design/dist/styles/iview.css";
+import "form-generator-iview/src/style/index.less";
+import FormGenerator from "form-generator-iview";
 
-Vue.use(VueRouter);
 Vue.use(iView);
 
 // 开启debug模式
 Vue.config.debug = true;
 
+Vue.use(FormGenerator);
 new Vue({
   el: "#app",
   router,

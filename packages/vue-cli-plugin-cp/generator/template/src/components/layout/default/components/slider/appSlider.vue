@@ -1,6 +1,10 @@
 <template>
-  <Sider hide-trigger :style="{ background: '#fff', width: '240px' }">
+  <Sider
+    class="layout-default-slider"
+    hide-trigger
+  >
     <Menu
+      class="layout-default-slider-menu"
       :active-name="activeName"
       :open-names="openNames"
       theme="light"
@@ -52,10 +56,22 @@ export default {
     return {};
   },
   methods: {
+    /**
+     * @param {String} name select item name
+     */
     handleSelect(name) {
       this.$emit("on-select", name);
     }
   }
 };
 </script>
-<style lang="less" scoped></style>
+<style lang="less">
+.layout-default-slider {
+  background: #fff;
+  width: 240px;
+
+  &-menu {
+    height: 100%;
+  }
+}
+</style>

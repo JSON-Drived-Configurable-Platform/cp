@@ -1,49 +1,24 @@
 {
   "name": "vue-cli-plugin-cp",
-  "version": "0.0.8",
-  "description": "A plugin for vue-cli to init a project when using Configurable-Platform ",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/BingBlog/vue-cli-plugin-cp"
-  },
-  "homepage": "https://github.com/BingBlog/vue-cli-plugin-cp",
-  "main": "index.js",
-  "scripts": {
-    "format": "prettier --write \"./**/*.{js,vue,json}\"",
-    "lint": "eslint ./ --fix"
-  },
-  "keywords": [
-    "vue-cli-plugin",
-    "cp",
-    "configurable-platform"
-  ],
-  "author": "abingblog@gmail.com",
-  "license": "MIT",
+  "version": "0.1.0",
+  "private": true,
   "devDependencies": {
-    "babel-eslint": "^10.0.3",
-    "eslint": "^6.3.0",
-    "eslint-config-prettier": "^6.1.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "eslint-plugin-vue": "^5.2.3",
-    "husky": ">=1",
-    "lint-staged": ">=8",
-    "prettier": "^1.18.2",
-    "rimraf": "^3.0.0"
+    "@vue/cli-plugin-babel": "^3.11.0",
+    "@vue/cli-plugin-eslint": "^3.11.0",
+    "@vue/cli-service": "^3.11.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "lint-staged": "^8.1.5",
+    "prettier": "^1.18.2"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+  "gitHooks": {
+    "pre-commit": "lint-staged"
   },
   "lint-staged": {
     "*.{js,vue}": [
-      "eslint --fix",
-      "prettier --write",
+      "vue-cli-service lint",
       "git add"
     ]
-  },
-  "gitHooks": {
-    "pre-commit": "lint-staged",
-    "commit-msg": "commitlint -E GIT_PARAMS"
   }
 }

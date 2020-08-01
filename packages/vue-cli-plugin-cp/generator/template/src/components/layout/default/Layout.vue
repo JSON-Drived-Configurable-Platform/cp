@@ -1,17 +1,17 @@
 <template>
-  <div class="layout-container">
+  <div class="layout-default-container">
     <Layout>
       <appHeader />
-      <Layout class="layout-body ivu-layout-has-sider">
+      <Layout class="layout-default-body ivu-layout-default-has-sider">
         <appSlider
           :menu-list="menuList"
           :active-name="pagePath"
           :open-names="openNames"
           @on-select="turnToPage"
         />
-        <Layout class="layout-body-right">
+        <Layout class="layout-default-body-right">
           <Breadcrumb v-if="breadcrumb.length > 1" :data="breadcrumb" />
-          <Content class="layout-body-right-content">
+          <Content class="layout-default-body-right-content">
             <router-view />
           </Content>
         </Layout>
@@ -64,14 +64,9 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-.ivu-layout-header {
-  padding: 0 30px;
-}
-</style>
-<style lang="less" scoped>
-.layout {
+
+.layout-default {
   border: 1px solid #d7dde4;
-  background: #f5f7f9;
   position: relative;
   border-radius: 4px;
   overflow: hidden;
@@ -80,11 +75,10 @@ export default {
     display: flex;
     flex-direction: row;
     &-right {
-      padding: 10px;
+      background: #fff;
       &-content {
-        padding: 10px;
+        margin: 0 32px;
         min-height: 700px;
-        background: #fff;
       }
     }
   }

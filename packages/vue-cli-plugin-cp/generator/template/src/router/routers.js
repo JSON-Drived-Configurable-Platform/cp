@@ -10,6 +10,8 @@ const routers = routersContext.keys().map(key => {
   return routersContext(key).default;
 });
 
+console.log('routers', routers);
+
 export default [
   {
     path: "/",
@@ -17,28 +19,4 @@ export default [
     component: Main,
     children: [...[].concat(...routers)]
   }
-  // {
-  //     path: '/401',
-  //     name: 'error_401',
-  //     meta: {
-  //         hideInMenu: true
-  //     },
-  //     component: () => import('@/view/error-strategy/401.vue')
-  // },
-  // {
-  //     path: '/500',
-  //     name: 'error_500',
-  //     meta: {
-  //         hideInMenu: true
-  //     },
-  //     component: () => import('@/view/error-page/500.vue')
-  // },
-  // {
-  //     path: '*',
-  //     name: 'error_404',
-  //     meta: {
-  //         hideInMenu: true
-  //     },
-  //     component: () => import('@/view/error-page/404.vue')
-  // }
 ];

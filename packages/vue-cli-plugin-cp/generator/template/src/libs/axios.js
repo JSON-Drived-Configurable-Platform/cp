@@ -24,9 +24,14 @@ class HttpRequest {
 
   interceptors(instance, url) {
     // 请求拦截
+    console.log(url, process.env.NODE_ENV);
+    if (process.env.NODE_ENV === "production") {
+      url = `mock-data${url}.json`;
+    }
     instance.interceptors.request.use(
       config => {
         this.queue[url] = true;
+        config.url = url;
         return config;
       },
       error => {

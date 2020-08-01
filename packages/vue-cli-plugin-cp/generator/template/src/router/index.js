@@ -1,26 +1,66 @@
 import Vue from "vue";
 import Router from "vue-router";
-import routes from "./routers";
+import initialRoutes from "./routers";
 import store from "../store";
-import iView from "iview";
+import iView from "view-design";
+import Main from "../components/layout/default";
 
 Vue.use(Router);
+
 const router = new Router({
-  routes,
-  mode: "hash"
+  mode: "hash",
+  routes: initialRoutes
 });
 
-router.beforeEach((to, from, next) => {
-  iView.LoadingBar.start();
-  if (!store.state.app.menuList.length > 0) {
-    store.dispatch("getMenuList");
-  }
-  if (!store.state.user.userName) {
-    store.dispatch("getUserInfo");
-  }
-  store.commit("setPagePath", to.fullPath);
+/**
+ * Generate routes
+ *
+ * @param {Array} menuList
+ */
+function generateRoutes(menuList = []) {
+  return menuList.map(({ path = "", redirect = null, submenu = [] }) => {
+    const route = {
+      path,
+      // 设置layout
+      component: Main
+    };
+    if (redirect) {
+      route.redirect = redirect;
+    }
+    return {
+      ...route,
+      children: submenu.map(({ path, redirect, template }) => {
+        const child = {
+          path,
+          redirect
+        };
+        return child;
+      })
+    };
+  });
+}
 
-  next();
+router.beforeEach(async (to, from, next) => {
+  iView.LoadingBar.start();
+  // If there is not menuList in store, get it first.
+  if (store.state.app.dynamicMenuList.length === 0) {
+    await store.dispatch("getDynamicMenuList").catch(() => {
+      // console.log("Get getMenuList failed, please check this api request!");
+      throw Error("Get getMenuList failed, please check this api request!");
+      return;
+    });
+    const dynamicRoutes = generateRoutes(store.state.app.menuList);
+    console.log('dynamicRoutes', dynamicRoutes);
+    router.addRoutes(dynamicRoutes);
+    router.push(to.fullPath);
+    next();
+  } else {
+    if (!store.state.user.userName) {
+      store.dispatch("getUserInfo");
+    }
+    store.commit("setPagePath", to.fullPath);
+    next();
+  }
 });
 
 router.afterEach(() => {
