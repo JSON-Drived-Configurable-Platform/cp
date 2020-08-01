@@ -2,6 +2,28 @@ module.exports = {
   "errno": 0,
   "data": [
     {
+      "label": "RBAC",
+      "path": "/rbac",
+      "submenu": [
+        {
+          "label": "Home",
+          "path": "/rbac/home"
+        },
+        {
+          "label": "Users",
+          "path": "/rbac/users"
+        },
+        {
+          "label": "Roles",
+          "path": "/rbac/roles"
+        },
+        {
+          "label": "Permissions",
+          "path": "/rbac/permissions"
+        }
+      ]
+    },
+    {
       "label": "Data",
       "path": "/data",
       "submenu": [

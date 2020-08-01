@@ -1,5 +1,5 @@
 <script>
-import {Modal} from 'iview';
+import {Modal} from 'view-design';
 import FormGenerator from 'form-generator-iview/src/formGenerator';
 function getRandomInt(min, max) {
   min = Math.ceil(min);

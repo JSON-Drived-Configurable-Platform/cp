@@ -9,15 +9,15 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "core-js": "^2.6.5",
-    "data-vis-iview": "^0.0.24",
-    "form-generator-iview": "0.1.4-beta",
-    "iview": "^3.4.0",
+    "data-vis-iview": "^1.0.0-beta",
+    "form-generator-iview": "1.0.0-beta",
+    "view-design": "^4.3.1",
     "vue": "^2.6.10",
     "vue-router": "^3.0.6",
     "vuex": "^3.1.1"
   },
   "devDependencies": {
+    "core-js": "^2.6.5",
     "@vue/cli-plugin-babel": "^3.11.0",
     "@vue/cli-plugin-eslint": "^3.11.0",
     "@vue/cli-service": "^3.11.0",
@@ -30,9 +30,6 @@
     "lint-staged": "^8.1.5",
     "prettier": "^1.18.2",
     "typescript": "^3.8.3",
-    "vue-cli-plugin-cp": "^0.0.7",
-    "vue-cli-plugin-cp-template-curd": "^0.0.6",
-    "vue-cli-plugin-cp-template-data-report": "^0.0.3",
     "vue-template-compiler": "^2.6.10",
     "webpack-mock-server": "^1.0.3"
   },

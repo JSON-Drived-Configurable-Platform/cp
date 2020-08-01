@@ -1,7 +1,14 @@
 <template>
   <div class="page-form-popover">
-    <Table :loading="tableLoading" :columns="columns" :data="data">
-      <template slot-scope="{ row }" slot="action">
+    <Table
+      :loading="tableLoading"
+      :columns="columns"
+      :data="data"
+    >
+      <template
+        slot-scope="{ row }"
+        slot="action"
+      >
         <PopoverForm
           btn-text="编辑"
           :form-title="row.name"

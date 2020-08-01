@@ -1,6 +1,9 @@
 <template>
   <div>
-    <Steps :current="current" style="margin-left: 13%;">
+    <Steps
+      :current="current"
+      style="margin-left: 13%;"
+    >
       <Step
         v-for="(item, index) in formsConfig"
         :title="item.title"

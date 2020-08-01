@@ -1,10 +1,10 @@
 import Vue from "vue";
-import iView from "iview";
+import iView from "view-design";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
-import "iview/dist/styles/iview.css";
+import "view-design/dist/styles/iview.css";
 import "form-generator-iview/src/style/index.less";
 import "data-vis-iview/src/style/index.less";
 import FormGenerator from "form-generator-iview";

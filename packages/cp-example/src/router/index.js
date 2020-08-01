@@ -2,7 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import initialRoutes from "./routers";
 import store from "../store";
-import iView from "iview";
+import iView from "view-design";
 import Main from "../components/layout/default";
 
 Vue.use(Router);
@@ -12,14 +12,15 @@ const router = new Router({
   routes: initialRoutes
 });
 
-const templateToComponent = {
-  "template-curd": () =>
-    import(/* webpackChunkName: "data-report" */ "../template/curd"),
-  "template-data-report": () =>
-    import(/* webpackChunkName: "curd" */ "../template/data-report"),
-  "template-audit": () =>
-    import(/* webpackChunkName: "audit" */ "../template/audit")
-};
+
+// const templateToComponent = {
+//   "template-curd": () =>
+//     import(/* webpackChunkName: "data-report" */ "../template/curd"),
+//   "template-data-report": () =>
+//     import(/* webpackChunkName: "curd" */ "../template/data-report"),
+//   "template-audit": () =>
+//     import(/* webpackChunkName: "audit" */ "../template/audit")
+// };
 
 /**
  * Generate routes
@@ -43,9 +44,6 @@ function generateRoutes(menuList = []) {
           path,
           redirect
         };
-        if (template) {
-          child.component = templateToComponent[template];
-        }
         return child;
       })
     };
@@ -62,6 +60,7 @@ router.beforeEach(async (to, from, next) => {
       return;
     });
     const dynamicRoutes = generateRoutes(store.state.app.menuList);
+    console.log('dynamicRoutes', dynamicRoutes);
     router.addRoutes(dynamicRoutes);
     router.push(to.fullPath);
     next();

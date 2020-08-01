@@ -1,7 +1,13 @@
 <template>
   <div class="page-data-report">
-    <div v-if="loading" class="page-data-report-loading">
-      <Spin class="page-data-report-loading-spin" size="large" />
+    <div
+      v-if="loading"
+      class="page-data-report-loading"
+    >
+      <Spin
+        class="page-data-report-loading-spin"
+        size="large"
+      />
     </div>
     <div v-else>
       <FormGenerator
