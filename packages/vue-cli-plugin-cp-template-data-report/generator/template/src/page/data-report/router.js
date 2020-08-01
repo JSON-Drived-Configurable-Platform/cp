@@ -1,10 +1,14 @@
 export default [
   {
-    path: "/data-report",
-    redirect: "/data-report/general"
+    path: "/data",
+    redirect: "/data/general"
   },
   {
-    path: "/data-report/:pageId",
-    component: () => import(/* webpackChunkName: "data-report" */ "./index")
+    path:  "/data/general",
+    component: () => import(/* webpackChunkName: "data-general" */ "./index")
+  },
+  {
+    path: "/data/real-time",
+    component: () => import(/* webpackChunkName: "data-real-time" */ "./index")
   }
 ];

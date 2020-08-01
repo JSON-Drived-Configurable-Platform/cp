@@ -1,7 +1,13 @@
 <template>
   <div class="page-data-report">
-    <div v-if="loading" class="page-data-report-loading">
-      <Spin class="page-data-report-loading-spin" size="large" />
+    <div
+      v-if="loading"
+      class="page-data-report-loading"
+    >
+      <Spin
+        class="page-data-report-loading-spin"
+        size="large"
+      />
     </div>
     <div v-else>
       <FormGenerator
@@ -31,9 +37,13 @@
 
 <script>
 import axios from "@/libs/api.request";
-import services from "@/service";
-const { getPageConfig } = services["data-report"];
+import { mapState } from "vuex";
 export default {
+  watch: {
+    pagePath() {
+      this.getPageConfig();
+    }
+  },
   data() {
     return {
       model: {},
@@ -45,6 +55,9 @@ export default {
     };
   },
   computed: {
+    ...mapState({
+      pagePath: state => state.page.pagePath
+    }),
     fields() {
       return this.pageConfig.form.fields || [];
     },
@@ -61,15 +74,21 @@ export default {
     }
   },
   mounted() {
-    const { pageId } = this.$route.params;
-    getPageConfig({
-      pageId
-    }).then(res => {
-      this.pageConfig = res.data;
-      this.loading = false;
-    });
+    this.getPageConfig();
   },
   methods: {
+    getPageConfig() {
+      this.loading = true;
+      axios
+        .request({
+          url: `/api${this.pagePath}/page-config`,
+          method: "get"
+        })
+        .then(res => {
+          this.pageConfig = res.data;
+          this.loading = false;
+        });
+    },
     interceptor(url, params) {
       return new Promise((resolve, reject) => {
         axios
@@ -82,7 +101,7 @@ export default {
           })
           .then(
             res => {
-              if (+res.status === 0) {
+              if (+res.errno === 0) {
                 resolve(res);
               } else {
                 reject(res);
@@ -93,7 +112,18 @@ export default {
             }
           );
       });
+    },
+    pageReset() {
+      this.model = {};
+      this.pageConfig = {
+        form: {},
+        charts: []
+      };
     }
+  },
+  beforeRouteLeave(to, from, next) {
+    this.pageReset();
+    next();
   }
 };
 </script>
