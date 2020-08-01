@@ -12,16 +12,6 @@ const router = new Router({
   routes: initialRoutes
 });
 
-
-// const templateToComponent = {
-//   "template-curd": () =>
-//     import(/* webpackChunkName: "data-report" */ "../template/curd"),
-//   "template-data-report": () =>
-//     import(/* webpackChunkName: "curd" */ "../template/data-report"),
-//   "template-audit": () =>
-//     import(/* webpackChunkName: "audit" */ "../template/audit")
-// };
-
 /**
  * Generate routes
  *
@@ -79,35 +69,3 @@ router.afterEach(() => {
 });
 
 export default router;
-
-// [
-//   {
-//     path: "/data",
-//     redirect: "/data/general",
-//     component: Main,
-//     children: [
-//       {
-//         path: "/data/:pageId",
-//         component: () =>
-//           import(
-//             /* webpackChunkName: "data-report" */ "../template/data-report"
-//           )
-//       }
-//     ]
-//   },
-//   {
-//     path: "/curd",
-//     redirect: "/data/user",
-//     component: () =>
-//       import(
-//         /* webpackChunkName: "data-report" */ "../components/layout/default/"
-//       ),
-//     children: [
-//       {
-//         path: "/curd/:pageId",
-//         component: () =>
-//           import(/* webpackChunkName: "curd" */ "../template/curd")
-//       }
-//     ]
-//   }
-// ]
