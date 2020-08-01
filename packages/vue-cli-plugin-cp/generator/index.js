@@ -4,7 +4,6 @@ module.exports = api => {
   api.extendPackage({
     dependencies: {
       "axios": "^0.18.0",
-      "data-vis-iview": "^1.0.0-beta",
       "form-generator-iview": "1.0.0-beta",
       "view-design": "^4.3.1",
       "vue": "^2.6.10",
