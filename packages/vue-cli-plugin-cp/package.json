@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-plugin-cp",
-  "version": "1.0.1-beta",
+  "version": "0.1.0",
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.11.0",
     "@vue/cli-plugin-eslint": "^3.11.0",
