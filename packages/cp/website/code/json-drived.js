@@ -30,7 +30,7 @@ export default {
         }
     }
 };
-<script>
+</script>
 <template>
     <Form :model="model">
         <FieldGenerator
@@ -123,7 +123,7 @@ export default {
         }
     }
 };
-<script>
+</script>
 <template>
     <FormGenerator
         :fields="fields"
@@ -136,6 +136,7 @@ export default {
 
 // 增删改查的列表
 const curd = {};
+
 const curdColumns = [
     {
         title: '姓名',
@@ -316,23 +317,6 @@ const curdColumns = [
     }
 ];
 
-const curdData = [
-    {
-        name: '王小明',
-        age: 18,
-        city: 'Beijing',
-        address: '北京市朝阳区芍药居',
-        status: '1'
-    },
-    {
-        name: '张小刚',
-        age: 25,
-        city: 'Beijing',
-        address: '北京市海淀区西二旗',
-        status: '1'
-    }
-];
-
 const editFormFields = [
     {
         type: 'Input',
@@ -399,12 +383,12 @@ const editFormFields = [
         checkAll: true,
         pageLation: true, // 是否分页
         pageSize: 3, // 分页数目
-        'headerEditable': true,
-        'footerEditable': true,
-        'cardWidth': '220px',
-        'cardHeight': '245px',
-        'optionsType': 'image',
-        'options': '/checkboxCardApi',
+        headerEditable: true,
+        footerEditable: true,
+        cardWidth: '220px',
+        cardHeight: '245px',
+        optionsType: 'image',
+        options: '/checkboxCardApi',
         required: true
     },
     {
@@ -419,6 +403,23 @@ const editFormFields = [
         inline: true,
         apiParams: 'all'
     },
+];
+
+const curdData = [
+    {
+        name: '王小明',
+        age: 18,
+        city: 'Beijing',
+        address: '北京市朝阳区芍药居',
+        status: '1'
+    },
+    {
+        name: '张小刚',
+        age: 25,
+        city: 'Beijing',
+        address: '北京市海淀区西二旗',
+        status: '1'
+    }
 ];
 
 curd.data = {
@@ -447,7 +448,7 @@ export default {
         }
     }
 };
-<script>
+</script>
 <template>
     <div class="curd-example-demo">
         <h3 class="curd-example-demo-header">
