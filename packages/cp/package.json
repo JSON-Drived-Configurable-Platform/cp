@@ -80,13 +80,11 @@
     "component",
     "components",
     "ui",
-    "framework",
-    "data-vis",
-    "data-vis-iview"
+    "framework"
   ],
   "license": "MIT",
   "main": "src/index.js",
-  "name": "data-vis-iview",
+  "name": "cp",
   "peerDependencies": {
     "iview": "^3.4.0",
     "vue": "^2.6.10"
